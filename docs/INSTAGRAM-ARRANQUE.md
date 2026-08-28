@@ -45,22 +45,24 @@ Los nueve están diseñados a 1080×1350 en el lienzo de Claude
 claude.ai/code/artifacts). Cada tarjeta tiene su botón de **exportar PNG**; se
 publican en el orden 1→9, que es como está pensado el grid.
 
-Son fotográficos: fotografía real de viaje (Wikimedia Commons, licencias CC
-verificadas), scrim oscuro y titular en serif encima. La atribución que exigen
-las licencias CC BY / CC BY-SA **ya va impresa en la esquina de cada imagen**;
-aun así, repite el crédito en el pie — es gratis y cierra cualquier duda.
+Son fotográficos: fotografía real de viaje, scrim oscuro y titular en serif
+encima. **Todas las fotos son CC0 o dominio público** (verificado foto a foto en
+Wikimedia Commons el 28-ago): no se debe atribución a nadie, ni en la imagen ni
+en el pie — por eso no hay marca de agua. El registro de qué fichero de Commons
+es cada una queda guardado con los fuentes del lienzo, por si algún día hay que
+demostrar la procedencia.
 
 | # | Post (imagen del lienzo) | Pie (caption) |
 |---|---|---|
 | 1 | Portada — Coliseo al atardecer | «Los días escritos. La ciudad, contada. Abrimos en octubre.» |
-| 2 | El plan — tejados de Alfama + teléfono | «Dices destino y fechas. Devuelve qué ver cada día, en qué orden y cuánto cuesta.» · Foto: Matti Blume (CC BY-SA 4.0) |
-| 3 | El tour — callejón de Alfama con la ruta 1-2-3 | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Con voz real. Sin cobertura, también.» · Foto: Ingo Mehling (CC BY-SA 4.0) |
-| 4 | El precio — La Maison Rose (Montmartre), terraza de café | «El viaje entero, por lo que cuesta el café de la plaza: 2,99 €. Sin suscripción. Se paga por viaje.» · Foto: Moonik (CC BY-SA 3.0) |
-| 5 | El museo — mosaico de Santa María in Trastevere | «Te dice cuál de las cuarenta cosas de la sala estás mirando.» · Foto: Krzysztof Golik (CC BY-SA 4.0) |
-| 6 | La visita — techo de la Biblioteca Nacional de Austria + teléfono | «Se acuerda de por dónde has pasado, sin preguntar.» · Foto del fresco de Daniel Gran (CC BY 2.5) |
+| 2 | El plan — tejados de Praga + teléfono | «Dices destino y fechas. Devuelve qué ver cada día, en qué orden y cuánto cuesta.» |
+| 3 | El tour — callejón del Albaicín con la ruta 1-2-3 | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Con voz real. Sin cobertura, también.» |
+| 4 | El precio — Place du Tertre (Montmartre) de noche, terrazas encendidas | «El viaje entero, por lo que cuesta el café de la plaza: 2,99 €. Sin suscripción. Se paga por viaje.» |
+| 5 | El museo — mosaico dorado de Santa Prassede (Roma) | «Te dice cuál de las cuarenta cosas de la sala estás mirando.» |
+| 6 | La visita — biblioteca de la abadía de Melk + teléfono | «Se acuerda de por dónde has pasado, sin preguntar.» |
 | 7 | La lista — San Pedro y el puente de noche | «Tu primer viaje, 1,99 €. Sólo para quien esté en la lista antes de octubre. El enlace, en la bio.» |
-| 8 | El grupo — pirámide del Louvre + tarjeta QR | «El grupo se une con un QR. Las cuentas, cuadradas.» · Foto: Martin Falbisoner (CC BY-SA 3.0) |
-| 9 | El buscador — tres postales: Santorini, Granada, Oporto | «¿Sin destino? Contestas seis preguntas y te propone tres, con fechas.» · Fotos: Giles Laurent (CC BY-SA 4.0), Jakub Hałun (CC BY 4.0) |
+| 8 | El grupo — Fontana di Trevi de noche + tarjeta QR | «El grupo se une con un QR. Las cuentas, cuadradas.» |
+| 9 | El buscador — tres postales: Santorini, Granada, Oporto | «¿Sin destino? Contestas seis preguntas y te propone tres, con fechas.» |
 
 Publica 3 hoy, 3 mañana, 3 pasado — un grid que nació entero el mismo día también canta.
 
@@ -71,7 +73,7 @@ por `waitlist.source`, no por lo que Meta se atribuya).
 
 - **1 campaña, 1 conjunto, 4 anuncios** — los copys A-D de
   `LANZAMIENTO-PUBLICIDAD.md` §Copys, con **la misma imagen los cuatro** (la del plan o la
-  del precio — La Maison Rose): lo que se mide es el argumento, no la foto.
+  del precio — Place du Tertre): lo que se mide es el argumento, no la foto.
 - **Público: amplio.** España, 20-55, sin intereses apilados — la creatividad es la
   segmentación (skill `ads`, era Andromeda). Ubicaciones automáticas.
 - **Presupuesto: 5 €/día.** Tope total 50 €.
