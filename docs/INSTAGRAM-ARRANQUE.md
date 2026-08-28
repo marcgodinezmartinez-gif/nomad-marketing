@@ -54,15 +54,15 @@ demostrar la procedencia.
 
 | # | Post (imagen del lienzo) | Pie (caption) |
 |---|---|---|
-| 1 | Portada — Coliseo al atardecer | «Los días escritos. La ciudad, contada. Abrimos en octubre.» |
-| 2 | El plan — tejados de Praga + teléfono | «Dices destino y fechas. Devuelve qué ver cada día, en qué orden y cuánto cuesta.» |
-| 3 | El tour — callejón del Albaicín con la ruta 1-2-3 | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Con voz real. Sin cobertura, también.» |
-| 4 | El precio — Place du Tertre (Montmartre) de noche, terrazas encendidas | «El viaje entero, por lo que cuesta el café de la plaza: 2,99 €. Sin suscripción. Se paga por viaje.» |
-| 5 | El museo — mosaico dorado de Santa Prassede (Roma) | «Te dice cuál de las cuarenta cosas de la sala estás mirando.» |
+| 1 | Portada — Coliseo al atardecer | «Los días escritos. La ciudad, contada. Te escribe el viaje y te lo cuenta al oído. Llega en octubre.» |
+| 2 | El plan — tejados de Praga + teléfono | «Dices destino y fechas. Tu viaje, planeado día a día: qué ver, en qué orden y cuánto cuesta.» |
+| 3 | El tour — callejón del Albaicín con la ruta 1-2-3 | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Una voz de verdad te lo cuenta al oído, incluso sin cobertura.» |
+| 4 | El precio — Place du Tertre (Montmartre) de noche, terrazas encendidas | «El viaje entero, por lo que cuesta el café de la plaza: desde 2,99 €. Sin suscripción. Se paga por viaje.» |
+| 5 | El museo — mosaico dorado de Santa Prassede (Roma) | «Apunta la cámara a un cuadro y te cuenta su historia.» |
 | 6 | La visita — biblioteca de la abadía de Melk + teléfono | «Se acuerda de por dónde has pasado, sin preguntar.» |
-| 7 | La lista — San Pedro y el puente de noche | «Tu primer viaje, 1,99 €. Sólo para quien esté en la lista antes de octubre. El enlace, en la bio.» |
-| 8 | El grupo — Fontana di Trevi de noche + tarjeta QR | «El grupo se une con un QR. Las cuentas, cuadradas.» |
-| 9 | El buscador — tres postales: Santorini, Granada, Oporto | «¿Sin destino? Contestas seis preguntas y te propone tres, con fechas.» |
+| 7 | La lista — San Pedro y el puente de noche | «Tu primer viaje, 1,99 €. Inscríbete y no te pierdas el lanzamiento — el enlace, en la bio.» |
+| 8 | El grupo — Fontana di Trevi de noche + tarjeta QR | «Tus amigos se unen con un QR y los gastos se reparten solos.» |
+| 9 | El buscador — tres postales: Santorini, Granada, Oporto | «¿Sin destino? Dile qué te apetece y elige entre tres viajes pensados para ti.» |
 
 Publica 3 hoy, 3 mañana, 3 pasado — un grid que nació entero el mismo día también canta.
 
