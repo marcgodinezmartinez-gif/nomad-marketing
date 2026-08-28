@@ -38,25 +38,32 @@ perfil con 40 posts honestos no arregle solo.
    @lelouvre), cuentas de viajes en español. Es señal de vida y te cura el feed para ver
    qué formato funciona nativo, que es de donde salen los anuncios que no parecen anuncios.
 
-## Los 9 posts del grid (con qué imagen y qué pie)
+## Los 9 posts del grid (diseñados; se exportan del lienzo)
 
-Material que ya existe en el repo — nada que diseñar hoy salvo dos tarjetas de texto:
+Los nueve están diseñados a 1080×1350 en el lienzo de Claude
+(«Posts de Instagram NOMAD» — el enlace que te pasé por chat; también aparece en
+claude.ai/code/artifacts). Cada tarjeta tiene su botón de **exportar PNG**; se
+publican en el orden 1→9, que es como está pensado el grid (la tarjeta de precio
+en negro y la de portada anclan las esquinas del 3×3).
 
-| # | Imagen | Pie (caption) |
+Son fotográficos: fotografía real de viaje (Wikimedia Commons, licencias CC
+verificadas), scrim oscuro y titular en serif encima. La atribución que exigen
+las licencias CC BY / CC BY-SA **ya va impresa en la esquina de cada imagen**;
+aun así, repite el crédito en el pie — es gratis y cierra cualquier duda.
+
+| # | Post (imagen del lienzo) | Pie (caption) |
 |---|---|---|
-| 1 | `web/mark.png` sobre fondo crema (tarjeta de texto) | «Los días escritos. La ciudad, contada. Abrimos en octubre.» |
-| 2 | `web/shots/plan-900.webp` | «Dices destino y fechas. Devuelve qué ver cada día, en qué orden y cuánto cuesta.» |
-| 3 | `web/shots/tour-900.webp` | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Con voz real. Sin cobertura, también.» |
-| 4 | Tarjeta de texto: «Una audioguía: 5-15 €. El viaje entero: 2,99 €.» | «Sin suscripción. Se paga por viaje.» |
-| 5 | `web/shots/museo-900.webp` | «Te dice cuál de las cuarenta cosas de la sala estás mirando.» |
-| 6 | `web/shots/visita-900.webp` | «Se acuerda de por dónde has pasado, sin preguntar.» |
-| 7 | Tarjeta de texto: «En la lista, tu primer viaje: 1,99 €.» | «La lista se cierra el día que abrimos. El enlace, en la bio.» |
-| 8 | `docs/imagenes/tarjeta-qr-ejemplo.png` | «El grupo se une con un QR. Las cuentas, cuadradas.» |
-| 9 | Captura del buscador de destino (hazla en tu móvil, build 29) | «¿Sin destino? Te propone tres, con fechas.» |
+| 1 | Portada — Coliseo al atardecer | «Los días escritos. La ciudad, contada. Abrimos en octubre.» |
+| 2 | El plan — tejados de Alfama + teléfono | «Dices destino y fechas. Devuelve qué ver cada día, en qué orden y cuánto cuesta.» · Foto: Matti Blume (CC BY-SA 4.0) |
+| 3 | El tour — callejón de Alfama con la ruta 1-2-3 | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Con voz real. Sin cobertura, también.» · Foto: Ingo Mehling (CC BY-SA 4.0) |
+| 4 | El precio — tarjeta tipográfica en negro | «Una audioguía suelta: 5-15 €. El viaje entero: 2,99 €. Sin suscripción. Se paga por viaje.» |
+| 5 | El museo — mosaico de Santa María in Trastevere | «Te dice cuál de las cuarenta cosas de la sala estás mirando.» · Foto: Krzysztof Golik (CC BY-SA 4.0) |
+| 6 | La visita — techo de la Biblioteca Nacional de Austria + teléfono | «Se acuerda de por dónde has pasado, sin preguntar.» · Foto del fresco de Daniel Gran (CC BY 2.5) |
+| 7 | La lista — San Pedro y el puente de noche | «Tu primer viaje, 1,99 €. Sólo para quien esté en la lista antes de octubre. El enlace, en la bio.» |
+| 8 | El grupo — pirámide del Louvre + tarjeta QR | «El grupo se une con un QR. Las cuentas, cuadradas.» · Foto: Martin Falbisoner (CC BY-SA 3.0) |
+| 9 | El buscador — tres postales: Santorini, Granada, Oporto | «¿Sin destino? Contestas seis preguntas y te propone tres, con fechas.» · Fotos: Giles Laurent (CC BY-SA 4.0), Jakub Hałun (CC BY 4.0) |
 
 Publica 3 hoy, 3 mañana, 3 pasado — un grid que nació entero el mismo día también canta.
-Las dos tarjetas de texto (4 y 7): fondo crema `#FBFAF7`, texto tinta `#191B21`, la cifra
-grande — o pídemelas y te las genero.
 
 ## Los 50 €, cuando el grid esté (día 2-3)
 
