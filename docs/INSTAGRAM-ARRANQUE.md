@@ -43,8 +43,7 @@ perfil con 40 posts honestos no arregle solo.
 Los nueve están diseñados a 1080×1350 en el lienzo de Claude
 («Posts de Instagram NOMAD» — el enlace que te pasé por chat; también aparece en
 claude.ai/code/artifacts). Cada tarjeta tiene su botón de **exportar PNG**; se
-publican en el orden 1→9, que es como está pensado el grid (la tarjeta de precio
-en negro y la de portada anclan las esquinas del 3×3).
+publican en el orden 1→9, que es como está pensado el grid.
 
 Son fotográficos: fotografía real de viaje (Wikimedia Commons, licencias CC
 verificadas), scrim oscuro y titular en serif encima. La atribución que exigen
@@ -56,7 +55,7 @@ aun así, repite el crédito en el pie — es gratis y cierra cualquier duda.
 | 1 | Portada — Coliseo al atardecer | «Los días escritos. La ciudad, contada. Abrimos en octubre.» |
 | 2 | El plan — tejados de Alfama + teléfono | «Dices destino y fechas. Devuelve qué ver cada día, en qué orden y cuánto cuesta.» · Foto: Matti Blume (CC BY-SA 4.0) |
 | 3 | El tour — callejón de Alfama con la ruta 1-2-3 | «Te lleva de una parada a la siguiente y te dice dónde ponerte. Con voz real. Sin cobertura, también.» · Foto: Ingo Mehling (CC BY-SA 4.0) |
-| 4 | El precio — tarjeta tipográfica en negro | «Una audioguía suelta: 5-15 €. El viaje entero: 2,99 €. Sin suscripción. Se paga por viaje.» |
+| 4 | El precio — La Maison Rose (Montmartre), terraza de café | «El viaje entero, por lo que cuesta el café de la plaza: 2,99 €. Sin suscripción. Se paga por viaje.» · Foto: Moonik (CC BY-SA 3.0) |
 | 5 | El museo — mosaico de Santa María in Trastevere | «Te dice cuál de las cuarenta cosas de la sala estás mirando.» · Foto: Krzysztof Golik (CC BY-SA 4.0) |
 | 6 | La visita — techo de la Biblioteca Nacional de Austria + teléfono | «Se acuerda de por dónde has pasado, sin preguntar.» · Foto del fresco de Daniel Gran (CC BY 2.5) |
 | 7 | La lista — San Pedro y el puente de noche | «Tu primer viaje, 1,99 €. Sólo para quien esté en la lista antes de octubre. El enlace, en la bio.» |
@@ -72,7 +71,7 @@ por `waitlist.source`, no por lo que Meta se atribuya).
 
 - **1 campaña, 1 conjunto, 4 anuncios** — los copys A-D de
   `LANZAMIENTO-PUBLICIDAD.md` §Copys, con **la misma imagen los cuatro** (la del plan o la
-  tarjeta de precio): lo que se mide es el argumento, no la foto.
+  del precio — La Maison Rose): lo que se mide es el argumento, no la foto.
 - **Público: amplio.** España, 20-55, sin intereses apilados — la creatividad es la
   segmentación (skill `ads`, era Andromeda). Ubicaciones automáticas.
 - **Presupuesto: 5 €/día.** Tope total 50 €.
