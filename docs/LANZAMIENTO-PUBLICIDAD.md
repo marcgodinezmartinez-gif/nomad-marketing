@@ -171,6 +171,12 @@ dejen comprarlo a ese precio. Un aviso es información; una puerta es una razón
   suscripción. En la lista, el primero por 1,99 €.»
 - **D (urgencia, para la semana 4):** «La lista se cierra cuando abramos. Después, el
   primer viaje cuesta lo que cuesta. Antes, 1,99 €.»
+- **E (grupo, añadido el 29-ago):** «En todos los grupos hay uno que acaba organizándolo
+  todo. NOMAD le quita el trabajo: escribe el viaje, tus amigos se unen con un QR y los
+  gastos se reparten solos. 2,99 € por viaje, sin suscripción. En la lista, el primero por
+  1,99 €.» Su enlace: `utm_campaign=lista-e`. En el arranque del 29-ago corren A/B/C/E y
+  la D queda en reserva para la semana del cierre — quemar la urgencia el día 1 es gastar
+  el cartucho cuando menos verdad tiene.
 
 **Los cuatro son para PROBAR, no para elegir el que más te guste.** A ataca por precio, B
 por cobertura, C por producto y D por urgencia — y son ángulos distintos a propósito,

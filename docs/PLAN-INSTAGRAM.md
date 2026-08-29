@@ -49,13 +49,19 @@ septiembre y tiene su propio documento.
 
 ---
 
-## Fase 1 — El grid: 9 posts en 3 días
+## Fase 1 — El grid: los 9 posts, el mismo día
 
-Publica **3 al día durante 3 días**, en el orden 1→9 (el grid 3×3 está pensado así). Un
-grid que nace entero el mismo día también canta. Horas orientativas (convención, no dato:
-ajústalo cuando haya métricas): 12:00-14:00 o 19:00-21:00.
+Se suben los nueve de una vez (decisión del 29-ago: con 0 seguidores el alcance orgánico
+es cero igual — el grid es el escaparate para quien llega del anuncio, y completo hoy vale
+más que a medias tres días).
 
-Tras publicar cada tanda, **comparte los posts a stories**.
+**⚠️ El orden de subida va AL REVÉS: del 9 al 1.** El grid de Instagram pone el post más
+reciente arriba a la izquierda, así que para que el mosaico quede como está diseñado
+(Coliseo arriba a la izquierda, Trevi abajo) la portada se sube LA ÚLTIMA. Sube 9, 8, 7…
+hasta el 1, con unos minutos entre cada uno. Cada post con su caption de la tabla.
+
+Al terminar, **comparte a stories los tres de arriba** (1, 2 y 4 — portada, plan y
+precio); nueve stories seguidas sí es ruido.
 
 | # | Post | Caption (copiar tal cual) |
 |---|---|---|
@@ -81,15 +87,18 @@ Notas:
 
 ---
 
-## Fase 2 — Los 50 € (arranca el día 2-3, con el grid ya puesto)
+## Fase 2 — Los 50 € (arranca al día siguiente del grid)
 
 El dinero NO arranca con la cuenta vacía: quien toque el perfil desde un anuncio no puede
-encontrar un solar. Grid primero, dinero después.
+encontrar un solar. Grid primero, dinero después — pero con los 9 subidos el mismo día,
+«después» es mañana.
 
 **Configuración en Meta Business Suite** (Crear anuncio):
 
 - **Objetivo: Tráfico.** Sin píxel, a propósito — se mide por `waitlist.source`.
-- **1 campaña · 1 conjunto · 4 anuncios** (los copys A-D de abajo).
+- **1 campaña · 1 conjunto · 4 anuncios**: los copys **A, B, C y E** de abajo. La D
+  (urgencia) se guarda a propósito para la semana del cierre de la lista, cuando sea
+  verdad; su hueco lo ocupa E (grupo), un ángulo que ningún competidor puede copiar.
 - **La misma imagen en los cuatro**: la del post del plan o la del precio (Place du
   Tertre). Lo que se mide es el argumento, no la foto.
 - **Público: amplio.** España, 20-55, **sin intereses apilados** — la creatividad es la
@@ -97,9 +106,9 @@ encontrar un solar. Grid primero, dinero después.
 - **Presupuesto: 5 €/día. Tope total: 50 €** (≈10 días).
 - **Un enlace por anuncio, exactos**:
   - A → `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-a`
-  - B → `...utm_campaign=lista-b` · C → `...lista-c` · D → `...lista-d`
+  - B → `...utm_campaign=lista-b` · C → `...lista-c` · E → `...lista-e`
 
-**Los copys** (cuatro ángulos a propósito: precio, cobertura, producto, urgencia — se
+**Los copys** (cuatro ángulos a propósito: precio, cobertura, producto, grupo — se
 prueba cuál mueve, no se elige el que más guste):
 
 - **A (precio):** «Una audioguía suelta cuesta 6 €. Un viaje entero de NOMAD —itinerario,
@@ -111,8 +120,12 @@ prueba cuál mueve, no se elige el que más guste):
 - **C (producto):** «Te escribe los días, te los cuenta al oído mientras los andas, te
   dice qué estás mirando en el museo y reparte los gastos del grupo. 2,99 € por viaje, sin
   suscripción. En la lista, el primero por 1,99 €.»
-- **D (urgencia — guárdalo para el final):** «La lista se cierra cuando abramos. Después,
-  el primer viaje cuesta lo que cuesta. Antes, 1,99 €.»
+- **E (grupo):** «En todos los grupos hay uno que acaba organizándolo todo. NOMAD le
+  quita el trabajo: escribe el viaje, tus amigos se unen con un QR y los gastos se
+  reparten solos. 2,99 € por viaje, sin suscripción. En la lista, el primero por 1,99 €.»
+- **D (urgencia — EN RESERVA, no arranca):** «La lista se cierra cuando abramos. Después,
+  el primer viaje cuesta lo que cuesta. Antes, 1,99 €.» Se enciende la semana del cierre,
+  con el enlace `...lista-d`, sustituyendo al peor de los cuatro.
 
 **Cuándo parar, en aritmética y no en corazonadas** (ancla: TCPL 0,25 €):
 
@@ -141,8 +154,8 @@ FROM public.waitlist GROUP BY 1 ORDER BY 2 DESC;
 ```
 
 Los orígenes que verás: `instagram/organic/bio` (la bio), `instagram/organic/post-grupo`
-(el QR del post 8), y `meta/paid/lista-a..d` (los anuncios). **La única tabla de
-resultados que importa** es lista-a contra b, c y d.
+(el QR del post 8), y `meta/paid/lista-a`, `-b`, `-c`, `-e` (los anuncios). **La única
+tabla de resultados que importa** es la comparación entre esos cuatro.
 
 **El viernes de la primera semana**: coste por alta por copy → se decide qué argumento se
 escala en octubre y cuáles se matan. Ese aprendizaje es lo que compran los 50 €.
@@ -153,9 +166,9 @@ escala en octubre y cuáles se matan. Ese aprendizaje es lo que compran los 50 �
 
 | Día | Qué |
 |---|---|
-| Hoy | Fase 0: vestir la cuenta (1-2 h) |
-| Días 1-3 | Fase 1: 3 posts al día, orden 1→9, stories |
-| Día 2-3 | Fase 2: campaña de 5 €/día, 4 anuncios A-D |
+| Hoy | Fase 0: vestir la cuenta (1-2 h) + Fase 1: los 9 posts, del 9 al 1 |
+| Mañana | Fase 2: campaña de 5 €/día, 4 anuncios A/B/C/E |
 | Cada día | Fase 3: la consulta SQL (1 minuto) + reglas de parada |
 | Viernes sem. 1 | Decisión: qué argumento gana; informe de costes por alta |
 | Día ~10 | Tope de 50 € alcanzado → parar y decidir octubre con datos |
+| Semana del cierre | La D (urgencia) entra con `lista-d`, sustituyendo al peor |
