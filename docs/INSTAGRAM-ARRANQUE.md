@@ -26,8 +26,8 @@ perfil con 40 posts honestos no arregle solo.
 
 1. **Pásala a cuenta de empresa** (Ajustes → Cuenta → Cambiar a cuenta profesional →
    Empresa). Sin esto no hay anuncios ni métricas.
-2. **Nombre**: `NOMAD` · **Usuario**: `@travelsnomad` (o el libre más cercano — que case
-   con el dominio).
+2. **Nombre**: `NOMAD` · **Usuario**: `@app.nomad` (elegido el 29-ago; @travelsnomad no
+   quedó libre).
 3. **Bio** (cópiala tal cual — la eligió el dueño el 29-ago):
    > Los días escritos. La ciudad, contada.
    > Itinerarios, tours al oído y gastos del grupo.

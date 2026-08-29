@@ -34,7 +34,7 @@ septiembre y tiene su propio documento.
 
 1. **Cuenta profesional** → Ajustes → Cuenta → Cambiar a cuenta profesional → **Empresa**.
    Sin esto no hay anuncios ni métricas.
-2. **Nombre**: `NOMAD` · **Usuario**: `@travelsnomad` (o el libre más cercano al dominio).
+2. **Nombre**: `NOMAD` · **Usuario**: `@app.nomad` (el elegido el 29-ago; @travelsnomad no quedó libre).
 3. **Foto de perfil**: el icono de la app (la hoja verde sobre crema).
 4. **Bio** (tal cual, tres líneas — elegida por el dueño el 29-ago; cabe en los 150):
    > Los días escritos. La ciudad, contada.
