@@ -36,10 +36,10 @@ septiembre y tiene su propio documento.
    Sin esto no hay anuncios ni métricas.
 2. **Nombre**: `NOMAD` · **Usuario**: `@travelsnomad` (o el libre más cercano al dominio).
 3. **Foto de perfil**: el icono de la app (la hoja verde sobre crema).
-4. **Bio** (tal cual, tres líneas):
-   > Te escribe el viaje y te lo cuenta al oído.
-   > Itinerario + paseos guiados + guías de museo. 2,99 €/viaje.
-   > 🎟 En la lista, tu primer viaje: 1,99 € ↓
+4. **Bio** (tal cual, tres líneas — elegida por el dueño el 29-ago; cabe en los 150):
+   > Los días escritos. La ciudad, contada.
+   > Itinerarios, tours al oído y gastos del grupo.
+   > 🎟 Apúntate y no te pierdas el lanzamiento ↓
 5. **Enlace de la bio** (exacto — la atribución depende de él):
    `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=bio`
 6. **Sigue 20-30 cuentas del nicho**: oficinas de turismo, museos (@museodelprado,

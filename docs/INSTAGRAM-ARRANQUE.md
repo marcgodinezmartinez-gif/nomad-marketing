@@ -28,10 +28,10 @@ perfil con 40 posts honestos no arregle solo.
    Empresa). Sin esto no hay anuncios ni métricas.
 2. **Nombre**: `NOMAD` · **Usuario**: `@travelsnomad` (o el libre más cercano — que case
    con el dominio).
-3. **Bio** (cópiala tal cual):
-   > Te escribe el viaje y te lo cuenta al oído.
-   > Itinerario + paseos guiados + guías de museo. 2,99 €/viaje.
-   > 🎟 En la lista, tu primer viaje: 1,99 € ↓
+3. **Bio** (cópiala tal cual — la eligió el dueño el 29-ago):
+   > Los días escritos. La ciudad, contada.
+   > Itinerarios, tours al oído y gastos del grupo.
+   > 🎟 Apúntate y no te pierdas el lanzamiento ↓
 4. **Enlace de la bio** (la atribución depende de él, cópialo exacto):
    `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=bio`
 5. **Sigue 20-30 cuentas del nicho** — oficinas de turismo, museos (@museodelprado,
