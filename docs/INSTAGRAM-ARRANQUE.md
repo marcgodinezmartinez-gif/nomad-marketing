@@ -32,8 +32,8 @@ perfil con 40 posts honestos no arregle solo.
    > Los días escritos. La ciudad, contada.
    > Itinerarios, tours al oído y gastos del grupo.
    > 🎟 Apúntate y no te pierdas el lanzamiento ↓
-4. **Enlace de la bio** (la atribución depende de él, cópialo exacto):
-   `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=bio`
+4. **Enlace de la bio**: `travelsnomad.com` a secas (29-ago: el dueño no quiso UTM a la
+   vista). La portada atribuye por referrer y esas altas salen como `instagram/referral`.
 5. **Sigue 20-30 cuentas del nicho** — oficinas de turismo, museos (@museodelprado,
    @lelouvre), cuentas de viajes en español. Es señal de vida y te cura el feed para ver
    qué formato funciona nativo, que es de donde salen los anuncios que no parecen anuncios.

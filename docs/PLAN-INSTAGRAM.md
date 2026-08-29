@@ -40,8 +40,9 @@ septiembre y tiene su propio documento.
    > Los días escritos. La ciudad, contada.
    > Itinerarios, tours al oído y gastos del grupo.
    > 🎟 Apúntate y no te pierdas el lanzamiento ↓
-5. **Enlace de la bio** (exacto — la atribución depende de él):
-   `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=bio`
+5. **Enlace de la bio**: `travelsnomad.com` a secas (decisión del dueño, 29-ago — sin
+   UTM a la vista). La atribución no se pierde: la portada reconoce el referrer del
+   navegador de Instagram y esas altas quedan como `instagram/referral`.
 6. **Sigue 20-30 cuentas del nicho**: oficinas de turismo, museos (@museodelprado,
    @lelouvre), cuentas de viajes en español. Señal de vida + cura tu feed para ver qué
    formato funciona nativo.
@@ -153,8 +154,9 @@ SELECT coalesce(source, '(directo)') AS origen, count(*) AS altas
 FROM public.waitlist GROUP BY 1 ORDER BY 2 DESC;
 ```
 
-Los orígenes que verás: `instagram/organic/bio` (la bio), `instagram/organic/post-grupo`
-(el QR del post 8), y `meta/paid/lista-a`, `-b`, `-c`, `-e` (los anuncios). **La única
+Los orígenes que verás: `instagram/referral` (la bio y todo lo orgánico de Instagram),
+`instagram/organic/post-grupo` (el QR del post 8, que sí lleva UTM porque nadie ve esa
+URL), y `meta/paid/lista-a`, `-b`, `-c`, `-e` (los anuncios). **La única
 tabla de resultados que importa** es la comparación entre esos cuatro.
 
 **El viernes de la primera semana**: coste por alta por copy → se decide qué argumento se
