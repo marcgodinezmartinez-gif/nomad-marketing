@@ -16,7 +16,7 @@ no dentro de un mes.
 el CPL de Meta en España es 0,30-1,50 €): el pagado de septiembre es presupuesto de
 APRENDIZAJE. 50 € son **5 €/día durante 10 días** — exactamente la forma del presupuesto
 de aprendizaje del plan, empezado antes. Lo que compran no son altas: es saber cuál de los
-cuatro argumentos (precio, cobertura, producto, urgencia) mueve a la gente, ANTES de
+cuatro argumentos (precio, cobertura, producto, grupo) mueve a la gente, ANTES de
 ponerle dinero de verdad en octubre.
 
 **No compres seguidores, nunca.** Meta lo huele, la gente lo huele, y no hay nada que un
@@ -42,8 +42,11 @@ perfil con 40 posts honestos no arregle solo.
 
 Los nueve están diseñados a 1080×1350 en el lienzo de Claude
 («Posts de Instagram NOMAD» — el enlace que te pasé por chat; también aparece en
-claude.ai/code/artifacts). Cada tarjeta tiene su botón de **exportar PNG**; se
-publican en el orden 1→9, que es como está pensado el grid.
+claude.ai/code/artifacts). Cada tarjeta tiene su botón de **exportar PNG**.
+
+**Se suben los nueve el mismo día y EN ORDEN INVERSO, del 9 al 1** (decidido el 29-ago):
+el grid de Instagram pone lo más reciente arriba a la izquierda, así que para que el
+mosaico quede como está diseñado la portada del Coliseo se sube LA ÚLTIMA.
 
 Son fotográficos: fotografía real de viaje, scrim oscuro y titular en serif
 encima. **Todas las fotos son CC0 o dominio público** (verificado foto a foto en
@@ -64,21 +67,23 @@ demostrar la procedencia.
 | 8 | El grupo — Fontana di Trevi de noche + tarjeta QR | «Tus amigos se unen con un QR y los gastos se reparten solos.» |
 | 9 | El buscador — tres postales: Santorini, Granada, Oporto | «¿Sin destino? Dile qué te apetece y elige entre tres viajes pensados para ti.» |
 
-Publica 3 hoy, 3 mañana, 3 pasado — un grid que nació entero el mismo día también canta.
+Al terminar, a stories solo los tres fuertes (portada, plan y precio) — nueve seguidas
+es ruido. Con el grid entero puesto, la campaña puede arrancar al día siguiente.
 
 ## Los 50 €, cuando el grid esté (día 2-3)
 
 Meta Business Suite → Crear anuncio → **objetivo Tráfico** (sin píxel a propósito: medimos
 por `waitlist.source`, no por lo que Meta se atribuya).
 
-- **1 campaña, 1 conjunto, 4 anuncios** — los copys A-D de
-  `LANZAMIENTO-PUBLICIDAD.md` §Copys, con **la misma imagen los cuatro** (la del plan o la
-  del precio — Place du Tertre): lo que se mide es el argumento, no la foto.
+- **1 campaña, 1 conjunto, 4 anuncios** — los copys **A, B, C y E** de
+  `LANZAMIENTO-PUBLICIDAD.md` §Copys (la D, urgencia, queda en reserva para la semana del
+  cierre), con **la misma imagen los cuatro** (la del plan o la del precio — Place du
+  Tertre): lo que se mide es el argumento, no la foto.
 - **Público: amplio.** España, 20-55, sin intereses apilados — la creatividad es la
   segmentación (skill `ads`, era Andromeda). Ubicaciones automáticas.
 - **Presupuesto: 5 €/día.** Tope total 50 €.
 - **Enlaces, tal cual** (uno por anuncio):
-  `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-a` (…b/c/d)
+  `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-a` (…b/c/e)
 - **Reglas de parada**: la tabla de `LANZAMIENTO-PUBLICIDAD.md` §Cuándo parar, anclada en
   TCPL 0,25 €. En corto: nada se juzga antes de 0,75 € gastados; cero altas con 0,75 € =
   concepto muerto; si Meta no le da gasto a uno, ése ya está juzgado.
@@ -90,7 +95,7 @@ SELECT coalesce(source, '(directo)') AS origen, count(*) AS altas
 FROM public.waitlist GROUP BY 1 ORDER BY 2 DESC;
 ```
 
-En el SQL editor de Supabase (o el panel). `meta/paid/lista-a` contra `lista-b/c/d` es la
+En el SQL editor de Supabase (o el panel). `meta/paid/lista-a` contra `lista-b/c/e` es la
 única tabla de resultados que importa. El viernes de la primera semana: coste por alta por
 copy, y con eso se decide qué se escala y qué se mata.
 
