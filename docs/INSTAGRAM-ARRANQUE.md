@@ -99,6 +99,12 @@ En el SQL editor de Supabase (o el panel). `meta/paid/lista-a` contra `lista-b/c
 única tabla de resultados que importa. El viernes de la primera semana: coste por alta por
 copy, y con eso se decide qué se escala y qué se mata.
 
+(Un origen más desde el 30-ago: `instagram/organic/story-personal` — la historia del
+Instagram personal del dueño hacia amigos, con su UTM propio
+`utm_source=instagram&utm_medium=organic&utm_campaign=story-personal` para que el boca a
+boca no se mezcle ni con la bio ni con los anuncios. No compite con los cuatro de arriba:
+es gratis.)
+
 ## Lo que este doc NO cambia
 
 El plan de septiembre sigue siendo el de `LANZAMIENTO-PUBLICIDAD.md`: **el canal que se

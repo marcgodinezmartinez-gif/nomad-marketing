@@ -156,8 +156,10 @@ FROM public.waitlist GROUP BY 1 ORDER BY 2 DESC;
 
 Los orígenes que verás: `instagram/referral` (la bio y todo lo orgánico de Instagram),
 `instagram/organic/post-grupo` (el QR del post 8, que sí lleva UTM porque nadie ve esa
-URL), y `meta/paid/lista-a`, `-b`, `-c`, `-e` (los anuncios). **La única
-tabla de resultados que importa** es la comparación entre esos cuatro.
+URL), `instagram/organic/story-personal` (la historia del Instagram personal del dueño,
+30-ago — amigos y boca a boca, con su enlace UTM propio para no mezclarse con la bio), y
+`meta/paid/lista-a`, `-b`, `-c`, `-e` (los anuncios). **La única
+tabla de resultados que importa** es la comparación entre esos cuatro últimos.
 
 **El viernes de la primera semana**: coste por alta por copy → se decide qué argumento se
 escala en octubre y cuáles se matan. Ese aprendizaje es lo que compran los 50 €.
