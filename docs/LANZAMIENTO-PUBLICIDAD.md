@@ -156,27 +156,52 @@ feed; no lleva presupuesto de pago.
 
 ## Copys para Meta Ads (fase 1, objetivo = tráfico a la lista)
 
-*Reescritos el 24-ago con el gancho nuevo. **La oferta de 1,99 € es sólo para quien esté
-en la lista**, y eso cambia el verbo: no te apuntas para enterarte, te apuntas para que te
-dejen comprarlo a ese precio. Un aviso es información; una puerta es una razón.*
+*Reescritos el 24-ago con el gancho nuevo, y pulidos el 30-ago al montar la campaña real
+(pedido del dueño: «hay que pulirlos»). Lo que cambió en la pulida: el golpe completo va
+en la PRIMERA línea, porque el feed corta a ~125 caracteres con un «ver más»; los precios
+siempre en el mismo orden (2,99 normal → 1,99 de lista); y el cierre reutiliza «Apúntate y
+no te pierdas el lanzamiento», que ya es la voz de la bio y de la web. **La oferta de
+1,99 € es sólo para quien esté en la lista**, y eso cambia el verbo: no te apuntas para
+enterarte, te apuntas para que te dejen comprarlo a ese precio. Los saltos de línea van
+A PROPÓSITO: se pegan tal cual, en tres párrafos.*
 
-- **A (precio):** «Una audioguía suelta cuesta 6 €. Un viaje entero de NOMAD —itinerario,
-  paseos guiados y guías de museo— cuesta 2,99 €. Y si estás en la lista antes de octubre,
-  el primero te sale por 1,99 €. Sólo para los de la lista.»
-- **B (cola larga):** «Tu próximo viaje no es a las seis ciudades de siempre. NOMAD te
-  escribe el itinerario y te guía por CUALQUIER sitio — hasta por el pueblo de tu abuela.
-  Abre en octubre. Los de la lista estrenan por 1,99 €.»
-- **C (combo):** «Te escribe los días, te los cuenta al oído mientras los andas, te dice
-  qué estás mirando en el museo y reparte los gastos del grupo. 2,99 € por viaje, sin
-  suscripción. En la lista, el primero por 1,99 €.»
+- **A (precio)** · Título: `Tu primer viaje, por 1,99 €`
+  > Una audioguía suelta cuesta 6 €. Un viaje entero de NOMAD cuesta 2,99 €.
+  >
+  > Itinerario día a día, tours a pie con voz y guías de museo — todo incluido, sin
+  > suscripción. Y en la lista de espera, tu primer viaje sale por 1,99 €.
+  >
+  > Apúntate antes del lanzamiento de octubre.
+- **B (cola larga)** · Título: `Te guía por cualquier sitio`
+  > Tu próximo viaje no tiene por qué ser a las seis ciudades de siempre.
+  >
+  > NOMAD te escribe el itinerario y te guía con voz por CUALQUIER sitio — hasta por el
+  > pueblo de tu abuela. Llega en octubre, y los de la lista estrenan su primer viaje por
+  > 1,99 €.
+  >
+  > Apúntate y no te pierdas el lanzamiento.
+- **C (combo)** · Título: `Los días escritos. La ciudad, contada`
+  > Te escribe los días. Te los cuenta al oído mientras andas la ciudad. Te dice qué
+  > estás mirando en el museo. Y reparte los gastos del grupo.
+  >
+  > Todo por 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
+  > 1,99 €.
+  >
+  > Apúntate antes del lanzamiento de octubre.
 - **D (urgencia, para la semana 4):** «La lista se cierra cuando abramos. Después, el
-  primer viaje cuesta lo que cuesta. Antes, 1,99 €.»
-- **E (grupo, añadido el 29-ago):** «En todos los grupos hay uno que acaba organizándolo
-  todo. NOMAD le quita el trabajo: escribe el viaje, tus amigos se unen con un QR y los
-  gastos se reparten solos. 2,99 € por viaje, sin suscripción. En la lista, el primero por
-  1,99 €.» Su enlace: `utm_campaign=lista-e`. En el arranque del 29-ago corren A/B/C/E y
-  la D queda en reserva para la semana del cierre — quemar la urgencia el día 1 es gastar
-  el cartucho cuando menos verdad tiene.
+  primer viaje cuesta lo que cuesta. Antes, 1,99 €.» (Sin pulir: se pule cuando le toque
+  correr, con lo aprendido de los otros cuatro.)
+- **E (grupo, añadido el 29-ago)** · Título: `Los gastos se reparten solos`
+  > En todos los grupos hay uno que acaba organizándolo todo. Si eres tú, esto es para ti.
+  >
+  > NOMAD escribe el viaje, tus amigos se unen con un QR y los gastos se reparten solos.
+  > 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
+  >
+  > Apúntate y no te pierdas el lanzamiento.
+
+  Su enlace: `utm_campaign=lista-e`. En el arranque corren A/B/C/E y la D queda en
+  reserva para la semana del cierre — quemar la urgencia el día 1 es gastar el cartucho
+  cuando menos verdad tiene.
 
 **Los cuatro son para PROBAR, no para elegir el que más te guste.** A ataca por precio, B
 por cobertura, C por producto y D por urgencia — y son ángulos distintos a propósito,

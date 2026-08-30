@@ -110,23 +110,44 @@ encontrar un solar. Grid primero, dinero después — pero con los 9 subidos el 
   - B → `...utm_campaign=lista-b` · C → `...lista-c` · E → `...lista-e`
 
 **Los copys** (cuatro ángulos a propósito: precio, cobertura, producto, grupo — se
-prueba cuál mueve, no se elige el que más guste):
+prueba cuál mueve, no se elige el que más guste). *Pulidos el 30-ago al montar la campaña:
+el golpe entero en la primera línea (el feed corta a ~125 caracteres), precios siempre en
+el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párrafos:*
 
-- **A (precio):** «Una audioguía suelta cuesta 6 €. Un viaje entero de NOMAD —itinerario,
-  paseos guiados y guías de museo— cuesta 2,99 €. Y si estás en la lista antes de octubre,
-  el primero te sale por 1,99 €. Sólo para los de la lista.»
-- **B (cobertura):** «Tu próximo viaje no es a las seis ciudades de siempre. NOMAD te
-  escribe el itinerario y te guía por CUALQUIER sitio — hasta por el pueblo de tu abuela.
-  Abre en octubre. Los de la lista estrenan por 1,99 €.»
-- **C (producto):** «Te escribe los días, te los cuenta al oído mientras los andas, te
-  dice qué estás mirando en el museo y reparte los gastos del grupo. 2,99 € por viaje, sin
-  suscripción. En la lista, el primero por 1,99 €.»
-- **E (grupo):** «En todos los grupos hay uno que acaba organizándolo todo. NOMAD le
-  quita el trabajo: escribe el viaje, tus amigos se unen con un QR y los gastos se
-  reparten solos. 2,99 € por viaje, sin suscripción. En la lista, el primero por 1,99 €.»
+- **A (precio)** · Título: `Tu primer viaje, por 1,99 €`
+  > Una audioguía suelta cuesta 6 €. Un viaje entero de NOMAD cuesta 2,99 €.
+  >
+  > Itinerario día a día, tours a pie con voz y guías de museo — todo incluido, sin
+  > suscripción. Y en la lista de espera, tu primer viaje sale por 1,99 €.
+  >
+  > Apúntate antes del lanzamiento de octubre.
+- **B (cobertura)** · Título: `Te guía por cualquier sitio`
+  > Tu próximo viaje no tiene por qué ser a las seis ciudades de siempre.
+  >
+  > NOMAD te escribe el itinerario y te guía con voz por CUALQUIER sitio — hasta por el
+  > pueblo de tu abuela. Llega en octubre, y los de la lista estrenan su primer viaje por
+  > 1,99 €.
+  >
+  > Apúntate y no te pierdas el lanzamiento.
+- **C (producto)** · Título: `Los días escritos. La ciudad, contada`
+  > Te escribe los días. Te los cuenta al oído mientras andas la ciudad. Te dice qué
+  > estás mirando en el museo. Y reparte los gastos del grupo.
+  >
+  > Todo por 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
+  > 1,99 €.
+  >
+  > Apúntate antes del lanzamiento de octubre.
+- **E (grupo)** · Título: `Los gastos se reparten solos`
+  > En todos los grupos hay uno que acaba organizándolo todo. Si eres tú, esto es para ti.
+  >
+  > NOMAD escribe el viaje, tus amigos se unen con un QR y los gastos se reparten solos.
+  > 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
+  >
+  > Apúntate y no te pierdas el lanzamiento.
 - **D (urgencia — EN RESERVA, no arranca):** «La lista se cierra cuando abramos. Después,
   el primer viaje cuesta lo que cuesta. Antes, 1,99 €.» Se enciende la semana del cierre,
-  con el enlace `...lista-d`, sustituyendo al peor de los cuatro.
+  con el enlace `...lista-d`, sustituyendo al peor de los cuatro. (Sin pulir a propósito:
+  se pule cuando le toque, con lo aprendido de estos.)
 
 **Cuándo parar, en aritmética y no en corazonadas** (ancla: TCPL 0,25 €):
 
