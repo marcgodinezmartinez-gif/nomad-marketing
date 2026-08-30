@@ -166,12 +166,18 @@ enterarte, te apuntas para que te dejen comprarlo a ese precio. Los saltos de l�
 A PROPÓSITO: se pegan tal cual, en tres párrafos.*
 
 - **A (precio)** · Título: `Tu primer viaje, por 1,99 €`
-  > Una audioguía suelta cuesta 6 €. Un viaje entero de NOMAD cuesta 2,99 €.
+  > El viaje entero, por lo que cuesta un café: desde 2,99 €.
   >
-  > Itinerario día a día, tours a pie con voz y guías de museo — todo incluido, sin
-  > suscripción. Y en la lista de espera, tu primer viaje sale por 1,99 €.
+  > Los días escritos, los tours a pie contados al oído y las guías de museo — todo
+  > incluido, sin suscripción. Y en la lista de espera, tu primer viaje por 1,99 €.
   >
   > Apúntate antes del lanzamiento de octubre.
+
+  (La comparación con la audioguía suelta de 6 € murió el 30-ago, y es la SEGUNDA vez
+  que el dueño la tira — la primera fue el titular de la banda del precio de la web.
+  Que no vuelva por ninguna puerta: el ancla del precio es el café, que además es
+  literalmente lo que dice la imagen del anuncio. Sin ponerle precio al café, a
+  propósito: un número concreto invita al comentario de «un café no cuesta eso».)
 - **B (cola larga)** · Título: `Te guía por cualquier sitio`
   > Tu próximo viaje no tiene por qué ser a las seis ciudades de siempre.
   >
