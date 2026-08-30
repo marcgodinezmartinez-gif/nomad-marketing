@@ -120,7 +120,7 @@ el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párr
   > Los días escritos, los tours a pie contados al oído y las guías de museo — todo
   > incluido, sin suscripción. Y en la lista de espera, tu primer viaje por 1,99 €.
   >
-  > Apúntate antes del lanzamiento de octubre.
+  > Apúntate antes del lanzamiento y no te pierdas nada.
 
   (La comparación con la audioguía suelta de 6 € murió el 30-ago, y es la SEGUNDA vez
   que el dueño la tira — la primera fue el titular de la banda del precio de la web.
