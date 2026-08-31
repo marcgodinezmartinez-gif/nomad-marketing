@@ -184,7 +184,10 @@ FROM public.waitlist GROUP BY 1 ORDER BY 2 DESC;
 Los orígenes que verás: `instagram/referral` (la bio y todo lo orgánico de Instagram),
 `instagram/organic/post-grupo` (el QR del post 8, que sí lleva UTM porque nadie ve esa
 URL), `instagram/organic/story-personal` (la historia del Instagram personal del dueño,
-30-ago — amigos y boca a boca, con su enlace UTM propio para no mezclarse con la bio), y
+30-ago — amigos y boca a boca, con su enlace UTM propio para no mezclarse con la bio),
+`instagram/organic/story-italia` (31-ago: las amigas italianas de la novia del dueño
+compartiendo a sus historias — es el TEST de si Italia convierte con la web aún en
+español; si el viernes hay filas aquí, la expansión de idiomas se decide con ese dato), y
 `meta/paid/lista-a`, `-b`, `-c`, `-e` (los anuncios). **La única
 tabla de resultados que importa** es la comparación entre esos cuatro últimos.
 
