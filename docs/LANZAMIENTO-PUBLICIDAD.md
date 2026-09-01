@@ -208,6 +208,26 @@ A PROPÓSITO: se pegan tal cual, en tres párrafos.*
   Su enlace: `utm_campaign=lista-e`. En el arranque corren A/B/C/E y la D queda en
   reserva para la semana del cierre — quemar la urgencia el día 1 es gastar el cartucho
   cuando menos verdad tiene.
+- **F (la IA, en reserva para el viernes 4-sep)** · Título: `La IA que te escribe el viaje`
+  > Le dices a dónde vas y qué te gusta. La IA te escribe el viaje entero: qué ver, en
+  > qué orden y cuánto cuesta.
+  >
+  > ¿Cambio de planes? Se lo pides y lo reescribe. Y por la calle te lo cuenta al oído.
+  > Desde 2,99 € el viaje — en la lista, el primero por 1,99 €.
+  >
+  > Apúntate antes del lanzamiento y no te pierdas nada.
+
+  Su enlace: `utm_campaign=lista-f`. Nace de la observación del dueño (31-ago): «no
+  hemos hecho énfasis en el asistente IA en la publi» — y es verdad medible: la palabra
+  IA no está en ninguno de los cuatro vivos. El porqué de meterla AHORA como quinto
+  ángulo y no antes: «IA» en el feed de 2026 es papel pintado si es el argumento entero,
+  pero como PALABRA-GANCHO abre el bolsillo de audiencia de los curiosos de herramientas
+  IA, que los otros cuatro ángulos no tocan — el «one-keyword hack» de la doctrina
+  Andromeda: la creatividad ES la segmentación. Entra el viernes con el veredicto (se
+  mata el copy más flojo y entra éste), con LA MISMA imagen del Tertre que los demás,
+  para que la variable siga siendo el argumento. Si la F gana, la segunda iteración es
+  su creatividad propia: el teléfono con el paso del asistente («Indicaciones para la
+  IA» + «Generar viaje») a la vista.
 
 **Los cuatro son para PROBAR, no para elegir el que más te guste.** A ataca por precio, B
 por cobertura, C por producto y D por urgencia — y son ángulos distintos a propósito,
