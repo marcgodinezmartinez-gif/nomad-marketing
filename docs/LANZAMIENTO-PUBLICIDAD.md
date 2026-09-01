@@ -234,6 +234,38 @@ por cobertura, C por producto y D por urgencia — y son ángulos distintos a pr
 porque lo que se está midiendo es cuál de las cuatro razones mueve a la gente. Con la
 misma imagen en los cuatro, para que la diferencia sea el argumento y no la foto.
 
+## TikTok: por qué NO se paga todavía (decidido el 31-ago)
+
+Pregunta del dueño esa noche: «¿montamos una campaña igual en TikTok y vemos si funciona
+por ahí también?». La tabla de arriba ya decía «orgánico primero, pagado después», y con
+la campaña de Meta corriendo hay cuatro razones que lo hacen MÁS cierto, no menos:
+
+1. **Partir 7 €/día en dos no son dos pruebas: son cero.** La regla de esta casa es no
+   juzgar nada antes de 0,75 € gastados por anuncio, y con cuatro anuncios vivos el
+   presupuesto ya va justo. Dividirlo deja las dos plataformas por debajo del umbral
+   donde un número significa algo.
+2. **La creatividad que corre en Meta moriría en TikTok.** Ahí la foto fija con texto
+   encima se lee como publicidad a un kilómetro, y el algoritmo penaliza lo que no es
+   nativo. Lo que funciona es cara, voz y movimiento — o una grabación de pantalla con
+   un desenlace.
+3. **Aún no sabemos qué mensaje funciona.** El veredicto de Meta es el viernes. Llevar un
+   mensaje sin validar a una segunda plataforma multiplica las incógnitas en vez de
+   reducirlas: si sale mal, no se sabrá si fue el canal o el argumento.
+4. **La prueba mínima honesta en TikTok es más cara**, no más barata: el sistema necesita
+   más volumen para salir de aprendizaje. Del orden de 20 €/día durante una semana
+   (~140 €) para concluir algo. La mitad de 7 € no es una prueba, es ruido.
+
+**Lo que sí se hace ya, y es gratis:** TikTok es la última plataforma donde una cuenta de
+cero seguidores todavía alcanza público sin pagar. Los dos Reels del 31-ago
+(`docs/reels/`) sirven TAL CUAL — son 9:16, sin marca de agua de Instagram. Ahí está la
+prueba real y sin coste de si el mensaje viaja en TikTok.
+
+**La condición para abrir el grifo**, escrita para no discutirla en caliente: se paga en
+TikTok cuando (a) el veredicto de Meta haya señalado un ángulo ganador, (b) ese ángulo
+tenga una pieza NATIVA grabada — la grabación de pantalla generando un viaje es la
+candidata—, y (c) uno de los vídeos orgánicos haya dado señales de vida. Con esas tres,
+la campaña se monta con presupuesto propio (20 €/día, 7 días), no con el de Meta partido.
+
 ## Los enlaces (cópialos tal cual — la atribución depende de ellos)
 
 ```
