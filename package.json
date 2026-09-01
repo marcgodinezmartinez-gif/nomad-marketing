@@ -1,0 +1,6 @@
+{
+  "name": "nomad-marketing",
+  "private": true,
+  "description": "Los generadores de piezas de NOMAD para redes: ffmpeg para montar los reels. chromium y playwright vienen del entorno.",
+  "dependencies": { "ffmpeg-static": "^5.2.0" }
+}
