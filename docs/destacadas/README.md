@@ -167,6 +167,15 @@ Mismas fotos, mismas posiciones y mismas carátulas que las españolas. Ficheros
 
 Se rehacen con `python3 gen-destacadas.py it && node exportar-destacadas.mjs it`.
 
+## Dónde se editan ahora (1-sep, noche)
+
+Las once tarjetas de cada idioma, las carátulas y las escenas de los tres reels viven en
+el **taller de redes**, un lienzo editable con el kit de marca y siete plantillas:
+<https://claude.ai/code/artifact/0fea041b-1676-4675-94ab-fc326d44bdb3>. Lo pidió el dueño
+esa noche («quiero poder editarlas yo antes por si algo no me gusta»); cómo se construye y
+quién manda cuando él edita algo, en `docs/taller/README.md`. Los generadores de abajo
+siguen siendo la fuente mientras no toque el lienzo.
+
 ## Cómo se rehacen
 
 ```bash
