@@ -16,7 +16,6 @@
 # Uso, desde la raíz del repo y con salida/ preparada (piezas/preparar.sh):
 #   python3 piezas/taller/construir-taller.py   → escribe salida/taller/
 import os, re, json, shutil, sys
-from PIL import Image
 
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 BANCO, IG, OUT = f'{RAIZ}/banco', f'{RAIZ}/salida', f'{RAIZ}/salida/taller'
