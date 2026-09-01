@@ -105,11 +105,74 @@ Etiquetas: `#viajar #viajes #viajeenpareja #viajeconamigos #escapada #europa #ro
 **Al subirlo**: portada del carrete = el fotograma del QR (el segundo 7), que es el que
 para el pulgar en la cuadrícula.
 
+## ¿En todos los idiomas? No: en dos, y con una regla por superficie (1-sep, noche)
+
+Pregunta del dueño: *«¿hay que subir en todos los idiomas? creo que el 50% de los
+seguidores es gente de Italia»*.
+
+**Lo que dice la base de datos antes de opinar.** Las 8 altas llevan `lang = es`. Cero
+por `/it/`. Y la historia italiana del 31-ago (`story-italia`, las amigas de la novia del
+dueño compartiéndola) **no dejó ni una fila**: no es un fallo de medición, porque la
+portada conserva el UTM al redirigir a `/it/` y esa página graba `lang = it`. Los
+italianos que la vieron no se apuntaron. Eso tiene dos lecturas y desde aquí no se
+distingue cuál es la buena:
+
+1. Siguieron la cuenta por cortesía (son amigas de una amiga) y no van a convertir en
+   ningún idioma.
+2. Tocaron un perfil en español —bio, historias, grid— y se fueron: **el idioma era la
+   barrera**.
+
+**Las destacadas en italiano son la prueba más barata que separa las dos.** Cuestan
+minutos (el generador es bilingüe y las capturas `*-900-it` ya existían), y sus
+adhesivos llevan un UTM propio: si en una semana aparecen altas con `lang = it`, era el
+idioma y el italiano pasa a tratarse como el español. Si no, son seguidores de cortesía
+y no se dobla nada más.
+
+**No en cuatro idiomas.** Francés e inglés no tienen ni una señal —ni seguidores
+contados, ni altas, ni prueba—, y cuadruplicar cada pieza para una audiencia que no
+está medida es el trabajo que mata una cuenta pequeña. El carrusel en cada idioma que
+ya hay en el grid dice «hablamos tu idioma», y con eso basta hasta que el dato diga otra
+cosa.
+
+**La regla, superficie por superficie**, que es la respuesta práctica a «hay que subir
+en todos»:
+
+| Superficie | Qué se hace | Por qué |
+|---|---|---|
+| **Bio** | Se queda en español | El enlace ya detecta el idioma del teléfono y manda a `/it/` **conservando el UTM** (`web/index.html`, el `location.replace` con `location.search`). No hay que tocarla. |
+| **Destacadas** | Una por idioma: `Qué es` + `Cos'è`, `La lista` + `Lista d'attesa` | No ensucian el feed y son lo que ve quien acaba de llegar. **Los adhesivos italianos apuntan a `/it/` directamente**, no a la raíz: así un italiano con el móvil en inglés cae igual en la página italiana. |
+| **Posts del feed** | Pie bilingüe: español, salto de línea, italiano. La imagen no se rehace | El grid está hecho y el texto en imagen es la marca. Instagram traduce pies con un toque, imágenes no. |
+| **Historias del día** | En español | Es el mercado principal y donde está el dinero pagado. Si las destacadas italianas traen altas, se alterna. |
+| **Reels** | Uno por idioma **cuando lo valga**. `reel-nomad-it.mp4` ya existe y no está subido: se sube | El texto en pantalla no se traduce. Un Reel en italiano llega a italianos que no te siguen, que es lo único que hace un Reel. El del grupo en italiano, sólo si el español funciona. |
+| **Pagado en Italia** | Nada, todavía | El plan del 31-ago lo dejó escrito: la expansión se decide con las filas de `story-italia`. No hay filas. |
+
+**El número real de seguidores italianos** no es «creo»: Instagram → panel profesional →
+Estadísticas → Seguidores totales → Principales ubicaciones. Es un dato de un minuto y
+cambia lo que vale esta apuesta.
+
+**La medición**, cada día, junto a la de siempre:
+
+```sql
+SELECT coalesce(lang, '(sin lang)') AS idioma, coalesce(source, '(directo)') AS origen, count(*)
+FROM public.waitlist GROUP BY 1, 2 ORDER BY 3 DESC;
+```
+
+### Destacadas en italiano · `Cos'è` (7) y `Lista d'attesa` (4)
+
+Mismas fotos, mismas posiciones y mismas carátulas que las españolas. Ficheros
+`quees-it-1..7.png` y `lista-it-1..4.png`. Los adhesivos:
+
+- `Cos'è`, tarjeta 7 → `https://travelsnomad.com/it/?utm_source=instagram&utm_medium=organic&utm_campaign=destacada-quees-it`
+- `Lista d'attesa`, tarjetas 1 y 3 → `...it/?...&utm_campaign=destacada-lista-it`
+
+Se rehacen con `python3 gen-destacadas.py it && node exportar-destacadas.mjs it`.
+
 ## Cómo se rehacen
 
 ```bash
 cd <scratchpad>/ig
-python3 gen-destacadas.py && node exportar-destacadas.mjs   # 13 PNG de 1080x1920
+python3 gen-destacadas.py && node exportar-destacadas.mjs        # 13 PNG de 1080x1920, español
+python3 gen-destacadas.py it && node exportar-destacadas.mjs it  # 11 más, en italiano
 python3 gen-reel-grupo.py  && node exportar-reelg.mjs && bash montar-reel-grupo.sh
 ```
 
