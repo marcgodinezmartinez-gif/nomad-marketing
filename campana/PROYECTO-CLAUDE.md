@@ -59,3 +59,13 @@ Cuando uno cambie aquí, se vuelve a subir. **El repo manda; el Proyecto es una 
   a un comentario), no una eterna.
 - Lo que salga y valga —un copy aprobado, una decisión— vuelve al repo: a `campana/` si es
   el porqué, a una issue si es un pendiente. El Proyecto no es memoria de nada.
+
+## Los dos ficheros que se pegan, generados
+
+Para no hacer seis descargas y quitar las marcas de cita a mano:
+
+- `campana/PROYECTO-INSTRUCCIONES.txt` — el texto de instrucciones tal cual, para pegar.
+- `campana/PROYECTO-CONOCIMIENTO.md` — los seis documentos en uno, para subir.
+
+Se regeneran con el trozo de Python del commit que los creó (1-sep); si un documento
+cambia, se regeneran y se vuelven a subir al Proyecto.
