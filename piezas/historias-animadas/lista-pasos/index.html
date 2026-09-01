@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>La lista &middot; los tres pasos (historia animada)</title>
+
+    <!-- Las dos fuentes de la casa, en base64, extra&iacute;das del HELMET de
+         banco/fuentes/Main.dc.html por construir.sh. Van embebidas a prop&oacute;sito: el
+         render no puede depender de la red (regla de determinismo de HyperFrames). -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+
+    <style>
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+
+      /* fuentes.css trae las clases del HELMET con sus reservas ('Iowan Old Style',
+         Georgia, -apple-system...). En pantalla eso es una red de seguridad; en un
+         render es una tipograf&iacute;a distinta sin avisar, y el lint de HyperFrames lo
+         rechaza con raz&oacute;n. Aqu&iacute; s&oacute;lo existen las dos familias embebidas. El fichero
+         del banco NO se toca: se anula aqu&iacute;. */
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* Mismo lienzo que las tarjetas est&aacute;ticas: 1080x1920 y el mismo degradado
+         exacto de li-3 en gen-destacadas.py. */
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        color: #FFFDF9;
+        background: linear-gradient(160deg, #16130F 0%, #100E0B 55%, #1B2620 100%);
+      }
+
+      /* La sombra de la casa (SOMBRA en el generador). */
+      .sombra { text-shadow: 0 4px 34px rgba(0, 0, 0, 0.55); }
+
+      .kicker {
+        position: absolute; left: 84px; top: 300px; margin: 0;
+        font-size: 32px; letter-spacing: 0.18em; text-transform: uppercase;
+        color: rgba(255, 253, 249, 0.82); font-weight: 600;
+      }
+
+      .titular {
+        position: absolute; left: 84px; top: 380px; margin: 0; width: 912px;
+        font-size: 76px; line-height: 1.08; letter-spacing: -0.015em; font-weight: 400;
+      }
+      /* Sin <br>: cada l&iacute;nea es su propio bloque. HyperFrames proh&iacute;be el <br> en el
+         cuerpo porque fuerza un corte que ignora el ancho real de la fuente al
+         renderizar y acaba solapando. Un titular de dos l&iacute;neas deliberadas s&iacute; puede
+         partirse, pero en bloques, no con <br>. */
+      .titular span { display: block; }
+
+      /* Un paso: el n&uacute;mero en menta y grande, que es lo que se lee de un vistazo. */
+      .paso {
+        position: absolute; left: 84px; width: 912px;
+        display: flex; align-items: baseline; gap: 28px;
+      }
+      .paso .n {
+        display: block;            /* transformado: debe ser bloque y tener caja propia */
+        font-size: 76px; line-height: 1; color: #5CC0A6;
+      }
+      .paso .t { font-size: 42px; line-height: 1.3; font-weight: 600; }
+      .paso .t span { display: block; }
+
+      #paso-1 { top: 700px; }
+      #paso-2 { top: 940px; }
+      #paso-3 { top: 1090px; }
+
+      .marca {
+        position: absolute; left: 84px; top: 1420px;
+        display: flex; align-items: center; gap: 20px;
+      }
+      .marca img { width: 54px; height: 54px; display: block; }
+      .marca span {
+        font-size: 30px; color: rgba(255, 253, 249, 0.85);
+        font-weight: 600; letter-spacing: 0.02em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 9 s: los tres pasos entran en 5,5 s y quedan 3,5 s de reposo para leerlos y
+         tocar el adhesivo. Por debajo de y=1520 no hay NADA a prop&oacute;sito: ah&iacute; va el
+         adhesivo de enlace, que es lo &uacute;nico que convierte dentro de una historia. -->
+    <div
+      id="root"
+      data-composition-id="lista-pasos"
+      data-start="0"
+      data-width="1080"
+      data-height="1920"
+      data-duration="9"
+    >
+      <p id="kicker" class="kicker sans sombra">C&oacute;mo se entra</p>
+
+      <h1 id="titular" class="titular serif sombra">
+        <span id="tit-1">Tres pasos</span>
+        <span id="tit-2">y treinta segundos.</span>
+      </h1>
+
+      <div id="paso-1" class="paso sombra">
+        <span class="n serif">1</span>
+        <span class="t sans">
+          <span>Toca el enlace de la bio</span>
+          <span>(o el de esta historia).</span>
+        </span>
+      </div>
+
+      <div id="paso-2" class="paso sombra">
+        <span class="n serif">2</span>
+        <span class="t sans"><span>Escribe tu correo.</span></span>
+      </div>
+
+      <div id="paso-3" class="paso sombra">
+        <span class="n serif">3</span>
+        <span class="t sans">
+          <span>Ya est&aacute;. Te avisamos el d&iacute;a</span>
+          <span>del lanzamiento.</span>
+        </span>
+      </div>
+
+      <div id="marca" class="marca sombra">
+        <img src="assets/mark.png" alt="" />
+        <span class="sans">travelsnomad.com</span>
+      </div>
+    </div>
+
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que las fuentes est&eacute;n
+      // listas: si se registra antes, HyperFrames la nesta vac&iacute;a y el render sale en
+      // blanco. Y con las fuentes sin cargar el primer fotograma saldr&iacute;a con la
+      // tipograf&iacute;a de reserva, que no es la de la casa.
+      document.fonts.ready.then(function () {
+        var tl = gsap.timeline({ paused: true });
+
+        // El estado inicial va SIEMPRE dentro del fromTo, nunca en un transform de CSS:
+        // el valor de CSS y el arranque del tween se pelean y el lint lo rechaza.
+        tl.fromTo("#kicker", { opacity: 0, y: 24 },
+                  { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0);
+
+        tl.fromTo(["#tit-1", "#tit-2"], { opacity: 0, y: 44 },
+                  { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.12 }, 0.35);
+
+        // Cada paso: el n&uacute;mero crece un pel&iacute;n y el texto entra desde la izquierda.
+        // Es la diferencia con la tarjeta quieta — los pasos se leen EN ORDEN porque
+        // aparecen en orden, no porque el ojo elija.
+        [["#paso-1", 1.5], ["#paso-2", 2.7], ["#paso-3", 3.9]].forEach(function (p) {
+          var id = p[0], t = p[1];
+          tl.fromTo(id + " .n", { opacity: 0, scale: 0.72 },
+                    { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(2)" }, t);
+          tl.fromTo(id + " .t", { opacity: 0, x: -28 },
+                    { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, t + 0.1);
+        });
+
+        tl.fromTo("#marca", { opacity: 0 },
+                  { opacity: 1, duration: 0.8, ease: "power2.out" }, 5.2);
+
+        // Se registra al final, con los tweens ya dentro.
+        window.__timelines["lista-pasos"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>

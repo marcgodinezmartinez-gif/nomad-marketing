@@ -2,3 +2,9 @@ salida/
 node_modules/
 __pycache__/
 *.mp4
+
+# Historias animadas: lo derivado del banco por construir.sh y lo que escupe el render
+piezas/historias-animadas/*/assets/fuentes.css
+piezas/historias-animadas/*/assets/mark.png
+piezas/historias-animadas/*/snapshots/
+piezas/historias-animadas/*/contact-sheet.jpg
