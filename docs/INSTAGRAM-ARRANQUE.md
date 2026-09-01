@@ -111,3 +111,48 @@ El plan de septiembre sigue siendo el de `LANZAMIENTO-PUBLICIDAD.md`: **el canal
 paga solo es el orgánico en vídeo** (un alta orgánica cuesta cero), y los guiones G1-G7
 siguen esperando un iPhone y un museo. Estos 50 € adelantan el aprendizaje pagado con el
 grid como requisito — no lo sustituyen.
+
+## Los Reels: por qué, y cómo se fabrican sin cámara (31-ago)
+
+Pregunta del dueño esa tarde: «¿consideras añadir más contenido a Instagram?». La
+respuesta medida, y la razón de esta sección: **más posts del grid ya no compran nada**.
+Con 0 seguidores un post estático no lo ve nadie — el grid es el escaparate de quien
+llega del anuncio o de la bio, y con 12 piezas (9 del grid + 3 carruseles de idiomas) ese
+trabajo ya está hecho. **Reels es la única superficie de Instagram que enseña algo a
+quien NO te sigue**, y la cuenta tenía cero vídeo. Ese era el hueco, no el número de
+posts.
+
+Y hay una segunda razón para el formato: es el sitio natural del **asistente de IA**, que
+en la publi estaba callado (de ahí también el copy F de `LANZAMIENTO-PUBLICIDAD.md`). El
+gancho del Reel es «le pedí a una IA que me organizara 3 días en Roma» — primera persona,
+alguien enseñando lo que ha probado, que es cómo se cuenta una herramienta en el feed. Un
+Reel que parece un anuncio se salta.
+
+**Se fabrican desde una sesión, sin grabar nada.** El pipeline vive en `docs/reels/`:
+
+1. `gen-reel.py` (y `gen-reel-it.py`) escriben 5 escenas HTML de 1080×1920 con el sistema
+   visual de la casa — mismo HELMET de fuentes que los carruseles — y el teléfono
+   compuesto con las capturas REALES ya parcheadas por idioma (`capplanit.png`…).
+2. `exportar-reel.mjs` las convierte en PNG con el chromium de `/opt/pw-browsers`.
+3. `montar-reel.sh` las monta en mp4 con **ffmpeg**, que NO viene en el contenedor pero se
+   instala en 11 segundos: `npm i ffmpeg-static`.
+
+Las dependencias que no están en el repo (fotos CC0 del banco, `Main.dc.html` con el
+HELMET, las capturas parcheadas) se rehacen con los generadores del scratchpad; su
+procedencia está en `fotos/bajadas.json`.
+
+**Las dos trampas de ffmpeg, pagadas ya, para que nadie las vuelva a pagar:**
+
+- **`zoompan` genera `d` frames POR CADA FRAME DE ENTRADA.** Con `-loop 1 -t 3` la entrada
+  ya son 90 frames y `d=90` los multiplica: el primer montaje salió de **5 minutos y 35
+  segundos** en vez de 14,6. La entrada tiene que ser UNA imagen suelta, sin `-loop`.
+- **El pre-escalado ×2 antes del `zoompan`** es lo que quita el temblor que ese filtro
+  tiene sobre imágenes grandes. Sin él, el movimiento «salta» de píxel en píxel.
+
+**Zona segura**: la interfaz de Instagram tapa ~200 px arriba y ~420 px abajo. Todo el
+texto vive entre `y=230` e `y=1480`; lo de abajo es decoración sacrificable.
+
+**Los Reels salen SIN pista de audio, a propósito.** Un audio horneado es un riesgo de
+copyright y, sobre todo, renuncia al empujón algorítmico: el audio se elige DENTRO de
+Instagram al subir, de la lista de tendencias del día, que es lo que el sistema premia.
+Instagram lo ajusta solo a la duración del vídeo.
