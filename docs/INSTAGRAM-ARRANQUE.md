@@ -156,3 +156,34 @@ texto vive entre `y=230` e `y=1480`; lo de abajo es decoración sacrificable.
 copyright y, sobre todo, renuncia al empujón algorítmico: el audio se elige DENTRO de
 Instagram al subir, de la lista de tendencias del día, que es lo que el sistema premia.
 Instagram lo ajusta solo a la duración del vídeo.
+
+## Las destacadas, y por qué NO son más posts (1-sep)
+
+Pregunta del dueño esa tarde: *«¿debería seguir subiendo contenido, algo que ayude a los
+nuevos followers a entender qué hace la app y cómo se apuntan a la waitlist?»*.
+
+La respuesta larga —qué se sube, en qué orden, con qué texto y dónde va el adhesivo de
+enlace— vive en **`docs/destacadas/README.md`**. Lo que hay que saber sin abrirlo:
+
+- **Más posts del grid ya no compran nada**, por lo mismo que decía la sección de los
+  Reels: con doce piezas, el escaparate está hecho. Lo que faltaba eran las dos
+  superficies que el grid no cubre.
+- **Las destacadas** son el único sitio de Instagram pensado para «acabo de llegar aquí,
+  ¿qué es esto?»: viven bajo la bio, no envejecen y no bajan por el feed. Son once
+  tarjetas en dos destacadas —`Qué es` (7) y `La lista` (4)— y **se suben primero como
+  historias, así que además son el contenido del día**.
+- **La tarjeta de los tres pasos es la que convierte.** «¿Y cómo me apunto?» no puede
+  tener como respuesta «busca el enlace»: escribir los tres pasos con el adhesivo de
+  enlace delante es la diferencia entre entenderlo y hacerlo. Y la cuarta —«Un correo.
+  Uno.»— contesta la objeción que frena a quien YA estaba convencido.
+- **Un segundo Reel**, `reel-nomad-grupo.mp4`, con el ángulo del grupo: el único de los
+  cuatro de la campaña que ningún competidor puede copiar, y el único que no estaba
+  contado en vídeo.
+
+**Y el dato que gobierna todo esto** (consulta del minuto diario, 1-sep): ocho altas,
+**todas del 31 de agosto y ninguna del 1 de septiembre** — 4 de `ig/social`, 3 de
+`invitacion`, 1 de `meta/paid/lista-a`. Lo orgánico trajo cuatro veces más que lo
+pagado, y el día que no se publicó nada no entró nadie. Además `lista-b`, `-c` y `-e`
+están a cero: **falta mirar el gasto por anuncio en Meta y aplicarles la tabla de
+parada**, que con 5 €/día entre cuatro anuncios cruza el umbral de 0,75 € en menos de un
+día. Ese dato no se lee desde una sesión.
