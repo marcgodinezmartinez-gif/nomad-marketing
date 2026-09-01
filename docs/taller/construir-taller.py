@@ -81,7 +81,11 @@ for i in range(1, 6):
 
 for stem, (origen, _) in PIEZAS.items():
     s = open(f'{IG}/{origen}.dc.html').read().replace('src="fotos/', 'src="')
-    assert 'fotos/' not in s, stem
+    # El reel italiano se montó con las capturas parcheadas en PNG (capplanit.png…); el
+    # banco del taller las tiene como webp con el mismo contenido, y son las que se usan.
+    for png, webp in (('capplanit.png', 'plan-900-it.webp'), ('captourit.png', 'tour-900-it.webp'), ('capmuseoit.png', 'museo-900-it.webp')):
+        s = s.replace(f'src="{png}"', f'src="{webp}"')
+    assert 'fotos/' not in s and 'it.png' not in s, stem
     open(f'{OUT}/{stem}.dc.html', 'w').write(s)
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -131,11 +135,13 @@ def vals_foto():
     return ', '.join(f"{clave(f)}: foto === '{f}'" for f in FOTOS)
 
 def script_foto(extra_props=None, extra_vals=''):
+    # Las constantes del teléfono sólo cuando la plantilla tiene teléfono: en las otras eran
+    # dos líneas muertas copiadas, que la segunda pasada del 1-sep señaló.
+    tel = "    const cap = this.props.captura ?? 'plan';\n    const idioma = this.props.idioma ?? 'es';\n" if extra_props else ''
     return ("<script data-dc-script data-props='" + props_foto(extra_props) + "'>\n"
             "class Component extends DCLogic {\n  renderVals() {\n"
-            f"    const foto = this.props.foto ?? '{FOTOS[0]}';\n"
-            "    const cap = this.props.captura ?? 'plan';\n    const idioma = this.props.idioma ?? 'es';\n"
-            "    return { " + vals_foto() + (', ' + extra_vals if extra_vals else '') + " };\n  }\n}\n</script>\n")
+            f"    const foto = this.props.foto ?? '{FOTOS[0]}';\n" + tel
+            + "    return { " + vals_foto() + (', ' + extra_vals if extra_vals else '') + " };\n  }\n}\n</script>\n")
 
 def velo(g):
     return f'<div style="position: absolute; inset: 0; background: {g}"></div>'
@@ -281,7 +287,7 @@ KIT['Main'] = tablero(1200, 1500,
     eyebrow('Taller de redes &middot; septiembre 2026') + h1('Taller de redes NOMAD', 84)
     + parrafo('Todo lo que hace falta para fabricar una pieza de Instagram sin pedirla: el kit de marca, siete plantillas y las piezas ya hechas. Cada una es un artboard que se retoca en sitio y se exporta a PNG.', 22, INK, 980)
     + '<div style="display: flex; flex-direction: column">'
-    + fila_pagina('Kit', 'Colores, tipograf&iacute;a, la marca, 22 iconos de la app, las 11 fotos del banco (Commons, CC0 o dominio p&uacute;blico, con su cr&eacute;dito) y las 12 capturas reales.')
+    + fila_pagina('Kit', 'Colores, tipograf&iacute;a, la marca, 28 iconos de la app, las 11 fotos del banco (Commons, CC0 o dominio p&uacute;blico, con su cr&eacute;dito) y las 12 capturas reales.')
     + fila_pagina('Plantillas', 'Siete arranques: historia con foto, con tel&eacute;fono, de pasos, plana, escena de reel, post del feed y car&aacute;tula.')
     + fila_pagina('Historias &middot; ES', '&laquo;Qu&eacute; es&raquo; (7) y &laquo;La lista&raquo; (4), m&aacute;s las dos car&aacute;tulas.')
     + fila_pagina('Historias &middot; IT', '&laquo;Cos&rsquo;&egrave;&raquo; (7) y &laquo;Lista d&rsquo;attesa&raquo; (4).')
@@ -371,7 +377,7 @@ def icono(nombre, svg):
 
 KIT['Kit-Iconos'] = tablero(1200, 700,
     eyebrow('Kit &middot; iconos') + h1('Los iconos de la app', 56)
-    + parrafo('Lucide, la misma librer&iacute;a que carga la app (licencia ISC). Trazo de 2 px sobre 24, sin relleno; se recolorean con <i>stroke</i>. Nunca un emoji.', 16, MUTED, 1000)
+    + parrafo('Lucide, la misma librer&iacute;a que carga la app (licencia ISC). Trazo de 2 px sobre 24, sin relleno; se recolorean con <i>stroke</i>. Nunca un emoji como icono; en el texto, uno como mucho y s&oacute;lo para se&ntilde;alar (&#128071; &#128073;), como en la bio.', 16, MUTED, 1000)
     + rejilla([icono(n, s) for n, s in LUCIDE.items()], 8))
 
 # 4f · Fotos: reutilizan los mismos ficheros que las historias, así que no pesan nada más.

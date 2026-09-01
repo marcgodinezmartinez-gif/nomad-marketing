@@ -62,7 +62,7 @@ def marca(y=1440):
 ESCENAS = {}
 
 # 1 · EL GANCHO. Primera persona y una pregunta concreta: es lo que para el dedo.
-ESCENAS['reel-01'] = (RAIZ + '">'
+ESCENAS['reel-01'] = (RAIZ
   + foto('f-portada.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.55) 0%, rgba(16, 14, 11, 0.25) 40%, rgba(16, 14, 11, 0.8) 100%)')
   + titular('Le ped&iacute; a una IA<br>que me organizara<br>3 d&iacute;as en Roma.', 470, 88)
@@ -71,7 +71,7 @@ ESCENAS['reel-01'] = (RAIZ + '">'
   + '</div>')
 
 # 2 · EL PLAN. El teléfono ocupa la pantalla: es la prueba, no la ilustración.
-ESCENAS['reel-02'] = (RAIZ + '">'
+ESCENAS['reel-02'] = (RAIZ
   + foto('f-plan.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.42) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('El d&iacute;a, escrito')
@@ -80,7 +80,7 @@ ESCENAS['reel-02'] = (RAIZ + '">'
   + '</div>')
 
 # 3 · EL TOUR.
-ESCENAS['reel-03'] = (RAIZ + '">'
+ESCENAS['reel-03'] = (RAIZ
   + foto('f-tour.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.4) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('Y por la calle')
@@ -89,7 +89,7 @@ ESCENAS['reel-03'] = (RAIZ + '">'
   + '</div>')
 
 # 4 · EL MUSEO.
-ESCENAS['reel-04'] = (RAIZ + '">'
+ESCENAS['reel-04'] = (RAIZ
   + foto('f-museo.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.4) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('Dentro del museo')
@@ -98,7 +98,7 @@ ESCENAS['reel-04'] = (RAIZ + '">'
   + '</div>')
 
 # 5 · EL PRECIO Y LA LISTA. El número grande y una sola instrucción.
-ESCENAS['reel-05'] = (RAIZ + '">'
+ESCENAS['reel-05'] = (RAIZ
   + foto('f-precio.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.5) 0%, rgba(16, 14, 11, 0.35) 30%, rgba(16, 14, 11, 0.88) 100%)')
   + kicker('Llega en octubre', 400)

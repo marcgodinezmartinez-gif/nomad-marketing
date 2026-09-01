@@ -61,7 +61,7 @@ def marca(y=1440):
 
 ESCENAS = {}
 
-ESCENAS['reelit-01'] = (RAIZ + '">'
+ESCENAS['reelit-01'] = (RAIZ
   + foto('f-portada.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.55) 0%, rgba(16, 14, 11, 0.25) 40%, rgba(16, 14, 11, 0.8) 100%)')
   + titular('Ho chiesto a un&rsquo;IA<br>di organizzarmi<br>3 giorni a Roma.', 470, 88)
@@ -69,7 +69,7 @@ ESCENAS['reelit-01'] = (RAIZ + '">'
   + marca()
   + '</div>')
 
-ESCENAS['reelit-02'] = (RAIZ + '">'
+ESCENAS['reelit-02'] = (RAIZ
   + foto('f-plan.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.42) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('La giornata, scritta')
@@ -77,15 +77,15 @@ ESCENAS['reelit-02'] = (RAIZ + '">'
   + telefono('capplanit.png', 600, 560)
   + '</div>')
 
-ESCENAS['reelit-03'] = (RAIZ + '">'
+ESCENAS['reelit-03'] = (RAIZ
   + foto('f-tour.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.4) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('E per strada')
-  + titular('Te lo racconta all&rsquo;orecchio<br>mentre lo cammini.', 320, 58, 920)
+  + titular('Te lo racconta all&rsquo;orecchio<br>mentre cammini.', 320, 58, 920)
   + telefono('captourit.png', 600, 560)
   + '</div>')
 
-ESCENAS['reelit-04'] = (RAIZ + '">'
+ESCENAS['reelit-04'] = (RAIZ
   + foto('f-museo.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.4) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('Dentro il museo')
@@ -93,7 +93,7 @@ ESCENAS['reelit-04'] = (RAIZ + '">'
   + telefono('capmuseoit.png', 600, 560)
   + '</div>')
 
-ESCENAS['reelit-05'] = (RAIZ + '">'
+ESCENAS['reelit-05'] = (RAIZ
   + foto('f-precio.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.5) 0%, rgba(16, 14, 11, 0.35) 30%, rgba(16, 14, 11, 0.88) 100%)')
   + kicker('Arriva a ottobre', 400)
