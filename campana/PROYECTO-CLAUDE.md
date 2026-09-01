@@ -1,5 +1,20 @@
 # El Proyecto «NOMAD · marketing» en claude.ai
 
+**Opcional, y de momento no se monta.** Decidido la misma noche del 1-sep, cuando el dueño
+preguntó si el Proyecto «actualizaría automáticamente el contexto»: **no**. Un Proyecto no
+lee GitHub; sabe lo que se le pega y se le sube, congelado en ese momento, y cada cambio
+en el repo obliga a volver a subirlo a mano. Para una persona sola eso es fricción que no
+se hace, y un Proyecto desactualizado es peor que ninguno: opina con números viejos.
+
+**Todo el marketing se hace en la sesión de Claude Code sobre este repo**, que lee
+`AGENTS.md` y los documentos al empezar (siempre al día), fabrica las piezas, consulta la
+base de datos y abre issues — y escribe copys igual de bien. La memoria entre sesiones
+es el repo: lo que vale se apunta en `campana/` o en una issue, no en un chat.
+
+El Proyecto vuelve a tener sentido sólo si un día hace falta escribir copys desde el
+móvil sin repo. Entonces se monta con lo de abajo, sabiendo que hay que resubirle los
+ficheros cada vez que cambien.
+
 Es el sitio para **pensar y escribir** —copys, ángulos, pies, respuestas a comentarios,
 el informe del viernes— sin herramientas ni puerta. No ejecuta generadores ni consulta la
 base de datos: eso es una sesión de Claude Code sobre este repo. Se monta en cinco
