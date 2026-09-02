@@ -68,7 +68,7 @@ y necesitan un nombre que recordar.
 
 | # | t | Qué se graba | Texto sobreimpreso |
 |---|---|---|---|
-| 1 | 0:00–0:04 | **Empieza ya escribiendo.** El asistente de crear viaje, con el destino y las fechas a medio teclear. Termina de escribir «Roma · 3 días» y pulsa **Generar viaje**. | **Le digo dónde y cuándo.** |
+| 1 | 0:00–0:04 | **`Crear viaje` → Paso 4 de 4, «Últimos detalles».** Ver abajo la coreografía. | **Esto es todo lo que le digo.** |
 | 2 | 0:04–0:11 | El plan apareciendo. Deja que respire, y **desliza despacio** por los tres días: qué ver, en qué orden, cuánto cuesta. | — *(desnudo: «Sábado, 29 ago · 5 planes · 72 €» lo dice la app)* |
 | 3 | 0:11–0:18 | Abre el tour a pie. El mapa con la ruta dibujada y las paradas numeradas. Toca una parada y **arranca la voz** — que se vea el control de audio en marcha. | — *salvo que en pantalla no se entienda que suena una voz; entonces,* **Me lo va contando por la calle.** |
 | 4 | 0:18–0:25 | El museo. Enfoca un cuadro y aparece su historia. Deja ver dos o tres líneas del texto. | — *(desnudo: se ve el cuadro y se ve el texto apareciendo)* |
@@ -76,6 +76,41 @@ y necesitan un nombre que recordar.
 
 Tres funciones, no cinco. El grupo y la visita por planta se quedan fuera a propósito: un
 vídeo que enseña todo no enseña nada.
+
+## Plano 1 al detalle: qué pantalla y cómo (2-sep)
+
+**`Crear viaje` → Paso 4 de 4, «Últimos detalles»** (`banco/capturas/crear-900.webp`). En un
+solo cuadro están las tres cosas que hacen falta:
+
+- **La entrada**: el campo «Algo más que debamos saber», en lenguaje normal.
+- **La prueba de que ha entendido**: la tarjeta de RESUMEN — Roma, 3 días, en pareja,
+  cultural, mañanas y tardes, presupuesto moderado, a pie y transporte público. Mucho más
+  convincente que «escribí una ciudad».
+- **El botón**: «Generar viaje», grande y verde; el toque se lee sin ambigüedad.
+
+Regalo de la pantalla: pone literalmente **«Indicaciones para la IA»**. El ángulo F —el de
+la IA, en reserva porque esa palabra no estaba en ninguno de los cuatro anuncios— aparece
+solo, en la interfaz, sin tener que decirlo.
+
+| t | Qué se hace |
+|---|---|
+| 0,0–1,5 | El campo **ya casi escrito** («Visitar el Coliseo y los Museos») con el teclado arriba. Se teclean las últimas palabras: « Vaticanos». Movimiento desde el primer fotograma |
+| 1,5–2,0 | Se baja el teclado, y al desaparecer **se descubre la tarjeta de resumen** |
+| 2,0–3,0 | **Quieto** un segundo sobre el resumen: aquí el ojo lee qué se ha pedido |
+| 3,0–4,0 | Se toca **Generar viaje** |
+
+**No se empieza por el paso 1 del asistente.** Los cuatro pasos se comen 8 de los 32
+segundos en la parte aburrida: el input no es el premio, el plan sí.
+
+**Dos trampas de este plano:**
+
+- **Las fechas.** La captura del banco dice «29 ago – 31 ago», que ya son pasado. Se graba
+  con un finde de octubre o noviembre — y de paso el viaje cae cuando sale la app.
+- **El teclado tapa el resumen** mientras se escribe. Por eso el plano tiene el beat de
+  bajarlo: sin él, el resumen no se ve nunca, y es la mitad del valor del plano.
+
+La alternativa a la línea de arranque, si no se quiere jugar al bucle abierto: **«Le pido
+tres días en Roma.»**
 
 ## Cuánto texto: el mínimo (revisado el 2-sep)
 
