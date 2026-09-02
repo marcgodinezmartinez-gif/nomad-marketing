@@ -29,7 +29,8 @@ repartir, y eso mueve el valor a ANTES de pedir el correo, que es lo que faltaba
 - **App real**, nunca maqueta. Y si una pantalla cambia, se vuelve a grabar.
 - **El precio, siempre en su orden**: 2,99 € el viaje entero → 1,99 € en la lista. El
   ancla es el café. La audioguía de 6 € no vuelve por ninguna puerta.
-- **Un texto por plano.** Si hacen falta dos líneas, el plano es demasiado largo.
+- **El texto es el mínimo, no el máximo** (revisado el 2-sep, ver abajo): la interfaz ya
+  habla sola y taparla es tapar la prueba.
 
 ## A pantalla completa, sin móvil maquetado (2-sep, decidido mirando `plan-900.webp`)
 
@@ -68,13 +69,41 @@ y necesitan un nombre que recordar.
 | # | t | Qué se graba | Texto sobreimpreso |
 |---|---|---|---|
 | 1 | 0:00–0:04 | **Empieza ya escribiendo.** El asistente de crear viaje, con el destino y las fechas a medio teclear. Termina de escribir «Roma · 3 días» y pulsa **Generar viaje**. | **Le digo dónde y cuándo.** |
-| 2 | 0:04–0:11 | El plan apareciendo. Deja que respire, y **desliza despacio** por los tres días: qué ver, en qué orden, cuánto cuesta. | **Y me escribe los días.** |
-| 3 | 0:11–0:18 | Abre el tour a pie. El mapa con la ruta dibujada y las paradas numeradas. Toca una parada y **arranca la voz** — que se vea el control de audio en marcha. | **Por la calle, me lo va contando.** |
-| 4 | 0:18–0:25 | El museo. Enfoca un cuadro y aparece su historia. Deja ver dos o tres líneas del texto. | **Enfoco un cuadro y me cuenta qué es.** |
+| 2 | 0:04–0:11 | El plan apareciendo. Deja que respire, y **desliza despacio** por los tres días: qué ver, en qué orden, cuánto cuesta. | — *(desnudo: «Sábado, 29 ago · 5 planes · 72 €» lo dice la app)* |
+| 3 | 0:11–0:18 | Abre el tour a pie. El mapa con la ruta dibujada y las paradas numeradas. Toca una parada y **arranca la voz** — que se vea el control de audio en marcha. | — *salvo que en pantalla no se entienda que suena una voz; entonces,* **Me lo va contando por la calle.** |
+| 4 | 0:18–0:25 | El museo. Enfoca un cuadro y aparece su historia. Deja ver dos o tres líneas del texto. | — *(desnudo: se ve el cuadro y se ve el texto apareciendo)* |
 | 5 | 0:25–0:32 | **Cierre.** Vuelve al plan generado y **quédate quieto** ahí. El texto entra encima. | **Sale en octubre, por 2,99 € el viaje entero.**<br>**En la lista, el primero por 1,99 €.**<br><br>*Y aquí, 1 s de la pantalla de carga con el logo.* |
 
 Tres funciones, no cinco. El grupo y la visita por planta se quedan fuera a propósito: un
 vídeo que enseña todo no enseña nada.
+
+## Cuánto texto: el mínimo (revisado el 2-sep)
+
+Pregunta del dueño al leer la primera versión de este guion: *«¿de verdad hace falta meter
+texto?»*. Tenía razón: la primera versión llevaba cinco líneas y sobraban tres.
+
+**La interfaz ya habla, y con tus propias frases**: «Sábado, 29 ago», «5 planes · 72 €»,
+«Coliseo y Foro Romano · Museo · 18 €», «Iniciar tour». Eso no es decorado, es el
+argumento. Taparlo con un rótulo que dice lo mismo es tapar la prueba — el mismo motivo
+por el que no va dentro de un móvil maquetado. Y un rótulo grande sobre una grabación es
+la estética del anuncio, que es lo que la regla de la casa manda evitar.
+
+Quedan **dos momentos de texto, y un tercero condicional**:
+
+1. **Una línea al arrancar.** No para explicar —«Generar viaje» se entiende solo— sino
+   para **frenar el dedo**. Alguien tecleando en un formulario no frena a nadie; una
+   promesa dicha, sí. Vale mucho más en el anuncio pagado, donde nadie te conoce, que en
+   una historia para tus seguidores.
+2. **El cierre.** El precio, octubre y qué hacer no están en ninguna pantalla de la app.
+   Sin eso el vídeo es bonito y no pide nada.
+3. **Condicional, en el tour**: que suene una voz ES el argumento de ese plano, y en
+   silencio un botón de play no lo transmite. Si al grabarlo la pantalla no lo deja claro
+   sola, entra una línea; si lo deja claro, fuera.
+
+**Y se graba LIMPIO, sin nada encima.** El texto se pone después. Así de la misma
+grabación salen las dos versiones —la desnuda para orgánico y la que lleva línea de
+arranque para el anuncio— sin volver a grabar. Que además es la prueba gratis: se sube la
+desnuda como historia y se mira si la ven entera.
 
 ## El cierre cambia según dónde lo subas
 
