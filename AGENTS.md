@@ -39,6 +39,7 @@ cada sesión, se aplican:
 |---|---|
 | Un anuncio ha gastado < 0,75 € (3× TCPL) | Esperar. No hay señal todavía |
 | Cero altas con ≥ 0,75 € gastados | Matar el CONCEPTO, no iterarlo con otro texto |
+| **Hay clics y no hay altas** (< ~3 % de los clics se apuntan) | **No matar todavía**: el fallo está DESPUÉS del clic. Comparar «visitas a la página de destino» con «clics en el enlace» antes de tocar el anuncio |
 | Coste por alta ≤ 0,25 € | Candidato a ganador |
 | Entre 0,25 y 0,38 € | Vigilar: varianza normal |
 | > 0,38 € (1,5× TCPL) | Cambiarlo: fallo estructural |
@@ -47,6 +48,11 @@ cada sesión, se aplican:
 Y dos reglas que se salta todo el mundo: al iterar un anuncio muerto por falta de reparto
 se cambia el gancho o el visual, **nunca el texto** (nadie llegó a leerlo); y **nunca se
 pausa sin reemplazo listo**.
+
+La fila de «hay clics y no hay altas» la pagó la campaña el 2-sep: 20 000 de alcance, 677
+clics (3,4 % de CTR, bueno para tráfico frío) y **1 alta** — 0,15 %. La fila de «cero
+altas» habría matado el creativo, que era la única parte que funcionaba. El porqué y el
+diagnóstico de la portada, en `campana/LANZAMIENTO-PUBLICIDAD.md`.
 
 ## Medir antes de opinar
 

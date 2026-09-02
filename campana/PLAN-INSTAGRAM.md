@@ -161,6 +161,7 @@ el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párr
 |---|---|
 | Un anuncio ha gastado **< 0,75 €** (3× TCPL) | Esperar. No hay señal todavía. |
 | **Cero altas** con ≥ 0,75 € gastados | Matar el CONCEPTO (no iterarlo con otro texto). |
+| **Hay clics y no hay altas** (< ~3 % de los clics se apuntan) | **No matar todavía**: el fallo está después del clic. Comparar «visitas a la página de destino» con «clics en el enlace». |
 | Coste por alta **≤ 0,25 €** | Candidato a ganador. |
 | Entre **0,25 y 0,38 €** | Vigilar: es varianza normal. |
 | **> 0,38 €** (1,5× TCPL) | Cambiarlo: fallo estructural, no ruido. |

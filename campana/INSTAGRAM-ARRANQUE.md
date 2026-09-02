@@ -86,7 +86,10 @@ por `waitlist.source`, no por lo que Meta se atribuya).
   `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-a` (…b/c/e)
 - **Reglas de parada**: la tabla de `LANZAMIENTO-PUBLICIDAD.md` §Cuándo parar, anclada en
   TCPL 0,25 €. En corto: nada se juzga antes de 0,75 € gastados; cero altas con 0,75 € =
-  concepto muerto; si Meta no le da gasto a uno, ése ya está juzgado.
+  concepto muerto; si Meta no le da gasto a uno, ése ya está juzgado. **Y la excepción que
+  se lleva por delante a la segunda regla** (2-sep): si hay clics y no hay altas, el fallo
+  está después del clic — se miran «visitas a la página de destino» contra «clics en el
+  enlace» antes de matar nada.
 
 ## El minuto diario de medición
 
