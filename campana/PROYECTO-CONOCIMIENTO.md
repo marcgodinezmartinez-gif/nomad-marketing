@@ -1,6 +1,6 @@
 # Conocimiento del Proyecto «NOMAD · marketing»
 
-Generado el 1 de septiembre de 2026 desde el repo `nomad-marketing` (`campana/PROYECTO-CLAUDE.md` dice cómo). Seis documentos, uno detrás de otro; cuando uno cambie en el repo, se regenera y se vuelve a subir. **El repo manda; esto es una copia.**
+Generado desde el repo `nomad-marketing` por `campana/generar-conocimiento.sh` (`campana/PROYECTO-CLAUDE.md` dice qué es y cuándo se sube). Seis documentos, uno detrás de otro. **El repo manda; esto es una copia: se regenera, no se edita.**
 
 
 ---
@@ -48,6 +48,7 @@ cada sesión, se aplican:
 |---|---|
 | Un anuncio ha gastado < 0,75 € (3× TCPL) | Esperar. No hay señal todavía |
 | Cero altas con ≥ 0,75 € gastados | Matar el CONCEPTO, no iterarlo con otro texto |
+| **Hay clics y no hay altas** (< ~3 % de los clics se apuntan) | **No matar todavía**: el fallo está DESPUÉS del clic. Comparar «visitas a la página de destino» con «clics en el enlace» antes de tocar el anuncio |
 | Coste por alta ≤ 0,25 € | Candidato a ganador |
 | Entre 0,25 y 0,38 € | Vigilar: varianza normal |
 | > 0,38 € (1,5× TCPL) | Cambiarlo: fallo estructural |
@@ -56,6 +57,11 @@ cada sesión, se aplican:
 Y dos reglas que se salta todo el mundo: al iterar un anuncio muerto por falta de reparto
 se cambia el gancho o el visual, **nunca el texto** (nadie llegó a leerlo); y **nunca se
 pausa sin reemplazo listo**.
+
+La fila de «hay clics y no hay altas» la pagó la campaña el 2-sep: 20 000 de alcance, 677
+clics (3,4 % de CTR, bueno para tráfico frío) y **1 alta** — 0,15 %. La fila de «cero
+altas» habría matado el creativo, que era la única parte que funcionaba. El porqué y el
+diagnóstico de la portada, en `campana/LANZAMIENTO-PUBLICIDAD.md`.
 
 ## Medir antes de opinar
 
@@ -492,6 +498,7 @@ Del sistema de decisión de Meta de la skill `ads`, adaptado a nuestro número. 
 |---|---|---|
 | Ha gastado **menos de 0,75 €** (3× TCPL) | **Esperar.** No mirar aún. | Con menos gasto no hay señal: juzgar a 2× tiene un 13 % de falsos negativos. A 3×, si el anuncio fuera bueno ya habrían entrado ~3 altas, así que cero altas ahí es un ~5 % de probabilidad. |
 | **Cero altas** con ≥0,75 € gastados | **Matar el CONCEPTO,** no iterarlo. | Un concepto muerto no mejora cambiándole el texto. |
+| **Hay clics y no hay altas** (menos del ~3 % de los clics se apuntan) | **No matar el concepto todavía.** Mirar el embudo primero: «visitas a la página de destino» contra «clics en el enlace». | La fila de arriba da por supuesto que después del clic el embudo convierte. Cuando no, mata el creativo — que es la parte que sí funciona. Ver abajo. |
 | Coste por alta **≤ 0,25 €** | Candidato a ganador. | |
 | Entre **0,25 y 0,38 €** | Vigilar. Es varianza normal. | |
 | **> 0,38 €** (1,5× TCPL) | Cambiarlo. Es fallo estructural, no ruido. | |
@@ -503,6 +510,48 @@ texto no era el problema.
 
 **Nunca pausar sin un reemplazo listo.** Si no hay otro vídeo preparado, el dinero vuelve
 al que ya funciona; dejar corriendo un anuncio muerto es peor que no tener ninguno.
+
+### La fila que faltaba: hay clics y no hay altas (2-sep)
+
+La tabla se escribió suponiendo que el embudo convierte y que el único fallo posible está
+en el anuncio. La campaña demostró que no, y la fila nueva la pagó ese día.
+
+**Los números que la motivan**, del panel de Meta:
+
+| | |
+|---|---|
+| 20 000 de alcance → 677 clics | **3,4 % de CTR** — bueno para tráfico frío |
+| 677 clics → 1 alta | **0,15 %** |
+| Lo que da una página de lista que funciona | 10-30 % → **entre 68 y 200 altas** |
+| Lo que daría una mala | 3 % → 20 altas |
+
+Un factor de 60 a 200 no es varianza. Y aplicando la tabla vieja tal cual —cero altas con
+gasto de sobra— tocaba **matar el concepto**, es decir, matar lo único que estaba
+funcionando: un 3,4 % de CTR no es un anuncio que la gente ignore.
+
+**La portada no es la culpable.** Comprobado en producción antes de opinar, no leyendo el
+fichero: responde 200 en 0,25 s (36 KB) y las doce imágenes de `/shots/` responden 200; el
+formulario viene en el HTML servido, no depende de JS para existir; en un iPhone 13
+(390×664) el campo de correo está en **y=259, visible sin bajar**, con el precio debajo; el
+guion de idioma conserva `location.search` entera, así que la atribución utm sobrevive al
+salto; y el POST a `/rest/v1/waitlist` trata el 409 como éxito, así que un correo repetido
+tampoco se pierde.
+
+**El número que separa las dos historias** es «visitas a la página de destino» contra
+«clics en el enlace»:
+
+- **Visitas ≪ clics** (pongamos 150 de 677): los clics nunca llegaron. Con objetivo de
+  *tráfico*, Meta compra los clics más baratos que encuentra, y eso suele ser Audience
+  Network y toques accidentales. Se arregla **excluyendo esas ubicaciones**, no
+  reescribiendo el texto.
+- **Visitas ≈ clics** (600 de 677): llegaron, vieron el formulario a la vista y se fueron.
+  Entonces sí es la oferta o el mensaje, y toca reescribir.
+
+Hasta tener ese número, **no se mata ningún anuncio por esta vía**: matarlo sin saber cuál
+de las dos historias es tira el aprendizaje, que es lo único que los 50 € compraban.
+
+Y el contraste que la fila deja por escrito para la próxima vez: **lo pagado fueron 677
+clics y 1 alta; lo orgánico, 4 altas sin gastar un euro.**
 
 ## La consulta de atribución (para cualquiera con acceso al SQL editor)
 
@@ -700,6 +749,7 @@ el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párr
 |---|---|
 | Un anuncio ha gastado **< 0,75 €** (3× TCPL) | Esperar. No hay señal todavía. |
 | **Cero altas** con ≥ 0,75 € gastados | Matar el CONCEPTO (no iterarlo con otro texto). |
+| **Hay clics y no hay altas** (< ~3 % de los clics se apuntan) | **No matar todavía**: el fallo está después del clic. Comparar «visitas a la página de destino» con «clics en el enlace». |
 | Coste por alta **≤ 0,25 €** | Candidato a ganador. |
 | Entre **0,25 y 0,38 €** | Vigilar: es varianza normal. |
 | **> 0,38 €** (1,5× TCPL) | Cambiarlo: fallo estructural, no ruido. |
@@ -839,7 +889,10 @@ por `waitlist.source`, no por lo que Meta se atribuya).
   `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-a` (…b/c/e)
 - **Reglas de parada**: la tabla de `LANZAMIENTO-PUBLICIDAD.md` §Cuándo parar, anclada en
   TCPL 0,25 €. En corto: nada se juzga antes de 0,75 € gastados; cero altas con 0,75 € =
-  concepto muerto; si Meta no le da gasto a uno, ése ya está juzgado.
+  concepto muerto; si Meta no le da gasto a uno, ése ya está juzgado. **Y la excepción que
+  se lleva por delante a la segunda regla** (2-sep): si hay clics y no hay altas, el fallo
+  está después del clic — se miran «visitas a la página de destino» contra «clics en el
+  enlace» antes de matar nada.
 
 ## El minuto diario de medición
 

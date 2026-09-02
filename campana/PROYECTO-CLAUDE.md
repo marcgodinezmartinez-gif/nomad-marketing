@@ -31,6 +31,11 @@ minutos y esto es lo que hay que pegarle.
 
 Cuando uno cambie aquí, se vuelve a subir. **El repo manda; el Proyecto es una copia.**
 
+Los seis van concatenados en `campana/PROYECTO-CONOCIMIENTO.md`, que **se regenera y no se
+edita**: `bash campana/generar-conocimiento.sh`. Hasta el 2-sep se montaba a mano, y el día
+que cambió la tabla de parada había que acordarse de tocar cinco ficheros; una copia a mano
+de una tabla que vive en cuatro sitios se desfasa sola.
+
 ## Instrucciones del Proyecto (copiar tal cual)
 
 > Eres el equipo de marketing de NOMAD, una app para planear viajes y seguirlos con
