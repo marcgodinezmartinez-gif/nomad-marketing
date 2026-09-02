@@ -31,6 +31,38 @@ repartir, y eso mueve el valor a ANTES de pedir el correo, que es lo que faltaba
   ancla es el café. La audioguía de 6 € no vuelve por ninguna puerta.
 - **Un texto por plano.** Si hacen falta dos líneas, el plano es demasiado largo.
 
+## A pantalla completa, sin móvil maquetado (2-sep, decidido mirando `plan-900.webp`)
+
+Preguntado por el dueño: *«¿lo maquetamos dentro de un móvil y al lado explicamos cosas?»*.
+**No**, y la razón está en la propia pantalla del plan: «Sábado 29 ago · 5 planes · 72 €»,
+08:30 Coliseo (Museo, 18 €), 12:00 helado en Giolitti (4 €), 13:30 Trattoria Luzzi (20 €),
+17:30 Trastevere, 20:30 Da Enzo al 29 (30 €). **Esa densidad ES la prueba** de que la app
+escribe el día de verdad. Dentro de un marco con texto al lado, la pantalla baja al 50-60 %
+del alto y nada de eso se lee en un móvil: se cambia el único argumento por una estética.
+
+Y el espectador **está sosteniendo un teléfono**: a pantalla completa la grabación se lee
+como «esto es mi pantalla», que es el efecto de primera persona que se busca. Un móvil
+dibujado dentro de un móvil dentro de un móvil sólo recuerda que esto es publicidad.
+
+El marco sigue teniendo su sitio, y ya lo ocupa: las piezas estáticas y la portada, donde
+la imagen está quieta y hay tiempo para mirarla.
+
+**El texto va encima, en una banda arriba entre y=300 e y=470**, con banda oscura detrás
+—la interfaz es clara y el texto blanco se pierde; un velo global no vale, que es la
+trampa que ya se pagó con Montmartre y la Alhambra—. En la pantalla del plan esa banda cae
+sobre el mapa, que es lo prescindible, y deja intacta la lista. **Regla para los cinco
+planos: la banda tapa lo decorativo, nunca lo que demuestra el argumento.**
+
+## La pantalla de carga con el logo: al final, no al principio
+
+También preguntado por el dueño. El instinto es bueno y el sitio es el equivocado: una
+pantalla de carga enseña lo único que el espectador no ha pedido, y gasta los dos segundos
+más caros de la pieza en la información menos valiosa — para quien no conoce NOMAD, ese
+logo todavía no significa nada. Da igual que se anime: es la gramática de un anuncio.
+
+**Va al final**, un segundo sobre el plano 5, cuando ya han visto la app escribir un viaje
+y necesitan un nombre que recordar.
+
 ## El guion
 
 | # | t | Qué se graba | Texto sobreimpreso |
@@ -39,7 +71,7 @@ repartir, y eso mueve el valor a ANTES de pedir el correo, que es lo que faltaba
 | 2 | 0:04–0:11 | El plan apareciendo. Deja que respire, y **desliza despacio** por los tres días: qué ver, en qué orden, cuánto cuesta. | **Y me escribe los días.** |
 | 3 | 0:11–0:18 | Abre el tour a pie. El mapa con la ruta dibujada y las paradas numeradas. Toca una parada y **arranca la voz** — que se vea el control de audio en marcha. | **Por la calle, me lo va contando.** |
 | 4 | 0:18–0:25 | El museo. Enfoca un cuadro y aparece su historia. Deja ver dos o tres líneas del texto. | **Enfoco un cuadro y me cuenta qué es.** |
-| 5 | 0:25–0:32 | **Cierre.** Vuelve al plan generado y **quédate quieto** ahí. El texto entra encima. | **Sale en octubre, por 2,99 € el viaje entero.**<br>**En la lista, el primero por 1,99 €.** |
+| 5 | 0:25–0:32 | **Cierre.** Vuelve al plan generado y **quédate quieto** ahí. El texto entra encima. | **Sale en octubre, por 2,99 € el viaje entero.**<br>**En la lista, el primero por 1,99 €.**<br><br>*Y aquí, 1 s de la pantalla de carga con el logo.* |
 
 Tres funciones, no cinco. El grupo y la visita por planta se quedan fuera a propósito: un
 vídeo que enseña todo no enseña nada.
