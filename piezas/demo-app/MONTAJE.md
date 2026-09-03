@@ -7,20 +7,30 @@ tiene un estilo superelegante y esto parece un vídeo un poco cutre y mal hecho�
 razón; «La capa de presentación», abajo, cuenta el porqué y la receta. **El corte del
 metraje —qué segundo de qué grabación— es el mismo** y sigue en «Los cortes».
 
-De 63 s de grabación en cuatro ficheros salen **23,2 s de app** y **28,0 s de reel** en
+De 63 s de grabación en cuatro ficheros salen **38,1 s de app** y **43,0 s de reel** en
 1080×1920, 30 fps y **sin pista de audio** (se elige dentro de Instagram, como los reels).
-Tres ficheros de salida, los tres del mismo render:
+Cuatro ficheros de salida, los cuatro del mismo render:
 
 | Fichero | Dur | Para qué |
 |---|---|---|
-| `demo-reel.mp4` | 28,0 s | el reel, entero |
+| `demo-reel.mp4` | 43,0 s | el reel, entero |
 | `demo-reel-historia-1.mp4` | 12,0 s | historia 1: el asistente y el plan (0 → 12,0 del reel) |
-| `demo-reel-historia-2.mp4` | 15,0 s | historia 2: tour, museo y cierre (13,0 → 28,0) |
+| `demo-reel-historia-2.mp4` | 12,9 s | historia 2: el tour a pie (12,23 → 25,13) |
+| `demo-reel-historia-3.mp4` | 17,9 s | historia 3: el museo y el cierre (25,13 → 43,0) |
 
-Las dos historias salen del reel cortado por sus capítulos: cada una cuenta algo entero
-(pedir → plan; guiar → museo → precio) y ninguna pasa de 15 s. El adhesivo de enlace va
-en las dos, de y=1520 abajo: ahí sólo hay la parte baja del móvil, que es teclado y
-botonera.
+Las historias salen del reel cortado por sus capítulos: cada una cuenta algo entero
+(pedir → plan; guiar; museo → precio). La tercera pasa de 15 s a propósito: Instagram
+admite historias de hasta 60 s sin trocearlas desde 2022, y partir el museo del precio
+dejaría el cierre solo. El adhesivo de enlace va en las tres, de y=1520 abajo: ahí sólo
+hay la parte baja del móvil, que es teclado y botonera.
+
+**El 3-sep por la tarde el reel se hizo más lento, y a propósito.** El dueño, con el primer
+render delante: *«no se ve la explicación que se da en los tours ni en los museos, y eso es
+interesante que se vea; además va muy deprisa esas partes»*. Tenía razón dos veces: el corte
+del 2-sep había quitado LA HISTORIA de la parada (el «muro de texto» de abajo) y despachaba
+el tour y el museo en 5,5 s cada uno. Ahora duran 12,9 y 13,0 s, con menos planos y más
+largos, y se ve lo que la app cuenta: la ficha del paseo, LA HISTORIA de la Piazza del
+Popolo con su «Dato curioso», la ficha de la visita y LA HISTORIA del Coloso de Constantino.
 
 ## La capa de presentación (3-sep): la tarjeta de la casa, moviéndose
 
@@ -41,19 +51,21 @@ con la captura sustituida por la grabación: **los mismos números, no unos pare
   y=600 y sangra 430 px por abajo, a propósito: lo que queda fuera es teclado y botonera,
   que la interfaz de Instagram tapa igualmente. Lo que demuestra el argumento —el campo de
   destino, el itinerario con horas y precios, la ficha de la obra— queda entre 624 y 1480.
-- **El cierre es el de qe-7, sin móvil**: el teléfono se va por abajo en 0,7 s (22,5-23,2)
-  **antes** de que acabe su vídeo (23,23), para que nunca se vea una pantalla vacía; y
+- **El cierre es el de qe-7, sin móvil**: el teléfono se va por abajo en 0,7 s, empezando
+  0,73 s **antes** de que acabe su vídeo, para que nunca se vea una pantalla vacía; y
   entran «Todavía no está publicada / Llega en octubre.», «2,99 € el viaje entero.», «En
   la lista, el primero por 1,99 €.» —en ese orden— y la marca con `travelsnomad.com` a
-  y=1400. Reposo hasta 28,0.
+  y=1400. Reposo hasta el final (4,9 s de cierre).
 
-Los cortes de capítulo son los del metraje: **5,10** (la app empieza a montar el viaje),
-**12,24** (tour), **17,74** (museo), **23,23** (fin). El rótulo sale en el corte y el
-siguiente entra 0,35 s después: el texto explica lo que ya se ve, no lo anuncia.
+Los cortes de capítulo son los del metraje —**5,10** (la app empieza a montar el viaje),
+**12,23** (tour), **25,13** (museo), **38,13** (fin)— y **no se escriben a mano**: se
+calculan sumando los fotogramas de los tramos al montar `pantalla.mp4` y se vuelcan en
+las constantes `T_TOUR`, `T_MUSEO` y `T_FIN` de la línea de tiempo. El rótulo sale en el
+corte y el siguiente entra 0,36 s después: el texto explica lo que ya se ve, no lo anuncia.
 
 ### La grabación dentro del móvil: `assets/pantalla.mp4`
 
-Los 18 cortes de abajo, **sin recortar** (dentro de un móvil tiene que verse el móvil
+Los 20 tramos de abajo, **sin recortar** (dentro de un móvil tiene que verse el móvil
 entero) y escalados a **760×1548**, la pantalla del marco. Y encima, **102 px de barra de
 estado** que la grabación no traía y la captura de la casa (`plan-900.webp`) sí: hora a
 la izquierda, cobertura y batería a la derecha, la isla en medio. El fondo de esos 102 px
@@ -85,7 +97,8 @@ cd piezas/historias-animadas/demo-reel
 npx hyperframes check                                 # 0/0, 21/21 en contraste
 npx hyperframes render --output demo-reel.mp4         # 28 s a 30 fps
 ffmpeg -i demo-reel.mp4 -t 12.0 -an -c:v libx264 -crf 18 demo-reel-historia-1.mp4
-ffmpeg -i demo-reel.mp4 -ss 13.0 -an -c:v libx264 -crf 18 demo-reel-historia-2.mp4
+ffmpeg -i demo-reel.mp4 -ss 12.233 -t 12.9 -an -c:v libx264 -crf 18 demo-reel-historia-2.mp4
+ffmpeg -i demo-reel.mp4 -ss 25.133 -an -c:v libx264 -crf 18 demo-reel-historia-3.mp4
 ffmpeg -i demo-reel.mp4 -ss 9.0 -frames:v 1 -q:v 2 demo-reel-portada.jpg   # la portada
 ```
 
@@ -128,16 +141,20 @@ botonera de abajo, donde viven «Siguiente» y «Generar viaje». Recortes: `0:2
 | 10 | A | 5,55 | 7,85 | 2,30 **+0,70 congelado** | jueves: el itinerario con horas y precios. Es el plano que vende |
 | 11 | A | 7,92 | 8,82 | 0,90 | viernes: «y hay un segundo día» |
 | 12 | B | 3,20 | 5,00 | 1,80 | «Diseñando tu tour — trazando una ruta sin rodeos…» (12 palabras: 1,8 s) |
-| 13 | B | 6,50 | 8,00 | 1,50 | 6 paradas · 130 min · punto de encuentro |
-| 14 | B | 9,20 | 11,40 | 2,20 | el mapa de la ruta y la audioguía con «Colócate aquí» |
+| 13a | B | 6,50 | 7,30 | 0,80 **+1,70 congelado** | la ficha del paseo quieta: título, descripción, 6 paradas · 130 min, punto de encuentro. 2,5 s para leerla |
+| 13b | B | 7,30 | 9,10 | 1,80 | el scroll a «Antes de empezar» y el botón, hasta el toque (cae entre 9,0 y 9,2). Continuo: el scroll se asienta hasta pasado 8,0 |
+| 14 | B | 9,50 | 15,70 | 6,20 **+0,60 congelado** | el mapa con la ruta (teselas ya en 9,5), el zoom (10,8-11,4), «Colócate aquí», el scroll a LA HISTORIA (12,2-13,0), el texto quieto, y el «Dato curioso» abriéndose (14,3-14,7) y quieto hasta el final |
 | 16 | C | 0,90 | 2,00 | 1,10 | «Preparando la visita» — la ficha asoma en 2,1 y se corta antes |
-| 17 | C | 2,30 | 3,80 | 1,50 | 7 obras · 105 min · 2 plantas |
-| 18 | C | 5,15 | 7,05 | 1,90 | el Coloso de Constantino grande, con su audioguía debajo |
-| 19 | C | 11,25 | 12,25 | 1,00 | todas las obras con miniaturas (la lista se llena en 11,2) |
-| 20 | — | — | — | 4,00 | el cierre (3,8 en la historia 2) |
+| 17a | C | 2,30 | 2,90 | 1 fotograma **+2,47 congelado** | la ficha de la visita quieta: descripción, 7 obras · 105 min · 2 plantas, lo que no entra, dónde empieza. 2,5 s |
+| 17b | C | 2,90 | 5,10 | 2,20 | el scroll a «Antes de empezar» y el botón, hasta el toque (5,0-5,2) |
+| 18 | C | 5,10 | 8,90 | 3,73 **+1,90 congelado** | el Coloso de Constantino grande; sube su ficha con la audioguía y «Cómo llegar»; el scroll a LA HISTORIA (7,3-8,2) y el texto quieto (8,2-8,9), que se sostiene |
+| 19 | C | 11,25 | 12,25 | 1,00 **+0,50 congelado** | todas las obras con miniaturas (la lista se llena en 11,2) |
+| 20 | — | — | — | 4,87 | el cierre |
 
-**Ya no hay 15.** Era 1,5 s del texto de la audioguía: un muro que nadie lee en 1,5 s y
-cuyo único mensaje —«hay texto»— ya lo da el corte 14. Fuera, y el tour baja de 7,0 a 5,5 s.
+**El 15 vuelve, y con más sitio.** El 2-sep se quitó como «muro que nadie lee en 1,5 s»; el
+dueño lo pidió de vuelta al ver el reel, y con razón: LA HISTORIA es la audioguía escrita, lo
+único que enseña que la app cuenta algo y no sólo lleva. Ahora es el tramo más largo (14:
+6,8 s), y la lectura la dan el scroll real y el «Dato curioso» abriéndose, no un plano fijo.
 
 ## El congelado, y por qué es honesto
 
@@ -215,6 +232,17 @@ ahora el primer fotograma sí parece una tarjeta de la casa.
    dos fotogramas sueltos resultó ser una miniatura de 136 px mal leída: a 300 px el
    teclado era inconfundible. Los límites de corte se verifican a ≥300 px de ancho.
 4. **`-t` después de `-i` capa lo que `tpad` añade.** Ver «El congelado».
+5. **En una pantalla quieta de verdad, iOS no emite fotogramas.** La ficha del museo está
+   quieta de 2,1 a 2,9 y en ese tramo hay UN fotograma. `trim=start=2.30:end=2.90` devuelve
+   ese único fotograma —el bueno, verificado a 42 dB de PSNR contra la búsqueda en dos
+   etapas— y el congelado tiene que poner el resto (17a: 1 fotograma + 2,466 s). Después de
+   cada corte se mide la duración de salida; la de la tabla no se da por hecha.
+6. **Un scroll «parado» sigue moviéndose.** Dos fotogramas del botón «Empezar el tour» a
+   8,00 y 8,05 s difieren en varios píxeles enteros (la inercia de iOS se asienta hasta
+   pasado 8,0): PSNR de 15 dB, cuando dos fotogramas iguales dan infinito. Un empalme ahí
+   salta. Regla: no se empalma dentro de un scroll que se asienta; se toma el tramo entero.
+   La prueba es el PSNR entre los dos fotogramas del empalme, **con un control del mismo
+   fotograma contra sí mismo** (tiene que dar infinito, o la medida no vale).
 
 La regla corta sigue valiendo: **la hoja de contacto sirve para ver QUÉ hay; el fotograma
 suelto, a tamaño legible, decide CUÁNDO cortar.**

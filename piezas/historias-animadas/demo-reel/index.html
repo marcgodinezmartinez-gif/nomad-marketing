@@ -80,7 +80,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="demo-reel" data-start="0"
-         data-width="1080" data-height="1920" data-duration="28">
+         data-width="1080" data-height="1920" data-duration="43.0">
       <!-- Las mismas fotos del grid: Roma, porque el viaje grabado es Roma. -->
       <img id="f1" class="fondo" src="assets/fondo-portada.jpg" alt="" />
       <img id="f2" class="fondo" src="assets/fondo-tour.jpg" alt="" />
@@ -123,7 +123,7 @@
                entero. El &lt;video&gt; lleva su tiempo y su envoltorio no lleva ninguno:
                HyperFrames rechaza las dos cosas a la vez, y con raz&oacute;n. -->
           <video id="pantalla" class="clip" src="assets/pantalla.mp4"
-                 data-start="0" data-duration="23.234" muted playsinline></video>
+                 data-start="0" data-duration="38.133" muted playsinline></video>
           <div id="barra" class="sans">
             <p id="hora">9:41</p>
             <div id="estado">
@@ -145,47 +145,51 @@
         var IN = { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" };
         var OUT = { autoAlpha: 0, y: -24, duration: 0.3, ease: "power2.in" };
 
-        // Los cortes de cap&iacute;tulo son los de pantalla.mp4: 5,10 (la app se pone a
-        // montar el viaje), 12,24 (tour), 17,74 (museo), 23,23 (fin).
+        // Los cortes de cap&iacute;tulo son los de pantalla.mp4: suma de los tramos de
+        // MONTAJE.md, calculada al montarlo (no se escriben a mano). 5,10 es cuando la
+        // app se pone a montar el viaje.
+        var T_TOUR = 12.233, T_MUSEO = 25.133, T_FIN = 38.133;
+        var CIERRE = T_FIN - 0.73;   // el m&oacute;vil se va ANTES de que acabe su v&iacute;deo
 
         // 1 &middot; El plan. La foto respira despacio; el m&oacute;vil sube; el titular llega
         // en dos tiempos: la segunda l&iacute;nea, cuando la app empieza a escribir los d&iacute;as.
-        tl.fromTo("#f1", { scale: 1.04 }, { scale: 1.09, duration: 12.6, ease: "none" }, 0);
+        tl.fromTo("#f1", { scale: 1.04 }, { scale: 1.09, duration: T_TOUR + 0.36, ease: "none" }, 0);
         tl.fromTo("#telefono", { y: 110, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.0, ease: "power3.out" }, 0);
         tl.fromTo("#k1", { autoAlpha: 0, y: 20 }, IN, 0.35);
         tl.fromTo("#t1a", { autoAlpha: 0, y: 34 }, IN, 0.5);
         tl.fromTo("#t1b", { autoAlpha: 0, y: 34 }, IN, 5.25);
-        tl.to("#g1", OUT, 12.24);
+        tl.to("#g1", OUT, T_TOUR);
 
-        // 2 &middot; El tour a pie.
-        tl.fromTo("#f2", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, 12.0);
-        tl.fromTo("#f2", { scale: 1.04 }, { scale: 1.09, duration: 6.0, ease: "none" }, 12.0);
-        tl.fromTo("#k2", { autoAlpha: 0, y: 20 }, IN, 12.6);
-        tl.fromTo("#t2a", { autoAlpha: 0, y: 34 }, IN, 12.75);
-        tl.fromTo("#t2b", { autoAlpha: 0, y: 34 }, IN, 12.87);
-        tl.to("#g2", OUT, 17.74);
+        // 2 &middot; El tour a pie. El r&oacute;tulo sale en el corte y el nuevo entra 0,36 s
+        // despu&eacute;s: el texto explica lo que ya se ve, no lo anuncia.
+        tl.fromTo("#f2", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, T_TOUR - 0.24);
+        tl.fromTo("#f2", { scale: 1.04 }, { scale: 1.09, duration: T_MUSEO - T_TOUR + 0.5, ease: "none" }, T_TOUR - 0.24);
+        tl.fromTo("#k2", { autoAlpha: 0, y: 20 }, IN, T_TOUR + 0.36);
+        tl.fromTo("#t2a", { autoAlpha: 0, y: 34 }, IN, T_TOUR + 0.51);
+        tl.fromTo("#t2b", { autoAlpha: 0, y: 34 }, IN, T_TOUR + 0.63);
+        tl.to("#g2", OUT, T_MUSEO);
 
         // 3 &middot; El museo.
-        tl.fromTo("#f3", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, 17.5);
-        tl.fromTo("#f3", { scale: 1.04 }, { scale: 1.09, duration: 6.0, ease: "none" }, 17.5);
-        tl.fromTo("#k3", { autoAlpha: 0, y: 20 }, IN, 18.1);
-        tl.fromTo("#t3a", { autoAlpha: 0, y: 34 }, IN, 18.25);
-        tl.fromTo("#t3b", { autoAlpha: 0, y: 34 }, IN, 18.37);
-        tl.to("#g3", OUT, 22.55);
+        tl.fromTo("#f3", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, T_MUSEO - 0.24);
+        tl.fromTo("#f3", { scale: 1.04 }, { scale: 1.09, duration: T_FIN - T_MUSEO + 0.5, ease: "none" }, T_MUSEO - 0.24);
+        tl.fromTo("#k3", { autoAlpha: 0, y: 20 }, IN, T_MUSEO + 0.36);
+        tl.fromTo("#t3a", { autoAlpha: 0, y: 34 }, IN, T_MUSEO + 0.51);
+        tl.fromTo("#t3b", { autoAlpha: 0, y: 34 }, IN, T_MUSEO + 0.63);
+        tl.to("#g3", OUT, CIERRE + 0.05);
 
-        // El cierre, como qe-7: el m&oacute;vil se va por abajo ANTES de que acabe su
-        // v&iacute;deo (23,23) para que nunca se vea la pantalla vac&iacute;a; la foto cambia a la
-        // de la oferta con su velo, y entran octubre, 2,99 y 1,99, en ese orden.
-        tl.to("#telefono", { y: 1500, duration: 0.7, ease: "power2.in" }, 22.5);
-        tl.fromTo("#f4", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, 22.9);
-        tl.fromTo("#f4", { scale: 1.04 }, { scale: 1.08, duration: 5.1, ease: "none" }, 22.9);
-        tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, 22.9);
-        tl.to("#velo", { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, 22.9);
-        tl.fromTo("#k4", { autoAlpha: 0, y: 20 }, IN, 23.45);
-        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, 23.65);
-        tl.fromTo("#l1", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 24.25);
-        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 24.65);
-        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 25.15);
+        // El cierre, como qe-7: el m&oacute;vil se va por abajo antes de que acabe su v&iacute;deo
+        // para que nunca se vea la pantalla vac&iacute;a; la foto cambia a la de la oferta con
+        // su velo, y entran octubre, 2,99 y 1,99, en ese orden.
+        tl.to("#telefono", { y: 1500, duration: 0.7, ease: "power2.in" }, CIERRE);
+        tl.fromTo("#f4", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
+        tl.fromTo("#f4", { scale: 1.04 }, { scale: 1.08, duration: 5.1, ease: "none" }, CIERRE + 0.4);
+        tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
+        tl.to("#velo", { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
+        tl.fromTo("#k4", { autoAlpha: 0, y: 20 }, IN, CIERRE + 0.95);
+        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 1.15);
+        tl.fromTo("#l1", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 1.75);
+        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.15);
+        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.65);
 
         window.__timelines["demo-reel"] = tl;
         if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();

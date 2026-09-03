@@ -92,8 +92,8 @@ ser el reel el 3-sep (abajo), pero la pieza sigue valiendo como cierre suelto.
 
 ## La tercera pieza: el reel de la demo en el estilo de la casa (3-sep)
 
-`demo-reel/` — 28 s. Es la primera pieza donde HyperFrames **es** el reel, no un tramo:
-la grabación de la app (`assets/pantalla.mp4`, 23,2 s, ya cortada) dentro del móvil de
+`demo-reel/` — 43 s. Es la primera pieza donde HyperFrames **es** el reel, no un tramo:
+la grabación de la app (`assets/pantalla.mp4`, 38,1 s, ya cortada) dentro del móvil de
 las tarjetas, sobre las fotos del grid con su velo, con los kicker y titulares de las
 destacadas entrando capítulo a capítulo (plan, tour, museo) y el cierre de qe-7 sin
 móvil. El dueño lo pidió al ver el corte a pantalla completa al lado del grid: no parecía

@@ -147,7 +147,7 @@ Es lo que más se falla. **La misma grabación, tres remates distintos:**
   con **«Toca aquí 👇»** apuntándolo. Es el único de los tres que se toca de verdad.
 - **Reel**: no hay enlace tocable dentro del vídeo. El remate es la marca con
   **`travelsnomad.com`**, como en las tarjetas, y el pie repite la instrucción. No inventes
-  un botón que no existe. En la historia 2 el mismo cierre vale tal cual: el adhesivo va a
+  un botón que no existe. En la historia 3 el mismo cierre vale tal cual: el adhesivo va a
   y≥1520, justo debajo de la marca (y=1400).
 - **Anuncio pagado**: hay botón de llamada a la acción abajo. El texto **no** dice «ve a la
   web» — dice **«Apúntate abajo»**, señalando el botón que Meta ya pinta.
@@ -179,12 +179,12 @@ que convierten al 5 % valen más que ochocientos al 0,2 %.
 ## Los enlaces
 
 - Historia 1 (asistente y plan): `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=demo-app-1`
-- Historia 2 (tour, museo y cierre): `…&utm_campaign=demo-app-2`
+- Historia 2 (el tour a pie): `…&utm_campaign=demo-app-2`
+- Historia 3 (el museo y el cierre): `…&utm_campaign=demo-app-3`
 - Reel: el de la bio, sin tocar (`travelsnomad.com` a secas; entra como `instagram/referral`).
 - Anuncio, si algún día se paga: `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-g`
 
-Dos UTM distintos para las dos historias a propósito: cuestan cero y dicen cuál de las
-dos mueve el toque. `lista-g` es nuevo porque es un concepto distinto de los cuatro que
+Un UTM por historia a propósito: cuestan cero y dicen cuál de las tres mueve el toque. `lista-g` es nuevo porque es un concepto distinto de los cuatro que
 corrían, no una iteración, y tiene que medirse aparte.
 
 ## El pie del reel (publicado el 2-sep)
