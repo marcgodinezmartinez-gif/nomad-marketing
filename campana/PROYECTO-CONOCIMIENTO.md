@@ -1060,8 +1060,8 @@ y al terminar se guardan las siete en una destacada nueva.
 |---|---|---|
 | 1 | `qe-1.png` | ¿Qué es NOMAD? — la app en una frase |
 | 2 | `qe-2.png` | 1 · El plan — dices dónde y cuándo, te escribe los días |
-| 3 | `qe-3.png` | 2 · El tour a pie — una voz te lleva de parada en parada |
-| 4 | `qe-4.png` | 3 · El museo — enfocas un cuadro y te cuenta su historia |
+| 3 | `qe-3.png` | 2 · El tour a pie — te lleva de parada en parada |
+| 4 | `qe-4.png` | 3 · El museo — enfocas una obra y te cuenta su historia |
 | 5 | `qe-5.png` | 4 · El grupo — entran con un QR, los gastos se reparten solos |
 | 6 | `qe-6.png` | Y cuánto cuesta — 2,99 €, sin suscripción |
 | 7 | `qe-7.png` | Llega en octubre — la lista ya está abierta |

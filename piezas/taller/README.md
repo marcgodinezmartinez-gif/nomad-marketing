@@ -39,6 +39,20 @@ rehace la pieza, se reconstruye el taller y se vuelve a guardar. En cuanto el du
 algo en el lienzo, **manda el lienzo**: antes de volver a sembrar hay que leerlo, extraer
 lo que haya y construir sobre eso, o su edición se pierde sin aviso.
 
+## Lo que hay en el lienzo ahora (3-sep)
+
+El 3-sep el dueño cambió los textos del reel y pidió que las tarjetas dijeran lo mismo:
+qe-3 «Te lleva de parada en parada.» y qe-4 «Enfocas una obra…» (y sus italianas, y la
+escena 4 del reel de Roma). Antes de sembrar se leyó el lienzo: **el dueño no había
+tocado nada** (ningún artboard movido, ningún texto distinto), así que mandaba el
+generador. Aun así se sembró **sólo el cambio**: los cinco artboards con texto nuevo
+sobre lo que había en el lienzo, tal cual, y el `launch` abierto en «Historias · ES».
+
+Lo que el lienzo sigue teniendo del 1-sep, a sabiendas: la lista de fotos de entonces
+(las once; las ocho que entraron el 2-sep no están en el chip «foto» ni en el tablero
+del kit) y dos notas que dicen `docs/reels/montar-reel.sh` en vez de `piezas/`. Es una
+siembra completa desde `salida/taller/` cuando toque; queda en una issue.
+
 ## Dos cosas aprendidas al montarlo
 
 - **La foto elegible por chip funciona, y se ha visto funcionar**: una rama `<sc-if>` por

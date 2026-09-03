@@ -93,7 +93,7 @@ ESCENAS['reel-04'] = (RAIZ
   + foto('f-museo.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.78) 0%, rgba(16, 14, 11, 0.4) 34%, rgba(16, 14, 11, 0.5) 100%)')
   + kicker('Dentro del museo')
-  + titular('Enfocas un cuadro<br>y te cuenta su historia.', 320, 62, 900)
+  + titular('Enfocas una obra<br>y te cuenta su historia.', 320, 62, 900)
   + telefono('museo-900.webp', 600, 560)
   + '</div>')
 
