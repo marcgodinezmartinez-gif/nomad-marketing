@@ -1,46 +1,78 @@
 {
- "f-portada.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Colosseum of Rome, Italy.jpg"
- },
- "f-oferta.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Saint Peter's Basilica, Sant'Angelo bridge, by night, Rome, Italy.jpg"
- },
- "f-plan.jpg": {
-  "lic": "CC0",
-  "titulo": "File:View of Old Town in Prague from Old Town Hall Tower (Unsplash).jpg"
- },
- "f-tour.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Ruelle Albayzin Grenade.jpg"
- },
- "f-precio.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Restaurants, Place du Tertre, Paris 30 September 2019.jpg"
- },
- "f-museo.jpg": {
-  "lic": "Public domain",
-  "titulo": "File:Apse mosaics - Santa Prassede - Rome, Italy - DSC05782.jpg"
- },
- "f-visita.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Melk Abbey Library with Ceiling Fresco (9812838384).jpg"
- },
- "f-grupo.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Fountain Trevi Night 20251112.jpg"
- },
- "f-oia.jpg": {
-  "lic": "CC0",
-  "titulo": "File:The island of Santorini, Greece.jpg"
- },
- "f-alhambra.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Pavillon Cour des Lions Alhambra Granada Spain.jpg"
- },
- "f-porto.jpg": {
-  "lic": "CC0",
-  "titulo": "File:Porto Cityscapes - PortoCityscapes5671.jpg"
- }
+  "f-alhambra.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Pavillon Cour des Lions Alhambra Granada Spain.jpg"
+  },
+  "f-bilbao.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Bilbao - Guggenheim 35.jpg"
+  },
+  "f-cordoba.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Cordoba - Mezquita-Catedral 22.jpg"
+  },
+  "f-grupo.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Fountain Trevi Night 20251112.jpg"
+  },
+  "f-madrid.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Madrid - Gran Via, Edificio Telefónica 3.jpg"
+  },
+  "f-milan.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Milan-duomo.jpg"
+  },
+  "f-museo.jpg": {
+    "lic": "Public domain",
+    "titulo": "File:Apse mosaics - Santa Prassede - Rome, Italy - DSC05782.jpg"
+  },
+  "f-museo2.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Gallery - Thorvaldsens Museum - DSC08734.JPG"
+  },
+  "f-oferta.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Saint Peter's Basilica, Sant'Angelo bridge, by night, Rome, Italy.jpg"
+  },
+  "f-oia.jpg": {
+    "lic": "CC0",
+    "titulo": "File:The island of Santorini, Greece.jpg"
+  },
+  "f-plan.jpg": {
+    "lic": "CC0",
+    "titulo": "File:View of Old Town in Prague from Old Town Hall Tower (Unsplash).jpg"
+  },
+  "f-portada.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Colosseum of Rome, Italy.jpg"
+  },
+  "f-porto.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Porto Cityscapes - PortoCityscapes5671.jpg"
+  },
+  "f-precio.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Restaurants, Place du Tertre, Paris 30 September 2019.jpg"
+  },
+  "f-santiago.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Santiago de Compostela - Catedral 06.jpg"
+  },
+  "f-segovia.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Roman Aqueduct Segovia 2012 Spain.jpg"
+  },
+  "f-tour.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Ruelle Albayzin Grenade.jpg"
+  },
+  "f-valencia.jpg": {
+    "lic": "CC0",
+    "titulo": "File:CaixaForum Valencia in the City of Arts and Sciences - Valencia Spain.jpg"
+  },
+  "f-visita.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Melk Abbey Library with Ceiling Fresco (9812838384).jpg"
+  }
 }

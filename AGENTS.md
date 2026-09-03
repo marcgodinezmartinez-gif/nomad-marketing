@@ -148,8 +148,16 @@ a capturar; una captura vieja en un anuncio es una promesa que la app no cumple.
   `src="{{foto}}"` sale roto y sin aviso.
 - **Tres postales salieron de recortes de 980×380** ampliados cinco veces en una historia.
   Las fotos de historia se recortan del original, y por eso el banco tiene los dos tamaños.
-- **Commons devuelve 429 a las descargas desde el contenedor**, con y sin User-Agent. Los
-  originales que hay son los que hay; una foto nueva se baja desde fuera.
+- **De Commons, lo que devuelve 429 es SÓLO la API vieja** (`w/api.php`) — corregido el
+  2-sep, porque antes ponía que fallaban las descargas y no es verdad. El servidor de
+  ficheros (`upload.wikimedia.org`) baja originales de 26 MB sin rechistar y la API REST
+  (`w/rest.php`) responde. **Sí se pueden traer fotos nuevas desde aquí**:
+  `python3 piezas/fotos/ampliar-banco.py`.
+- **El fondo CC0 de Openverse está lleno de digitalizaciones de museo**, y casan con
+  cualquier búsqueda de texto. De 13 que bajó la primera pasada, 5 eran basura: «toledo»
+  trajo un manuscrito medieval, «nápoles» una estatua, «venecia» el Venice Canal District
+  **de California**. **Las fotos nuevas se miran una a una antes de darlas por buenas** —
+  el título no basta, y el guion no puede decidirlo por ti.
 - **Un `grep` encuentra la cadena también en los comentarios.** Se sonda el endpoint, no
   el fichero que lo llama. Y **una aserción se rompe a propósito antes de fiarse de ella**.
 
