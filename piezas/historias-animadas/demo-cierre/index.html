@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>La demo &middot; el cierre animado</title>
+    <!-- Las dos fuentes reales, embebidas (construir.sh). Nada depende de la red. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* El fondo es la pantalla del precio de la app real, un fotograma de la
+         grabaci&oacute;n (1206x2456 recortado a 1080x1920 como el resto del reel). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+      #fondo { position: absolute; inset: 0; width: 1080px; height: 1920px; display: block; }
+
+      /* Banda oscura s&oacute;lida arriba: la interfaz es clara y el texto blanco se
+         pierde; un velo global apagar&iacute;a la pantalla entera. Tapa la cabecera del
+         modal (Generar viaje / Roma / fechas), que ya no aporta, y deja intacta la
+         lista INCLUYE y el bot&oacute;n del precio. */
+      #banda { position: absolute; left: 0; right: 0; top: 0; height: 700px; display: block;
+        background: linear-gradient(180deg, #100E0B 0%, #100E0B 93%, rgba(16,14,11,.6) 97%, rgba(16,14,11,0) 100%); }
+
+      /* Texto entre y=300 y ~545: dentro de la zona segura de historia (280-1480). */
+      .txt { position: absolute; left: 84px; top: 300px; width: 912px; color: #FFFDF9;
+             text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      h1 { font-size: 96px; line-height: 1.05; letter-spacing: -.015em; margin: 0; }
+      .linea { display: block; font-size: 42px; line-height: 1.35; font-weight: 600;
+               color: rgba(255,253,249,.92); }
+      #l1 { margin-top: 28px; }
+      .menta { color: #5CC0A6; }
+    </style>
+  </head>
+  <body>
+    <!-- 4 s. Todo lo que se mueve lo mueve la l&iacute;nea de tiempo; nada en CSS. -->
+    <div id="root" data-composition-id="demo-cierre" data-start="0"
+         data-width="1080" data-height="1920" data-duration="4">
+      <img id="fondo" src="assets/fondo-cierre.png" alt="" />
+      <div id="banda"></div>
+      <div class="txt">
+        <h1 id="h1" class="serif">Sale en octubre.</h1>
+        <span id="l1" class="linea sans">2,99&nbsp;&euro; el viaje entero.</span>
+        <span id="l2" class="linea sans">En la lista, el primero por <span class="menta">1,99&nbsp;&euro;</span>.</span>
+      </div>
+    </div>
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las
+      // fuentes; estado inicial dentro del fromTo, nunca en CSS (el lint lo rechaza).
+      document.fonts.ready.then(function () {
+        var tl = gsap.timeline({ paused: true });
+        // La pantalla de la app se ve limpia un instante; luego cae la banda.
+        tl.fromTo("#banda", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.15);
+        tl.fromTo("#h1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.45);
+        // El precio entra en el orden de la casa: 2,99 antes que 1,99.
+        tl.fromTo("#l1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.05);
+        tl.fromTo("#l2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.45);
+        window.__timelines["demo-cierre"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>

@@ -76,7 +76,22 @@ ffmpeg -i A.mov -vf "trim=start=5.55:end=7.85,setpts=PTS-STARTPTS,\
 
 **La pantalla del precio no se quita: se mueve al final.** Enumera lo que incluye, pone
 2,99 € en un botón y remata con «pago único para todo el grupo». En el segundo 20 es un
-peaje; de cierre es un resumen de valor. Va de fondo del corte 20, en `cierre.html`.
+peaje; de cierre es un resumen de valor. Va de fondo del corte 20.
+
+**El cierre es una composición HyperFrames** (`piezas/historias-animadas/demo-cierre/`),
+la única parte del reel donde HyperFrames aporta algo visible: el fondo es un fotograma
+de la pantalla del precio (`assets/fondo-cierre.png`) y encima, en 4 s: la pantalla se ve
+limpia un instante, cae la banda oscura (0,15-0,65), entra «Sale en octubre» (0,45),
+luego «2,99 € el viaje entero» (1,05) y luego «En la lista, el primero por 1,99 €»
+(1,45) — **el orden de la casa, reforzado por el movimiento** — y reposo hasta el final.
+`check` 0/0/0/0, contraste 14/14. Se renderiza con `npx hyperframes render`, se recodifica
+a los parámetros del concat y entra como 20 (4,0 s) y 20h (los primeros 3,8 s, historia 2).
+El texto empieza en y=300, dentro de la zona segura de historia; la versión quieta
+anterior lo tenía en 210, dentro de la franja que la interfaz puede tapar.
+
+El resto del reel sigue siendo ffmpeg a pelo, a propósito: es una edición de metraje, y
+HyperFrames sólo entra donde hay algo que animar. **ffmpeg corta el metraje; HyperFrames
+anima lo que va encima.**
 
 El rótulo del cierre dice, en este orden: **«Sale en octubre.» / «2,99 € el viaje entero.»
 / «En la lista, el primero por 1,99 €.»** La versión anterior sólo decía 1,99 arriba y

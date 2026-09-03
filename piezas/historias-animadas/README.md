@@ -82,3 +82,10 @@ Queda abierto en una issue.
 - `StaticGuard` avisa de que no encuentra los `@font-face`. Es un **falso positivo**:
   mira el HTML y no sigue la hoja enlazada. Verificado por CDP que los glifos salen de
   Instrument Serif e Instrument Sans.
+
+## La segunda pieza: el cierre animado de la demo (2-sep)
+
+`demo-cierre/` — 4 s sobre un fotograma de la pantalla del precio de la app real: cae la
+banda y entran «Sale en octubre», 2,99 € y 1,99 €, en ese orden. Es el único tramo del
+reel de la demo hecho con HyperFrames; el resto es ffmpeg, porque es una edición de
+metraje. La receta entera del reel, en `piezas/demo-app/MONTAJE.md`.
