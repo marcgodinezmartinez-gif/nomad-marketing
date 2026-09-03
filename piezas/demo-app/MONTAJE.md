@@ -1,18 +1,96 @@
-# El montaje de la demo — la receta exacta (2-sep, revisada)
+# El montaje de la demo — la receta exacta (2-sep, revisada el 3-sep)
 
-De 63 s de grabación en cuatro ficheros salen **27,2 s** en 1080×1920, 30 fps y **sin pista
-de audio** (se elige dentro de Instagram, como los reels). Tres ficheros de salida:
+**Desde el 3-sep el reel es `piezas/historias-animadas/demo-reel/`**: la grabación de la
+app dentro del móvil de la casa, sobre las fotos del grid con su velo y con los rótulos de
+las destacadas. Lo decidió el dueño mirando el corte anterior al lado del grid: *«una cosa
+tiene un estilo superelegante y esto parece un vídeo un poco cutre y mal hecho»*. Tenía
+razón; «La capa de presentación», abajo, cuenta el porqué y la receta. **El corte del
+metraje —qué segundo de qué grabación— es el mismo** y sigue en «Los cortes».
+
+De 63 s de grabación en cuatro ficheros salen **23,2 s de app** y **28,0 s de reel** en
+1080×1920, 30 fps y **sin pista de audio** (se elige dentro de Instagram, como los reels).
+Tres ficheros de salida, los tres del mismo render:
 
 | Fichero | Dur | Para qué |
 |---|---|---|
-| `nomad-demo.mp4` | 27,2 s | el reel, entero |
-| `nomad-demo-historia-1.mp4` | 12,2 s | historia 1: el asistente y el plan |
-| `nomad-demo-historia-2.mp4` | 14,8 s | historia 2: tour, museo y cierre |
+| `demo-reel.mp4` | 28,0 s | el reel, entero |
+| `demo-reel-historia-1.mp4` | 12,0 s | historia 1: el asistente y el plan (0 → 12,0 del reel) |
+| `demo-reel-historia-2.mp4` | 15,0 s | historia 2: tour, museo y cierre (13,0 → 28,0) |
 
-Las dos historias **no son el reel partido por la mitad**: cada una cuenta algo entero
-(pedir → plan; guiar → museo → precio), y las dos quedan por debajo de los 15 s donde
-Instagram trocea. La segunda lleva el cierre a 3,8 s en vez de 4,0 para no rozar el
-límite. El adhesivo de enlace va en la segunda, de y=1520 abajo.
+Las dos historias salen del reel cortado por sus capítulos: cada una cuenta algo entero
+(pedir → plan; guiar → museo → precio) y ninguna pasa de 15 s. El adhesivo de enlace va
+en las dos, de y=1520 abajo: ahí sólo hay la parte baja del móvil, que es teclado y
+botonera.
+
+## La capa de presentación (3-sep): la tarjeta de la casa, moviéndose
+
+El reel es la tarjeta qe-2/qe-3/qe-4 de las destacadas (`piezas/destacadas/gen-destacadas.py`)
+con la captura sustituida por la grabación: **los mismos números, no unos parecidos**.
+
+- **Foto del grid con `VELO_TELEFONO`**, respirando de 1,04 a 1,09 en cada capítulo (las
+  tarjetas la llevan a 1,04 quieta) y fundido de 0,5 s al cambiar. El Coliseo para el
+  plan, el callejón del Albayzín (la de qe-3) para el tour, Santa Prassede (qe-4) para el
+  museo, y San Pedro de noche con el velo de qe-7 para el cierre.
+- **Kicker a y=300 y titular a y=380**, texto por texto los de las destacadas: «1 · El plan
+  / Dices dónde y cuándo. / Te escribe los días.», «2 · El tour a pie / Una voz te lleva
+  / de parada en parada.», «3 · El museo / Enfocas un cuadro / y te cuenta su historia.».
+  El titular va a 72 px (64 en la tarjeta) porque aquí se lee en movimiento. La segunda
+  línea del plan entra cuando la app se pone a escribir los días (5,25).
+- **El móvil de `telefono()`, escalado de 480 a 808 px de ancho** para que la grabación
+  (760 px de pantalla) se lea: mismo negro, aro, isla y radios en proporción. Arranca en
+  y=600 y sangra 430 px por abajo, a propósito: lo que queda fuera es teclado y botonera,
+  que la interfaz de Instagram tapa igualmente. Lo que demuestra el argumento —el campo de
+  destino, el itinerario con horas y precios, la ficha de la obra— queda entre 624 y 1480.
+- **El cierre es el de qe-7, sin móvil**: el teléfono se va por abajo en 0,7 s (22,5-23,2)
+  **antes** de que acabe su vídeo (23,23), para que nunca se vea una pantalla vacía; y
+  entran «Todavía no está publicada / Llega en octubre.», «2,99 € el viaje entero.», «En
+  la lista, el primero por 1,99 €.» —en ese orden— y la marca con `travelsnomad.com` a
+  y=1400. Reposo hasta 28,0.
+
+Los cortes de capítulo son los del metraje: **5,10** (la app empieza a montar el viaje),
+**12,24** (tour), **17,74** (museo), **23,23** (fin). El rótulo sale en el corte y el
+siguiente entra 0,35 s después: el texto explica lo que ya se ve, no lo anuncia.
+
+### La grabación dentro del móvil: `assets/pantalla.mp4`
+
+Los 18 cortes de abajo, **sin recortar** (dentro de un móvil tiene que verse el móvil
+entero) y escalados a **760×1548**, la pantalla del marco. Y encima, **102 px de barra de
+estado** que la grabación no traía y la captura de la casa (`plan-900.webp`) sí: hora a
+la izquierda, cobertura y batería a la derecha, la isla en medio. El fondo de esos 102 px
+se cuece en el vídeo como **reflejo desenfocado de sus propias primeras filas** —crema
+sobre crema, mapa sobre mapa, sin costura—; los glifos van en el HTML. Sin esa banda, la
+isla del marco tapaba «Buenas tardes, Marc» y el título del tour: la primera prueba
+salió así.
+
+```bash
+# cada corte, desde el original (los tiempos, en la tabla de «Los cortes»)
+ffmpeg -i 1.mov -vf "trim=start=0.55:end=1.30,setpts=PTS-STARTPTS,\
+  scale=760:1548:force_original_aspect_ratio=increase,crop=760:1548,fps=30,setsar=1" \
+  -an -c:v libx264 -crf 18 01.mp4
+# concatenar y añadir la barra de estado en la misma pasada (una sola generación)
+ffmpeg -f concat -safe 0 -i l.txt -filter_complex \
+  "[0:v]split[a][b];[b]crop=760:102:0:0,vflip,gblur=sigma=18[c];[c][a]vstack,setsar=1" \
+  -an -c:v libx264 -crf 18 -pix_fmt yuv420p -r 30 assets/pantalla.mp4
+```
+
+`pantalla.mp4` **se versiona** (4,8 MB; excepción a `*.mp4` en `.gitignore`) porque es la
+materia prima de la composición y las grabaciones originales viven en el móvil del dueño,
+no en el repo. Sin él, la composición no se rehace.
+
+### Cómo se fabrica
+
+```bash
+bash piezas/historias-animadas/construir.sh          # fuentes y marca desde el banco
+cd piezas/historias-animadas/demo-reel
+npx hyperframes check                                 # 0/0, 21/21 en contraste
+npx hyperframes render --output demo-reel.mp4         # 28 s a 30 fps
+ffmpeg -i demo-reel.mp4 -t 12.0 -an -c:v libx264 -crf 18 demo-reel-historia-1.mp4
+ffmpeg -i demo-reel.mp4 -ss 13.0 -an -c:v libx264 -crf 18 demo-reel-historia-2.mp4
+```
+
+Trampa de HyperFrames pagada aquí: **un `fromTo` de salida pisa la entrada.** Los `fromTo`
+pintan su estado inicial al construirse, así que un `fromTo({autoAlpha: 1} → 0)` para
+sacar un rótulo lo deja visible desde el fotograma 0. Las salidas van con `.to`.
 
 ## Las cuatro grabaciones
 
@@ -24,9 +102,10 @@ límite. El adhesivo de enlace va en la segunda, de y=1520 abajo.
 | C | el museo | 12,3 s | 1206×2454 |
 
 **Las tres alturas son distintas** (2456 / 2462 / 2454): recorte propio para cada una.
-Todas salen a 1080×1920 quitando 2144 px de alto y escalando; los ~312 px sobrantes se
-quitan casi todos de **arriba** (se va la barra de estado) para no tocar la botonera de
-abajo, donde viven «Siguiente» y «Generar viaje». Recortes: `0:240`, `0:243`, `0:239`.
+En el corte a pantalla completa del 2-sep salían a 1080×1920 quitando 2144 px de alto y
+escalando; los ~312 px sobrantes se quitaban casi todos de **arriba** para no tocar la
+botonera de abajo, donde viven «Siguiente» y «Generar viaje». Recortes: `0:240`, `0:243`,
+`0:239`. **En el reel de la casa (3-sep) no se recorta nada**: ver «La capa de presentación».
 
 ## Los cortes
 
@@ -72,7 +151,7 @@ ffmpeg -i A.mov -vf "trim=start=5.55:end=7.85,setpts=PTS-STARTPTS,\
   tpad=stop_mode=clone:stop_duration=0.70" -an -c:v libx264 -crf 20 10.mp4
 ```
 
-## Dos decisiones
+## Dos decisiones (2-sep: valen para el corte a pantalla completa, que ya no es el reel)
 
 **La pantalla del precio no se quita: se mueve al final.** Enumera lo que incluye, pone
 2,99 € en un botón y remata con «pago único para todo el grupo». En el segundo 20 es un
@@ -98,7 +177,9 @@ El rótulo del cierre dice, en este orden: **«Sale en octubre.» / «2,99 € e
 dejaba el 2,99 al botón de abajo — el ojo leía 1,99 antes que 2,99, y la regla de la casa
 es «siempre en ese orden». Corregido: el propio rótulo lleva los dos, ordenados.
 
-**Casi no lleva rótulos, porque la app se narra sola.** «Montando tus 3 días en Roma —
+**Casi no lleva rótulos, porque la app se narra sola** (en el reel de la casa sí los lleva,
+pero son los de las destacadas, no unos nuevos; lo de abajo sigue mandando en la duración
+de los cortes). «Montando tus 3 días en Roma —
 elegimos qué ver cada día y en qué orden, para no cruzar la ciudad dos veces». «Diseñando
 tu tour — trazando una ruta sin rodeos y eligiendo dónde merece la pena parar».
 «Preparando la visita — eligiendo las obras y ordenando las salas para no repetir
@@ -106,10 +187,11 @@ ninguna». Esas tres pantallas de carga son el guion, y por eso tienen que **dur
 tardan en leerse**: 1,8–2,2 s las de dos líneas. Sólo el cierre lleva texto añadido.
 
 **Transiciones: cortes secos, a propósito.** Una grabación de pantalla corta seco de forma
-nativa; un fundido la convierte en «vídeo producido», que es la estética del anuncio que
-la regla de la casa manda evitar. **Portada: ninguna.** El primer fotograma es la app
-preguntando «¿A dónde vamos?», que es el gancho, y al final del primer corte ya sube el
-teclado: hay movimiento antes del segundo 1.
+nativa; un fundido la convierte en «vídeo producido». En el reel de la casa la grabación
+sigue cortando seco **dentro** del móvil; lo que se funde es la foto de fondo, como pasar
+de una tarjeta a la siguiente. **Portada**: la del 2-sep era «ninguna»; la del 3-sep es un
+fotograma del propio reel con el itinerario en pantalla (`demo-reel-portada.jpg`), porque
+ahora el primer fotograma sí parece una tarjeta de la casa.
 
 ## LAS TRAMPAS, con precisión
 

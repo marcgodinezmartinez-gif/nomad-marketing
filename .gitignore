@@ -2,6 +2,9 @@ salida/
 node_modules/
 __pycache__/
 *.mp4
+# Excepción: la grabación cortada de la demo es la materia prima de demo-reel/ y las
+# grabaciones originales viven en el móvil del dueño, no aquí. Sin ella no se rehace.
+!piezas/historias-animadas/demo-reel/assets/pantalla.mp4
 
 # Historias animadas: lo derivado del banco por construir.sh y lo que escupe el render
 piezas/historias-animadas/*/assets/fuentes.css

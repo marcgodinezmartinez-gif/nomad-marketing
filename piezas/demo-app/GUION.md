@@ -32,27 +32,26 @@ repartir, y eso mueve el valor a ANTES de pedir el correo, que es lo que faltaba
 - **El texto es el mínimo, no el máximo** (revisado el 2-sep, ver abajo): la interfaz ya
   habla sola y taparla es tapar la prueba.
 
-## A pantalla completa, sin móvil maquetado (2-sep, decidido mirando `plan-900.webp`)
+## Dentro del móvil de la casa (3-sep; sustituye a «a pantalla completa» del 2-sep)
 
-Preguntado por el dueño: *«¿lo maquetamos dentro de un móvil y al lado explicamos cosas?»*.
-**No**, y la razón está en la propia pantalla del plan: «Sábado 29 ago · 5 planes · 72 €»,
-08:30 Coliseo (Museo, 18 €), 12:00 helado en Giolitti (4 €), 13:30 Trattoria Luzzi (20 €),
-17:30 Trastevere, 20:30 Da Enzo al 29 (30 €). **Esa densidad ES la prueba** de que la app
-escribe el día de verdad. Dentro de un marco con texto al lado, la pantalla baja al 50-60 %
-del alto y nada de eso se lee en un móvil: se cambia el único argumento por una estética.
+El 2-sep se decidió lo contrario —a pantalla completa, sin marco— con un argumento que
+sigue siendo verdad: la densidad del plan (horas, precios, cinco planes) es la prueba, y
+en un marco pequeño no se lee. **Y aun así estaba mal**, porque ignoraba lo que ya había
+en el perfil: nueve tarjetas y dos destacadas con la app dentro de un móvil, sobre fotos
+con velo y titulares en serif. El dueño lo vio en cuanto puso las dos cosas juntas: *«una
+cosa tiene un estilo superelegante y esto parece un vídeo un poco cutre y mal hecho»*.
+Un reel que no parece de la misma casa que el grid no demuestra calidad, por mucha app
+real que lleve dentro.
 
-Y el espectador **está sosteniendo un teléfono**: a pantalla completa la grabación se lee
-como «esto es mi pantalla», que es el efecto de primera persona que se busca. Un móvil
-dibujado dentro de un móvil dentro de un móvil sólo recuerda que esto es publicidad.
+Lo que se hace desde el 3-sep, y por qué no pierde la densidad: el móvil del reel es el de
+las tarjetas pero **al 168 %** (808 px de ancho, pantalla de 760), así que el itinerario
+se lee; sangra por abajo, donde sólo hay teclado y botonera, y **el texto va arriba**, en
+las posiciones de las destacadas y con sus mismas frases. La grabación sigue siendo la app
+real, sin recortar y con su barra de estado. La receta exacta, en `MONTAJE.md`, «La capa
+de presentación».
 
-El marco sigue teniendo su sitio, y ya lo ocupa: las piezas estáticas y la portada, donde
-la imagen está quieta y hay tiempo para mirarla.
-
-**El texto va encima, en una banda arriba entre y=300 e y=470**, con banda oscura detrás
-—la interfaz es clara y el texto blanco se pierde; un velo global no vale, que es la
-trampa que ya se pagó con Montmartre y la Alhambra—. En la pantalla del plan esa banda cae
-sobre el mapa, que es lo prescindible, y deja intacta la lista. **Regla para los cinco
-planos: la banda tapa lo decorativo, nunca lo que demuestra el argumento.**
+La regla que queda: **el reel se diseña con el grid al lado, no solo.** Si no parece una
+tarjeta de la casa moviéndose, no se sube.
 
 ## La pantalla de carga con el logo: al final, no al principio
 
@@ -146,8 +145,10 @@ Es lo que más se falla. **La misma grabación, tres remates distintos:**
 
 - **Historia**: el adhesivo de enlace va de y=1520 abajo, y el texto del plano 5 termina
   con **«Toca aquí 👇»** apuntándolo. Es el único de los tres que se toca de verdad.
-- **Reel**: no hay enlace tocable dentro del vídeo. El remate es **«Enlace en la bio 👇»**
-  y el pie repite la instrucción. No inventes un botón que no existe.
+- **Reel**: no hay enlace tocable dentro del vídeo. El remate es la marca con
+  **`travelsnomad.com`**, como en las tarjetas, y el pie repite la instrucción. No inventes
+  un botón que no existe. En la historia 2 el mismo cierre vale tal cual: el adhesivo va a
+  y≥1520, justo debajo de la marca (y=1400).
 - **Anuncio pagado**: hay botón de llamada a la acción abajo. El texto **no** dice «ve a la
   web» — dice **«Apúntate abajo»**, señalando el botón que Meta ya pinta.
 
@@ -162,7 +163,8 @@ Es lo que más se falla. **La misma grabación, tres remates distintos:**
    ojo. Si la generación tarda, se recorta la espera — pero deja un latido, porque el
    «pensando» es lo que hace creíble que lo escriba de verdad.
 5. La barra de estado con la hora y la batería **se queda**. Delata que es un móvil real, y
-   eso es exactamente lo que se está demostrando.
+   eso es exactamente lo que se está demostrando. Las del 3-sep llegaron sin ella (1206×2456,
+   166 px menos que la pantalla) y hubo que reconstruirla; la próxima vez, se graba entera.
 
 ## Antes de pagar por él
 

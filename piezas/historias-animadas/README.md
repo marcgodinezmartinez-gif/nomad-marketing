@@ -86,6 +86,26 @@ Queda abierto en una issue.
 ## La segunda pieza: el cierre animado de la demo (2-sep)
 
 `demo-cierre/` — 4 s sobre un fotograma de la pantalla del precio de la app real: cae la
-banda y entran «Sale en octubre», 2,99 € y 1,99 €, en ese orden. Es el único tramo del
-reel de la demo hecho con HyperFrames; el resto es ffmpeg, porque es una edición de
-metraje. La receta entera del reel, en `piezas/demo-app/MONTAJE.md`.
+banda y entran «Sale en octubre», 2,99 € y 1,99 €, en ese orden. Era el único tramo del
+corte a pantalla completa hecho con HyperFrames; el resto era ffmpeg. Ese corte dejó de
+ser el reel el 3-sep (abajo), pero la pieza sigue valiendo como cierre suelto.
+
+## La tercera pieza: el reel de la demo en el estilo de la casa (3-sep)
+
+`demo-reel/` — 28 s. Es la primera pieza donde HyperFrames **es** el reel, no un tramo:
+la grabación de la app (`assets/pantalla.mp4`, 23,2 s, ya cortada) dentro del móvil de
+las tarjetas, sobre las fotos del grid con su velo, con los kicker y titulares de las
+destacadas entrando capítulo a capítulo (plan, tour, museo) y el cierre de qe-7 sin
+móvil. El dueño lo pidió al ver el corte a pantalla completa al lado del grid: no parecía
+de la misma casa. La receta y las decisiones, en `piezas/demo-app/MONTAJE.md`, «La capa
+de presentación».
+
+- `check`: 0 errores, 0 avisos, **21/21 en contraste**. El móvil sangra por abajo a
+  propósito y lo declara con `data-layout-allow-overflow`.
+- El `<video>` lleva su tiempo (`data-start`/`data-duration`) y su envoltorio —el móvil—
+  no lleva ninguno: HyperFrames rechaza las dos cosas a la vez, y el fallo es real (frames
+  equivocados y el clip desaparece a mitad).
+- El móvil se va de pantalla **antes** de que acabe su vídeo, para que nunca se vea la
+  pantalla vacía cuando el clip termina.
+- **Un `fromTo` de salida pisa la entrada**: pinta su estado inicial (visible) al
+  construirse. Las salidas van con `.to`.

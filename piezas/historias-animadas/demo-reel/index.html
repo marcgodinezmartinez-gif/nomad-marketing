@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>La demo &middot; el reel en el estilo de la casa</title>
+    <!-- Las dos fuentes reales, embebidas (construir.sh). Nada depende de la red. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* Es la tarjeta qe-2/qe-3/qe-4 de las destacadas, pero movi&eacute;ndose: misma
+         foto con velo, mismo kicker a y=300, mismo titular a y=380 y el mismo m&oacute;vil de
+         la casa (telefono() en gen-destacadas.py), s&oacute;lo que dentro va la grabaci&oacute;n de
+         la app en vez de una captura. Los n&uacute;meros salen de ah&iacute;, no se reinventan. */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+              color: #FFFDF9; background: #100E0B; }
+
+      /* Los fondos, uno por cap&iacute;tulo, apilados: el que entra se funde por encima. */
+      .fondo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+               display: block; object-fit: cover; }
+
+      /* VELO_TELEFONO, el de las tarjetas con m&oacute;vil. */
+      #velo { position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(16,14,11,.82) 0%, rgba(16,14,11,.46) 36%, rgba(16,14,11,.55) 100%); }
+      /* El velo de qe-7, la tarjeta de cierre, para el cierre. */
+      #velo-cierre { position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(16,14,11,.55) 0%, rgba(16,14,11,.35) 30%, rgba(16,14,11,.9) 100%); }
+
+      /* Texto: la SOMBRA de la casa y las posiciones de la casa. Sin <br>: cada l&iacute;nea
+         del titular es su propio bloque (HyperFrames lo proh&iacute;be con raz&oacute;n). */
+      .grupo { position: absolute; left: 84px; top: 300px; width: 912px;
+               text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      .kicker { position: absolute; left: 0; top: 0; margin: 0; font-size: 32px;
+                letter-spacing: .18em; text-transform: uppercase; font-weight: 600;
+                color: rgba(255,253,249,.82); white-space: nowrap; }
+      .tit { position: absolute; left: 0; top: 80px; margin: 0; width: 912px;
+             font-size: 72px; line-height: 1.08; letter-spacing: -.015em; }
+      .tit span { display: block; }
+      /* El cierre lleva el titular grande de qe-7 y las dos l&iacute;neas del precio en el
+         orden de la casa: 2,99 antes que 1,99. */
+      #g4 .tit { top: 120px; font-size: 96px; line-height: 1.05; }
+      .linea { position: absolute; left: 0; width: 912px; display: block; font-size: 42px;
+               line-height: 1.35; font-weight: 600; color: rgba(255,253,249,.92); }
+      #l1 { top: 320px; }
+      #l2 { top: 380px; }
+      .menta { color: #5CC0A6; }
+      #marca { position: absolute; left: 84px; top: 1400px; display: flex; align-items: center;
+               gap: 20px; text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      #marca img { width: 54px; height: 54px; display: block; }
+      #marca span { font-size: 30px; font-weight: 600; letter-spacing: .02em;
+                    color: rgba(255,253,249,.85); }
+
+      /* El m&oacute;vil de la casa, escalado de 480 a 808 de ancho para que la grabaci&oacute;n
+         (760 px de pantalla) se lea: mismo negro, mismo aro, misma isla, mismas
+         proporciones. Arranca en y=600 y sangra por abajo: lo que queda fuera es la
+         barra de pesta&ntilde;as y el teclado, que Instagram tapa con su interfaz igualmente. */
+      #telefono { position: absolute; left: 136px; top: 600px; width: 808px; height: 1750px;
+                  background: #0b0b0d; border-radius: 111px; padding: 24px; box-sizing: border-box;
+                  box-shadow: 0 84px 200px rgba(0,0,0,.6); }
+      #aro { position: absolute; inset: 0; border-radius: 111px; border: 8px solid #98979c; }
+      #isla { position: absolute; top: 47px; left: calc(50% - 121px); width: 242px; height: 67px;
+              background: #0b0b0d; border-radius: 37px; z-index: 2; }
+      #pantalla-caja { position: relative; width: 760px; height: 1702px; border-radius: 88px;
+                       background: #F5F0E8; overflow: hidden; }
+      #pantalla { width: 760px; height: 1650px; display: block; }
+      /* La barra de estado. La grabaci&oacute;n vino sin ella y la captura de la casa
+         (plan-900.webp) la lleva: hora a la izquierda, cobertura y bater&iacute;a a la
+         derecha, la isla en medio. Los 102 px de fondo van cocidos en el v&iacute;deo
+         (reflejo desenfocado de sus primeras filas); aqu&iacute; s&oacute;lo los glifos. */
+      #barra { position: absolute; left: 0; top: 0; width: 760px; height: 102px; z-index: 3;
+               color: #1A1A1A; font-size: 31px; font-weight: 600; letter-spacing: -.01em; }
+      #hora { position: absolute; left: 76px; top: 32px; margin: 0; line-height: 1; }
+      #estado { position: absolute; right: 60px; top: 36px; display: flex; align-items: center; gap: 10px; }
+      #estado svg { display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="demo-reel" data-start="0"
+         data-width="1080" data-height="1920" data-duration="28">
+      <!-- Las mismas fotos del grid: Roma, porque el viaje grabado es Roma. -->
+      <img id="f1" class="fondo" src="assets/fondo-portada.jpg" alt="" />
+      <img id="f2" class="fondo" src="assets/fondo-tour.jpg" alt="" />
+      <img id="f3" class="fondo" src="assets/fondo-museo.jpg" alt="" />
+      <img id="f4" class="fondo" src="assets/fondo-cierre.jpg" alt="" />
+      <div id="velo"></div>
+      <div id="velo-cierre"></div>
+
+      <!-- Los r&oacute;tulos son, palabra por palabra, los de las destacadas (qe-2, qe-3,
+           qe-4 y qe-7 en gen-destacadas.py). El reel no inventa un texto nuevo. -->
+      <div id="g1" class="grupo">
+        <p id="k1" class="kicker sans">1 &middot; El plan</p>
+        <h1 class="tit serif"><span id="t1a">Dices d&oacute;nde y cu&aacute;ndo.</span><span id="t1b">Te escribe los d&iacute;as.</span></h1>
+      </div>
+      <div id="g2" class="grupo">
+        <p id="k2" class="kicker sans">2 &middot; El tour a pie</p>
+        <h1 class="tit serif"><span id="t2a">Una voz te lleva</span><span id="t2b">de parada en parada.</span></h1>
+      </div>
+      <div id="g3" class="grupo">
+        <p id="k3" class="kicker sans">3 &middot; El museo</p>
+        <h1 class="tit serif"><span id="t3a">Enfocas un cuadro</span><span id="t3b">y te cuenta su historia.</span></h1>
+      </div>
+      <div id="g4" class="grupo">
+        <p id="k4" class="kicker sans">Todav&iacute;a no est&aacute; publicada</p>
+        <h1 class="tit serif"><span id="t4">Llega en octubre.</span></h1>
+        <span id="l1" class="linea sans">2,99&nbsp;&euro; el viaje entero.</span>
+        <span id="l2" class="linea sans">En la lista, el primero por <span class="menta">1,99&nbsp;&euro;</span>.</span>
+      </div>
+      <div id="marca">
+        <img src="assets/mark.png" alt="" />
+        <span class="sans">travelsnomad.com</span>
+      </div>
+
+      <div id="telefono" data-layout-allow-overflow>
+        <div id="aro"></div>
+        <div id="isla"></div>
+        <div id="pantalla-caja">
+          <!-- La grabaci&oacute;n de la app real, ya cortada (piezas/demo-app/MONTAJE.md), sin
+               recortar la barra de estado: dentro de un m&oacute;vil tiene que verse el m&oacute;vil
+               entero. El &lt;video&gt; lleva su tiempo y su envoltorio no lleva ninguno:
+               HyperFrames rechaza las dos cosas a la vez, y con raz&oacute;n. -->
+          <video id="pantalla" class="clip" src="assets/pantalla.mp4"
+                 data-start="0" data-duration="23.234" muted playsinline></video>
+          <div id="barra" class="sans">
+            <p id="hora">9:41</p>
+            <div id="estado">
+              <svg width="34" height="22" viewBox="0 0 34 22" fill="#1A1A1A"><rect x="0" y="14" width="6" height="8" rx="1.5"/><rect x="9" y="10" width="6" height="12" rx="1.5"/><rect x="18" y="5" width="6" height="17" rx="1.5"/><rect x="27" y="0" width="6" height="22" rx="1.5"/></svg>
+              <svg width="30" height="22" viewBox="0 0 30 22" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"><path d="M2 8 Q15 -3 28 8"/><path d="M7 13 Q15 6 23 13"/><path d="M12 18 Q15 15 18 18"/></svg>
+              <svg width="52" height="24" viewBox="0 0 52 24"><rect x="1" y="1" width="44" height="22" rx="6" fill="none" stroke="#1A1A1A" stroke-opacity=".4" stroke-width="2"/><rect x="4" y="4" width="34" height="16" rx="3.5" fill="#1A1A1A"/><path d="M47.5 8 v8 a4 4 0 0 0 0 -8z" fill="#1A1A1A" fill-opacity=".4"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las
+      // fuentes. Estado inicial dentro del fromTo, nunca en CSS. Las salidas van con .to
+      // a prop&oacute;sito: un fromTo de salida pintar&iacute;a su estado inicial (visible) al
+      // construirse y pisar&iacute;a la entrada.
+      document.fonts.ready.then(function () {
+        var tl = gsap.timeline({ paused: true });
+        var IN = { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" };
+        var OUT = { autoAlpha: 0, y: -24, duration: 0.3, ease: "power2.in" };
+
+        // Los cortes de cap&iacute;tulo son los de pantalla.mp4: 5,10 (la app se pone a
+        // montar el viaje), 12,24 (tour), 17,74 (museo), 23,23 (fin).
+
+        // 1 &middot; El plan. La foto respira despacio; el m&oacute;vil sube; el titular llega
+        // en dos tiempos: la segunda l&iacute;nea, cuando la app empieza a escribir los d&iacute;as.
+        tl.fromTo("#f1", { scale: 1.04 }, { scale: 1.09, duration: 12.6, ease: "none" }, 0);
+        tl.fromTo("#telefono", { y: 110, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.0, ease: "power3.out" }, 0);
+        tl.fromTo("#k1", { autoAlpha: 0, y: 20 }, IN, 0.35);
+        tl.fromTo("#t1a", { autoAlpha: 0, y: 34 }, IN, 0.5);
+        tl.fromTo("#t1b", { autoAlpha: 0, y: 34 }, IN, 5.25);
+        tl.to("#g1", OUT, 12.24);
+
+        // 2 &middot; El tour a pie.
+        tl.fromTo("#f2", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, 12.0);
+        tl.fromTo("#f2", { scale: 1.04 }, { scale: 1.09, duration: 6.0, ease: "none" }, 12.0);
+        tl.fromTo("#k2", { autoAlpha: 0, y: 20 }, IN, 12.6);
+        tl.fromTo("#t2a", { autoAlpha: 0, y: 34 }, IN, 12.75);
+        tl.fromTo("#t2b", { autoAlpha: 0, y: 34 }, IN, 12.87);
+        tl.to("#g2", OUT, 17.74);
+
+        // 3 &middot; El museo.
+        tl.fromTo("#f3", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, 17.5);
+        tl.fromTo("#f3", { scale: 1.04 }, { scale: 1.09, duration: 6.0, ease: "none" }, 17.5);
+        tl.fromTo("#k3", { autoAlpha: 0, y: 20 }, IN, 18.1);
+        tl.fromTo("#t3a", { autoAlpha: 0, y: 34 }, IN, 18.25);
+        tl.fromTo("#t3b", { autoAlpha: 0, y: 34 }, IN, 18.37);
+        tl.to("#g3", OUT, 22.55);
+
+        // El cierre, como qe-7: el m&oacute;vil se va por abajo ANTES de que acabe su
+        // v&iacute;deo (23,23) para que nunca se vea la pantalla vac&iacute;a; la foto cambia a la
+        // de la oferta con su velo, y entran octubre, 2,99 y 1,99, en ese orden.
+        tl.to("#telefono", { y: 1500, duration: 0.7, ease: "power2.in" }, 22.5);
+        tl.fromTo("#f4", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, 22.9);
+        tl.fromTo("#f4", { scale: 1.04 }, { scale: 1.08, duration: 5.1, ease: "none" }, 22.9);
+        tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, 22.9);
+        tl.to("#velo", { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, 22.9);
+        tl.fromTo("#k4", { autoAlpha: 0, y: 20 }, IN, 23.45);
+        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, 23.65);
+        tl.fromTo("#l1", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 24.25);
+        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 24.65);
+        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 25.15);
+
+        window.__timelines["demo-reel"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
