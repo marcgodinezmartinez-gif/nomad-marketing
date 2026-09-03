@@ -176,20 +176,32 @@ que convierten al 5 % valen más que ochocientos al 0,2 %.
 
 ## Los enlaces
 
-- Historia: `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=demo-app`
-- Reel (bio): el de la bio, sin tocar.
-- Anuncio: `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-g`
+- Historia 1 (asistente y plan): `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=demo-app-1`
+- Historia 2 (tour, museo y cierre): `…&utm_campaign=demo-app-2`
+- Reel: el de la bio, sin tocar (`travelsnomad.com` a secas; entra como `instagram/referral`).
+- Anuncio, si algún día se paga: `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-g`
 
-`lista-g` es nuevo a propósito: es un concepto distinto de los cuatro que corrían, no una
-iteración suya, y tiene que poder medirse aparte.
+Dos UTM distintos para las dos historias a propósito: cuestan cero y dicen cuál de las
+dos mueve el toque. `lista-g` es nuevo porque es un concepto distinto de los cuatro que
+corrían, no una iteración, y tiene que medirse aparte.
 
-## El pie, para historia y reel
+## El pie del reel (publicado el 2-sep)
+
+La primera línea lleva la promesa entera, porque el feed corta a ~125 caracteres con un
+«ver más». El precio va en su orden. Sin «👇» en el reel: el enlace no está debajo, está
+en la bio — el «👇» es para las historias, donde el adhesivo sí está debajo.
 
 > Le dices dónde y cuándo, y te escribe el viaje entero: qué ver, en qué orden y cuánto
-> cuesta. Por la calle te lo va contando, y en el museo enfocas un cuadro y te dice qué
-> estás mirando.
+> cuesta.
+>
+> Por la calle te lo va contando, parada a parada. En el museo enfocas una obra y te dice
+> qué estás mirando.
 >
 > Sale en octubre. 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
-> 1,99 €.
+> 1,99 €. Apúntate y no te pierdas el lanzamiento: el enlace, en la bio.
 >
-> Apúntate y no te pierdas el lanzamiento. 👇
+> #viajar #viajes #escapada #europa #roma #viajeenpareja #viajeconamigos
+
+Etiquetas según PLAN-INSTAGRAM (5-8, más la del destino). **Portada del reel**: el
+fotograma de la cabeza del Coloso (t=20,7), no el itinerario — a tamaño de grid el
+itinerario es una mancha de texto y la cabeza se reconoce a cualquier tamaño.
