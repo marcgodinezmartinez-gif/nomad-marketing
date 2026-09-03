@@ -40,13 +40,12 @@
       .tit { position: absolute; left: 0; top: 80px; margin: 0; width: 912px;
              font-size: 72px; line-height: 1.08; letter-spacing: -.015em; }
       .tit span { display: block; }
-      /* El cierre lleva el titular grande de qe-7 y las dos l&iacute;neas del precio en el
-         orden de la casa: 2,99 antes que 1,99. */
-      #g4 .tit { top: 120px; font-size: 96px; line-height: 1.05; }
-      .linea { position: absolute; left: 0; width: 912px; display: block; font-size: 42px;
-               line-height: 1.35; font-weight: 600; color: rgba(255,253,249,.92); }
-      #l1 { top: 320px; }
-      #l2 { top: 380px; }
+      /* El cierre (decisi&oacute;n del due&ntilde;o, 3-sep): sin kicker, «Llega en octubre.» al
+         alto de los otros titulares, la oferta grande debajo y la nota del asterisco. */
+      .oferta { position: absolute; left: 0; top: 180px; margin: 0; width: 912px; display: block;
+                font-size: 96px; line-height: 1.05; letter-spacing: -.015em; }
+      .nota { position: absolute; left: 0; top: 320px; width: 912px; display: block;
+              font-size: 36px; line-height: 1.35; font-weight: 500; color: rgba(255,253,249,.8); }
       .menta { color: #5CC0A6; }
       #marca { position: absolute; left: 84px; top: 1400px; display: flex; align-items: center;
                gap: 20px; text-shadow: 0 4px 34px rgba(0,0,0,.55); }
@@ -97,17 +96,16 @@
       </div>
       <div id="g2" class="grupo">
         <p id="k2" class="kicker sans">2 &middot; El tour a pie</p>
-        <h1 class="tit serif"><span id="t2a">Una voz te lleva</span><span id="t2b">de parada en parada.</span></h1>
+        <h1 class="tit serif"><span id="t2a">Te lleva de parada en parada.</span></h1>
       </div>
       <div id="g3" class="grupo">
         <p id="k3" class="kicker sans">3 &middot; El museo</p>
-        <h1 class="tit serif"><span id="t3a">Enfocas un cuadro</span><span id="t3b">y te cuenta su historia.</span></h1>
+        <h1 class="tit serif"><span id="t3a">Enfocas una obra</span><span id="t3b">y te cuenta su historia.</span></h1>
       </div>
       <div id="g4" class="grupo">
-        <p id="k4" class="kicker sans">Todav&iacute;a no est&aacute; publicada</p>
         <h1 class="tit serif"><span id="t4">Llega en octubre.</span></h1>
-        <span id="l1" class="linea sans">2,99&nbsp;&euro; el viaje entero.</span>
-        <span id="l2" class="linea sans">En la lista, el primero por <span class="menta">1,99&nbsp;&euro;</span>.</span>
+        <h2 id="l1" class="oferta serif">Tu primer viaje por <span class="menta">1,99&nbsp;&euro;</span>*</h2>
+        <span id="l2" class="nota sans">*Si te apuntas a la lista de espera en travelsnomad.com</span>
       </div>
       <div id="marca">
         <img src="assets/mark.png" alt="" />
@@ -166,7 +164,6 @@
         tl.fromTo("#f2", { scale: 1.04 }, { scale: 1.09, duration: T_MUSEO - T_TOUR + 0.5, ease: "none" }, T_TOUR - 0.24);
         tl.fromTo("#k2", { autoAlpha: 0, y: 20 }, IN, T_TOUR + 0.36);
         tl.fromTo("#t2a", { autoAlpha: 0, y: 34 }, IN, T_TOUR + 0.51);
-        tl.fromTo("#t2b", { autoAlpha: 0, y: 34 }, IN, T_TOUR + 0.63);
         tl.to("#g2", OUT, T_MUSEO);
 
         // 3 &middot; El museo.
@@ -179,17 +176,16 @@
 
         // El cierre, como qe-7: el m&oacute;vil se va por abajo antes de que acabe su v&iacute;deo
         // para que nunca se vea la pantalla vac&iacute;a; la foto cambia a la de la oferta con
-        // su velo, y entran octubre, 2,99 y 1,99, en ese orden.
+        // su velo, y entran octubre, la oferta y la nota.
         tl.to("#telefono", { y: 1500, duration: 0.7, ease: "power2.in" }, CIERRE);
         tl.fromTo("#f4", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
         tl.fromTo("#f4", { scale: 1.04 }, { scale: 1.08, duration: 5.1, ease: "none" }, CIERRE + 0.4);
         tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
         tl.to("#velo", { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
-        tl.fromTo("#k4", { autoAlpha: 0, y: 20 }, IN, CIERRE + 0.95);
-        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 1.15);
-        tl.fromTo("#l1", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 1.75);
-        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.15);
-        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.65);
+        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 0.95);
+        tl.fromTo("#l1", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 1.45);
+        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.05);
+        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.55);
 
         window.__timelines["demo-reel"] = tl;
         if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();

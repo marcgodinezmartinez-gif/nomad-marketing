@@ -145,9 +145,9 @@ Es lo que más se falla. **La misma grabación, tres remates distintos:**
 
 - **Historia**: el adhesivo de enlace va de y=1520 abajo, y el texto del plano 5 termina
   con **«Toca aquí 👇»** apuntándolo. Es el único de los tres que se toca de verdad.
-- **Reel**: no hay enlace tocable dentro del vídeo. El remate es la marca con
-  **`travelsnomad.com`**, como en las tarjetas, y el pie repite la instrucción. No inventes
-  un botón que no existe. En la historia 3 el mismo cierre vale tal cual: el adhesivo va a
+- **Reel**: no hay enlace tocable dentro del vídeo. El remate es «Tu primer viaje por
+  1,99 €\*» con la nota «\*Si te apuntas a la lista de espera en travelsnomad.com» y la marca
+  debajo; el pie repite la instrucción. No inventes un botón que no existe. En la historia 3 el mismo cierre vale tal cual: el adhesivo va a
   y≥1520, justo debajo de la marca (y=1400).
 - **Anuncio pagado**: hay botón de llamada a la acción abajo. El texto **no** dice «ve a la
   web» — dice **«Apúntate abajo»**, señalando el botón que Meta ya pinta.

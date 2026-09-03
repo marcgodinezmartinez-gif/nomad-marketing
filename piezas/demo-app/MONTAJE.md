@@ -41,11 +41,13 @@ con la captura sustituida por la grabación: **los mismos números, no unos pare
   tarjetas la llevan a 1,04 quieta) y fundido de 0,5 s al cambiar. El Coliseo para el
   plan, el callejón del Albayzín (la de qe-3) para el tour, Santa Prassede (qe-4) para el
   museo, y San Pedro de noche con el velo de qe-7 para el cierre.
-- **Kicker a y=300 y titular a y=380**, texto por texto los de las destacadas: «1 · El plan
-  / Dices dónde y cuándo. / Te escribe los días.», «2 · El tour a pie / Una voz te lleva
-  / de parada en parada.», «3 · El museo / Enfocas un cuadro / y te cuenta su historia.».
-  El titular va a 72 px (64 en la tarjeta) porque aquí se lee en movimiento. La segunda
-  línea del plan entra cuando la app se pone a escribir los días (5,25).
+- **Kicker a y=300 y titular a y=380**, salidos de las destacadas y retocados por el dueño
+  el 3-sep: «1 · El plan / Dices dónde y cuándo. / Te escribe los días.», «2 · El tour a
+  pie / Te lleva de parada en parada.», «3 · El museo / Enfocas una obra / y te cuenta su
+  historia.». Las tarjetas qe-3 y qe-4 siguen diciendo «Una voz te lleva» y «un cuadro»:
+  si se reexportan, que digan lo mismo que el reel. El titular va a 72 px (64 en la
+  tarjeta) porque aquí se lee en movimiento. La segunda línea del plan entra cuando la app
+  se pone a escribir los días (5,25).
 - **El móvil de `telefono()`, escalado de 480 a 808 px de ancho** para que la grabación
   (760 px de pantalla) se lea: mismo negro, aro, isla y radios en proporción. Arranca en
   y=600 y sangra 430 px por abajo, a propósito: lo que queda fuera es teclado y botonera,
@@ -53,9 +55,17 @@ con la captura sustituida por la grabación: **los mismos números, no unos pare
   destino, el itinerario con horas y precios, la ficha de la obra— queda entre 624 y 1480.
 - **El cierre es el de qe-7, sin móvil**: el teléfono se va por abajo en 0,7 s, empezando
   0,73 s **antes** de que acabe su vídeo, para que nunca se vea una pantalla vacía; y
-  entran «Todavía no está publicada / Llega en octubre.», «2,99 € el viaje entero.», «En
-  la lista, el primero por 1,99 €.» —en ese orden— y la marca con `travelsnomad.com` a
-  y=1400. Reposo hasta el final (4,9 s de cierre).
+  entran «Llega en octubre.» (72 px, a y=380), **«Tu primer viaje por 1,99 €\*»** (96 px,
+  el precio en menta), la nota «\*Si te apuntas a la lista de espera en travelsnomad.com»
+  (36 px) y la marca a y=1400. Reposo hasta el final (4,9 s de cierre).
+
+  **Ese cierre no sigue el orden de precios de la casa, y es a propósito.** `AGENTS.md`
+  manda «2,99 € el viaje entero; en la lista, el primero por 1,99 €, siempre en ese orden».
+  La primera versión lo cumplía («2,99 € el viaje entero. / En la lista, el primero por
+  1,99 €.») y el dueño la cambió el 3-sep: *«no me gusta; algo como "Tu primer viaje por
+  1,99 €\*" y abajo que te tienes que suscribir en la web»*. También quitó el kicker
+  «Todavía no está publicada». Es decisión suya sobre el reel; la regla sigue en pie para
+  los anuncios y las tarjetas, y no se «corrige» el reel para cumplirla.
 
 Los cortes de capítulo son los del metraje —**5,10** (la app empieza a montar el viaje),
 **12,23** (tour), **25,13** (museo), **38,13** (fin)— y **no se escriben a mano**: se
