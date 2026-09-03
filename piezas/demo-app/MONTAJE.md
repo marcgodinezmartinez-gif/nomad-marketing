@@ -86,7 +86,12 @@ npx hyperframes check                                 # 0/0, 21/21 en contraste
 npx hyperframes render --output demo-reel.mp4         # 28 s a 30 fps
 ffmpeg -i demo-reel.mp4 -t 12.0 -an -c:v libx264 -crf 18 demo-reel-historia-1.mp4
 ffmpeg -i demo-reel.mp4 -ss 13.0 -an -c:v libx264 -crf 18 demo-reel-historia-2.mp4
+ffmpeg -i demo-reel.mp4 -ss 9.0 -frames:v 1 -q:v 2 demo-reel-portada.jpg   # la portada
 ```
+
+Lo que sale de ahí no se versiona (regla de `salida/`): se rehace del repo en tres minutos.
+El render tarda ~2 min y sale h264 High, yuv420p, 30 fps, 5,3 Mb/s: entra en Instagram
+tal cual.
 
 Trampa de HyperFrames pagada aquí: **un `fromTo` de salida pisa la entrada.** Los `fromTo`
 pintan su estado inicial al construirse, así que un `fromTo({autoAlpha: 1} → 0)` para
