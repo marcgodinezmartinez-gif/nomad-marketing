@@ -204,6 +204,11 @@ en la bio — el «👇» es para las historias, donde el adhesivo sí está deb
 >
 > #viajar #viajes #escapada #europa #roma #viajeenpareja #viajeconamigos
 
-Etiquetas según PLAN-INSTAGRAM (5-8, más la del destino). **Portada del reel**: el
-fotograma de la cabeza del Coloso (t=20,7), no el itinerario — a tamaño de grid el
-itinerario es una mancha de texto y la cabeza se reconoce a cualquier tamaño.
+Etiquetas según PLAN-INSTAGRAM (5-8, más la del destino). **Portada del reel** (3-sep):
+un fotograma del propio reel, porque ahora cualquiera es una tarjeta de la casa con su
+titular en serif, que sí se lee a tamaño de grid. Dos candidatas: el itinerario (t=9,0,
+«Dices dónde y cuándo. / Te escribe los días.», la prueba) y la cabeza del Coloso (t=31,3,
+«Enfocas una obra / y te cuenta su historia.», la imagen que se reconoce). El grid recorta
+la portada a 4:5 por el centro (y=285-1635): en las dos, el texto y el móvil caen dentro.
+El pie sigue válido con el cierre nuevo del vídeo: el vídeo dice sólo «Tu primer viaje por
+1,99 €*» y el pie pone los dos precios en el orden de la casa; se complementan.
