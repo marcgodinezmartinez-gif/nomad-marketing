@@ -229,19 +229,28 @@ familia y amigos (6 republicaciones). Insights a las 8:23:
 | Me gusta / comentarios / guardados | 16 / 3 / 0 |
 | Edad | 25-34: 75 %; 35-44: 15 % (la cohorte del dueño, no el mercado) |
 
-**Lectura.** El alcance viene del boca a boca del círculo, no del algoritmo (0 guardados,
-«compartido» sin dato). La cifra que manda es la retención: **5 s de media sobre 43** —
-la gente se va antes de que en el móvil pase nada, porque el reel abre con una foto, un
-móvil que sube durante un segundo y un rótulo; lo primero que sorprende (el destino
-tecleado, el plan apareciendo) llega en el segundo 5-7. El corte del 2-sep abría con la
-app preguntando «¿A dónde vamos?» y el teclado subiendo antes del segundo 1; el del 3-sep
-ganó estilo y perdió el gancho. Y el embudo de después: 45 visitas al perfil → 2 toques
-al enlace, con la bio diciendo «Apúntate y no te pierdas el lanzamiento» sin decir qué
-se lleva quien se apunta.
+**De dónde vinieron las vistas** (8:32): **historias 88,3 %**, feed 7,0 %, perfil 1,4 %,
+pestaña Reels 1,3 %. **Retención**: cae a ~40 % en el primer segundo, ~25 % a los 4 s,
+~15 % a los 10, ~8 % a los 20, ~5 % al final.
 
-**Decisión**: no se paga este reel (5 s de media compran 5 s de media). Lo que sí:
-(1) subir las destacadas, que son lo que los 45 del perfil tenían que encontrar;
-(2) la bio dice la oferta: «Sale en octubre. Tu primer viaje por 1,99 € si te apuntas ↓»;
-(3) la siguiente versión abre con el plan apareciendo en los 2 primeros segundos, en
-15 s, y se mide igual. La curva de retención (Descripción → Retención) decide el segundo
-exacto del corte; se pide antes de tocar nada.
+**Lectura.** La primera lectura de la mañana (la retención de 5 s como fallo del gancho)
+era incompleta, y el origen de las vistas la corrige: el 88 % vino de **historias**, es
+decir, de las republicaciones del círculo. Un reel metido en una historia se pasa con un
+toque, y el acantilado del primer segundo es ese toque, no el vídeo. El reel sólo se ha
+probado en su sitio (feed y pestaña Reels) con unas 67 personas: nada que leer. Lo que
+sí dice la curva: de quien se quedó pasado el primer segundo, uno de cada cuatro llegó a
+la mitad y uno de cada ocho al final. Y la distribución orgánica no existió (1,3 % desde
+Reels, 0 guardados): con esta cuenta, el algoritmo no va a probar el vídeo por nosotros.
+El embudo de después sigue siendo un problema propio: 45 visitas al perfil → 2 toques al
+enlace, con la bio diciendo «Apúntate y no te pierdas el lanzamiento» sin decir qué se
+lleva quien se apunta.
+
+**Decisión (4-sep).** (1) La versión de 15 s **espera**: la curva no dice dónde cortar,
+porque mide la historia y no el reel. (2) La prueba fría, que orgánicamente no existe, se
+**compra**, que es exactamente para lo que `AGENTS.md` dice que sirve lo pagado: el reel
+entra como quinto anuncio `lista-g` en el conjunto de los estáticos (ES 20-55 amplio,
+tráfico, 5 €/día), 3-4 días, con «usar publicación existente» y el UTM ya reservado. Lo
+que se lee: la retención de Meta (reproducciones de 3 s, ThruPlay, 25/50/75/100 %), las
+visitas a la página y las altas `meta/paid/lista-g`; la tabla de parada manda igual.
+(3) Destacadas y bio, ya: son lo que las 45 visitas al perfil tenían que encontrar, y la
+bio dice la oferta («Sale en octubre. Tu primer viaje por 1,99 € si te apuntas ↓»).
