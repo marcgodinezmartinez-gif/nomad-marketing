@@ -212,3 +212,36 @@ titular en serif, que sí se lee a tamaño de grid. Dos candidatas: el itinerari
 la portada a 4:5 por el centro (y=285-1635): en las dos, el texto y el móvil caen dentro.
 El pie sigue válido con el cierre nuevo del vídeo: el vídeo dice sólo «Tu primer viaje por
 1,99 €*» y el pie pone los dos precios en el orden de la casa; se complementan.
+
+## Lo que hizo el reel (4-sep, 8:23, unas once horas después de subirlo)
+
+Subido la noche del 3-sep y compartido desde el perfil personal del dueño, su pareja,
+familia y amigos (6 republicaciones). Insights a las 8:23:
+
+| | |
+|---|---|
+| Reproducciones / espectadores | 1 152 / 804 |
+| No seguidores | 58,2 % (≈ 470 cuentas) |
+| **Tiempo medio de reproducción** | **5 s** (de 43) |
+| Visitas al perfil | 45 (5,6 % de los espectadores) |
+| Nuevos seguidores | 3 |
+| Toques en el enlace de la bio | 2 (0,25 % de los espectadores; 4,4 % de las visitas al perfil) |
+| Me gusta / comentarios / guardados | 16 / 3 / 0 |
+| Edad | 25-34: 75 %; 35-44: 15 % (la cohorte del dueño, no el mercado) |
+
+**Lectura.** El alcance viene del boca a boca del círculo, no del algoritmo (0 guardados,
+«compartido» sin dato). La cifra que manda es la retención: **5 s de media sobre 43** —
+la gente se va antes de que en el móvil pase nada, porque el reel abre con una foto, un
+móvil que sube durante un segundo y un rótulo; lo primero que sorprende (el destino
+tecleado, el plan apareciendo) llega en el segundo 5-7. El corte del 2-sep abría con la
+app preguntando «¿A dónde vamos?» y el teclado subiendo antes del segundo 1; el del 3-sep
+ganó estilo y perdió el gancho. Y el embudo de después: 45 visitas al perfil → 2 toques
+al enlace, con la bio diciendo «Apúntate y no te pierdas el lanzamiento» sin decir qué
+se lleva quien se apunta.
+
+**Decisión**: no se paga este reel (5 s de media compran 5 s de media). Lo que sí:
+(1) subir las destacadas, que son lo que los 45 del perfil tenían que encontrar;
+(2) la bio dice la oferta: «Sale en octubre. Tu primer viaje por 1,99 € si te apuntas ↓»;
+(3) la siguiente versión abre con el plan apareciendo en los 2 primeros segundos, en
+15 s, y se mide igual. La curva de retención (Descripción → Retención) decide el segundo
+exacto del corte; se pide antes de tocar nada.
