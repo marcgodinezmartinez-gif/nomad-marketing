@@ -247,9 +247,16 @@ lleva quien se apunta.
 
 **Decisión (4-sep).** (1) La versión de 15 s **espera**: la curva no dice dónde cortar,
 porque mide la historia y no el reel. (2) La prueba fría, que orgánicamente no existe, se
-**compra**, que es exactamente para lo que `AGENTS.md` dice que sirve lo pagado: el reel
-entra como quinto anuncio `lista-g` en el conjunto de los estáticos (ES 20-55 amplio,
-tráfico, 5 €/día), 3-4 días, con «usar publicación existente» y el UTM ya reservado. Lo
+**compra**, que es exactamente para lo que `AGENTS.md` dice que sirve lo pagado: en la
+**misma campaña** (tráfico, para que las cifras sean comparables con los estáticos), un
+**conjunto nuevo duplicado del existente** (mismo público ES 20-55 amplio, mismas
+ubicaciones, 5 €/día propios) con un solo anuncio, el reel `lista-g` vía «usar
+publicación existente» y el UTM ya reservado; **los cuatro estáticos, en pausa** (el reel
+es el reemplazo, así que la regla de «nunca sin reemplazo» se cumple). No un quinto
+anuncio dentro del conjunto viejo: Meta reparte el presupuesto por historial y al nuevo
+le daría migajas, y el no-reparto se leería como veredicto sin serlo. No una campaña
+nueva de reproducciones: optimizaría por mirones baratos, no por quien toca. Ojo con el
+tope de gasto de la campaña (50 €): hay que subirlo, o el conjunto nuevo no arranca. Lo
 que se lee: la retención de Meta (reproducciones de 3 s, ThruPlay, 25/50/75/100 %), las
 visitas a la página y las altas `meta/paid/lista-g`; la tabla de parada manda igual.
 (3) Destacadas y bio, ya: son lo que las 45 visitas al perfil tenían que encontrar, y la
