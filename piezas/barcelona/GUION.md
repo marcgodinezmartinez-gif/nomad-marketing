@@ -27,37 +27,35 @@ Fuentes: Ajuntament de Barcelona (visitas al refugio), Taller d'Història de Gr�
 Wikipedia (Plaza del Diamante). **Nada de esto se escribe de memoria**: si se cambia una
 cifra, se vuelve a comprobar.
 
-## Las fotos del sitio: NO se usan, y por qué (6-sep, decisión del dueño)
+## Las fotos: de Unsplash/Pexels (decidido el 6-sep)
 
-Primera versión: siete tarjetas con fotos de la Plaça del Diamant de Commons. El dueño,
-al verlas: *«no me gustan del todo, para un par de insta se ven cutres todas»*. Tiene
-razón, y la causa no es la licencia sino la fuente: **Commons es una enciclopedia, no un
-banco de imágenes** — sus fotos existen para documentar, y una foto de aficionado de una
-plaza de barrio a mediodía no da el nivel del grid. (Y de paso: de las 34 de la categoría,
-las 14 aprovechables son **CC BY-SA**, ninguna CC0, así que tampoco entraban por la regla
-de la casa.)
+Se probó CC0 y no da: 370 candidatas de Barcelona en Openverse y lo usable era **un
+edificio de Gran de Gràcia fotografiado tres veces**. El dueño, viendo las de Commons de
+la plaza: *«se ven cutres todas»* — y tiene razón, porque **Commons es una enciclopedia,
+no un banco de imágenes**: sus fotos existen para documentar. Regla ampliada en AGENTS.md.
 
-**La versión buena no lleva ninguna foto del sitio.** Lo dijeron las propias tarjetas: las
-dos que mejor quedaban ya eran las que no tenían foto. Así que el sistema visual es
-**una fecha grande por tarjeta**:
+**Qué hace falta, tarjeta por tarjeta.** Verticales si se puede (las tarjetas son 4:5), o
+apaisadas grandes que aguanten el recorte. Y **con sitio arriba para el texto**: el kicker
+va a y=110 y el titular a y=180, así que lo interesante de la foto tiene que estar en la
+mitad de abajo.
 
-| Tarjeta | El número | Lo que abre |
+| Fichero | Tarjeta | Qué buscar en Unsplash |
 |---|---|---|
-| 2 | **12 m** | bajo tus pies hay un refugio antiaéreo |
-| 3 | **1992** | apareció haciendo obras, y va con el plano original |
-| 4 | **1962** | la novela más leída en catalán empieza aquí |
-| 5 | **1860** | un joyero le puso el nombre |
+| `f-bcn-plaza.jpg` | 1 · la portada | «**Plaça del Diamant**» si hay suerte; si no, una plaza de Gràcia con gente. **Es la única que idealmente ES el sitio** |
+| `f-bcn-noche.jpg` | 2 · el golpe (12 m) | «Barcelona night street», «Gràcia night». Oscura y con poca cosa: encima va un número gigante |
+| `f-bcn-calle.jpg` | 4 · 1962 | «Gràcia Barcelona street», «Barcelona narrow street» |
+| `f-bcn-balcon.jpg` | 5 · 1860 | «Barcelona balcony», «Barcelona facade». Detalle, hierro forjado, piedra |
+| `f-bcn-terraza.jpg` | 6 · la app | «Barcelona terrace», «Gràcia square». Detrás del móvil, así que puede tener más lío |
+| `f-bcn-cierre.jpg` | 7 · el cierre | «Barcelona sunset», «Barcelona rooftops». La que mejor quede: es la última que se ve |
 
-Cuatro números, cuatro historias, un solo sistema. Aguanta a tamaño de rejilla, es de la
-casa, y **no depende de que exista una foto buena de un sitio pequeño** — que es lo que
-hace repetible la serie en cualquier ciudad.
+La tarjeta 3 (**1992**) no lleva foto: lleva el plano original del refugio enmarcado.
 
-**La única imagen es el plano del refugio**, y hace doble trabajo: ampliado y oscurecido
-es el fondo de la portada (a ese tamaño no se reconoce, que es justo lo que busca un
-«¿conocías este lugar?»), y entero y enmarcado es el documento de la tarjeta 3.
-
-Si algún día hay fotos buenas del sitio —hechas por el dueño en Gràcia, con luz—, entran
-sin tocar el guion: son un fondo más.
+**Lo que Unsplash no va a tener es la Plaça del Diamant**, que es una plaza de barrio sin
+turismo. Si no aparece, dos salidas honradas: la haces tú en Gràcia (diez minutos, y de
+paso caen la Colometa y la boca del refugio), **o** la portada cambia de texto para no
+señalar una foto que no es el sitio — de «¿Conocías este lugar?» a «Aquí hay algo que casi
+nadie sabe», con la plaza apareciendo en la tarjeta 2. Lo que no se puede es enseñar otra
+plaza y decir «este lugar».
 
 ## Qué pedirle a la app
 

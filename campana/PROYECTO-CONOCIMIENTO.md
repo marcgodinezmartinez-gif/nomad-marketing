@@ -132,11 +132,21 @@ reconstruye y se vuelve a guardar—; en cuanto edite algo en el lienzo, manda e
 antes de sembrar hay que leerlo y construir sobre lo que haya, o su edición se pierde sin
 aviso. `piezas/taller/README.md` tiene el detalle.
 
-**Fotos: sólo CC0 o dominio público**, de Wikimedia Commons, verificadas foto a foto. No
-se debe atribución y no hay marca de agua, pero el crédito queda en
+**Fotos: CC0, dominio público, o Unsplash/Pexels** (regla ampliada el 6-sep por el dueño).
+Lo que manda es que **no se deba atribución y no haya marca de agua**; el crédito queda en
 `banco/fotos/creditos.json` para poder demostrar la procedencia. Una foto nueva entra con
-su título de Commons y su licencia en ese fichero, y en los dos tamaños: `post/`
-(1080×1350) e `historia/` (1080×1920), recortada del original, no de la otra.
+su origen y su licencia en ese fichero, y en los dos tamaños: `post/` (1080×1350) e
+`historia/` (1080×1920), recortada del original, no de la otra.
+
+**Por qué se amplió, medido**: para el carrusel de la Plaça del Diamant se buscaron 370
+fotos CC0 y de dominio público de Barcelona en Openverse —Flickr, Wikimedia, Rijksmuseum—
+y lo usable era **un edificio de Gran de Gràcia fotografiado tres veces**; el resto, motos
+de museo, monedas de 1853, grabados y castellers. De la Plaça del Diamant, **ninguna**.
+CC0 no tiene fotografía de calle española: la buena vive en Unsplash/Pexels o bajo CC BY.
+El dueño, viendo las de Commons: *«se ven cutres todas»*, y **el feed es fotográfico, esa
+es su esencia**. CC BY y CC BY-SA siguen fuera: exigen atribución, y ShareAlike es
+copyleft. Las mejores siguen siendo **las que hace el dueño**, que además consiguen sitios
+concretos que ningún banco tiene.
 
 **Capturas: de la app real**, nunca maquetas. Están en `banco/capturas/` por pantalla e
 idioma (`plan-900.webp`, `plan-900-it.webp`…). Si la app cambia una pantalla, se vuelven
