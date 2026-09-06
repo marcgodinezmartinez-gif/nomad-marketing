@@ -118,6 +118,25 @@ node ../piezas/roma/exportar-plan.mjs diamant 7
 El molde es el mismo que el carrusel de Roma y vive en `piezas/tarjetas.py`, compartido
 por los dos: 1080×1350, velos de la casa, kicker a y=110, titular a y=180, marca a y=1200.
 
+### Dónde están las fotos, una por una
+
+Todas en **Wikimedia Commons, categoría [Plaça del Diamant](https://commons.wikimedia.org/wiki/Category:Pla%C3%A7a_del_Diamant)**
+(34 ficheros, de los que 20 son de un acto político y no sirven). **Las catorce
+aprovechables son CC BY-SA**, ninguna CC0: por eso siguen sin entrar al banco.
+
+| Para | Fichero en Commons | Licencia | Visto |
+|---|---|---|---|
+| `f-diamant-plaza.jpg` | [Vista de la Plaça del Diamant.JPG](https://commons.wikimedia.org/wiki/File:Vista_de_la_Pla%C3%A7a_del_Diamant.JPG) | CC BY-SA 3.0 | **Sí**: la plaza entera de día, con los edificios y la terraza al fondo |
+| `f-diamant-plano.jpg` | [M101 R0232 G.jpg](https://commons.wikimedia.org/wiki/File:M101_R0232_G.jpg) | CC BY-SA 3.0 | **Sí**: el proyecto original del refugio, planta y sección |
+| `f-diamant-colometa.jpg` | [Plaça del Diamant P1140971.JPG](https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_del_Diamant_P1140971.JPG) · [P1140972](https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_del_Diamant_P1140972.JPG) | CC BY-SA 3.0 | **No** |
+| ídem, alternativas | [Plaza del Diamante.JPG](https://commons.wikimedia.org/wiki/File:Plaza_del_Diamante.JPG) · [La plaça del Diamant - panoramio](https://commons.wikimedia.org/wiki/File:La_pla%C3%A7a_del_Diamant%2C_Gr%C3%A0cia_%28Barcelona%29_-_panoramio.jpg) | CC BY-SA 4.0 / 3.0 | **No** |
+| `f-diamant-calle.jpg` | [Barcelona Gràcia 141](https://commons.wikimedia.org/wiki/File:Barcelona_Gr%C3%A0cia_141_%288338729440%29.jpg) · [Bandera de Gràcia a la plaça del Diamant](https://commons.wikimedia.org/wiki/File:Bandera_de_Gr%C3%A0cia_a_la_pla%C3%A7a_del_Diamant.jpg) | CC BY-SA 2.0 / 4.0 | **No** |
+
+**Las marcadas «No» hay que mirarlas antes de darlas por buenas** — la regla de mirar foto
+a foto no es opcional, y este mes ya coló un grabado del XVIII y la fachada equivocada.
+Desde una sesión no se pueden bajar en tanda: Wikimedia devuelve 429 al tercer fichero.
+Desde un navegador se abren y se descargan en un clic, sin límite.
+
 **El plano del refugio ya lo tenemos localizado**: `File:M101 R0232 G.jpg` en Commons es
 el proyecto original —«Refugi… construït a la Plaça del Diamant»— con su planta y su
 sección, marcado R232. Vale más que una foto para la tarjeta 3, y por eso va presentado
