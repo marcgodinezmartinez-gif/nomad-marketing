@@ -7,7 +7,7 @@
 // Aquí se inyectan las reales de banco/fuentes/webfonts (Google Fonts, OFL), en base64,
 // para que el render no dependa de la red.
 //
-// Uso, desde salida/:  node ../piezas/roma/exportar-plan.mjs
+// Uso, desde salida/:  node ../piezas/roma/exportar-plan.mjs [prefijo] [cuántas]
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import { readFileSync } from 'node:fs';
 
@@ -22,9 +22,15 @@ const css = Object.entries(man).flatMap(([familia, ficheros]) => ficheros.map((f
 .serif, .serif * { font-family: 'Instrument Serif' !important; }
 .sans,  .sans  * { font-family: 'Instrument Sans'  !important; }`;
 
+// Prefijo y número de tarjetas por argumento, que ya hay dos carruseles con el mismo molde:
+//   node ../piezas/roma/exportar-plan.mjs            → roma-1..5
+//   node ../piezas/roma/exportar-plan.mjs diamant 7  → diamant-1..7
+const prefijo = process.argv[2] || 'roma';
+const total = Number(process.argv[3] || 5);
+
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
-for (let i = 1; i <= 5; i++) {
-  const n = `roma-${i}`;
+for (let i = 1; i <= total; i++) {
+  const n = `${prefijo}-${i}`;
   const p = await b.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
   await p.goto('file://' + process.cwd() + `/${n}.dc.html`, { waitUntil: 'load' });
   await p.addStyleTag({ content: css });

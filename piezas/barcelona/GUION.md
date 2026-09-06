@@ -95,14 +95,32 @@ En vertical, sin recortar y **con la barra de estado**, como siempre.
 estuviera en la quinta, no lo vería casi nadie. El gancho pregunta y la segunda responde;
 de la tres a la cinco es la profundidad para quien se quedó.
 
-## Cuando lleguen las fotos y las capturas
+## Ya está montado: sólo faltan las imágenes
+
+`gen-diamant.py` escribe las siete tarjetas y **se puede correr hoy**: lo que falta lo
+pinta como hueco naranja, con el nombre del fichero que espera. Una tarjeta a la que le
+falta la prueba **no puede parecer terminada**, y por eso el aviso es chillón.
+
+| Fichero | Dónde va | Qué tiene que ser |
+|---|---|---|
+| `f-diamant-plaza.jpg` | `banco/fotos/post/` | La plaza entera. Tarjetas 1 y 6 |
+| `f-diamant-colometa.jpg` | `banco/fotos/post/` | La escultura, o la plaza con ella. Tarjeta 4 |
+| `f-diamant-calle.jpg` | `banco/fotos/post/` | Una calle de Gràcia. Tarjetas 5 y 7 |
+| `f-diamant-plano.jpg` | `banco/fotos/post/` | El plano del refugio. Tarjeta 3 (ver abajo) |
+| `tourdiamant-900.webp` | `banco/capturas/` | El tour de la app con la parada. **Tarjeta 6, la que no se puede saltar** |
 
 ```bash
-# las fotos a banco/fotos/post/ como f-diamant-{plaza,colometa,refugio,calle}.jpg
-# la captura a banco/capturas/tourdiamant-900.webp
 bash piezas/preparar.sh
-cd salida && python3 ../piezas/barcelona/gen-diamant.py && node ../piezas/roma/exportar-plan.mjs diamant
+cd salida && python3 ../piezas/barcelona/gen-diamant.py
+node ../piezas/roma/exportar-plan.mjs diamant 7
 ```
 
-El generador es el mismo molde que el carrusel de Roma (`piezas/roma/gen-plan-roma.py`):
-1080×1350, velos de la casa, kicker a y=110, titular a y=180, la marca a y=1200.
+El molde es el mismo que el carrusel de Roma y vive en `piezas/tarjetas.py`, compartido
+por los dos: 1080×1350, velos de la casa, kicker a y=110, titular a y=180, marca a y=1200.
+
+**El plano del refugio ya lo tenemos localizado**: `File:M101 R0232 G.jpg` en Commons es
+el proyecto original —«Refugi… construït a la Plaça del Diamant»— con su planta y su
+sección, marcado R232. Vale más que una foto para la tarjeta 3, y por eso va presentado
+**como documento enmarcado**, no a sangre: un plano de fondo se lee como textura y no se
+entiende qué es. Es CC BY-SA 3.0, o sea que entra en la misma decisión de licencia que
+las demás.
