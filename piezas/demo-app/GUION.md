@@ -261,3 +261,38 @@ que se lee: la retención de Meta (reproducciones de 3 s, ThruPlay, 25/50/75/100
 visitas a la página y las altas `meta/paid/lista-g`; la tabla de parada manda igual.
 (3) Destacadas y bio, ya: son lo que las 45 visitas al perfil tenían que encontrar, y la
 bio dice la oferta («Sale en octubre. Tu primer viaje por 1,99 € si te apuntas ↓»).
+
+## Tres días después (6-sep, 17:59): el reel se paró
+
+| | 4-sep 8:23 | 6-sep 17:59 | Delta |
+|---|---|---|---|
+| Reproducciones / espectadores | 1 152 / 804 | 1 712 / **1 258** | +454 espectadores |
+| **Tiempo medio** | 5 s | **4 s** | **−1 s** |
+| Visitas al perfil | 45 | 49 | +4 |
+| Toques en el enlace | 2 | 4 | +2 |
+| Nuevos seguidores | 3 | 4 | +1 |
+| **Guardados** | 0 | **0** | **0** |
+| Republicaciones | 6 | 7 | +1 |
+| No seguidores | 58,2 % | 56,1 % | — |
+
+**La curva de «visualizaciones en el tiempo» es plana desde el 5-sep**: la distribución se
+paró. Todo el alcance salió de las primeras 36 horas, que fueron el círculo.
+
+**Tres números dicen lo mismo y hay que decirlo entero:**
+
+1. **El tiempo medio BAJÓ de 5 a 4 s.** Los 454 espectadores nuevos vieron menos que los
+   primeros. Un reel que funciona sube o mantiene esa cifra; 4 s sobre 43 es un 9 %.
+2. **Cero guardados con 1 258 espectadores.** Es el número más duro: nadie vio nada que
+   mereciera la pena conservar. Un demo de producto no se guarda; un plan de viaje sí.
+3. **Los 454 espectadores nuevos dieron 4 visitas al perfil** (0,9 %), cuando los primeros
+   804 dieron 45 (5,6 %). El tráfico tardío no era gente interesada.
+
+Lo que sí ganó: 1 258 personas supieron que NOMAD existe, gratis — casi tres veces las 457
+visitas que costaron dinero en agosto —, el 56 % no seguidores, y el estilo no lo discutió
+nadie. La factura del formato, no de la marca.
+
+**Conclusión para el contenido siguiente: el protagonista es EL PLAN, no la app.** Los
+guardados son la moneda del alcance orgánico, y lo que se guarda es un itinerario de tres
+días en Roma con horas y precios — que es justo lo que la app escribe. La app pasa a ser
+el pie de foto («esto lo ha escrito NOMAD en un minuto»), no el titular. Y sirve aunque el
+producto no se pueda usar hasta octubre, que era la contradicción de todo lo anterior.
