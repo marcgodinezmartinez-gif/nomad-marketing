@@ -105,14 +105,22 @@ def ficha(landing):
 
 def licencia_verificada(titulo):
     """La regla del repo: sólo CC0 o dominio público, verificadas foto a foto.
-    Se lee de la página de Commons, no del agregador."""
-    slug = urllib.parse.quote(titulo.replace(' ', '_'), safe=':/')
-    html = pide(f'https://commons.wikimedia.org/wiki/{slug}')
-    if not html: return None
-    if re.search(r'CC0 1\.0|Creative Commons CC0|CC0 waiver', html): return 'CC0'
-    if re.search(r'public domain|Public Domain Mark|PD-self|PD-old', html, re.I):
-        return 'Dominio público'
-    return None                                   # cualquier otra cosa: se descarta
+
+    OJO, ESTA FUNCIÓN ESTUVO ROTA HASTA EL 6-SEP y daba CC0 a todo. Buscaba la cadena
+    «Creative Commons CC0» en el HTML, y esa cadena aparece DOS VECES EN EL PIE DE
+    CUALQUIER página de Commons — es del propio sitio, no del fichero. La página de
+    `File:Plaça del Diamant.JPG`, que es CC BY-SA 3.0, también la contiene.
+
+    Lo que sí discrimina es la URL del *deed* (`.../deed.en`): sólo aparece dentro de la
+    plantilla de licencia del fichero. La comprobación vive en
+    piezas/fotos/verificar-licencias.py, que además trae un control que se rompe a
+    propósito antes de fiarse; aquí se reutiliza para no tener dos detectores."""
+    import importlib.util
+    ruta = os.path.join(os.path.dirname(__file__), 'verificar-licencias.py')
+    spec = importlib.util.spec_from_file_location('vl', ruta)
+    vl = importlib.util.module_from_spec(spec); spec.loader.exec_module(vl)
+    lics, libre = vl.licencia(titulo)
+    return lics[0] if libre and lics else None    # cualquier otra cosa: se descarta
 
 def url_original(titulo):
     slug = urllib.parse.quote(titulo.replace(' ', '_'), safe=':/')

@@ -160,6 +160,18 @@ a capturar; una captura vieja en un anuncio es una promesa que la app no cumple.
   el título no basta, y el guion no puede decidirlo por ti.
 - **Un `grep` encuentra la cadena también en los comentarios.** Se sonda el endpoint, no
   el fichero que lo llama. Y **una aserción se rompe a propósito antes de fiarse de ella**.
+- **La comprobación de licencia de Commons estuvo rota hasta el 6-sep y daba CC0 a todo**:
+  buscaba «Creative Commons CC0» en el HTML, y esa cadena está en el PIE DE CUALQUIER
+  página de Commons. Lo que discrimina es la URL del *deed* (`.../deed.en`), que sólo
+  aparece en la plantilla del fichero. Auditado el banco con el detector bueno: **las 19
+  fotos son CC0 o dominio público de verdad** — salió bien porque el filtro de Openverse
+  ya cribaba antes, no porque se comprobara. Ahora se comprueba:
+  `python3 piezas/fotos/verificar-licencias.py`, que trae su propio control.
+- **De un sitio concreto puede no haber NINGUNA foto CC0.** De la Plaça del Diamant hay 14
+  usables en Commons y **las catorce son CC BY-SA**. La regla de «sólo CC0 o dominio
+  público» no es gratis: deja fuera casi toda la fotografía de calle española, que es EL
+  mercado. Cuando pase, se decide a conciencia (ver `piezas/barcelona/GUION.md`), no se
+  cuela una CC BY-SA por las bravas.
 
 ## Al trabajar
 
