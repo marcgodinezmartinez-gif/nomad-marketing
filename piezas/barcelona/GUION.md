@@ -27,25 +27,37 @@ Fuentes: Ajuntament de Barcelona (visitas al refugio), Taller d'Història de Gr�
 Wikipedia (Plaza del Diamante). **Nada de esto se escribe de memoria**: si se cambia una
 cifra, se vuelve a comprobar.
 
-## ⚠️ LAS FOTOS: existen, son públicas, pero NINGUNA es CC0
+## Las fotos del sitio: NO se usan, y por qué (6-sep, decisión del dueño)
 
-Buscado el 6-sep en la categoría `Plaça del Diamant` de Wikimedia Commons: **34 ficheros,
-de los que 14 sirven** (los otros 20 son de un acto político). Y las **catorce son
-CC BY-SA** (2.0, 3.0 y 4.0). **Cero CC0, cero dominio público.** Entre ellas hay justo lo
-que haría falta: `Vista de la Plaça del Diamant.JPG`, `Plaça del Diamant P1140971.JPG`,
-`La plaça del Diamant, Gràcia (Barcelona) - panoramio.jpg` y `M101 R0232 G.jpg`.
+Primera versión: siete tarjetas con fotos de la Plaça del Diamant de Commons. El dueño,
+al verlas: *«no me gustan del todo, para un par de insta se ven cutres todas»*. Tiene
+razón, y la causa no es la licencia sino la fuente: **Commons es una enciclopedia, no un
+banco de imágenes** — sus fotos existen para documentar, y una foto de aficionado de una
+plaza de barrio a mediodía no da el nivel del grid. (Y de paso: de las 34 de la categoría,
+las 14 aprovechables son **CC BY-SA**, ninguna CC0, así que tampoco entraban por la regla
+de la casa.)
 
-La regla de la casa dice **«sólo CC0 o dominio público»**, así que tal como está, esta
-pieza no tiene foto. Hay tres salidas y **la decide el dueño**:
+**La versión buena no lleva ninguna foto del sitio.** Lo dijeron las propias tarjetas: las
+dos que mejor quedaban ya eran las que no tenían foto. Así que el sistema visual es
+**una fecha grande por tarjeta**:
 
-| | Qué implica |
-|---|---|
-| **A · Las hace él** *(recomendada)* | Gràcia, diez minutos. Gratis, sin licencia que discutir, y es la primera persona que pide la regla de la casa. Además queda mejor: la boca del refugio y la Colometa de cerca no las tiene Commons |
-| **B · Usar las CC BY-SA con crédito** | Legal y gratis, con una línea de crédito en el pie. **Pero ShareAlike es copyleft**: una tarjeta construida sobre la foto es discutiblemente obra derivada y tendría que llevar la misma licencia. Para una cuenta comercial eso no es un formalismo, es una decisión |
-| C · Cambiar de sitio a uno con fotos CC0 | Es dejar que la disponibilidad de fotos elija el contenido. Al revés de como debe ser |
+| Tarjeta | El número | Lo que abre |
+|---|---|---|
+| 2 | **12 m** | bajo tus pies hay un refugio antiaéreo |
+| 3 | **1992** | apareció haciendo obras, y va con el plano original |
+| 4 | **1962** | la novela más leída en catalán empieza aquí |
+| 5 | **1860** | un joyero le puso el nombre |
 
-**Si es A**, hacen falta cuatro o cinco: la plaza entera, la Colometa de cerca, la boca o
-la placa del refugio, y un plano de calle de Gràcia. En vertical y con luz de día.
+Cuatro números, cuatro historias, un solo sistema. Aguanta a tamaño de rejilla, es de la
+casa, y **no depende de que exista una foto buena de un sitio pequeño** — que es lo que
+hace repetible la serie en cualquier ciudad.
+
+**La única imagen es el plano del refugio**, y hace doble trabajo: ampliado y oscurecido
+es el fondo de la portada (a ese tamaño no se reconoce, que es justo lo que busca un
+«¿conocías este lugar?»), y entero y enmarcado es el documento de la tarjeta 3.
+
+Si algún día hay fotos buenas del sitio —hechas por el dueño en Gràcia, con luz—, entran
+sin tocar el guion: son un fondo más.
 
 ## Qué pedirle a la app
 

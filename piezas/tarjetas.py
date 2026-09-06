@@ -96,3 +96,13 @@ def documento(src, ancho=820, arriba=560, giro=-1.5):
             f'rotate({giro}deg); width: {ancho}px; padding: 18px; background: #F5F0E8; '
             f'box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55)">'
             f'<img src="fotos/{src}" alt="" style="width: 100%; display: block"></div>')
+
+def numero(n, y=190, size=300, color=None):
+    """UN NÚMERO COMO PROTAGONISTA. Sale de una pega del dueño (6-sep): las fotos que hay
+    en Commons de un sitio concreto son documentales y «se ven cutres» al lado del grid.
+    Un número grande en serif no necesita foto, es de la casa y aguanta a tamaño de rejilla
+    — y una fecha es exactamente lo que engancha en una historia de sitios."""
+    c = color or PAPEL
+    return (f'<p class="serif" style="position: absolute; left: 78px; top: {y}px; margin: 0; '
+            f'font-size: {size}px; line-height: 0.92; letter-spacing: -0.04em; color: {c}; '
+            f'font-weight: 400; {SOMBRA}">{n}</p>')

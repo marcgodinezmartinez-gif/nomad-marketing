@@ -24,17 +24,14 @@ import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from tarjetas import (SOMBRA, MENTA, NOCHE, VELO_FOTO, VELO_TELEFONO,
                       pagina as _pagina, raiz, foto, velo, kicker, titular, sub, marca,
-                      telefono, pendiente, documento)
+                      telefono, pendiente, documento, numero)
 
 HELMET = open('Main.dc.html').read().split('<helmet>')[1].split('</helmet>')[0]
 pagina = lambda cuerpo: _pagina(cuerpo, HELMET)
 
 # Los ficheros que espera. Cambiar aquí y en ningún otro sitio cuando lleguen los buenos.
-PLAZA    = 'f-diamant-plaza.jpg'      # la plaza entera
-COLOMETA = 'f-diamant-colometa.jpg'   # la escultura, o la plaza con ella
-CALLE    = 'f-diamant-calle.jpg'      # una calle de Gràcia
-PLANO    = 'f-diamant-plano.jpg'      # el plano del refugio (documento, no fondo)
-CAPTURA  = 'tourdiamant-900.webp'     # el tour de la app con la parada de la plaza
+PLANO   = 'f-diamant-plano.jpg'      # el plano original del refugio (Commons, CC BY-SA)
+CAPTURA = 'tourdiamant-900.webp'     # el tour de la app con la parada de la plaza
 
 def hay(f, carpeta='fotos'):
     return os.path.exists(f'{carpeta}/{f}' if carpeta else f)
@@ -49,76 +46,77 @@ def fondo(f, escala=1.06, v=VELO_FOTO):
 
 T = {}
 
-# 1 · EL GANCHO. No se dice el nombre todavía: el nombre es la recompensa de la 2.
-T['diamant-1'] = (raiz()
-  + fondo(PLAZA)
+# 1 · EL GANCHO. El fondo es el plano del refugio ampliado: a ese tamaño no se reconoce
+#     —que es justo lo que se busca— y no es una foto de aficionado, es un documento.
+T['diamant-1'] = (raiz(NOCHE)
+  + (foto(PLANO, 2.6) + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.88) 0%, '
+                             'rgba(16, 14, 11, 0.66) 45%, rgba(16, 14, 11, 0.92) 100%)')
+     if hay(PLANO) else velo(NOCHE))
   + kicker('Barcelona &middot; Gr&agrave;cia')
-  + titular('&iquest;Conoc&iacute;as<br>este lugar?', 180, 104)
-  + sub('Es una plaza de barrio. Y tiene tres historias debajo.', 460, 40, ancho=860)
+  + titular('&iquest;Conoc&iacute;as<br>este lugar?', 190, 108)
+  + sub('Es una plaza de barrio. Y tiene tres historias debajo.', 480, 40, ancho=860)
   + marca()
   + '</div>')
 
-# 2 · EL GOLPE. Sin foto y sin adornos: es la tarjeta que se lee y la que se comparte.
+# 2 · EL GOLPE, con la medida de protagonista. Va en la 2 a propósito: en un carrusel la
+#     gente se va pronto, y el refugio en la quinta no lo vería casi nadie.
 T['diamant-2'] = (raiz(NOCHE)
   + kicker('Doce metros bajo tus pies', 110, MENTA)
-  + titular('Hay un refugio<br>antia&eacute;reo.', 200, 108)
+  + numero('12<span style="font-size: 120px; letter-spacing: 0">&nbsp;m</span>', 190, 300)
+  + titular('Hay un refugio antia&eacute;reo.', 570, 82)
   + sub('Lo cavaron los propios vecinos durante la Guerra Civil. Cab&iacute;an m&aacute;s de '
-        'doscientas personas.', 520, 42, ancho=880)
-  + sub('Es el refugio 232, en la Pla&ccedil;a del Diamant.', 720, 34,
-        'rgba(255, 253, 249, 0.66)', ancho=880)
+        'doscientas personas. Es el refugio 232.', 720, 40, ancho=880)
   + marca()
   + '</div>')
 
-# 3 · EL DETALLE, con el plano original del refugio presentado como documento.
+# 3 · EL AÑO EN QUE APARECIÓ, con el plano original presentado COMO DOCUMENTO: de fondo se
+#     leería como textura y no se entendería qué es.
 T['diamant-3'] = (raiz(NOCHE)
   + kicker('Y nadie lo sab&iacute;a', 110)
-  + titular('Apareci&oacute; en 1992,<br>haciendo obras.', 180, 84)
-  + (documento(PLANO, 880, 560, -1.5) if hay(PLANO) else
-     pendiente('FALTA EL PLANO<br>del refugio', 500, 560))
+  + numero('1992', 180, 240, MENTA)
+  + titular('Apareci&oacute; haciendo obras.', 460, 76)
+  + (documento(PLANO, 880, 610, -1.5) if hay(PLANO) else
+     pendiente('FALTA EL PLANO<br>del refugio', 500, 610))
   + sub('Barcelona lleg&oacute; a tener unos 1.300 refugios, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. '
-        'Fue una de las primeras ciudades del mundo bombardeadas sistem&aacute;ticamente desde el aire.',
-        1010, 32, 'rgba(255, 253, 249, 0.86)', ancho=912)
-  + sub('Se visita los domingos, con reserva.', 1180, 30, MENTA, ancho=912, peso=700)
+        'Se visita los domingos, con reserva.', 1080, 32, 'rgba(255, 253, 249, 0.86)')
   + '</div>')
 
-# 4 · LO QUE SÍ SE VE.
-T['diamant-4'] = (raiz()
-  + fondo(COLOMETA)
-  + kicker('Arriba, en la plaza')
-  + titular('Empieza la novela<br>m&aacute;s le&iacute;da en catal&aacute;n.', 180, 82)
-  + sub('<i>La pla&ccedil;a del Diamant</i>, de Merc&egrave; Rodoreda (1962), traducida a m&aacute;s de '
-        'treinta idiomas.', 430, 38, ancho=880)
-  + sub('La escultura es la Colometa: la protagonista, atrapada contra un muro mientras las '
-        'palomas levantan el vuelo.', 590, 38, 'rgba(255, 253, 249, 0.78)', ancho=880)
+# 4 · LA NOVELA.
+T['diamant-4'] = (raiz(NOCHE)
+  + kicker('Arriba, en la plaza', 110)
+  + numero('1962', 180, 240)
+  + titular('Empieza la novela<br>m&aacute;s le&iacute;da en catal&aacute;n.', 460, 76)
+  + sub('<i>La pla&ccedil;a del Diamant</i>, de Merc&egrave; Rodoreda. Traducida a m&aacute;s de treinta '
+        'idiomas.', 700, 40, ancho=880)
+  + sub('La escultura de la plaza es la Colometa: la protagonista, atrapada contra un muro '
+        'mientras las palomas levantan el vuelo.', 850, 36, 'rgba(255, 253, 249, 0.72)', ancho=880)
   + marca()
   + '</div>')
 
 # 5 · EL NOMBRE.
-T['diamant-5'] = (raiz()
-  + fondo(CALLE)
-  + kicker('Y el nombre')
-  + titular('Se lo puso<br>un joyero.', 180, 104)
-  + sub('En 1860 Josep Rosell compr&oacute; estos terrenos y bautiz&oacute; las calles de Gr&agrave;cia '
-        'con nombres de piedras preciosas. De ah&iacute; el Diamant.', 460, 38, ancho=880)
+T['diamant-5'] = (raiz(NOCHE)
+  + kicker('Y el nombre', 110)
+  + numero('1860', 180, 240)
+  + titular('Se lo puso un joyero.', 460, 82)
+  + sub('Josep Rosell compr&oacute; estos terrenos y bautiz&oacute; las calles de Gr&agrave;cia con '
+        'nombres de piedras preciosas. De ah&iacute; el Diamant.', 620, 40, ancho=880)
   + marca()
   + '</div>')
 
 # 6 · LA PRUEBA. Sin esta captura el carrusel no se publica: el cierre pasaría de ser una
 #     prueba a ser una promesa, y una promesa que la app no cumple es lo que la regla de
 #     la casa prohíbe.
-T['diamant-6'] = (raiz()
-  + fondo(PLAZA, 1.1, VELO_TELEFONO)
+T['diamant-6'] = (raiz(NOCHE)
   + kicker('C&oacute;mo se entera uno de esto')
   + titular('Te lo cuenta al o&iacute;do,<br>mientras lo andas.', 180, 82)
   + (telefono(CAPTURA, 430, 520) if hay(CAPTURA, '') else
      pendiente('FALTA LA CAPTURA<br>del tour de la app<br>con esta parada', 430, 520))
   + '</div>')
 
-# 7 · EL CIERRE, el mismo del reel y del carrusel de Roma.
-T['diamant-7'] = (raiz()
-  + fondo(CALLE, 1.04,
-          'linear-gradient(180deg, rgba(16, 14, 11, 0.6) 0%, rgba(16, 14, 11, 0.34) 32%, '
-          'rgba(16, 14, 11, 0.9) 100%)')
+# 7 · EL CIERRE, el del reel y el de Roma, pero SIN FOTO. La primera versión traía
+#     f-oferta.jpg, que es San Pedro y el puente de Sant'Angelo: cerrar un carrusel de
+#     Barcelona con una foto de Roma. Y sin foto queda además coherente con las otras seis.
+T['diamant-7'] = (raiz(NOCHE)
   + kicker('Todav&iacute;a no est&aacute; publicada')
   + titular('Llega en octubre.', 180, 96)
   + (f'<h2 class="serif" style="position: absolute; left: 84px; top: 320px; margin: 0; width: 912px; '
@@ -132,7 +130,7 @@ T['diamant-7'] = (raiz()
 for stem, html in T.items():
     open(f'{stem}.dc.html', 'w').write(pagina(html))
 
-faltan = [f for f in (PLAZA, COLOMETA, CALLE, PLANO) if not hay(f)] + \
+faltan = [f for f in (PLANO,) if not hay(f)] + \
          ([CAPTURA] if not hay(CAPTURA, '') else [])
 print(f'{len(T)} tarjetas: ' + ', '.join(T))
 if faltan: print('FALTAN, y las tarjetas lo dicen en naranja: ' + ', '.join(faltan))
