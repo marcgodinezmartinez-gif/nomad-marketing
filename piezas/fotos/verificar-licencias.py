@@ -89,9 +89,13 @@ def main():
             print(f'  OK  {nombre:18} «{v["lic"]}», verificada a mano el {v.get("verificada", "?")}: {v["url"]}')
             continue
         lics, libre = licencia(v['titulo'])
-        marca = 'OK ' if libre else '>>>'
-        print(f'  {marca} {nombre:18} dice «{v["lic"]}» → Commons dice {lics}')
-        if not libre: sospechosas.append((nombre, lics))
+        # CC BY y CC BY-SA entran SÓLO con la atribución ya escrita en la entrada (decisión
+        # del dueño, 7-sep, para la Plaça del Diamant y su refugio): sin ese texto, no cumplen.
+        con_atribucion = bool(v.get('atribucion')) and bool(lics) and all(l.startswith('CC BY') for l in lics)
+        marca = 'OK ' if libre else ('AT ' if con_atribucion else '>>>')
+        print(f'  {marca} {nombre:18} dice «{v["lic"]}» → Commons dice {lics}'
+              + (f'  (con atribución: «{v["atribucion"]}»)' if con_atribucion and not libre else ''))
+        if not libre and not con_atribucion: sospechosas.append((nombre, lics))
         elif lics: v['lic'] = lics[0]           # se guarda la real, no la supuesta
         time.sleep(PAUSA)
     json.dump(dict(sorted(cred.items())), open(ruta, 'w'), indent=2, ensure_ascii=False)
@@ -100,7 +104,8 @@ def main():
         for n, l in sospechosas: print(f'  {n}: {l}')
         print('\nHay que sustituirlas o cambiar la regla a conciencia. No se borran solas.')
     else:
-        print('\nLas ' + str(len(cred)) + ' cumplen la regla de la casa: CC0, dominio público, Unsplash o Pexels.')
+        print('\nLas ' + str(len(cred)) + ' cumplen la regla de la casa: CC0, dominio público, Unsplash o Pexels, '
+              'o CC BY / BY-SA con su atribución escrita.')
 
 if __name__ == '__main__':
     main()

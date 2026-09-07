@@ -106,3 +106,9 @@ def numero(n, y=190, size=300, color=None):
     return (f'<p class="serif" style="position: absolute; left: 78px; top: {y}px; margin: 0; '
             f'font-size: {size}px; line-height: 0.92; letter-spacing: -0.04em; color: {c}; '
             f'font-weight: 400; {SOMBRA}">{n}</p>')
+
+def credito(t, y=1292, color='rgba(255, 253, 249, 0.62)'):
+    """La atribución de una foto CC BY / BY-SA, en la propia tarjeta (7-sep): discreta pero
+    legible, debajo de la marca. El pie del post lleva además la versión completa."""
+    return (f'<p class="sans" style="position: absolute; left: 84px; top: {y}px; margin: 0; width: 912px; '
+            f'font-size: 20px; font-weight: 500; letter-spacing: 0.02em; color: {color}; {SOMBRA}">{t}</p>')

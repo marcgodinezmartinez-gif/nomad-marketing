@@ -144,8 +144,11 @@ y lo usable era **un edificio de Gran de Gràcia fotografiado tres veces**; el r
 de museo, monedas de 1853, grabados y castellers. De la Plaça del Diamant, **ninguna**.
 CC0 no tiene fotografía de calle española: la buena vive en Unsplash/Pexels o bajo CC BY.
 El dueño, viendo las de Commons: *«se ven cutres todas»*, y **el feed es fotográfico, esa
-es su esencia**. CC BY y CC BY-SA siguen fuera: exigen atribución, y ShareAlike es
-copyleft. Las mejores siguen siendo **las que hace el dueño**, que además consiguen sitios
+es su esencia**. **CC BY y CC BY-SA entran sólo cuando el sitio lo exige** —decidido por el dueño el 7-sep
+para la Plaça del Diamant y su refugio, de los que no hay foto libre— y **con la
+atribución escrita en la tarjeta (`credito()` en `piezas/tarjetas.py`) y en el pie**, sabiendo
+que ShareAlike deja esa tarjeta bajo la misma licencia. Sin el texto de atribución en
+`creditos.json`, el verificador las marca como no conformes. Las mejores siguen siendo **las que hace el dueño**, que además consiguen sitios
 concretos que ningún banco tiene.
 
 **Capturas: de la app real**, nunca maquetas. Están en `banco/capturas/` por pantalla e

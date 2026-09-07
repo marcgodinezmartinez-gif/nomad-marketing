@@ -92,10 +92,40 @@
     "lic": "CC0",
     "titulo": "File:Cordoba - Mezquita-Catedral 22.jpg"
   },
+  "f-diamant-boca.jpg": {
+    "lic": "CC BY-SA 4.0",
+    "titulo": "File:Entrada al refugio antiaéreo y plaza del diamante.JPG",
+    "autor": "Vanbasten 23",
+    "url": "https://commons.wikimedia.org/wiki/File:Entrada_al_refugio_antia%C3%A9reo_y_plaza_del_diamante.JPG",
+    "sitio": "Cabina de entrada del refugio 232, Plaça del Diamant",
+    "atribucion": "Foto: Vanbasten 23 · Wikimedia Commons · CC BY-SA 4.0",
+    "fuente": "commons",
+    "verificada": "2026-09-07"
+  },
+  "f-diamant-colometa.jpg": {
+    "lic": "CC BY-SA 3.0",
+    "titulo": "File:Colometa Plaça del Diamant.JPG",
+    "autor": "1997",
+    "url": "https://commons.wikimedia.org/wiki/File:Colometa_Pla%C3%A7a_del_Diamant.JPG",
+    "sitio": "La Colometa (Xavier Medina-Campeny), Plaça del Diamant",
+    "atribucion": "Foto: 1997 · Wikimedia Commons · CC BY-SA 3.0",
+    "fuente": "commons",
+    "verificada": "2026-09-07"
+  },
   "f-diamant-llistat.jpg": {
     "lic": "CC0",
     "titulo": "File:Llistat del 9 desembre 1937 dels refugis de Barcelona.jpg",
     "nota": "Documento, no foto: el listado municipal de refugios por distritos. Va a tamaño nativo (1435×1078) y sólo en post/, porque recortarlo a 4:5 o 9:16 lo mutilaría."
+  },
+  "f-diamant-plaza.jpg": {
+    "lic": "CC BY-SA 3.0",
+    "titulo": "File:Plaça del Diamant.JPG",
+    "autor": "1997",
+    "url": "https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_del_Diamant.JPG",
+    "sitio": "Plaça del Diamant, Gràcia, Barcelona",
+    "atribucion": "Foto: 1997 · Wikimedia Commons · CC BY-SA 3.0",
+    "fuente": "commons",
+    "verificada": "2026-09-07"
   },
   "f-grupo.jpg": {
     "lic": "CC0",
@@ -140,6 +170,16 @@
   "f-precio.jpg": {
     "lic": "CC0",
     "titulo": "File:Restaurants, Place du Tertre, Paris 30 September 2019.jpg"
+  },
+  "f-refugi307-interior.jpg": {
+    "lic": "CC BY-SA 3.0",
+    "titulo": "File:Mhcb070401 008.jpg",
+    "autor": "Pere Herrero (Museu d’Història de Barcelona)",
+    "url": "https://commons.wikimedia.org/wiki/File:Mhcb070401_008.jpg",
+    "sitio": "Interior del refugio 307, Poble-sec, Barcelona. NO es el 232: del interior del 232 no hay foto libre",
+    "atribucion": "Foto: refugio 307 (Poble-sec), Pere Herrero / MUHBA · Wikimedia Commons · CC BY-SA 3.0",
+    "fuente": "commons",
+    "verificada": "2026-09-07"
   },
   "f-santiago.jpg": {
     "lic": "CC0",
