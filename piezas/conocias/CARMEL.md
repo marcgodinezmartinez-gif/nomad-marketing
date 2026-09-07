@@ -40,16 +40,20 @@ la batería ni las barracas, el cierre cambia a lo que sí diga.
 
 ## El pie
 
-> Los búnkers del Carmel no son búnkers. Son las plataformas de una batería antiaérea.
+Con la voz de la app (7-sep): preciso, sin coloquialismos. La primera línea es la que se ve
+en el feed sin abrir.
+
+> Los «búnkers» del Carmel no son búnkers: son las plataformas de tiro de una batería antiaérea.
 >
-> Se montó a finales de 1937 en el Turó de la Rovira: siete plataformas de tiro y cuatro
-> cañones Vickers de 105 mm para defender Barcelona de la aviación italiana, que bombardeaba
-> la ciudad desde Mallorca. Al acabar la guerra, sobre las plataformas creció «Los Cañones»,
-> un centenar de barracas que duraron hasta 1990. El MUHBA excavó la batería entre 2006 y
-> 2008 y la abrió en 2011. Hoy es el atardecer más famoso de la ciudad.
+> Se instaló a finales de 1937 en el Turó de la Rovira, con siete plataformas y cuatro cañones
+> Vickers de 105 mm, para defender Barcelona de los bombardeos de la aviación italiana con
+> base en Mallorca. Terminada la guerra, sobre las plataformas creció el asentamiento de Los
+> Cañones, un centenar de barracas habitadas hasta 1990. El Museu d'Història de Barcelona
+> excavó y restauró la batería entre 2006 y 2008 y la abrió al público en 2011. Hoy es uno de
+> los miradores más visitados de la ciudad.
 >
-> Esto es lo que NOMAD te cuenta en la parada del tour, al oído y mientras andas. Sale en
-> octubre, y el primer viaje sale por 1,99 € para quien esté en la lista de espera. El
-> enlace, en la bio.
+> En NOMAD, cada parada del tour llega con su historia: al oído, mientras caminas. La app
+> sale en octubre; el primer viaje, por 1,99 € para quien esté en la lista de espera. Enlace
+> en la bio.
 >
 > #barcelona #bunkersdelcarmel #turodelarovira #elcarmel #viajar #viajes #historia #catalunya

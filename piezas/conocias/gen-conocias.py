@@ -69,8 +69,8 @@ def dato(t):
 
 def app(t, captura):
     return (raiz(NOCHE) + fondo(t['foto'], VELO_TELEFONO)
-            + kicker('C&oacute;mo se entera uno de esto')
-            + titular('Te lo cuenta al o&iacute;do,<br>mientras lo andas.', 180, 82)
+            + kicker('En el tour de NOMAD')
+            + titular('Cada parada, con su historia.<br>Al o&iacute;do, mientras caminas.', 180, 76)
             + (telefono(captura, 430, 520) if hay(captura, '') else
                pendiente('FALTA LA CAPTURA<br>del tour de la app<br>con esta parada', 430, 520))
             + '</div>')
@@ -91,22 +91,25 @@ TIPOS = dict(portada=portada, dato=dato, app=app, cierre=cierre)
 PIEZAS = {}
 
 # BÚNKERS DEL CARMEL. Fuentes y copia: piezas/conocias/CARMEL.md.
+# Textos reescritos el 7-sep con la voz de la app (dueño: «adaptar los textos a la
+# profesionalidad de la app»): precisos, sin coloquialismos, el tono de una guía.
 PIEZAS['carmel'] = dict(captura='tourcarmel-900.webp', tarjetas=[
-  dict(tipo='portada', foto='f-carmel-portada.jpg', kicker='Barcelona &middot; El Carmel',
-       sub='El mejor mirador de la ciudad. Y no lo hicieron para mirar.'),
-  dict(tipo='dato', foto='f-carmel-plataformas.jpg', kicker='Tur&oacute; de la Rovira &middot; bajo tus pies', kicker_menta=True,
-       numero='1938', titular='Aqu&iacute; disparaban a los aviones.',
-       subs=['Siete plataformas de tiro y cuatro ca&ntilde;ones Vickers de 105 mm, montados a finales de 1937 '
-             'para defender Barcelona de los bombardeos de la aviaci&oacute;n italiana, que despegaba de Mallorca.',
-             'Barcelona fue de las primeras ciudades del mundo bombardeadas sistem&aacute;ticamente desde el aire.']),
-  dict(tipo='dato', foto='f-carmel-tarde.jpg', kicker='Y al acabar la guerra',
-       numero='1990', titular='Fue un barrio de barracas.',
-       subs='Sobre las plataformas se levant&oacute; &laquo;Los Ca&ntilde;ones&raquo;: un centenar de chabolas, '
-            'con familias viviendo dentro de la bater&iacute;a. Dur&oacute; hasta 1990.'),
-  dict(tipo='dato', foto='f-carmel-noche.jpg', kicker='Hoy', numero='2011', numero_menta=True,
-       titular='El atardecer m&aacute;s famoso<br>de Barcelona.', titular_y=440, sub_y=660,
-       subs='El MUHBA excav&oacute; la bater&iacute;a en tres veranos, de 2006 a 2008, y la abri&oacute; en 2011. '
-            'Y los &laquo;b&uacute;nkers&raquo; no son b&uacute;nkers: son las plataformas de los ca&ntilde;ones.'),
+  dict(tipo='portada', foto='f-carmel-portada.jpg', kicker='Barcelona &middot; Tur&oacute; de la Rovira',
+       sub='Uno de los miradores m&aacute;s visitados de la ciudad. Su historia empieza en 1937.'),
+  dict(tipo='dato', foto='f-carmel-plataformas.jpg', kicker='Bater&iacute;a antia&eacute;rea &middot; 1937-1938', kicker_menta=True,
+       numero='1938', titular='Una bater&iacute;a antia&eacute;rea<br>sobre la ciudad.', titular_y=440, sub_y=660, sub2_y=920,
+       subs=['Siete plataformas de tiro y cuatro ca&ntilde;ones Vickers de 105 mm, instalados a finales de 1937 '
+             'para defender Barcelona de los bombardeos de la aviaci&oacute;n italiana con base en Mallorca.',
+             'Barcelona fue una de las primeras ciudades del mundo sometidas a bombardeos a&eacute;reos sistem&aacute;ticos.']),
+  dict(tipo='dato', foto='f-carmel-tarde.jpg', kicker='La posguerra',
+       numero='1990', titular='De bater&iacute;a a barrio<br>de barracas.', titular_y=440, sub_y=660,
+       subs='Terminada la guerra, sobre las plataformas creci&oacute; el asentamiento de Los Ca&ntilde;ones: '
+            'un centenar de barracas habitadas hasta 1990.'),
+  dict(tipo='dato', foto='f-carmel-noche.jpg', kicker='El presente', numero='2011', numero_menta=True,
+       titular='Patrimonio de la ciudad.',
+       subs='El Museu d&rsquo;Hist&ograve;ria de Barcelona excav&oacute; y restaur&oacute; la bater&iacute;a entre 2006 y 2008, '
+            'y la abri&oacute; al p&uacute;blico en 2011. Los llamados &laquo;b&uacute;nkers&raquo; son, en realidad, '
+            'las plataformas de tiro.'),
   dict(tipo='app', foto='f-carmel-gente.jpg'),
   dict(tipo='cierre', foto='f-carmel-luces.jpg'),
 ])
@@ -114,21 +117,21 @@ PIEZAS['carmel'] = dict(captura='tourcarmel-900.webp', tarjetas=[
 # TEMPLO DE DEBOD. Fuentes y copia: piezas/conocias/DEBOD.md.
 PIEZAS['debod'] = dict(captura='tourdebod-900.webp', tarjetas=[
   dict(tipo='portada', foto='f-debod-portada.jpg', kicker='Madrid &middot; Parque del Oeste',
-       sub='Es egipcio de verdad. Y tiene m&aacute;s de dos mil a&ntilde;os.'),
-  dict(tipo='dato', foto='f-debod-luna.jpg', kicker='Templo de Debod &middot; un regalo', kicker_menta=True,
-       numero='1968', titular='Egipto lo regal&oacute;.',
-       subs=['La presa de Asu&aacute;n iba a inundar los templos de Nubia y la UNESCO pidi&oacute; ayuda. '
-             'Espa&ntilde;a ayud&oacute; a salvar Abu Simbel, y Egipto lo agradeci&oacute; con un templo entero.',
-             'Regal&oacute; cuatro. Los otros tres est&aacute;n en Nueva York, Tur&iacute;n y Leiden.']),
-  dict(tipo='dato', foto='f-debod-puertas.jpg', kicker='Dos mil a&ntilde;os antes',
+       sub='Un templo egipcio aut&eacute;ntico, con m&aacute;s de dos mil a&ntilde;os, en el centro de Madrid.'),
+  dict(tipo='dato', foto='f-debod-luna.jpg', kicker='Templo de Debod &middot; 1968', kicker_menta=True,
+       numero='1968', titular='Un regalo de Egipto<br>a Espa&ntilde;a.', titular_y=440, sub_y=660, sub2_y=920,
+       subs=['La presa de Asu&aacute;n amenazaba los templos de Nubia y la UNESCO pidi&oacute; ayuda. '
+             'Espa&ntilde;a particip&oacute; en el rescate de Abu Simbel, y Egipto lo agradeci&oacute; con el templo de Debod.',
+             'Fueron cuatro los templos donados. Los otros tres est&aacute;n en Nueva York, Tur&iacute;n y Leiden.']),
+  dict(tipo='dato', foto='f-debod-puertas.jpg', kicker='Su origen',
        numero='2.200<span style="font-size: 100px; letter-spacing: 0">&nbsp;a&ntilde;os</span>',
-       titular='Lo empez&oacute; un rey nubio.',
-       subs='Adijalamani de Meroe, hacia el a&ntilde;o 200 antes de Cristo. Despu&eacute;s lo ampliaron los '
-            'Ptolomeos y los emperadores de Roma.'),
+       titular='Fundado por un rey nubio.',
+       subs='Adijalamani de Meroe lo erigi&oacute; a comienzos del siglo II a. C. Los Ptolomeos y los '
+            'emperadores romanos lo ampliaron despu&eacute;s.'),
   dict(tipo='dato', foto='f-debod-nubes.jpg', kicker='Piedra a piedra', numero='1972', numero_menta=True,
-       titular='Y se mont&oacute; en Madrid.',
-       subs='Donde estaba el Cuartel de la Monta&ntilde;a. Se abri&oacute; el 18 de julio de 1972, orientado de '
-            'este a oeste, como a orillas del Nilo.'),
+       titular='Reconstruido en Madrid.',
+       subs='Se levant&oacute; en el solar del antiguo Cuartel de la Monta&ntilde;a y se inaugur&oacute; el 18 de julio '
+            'de 1972, orientado de este a oeste, como en su emplazamiento original junto al Nilo.'),
   dict(tipo='app', foto='f-debod-reflejo.jpg'),
   dict(tipo='cierre', foto='f-madrid.jpg'),
 ])

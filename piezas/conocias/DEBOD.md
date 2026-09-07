@@ -36,18 +36,21 @@ vertical, con la barra de estado, guardada como `banco/capturas/tourdebod-900.we
 
 ## El pie
 
-> El Templo de Debod es egipcio de verdad, y Egipto lo regaló.
+Con la voz de la app (7-sep): preciso, sin coloquialismos. La primera línea es la que se ve
+en el feed sin abrir.
+
+> El Templo de Debod es un templo egipcio auténtico. Y fue un regalo.
 >
-> Lo empezó un rey nubio, Adijalamani de Meroe, hacia el año 200 antes de Cristo, y lo
-> ampliaron los Ptolomeos y Roma. En los años sesenta la presa de Asuán iba a inundar los
-> templos de Nubia; la UNESCO pidió ayuda y España participó en el rescate de Abu Simbel.
-> Egipto lo agradeció regalando cuatro templos: Dendur está en Nueva York, Ellesiya en Turín,
-> Taffa en Leiden y Debod en Madrid, desde 1968. Se montó piedra a piedra donde estaba el
-> Cuartel de la Montaña y se abrió el 18 de julio de 1972, orientado de este a oeste, como a
-> orillas del Nilo.
+> Lo fundó Adijalamani de Meroe, rey nubio, a comienzos del siglo II a. C., y lo ampliaron
+> los Ptolomeos y los emperadores romanos. En los años sesenta, la presa de Asuán amenazaba
+> los templos de Nubia; la UNESCO pidió ayuda internacional y España participó en el rescate
+> de Abu Simbel. Egipto lo agradeció donando cuatro templos: Dendur, en Nueva York; Ellesiya,
+> en Turín; Taffa, en Leiden; y Debod, en Madrid, desde 1968. Se reconstruyó piedra a piedra
+> en el solar del antiguo Cuartel de la Montaña y se inauguró el 18 de julio de 1972,
+> orientado de este a oeste, como en su emplazamiento original.
 >
-> Esto es lo que NOMAD te cuenta en la parada del tour, al oído y mientras andas. Sale en
-> octubre, y el primer viaje sale por 1,99 € para quien esté en la lista de espera. El
-> enlace, en la bio.
+> En NOMAD, cada parada del tour llega con su historia: al oído, mientras caminas. La app
+> sale en octubre; el primer viaje, por 1,99 € para quien esté en la lista de espera. Enlace
+> en la bio.
 >
 > #madrid #templodedebod #parquedeloeste #egipto #viajar #viajes #historia #madridsecreto
