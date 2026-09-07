@@ -27,35 +27,45 @@ Fuentes: Ajuntament de Barcelona (visitas al refugio), Taller d'Història de Gr�
 Wikipedia (Plaza del Diamante). **Nada de esto se escribe de memoria**: si se cambia una
 cifra, se vuelve a comprobar.
 
-## Las fotos: de Unsplash/Pexels (decidido el 6-sep)
+## Las fotos: de Unsplash y Pexels (decidido el 6-sep, buscadas y puestas el 7-sep)
 
 Se probó CC0 y no da: 370 candidatas de Barcelona en Openverse y lo usable era **un
 edificio de Gran de Gràcia fotografiado tres veces**. El dueño, viendo las de Commons de
 la plaza: *«se ven cutres todas»* — y tiene razón, porque **Commons es una enciclopedia,
 no un banco de imágenes**: sus fotos existen para documentar. Regla ampliada en AGENTS.md.
 
-**Qué hace falta, tarjeta por tarjeta.** Verticales si se puede (las tarjetas son 4:5), o
-apaisadas grandes que aguanten el recorte. Y **con sitio arriba para el texto**: el kicker
-va a y=110 y el titular a y=180, así que lo interesante de la foto tiene que estar en la
-mitad de abajo.
+**De la Plaça del Diamant no hay ni una foto libre, en ningún sitio.** Buscado el 7-sep:
+Unsplash devuelve el pomo de una puerta; Pexels y Pixabay rellenan con la Laguna del
+Diamante (Argentina), Colonia del Sacramento y glaciares; Flickr con licencia CC0 o
+dominio público no tiene ninguna. Las 14 de Commons son CC BY-SA. De **Gràcia**, en
+cambio, sí hay: el campanar de la plaça de la Vila entre plátanos, la Casa Vicens y
+Barcelona al anochecer desde el Park Güell, que es Gràcia. El resto son calles, balcones y
+patios de Barcelona sin barrio declarado. **Cada una se miró antes de entrar** y las nueve
+se verificaron en su página («Free to use under the Unsplash License» / «Free to use» en
+Pexels); autor y página quedan en `banco/fotos/creditos.json`, en los dos tamaños del
+banco, recortadas del original.
 
-| Fichero | Tarjeta | Qué buscar en Unsplash |
-|---|---|---|
-| `f-bcn-plaza.jpg` | 1 · la portada | «**Plaça del Diamant**» si hay suerte; si no, una plaza de Gràcia con gente. **Es la única que idealmente ES el sitio** |
-| `f-bcn-noche.jpg` | 2 · el golpe (12 m) | «Barcelona night street», «Gràcia night». Oscura y con poca cosa: encima va un número gigante |
-| `f-bcn-calle.jpg` | 4 · 1962 | «Gràcia Barcelona street», «Barcelona narrow street» |
-| `f-bcn-balcon.jpg` | 5 · 1860 | «Barcelona balcony», «Barcelona facade». Detalle, hierro forjado, piedra |
-| `f-bcn-terraza.jpg` | 6 · la app | «Barcelona terrace», «Gràcia square». Detrás del móvil, así que puede tener más lío |
-| `f-bcn-cierre.jpg` | 7 · el cierre | «Barcelona sunset», «Barcelona rooftops». La que mejor quede: es la última que se ve |
+| Fichero | Tarjeta | Qué es | Autor · fuente |
+|---|---|---|---|
+| `f-bcn-plaza.jpg` | 1 · la portada | El campanar de la plaça de la Vila de Gràcia, entre plátanos | Aaron Porras · Pexels |
+| `f-bcn-noche.jpg` | 2 · 12 m | Un callejón mojado de noche, con luces | Alex Quezada · Unsplash |
+| `f-bcn-patio.jpg` | 3 · 1992 | Los tejados y el patio de una manzana, desde arriba | Deyan Sight · Unsplash |
+| `f-bcn-balcon.jpg` | 4 · 1962 | Balcones con plantas al sol: el terrat de la Colometa | Casper van Battum · Unsplash |
+| `f-bcn-calle.jpg` | 5 · 1860 | Una calle estrecha con árboles y bolardos: las que bautizó el joyero | Herr Kirlian · Unsplash |
+| `f-bcn-paseo.jpg` | 6 · la app | Gente andando bajo un arco del casco antiguo; va detrás del móvil | Lisa van Vliet · Unsplash |
+| `f-bcn-cierre.jpg` | 7 · el cierre | Barcelona al anochecer desde el Park Güell | Lief Peng · Unsplash |
+| `f-bcn-festa.jpg` | reserva | Un callejón con banderines, para cuando toque la Festa Major | Henrique Ferreira · Unsplash |
+| `f-bcn-vicens.jpg` | reserva | La Casa Vicens, la primera casa de Gaudí, en Gràcia | Ogy Kovachev · Pexels |
 
-La tarjeta 3 (**1992**) no lleva foto: lleva el plano original del refugio enmarcado.
+**La portada no es la plaza, y por eso no dice «¿Conocías este lugar?»**: enseñar otra
+plaza y decir «este lugar» es lo único que no se puede. Dice «Aquí hay algo que casi nadie
+sabe» —«aquí» es el barrio, y el campanar lo reconoce cualquiera de Gràcia— y la plaza se
+nombra en la tarjeta 2. **Si el dueño la fotografía él** (diez minutos en Gràcia, y de paso
+la Colometa y la boca del refugio), se cambia `FOTOS[1]` en `gen-diamant.py` y vuelve la
+pregunta original.
 
-**Lo que Unsplash no va a tener es la Plaça del Diamant**, que es una plaza de barrio sin
-turismo. Si no aparece, dos salidas honradas: la haces tú en Gràcia (diez minutos, y de
-paso caen la Colometa y la boca del refugio), **o** la portada cambia de texto para no
-señalar una foto que no es el sitio — de «¿Conocías este lugar?» a «Aquí hay algo que casi
-nadie sabe», con la plaza apareciendo en la tarjeta 2. Lo que no se puede es enseñar otra
-plaza y decir «este lugar».
+**El plano del refugio ya no va.** Es CC BY-SA 3.0: exige atribución y ShareAlike, y la
+regla ampliada lo sigue dejando fuera. La tarjeta 3 lleva foto como las demás.
 
 ## Qué pedirle a la app
 
@@ -93,31 +103,46 @@ En vertical, sin recortar y **con la barra de estado**, como siempre.
 
 | # | Kicker | Titular | Debajo |
 |---|---|---|---|
-| 1 | Barcelona · Gràcia | **¿Conocías este lugar?** | Es una plaza de barrio. Y tiene tres historias debajo |
-| 2 | Doce metros bajo tus pies | **Hay un refugio antiaéreo.** | Lo cavaron los vecinos durante la Guerra Civil. Cabían más de doscientas personas |
-| 3 | Y nadie lo sabía | **Apareció en 1992, haciendo obras.** | Barcelona tuvo unos 1.300 refugios, más de 90 en Gràcia. Fue de las primeras ciudades bombardeadas sistemáticamente desde el aire. Se visita los domingos, con reserva |
+| 1 | Barcelona · Gràcia | **Aquí hay algo que casi nadie sabe.** | Una plaza de barrio con tres historias debajo |
+| 2 | Plaça del Diamant · bajo tus pies | **12 m · Hay un refugio antiaéreo.** | Lo cavaron los propios vecinos durante la Guerra Civil. Cabían más de doscientas personas. Es el refugio 232 |
+| 3 | Y nadie lo sabía | **1992 · Apareció haciendo obras.** | Barcelona llegó a tener unos 1.300 refugios, más de 90 sólo en Gràcia. Se visita los domingos, con reserva |
 | 4 | Arriba, en la plaza | **Empieza la novela más leída en catalán.** | *La plaça del Diamant*, de Mercè Rodoreda (1962), en más de treinta idiomas. La escultura es la Colometa: la protagonista, atrapada contra un muro mientras las palomas levantan el vuelo |
 | 5 | Y el nombre | **Se lo puso un joyero.** | En 1860 Josep Rosell compró estos terrenos y bautizó las calles de Gràcia con nombres de piedras preciosas |
 | 6 | Cómo se entera uno de esto | **Te lo cuenta al oído, mientras lo andas.** | *(la captura del tour, en el móvil)* |
-| 7 | Todavía no está publicada | **Llega en octubre.** | Tu primer viaje por 1,99 €* · *Si te apuntas a la lista de espera en travelsnomad.com |
+| 7 | Lista de espera abierta | **Llega en octubre.** | Tu primer viaje por 1,99 €* · *Si te apuntas a la lista de espera en travelsnomad.com |
 
 **El golpe va en la 2, a propósito.** En un carrusel la gente se va pronto: si el refugio
 estuviera en la quinta, no lo vería casi nadie. El gancho pregunta y la segunda responde;
 de la tres a la cinco es la profundidad para quien se quedó.
 
-## Ya está montado: sólo faltan las imágenes
+## El pie
 
-`gen-diamant.py` escribe las siete tarjetas y **se puede correr hoy**: lo que falta lo
-pinta como hueco naranja, con el nombre del fichero que espera. Una tarjeta a la que le
-falta la prueba **no puede parecer terminada**, y por eso el aviso es chillón.
+La primera línea es la que se ve en el feed sin abrir, así que lleva el golpe.
+
+> Debajo de la Plaça del Diamant, en Gràcia, hay un refugio antiaéreo a doce metros.
+>
+> Lo cavaron los propios vecinos durante la Guerra Civil, cabían más de doscientas personas
+> y nadie se acordaba de él hasta que apareció haciendo obras, en 1992. Es el refugio 232
+> y se visita los domingos, con reserva.
+>
+> Arriba, la plaza da nombre a la novela más leída en catalán, y el nombre se lo puso un
+> joyero en 1860.
+>
+> Esto es lo que NOMAD te cuenta en la parada del tour, al oído y mientras andas. Sale en
+> octubre, y el primer viaje sale por 1,99 € para quien esté en la lista de espera. El
+> enlace, en la bio.
+>
+> #barcelona #gracia #placadeldiamant #refugio232 #viajar #viajes #historia #catalunya
+
+## Ya está montado: sólo falta la captura
+
+`gen-diamant.py` escribe las siete tarjetas **con sus fotos**, y lo único que pinta como
+hueco naranja es la prueba: una tarjeta a la que le falta la captura **no puede parecer
+terminada**, y por eso el aviso es chillón.
 
 | Fichero | Dónde va | Qué tiene que ser |
 |---|---|---|
-| `f-diamant-plaza.jpg` | `banco/fotos/post/` | La plaza entera. Tarjetas 1 y 6 |
-| `f-diamant-colometa.jpg` | `banco/fotos/post/` | La escultura, o la plaza con ella. Tarjeta 4 |
-| `f-diamant-calle.jpg` | `banco/fotos/post/` | Una calle de Gràcia. Tarjetas 5 y 7 |
-| `f-diamant-plano.jpg` | `banco/fotos/post/` | El plano del refugio. Tarjeta 3 (ver abajo) |
-| `tourdiamant-900.webp` | `banco/capturas/` | El tour de la app con la parada. **Tarjeta 6, la que no se puede saltar** |
+| `tourdiamant-900.webp` | `banco/capturas/` | El tour de la app con la parada de la plaza y LA HISTORIA desplegada. **Tarjeta 6, la que no se puede saltar** |
 
 ```bash
 bash piezas/preparar.sh
@@ -129,6 +154,10 @@ El molde es el mismo que el carrusel de Roma y vive en `piezas/tarjetas.py`, com
 por los dos: 1080×1350, velos de la casa, kicker a y=110, titular a y=180, marca a y=1200.
 
 ### Dónde están las fotos, una por una
+
+**Histórico (6-sep): ninguna de éstas entró.** Son CC BY-SA y la regla las deja fuera; se
+quedan apuntadas por si algún día se decide a conciencia lo contrario. Las que sí entraron
+están en la tabla de arriba.
 
 Todas en **Wikimedia Commons, categoría [Plaça del Diamant](https://commons.wikimedia.org/wiki/Category:Pla%C3%A7a_del_Diamant)**
 (34 ficheros, de los que 20 son de un acto político y no sirven). **Las catorce
