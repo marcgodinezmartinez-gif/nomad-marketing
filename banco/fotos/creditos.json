@@ -3,6 +3,87 @@
     "lic": "CC0",
     "titulo": "File:Pavillon Cour des Lions Alhambra Granada Spain.jpg"
   },
+  "f-bcn-balcon.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Casper van Battum",
+    "titulo": "A building with many balconies and plants on the balconies",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/a-building-with-many-balconies-and-plants-on-the-balconies-WCyLBmQ_7Z8",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-calle.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Herr Kirlian",
+    "titulo": "A narrow street lined with tall buildings and trees",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/a-narrow-street-lined-with-tall-buildings-and-trees-X6o9QhsxkmM",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-cierre.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Lief Peng",
+    "titulo": "Barcelona at dusk seen from Park Güell",
+    "sitio": "Park Güell (Gràcia), Barcelona",
+    "url": "https://unsplash.com/photos/barcelona-at-dusk-seen-from-park-guell-W8tw8v0e0uM",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-festa.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Henrique Ferreira",
+    "titulo": "A narrow alleyway with flags and bunting",
+    "sitio": "El Gòtic, Barcelona",
+    "url": "https://unsplash.com/photos/a-narrow-alleyway-with-flags-and-bunting-XuylVCGxDtY",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-noche.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Alex Quezada",
+    "titulo": "A narrow alleyway with a few people walking down it",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/a-narrow-alleyway-with-a-few-people-walking-down-it-pcXtBiEuZ4M",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-paseo.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Lisa van Vliet",
+    "titulo": "A group of people walking down a street next to tall buildings",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/a-group-of-people-walking-down-a-street-next-to-tall-buildings-1odVLtEh--4",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-patio.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Deyan Sight",
+    "titulo": "Rooftops and courtyard of buildings in a city",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/h9jWu4kH2CE",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-plaza.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Aaron Porras",
+    "titulo": "Brown Concrete Clock Tower Near Green Trees (Campanar de Gràcia)",
+    "sitio": "Plaça de la Vila de Gràcia, Barcelona",
+    "url": "https://www.pexels.com/photo/brown-concrete-clock-tower-near-green-trees-10691128/",
+    "verificada": "2026-09-07"
+  },
+  "f-bcn-vicens.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Ogy Kovachev",
+    "titulo": "Low Angle View of a Building (Casa Vicens)",
+    "sitio": "Casa Vicens, Gràcia, Barcelona",
+    "url": "https://www.pexels.com/photo/low-angle-view-of-a-building-5841311/",
+    "verificada": "2026-09-07"
+  },
   "f-bilbao.jpg": {
     "lic": "CC0",
     "titulo": "File:Bilbao - Guggenheim 35.jpg"

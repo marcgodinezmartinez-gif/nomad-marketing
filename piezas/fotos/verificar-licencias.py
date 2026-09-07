@@ -16,6 +16,12 @@
 # CORRER si el control no distingue los dos (una aserción se rompe a propósito antes de
 # fiarse de ella).
 #
+# LAS DE UNSPLASH Y PEXELS (regla ampliada el 6-sep) NO SE COMPRUEBAN DESDE AQUÍ: sus
+# licencias no llevan deed de Creative Commons, y unsplash.com no sirve la página a un
+# script (un muro anti-bot devuelve 401). Se verifican a mano en la página de la foto —«Free
+# to use under the Unsplash License» / «Free to use» en Pexels— y se anota la fecha en
+# `verificada`. El script las lista con su página para que se pueda repetir la comprobación.
+#
 # Uso:  python3 piezas/fotos/verificar-licencias.py
 import json, os, re, sys, time, urllib.parse, urllib.request
 
@@ -79,6 +85,9 @@ def main():
     print(f'Auditando {len(cred)} fotos del banco:')
     sospechosas = []
     for nombre, v in sorted(cred.items()):
+        if v.get('fuente') in ('unsplash', 'pexels'):
+            print(f'  OK  {nombre:18} «{v["lic"]}», verificada a mano el {v.get("verificada", "?")}: {v["url"]}')
+            continue
         lics, libre = licencia(v['titulo'])
         marca = 'OK ' if libre else '>>>'
         print(f'  {marca} {nombre:18} dice «{v["lic"]}» → Commons dice {lics}')
@@ -87,11 +96,11 @@ def main():
         time.sleep(PAUSA)
     json.dump(dict(sorted(cred.items())), open(ruta, 'w'), indent=2, ensure_ascii=False)
     if sospechosas:
-        print(f'\n{len(sospechosas)} NO cumplen la regla de la casa (CC0 o dominio público):')
+        print(f'\n{len(sospechosas)} NO cumplen la regla de la casa (CC0, dominio público, Unsplash o Pexels):')
         for n, l in sospechosas: print(f'  {n}: {l}')
         print('\nHay que sustituirlas o cambiar la regla a conciencia. No se borran solas.')
     else:
-        print('\nLas ' + str(len(cred)) + ' cumplen: CC0 o dominio público.')
+        print('\nLas ' + str(len(cred)) + ' cumplen la regla de la casa: CC0, dominio público, Unsplash o Pexels.')
 
 if __name__ == '__main__':
     main()
