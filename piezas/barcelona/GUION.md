@@ -93,7 +93,7 @@ y, por el ShareAlike, que la pieza derivada quede bajo la misma licencia. Y pide
 **«de manera razonable para el medio»**: no encima de la foto. En Instagram eso es:
 
 1. **El pie del post**, con el bloque completo: autor, Wikimedia Commons, licencia,
-   «recortadas» y «las tarjetas 2 y 4, CC BY-SA». Está en la sección «El pie». Con esto
+   «recortadas» y «las tarjetas 2 y 3, CC BY-SA». Está en la sección «El pie». Con esto
    se cumple.
 2. **Una línea pequeña en la tarjeta de cierre** (`CREDITO_CIERRE` en `gen-diamant.py`,
    20 px, papel al 50 %, debajo de la marca): texto sobre texto, no afea ninguna foto, y
@@ -107,13 +107,12 @@ domingos a las 11:00 con reserva. Las que hace el dueño siguen siendo las mejor
 | Fichero | Tarjeta | Qué es | Autor · licencia |
 |---|---|---|---|
 | `f-bcn-plaza.jpg` | 1 · la portada | El campanar de la plaça de la Vila de Gràcia, entre plátanos | Aaron Porras · Pexels |
-| `f-diamant-boca.jpg` | 2 · 12 m | La cabina de entrada del 232 en su plaza, con la escalera tras el cristal | Vanbasten 23 · CC BY-SA 4.0 |
-| `f-bcn-patio.jpg` | 3 · 1992 | Los tejados y el patio de una manzana | Deyan Sight · Unsplash |
-| `f-diamant-colometa.jpg` | 4 · 1962 | La Colometa | 1997 · CC BY-SA 3.0 |
-| `f-bcn-calle.jpg` | 5 · 1860 | Una calle estrecha con árboles y bolardos | Herr Kirlian · Unsplash |
-| `f-bcn-paseo.jpg` | 6 · la app | Gente andando bajo un arco, detrás del móvil | Lisa van Vliet · Unsplash |
-| `f-bcn-cierre.jpg` | 7 · el cierre | Barcelona al anochecer desde el Park Güell | Lief Peng · Unsplash |
-| `f-diamant-plaza.jpg`, `f-refugi307-interior.jpg`, `f-diamant-llistat.jpg` | (banco) | La plaza de día (CC BY-SA 3.0), la galería del 307 (CC BY-SA 3.0) y el listado de refugios de 1937 (CC0), de reserva | |
+| `f-diamant-boca.jpg` | 2 · el refugio | La cabina de entrada del 232 en su plaza, con la escalera tras el cristal | Vanbasten 23 · CC BY-SA 4.0 |
+| `f-diamant-colometa.jpg` | 3 · 1962 | La Colometa | 1997 · CC BY-SA 3.0 |
+| `f-bcn-calle.jpg` | 4 · 1860 | Una calle estrecha con árboles y bolardos | Herr Kirlian · Unsplash |
+| `f-bcn-paseo.jpg` | 5 · la app | Gente andando bajo un arco, detrás del móvil | Lisa van Vliet · Unsplash |
+| `f-bcn-cierre.jpg` | 6 · el cierre | Barcelona al anochecer desde el Park Güell | Lief Peng · Unsplash |
+| `f-bcn-patio.jpg`, `f-bcn-noche.jpg`, `f-bcn-balcon.jpg`, `f-diamant-plaza.jpg`, `f-refugi307-interior.jpg`, `f-diamant-llistat.jpg` | (banco) | El patio, el callejón de noche y los balcones (Unsplash); la plaza de día y la galería del 307 (CC BY-SA 3.0); el listado de refugios de 1937 (CC0). De reserva | |
 
 **El interior del 232, de verdad.** Dos caminos:
 
@@ -139,7 +138,7 @@ domingos a las 11:00 con reserva. Las que hace el dueño siguen siendo las mejor
 ## Qué pedirle a la app
 
 El objetivo es **una captura donde la Plaça del Diamant salga como parada de un tour, con
-su texto de LA HISTORIA**. Esa captura es la tarjeta 6, y es lo que convierte el cierre en
+su texto de LA HISTORIA**. Esa captura es la tarjeta 5, y es lo que convierte el cierre en
 una prueba en vez de una promesa.
 
 1. **Nuevo viaje → destino `Barcelona`**, tres días.
@@ -168,21 +167,22 @@ cumple, que es lo que la regla prohíbe. En ese caso hay dos caminos, los dos bu
 
 En vertical, sin recortar y **con la barra de estado**, como siempre.
 
-## Las siete tarjetas (copia ya escrita)
+## Las seis tarjetas (copia ya escrita)
 
 | # | Kicker | Titular | Debajo |
 |---|---|---|---|
 | 1 | Barcelona · Gràcia | **Aquí hay algo que casi nadie sabe.** | Una plaza de barrio con tres historias debajo |
-| 2 | Plaça del Diamant · bajo tus pies | **12 m · Hay un refugio antiaéreo.** | Lo cavaron los propios vecinos durante la Guerra Civil. Cabían más de doscientas personas. Es el refugio 232 |
-| 3 | Y nadie lo sabía | **1992 · Apareció haciendo obras.** | Barcelona llegó a tener unos 1.300 refugios, más de 90 sólo en Gràcia. Se visita los domingos, con reserva |
-| 4 | Arriba, en la plaza | **Empieza la novela más leída en catalán.** | *La plaça del Diamant*, de Mercè Rodoreda (1962), en más de treinta idiomas. La escultura es la Colometa: la protagonista, atrapada contra un muro mientras las palomas levantan el vuelo |
-| 5 | Y el nombre | **Se lo puso un joyero.** | En 1860 Josep Rosell compró estos terrenos y bautizó las calles de Gràcia con nombres de piedras preciosas |
-| 6 | Cómo se entera uno de esto | **Te lo cuenta al oído, mientras lo andas.** | *(la captura del tour, en el móvil)* |
-| 7 | Lista de espera abierta | **Llega en octubre.** | Tu primer viaje por 1,99 €* · *Si te apuntas a la lista de espera en travelsnomad.com |
+| 2 | Plaça del Diamant · bajo tus pies | **12 m · Hay un refugio antiaéreo.** | Lo cavaron los propios vecinos durante la Guerra Civil. Cabían más de doscientas personas. Es el refugio 232. — Nadie se acordaba de él hasta que apareció en 1992, haciendo obras. Barcelona llegó a tener unos 1.300 refugios, más de 90 sólo en Gràcia. Se visita los domingos, con reserva |
+| 3 | Arriba, en la plaza | **1962 · Empieza la novela más leída en catalán.** | *La plaça del Diamant*, de Mercè Rodoreda. Traducida a más de treinta idiomas. La escultura de la plaza es la Colometa: la protagonista, atrapada contra un muro mientras las palomas levantan el vuelo |
+| 4 | Y el nombre | **1860 · Se lo puso un joyero.** | Josep Rosell compró estos terrenos y bautizó las calles de Gràcia con nombres de piedras preciosas. De ahí el Diamant |
+| 5 | Cómo se entera uno de esto | **Te lo cuenta al oído, mientras lo andas.** | *(la captura del tour, en el móvil)* |
+| 6 | Lista de espera abierta | **Llega en octubre.** | Tu primer viaje por 1,99 €* · *Si te apuntas a la lista de espera en travelsnomad.com |
 
-**El golpe va en la 2, a propósito.** En un carrusel la gente se va pronto: si el refugio
-estuviera en la quinta, no lo vería casi nadie. El gancho pregunta y la segunda responde;
-de la tres a la cinco es la profundidad para quien se quedó.
+**El golpe va en la 2, a propósito, y lo cuenta todo.** En un carrusel la gente se va pronto:
+si el refugio estuviera en la quinta, no lo vería casi nadie. El gancho pregunta y la segunda
+responde entera —los 12 m, quién lo cavó, el 1992 y las visitas—; el 7-sep el dueño unió las
+dos tarjetas del refugio en una («contamos todo en una»), y la 3 y la 4 son la profundidad
+para quien se quedó.
 
 ## El pie
 
@@ -203,24 +203,24 @@ La primera línea es la que se ve en el feed sin abrir, así que lleva el golpe.
 >
 > Fotos de la plaza: la entrada del refugio, Vanbasten 23 (Wikimedia Commons, CC BY-SA
 > 4.0); la Colometa, 1997 (Wikimedia Commons, CC BY-SA 3.0). Recortadas. Las tarjetas 2 y
-> 4, CC BY-SA.
+> 3, CC BY-SA.
 >
 > #barcelona #gracia #placadeldiamant #refugio232 #viajar #viajes #historia #catalunya
 
 ## Ya está montado: sólo falta la captura
 
-`gen-diamant.py` escribe las siete tarjetas **con sus fotos**, y lo único que pinta como
+`gen-diamant.py` escribe las seis tarjetas **con sus fotos**, y lo único que pinta como
 hueco naranja es la prueba: una tarjeta a la que le falta la captura **no puede parecer
 terminada**, y por eso el aviso es chillón.
 
 | Fichero | Dónde va | Qué tiene que ser |
 |---|---|---|
-| `tourdiamant-900.webp` | `banco/capturas/` | El tour de la app con la parada de la plaza y LA HISTORIA desplegada. **Tarjeta 6, la que no se puede saltar** |
+| `tourdiamant-900.webp` | `banco/capturas/` | El tour de la app con la parada de la plaza y LA HISTORIA desplegada. **Tarjeta 5, la que no se puede saltar** |
 
 ```bash
 bash piezas/preparar.sh
 cd salida && python3 ../piezas/barcelona/gen-diamant.py
-node ../piezas/roma/exportar-plan.mjs diamant 7
+node ../piezas/roma/exportar-plan.mjs diamant 6
 ```
 
 El molde es el mismo que el carrusel de Roma y vive en `piezas/tarjetas.py`, compartido

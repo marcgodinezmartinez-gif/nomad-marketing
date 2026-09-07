@@ -1,4 +1,4 @@
-# «¿CONOCÍAS ESTE LUGAR?» — la Plaça del Diamant, siete tarjetas, TODAS CON FOTO (7-sep).
+# «AQUÍ HAY ALGO QUE CASI NADIE SABE» — la Plaça del Diamant, seis tarjetas, TODAS CON FOTO (7-sep).
 #
 # El porqué y los hechos verificados, en piezas/barcelona/GUION.md. En una frase: el reel
 # se guardó CERO veces con 1 258 espectadores, y lo que se guarda no es un demo de
@@ -17,10 +17,12 @@
 # Instagram eso es EL PIE DEL POST, con autor, fuente, licencia y «recortadas». Para que el
 # crédito viaje con el carrusel si alguien lo comparte sin el pie, la tarjeta de cierre lleva
 # además una línea pequeña —CREDITO_CIERRE— que es texto sobre texto y no afea ninguna foto.
-# Por el ShareAlike, las tarjetas 2 y 4 quedan bajo CC BY-SA, y el pie lo dice.
+# Por el ShareAlike, las tarjetas 2 y 3 quedan bajo CC BY-SA, y el pie lo dice.
 #
 # EL GOLPE VA EN LA TARJETA 2, a propósito: en un carrusel la gente se va pronto, y el
-# refugio en la quinta no lo vería casi nadie. La 1 pregunta y la 2 responde.
+# refugio en la quinta no lo vería casi nadie. La 1 pregunta y la 2 responde, Y LO CUENTA
+# TODO (dueño, 7-sep: «unimos la 2 y la 3 y contamos todo en una»): los 12 m, quién lo
+# cavó, el 232, el 1992 y las visitas. Antes el 1992 tenía tarjeta propia; sobraba.
 #
 # NADA DE ESTO SE ESCRIBE DE MEMORIA. Cada dato está comprobado contra el Ajuntament de
 # Barcelona, el Taller d'Història de Gràcia y Wikipedia; si se cambia una cifra, se vuelve
@@ -45,11 +47,10 @@ CAPTURA = 'tourdiamant-900.webp'     # el tour de la app con la parada de la pla
 FOTOS = {
     1: 'f-bcn-plaza.jpg',         # el campanar de la plaça de la Vila de Gràcia, entre plátanos   Pexels
     2: 'f-diamant-boca.jpg',      # la cabina de entrada del 232, en su plaza: el búnker por fuera  CC BY-SA 4.0
-    3: 'f-bcn-patio.jpg',         # los tejados y el patio de una manzana: lo que no se ve          Unsplash
-    4: 'f-diamant-colometa.jpg',  # la Colometa, la escultura de la que habla la tarjeta            CC BY-SA 3.0
-    5: 'f-bcn-calle.jpg',         # una calle estrecha con árboles: las calles del joyero           Unsplash
-    6: 'f-bcn-paseo.jpg',         # gente andando por el casco antiguo: «mientras lo andas»         Unsplash
-    7: 'f-bcn-cierre.jpg',        # Barcelona al anochecer desde el Park Güell, que es Gràcia       Unsplash
+    3: 'f-diamant-colometa.jpg',  # la Colometa, la escultura de la que habla la tarjeta            CC BY-SA 3.0
+    4: 'f-bcn-calle.jpg',         # una calle estrecha con árboles: las calles del joyero           Unsplash
+    5: 'f-bcn-paseo.jpg',         # gente andando por el casco antiguo: «mientras lo andas»         Unsplash
+    6: 'f-bcn-cierre.jpg',        # Barcelona al anochecer desde el Park Güell, que es Gràcia       Unsplash
 }
 # El crédito de las fotos CC BY-SA, en la tarjeta de cierre. El texto completo, con
 # «recortadas» y la frase de ShareAlike, va en el pie (GUION.md). Los dos se cambian a la vez
@@ -57,7 +58,7 @@ FOTOS = {
 CREDITO_CIERRE = ('Fotos de la plaza: Vanbasten 23 y 1997 &middot; Wikimedia Commons &middot; '
                   'CC BY-SA 4.0 / 3.0')
 
-# En las tarjetas 2-5 el texto ocupa dos tercios del alto (número, titular y párrafo), así
+# En las tarjetas 2-4 el texto ocupa dos tercios del alto (número, titular y párrafo), así
 # que el velo de foto de la casa —claro en el centro— dejaría letras sobre fachada al sol.
 # Éste es más parejo: la foto se ve, pero detrás del texto.
 VELO_TEXTO = ('linear-gradient(180deg, rgba(16, 14, 11, 0.8) 0%, rgba(16, 14, 11, 0.64) 55%, '
@@ -93,8 +94,9 @@ T['diamant-1'] = (raiz(NOCHE)
   + marca()
   + '</div>')
 
-# 2 · EL GOLPE, con la medida de protagonista y, detrás, la cabina de entrada del refugio
-#     con la escalera que baja tras el cristal: la prueba de que está ahí.
+# 2 · EL GOLPE, entero: la medida de protagonista, y debajo quién lo cavó, cuándo apareció y
+#     cómo se visita. Detrás, la cabina de entrada del refugio con la escalera que baja tras
+#     el cristal: la prueba de que está ahí.
 T['diamant-2'] = (raiz(NOCHE)
   + fondo(2)
   + kicker('Pla&ccedil;a del Diamant &middot; bajo tus pies', 110, MENTA)
@@ -102,25 +104,16 @@ T['diamant-2'] = (raiz(NOCHE)
   + titular('Hay un refugio antia&eacute;reo.', 570, 82)
   + sub('Lo cavaron los propios vecinos durante la Guerra Civil. Cab&iacute;an m&aacute;s de '
         'doscientas personas. Es el refugio 232.', 720, 40, ancho=880)
+  + sub('Nadie se acordaba de &eacute;l hasta que apareci&oacute; en 1992, haciendo obras. Barcelona '
+        'lleg&oacute; a tener unos 1.300 refugios, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. '
+        'Se visita los domingos, con reserva.', 910, 36, 'rgba(255, 253, 249, 0.74)', ancho=880)
   + marca()
   + '</div>')
 
-# 3 · EL AÑO EN QUE APARECIÓ. Detrás, los tejados y el patio de una manzana: lo que la
-#     ciudad esconde a la vista.
+# 3 · LA NOVELA, sobre la Colometa: la escultura de la que habla el párrafo. Es CC BY-SA;
+#     su crédito va en el cierre y en el pie.
 T['diamant-3'] = (raiz(NOCHE)
   + fondo(3)
-  + kicker('Y nadie lo sab&iacute;a')
-  + numero('1992', 180, 240, MENTA)
-  + titular('Apareci&oacute; haciendo obras.', 460, 76)
-  + sub('Barcelona lleg&oacute; a tener unos 1.300 refugios, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. '
-        'Se visita los domingos, con reserva.', 620, 40, ancho=880)
-  + marca()
-  + '</div>')
-
-# 4 · LA NOVELA, sobre la Colometa: la escultura de la que habla el párrafo. Es CC BY-SA;
-#     su crédito va en el cierre y en el pie.
-T['diamant-4'] = (raiz(NOCHE)
-  + fondo(4)
   + kicker('Arriba, en la plaza')
   + numero('1962', 180, 240)
   + titular('Empieza la novela<br>m&aacute;s le&iacute;da en catal&aacute;n.', 460, 76)
@@ -131,9 +124,9 @@ T['diamant-4'] = (raiz(NOCHE)
   + marca()
   + '</div>')
 
-# 5 · EL NOMBRE, sobre una calle estrecha del barrio: las que bautizó el joyero.
-T['diamant-5'] = (raiz(NOCHE)
-  + fondo(5)
+# 4 · EL NOMBRE, sobre una calle estrecha del barrio: las que bautizó el joyero.
+T['diamant-4'] = (raiz(NOCHE)
+  + fondo(4)
   + kicker('Y el nombre')
   + numero('1860', 180, 240)
   + titular('Se lo puso un joyero.', 460, 82)
@@ -142,22 +135,22 @@ T['diamant-5'] = (raiz(NOCHE)
   + marca()
   + '</div>')
 
-# 6 · LA PRUEBA. Sin esta captura el carrusel no se publica: el cierre pasaría de ser una
+# 5 · LA PRUEBA. Sin esta captura el carrusel no se publica: el cierre pasaría de ser una
 #     prueba a ser una promesa, y una promesa que la app no cumple es lo que la regla de
 #     la casa prohíbe.
-T['diamant-6'] = (raiz(NOCHE)
-  + fondo(6, VELO_TELEFONO)
+T['diamant-5'] = (raiz(NOCHE)
+  + fondo(5, VELO_TELEFONO)
   + kicker('C&oacute;mo se entera uno de esto')
   + titular('Te lo cuenta al o&iacute;do,<br>mientras lo andas.', 180, 82)
   + (telefono(CAPTURA, 430, 520) if hay(CAPTURA, '') else
      pendiente('FALTA LA CAPTURA<br>del tour de la app<br>con esta parada', 430, 520))
   + '</div>')
 
-# 7 · EL CIERRE, el del reel, sobre Barcelona al anochecer desde el Park Güell: la última
+# 6 · EL CIERRE, el del reel, sobre Barcelona al anochecer desde el Park Güell: la última
 #     que se ve y la única con la ciudad entera. Sin «todavía no está publicada»: el dueño
 #     lo quitó del reel el 5-sep y aquí tampoco hace falta, la lista de espera ya lo dice.
-T['diamant-7'] = (raiz(NOCHE)
-  + fondo(7, VELO_FOTO)
+T['diamant-6'] = (raiz(NOCHE)
+  + fondo(6, VELO_FOTO)
   + kicker('Lista de espera abierta')
   + titular('Llega en octubre.', 180, 96)
   + (f'<h2 class="serif" style="position: absolute; left: 84px; top: 320px; margin: 0; width: 912px; '
