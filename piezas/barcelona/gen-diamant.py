@@ -37,7 +37,7 @@ import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from tarjetas import (SOMBRA, MENTA, NOCHE, VELO_FOTO, VELO_TELEFONO,
                       pagina as _pagina, raiz, foto, velo, kicker, titular, sub, marca,
-                      telefono, pendiente, numero)
+                      telefono, pendiente, documento, numero)
 
 HELMET = open('Main.dc.html').read().split('<helmet>')[1].split('</helmet>')[0]
 pagina = lambda cuerpo: _pagina(cuerpo, HELMET)
@@ -76,6 +76,21 @@ def fondo(n, v=VELO_TEXTO, escala=1.04):
                           'font-size: 26px; font-weight: 700; color: #E4572E; letter-spacing: 0.06em">'
                           f'FALTA LA FOTO &middot; {f}</p>')
 
+# VERSIÓN B, sólo para decidir (7-sep): el dueño pidió ver la plaza y el refugio. Lo único
+# que existe libre de eso está en Commons y es CC BY-SA —la plaza, la cabina de entrada
+# del refugio y la Colometa—, que exige atribución y ShareAlike, y la regla de la casa lo
+# deja fuera. Del interior del refugio no hay NINGUNA foto libre. Con VARIANTE=commons se
+# escriben las tarjetas diamantb-* con esas fotos (que viven sólo en salida/fotos, no en el
+# banco) y el listado de refugios de 1937 como documento, que sí es CC0. Si el dueño dice
+# que sí, la atribución va en el pie y las fotos entran al banco con esa regla nueva.
+VARIANTE = os.environ.get('VARIANTE', '')
+if VARIANTE == 'commons':
+    FOTOS[1] = 'f-diamant-plaza.jpg'      # la plaza de día, con la terraza  (CC BY-SA 3.0)
+    FOTOS[2] = 'f-diamant-boca.jpg'       # la cabina de entrada del refugio (CC BY-SA 4.0)
+    FOTOS[4] = 'f-diamant-colometa.jpg'   # la escultura                      (CC BY-SA 3.0)
+LLISTAT = 'f-diamant-llistat.jpg'         # listado de refugios de Barcelona, 9-dic-1937 (CC0)
+PREFIJO = 'diamantb' if VARIANTE == 'commons' else 'diamant'
+
 T = {}
 
 # 1 · EL GANCHO. El campanar de Gràcia entre plátanos: quien conoce el barrio lo reconoce
@@ -83,8 +98,10 @@ T = {}
 T['diamant-1'] = (raiz(NOCHE)
   + fondo(1, VELO_PORTADA)
   + kicker('Barcelona &middot; Gr&agrave;cia')
-  + titular('Aqu&iacute; hay algo<br>que casi nadie sabe.', 190, 100)
-  + sub('Una plaza de barrio con tres historias debajo.', 480, 40, ancho=860)
+  + (titular('&iquest;Conoc&iacute;as<br>este lugar?', 190, 108) if VARIANTE == 'commons' else
+     titular('Aqu&iacute; hay algo<br>que casi nadie sabe.', 190, 100))
+  + sub('Es una plaza de barrio. Y tiene tres historias debajo.' if VARIANTE == 'commons' else
+        'Una plaza de barrio con tres historias debajo.', 480, 40, ancho=860)
   + marca()
   + '</div>')
 
@@ -107,9 +124,14 @@ T['diamant-3'] = (raiz(NOCHE)
   + kicker('Y nadie lo sab&iacute;a')
   + numero('1992', 180, 240, MENTA)
   + titular('Apareci&oacute; haciendo obras.', 460, 76)
-  + sub('Barcelona lleg&oacute; a tener unos 1.300 refugios, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. '
-        'Se visita los domingos, con reserva.', 620, 40, ancho=880)
-  + marca()
+  + ((documento(LLISTAT, 760, 560, -1.5)     # 1435×1078: a 760 de ancho mide 571 de alto
+      + sub('El listado municipal de refugios del 9 de diciembre de 1937. Barcelona lleg&oacute; a tener '
+            'unos 1.300, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. Se visita los domingos, con reserva.',
+            1160, 30, 'rgba(255, 253, 249, 0.86)'))
+     if VARIANTE == 'commons' and hay(LLISTAT) else
+     (sub('Barcelona lleg&oacute; a tener unos 1.300 refugios, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. '
+          'Se visita los domingos, con reserva.', 620, 40, ancho=880)
+      + marca()))
   + '</div>')
 
 # 4 · LA NOVELA, sobre balcones al sol: el terrat de la Colometa y sus palomas.
@@ -163,9 +185,9 @@ T['diamant-7'] = (raiz(NOCHE)
   + '</div>')
 
 for stem, html in T.items():
-    open(f'{stem}.dc.html', 'w').write(pagina(html))
+    open(f'{stem.replace("diamant", PREFIJO, 1)}.dc.html', 'w').write(pagina(html))
 
 faltan = [f for f in FOTOS.values() if not hay(f)] + \
          ([CAPTURA] if not hay(CAPTURA, '') else [])
-print(f'{len(T)} tarjetas: ' + ', '.join(T))
+print(f'{len(T)} tarjetas ({PREFIJO}-*): ' + ', '.join(T))
 if faltan: print('FALTA, y la tarjeta lo dice en naranja: ' + ', '.join(faltan))

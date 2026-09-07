@@ -67,6 +67,49 @@ pregunta original.
 **El plano del refugio ya no va.** Es CC BY-SA 3.0: exige atribución y ShareAlike, y la
 regla ampliada lo sigue dejando fuera. La tarjeta 3 lleva foto como las demás.
 
+## Fotos del refugio y de la plaza: lo que existe (buscado el 7-sep)
+
+El dueño, viendo el carrusel con las fotos de Unsplash: *«quiero que se vea la parte de
+arriba y también fotos del refugio»*. Se buscó en Commons, Openverse (CC0 y dominio
+público), Flickr (CC0 y PDM) y Europeana. El resultado, sin adornos:
+
+- **Del interior del refugio 232 no hay NINGUNA foto libre.** En Commons sólo están la
+  cabina de entrada de la plaza —cuatro fotos, con el rótulo «Refugi antiaeri 232»— y el
+  plano de 1937; las únicas fotos libres de interiores de refugios son de OTROS refugios
+  (el 307 del Poble-sec en Commons; Villanueva de Córdoba y Sant Adrià en CC0), y enseñar
+  otro refugio diciendo «éste» es justo lo que no se hace.
+- **De la plaza**, lo único decente es `Plaça del Diamant.JPG` (2006, de día, con la
+  terraza) y la Colometa de cerca. Vista desde arriba no hay ninguna.
+- **Todo eso es CC BY-SA** (3.0 o 4.0): exige nombrar al autor y la licencia, e indicar
+  los cambios, y ShareAlike pide que la pieza derivada lleve la misma licencia. La regla
+  de la casa lo deja fuera. Lo único libre de verdad es **el listado municipal de refugios
+  del 9 de diciembre de 1937**, que es CC0 y ya está en el banco (`f-diamant-llistat.jpg`).
+
+**La versión B, para decidir viéndola.** `VARIANTE=commons python3 ../piezas/barcelona/gen-diamant.py`
+escribe `diamantb-*` con la plaza en la portada (y vuelve «¿Conocías este lugar?», porque
+ahora SÍ es el sitio), la cabina del refugio en la 2, el listado de 1937 como documento en
+la 3 y la Colometa en la 4. Esas tres fotos viven sólo en `salida/fotos/` —no entran al
+banco mientras la regla sea la que es— y se bajan de Commons a mano:
+
+| Fichero en salida/fotos | Commons | Autor | Licencia |
+|---|---|---|---|
+| `f-diamant-plaza.jpg` | [Plaça del Diamant.JPG](https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_del_Diamant.JPG) | 1997 | CC BY-SA 3.0 |
+| `f-diamant-boca.jpg` | [Entrada al refugio antiaéreo y plaza del diamante.JPG](https://commons.wikimedia.org/wiki/File:Entrada_al_refugio_antia%C3%A9reo_y_plaza_del_diamante.JPG) | Vanbasten 23 | CC BY-SA 4.0 |
+| `f-diamant-colometa.jpg` | [Colometa Plaça del Diamant.JPG](https://commons.wikimedia.org/wiki/File:Colometa_Pla%C3%A7a_del_Diamant.JPG) | 1997 | CC BY-SA 3.0 |
+
+Si el dueño elige la B, **el pie tiene que llevar esta línea**, y la regla de la casa
+cambia a conciencia: «Fotos: 1997 y Vanbasten 23, Wikimedia Commons, CC BY-SA 3.0/4.0,
+recortadas». Sin esa línea no se publica.
+
+**La salida buena es bajar.** El Taller d'Història de Gràcia hace visitas guiadas al
+refugio **todos los domingos a las 11:00, una hora, 3 € por persona, con reserva previa**
+(<https://www.tallerhistoriadegracia.cat/thg/refugi-pl-del-diamant/>; la ficha del
+Ajuntament, en <https://guia.barcelona.cat/detall/visites-guiades-al-refugi-antiaeri-de-la-placa-del-diamant_99400176077.html>).
+Diez fotos propias del interior y de la plaza resuelven las dos tarjetas sin atribución, y
+además dan **una segunda pieza**: el reel de la visita en primera persona, que es
+exactamente el formato que la casa premia. Mientras tanto, la versión A (Unsplash y
+Pexels) se puede publicar tal cual.
+
 ## Qué pedirle a la app
 
 El objetivo es **una captura donde la Plaça del Diamant salga como parada de un tour, con
