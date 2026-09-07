@@ -137,9 +137,11 @@ CC0 no tiene fotografía de calle española: la buena vive en Unsplash/Pexels o 
 El dueño, viendo las de Commons: *«se ven cutres todas»*, y **el feed es fotográfico, esa
 es su esencia**. **CC BY y CC BY-SA entran sólo cuando el sitio lo exige** —decidido por el dueño el 7-sep
 para la Plaça del Diamant y su refugio, de los que no hay foto libre— y **con la
-atribución escrita en la tarjeta (`credito()` en `piezas/tarjetas.py`) y en el pie**, sabiendo
-que ShareAlike deja esa tarjeta bajo la misma licencia. Sin el texto de atribución en
-`creditos.json`, el verificador las marca como no conformes. Las mejores siguen siendo **las que hace el dueño**, que además consiguen sitios
+atribución en el pie del post y en una línea pequeña de la tarjeta de cierre**
+(`credito()` en `piezas/tarjetas.py`), nunca sobre la foto: el dueño lo vio y «se ve
+feísimo», y la licencia sólo pide el crédito «de manera razonable para el medio».
+ShareAlike deja la tarjeta que lleva la foto bajo la misma licencia, y el pie lo dice. Sin
+el texto de atribución en `creditos.json`, el verificador las marca como no conformes. Las mejores siguen siendo **las que hace el dueño**, que además consiguen sitios
 concretos que ningún banco tiene.
 
 **Capturas: de la app real**, nunca maquetas. Están en `banco/capturas/` por pantalla e

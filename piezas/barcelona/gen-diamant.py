@@ -6,18 +6,18 @@
 # una plaza de barrio con un refugio antiaéreo debajo.
 #
 # LAS FOTOS SON OBLIGATORIAS (dueño, 6-sep: «tienen que haber fotos 100 %, es la esencia de
-# mi feed») Y SON DEL SITIO (dueño, 7-sep: «quiero fotos de la plaza, del refugio, del
-# interior del refugio; es como mejor va a quedar el carrusel»). De la plaza y del refugio
-# sólo hay fotos en Commons y son CC BY-SA, así que la regla de la casa cambió a conciencia
-# ese día (AGENTS.md): ESAS FOTOS ENTRAN CON SU ATRIBUCIÓN EN LA PROPIA TARJETA —credito(),
-# debajo de la marca— Y EN EL PIE, y la tarjeta que las lleva queda bajo CC BY-SA por el
-# ShareAlike. Las tarjetas 5, 6 y 7 llevan Unsplash, sin atribución.
+# mi feed») Y EL BÚNKER TIENE QUE VERSE, al menos por fuera (dueño, 7-sep). De la plaza y
+# del refugio sólo hay fotos en Commons y son CC BY-SA, así que entran las dos que valen la
+# pena —la cabina de entrada del 232 en su plaza, y la Colometa— y el resto son las mejores
+# del banco, de Unsplash y Pexels, sin atribución. Del interior del 232 no hay ninguna foto
+# libre; el interior del 307 (Poble-sec) se probó y se retiró: era otro refugio.
 #
-# DEL INTERIOR DEL 232 NO HAY NINGUNA FOTO LIBRE, con ninguna licencia. El interior que se
-# ve es el del refugio 307 (Poble-sec), de la misma red y el mismo año, y LA TARJETA LO
-# DICE, en el texto y en el crédito: enseñar otro refugio sin decirlo sería la promesa que
-# la app no cumple, en versión foto. Cuando el dueño baje al 232 (domingos a las 11:00, con
-# reserva) o el Taller d'Història de Gràcia ceda una foto, se cambian FOTOS[3] y CREDITO[3].
+# DÓNDE VA LA ATRIBUCIÓN (dueño, 7-sep: «dar créditos en las fotos se ve feísimo»). La
+# licencia pide el crédito «de manera razonable para el medio», no encima de la foto: en
+# Instagram eso es EL PIE DEL POST, con autor, fuente, licencia y «recortadas». Para que el
+# crédito viaje con el carrusel si alguien lo comparte sin el pie, la tarjeta de cierre lleva
+# además una línea pequeña —CREDITO_CIERRE— que es texto sobre texto y no afea ninguna foto.
+# Por el ShareAlike, las tarjetas 2 y 4 quedan bajo CC BY-SA, y el pie lo dice.
 #
 # EL GOLPE VA EN LA TARJETA 2, a propósito: en un carrusel la gente se va pronto, y el
 # refugio en la quinta no lo vería casi nadie. La 1 pregunta y la 2 responde.
@@ -43,22 +43,19 @@ pagina = lambda cuerpo: _pagina(cuerpo, HELMET)
 # Los ficheros que espera. Cambiar aquí y en ningún otro sitio.
 CAPTURA = 'tourdiamant-900.webp'     # el tour de la app con la parada de la plaza
 FOTOS = {
-    1: 'f-diamant-plaza.jpg',       # la plaza de día, con la terraza: ES el sitio          CC BY-SA 3.0
-    2: 'f-diamant-boca.jpg',        # la cabina de entrada del 232, la escalera tras el cristal  CC BY-SA 4.0
-    3: 'f-refugi307-interior.jpg',  # la galería de ladrillo del refugio 307, Poble-sec    CC BY-SA 3.0
-    4: 'f-diamant-colometa.jpg',    # la Colometa                                          CC BY-SA 3.0
-    5: 'f-bcn-calle.jpg',           # una calle estrecha con árboles: las calles del joyero  Unsplash
-    6: 'f-bcn-paseo.jpg',           # gente andando por el casco antiguo: «mientras lo andas»  Unsplash
-    7: 'f-bcn-cierre.jpg',          # Barcelona al anochecer desde el Park Güell, que es Gràcia  Unsplash
+    1: 'f-bcn-plaza.jpg',         # el campanar de la plaça de la Vila de Gràcia, entre plátanos   Pexels
+    2: 'f-diamant-boca.jpg',      # la cabina de entrada del 232, en su plaza: el búnker por fuera  CC BY-SA 4.0
+    3: 'f-bcn-patio.jpg',         # los tejados y el patio de una manzana: lo que no se ve          Unsplash
+    4: 'f-diamant-colometa.jpg',  # la Colometa, la escultura de la que habla la tarjeta            CC BY-SA 3.0
+    5: 'f-bcn-calle.jpg',         # una calle estrecha con árboles: las calles del joyero           Unsplash
+    6: 'f-bcn-paseo.jpg',         # gente andando por el casco antiguo: «mientras lo andas»         Unsplash
+    7: 'f-bcn-cierre.jpg',        # Barcelona al anochecer desde el Park Güell, que es Gràcia       Unsplash
 }
-# El crédito que va EN la tarjeta. El texto es el mismo que en banco/fotos/creditos.json:
-# se cambian los dos a la vez o no se cambia ninguno.
-CREDITO = {
-    1: 'Foto: 1997 &middot; Wikimedia Commons &middot; CC BY-SA 3.0',
-    2: 'Foto: Vanbasten 23 &middot; Wikimedia Commons &middot; CC BY-SA 4.0',
-    3: 'Foto: refugio 307 (Poble-sec), Pere Herrero / MUHBA &middot; Wikimedia Commons &middot; CC BY-SA 3.0',
-    4: 'Foto: 1997 &middot; Wikimedia Commons &middot; CC BY-SA 3.0',
-}
+# El crédito de las fotos CC BY-SA, en la tarjeta de cierre. El texto completo, con
+# «recortadas» y la frase de ShareAlike, va en el pie (GUION.md). Los dos se cambian a la vez
+# con banco/fotos/creditos.json.
+CREDITO_CIERRE = ('Fotos de la plaza: Vanbasten 23 y 1997 &middot; Wikimedia Commons &middot; '
+                  'CC BY-SA 4.0 / 3.0')
 
 # En las tarjetas 2-5 el texto ocupa dos tercios del alto (número, titular y párrafo), así
 # que el velo de foto de la casa —claro en el centro— dejaría letras sobre fachada al sol.
@@ -69,10 +66,6 @@ VELO_TEXTO = ('linear-gradient(180deg, rgba(16, 14, 11, 0.8) 0%, rgba(16, 14, 11
 # 86 % y se comería la terraza. Éste deja ver la plaza entera.
 VELO_PORTADA = ('linear-gradient(180deg, rgba(16, 14, 11, 0.76) 0%, rgba(16, 14, 11, 0.3) 45%, '
                 'rgba(16, 14, 11, 0.58) 100%)')
-# La galería del refugio ya es oscura: con el velo de texto se perdía el ladrillo. Éste
-# aclara el pie para que se vea la bóveda y la lámpara.
-VELO_GALERIA = ('linear-gradient(180deg, rgba(16, 14, 11, 0.74) 0%, rgba(16, 14, 11, 0.5) 55%, '
-                'rgba(16, 14, 11, 0.26) 100%)')
 
 def hay(f, carpeta='fotos'):
     return os.path.exists(f'{carpeta}/{f}' if carpeta else f)
@@ -85,16 +78,18 @@ def fondo(n, v=VELO_TEXTO, escala=1.04):
         return velo(NOCHE) + ('<p class="sans" style="position: absolute; left: 84px; top: 1050px; margin: 0; '
                               'font-size: 26px; font-weight: 700; color: #E4572E; letter-spacing: 0.06em">'
                               f'FALTA LA FOTO &middot; {f}</p>')
-    return foto(f, escala) + velo(v) + (credito(CREDITO[n]) if n in CREDITO else '')
+    return foto(f, escala) + velo(v)
 
 T = {}
 
-# 1 · EL GANCHO, sobre la plaza de verdad: por eso puede preguntar por «este lugar».
+# 1 · EL GANCHO. El campanar de Gràcia entre plátanos: quien conoce el barrio lo reconoce
+#     al instante, y el texto habla del barrio («aquí»), no de la foto. No dice «¿Conocías
+#     este lugar?» porque la foto no es la plaza; la plaza aparece en la 2, con el búnker.
 T['diamant-1'] = (raiz(NOCHE)
   + fondo(1, VELO_PORTADA)
   + kicker('Barcelona &middot; Gr&agrave;cia')
-  + titular('&iquest;Conoc&iacute;as<br>este lugar?', 190, 108)
-  + sub('Es una plaza de barrio. Y tiene tres historias debajo.', 480, 40, ancho=860)
+  + titular('Aqu&iacute; hay algo<br>que casi nadie sabe.', 190, 100)
+  + sub('Una plaza de barrio con tres historias debajo.', 480, 40, ancho=860)
   + marca()
   + '</div>')
 
@@ -110,19 +105,20 @@ T['diamant-2'] = (raiz(NOCHE)
   + marca()
   + '</div>')
 
-# 3 · EL AÑO EN QUE APARECIÓ, sobre la galería de un refugio de la misma red. Es el 307 del
-#     Poble-sec, no el 232, y se dice en el texto («como éste, el 307») y en el crédito.
+# 3 · EL AÑO EN QUE APARECIÓ. Detrás, los tejados y el patio de una manzana: lo que la
+#     ciudad esconde a la vista.
 T['diamant-3'] = (raiz(NOCHE)
-  + fondo(3, VELO_GALERIA)
+  + fondo(3)
   + kicker('Y nadie lo sab&iacute;a')
   + numero('1992', 180, 240, MENTA)
   + titular('Apareci&oacute; haciendo obras.', 460, 76)
-  + sub('Como &eacute;ste, el 307 del Poble-sec, Barcelona lleg&oacute; a tener unos 1.300; m&aacute;s de 90 '
-        's&oacute;lo en Gr&agrave;cia. El de la plaza se visita los domingos, con reserva.', 620, 40, ancho=880)
+  + sub('Barcelona lleg&oacute; a tener unos 1.300 refugios, m&aacute;s de 90 s&oacute;lo en Gr&agrave;cia. '
+        'Se visita los domingos, con reserva.', 620, 40, ancho=880)
   + marca()
   + '</div>')
 
-# 4 · LA NOVELA, sobre la Colometa: la escultura de la que habla el párrafo.
+# 4 · LA NOVELA, sobre la Colometa: la escultura de la que habla el párrafo. Es CC BY-SA;
+#     su crédito va en el cierre y en el pie.
 T['diamant-4'] = (raiz(NOCHE)
   + fondo(4)
   + kicker('Arriba, en la plaza')
@@ -170,6 +166,7 @@ T['diamant-7'] = (raiz(NOCHE)
   + sub('*Si te apuntas a la lista de espera en travelsnomad.com', 450, 32,
         'rgba(255, 253, 249, 0.8)')
   + marca()
+  + credito(CREDITO_CIERRE, 1292, 'rgba(255, 253, 249, 0.5)')
   + '</div>')
 
 for stem, html in T.items():
