@@ -30,13 +30,20 @@ Enlaces: <https://ca.wikipedia.org/wiki/Turó_de_la_Rovira>,
 | `f-carmel-gente.jpg` | 5 | Gente en las plataformas, detrás del móvil | Mario Schmidt · Pexels |
 | `f-carmel-luces.jpg` | 6 | Barcelona de noche desde el turó | Jordi Vich Navarro · Unsplash |
 
-## Qué pedirle a la app
+## La captura (7-sep, ya está)
 
-Nuevo viaje, **Barcelona**, dos o tres días, estilo **Cultural**. Si el plan no trae los
-Búnkers del Carmel, al asistente: *«añade los Búnkers del Carmel al tour, quiero ver el
-atardecer desde allí»*. Abrir la parada y desplegar **LA HISTORIA**. Captura en vertical, con
-la barra de estado, guardada como `banco/capturas/tourcarmel-900.webp`. Si la app no cuenta
-la batería ni las barracas, el cierre cambia a lo que sí diga.
+El dueño abrió el «Tour histórico de los Búnkers del Carmel» de la app —seis paradas, 75
+minutos, desde la plaça de Sanllehy— y mandó cinco capturas de la parada 4, «Batería
+Antiaérea del Turó de la Rovira». **Va la del mapa con el título de la parada y el
+reproductor de la audioguía** (`banco/capturas/tourcarmel-900.webp`): a tamaño de móvil es
+la que mejor se lee, y es la que demuestra «al oído» y «cada parada». La de LA HISTORIA
+desplegada queda de reserva (`tourcarmel-historia-900.webp`): a 430 px de ancho, un bloque
+de texto no se lee. Las capturas van enteras, 900×1956, sin recortar: el móvil de
+`tarjetas.py` es 9:19,5, como el iPhone.
+
+Lo que dice la app coincide con las tarjetas: cuatro cañones Vickers, las plataformas de
+tiro, el barrio de Los Cañones (parada 5). Y avisa de que el recinto superior cierra por las
+noches con vallado, que es por lo que la tarjeta 4 no dice «sin horario».
 
 ## El pie
 
