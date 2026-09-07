@@ -88,9 +88,108 @@
     "lic": "CC0",
     "titulo": "File:Bilbao - Guggenheim 35.jpg"
   },
+  "f-carmel-gente.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Mario Schmidt",
+    "titulo": "People on the Hill Overlooking the City",
+    "sitio": "Búnkers del Carmel, Barcelona",
+    "url": "https://www.pexels.com/photo/people-on-the-hill-overlooking-the-city-5350999/",
+    "verificada": "2026-09-07"
+  },
+  "f-carmel-luces.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Jordi Vich Navarro",
+    "titulo": "City skyline under blue sky during daytime",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/city-skyline-under-blue-sky-during-daytime-VpH8k3be4g8",
+    "verificada": "2026-09-07"
+  },
+  "f-carmel-noche.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Jordi Vich Navarro",
+    "titulo": "Woman in black dress sitting on the edge of a building looking at the city",
+    "sitio": "Barcelona",
+    "url": "https://unsplash.com/photos/woman-in-black-dress-sitting-on-the-edge-of-a-building-looking-at-the-city-during-Gxd8-A869Bk",
+    "verificada": "2026-09-07"
+  },
+  "f-carmel-plataformas.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Elliot Voilmy",
+    "titulo": "Panoramic view of a city skyline from a hilltop",
+    "sitio": "Bunkers El Carmel, Barcelona",
+    "url": "https://unsplash.com/photos/panoramic-view-of-a-city-skyline-from-a-hilltop-sIzev_eY9PM",
+    "verificada": "2026-09-07"
+  },
+  "f-carmel-portada.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Michael Fischer",
+    "titulo": "Panoramic View of Barcelona from Bunker del Carmel",
+    "sitio": "Búnkers del Carmel, Turó de la Rovira, Barcelona",
+    "url": "https://www.pexels.com/photo/panoramic-view-of-barcelona-from-bunker-del-carmel-35582095/",
+    "verificada": "2026-09-07"
+  },
+  "f-carmel-tarde.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Marcel Gierschick",
+    "titulo": "View of Barcelona from Bunkers del Carmel",
+    "sitio": "Búnkers del Carmel, Barcelona",
+    "url": "https://www.pexels.com/photo/view-of-barcelona-from-bunkers-del-carmel-38611516/",
+    "verificada": "2026-09-07"
+  },
   "f-cordoba.jpg": {
     "lic": "CC0",
     "titulo": "File:Cordoba - Mezquita-Catedral 22.jpg"
+  },
+  "f-debod-luna.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Manuela Di Giacomo",
+    "titulo": "Temple of Debod in Madrid at Dusk",
+    "sitio": "Templo de Debod, Madrid",
+    "url": "https://www.pexels.com/photo/temple-of-debod-in-madrid-at-dusk-36656170/",
+    "verificada": "2026-09-07"
+  },
+  "f-debod-nubes.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Arthur Hinton",
+    "titulo": "A stone monument with a door",
+    "sitio": "Templo de Debod, Madrid",
+    "url": "https://unsplash.com/photos/lDVK34MNxN4",
+    "verificada": "2026-09-07"
+  },
+  "f-debod-portada.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Álvaro Bernal",
+    "titulo": "People walking around an ancient temple structure at sunset",
+    "sitio": "Templo de Debod, Madrid",
+    "url": "https://unsplash.com/photos/Neqx78YBTiA",
+    "verificada": "2026-09-07"
+  },
+  "f-debod-puertas.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Radoslaw Bytomski",
+    "titulo": "Ancient Egyptian Temple Ruins in Madrid",
+    "sitio": "Templo de Debod, Madrid",
+    "url": "https://www.pexels.com/photo/ancient-egyptian-temple-ruins-in-madrid-38404505/",
+    "verificada": "2026-09-07"
+  },
+  "f-debod-reflejo.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Jazz Kaundal",
+    "titulo": "Temple of Debod in Madrid on a Sunny Day",
+    "sitio": "Templo de Debod, Madrid",
+    "url": "https://www.pexels.com/photo/temple-of-debod-in-madrid-on-a-sunny-day-38415662/",
+    "verificada": "2026-09-07"
   },
   "f-diamant-boca.jpg": {
     "lic": "CC BY-SA 4.0",
@@ -130,6 +229,15 @@
   "f-grupo.jpg": {
     "lic": "CC0",
     "titulo": "File:Fountain Trevi Night 20251112.jpg"
+  },
+  "f-madrid-torre.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Maksim Zhashkevych",
+    "titulo": "A very tall building with a clock tower",
+    "sitio": "Madrid",
+    "url": "https://unsplash.com/photos/a-very-tall-building-with-a-clock-tower--9PABoSE2Jw",
+    "verificada": "2026-09-07"
   },
   "f-madrid.jpg": {
     "lic": "CC0",
