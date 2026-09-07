@@ -48,92 +48,78 @@ banco, recortadas del original.
 | Fichero | Tarjeta | Qué es | Autor · fuente |
 |---|---|---|---|
 | `f-bcn-plaza.jpg` | 1 · la portada | El campanar de la plaça de la Vila de Gràcia, entre plátanos | Aaron Porras · Pexels |
-| `f-bcn-noche.jpg` | 2 · 12 m | Un callejón mojado de noche, con luces | Alex Quezada · Unsplash |
-| `f-bcn-patio.jpg` | 3 · 1992 | Los tejados y el patio de una manzana, desde arriba | Deyan Sight · Unsplash |
-| `f-bcn-balcon.jpg` | 4 · 1962 | Balcones con plantas al sol: el terrat de la Colometa | Casper van Battum · Unsplash |
-| `f-bcn-calle.jpg` | 5 · 1860 | Una calle estrecha con árboles y bolardos: las que bautizó el joyero | Herr Kirlian · Unsplash |
-| `f-bcn-paseo.jpg` | 6 · la app | Gente andando bajo un arco del casco antiguo; va detrás del móvil | Lisa van Vliet · Unsplash |
-| `f-bcn-cierre.jpg` | 7 · el cierre | Barcelona al anochecer desde el Park Güell | Lief Peng · Unsplash |
+| `f-bcn-noche.jpg` | 2 · el refugio | Un callejón mojado de noche, con luces: debajo de la ciudad | Alex Quezada · Unsplash |
+| `f-bcn-balcon.jpg` | 3 · 1962 | Balcones con plantas al sol: el terrat de la Colometa | Casper van Battum · Unsplash |
+| `f-bcn-calle.jpg` | 4 · 1860 | Una calle estrecha con árboles y bolardos: las que bautizó el joyero | Herr Kirlian · Unsplash |
+| `f-bcn-paseo.jpg` | 5 · la app | Gente andando bajo un arco del casco antiguo; va detrás del móvil | Lisa van Vliet · Unsplash |
+| `f-bcn-cierre.jpg` | 6 · el cierre | Barcelona al anochecer desde el Park Güell | Lief Peng · Unsplash |
+| `f-bcn-patio.jpg` | reserva | Los tejados y el patio de una manzana, desde arriba | Deyan Sight · Unsplash |
 | `f-bcn-festa.jpg` | reserva | Un callejón con banderines, para cuando toque la Festa Major | Henrique Ferreira · Unsplash |
 | `f-bcn-vicens.jpg` | reserva | La Casa Vicens, la primera casa de Gaudí, en Gràcia | Ogy Kovachev · Pexels |
 
 **La portada no es la plaza, y por eso no dice «¿Conocías este lugar?»**: enseñar otra
 plaza y decir «este lugar» es lo único que no se puede. Dice «Aquí hay algo que casi nadie
-sabe» —«aquí» es el barrio— y la plaza aparece en la 2, con el búnker (sección siguiente).
+sabe» —«aquí» es el barrio— y la plaza se nombra en la 2. El búnker no se ve: no hay foto
+sin crédito (sección siguiente).
 
 **El plano del refugio ya no va.** Es CC BY-SA 3.0: exige atribución y ShareAlike, y la
 regla ampliada lo sigue dejando fuera. La tarjeta 3 lleva foto como las demás.
 
-## Fotos del refugio y de la plaza: dos de Commons, con el crédito en el pie (7-sep)
+## La pasada exhaustiva por los bancos públicos (7-sep): qué hay y qué no
 
-El dueño, viendo el carrusel con las fotos de Unsplash: *«quiero fotos de la plaza, del
-refugio, del interior del refugio»*; y viendo la versión con el crédito sobre cada foto:
-*«dar créditos en las fotos se ve feísimo; quiero las mejores fotos y que se vea el búnker
-al menos por fuera»*. Se buscó en Commons, Openverse (CC0 y dominio público), Flickr (CC0 y
-PDM) y Europeana:
+El dueño no está en Barcelona y no quiere créditos, ni sobre la foto ni en el pie: *«haz una
+búsqueda exhaustiva por todos los bancos de imágenes públicas y usa esas»*. Se buscó la
+plaza, la cabina del refugio 232, su interior, la Colometa y Gràcia en general, sólo con
+licencias que no exigen atribución:
 
-- **Del interior del refugio 232 no hay NINGUNA foto libre**, con ninguna licencia. En
-  Commons sólo están la cabina de entrada de la plaza —cuatro fotos, con el rótulo «Refugi
-  antiaeri 232»— y el plano de 1937. Interiores hay del 307 del Poble-sec (CC BY-SA); se
-  probó en la tarjeta 3 y se retiró: era otro refugio, y había que decirlo en la tarjeta.
-- **De la plaza**, `Plaça del Diamant.JPG` (2006, de día, plana) y la Colometa. Vista desde
-  arriba hay una, `Vista de la Plaça del Diamant.JPG`, que Commons no dejó bajar (429).
-- **Todo es CC BY-SA** (3.0 o 4.0). La regla de la casa cambió a conciencia (AGENTS.md):
-  entran sólo cuando el sitio lo exige, con la atribución escrita.
+| Banco | Licencia buscada | Resultado |
+|---|---|---|
+| Unsplash | Unsplash License | De la plaza, el pomo de una puerta. De Gràcia, nada con nombre; de Barcelona, las que ya están en el banco |
+| Pexels | Pexels License | El campanar de la plaça de la Vila y la Casa Vicens (en el banco). «Plaça del Diamant» devuelve la plaça de Catalunya y la Laguna del Diamante |
+| Pixabay | Pixabay License | 2.179 «Gràcia Barcelona»: todo Passeig de Gràcia, Sagrada Família y Montserrat. Del refugio, refugios de montaña |
+| Flickr | CC0 y dominio público | De la plaza y del refugio, cero. De «Gràcia», 34 fotos CC0 de un solo autor (Daquella manera): grafitis, pegatinas y tres de la Festa Major de noche, a 1024 px |
+| Openverse | CC0 y dominio público | De la plaza, cero (ya el 6-sep: 370 candidatas de Barcelona y sólo un edificio de Gran de Gràcia). La API dejó de responder a media pasada |
+| Wikimedia Commons | CC0 y dominio público (`haslicense=unrestricted`) | De la plaza, una portada de *Le Monde illustré* de 1859. De Gràcia, siete: el campanar con la senyera (2007, 1.536 px) y seis de la Festa Major de 2009-2010 (compacta, a pleno sol, 1.075-1.775 px) |
+| Europeana | CC0 y dominio público | Passeig de Gràcia de 1900-1930, planos y tranvías. Del refugio, cero |
+| PxHere, Picryl, StockSnap, Reshot | CC0 | No responden desde aquí (403) |
 
-**Lo que se publica**: entran las dos que valen la pena —la cabina del 232 en su plaza, que
-es el búnker por fuera y la plaza a la vez, y la Colometa— y el resto son las mejores del
-banco, sin atribución. La portada sigue siendo el campanar de Gràcia, mejor foto que la de
-la plaza, y por eso dice «Aquí hay algo que casi nadie sabe» y no «¿Conocías este lugar?».
+**Conclusión, sin adornos**: de la plaza, de la cabina del refugio y de la Colometa **no
+existe ni una foto sin atribución en ningún banco**. Lo único que hay es CC BY-SA en
+Commons, que exige el crédito. Y las de Gràcia en dominio público son fotos de compacta de
+2007-2010: pequeñas y a pleno sol, justo lo que el dueño llamó «cutres» el 6-sep.
 
-### Dónde va la atribución
+**Lo que se publica**: las mejores del banco, de Unsplash y Pexels, sin deber crédito a
+nadie (tabla de la sección anterior). **El búnker no se ve**, y no se puede ver sin
+crédito: no hay foto.
 
-CC BY-SA pide nombrar al autor, la fuente y la licencia, decir que la foto se ha recortado
-y, por el ShareAlike, que la pieza derivada quede bajo la misma licencia. Y pide hacerlo
-**«de manera razonable para el medio»**: no encima de la foto. En Instagram eso es:
+**Si algún día se acepta el crédito** (`CON_ATRIBUCION = True` en `gen-diamant.py`): entran
+la cabina del 232 en su plaza y la Colometa, ambas en el banco con su texto de atribución,
+la tarjeta de cierre lleva la línea de crédito y el pie, este bloque:
 
-1. **El pie del post**, con el bloque completo: autor, Wikimedia Commons, licencia,
-   «recortadas» y «las tarjetas 2 y 3, CC BY-SA». Está en la sección «El pie». Con esto
-   se cumple.
-2. **Una línea pequeña en la tarjeta de cierre** (`CREDITO_CIERRE` en `gen-diamant.py`,
-   20 px, papel al 50 %, debajo de la marca): texto sobre texto, no afea ninguna foto, y
-   hace que el crédito viaje con el carrusel si alguien lo comparte sin el pie. Es lo que
-   hacen las revistas con los créditos de foto al final.
+> Fotos de la plaza: la entrada del refugio, Vanbasten 23 (Wikimedia Commons, CC BY-SA
+> 4.0); la Colometa, 1997 (Wikimedia Commons, CC BY-SA 3.0). Recortadas. Las tarjetas 2 y
+> 3, CC BY-SA.
 
-Lo que no vale es un «fuente: Wikipedia» sin autor ni licencia. Y **con fotos propias no
-hace falta nada de esto**: la cabina y la plaza están a diez minutos, y el interior, los
-domingos a las 11:00 con reserva. Las que hace el dueño siguen siendo las mejores.
+| Fichero (banco) | Qué es | Autor · licencia |
+|---|---|---|
+| `f-diamant-boca.jpg` | La cabina de entrada del 232 en su plaza, con la escalera tras el cristal | Vanbasten 23 · CC BY-SA 4.0 |
+| `f-diamant-colometa.jpg` | La Colometa | 1997 · CC BY-SA 3.0 |
+| `f-diamant-plaza.jpg` | La plaza de día, con la terraza | 1997 · CC BY-SA 3.0 |
+| `f-refugi307-interior.jpg` | La galería del refugio 307 (Poble-sec). No es el 232 | Pere Herrero / MUHBA · CC BY-SA 3.0 |
+| `f-diamant-llistat.jpg` | El listado municipal de refugios del 9-dic-1937, documento | CC0 |
 
-| Fichero | Tarjeta | Qué es | Autor · licencia |
-|---|---|---|---|
-| `f-bcn-plaza.jpg` | 1 · la portada | El campanar de la plaça de la Vila de Gràcia, entre plátanos | Aaron Porras · Pexels |
-| `f-diamant-boca.jpg` | 2 · el refugio | La cabina de entrada del 232 en su plaza, con la escalera tras el cristal | Vanbasten 23 · CC BY-SA 4.0 |
-| `f-diamant-colometa.jpg` | 3 · 1962 | La Colometa | 1997 · CC BY-SA 3.0 |
-| `f-bcn-calle.jpg` | 4 · 1860 | Una calle estrecha con árboles y bolardos | Herr Kirlian · Unsplash |
-| `f-bcn-paseo.jpg` | 5 · la app | Gente andando bajo un arco, detrás del móvil | Lisa van Vliet · Unsplash |
-| `f-bcn-cierre.jpg` | 6 · el cierre | Barcelona al anochecer desde el Park Güell | Lief Peng · Unsplash |
-| `f-bcn-patio.jpg`, `f-bcn-noche.jpg`, `f-bcn-balcon.jpg`, `f-diamant-plaza.jpg`, `f-refugi307-interior.jpg`, `f-diamant-llistat.jpg` | (banco) | El patio, el callejón de noche y los balcones (Unsplash); la plaza de día y la galería del 307 (CC BY-SA 3.0); el listado de refugios de 1937 (CC0). De reserva | |
+**El interior del 232, de verdad**, sigue teniendo dos caminos: bajar un domingo a las
+11:00 con reserva en el Taller d'Història de Gràcia
+(<https://www.tallerhistoriadegracia.cat/thg/refugi-pl-del-diamant/>), o pedirle una foto al
+Taller con permiso. Borrador del correo, en catalán:
 
-**El interior del 232, de verdad.** Dos caminos:
-
-- **Bajar.** El Taller d'Història de Gràcia hace visitas guiadas **todos los domingos a las
-  11:00, una hora, 3 € por persona, con reserva previa**
-  (<https://www.tallerhistoriadegracia.cat/thg/refugi-pl-del-diamant/>; ficha del Ajuntament:
-  <https://guia.barcelona.cat/detall/visites-guiades-al-refugi-antiaeri-de-la-placa-del-diamant_99400176077.html>).
-  Diez fotos propias y, de paso, el reel de la bajada en primera persona.
-- **Pedirla.** Un correo al Taller pidiendo una foto del interior con permiso y crédito.
-  Borrador, en catalán porque es su lengua de trabajo:
-
-  > Bon dia. Sóc [nom], de NOMAD, una app de viatges que estem llançant a Barcelona. Estem
-  > preparant una publicació a Instagram sobre la plaça del Diamant i el refugi 232 —la
-  > història del refugi, la novel·la de la Rodoreda i l'origen del nom— i ens agradaria
-  > il·lustrar-la amb una fotografia de l'interior del refugi. Ens podríeu cedir una imatge
-  > vostra per a aquest ús, amb el crèdit que ens indiqueu i un enllaç a les visites dels
-  > diumenges? Us enviem la publicació abans de pujar-la, per si voleu revisar-la. Moltes
-  > gràcies per la feina que feu. [nom, telèfon]
-
-  Si cede una, se cambia `FOTOS[3]` en `gen-diamant.py` y el crédito en `creditos.json` y
-  en `CREDITO_CIERRE`, con el texto que ellos pidan.
+> Bon dia. Sóc [nom], de NOMAD, una app de viatges que estem llançant a Barcelona. Estem
+> preparant una publicació a Instagram sobre la plaça del Diamant i el refugi 232 —la
+> història del refugi, la novel·la de la Rodoreda i l'origen del nom— i ens agradaria
+> il·lustrar-la amb una fotografia de l'interior del refugi. Ens podríeu cedir una imatge
+> vostra per a aquest ús, amb el crèdit que ens indiqueu i un enllaç a les visites dels
+> diumenges? Us enviem la publicació abans de pujar-la, per si voleu revisar-la. Moltes
+> gràcies per la feina que feu. [nom, telèfon]
 
 ## Qué pedirle a la app
 
@@ -186,7 +172,8 @@ para quien se quedó.
 
 ## El pie
 
-La primera línea es la que se ve en el feed sin abrir, así que lleva el golpe.
+La primera línea es la que se ve en el feed sin abrir, así que lleva el golpe. Sin bloque de
+créditos: ninguna foto lo exige (con `CON_ATRIBUCION`, el de la sección anterior).
 
 > Debajo de la Plaça del Diamant, en Gràcia, hay un refugio antiaéreo a doce metros.
 >
@@ -200,10 +187,6 @@ La primera línea es la que se ve en el feed sin abrir, así que lleva el golpe.
 > Esto es lo que NOMAD te cuenta en la parada del tour, al oído y mientras andas. Sale en
 > octubre, y el primer viaje sale por 1,99 € para quien esté en la lista de espera. El
 > enlace, en la bio.
->
-> Fotos de la plaza: la entrada del refugio, Vanbasten 23 (Wikimedia Commons, CC BY-SA
-> 4.0); la Colometa, 1997 (Wikimedia Commons, CC BY-SA 3.0). Recortadas. Las tarjetas 2 y
-> 3, CC BY-SA.
 >
 > #barcelona #gracia #placadeldiamant #refugio232 #viajar #viajes #historia #catalunya
 

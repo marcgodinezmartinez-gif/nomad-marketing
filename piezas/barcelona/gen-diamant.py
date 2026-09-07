@@ -6,18 +6,19 @@
 # una plaza de barrio con un refugio antiaéreo debajo.
 #
 # LAS FOTOS SON OBLIGATORIAS (dueño, 6-sep: «tienen que haber fotos 100 %, es la esencia de
-# mi feed») Y EL BÚNKER TIENE QUE VERSE, al menos por fuera (dueño, 7-sep). De la plaza y
-# del refugio sólo hay fotos en Commons y son CC BY-SA, así que entran las dos que valen la
-# pena —la cabina de entrada del 232 en su plaza, y la Colometa— y el resto son las mejores
-# del banco, de Unsplash y Pexels, sin atribución. Del interior del 232 no hay ninguna foto
-# libre; el interior del 307 (Poble-sec) se probó y se retiró: era otro refugio.
+# mi feed») Y SIN CRÉDITO ENCIMA NI EN EL PIE (dueño, 7-sep: «dar créditos en las fotos se ve
+# feísimo», «no me acaba de gustar» en el pie). Y el dueño no está en Barcelona: todo tiene
+# que salir de internet. Se hizo la pasada completa por los bancos con licencia sin
+# atribución —Unsplash, Pexels, Pixabay, Flickr en CC0 y dominio público, Openverse, Commons
+# en CC0 y dominio público, Europeana; PxHere, Picryl, StockSnap y Reshot no responden desde
+# aquí— y el resultado está en el GUION: de la plaza, de la cabina del refugio y de la
+# Colometa NO HAY NI UNA FOTO SIN ATRIBUCIÓN en ningún sitio, y las de Gràcia en dominio
+# público son fotos de compacta de 2007-2010, pequeñas y a pleno sol. Así que el carrusel va
+# con las mejores del banco, de Unsplash y Pexels, y no debe crédito a nadie.
 #
-# DÓNDE VA LA ATRIBUCIÓN (dueño, 7-sep: «dar créditos en las fotos se ve feísimo»). La
-# licencia pide el crédito «de manera razonable para el medio», no encima de la foto: en
-# Instagram eso es EL PIE DEL POST, con autor, fuente, licencia y «recortadas». Para que el
-# crédito viaje con el carrusel si alguien lo comparte sin el pie, la tarjeta de cierre lleva
-# además una línea pequeña —CREDITO_CIERRE— que es texto sobre texto y no afea ninguna foto.
-# Por el ShareAlike, las tarjetas 2 y 3 quedan bajo CC BY-SA, y el pie lo dice.
+# CON_ATRIBUCION = True cambia dos fotos por las de Commons —la cabina del 232 en su plaza y
+# la Colometa, CC BY-SA— y pone su línea de crédito en la tarjeta de cierre; entonces el pie
+# lleva además el bloque de créditos del GUION. Es la única manera de enseñar el búnker.
 #
 # EL GOLPE VA EN LA TARJETA 2, a propósito: en un carrusel la gente se va pronto, y el
 # refugio en la quinta no lo vería casi nadie. La 1 pregunta y la 2 responde, Y LO CUENTA
@@ -44,19 +45,22 @@ pagina = lambda cuerpo: _pagina(cuerpo, HELMET)
 
 # Los ficheros que espera. Cambiar aquí y en ningún otro sitio.
 CAPTURA = 'tourdiamant-900.webp'     # el tour de la app con la parada de la plaza
+CON_ATRIBUCION = False
 FOTOS = {
-    1: 'f-bcn-plaza.jpg',         # el campanar de la plaça de la Vila de Gràcia, entre plátanos   Pexels
-    2: 'f-diamant-boca.jpg',      # la cabina de entrada del 232, en su plaza: el búnker por fuera  CC BY-SA 4.0
-    3: 'f-diamant-colometa.jpg',  # la Colometa, la escultura de la que habla la tarjeta            CC BY-SA 3.0
-    4: 'f-bcn-calle.jpg',         # una calle estrecha con árboles: las calles del joyero           Unsplash
-    5: 'f-bcn-paseo.jpg',         # gente andando por el casco antiguo: «mientras lo andas»         Unsplash
-    6: 'f-bcn-cierre.jpg',        # Barcelona al anochecer desde el Park Güell, que es Gràcia       Unsplash
+    1: 'f-bcn-plaza.jpg',    # el campanar de la plaça de la Vila de Gràcia, entre plátanos      Pexels
+    2: 'f-bcn-noche.jpg',    # un callejón de noche, mojado, con luces: debajo de la ciudad      Unsplash
+    3: 'f-bcn-balcon.jpg',   # balcones con plantas al sol: el terrat de la Colometa             Unsplash
+    4: 'f-bcn-calle.jpg',    # una calle estrecha con árboles y bolardos: las calles del joyero  Unsplash
+    5: 'f-bcn-paseo.jpg',    # gente andando por el casco antiguo: «mientras lo andas»           Unsplash
+    6: 'f-bcn-cierre.jpg',   # Barcelona al anochecer desde el Park Güell, que es Gràcia         Unsplash
 }
-# El crédito de las fotos CC BY-SA, en la tarjeta de cierre. El texto completo, con
-# «recortadas» y la frase de ShareAlike, va en el pie (GUION.md). Los dos se cambian a la vez
-# con banco/fotos/creditos.json.
-CREDITO_CIERRE = ('Fotos de la plaza: Vanbasten 23 y 1997 &middot; Wikimedia Commons &middot; '
-                  'CC BY-SA 4.0 / 3.0')
+CREDITO_CIERRE = ''
+if CON_ATRIBUCION:
+    FOTOS[2] = 'f-diamant-boca.jpg'       # la cabina de entrada del 232, en su plaza   CC BY-SA 4.0
+    FOTOS[3] = 'f-diamant-colometa.jpg'   # la Colometa                                 CC BY-SA 3.0
+    # El mismo texto que banco/fotos/creditos.json; se cambian los dos a la vez.
+    CREDITO_CIERRE = ('Fotos de la plaza: Vanbasten 23 y 1997 &middot; Wikimedia Commons &middot; '
+                      'CC BY-SA 4.0 / 3.0')
 
 # En las tarjetas 2-4 el texto ocupa dos tercios del alto (número, titular y párrafo), así
 # que el velo de foto de la casa —claro en el centro— dejaría letras sobre fachada al sol.
@@ -95,8 +99,8 @@ T['diamant-1'] = (raiz(NOCHE)
   + '</div>')
 
 # 2 · EL GOLPE, entero: la medida de protagonista, y debajo quién lo cavó, cuándo apareció y
-#     cómo se visita. Detrás, la cabina de entrada del refugio con la escalera que baja tras
-#     el cristal: la prueba de que está ahí.
+#     cómo se visita. Detrás, un callejón de noche: debajo de la ciudad. Con CON_ATRIBUCION,
+#     la cabina de entrada del refugio con la escalera que baja tras el cristal.
 T['diamant-2'] = (raiz(NOCHE)
   + fondo(2)
   + kicker('Pla&ccedil;a del Diamant &middot; bajo tus pies', 110, MENTA)
@@ -110,8 +114,8 @@ T['diamant-2'] = (raiz(NOCHE)
   + marca()
   + '</div>')
 
-# 3 · LA NOVELA, sobre la Colometa: la escultura de la que habla el párrafo. Es CC BY-SA;
-#     su crédito va en el cierre y en el pie.
+# 3 · LA NOVELA, sobre balcones al sol: el terrat de la Colometa y sus palomas. Con
+#     CON_ATRIBUCION, la propia Colometa.
 T['diamant-3'] = (raiz(NOCHE)
   + fondo(3)
   + kicker('Arriba, en la plaza')
@@ -159,7 +163,7 @@ T['diamant-6'] = (raiz(NOCHE)
   + sub('*Si te apuntas a la lista de espera en travelsnomad.com', 450, 32,
         'rgba(255, 253, 249, 0.8)')
   + marca()
-  + credito(CREDITO_CIERRE, 1292, 'rgba(255, 253, 249, 0.5)')
+  + (credito(CREDITO_CIERRE, 1292, 'rgba(255, 253, 249, 0.5)') if CREDITO_CIERRE else '')
   + '</div>')
 
 for stem, html in T.items():
