@@ -167,11 +167,13 @@ a capturar; una captura vieja en un anuncio es una promesa que la app no cumple.
   `src="{{foto}}"` sale roto y sin aviso.
 - **Tres postales salieron de recortes de 980×380** ampliados cinco veces en una historia.
   Las fotos de historia se recortan del original, y por eso el banco tiene los dos tamaños.
-- **De Commons, lo que devuelve 429 es SÓLO la API vieja** (`w/api.php`) — corregido el
-  2-sep, porque antes ponía que fallaban las descargas y no es verdad. El servidor de
-  ficheros (`upload.wikimedia.org`) baja originales de 26 MB sin rechistar y la API REST
-  (`w/rest.php`) responde. **Sí se pueden traer fotos nuevas desde aquí**:
-  `python3 piezas/fotos/ampliar-banco.py`.
+- **De Commons, la API vieja (`w/api.php`) devuelve 429 siempre, y el servidor de ficheros
+  (`upload.wikimedia.org`) también si se le pide en tanda** — corregido el 7-sep: el 2-sep
+  ponía que bajaba «sin rechistar», y con 25 ficheros seguidos, pausas de 6-12 s y
+  reintentos a 25-75 s, más de la mitad volvió con 429. Las páginas del wiki
+  (`/wiki/File:…`) y la API REST (`w/rest.php`) sí responden a 4 s. **Sí se pueden traer
+  fotos nuevas desde aquí** (`python3 piezas/fotos/ampliar-banco.py`), de una en una y
+  contando con que alguna habrá que repetir; desde un navegador es un clic.
 - **El fondo CC0 de Openverse está lleno de digitalizaciones de museo**, y casan con
   cualquier búsqueda de texto. De 13 que bajó la primera pasada, 5 eran basura: «toledo»
   trajo un manuscrito medieval, «nápoles» una estatua, «venecia» el Venice Canal District
