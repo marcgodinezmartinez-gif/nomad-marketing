@@ -262,6 +262,43 @@ visitas a la página y las altas `meta/paid/lista-g`; la tabla de parada manda i
 (3) Destacadas y bio, ya: son lo que las 45 visitas al perfil tenían que encontrar, y la
 bio dice la oferta («Sale en octubre. Tu primer viaje por 1,99 € si te apuntas ↓»).
 
+## El anuncio del reel, paso a paso (11-sep)
+
+Es la decisión del 4-sep llevada a clics. Todo en Meta Business Suite / Administrador de
+anuncios; desde una sesión no se puede tocar nada de esto.
+
+**Antes de encender nada, un número.** En la campaña parada: «visitas a la página de
+destino» contra «clics en el enlace» (677). Si las visitas son muchas menos, los clics no
+llegaron: en el conjunto nuevo se quitan las ubicaciones de Audience Network. Si son casi
+iguales, la gente llegó y se fue, y se toca el mensaje antes de pagar. Se anota el dato en
+la issue de la campaña.
+
+1. **Campaña**: la misma que corría (objetivo Tráfico). No se crea otra: las cifras tienen
+   que ser comparables con los estáticos. **Subir el tope de gasto de la campaña**, que
+   estaba en 50 €, a 150 €; si no, el conjunto nuevo no arranca.
+2. **Conjunto nuevo, duplicado del existente**: nombre `reel-demo-frio`. Público España,
+   20-55, amplio, sin intereses. Ubicaciones automáticas (o sin Audience Network, según el
+   número de arriba). **Presupuesto 5 €/día propio**. Sin fecha de fin: lo para la tabla.
+3. **Un solo anuncio**, nombre `lista-g-reel`: «Usar publicación existente» → el reel de
+   @app.nomad del 2-sep. Botón «Más información» con el enlace exacto:
+   `https://travelsnomad.com/?utm_source=meta&utm_medium=paid&utm_campaign=lista-g`
+   El texto es el pie del reel, tal cual está publicado: no se reescribe para el anuncio.
+4. **Los cuatro estáticos, en pausa.** El reel es el reemplazo, así que la regla de «nunca
+   pausar sin reemplazo» se cumple.
+5. **Si Meta no deja promocionar el reel por la música**: la cuenta es de empresa y la
+   pista salió de la biblioteca libre de derechos, así que no debería; si pasa, se vuelve a
+   subir el reel con una pista de esa biblioteca y se promociona el nuevo.
+
+**Qué se lee, y cuándo.** A los tres días, en el conjunto: reproducciones de 3 s, ThruPlay
+y la retención al 25/50/75/100 %; «visitas a la página de destino» contra «clics en el
+enlace»; y en la base de datos, las altas con `source = meta/paid/lista-g`. Con eso manda la
+tabla de parada de AGENTS.md: menos de 0,75 € gastados, esperar; clics sin altas, mirar
+las visitas antes de tocar nada; coste por alta hasta 0,25 €, candidato a ganador; por
+encima de 0,38 €, cambiarlo; si Meta apenas reparte, matarlo.
+
+**Tope de septiembre: 150 € en total**, y lo que compran no son altas: es saber si al reel
+se le pone dinero en octubre.
+
 ## Tres días después (6-sep, 17:59): el reel se paró
 
 | | 4-sep 8:23 | 6-sep 17:59 | Delta |
