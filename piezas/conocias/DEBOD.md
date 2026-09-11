@@ -27,12 +27,16 @@ los cuatro templos.
 | `f-madrid.jpg` | 6 | Gran Vía y el edificio Telefónica | Commons · CC0 (ya en el banco) |
 | `f-madrid-torre.jpg` | reserva | El Palacio de Cibeles | Maksim Zhashkevych · Unsplash |
 
-## Qué pedirle a la app
+## La captura (11-sep, ya está)
 
-Nuevo viaje, **Madrid**, dos o tres días, estilo **Cultural**. Buscar un tour a pie que pase
-por el Templo de Debod o el Parque del Oeste; si no, al asistente: *«añade el Templo de Debod
-al tour, quiero verlo al atardecer»*. Abrir la parada y desplegar **LA HISTORIA**. Captura en
-vertical, con la barra de estado, guardada como `banco/capturas/tourdebod-900.webp`.
+El dueño abrió el «Tour por el Templo de Debod y Plaza de España» de la app —seis paradas,
+80 minutos, desde la plaza de España— y mandó cuatro capturas de la parada 5, «El Templo de
+Debod». **Va la del mapa con la ruta, el título de la parada, el reproductor de la
+audioguía y el arranque de LA HISTORIA** (`banco/capturas/tourdebod-900.webp`): el mismo
+encuadre que la del Carmel. Entera, 900×1956, sin recortar.
+
+Lo que dice la app coincide con las tarjetas: «levantado hace más de dos mil doscientos
+años en la región de Nubia, a orillas del río Nilo, dedicado a los dioses Amón e Isis».
 
 ## El pie
 
