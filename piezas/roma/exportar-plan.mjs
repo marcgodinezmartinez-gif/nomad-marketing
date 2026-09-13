@@ -25,13 +25,17 @@ const css = Object.entries(man).flatMap(([familia, ficheros]) => ficheros.map((f
 // Prefijo y número de tarjetas por argumento, que ya hay dos carruseles con el mismo molde:
 //   node ../piezas/roma/exportar-plan.mjs            → roma-1..5
 //   node ../piezas/roma/exportar-plan.mjs diamant 7  → diamant-1..7
+//   node ../piezas/roma/exportar-plan.mjs formulario 1 1200 628  → otro tamaño (la imagen
+//   de fondo de un formulario instantáneo de Meta, 13-sep)
 const prefijo = process.argv[2] || 'roma';
 const total = Number(process.argv[3] || 5);
+const ancho = Number(process.argv[4] || 1080);
+const alto = Number(process.argv[5] || 1350);
 
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
 for (let i = 1; i <= total; i++) {
   const n = `${prefijo}-${i}`;
-  const p = await b.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+  const p = await b.newPage({ viewport: { width: ancho, height: alto }, deviceScaleFactor: 1 });
   await p.goto('file://' + process.cwd() + `/${n}.dc.html`, { waitUntil: 'load' });
   await p.addStyleTag({ content: css });
   await p.evaluate(() => document.fonts.ready);
