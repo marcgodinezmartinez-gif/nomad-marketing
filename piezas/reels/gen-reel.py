@@ -102,7 +102,7 @@ ESCENAS['reel-05'] = (RAIZ
   + foto('f-precio.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.5) 0%, rgba(16, 14, 11, 0.35) 30%, rgba(16, 14, 11, 0.88) 100%)')
   + kicker('Llega en octubre', 400)
-  + titular('El viaje entero,<br>por 2,99&nbsp;&euro;.', 470, 88)
+  + titular('El viaje entero,<br>desde 2,99&nbsp;&euro;.', 470, 88)
   + f'<p class="sans" style="position: absolute; left: 84px; top: 800px; margin: 0; font-size: 40px; line-height: 1.4; color: #5CC0A6; font-weight: 700; {SOMBRA}">En la lista de espera,<br>tu primer viaje por 1,99&nbsp;&euro;.</p>'
   + sub('Ap&uacute;ntate en el enlace de la bio.', 990, 38)
   + marca()

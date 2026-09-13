@@ -54,7 +54,7 @@ y al terminar se guardan las siete en una destacada nueva.
 | 3 | `qe-3.png` | 2 · El tour a pie — te lleva de parada en parada |
 | 4 | `qe-4.png` | 3 · El museo — enfocas una obra y te cuenta su historia |
 | 5 | `qe-5.png` | 4 · El grupo — entran con un QR, los gastos se reparten solos |
-| 6 | `qe-6.png` | Y cuánto cuesta — 2,99 €, sin suscripción |
+| 6 | `qe-6.png` | Y cuánto cuesta — desde 2,99 €, sin suscripción |
 | 7 | `qe-7.png` | Llega en octubre — la lista ya está abierta |
 
 - **Nombre de la destacada: `Qué es`** · **carátula: `car-quees.png`**.
@@ -68,7 +68,7 @@ y al terminar se guardan las siete en una destacada nueva.
 | # | Fichero | Qué dice |
 |---|---|---|
 | 1 | `li-1.png` | La lista de espera — qué es, qué te llevas, cómo se entra |
-| 2 | `li-2.png` | Tu primer viaje por 1,99 € en vez de 2,99 € |
+| 2 | `li-2.png` | Tu primer viaje por 1,99 €, dure lo que dure |
 | 3 | `li-3.png` | Cómo se entra — los tres pasos, escritos |
 | 4 | `li-4.png` | Un correo. Uno. — y te borras cuando quieras |
 
@@ -95,7 +95,7 @@ app: describe a una persona que el espectador reconoce en dos segundos.
 **Pie del Reel** (copiar tal cual):
 
 > En todo grupo hay uno que acaba organizándolo todo. Si eres tú: NOMAD te escribe el
-> viaje, tus amigos entran con un QR y los gastos se reparten solos. 2,99 € el viaje
+> viaje, tus amigos entran con un QR y los gastos se reparten solos. Desde 2,99 € el viaje
 > entero, sin suscripción — y en la lista de espera, el primero por 1,99 €.
 >
 > Llega en octubre. El enlace, en la bio.

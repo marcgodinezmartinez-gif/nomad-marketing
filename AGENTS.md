@@ -29,8 +29,11 @@ cada sesión, se aplican:
 - **Un alta vale 0,24 €** (margen esperado de un miembro de la lista).
 - **Coste objetivo por alta (TCPL): 0,25 €.** Un alta pagada en Meta en España cuesta
   0,30-1,50 €, así que **lo pagado compra aprendizaje** (qué argumento mueve), no altas.
-- **Precio**: 2,99 € el viaje entero, sin suscripción; en la lista, el primero por 1,99 €.
-  Siempre en ese orden. El ancla del precio es **el café**, nunca «la audioguía de 6 €»:
+- **Precio**: **desde 2,99 € el viaje entero**, sin suscripción — 2,99 € hasta 3 días, 4,99 €
+  de 4 a 7 y 6,99 € de 8 a 30, como dice la web—; en la lista, **el primero por 1,99 € sea
+  cual sea la duración** (hasta 30 días). Siempre en ese orden. **Nunca «2,99 € el viaje
+  entero» como cifra cerrada**: un viaje largo cuesta más, y así lo dijo el dueño el 13-sep
+  al ver que ese texto estaba en el reel, en las destacadas y en los anuncios. El ancla del precio es **el café**, nunca «la audioguía de 6 €»:
   el dueño la ha tirado dos veces y no vuelve por ninguna puerta.
 
 **La tabla de parada** (aritmética, no corazonadas):

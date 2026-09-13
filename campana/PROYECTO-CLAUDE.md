@@ -49,8 +49,9 @@ de una tabla que vive en cuatro sitios se desfasa sola.
 > inglés, italiano y francés. Llega en octubre a iOS y Android. Nunca prometas nada que no
 > esté en esta lista.
 >
-> **Precio**: 2,99 € el viaje entero, sin suscripción; en la lista de espera, el primer
-> viaje por 1,99 €. Siempre en ese orden. El ancla del precio es «lo que cuesta un café»,
+> **Precio**: desde 2,99 € el viaje entero, sin suscripción (2,99 € hasta 3 días, 4,99 € de 4
+> a 7, 6,99 € de 8 a 30); en la lista de espera, el primer viaje por 1,99 €, dure lo que
+> dure. Siempre en ese orden, y nunca «2,99 € el viaje entero» como cifra cerrada. El ancla del precio es «lo que cuesta un café»,
 > sin ponerle cifra al café. Nunca compares con «la audioguía de 6 €».
 >
 > **La voz**: la de la bio — «Los días escritos. La ciudad, contada.» Frases cortas, el

@@ -102,7 +102,7 @@ conversión, se revisita CON banner.
 ## El mensaje (de MERCADO, no de la inspiración)
 
 1. **El ancla de precio**: «La audioguía que otras apps venden a 5-15 € LA UNIDAD, aquí
-   va incluida en un viaje entero de 2,99 €.» Verificado: VoiceMap 5-15 $/tour, WeGoTrip
+   va incluida en un viaje entero desde 2,99 €.» Verificado: VoiceMap 5-15 $/tour, WeGoTrip
    5-15 €/atracción.
 2. **La cola larga**: «Funciona en cualquier pueblo y cualquier museo del mundo — no solo
    en las seis ciudades de siempre.» (El clúster GuideMapp cubre ~6 ciudades curadas;
@@ -134,7 +134,7 @@ quieras, en tu idioma.»
 
 **G4 · La comparación desnuda**
 Pantalla partida o tarjetas: «Un (1) tour de VoiceMap: 5-15 $ · Un VIAJE ENTERO de
-NOMAD con tours y museos ilimitados: 2,99 €». Sin más. Este es para pagado: simple,
+NOMAD con tours y museos ilimitados: desde 2,99 €». Sin más. Este es para pagado: simple,
 legible sin sonido.
 
 **G5 · El pueblo que no sale en las guías**
@@ -159,7 +159,7 @@ feed; no lleva presupuesto de pago.
 *Reescritos el 24-ago con el gancho nuevo, y pulidos el 30-ago al montar la campaña real
 (pedido del dueño: «hay que pulirlos»). Lo que cambió en la pulida: el golpe completo va
 en la PRIMERA línea, porque el feed corta a ~125 caracteres con un «ver más»; los precios
-siempre en el mismo orden (2,99 normal → 1,99 de lista); y el cierre reutiliza «Apúntate y
+siempre en el mismo orden (desde 2,99 normal → 1,99 de lista, y nunca «2,99» a secas: 13-sep); y el cierre reutiliza «Apúntate y
 no te pierdas el lanzamiento», que ya es la voz de la bio y de la web. **La oferta de
 1,99 € es sólo para quien esté en la lista**, y eso cambia el verbo: no te apuntas para
 enterarte, te apuntas para que te dejen comprarlo a ese precio. Los saltos de línea van
@@ -190,8 +190,8 @@ A PROPÓSITO: se pegan tal cual, en tres párrafos.*
   > Te escribe los días. Te los cuenta al oído mientras andas la ciudad. Te dice qué
   > estás mirando en el museo. Y reparte los gastos del grupo.
   >
-  > Todo por 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
-  > 1,99 €.
+  > Todo desde 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
+  > 1,99 €, dure lo que dure.
   >
   > Apúntate antes del lanzamiento de octubre.
 - **D (urgencia, para la semana 4):** «La lista se cierra cuando abramos. Después, el
@@ -201,7 +201,7 @@ A PROPÓSITO: se pegan tal cual, en tres párrafos.*
   > En todos los grupos hay uno que acaba organizándolo todo. Si eres tú, esto es para ti.
   >
   > NOMAD escribe el viaje, tus amigos se unen con un QR y los gastos se reparten solos.
-  > 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
+  > Desde 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
   >
   > Apúntate y no te pierdas el lanzamiento.
 

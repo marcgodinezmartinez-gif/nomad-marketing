@@ -26,13 +26,14 @@ Lo que hace, y nada más:
 
 Idiomas: español, inglés, italiano, francés.
 
-**Precio**: 2,99 € el viaje entero, sin suscripción. Nunca se compara con «la audioguía de
+**Precio**: desde 2,99 € el viaje entero, sin suscripción (2,99 / 4,99 / 6,99 € según los
+días; nunca «2,99 €» a secas). Nunca se compara con «la audioguía de
 6 €» — el ancla es lo que cuesta un café, sin ponerle cifra.
 
 ## 2. Qué se está intentando conseguir
 
 Antes del lanzamiento, la **única conversión que existe es la lista de espera**: un correo.
-La oferta actual es **el primer viaje por 1,99 € en vez de 2,99 €** para quien esté en la
+La oferta actual es **el primer viaje por 1,99 €, dure lo que dure**, para quien esté en la
 lista el día que se abra.
 
 Un alta vale **0,24 €** (margen esperado). El coste objetivo por alta es **0,25 €**.

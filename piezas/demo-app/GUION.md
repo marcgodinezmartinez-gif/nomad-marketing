@@ -27,7 +27,8 @@ repartir, y eso mueve el valor a ANTES de pedir el correo, que es lo que faltaba
 - **Zonas seguras**: el texto vive entre **y=280 e y=1480** (la intersección de las de
   historia y reel). De y=1520 abajo, libre para el adhesivo de enlace.
 - **App real**, nunca maqueta. Y si una pantalla cambia, se vuelve a grabar.
-- **El precio, siempre en su orden**: 2,99 € el viaje entero → 1,99 € en la lista. El
+- **El precio, siempre en su orden**: desde 2,99 € el viaje entero → 1,99 € en la lista, dure
+  lo que dure (13-sep: 2,99 / 4,99 / 6,99 € según los días; nunca «2,99 €» a secas). El
   ancla es el café. La audioguía de 6 € no vuelve por ninguna puerta.
 - **El texto es el mínimo, no el máximo** (revisado el 2-sep, ver abajo): la interfaz ya
   habla sola y taparla es tapar la prueba.
@@ -71,7 +72,7 @@ y necesitan un nombre que recordar.
 | 2 | 0:04–0:11 | El plan apareciendo. Deja que respire, y **desliza despacio** por los tres días: qué ver, en qué orden, cuánto cuesta. | — *(desnudo: «Sábado, 29 ago · 5 planes · 72 €» lo dice la app)* |
 | 3 | 0:11–0:18 | Abre el tour a pie. El mapa con la ruta dibujada y las paradas numeradas. Toca una parada y **arranca la voz** — que se vea el control de audio en marcha. | — *salvo que en pantalla no se entienda que suena una voz; entonces,* **Me lo va contando por la calle.** |
 | 4 | 0:18–0:25 | El museo. Enfoca un cuadro y aparece su historia. Deja ver dos o tres líneas del texto. | — *(desnudo: se ve el cuadro y se ve el texto apareciendo)* |
-| 5 | 0:25–0:32 | **Cierre.** Vuelve al plan generado y **quédate quieto** ahí. El texto entra encima. | **Sale en octubre, por 2,99 € el viaje entero.**<br>**En la lista, el primero por 1,99 €.**<br><br>*Y aquí, 1 s de la pantalla de carga con el logo.* |
+| 5 | 0:25–0:32 | **Cierre.** Vuelve al plan generado y **quédate quieto** ahí. El texto entra encima. | **Sale en octubre, desde 2,99 € el viaje entero.**<br>**En la lista, el primero por 1,99 €.**<br><br>*Y aquí, 1 s de la pantalla de carga con el logo.* |
 
 Tres funciones, no cinco. El grupo y la visita por planta se quedan fuera a propósito: un
 vídeo que enseña todo no enseña nada.
@@ -199,8 +200,8 @@ en la bio — el «👇» es para las historias, donde el adhesivo sí está deb
 > Por la calle te lo va contando, parada a parada. En el museo enfocas una obra y te dice
 > qué estás mirando.
 >
-> Sale en octubre. 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
-> 1,99 €. Apúntate y no te pierdas el lanzamiento: el enlace, en la bio.
+> Sale en octubre. Desde 2,99 € el viaje entero, sin suscripción — y en la lista, el primero
+> por 1,99 €, dure lo que dure. Apúntate y no te pierdas el lanzamiento: el enlace, en la bio.
 >
 > #viajar #viajes #escapada #europa #roma #viajeenpareja #viajeconamigos
 

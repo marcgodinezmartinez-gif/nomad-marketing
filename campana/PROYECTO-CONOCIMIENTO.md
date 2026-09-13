@@ -38,8 +38,11 @@ cada sesión, se aplican:
 - **Un alta vale 0,24 €** (margen esperado de un miembro de la lista).
 - **Coste objetivo por alta (TCPL): 0,25 €.** Un alta pagada en Meta en España cuesta
   0,30-1,50 €, así que **lo pagado compra aprendizaje** (qué argumento mueve), no altas.
-- **Precio**: 2,99 € el viaje entero, sin suscripción; en la lista, el primero por 1,99 €.
-  Siempre en ese orden. El ancla del precio es **el café**, nunca «la audioguía de 6 €»:
+- **Precio**: **desde 2,99 € el viaje entero**, sin suscripción — 2,99 € hasta 3 días, 4,99 €
+  de 4 a 7 y 6,99 € de 8 a 30, como dice la web—; en la lista, **el primero por 1,99 € sea
+  cual sea la duración** (hasta 30 días). Siempre en ese orden. **Nunca «2,99 € el viaje
+  entero» como cifra cerrada**: un viaje largo cuesta más, y así lo dijo el dueño el 13-sep
+  al ver que ese texto estaba en el reel, en las destacadas y en los anuncios. El ancla del precio es **el café**, nunca «la audioguía de 6 €»:
   el dueño la ha tirado dos veces y no vuelve por ninguna puerta.
 
 **La tabla de parada** (aritmética, no corazonadas):
@@ -317,7 +320,7 @@ conversión, se revisita CON banner.
 ## El mensaje (de MERCADO, no de la inspiración)
 
 1. **El ancla de precio**: «La audioguía que otras apps venden a 5-15 € LA UNIDAD, aquí
-   va incluida en un viaje entero de 2,99 €.» Verificado: VoiceMap 5-15 $/tour, WeGoTrip
+   va incluida en un viaje entero desde 2,99 €.» Verificado: VoiceMap 5-15 $/tour, WeGoTrip
    5-15 €/atracción.
 2. **La cola larga**: «Funciona en cualquier pueblo y cualquier museo del mundo — no solo
    en las seis ciudades de siempre.» (El clúster GuideMapp cubre ~6 ciudades curadas;
@@ -349,7 +352,7 @@ quieras, en tu idioma.»
 
 **G4 · La comparación desnuda**
 Pantalla partida o tarjetas: «Un (1) tour de VoiceMap: 5-15 $ · Un VIAJE ENTERO de
-NOMAD con tours y museos ilimitados: 2,99 €». Sin más. Este es para pagado: simple,
+NOMAD con tours y museos ilimitados: desde 2,99 €». Sin más. Este es para pagado: simple,
 legible sin sonido.
 
 **G5 · El pueblo que no sale en las guías**
@@ -374,7 +377,7 @@ feed; no lleva presupuesto de pago.
 *Reescritos el 24-ago con el gancho nuevo, y pulidos el 30-ago al montar la campaña real
 (pedido del dueño: «hay que pulirlos»). Lo que cambió en la pulida: el golpe completo va
 en la PRIMERA línea, porque el feed corta a ~125 caracteres con un «ver más»; los precios
-siempre en el mismo orden (2,99 normal → 1,99 de lista); y el cierre reutiliza «Apúntate y
+siempre en el mismo orden (desde 2,99 normal → 1,99 de lista, y nunca «2,99» a secas: 13-sep); y el cierre reutiliza «Apúntate y
 no te pierdas el lanzamiento», que ya es la voz de la bio y de la web. **La oferta de
 1,99 € es sólo para quien esté en la lista**, y eso cambia el verbo: no te apuntas para
 enterarte, te apuntas para que te dejen comprarlo a ese precio. Los saltos de línea van
@@ -405,8 +408,8 @@ A PROPÓSITO: se pegan tal cual, en tres párrafos.*
   > Te escribe los días. Te los cuenta al oído mientras andas la ciudad. Te dice qué
   > estás mirando en el museo. Y reparte los gastos del grupo.
   >
-  > Todo por 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
-  > 1,99 €.
+  > Todo desde 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
+  > 1,99 €, dure lo que dure.
   >
   > Apúntate antes del lanzamiento de octubre.
 - **D (urgencia, para la semana 4):** «La lista se cierra cuando abramos. Después, el
@@ -416,7 +419,7 @@ A PROPÓSITO: se pegan tal cual, en tres párrafos.*
   > En todos los grupos hay uno que acaba organizándolo todo. Si eres tú, esto es para ti.
   >
   > NOMAD escribe el viaje, tus amigos se unen con un QR y los gastos se reparten solos.
-  > 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
+  > Desde 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
   >
   > Apúntate y no te pierdas el lanzamiento.
 
@@ -737,7 +740,7 @@ encontrar un solar. Grid primero, dinero después — pero con los 9 subidos el 
 **Los copys** (cuatro ángulos a propósito: precio, cobertura, producto, grupo — se
 prueba cuál mueve, no se elige el que más guste). *Pulidos el 30-ago al montar la campaña:
 el golpe entero en la primera línea (el feed corta a ~125 caracteres), precios siempre en
-el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párrafos:*
+el orden desde 2,99 → 1,99 (y nunca «2,99» a secas: 13-sep), cierre con la voz de la bio. Se pegan con sus TRES párrafos:*
 
 - **A (precio)** · Título: `Tu primer viaje, por 1,99 €`
   > El viaje entero, por lo que cuesta un café: desde 2,99 €.
@@ -764,15 +767,15 @@ el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párr
   > Te escribe los días. Te los cuenta al oído mientras andas la ciudad. Te dice qué
   > estás mirando en el museo. Y reparte los gastos del grupo.
   >
-  > Todo por 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
-  > 1,99 €.
+  > Todo desde 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
+  > 1,99 €, dure lo que dure.
   >
   > Apúntate antes del lanzamiento de octubre.
 - **E (grupo)** · Título: `Los gastos se reparten solos`
   > En todos los grupos hay uno que acaba organizándolo todo. Si eres tú, esto es para ti.
   >
   > NOMAD escribe el viaje, tus amigos se unen con un QR y los gastos se reparten solos.
-  > 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
+  > Desde 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
   >
   > Apúntate y no te pierdas el lanzamiento.
 - **D (urgencia — EN RESERVA, no arranca):** «La lista se cierra cuando abramos. Después,
@@ -1092,7 +1095,7 @@ y al terminar se guardan las siete en una destacada nueva.
 | 3 | `qe-3.png` | 2 · El tour a pie — te lleva de parada en parada |
 | 4 | `qe-4.png` | 3 · El museo — enfocas una obra y te cuenta su historia |
 | 5 | `qe-5.png` | 4 · El grupo — entran con un QR, los gastos se reparten solos |
-| 6 | `qe-6.png` | Y cuánto cuesta — 2,99 €, sin suscripción |
+| 6 | `qe-6.png` | Y cuánto cuesta — desde 2,99 €, sin suscripción |
 | 7 | `qe-7.png` | Llega en octubre — la lista ya está abierta |
 
 - **Nombre de la destacada: `Qué es`** · **carátula: `car-quees.png`**.
@@ -1106,7 +1109,7 @@ y al terminar se guardan las siete en una destacada nueva.
 | # | Fichero | Qué dice |
 |---|---|---|
 | 1 | `li-1.png` | La lista de espera — qué es, qué te llevas, cómo se entra |
-| 2 | `li-2.png` | Tu primer viaje por 1,99 € en vez de 2,99 € |
+| 2 | `li-2.png` | Tu primer viaje por 1,99 €, dure lo que dure |
 | 3 | `li-3.png` | Cómo se entra — los tres pasos, escritos |
 | 4 | `li-4.png` | Un correo. Uno. — y te borras cuando quieras |
 
@@ -1133,7 +1136,7 @@ app: describe a una persona que el espectador reconoce en dos segundos.
 **Pie del Reel** (copiar tal cual):
 
 > En todo grupo hay uno que acaba organizándolo todo. Si eres tú: NOMAD te escribe el
-> viaje, tus amigos entran con un QR y los gastos se reparten solos. 2,99 € el viaje
+> viaje, tus amigos entran con un QR y los gastos se reparten solos. Desde 2,99 € el viaje
 > entero, sin suscripción — y en la lista de espera, el primero por 1,99 €.
 >
 > Llega en octubre. El enlace, en la bio.

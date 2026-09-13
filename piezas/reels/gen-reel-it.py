@@ -97,7 +97,7 @@ ESCENAS['reelit-05'] = (RAIZ
   + foto('f-precio.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.5) 0%, rgba(16, 14, 11, 0.35) 30%, rgba(16, 14, 11, 0.88) 100%)')
   + kicker('Arriva a ottobre', 400)
-  + titular('Il viaggio intero,<br>a 2,99&nbsp;&euro;.', 470, 88)
+  + titular('Il viaggio intero,<br>da 2,99&nbsp;&euro;.', 470, 88)
   + f'<p class="sans" style="position: absolute; left: 84px; top: 800px; margin: 0; font-size: 40px; line-height: 1.4; color: #5CC0A6; font-weight: 700; {SOMBRA}">In lista d&rsquo;attesa,<br>il tuo primo viaggio a 1,99&nbsp;&euro;.</p>'
   + sub('Iscriviti dal link in bio.', 990, 38)
   + marca()

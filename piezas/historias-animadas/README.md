@@ -86,7 +86,7 @@ Queda abierto en una issue.
 ## La segunda pieza: el cierre animado de la demo (2-sep)
 
 `demo-cierre/` — 4 s sobre un fotograma de la pantalla del precio de la app real: cae la
-banda y entran «Sale en octubre», 2,99 € y 1,99 €, en ese orden. Era el único tramo del
+banda y entran «Sale en octubre», desde 2,99 € y 1,99 €, en ese orden. Era el único tramo del
 corte a pantalla completa hecho con HyperFrames; el resto era ffmpeg. Ese corte dejó de
 ser el reel el 3-sep (abajo), pero la pieza sigue valiendo como cierre suelto.
 

@@ -112,7 +112,7 @@ encontrar un solar. Grid primero, dinero después — pero con los 9 subidos el 
 **Los copys** (cuatro ángulos a propósito: precio, cobertura, producto, grupo — se
 prueba cuál mueve, no se elige el que más guste). *Pulidos el 30-ago al montar la campaña:
 el golpe entero en la primera línea (el feed corta a ~125 caracteres), precios siempre en
-el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párrafos:*
+el orden desde 2,99 → 1,99 (y nunca «2,99» a secas: 13-sep), cierre con la voz de la bio. Se pegan con sus TRES párrafos:*
 
 - **A (precio)** · Título: `Tu primer viaje, por 1,99 €`
   > El viaje entero, por lo que cuesta un café: desde 2,99 €.
@@ -139,15 +139,15 @@ el orden 2,99 → 1,99, cierre con la voz de la bio. Se pegan con sus TRES párr
   > Te escribe los días. Te los cuenta al oído mientras andas la ciudad. Te dice qué
   > estás mirando en el museo. Y reparte los gastos del grupo.
   >
-  > Todo por 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
-  > 1,99 €.
+  > Todo desde 2,99 € el viaje entero, sin suscripción — y en la lista, el primero por
+  > 1,99 €, dure lo que dure.
   >
   > Apúntate antes del lanzamiento de octubre.
 - **E (grupo)** · Título: `Los gastos se reparten solos`
   > En todos los grupos hay uno que acaba organizándolo todo. Si eres tú, esto es para ti.
   >
   > NOMAD escribe el viaje, tus amigos se unen con un QR y los gastos se reparten solos.
-  > 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
+  > Desde 2,99 € por viaje, sin suscripción — en la lista, el primero por 1,99 €.
   >
   > Apúntate y no te pierdas el lanzamiento.
 - **D (urgencia — EN RESERVA, no arranca):** «La lista se cierra cuando abramos. Después,

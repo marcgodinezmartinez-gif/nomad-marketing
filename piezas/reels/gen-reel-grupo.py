@@ -114,7 +114,7 @@ ESCENAS['reelg-05'] = (RAIZ
   + foto('f-oferta.jpg', 1.06)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.5) 0%, rgba(16, 14, 11, 0.35) 30%, rgba(16, 14, 11, 0.9) 100%)')
   + kicker('Llega en octubre', 400)
-  + titular('2,99&nbsp;&euro; el viaje.<br>Lo pagas t&uacute;, una vez.', 470, 74)
+  + titular('Desde 2,99&nbsp;&euro; el viaje.<br>Lo pagas t&uacute;, una vez.', 470, 74)
   + f'<p class="sans" style="position: absolute; left: 84px; top: 800px; margin: 0; font-size: 40px; '
     f'line-height: 1.4; color: {MENTA}; font-weight: 700; {SOMBRA}">En la lista de espera,<br>'
     f'tu primer viaje por 1,99&nbsp;&euro;.</p>'
