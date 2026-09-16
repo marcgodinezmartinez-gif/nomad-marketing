@@ -37,7 +37,7 @@ naranja.
 |---|---|---|---|
 | `carmel` | Búnkers del Carmel, Barcelona | Una batería antiaérea de 1938, luego un barrio de barracas | **Publicada** (7-sep) |
 | `debod` | Templo de Debod, Madrid | Egipto lo regaló en 1968 por ayudar a salvar Abu Simbel | **Publicada** (13-sep) |
-| `panteon` | Panteón de Agripa, Roma | Llueve dentro y está calculado; y la cúpula sigue sin superarse | Falta `tourpanteon-900.webp` |
+| `panteon` | Panteón de Agripa, Roma | Llueve dentro y está calculado; y la cúpula sigue sin superarse | **Lista para publicar** (16-sep) |
 
 ## Candidatas comprobadas el 16-sep: historia Y fotos, a la vez
 

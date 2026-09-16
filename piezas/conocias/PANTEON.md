@@ -39,16 +39,19 @@ resultó ser la basílica de San Pedro, no el Panteón.
 | `f-panteon-plaza.jpg` | 5 | El pórtico con gente, detrás del móvil | MChe Lee · Unsplash |
 | `f-grupo.jpg` | 6 | La Fontana di Trevi de noche (ya en el banco) | Commons · CC0 |
 
-## Qué pedirle a la app
+## La captura (16-sep, ya está)
 
-Nuevo viaje, **Roma**, dos o tres días, estilo **Cultural**. Buscar un tour a pie por el
-centro histórico que pase por el Panteón; si no lo trae, al asistente: *«añade el Panteón al
-tour»*. Abrir la parada y dejar a la vista **el título y el reproductor de la audioguía**,
-como en las del Carmel y Debod. Captura en vertical, con la barra de estado, guardada como
-`banco/capturas/tourpanteon-900.webp`.
+El dueño abrió el tour a pie del Panteón en la app —cinco paradas— y mandó la **parada 2,
+«El Óculo y la Gran Cúpula»** (`banco/capturas/tourpanteon-900.webp`). Es la mejor captura
+de las tres de la serie: se ven el título de la parada, el reproductor de la audioguía,
+«Colócate aquí» —«en el centro de la sala, directamente debajo de la abertura redonda del
+techo»— y LA HISTORIA entera.
 
-Si la app cuenta otra cosa de la parada —los reyes enterrados dentro, Rafael— el cierre se
-ajusta a lo que diga: la tarjeta 5 es la prueba, y la prueba manda.
+**Y la app dice lo mismo que las tarjetas**, que es lo que convierte el cierre en una
+prueba: «la cúpula de hormigón no armado más grande del mundo» casi dos milenios después
+(tarjeta 2), «una abertura de nueve metros de diámetro» y «cuando llueve, el agua cae al
+interior y desaparece por el suelo a través de un sistema de drenaje romano que sigue
+funcionando hoy en día» (tarjeta 3).
 
 ## El pie
 
