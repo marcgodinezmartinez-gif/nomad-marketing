@@ -33,10 +33,11 @@ naranja.
 
 ## Las que hay
 
-| Pieza | Sitio | El golpe | Falta |
+| Pieza | Sitio | El golpe | Estado |
 |---|---|---|---|
-| `carmel` | Búnkers del Carmel, Barcelona | Una batería antiaérea de 1938, luego un barrio de barracas | `tourcarmel-900.webp` |
-| `debod` | Templo de Debod, Madrid | Egipto lo regaló en 1968 por ayudar a salvar Abu Simbel | `tourdebod-900.webp` |
+| `carmel` | Búnkers del Carmel, Barcelona | Una batería antiaérea de 1938, luego un barrio de barracas | **Publicada** (7-sep) |
+| `debod` | Templo de Debod, Madrid | Egipto lo regaló en 1968 por ayudar a salvar Abu Simbel | **Publicada** (13-sep) |
+| `panteon` | Panteón de Agripa, Roma | Llueve dentro y está calculado; y la cúpula sigue sin superarse | Falta `tourpanteon-900.webp` |
 
 ## Candidatas comprobadas el 16-sep: historia Y fotos, a la vez
 
@@ -45,7 +46,7 @@ Plaça del Diamant: allí la historia era buena y las fotos no existían.
 
 | Sitio | El golpe, verificado | Fotos libres |
 |---|---|---|
-| **Panteón de Roma** | La cúpula de hormigón en masa más grande de la historia, 43,44 m, **1.900 años después**. El óculo de 9 m está abierto: llueve dentro, y el suelo es convexo con drenaje perimetral, o sea que estaba calculado. La fachada dice «Agripa lo hizo», pero los ladrillos son del 123-125: lo reconstruyó Adriano y mantuvo el nombre del otro. Se salvó porque en 608 lo donaron al papa: el único edificio de la Roma antigua intacto y en uso ininterrumpido | **Diez verticales libres del interior** en Unsplash, con la cúpula y el óculo. Lo mejor que se ha encontrado para esta serie |
+| **Panteón de Roma** ✅ montada | La cúpula de hormigón en masa más grande de la historia, 43,44 m, **1.900 años después**. El óculo de 9 m está abierto: llueve dentro, y el suelo es convexo con drenaje perimetral, o sea que estaba calculado. La fachada dice «Agripa lo hizo», pero los ladrillos son del 123-125: lo reconstruyó Adriano y mantuvo el nombre del otro. Se salvó porque en 608 lo donaron al papa: el único edificio de la Roma antigua intacto y en uso ininterrumpido | **Diez verticales libres del interior** en Unsplash, con la cúpula y el óculo. Lo mejor que se ha encontrado para esta serie |
 | **Piazza Navona, Roma** | Debajo está el estadio de Domiciano, del año 85: 276 × 106 m y **30.000 espectadores**. La plaza conserva su forma exacta, por eso es alargada. Y de 1652 a 1866 se inundaba cada sábado y domingo de agosto, para jugar con barcas | Ocho claras en Pexels y unas cuantas en Unsplash, **casi todas apaisadas**: hay que recortar de originales grandes |
 | **Park Güell, Barcelona** | No iba a ser un parque: era una urbanización de sesenta viviendas. **Se vendieron dos parcelas**, y una se la quedó Gaudí, que vivió allí de 1906 a 1925. El proyecto se abandonó y abrió como parque público en 1926 | El banco del mosaico y los detalles, **casi todo apaisado**; dos verticales de detalle en Pexels. Recortando, sale |
 

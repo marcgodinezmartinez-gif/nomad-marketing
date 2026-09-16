@@ -136,6 +136,35 @@ PIEZAS['debod'] = dict(captura='tourdebod-900.webp', tarjetas=[
   dict(tipo='cierre', foto='f-madrid.jpg'),
 ])
 
+# PANTEÓN DE AGRIPA, ROMA. Fuentes y copia: piezas/conocias/PANTEON.md.
+# El sitio con mejores fotos libres de toda la serie: diez verticales del interior con la
+# cúpula y el óculo. Y tres golpes en vez de uno, por eso la 4 lleva dos párrafos.
+PIEZAS['panteon'] = dict(captura='tourpanteon-900.webp', tarjetas=[
+  dict(tipo='portada', foto='f-panteon-fachada.jpg', kicker='Roma &middot; Piazza della Rotonda',
+       sub='Casi dos mil a&ntilde;os abierto. Y todav&iacute;a tiene un r&eacute;cord del mundo.'),
+  dict(tipo='dato', foto='f-panteon-cupula.jpg', kicker='La c&uacute;pula &middot; hacia el a&ntilde;o 125', kicker_menta=True,
+       numero='43,44<span style="font-size: 110px; letter-spacing: 0">&nbsp;m</span>',
+       titular='Nadie ha construido<br>una mayor.', titular_y=440, sub_y=660, sub2_y=920,
+       subs=['Es la mayor c&uacute;pula de hormig&oacute;n sin armar de la historia, y su di&aacute;metro es '
+             'exactamente igual a su altura.',
+             'Mil novecientos a&ntilde;os despu&eacute;s, sigue sin superarse.']),
+  dict(tipo='dato', foto='f-panteon-oculo.jpg', kicker='El &oacute;culo',
+       numero='9<span style="font-size: 110px; letter-spacing: 0">&nbsp;m</span>',
+       titular='Llueve dentro.<br>Y est&aacute; calculado.', titular_y=440, sub_y=660,
+       subs='La abertura del centro de la c&uacute;pula no tiene cristal: est&aacute; abierta al cielo. El suelo '
+            'es convexo, treinta cent&iacute;metros m&aacute;s alto en el centro, y un canal recoge el agua en '
+            'todo el per&iacute;metro.'),
+  dict(tipo='dato', foto='f-panteon-atardecer.jpg', kicker='C&oacute;mo ha llegado hasta hoy',
+       numero='608', numero_menta=True, titular='Se salv&oacute; al cambiar<br>de due&ntilde;o.',
+       titular_y=440, sub_y=660, sub2_y=940,
+       subs=['El emperador lo don&oacute; al papa y pas&oacute; a ser iglesia. Es el &uacute;nico edificio de la Roma '
+             'antigua que ha llegado intacto y en uso ininterrumpido.',
+             'Y la inscripci&oacute;n de la fachada, &laquo;Agripa lo hizo&raquo;, es del templo anterior: el que '
+             'sigue en pie lo reconstruy&oacute; Adriano.']),
+  dict(tipo='app', foto='f-panteon-plaza.jpg'),
+  dict(tipo='cierre', foto='f-grupo.jpg'),
+])
+
 if __name__ == '__main__':
     slug = sys.argv[1] if len(sys.argv) > 1 else ''
     if slug not in PIEZAS:

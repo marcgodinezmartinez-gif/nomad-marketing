@@ -263,6 +263,51 @@
     "lic": "CC0",
     "titulo": "File:The island of Santorini, Greece.jpg"
   },
+  "f-panteon-atardecer.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Shlok Rana",
+    "titulo": "Historic Architecture of the Pantheon at Dusk",
+    "sitio": "Panteón de Agripa, Roma",
+    "url": "https://www.pexels.com/photo/historic-architecture-of-the-pantheon-at-dusk-38331926/",
+    "verificada": "2026-09-16"
+  },
+  "f-panteon-cupula.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "James Smith",
+    "titulo": "Interior view of the Pantheon's coffered dome",
+    "sitio": "Panteón de Agripa, Piazza della Rotonda, Roma",
+    "url": "https://unsplash.com/photos/interior-view-of-a-domed-ceiling-with-an-oculus-HGZlfL-Reic",
+    "verificada": "2026-09-16"
+  },
+  "f-panteon-fachada.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Leonardo Evaristo",
+    "titulo": "The pantheon's facade with inscription",
+    "sitio": "Panteón de Agripa, Roma",
+    "url": "https://unsplash.com/photos/the-pantheons-facade-with-inscription-and-inscription-muRjCNi65y8",
+    "verificada": "2026-09-16"
+  },
+  "f-panteon-oculo.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Wyatt Simpson",
+    "titulo": "Light shines through the dome of the pantheon",
+    "sitio": "Panteón de Agripa, Roma",
+    "url": "https://unsplash.com/photos/light-shines-through-the-dome-of-the-pantheon-eWRMiEEChpg",
+    "verificada": "2026-09-16"
+  },
+  "f-panteon-plaza.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "MChe Lee",
+    "titulo": "The pantheon building with many people outside",
+    "sitio": "Panteón de Agripa, Roma",
+    "url": "https://unsplash.com/photos/the-pantheon-building-with-many-people-outside-l3vePnbFOvg",
+    "verificada": "2026-09-16"
+  },
   "f-plan.jpg": {
     "lic": "CC0",
     "titulo": "File:View of Old Town in Prague from Old Town Hall Tower (Unsplash).jpg"
