@@ -1,7 +1,8 @@
-# La Mercè — el carrusel (21-sep)
+# La Mercè (21-sep)
 
-Seis tarjetas de 1080×1350 con el molde de `piezas/tarjetas.py`, para publicar el 21 o el
-22, antes de que arranque la fiesta el miércoles 23.
+Dos carruseles de 1080×1350 con el molde de `piezas/tarjetas.py` y cinco historias de
+1080×1920, para la fiesta del 23 al 27. **El que se publica es el del plan**; el otro queda
+en reserva. El porqué, más abajo.
 
 ## El cartel oficial no va dentro, y por qué
 
@@ -26,23 +27,61 @@ piezas y el orden importa:
 
 | Pieza | Qué es | Estado |
 |---|---|---|
-| `gen-plan-merce.py` | **«Le pedimos a NOMAD un jueves de Mercè»**: el plan real del día 24, hora a hora y con precios, como el carrusel de Roma. El protagonista es el plan y la app es quien lo escribió | **La que va primero.** Falta el plan real de la app |
+| `gen-plan-merce.py` | **«Le pedimos a NOMAD los cinco días de la Mercè»**: 8 tarjetas — la petición escrita, los cinco días hora a hora con precios, la pantalla de la app y el cierre. El protagonista es el plan y la app es quien lo escribió | **La que va.** Montada con el plan real |
 | `gen-merce.py` | El carrusel de la historia de la fiesta (1687, 1868, el programa). Bueno, pero la app aparece en la tarjeta 5 de 6 | Montado, en reserva |
 
-**El plan tiene que ser el real.** El generador se niega a escribir nada si `JUEVES` está
-vacío: un plan inventado sería justo la promesa que la app no cumple, que es lo único que la
-casa no hace. Se lee de la captura, como se leyó el jueves de Roma.
+**El plan es el real.** El generador se niega a escribir nada si `DIAS` se queda vacío: un
+plan inventado sería justo la promesa que la app no cumple, que es lo único que la casa no
+hace. Está leído de las cinco capturas que trajo el dueño el 21-sep, fila a fila, y **las
+cinco sumas cuadran con el total que da la app**: 55, 55, 93, 75 y 15 € — 21 planes, 293 €
+con todas las comidas dentro y 9 actos que no cuestan nada.
 
-### Qué hay que pedirle a la app
+```bash
+bash piezas/preparar.sh
+cd salida && python3 ../piezas/merce/gen-plan-merce.py
+node ../piezas/roma/exportar-plan.mjs planmerce 8
+```
 
-1. Nuevo viaje, **Barcelona**, el **jueves 24** (o los días de la Mercè, y se abre ese día).
-2. Que el plan incluya lo de la fiesta: si no sale, al asistente — *«añade los castells de
-   la plaça de Sant Jaume y la cercavila de gegants»*.
-3. **Dos cosas para mí**: la captura de la pantalla del plan del jueves, vertical y con la
-   barra de estado, guardada como `banco/capturas/planmerce-24-900.webp`; y que se lea bien
-   cada parada con su hora, su categoría y su precio, para poder escribirlas en la tarjeta 2.
+### Las dos filas que NO salen como las escribió la app
 
-Con eso, el carrusel sale montado en diez minutos.
+La app situó los dos actos más grandes de la fiesta en el sitio y la hora equivocados.
+Publicarlas tal cual era mandar a la gente a Montjuïc un domingo a las siete a ver unos
+fuegos que son en la playa a las diez — exactamente la promesa que la app no cumple. Se
+publica el programa oficial, y aquí queda escrito qué dijo la app:
+
+| Dónde | Lo que dijo la app | Lo que dice el programa oficial | Fuente |
+|---|---|---|---|
+| Sáb 26 | 18:00 · Correfoc de La Mercè **en Via Laietana** | **20:30**, y sale del **passeig de Gràcia** (Provença → Consell de Cent). A las 18:00 es el *Correfoc dels Petits*, el mismo recorrido al revés; la Tabalada, a las 16:45 | barcelona.cat (Cultura Popular, «El Correfoc de la Mercè torna al passeig de Gràcia»); betevé |
+| Dom 27 | 19:00 · Piromusical de La Mercè **en Montjuïc** | **22 h**, en el litoral: se dispara desde el espigó del Bogatell y se ve desde la **platja de la Nova Icària**. Se ha movido este año por las obras de la Fira | ajuntament.barcelona.cat (programación de la Mercè 2026); betevé; ElNacional |
+
+Y una tercera, cosmética: la app escribe «pasea**c**alles» donde va «pasacalles». En la
+tarjeta va corregido; **en la captura del día 23 se ve el error**, porque una captura no se
+retoca nunca.
+
+**Lo que esto deja abierto**: corregido el correfoc a las 20:30, el sábado de la app tiene
+la cena de Bar Cañete a las 21:00, media hora después. El plan del sábado se sostiene, pero
+se sostiene justo. Si el dueño prefiere, regenera el sábado en la app con el dato bueno y el
+carrusel se vuelve a sacar en un minuto. Los tres errores están en la **issue de la app**,
+no aquí: son datos del producto, no de la campaña.
+
+### Qué foto lleva cada tarjeta
+
+| Tarjeta | Foto | Por qué |
+|---|---|---|
+| 1 · la petición | `f-bcn-festa.jpg` | Un callejón del Gòtic con las guirnaldas de fiesta colgadas: es la única del banco que *es* una fiesta de calle |
+| 2 · mié 23 | `f-bcn-paseo.jpg` | El arco y la gente andando, que es el Born del primer plan del día |
+| 3 · jue 24 | `f-merce-castell.jpg` | Un castell entre balcones, el día de los castellers |
+| 4 · vie 25 | `f-bcn-plaza.jpg` | El campanario de la Vila de Gràcia, de día y claro: el viernes trae cinco filas y necesita la foto más legible |
+| 5 · sáb 26 | `f-merce-diable.jpg` | El diable en silueta, que es la noche del correfoc |
+| 6 · dom 27 | `f-merce-espurnes.jpg` | Las fuentes de chispas, lo más cerca que hay de un piromusical |
+| 7 · cómo se hizo | `f-bcn-calle.jpg` | Fondo tranquilo detrás del móvil |
+| 8 · el cierre | `f-bcn-cierre.jpg` | El Park Güell de noche sobre la ciudad, el cierre de la casa |
+
+El velo de las tarjetas de día (`VELO_PROGRAMA`) va abierto arriba y cerrado de la mitad
+para abajo: la foto se ve donde no hay lista y la lista se lee donde la hay. Y las paradas
+van en **columna flex anclada abajo**, no a posiciones fijas: así un día de cinco y uno de
+cuatro acaban a la misma altura, y una parada que se parta en dos renglones no empuja a la
+siguiente encima de la marca.
 
 ## Los hechos, verificados
 
@@ -53,20 +92,24 @@ Con eso, el carrusel sale montado en diez minutos.
 | Del 23 al 27 de septiembre de 2026, diez distritos, más de 500 actividades | 1 y 4 | betevé, *Programa de la Mercè 2026*; idealista; ElNacional |
 | El programa de la tarjeta 4 | 4 | betevé (medio público municipal), contrastado con la prensa |
 
-**Donde las fuentes discrepaban, no se pone**: el recorrido del correfoc aparece como Via
-Laietana en unas y passeig de Gràcia en otras, así que la tarjeta da día y hora y no el
-sitio. El piromusical cambió de playa este año (Nova Icària, por las obras de la Fira) y eso
-sí coincide en dos.
+**El recorrido del correfoc quedó resuelto el 21-sep** y ya no hace falta esquivarlo: las
+guías de turistas lo siguen poniendo en Via Laietana, pero el Ajuntament (Cultura Popular) y
+betevé dicen passeig de Gràcia desde 2022 — Provença → Consell de Cent, con la Porta de
+l'Infern en Provença. Manda el Ajuntament. El piromusical, igual de claro: 22 h en el
+litoral, este año por las obras de la Fira.
 
-**Antes de publicar conviene un último vistazo al PDF oficial**: un horario mal puesto en
-Instagram no se corrige, se queda.
+**Antes de publicar, un último vistazo al programa oficial**: un horario mal puesto en
+Instagram no se corrige, se queda. Es la comprobación que pilló los dos errores de la app.
 
-## Las fotos no son de la Mercè
+## Las fotos no son de la Mercè (las dos piezas)
 
 Son de archivo: castells de Tarragona (Lluis AB) y correfocs de Les Borges Blanques (Ramon
 Perucho), las dos de Pexels y sin atribución obligatoria. **Ninguna tarjeta dice «esto es la
 plaça de Sant Jaume»**: el texto habla de la tradición y la foto la ilustra. Queda anotado
 en `banco/fotos/creditos.json`, en el campo `sitio` de cada una.
+
+Cuál va en cada tarjeta del carrusel del plan está más arriba; esta tabla es la del
+carrusel de la historia (`gen-merce.py`):
 
 | Fichero | Tarjeta | Qué es |
 |---|---|---|
@@ -90,8 +133,10 @@ la app para cada día»*. Es la mejor forma de enseñar la app sin que parezca u
 plan de HOY, en la ciudad donde hoy hay medio millón de personas. Y las historias son el
 único sitio donde el enlace se toca, que es de donde salieron el 88 % de las vistas del reel.
 
-El molde ya está: `piezas/merce/gen-historias.py` escribe cinco, una por día, cada una con
-el hueco del móvil. **Cada mañana de fiesta**:
+`piezas/merce/gen-historias.py` escribe cinco, una por día. **Las cinco capturas ya están en
+el banco** (`planmerce-23` a `planmerce-27`), así que las cinco historias están montadas y
+listas desde hoy; el hueco naranja de «falta la captura» sólo saldría si se borrara alguna.
+Si el dueño regenera un día en la app, se sustituye esa captura y se vuelven a sacar:
 
 1. En la app, el plan de ese día en Barcelona. Captura vertical, con la barra de estado.
 2. Guardarla como `banco/capturas/planmerce-<día>-900.webp` — `planmerce-24-900.webp`, etc.
@@ -107,7 +152,36 @@ el hueco del móvil. **Cada mañana de fiesta**:
 Las zonas seguras están respetadas: el texto vive entre y=290 e y=1493 y de y=1520 abajo
 queda libre para el adhesivo. Ese hueco no es un descuido de diseño, es su sitio.
 
-## El pie
+## El pie del carrusel del plan (el que se publica)
+
+> Le pedimos a NOMAD los cinco días de la Mercè. Esto es lo que salió.
+>
+> Una frase — «Barcelona, del 23 al 27 de septiembre» — y la app devolvió el viaje entero:
+> 21 planes con su hora, su categoría y su precio. 293 € los cinco días, con todas las
+> comidas y las cenas dentro. Nueve de los 21 no cuestan nada.
+>
+> Mié 23 · 4 planes · 55 € — el Gòtic y el Born, El Xampanyet, el pregón, Bar del Pla
+> Jue 24 · 4 planes · 55 € — els castells en Sant Jaume, Can Culleretes, la cabalgata, el BAM en la plaça Reial
+> Vie 25 · 5 planes · 93 € — la Sagrada Família, la Ciutadella, La Puntual, el Picasso, los conciertos del Moll de la Fusta
+> Sáb 26 · 4 planes · 75 € — el Park Güell, La Benaura, el correfoc del passeig de Gràcia (20.30 h), Bar Cañete
+> Dom 27 · 4 planes · 15 € — puertas abiertas en el Palau de la Generalitat, la Boqueria, Can Paixano y el piromusical en la platja de la Nova Icària (22 h)
+>
+> Los precios son estimados: la entrada de cada sitio y lo que se suele dejar en la mesa. El
+> programa oficial entero, en barcelona.cat/lamerce — el cartel de este año es de la
+> muralista Cinta Vidal.
+>
+> NOMAD sale en octubre. Le dices dónde vas y cuántos días y te monta el viaje así, con
+> horas y precios, para cualquier sitio: no para seis ciudades. Desde 2,99 € el viaje
+> entero, sin suscripción, según lo que dure; y el primero, para quien esté en la lista de
+> espera, 1,99 € dure lo que dure. Enlace en la bio.
+>
+> #lamerce #lamerce2026 #barcelona #festamajor #correfoc #piromusical #castellers #viajar #bcn
+
+**Por qué el pie repite el plan** aunque esté en las tarjetas: Instagram no indexa lo que hay
+dentro de una imagen, y los nombres de los sitios son lo único de esta pieza que alguien
+puede estar buscando esta semana.
+
+## El pie del carrusel de la historia (en reserva)
 
 > La Mercè es la fiesta mayor de Barcelona. Y su patrona lo es por una plaga de langostas.
 >
@@ -122,7 +196,7 @@ queda libre para el adhesivo. Ese hueco no es un descuido de diseño, es su siti
 > Mié 23 · El pregón — Saló de Cent, 18.30 h
 > Jue 24 · Els castells — plaça de Sant Jaume, 13 h
 > Jue 24 · La cercavila de gegants — pl. Catalunya 18 h, St. Jaume 19 h
-> Sáb 26 · El correfoc — 20.30 h
+> Sáb 26 · El correfoc — passeig de Gràcia, 20.30 h
 > Dom 27 · Diada castellera — plaça de Sant Jaume, 12 h
 > Dom 27 · El piromusical — platja de la Nova Icària, 22 h
 >
