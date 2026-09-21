@@ -32,7 +32,7 @@ DIAS = [
     ('23', 'mi&eacute;rcoles 23', 'f-merce-castell.jpg'),
     ('24', 'jueves 24',           'f-merce-castell2.jpg'),
     ('25', 'viernes 25',          'f-bcn-noche.jpg'),
-    ('26', 'sábado 26',           'f-merce-diable.jpg'),
+    ('26', 's&aacute;bado 26',           'f-merce-diable.jpg'),
     ('27', 'domingo 27',          'f-merce-espurnes.jpg'),
 ]
 
