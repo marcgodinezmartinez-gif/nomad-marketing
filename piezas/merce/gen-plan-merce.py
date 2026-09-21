@@ -21,10 +21,18 @@
 # sus precios. Las cinco sumas cuadran con el total que da la app. Si DIAS se vacía, el
 # generador PARA: una tarjeta con un plan inventado es la promesa que la app no cumple.
 #
-# LAS DOS CORRECCIONES (y por qué existen): ver CORREGIDO más abajo. La app situó el
-# correfoc y el piromusical en el sitio y la hora equivocados, y publicarlos tal cual habría
-# mandado a la gente a Montjuïc un domingo a las siete a ver unos fuegos que son en la playa
-# a las diez. Se publica el programa oficial y se deja escrito aquí qué dijo la app.
+# LAS CINCO CORRECCIONES, que es lo importante de este fichero: el plan trae CINCO actos de
+# la fiesta, y la app puso mal la hora de los cinco (y el sitio de tres). No son erratas: Via
+# Laietana dejó de ser el recorrido del correfoc en 2022 y Montjuïc dejó de ser el sitio del
+# piromusical este año. Publicarlas tal cual habría mandado a la gente a Montjuïc un domingo
+# a las siete a ver unos fuegos que son en la playa a las diez. Se publica el programa
+# oficial, y CORREGIDAS deja por escrito qué dijo la app y de dónde sale lo que se publica.
+#
+# LO QUE ESTO DEJA ROTO, y hay que decirlo antes de publicar: con las horas buenas, el jueves
+# tiene la diada castellera a las 13:00 y el almuerzo a las 13:30, y el sábado el correfoc a
+# las 20:30 y la cena a las 21:00. El plan de la app estaba montado ALREDEDOR de las horas
+# malas, así que corregir las filas no arregla el día: hay que volver a generar el jueves y
+# el sábado en la app y traer dos capturas nuevas. Los otros tres días quedan coherentes.
 #
 # Uso, desde salida/:  python3 ../piezas/merce/gen-plan-merce.py
 #                      node ../piezas/roma/exportar-plan.mjs planmerce 8
@@ -44,13 +52,13 @@ DIAS = [
   dict(clave='23', dia='Mi&eacute;rcoles 23', total='55 &euro;', foto='f-bcn-paseo.jpg', planes=[
     ('10:30', 'Paseo por el Barri G&ograve;tic y El Born', 'Tour guiado', 'gratis', True),
     ('13:30', 'Almuerzo en El Xampanyet', 'Comida', '25 &euro;', False),
-    ('16:00', 'Preg&oacute;n y pasacalles inaugural', 'Visita', 'gratis', True),
+    ('18:30', 'Preg&oacute;n de la Merc&egrave; en el Sal&oacute; de Cent', 'Visita', 'gratis', True),
     ('20:30', 'Cena en Bar del Pla', 'Comida', '30 &euro;', False)]),
 
   dict(clave='24', dia='Jueves 24', total='55 &euro;', foto='f-merce-castell.jpg', planes=[
-    ('10:00', 'Castellers en la Pla&ccedil;a de Sant Jaume', 'Visita', 'gratis', True),
+    ('13:00', 'Diada castellera en la Pla&ccedil;a de Sant Jaume', 'Visita', 'gratis', True),
     ('13:30', 'Almuerzo en Can Culleretes', 'Comida', '30 &euro;', False),
-    ('16:00', 'Cabalgata por el Passeig de Gr&agrave;cia', 'Visita', 'gratis', True),
+    ('18:00', 'Cabalgata: de Pla&ccedil;a Catalunya a Sant Jaume', 'Visita', 'gratis', True),
     ('21:00', 'Cena y BAM en la Pla&ccedil;a Reial', 'Comida', '25 &euro;', False)]),
 
   dict(clave='25', dia='Viernes 25', total='93 &euro;', foto='f-bcn-plaza.jpg', planes=[
@@ -63,10 +71,6 @@ DIAS = [
   dict(clave='26', dia='S&aacute;bado 26', total='75 &euro;', foto='f-merce-diable.jpg', planes=[
     ('10:30', 'Recorrido por el Park G&uuml;ell', 'Visita', '10 &euro;', False),
     ('13:30', 'Almuerzo en La Benaura', 'Comida', '25 &euro;', False),
-    # CORREGIDO. La app: «18:00 · Correfoc de La Mercè en Via Laietana». El correfoc grande
-    # es a las 20:30 y sale del Passeig de Gràcia (Provença → Consell de Cent) desde 2022;
-    # a las 18:00 es el Correfoc dels Petits, en sentido inverso. Fuente: barcelona.cat
-    # (Cultura Popular, «El Correfoc de la Mercè torna al passeig de Gràcia») y betevé.
     ('20:30', 'Correfoc en el Passeig de Gr&agrave;cia', 'Visita', 'gratis', True),
     ('21:00', 'Cena en Bar Ca&ntilde;ete', 'Comida', '40 &euro;', False)]),
 
@@ -74,11 +78,30 @@ DIAS = [
     ('10:00', 'Puertas abiertas en el Palau de la Generalitat', 'Visita', 'gratis', True),
     ('12:00', 'La Rambla y el Mercado de la Boqueria', 'Visita', 'gratis', True),
     ('14:00', 'Almuerzo de despedida en Can Paixano', 'Comida', '15 &euro;', False),
-    # CORREGIDO. La app: «19:00 · Piromusical de La Mercè en Montjuïc». Este año el
-    # piromusical se va al litoral por las obras de la Fira: domingo 27 a las 22 h, se
-    # dispara desde el espigón del Bogatell y se ve desde la Nova Icària. Fuente:
-    # ajuntament.barcelona.cat (programación de la Mercè 2026), betevé y ElNacional.
     ('22:00', 'Piromusical en la playa de la Nova Ic&agrave;ria', 'Visita', 'gratis', True)]),
+]
+
+# (día, lo que escribió la app, lo que se publica, de dónde sale). Se imprime al generar:
+# una corrección que no se ve cada vez que corres el generador es una corrección que se
+# olvida, y ésta hay que llevarla a la issue de la app.
+CORREGIDAS = [
+  ('Mié 23', '16:00 · Pregón y paseacalles inaugural de La Mercè',
+             '18:30 · Pregón de la Mercè en el Saló de Cent',
+             'betevé, programa de la Mercè 2026: «de 18.30 a 20 h», Saló de Cent'),
+  ('Jue 24', '10:00 · Diada de la Mercè: Castellers en Plaça de Sant Jaume',
+             '13:00 · Diada castellera en la Plaça de Sant Jaume',
+             'betevé: «13 h», pl. Sant Jaume; el Ajuntament corta los accesos de 11.30 a 14.30-15 h'),
+  ('Jue 24', '16:00 · Cabalgata de la Mercè por el Passeig de Gràcia',
+             '18:00 · Cabalgata: de Plaça Catalunya a Sant Jaume',
+             'betevé: «18 h plaça Catalunya, 19 h pl. Sant Jaume». No pasa por el Passeig de Gràcia'),
+  ('Sáb 26', '18:00 · Correfoc de La Mercè en Via Laietana',
+             '20:30 · Correfoc en el Passeig de Gràcia',
+             'barcelona.cat/Cultura Popular: passeig de Gràcia desde 2022, Provença → Consell '
+             'de Cent; las 18 h son el Correfoc dels Petits'),
+  ('Dom 27', '19:00 · Piromusical de La Mercè en Montjuïc',
+             '22:00 · Piromusical en la playa de la Nova Icària',
+             'ajuntament.barcelona.cat y betevé: 22 h, se dispara desde el espigó del Bogatell; '
+             'se ha movido al litoral por las obras de la Fira'),
 ]
 
 TOTAL = '293 &euro;'      # la suma de los cinco totales que da la app: 55+55+93+75+15
@@ -182,3 +205,10 @@ T['planmerce-8'] = (raiz(NOCHE)
 for stem, html in T.items():
     open(f'{stem}.dc.html', 'w').write(pagina(html))
 print(f'{len(T)} tarjetas: ' + ', '.join(T))
+print(f'\nOJO: {len(CORREGIDAS)} filas NO salen como las escribió la app. Los cinco actos de '
+      'la fiesta\nque trae el plan llevaban la hora mal, y tres el sitio:')
+for dia, app, va, fuente in CORREGIDAS:
+    print(f'  {dia}\n    la app: {app}\n    se publica: {va}\n    {fuente}')
+print('\nY con las horas buenas el jueves y el sábado dejan de cuadrar (13:00 castells / 13:30\n'
+      'almuerzo; 20:30 correfoc / 21:00 cena). Esos dos días hay que volver a generarlos en la\n'
+      'app y traer capturas nuevas antes de publicar.')

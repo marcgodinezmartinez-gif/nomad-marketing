@@ -27,7 +27,7 @@ piezas y el orden importa:
 
 | Pieza | Qué es | Estado |
 |---|---|---|
-| `gen-plan-merce.py` | **«Le pedimos a NOMAD los cinco días de la Mercè»**: 8 tarjetas — la petición escrita, los cinco días hora a hora con precios, la pantalla de la app y el cierre. El protagonista es el plan y la app es quien lo escribió | **La que va.** Montada con el plan real |
+| `gen-plan-merce.py` | **«Le pedimos a NOMAD los cinco días de la Mercè»**: 8 tarjetas — la petición escrita, los cinco días hora a hora con precios, la pantalla de la app y el cierre. El protagonista es el plan y la app es quien lo escribió | **La que va**, montada — pero **en espera**: faltan dos días regenerados en la app (ver abajo) |
 | `gen-merce.py` | El carrusel de la historia de la fiesta (1687, 1868, el programa). Bueno, pero la app aparece en la tarjeta 5 de 6 | Montado, en reserva |
 
 **El plan es el real.** El generador se niega a escribir nada si `DIAS` se queda vacío: un
@@ -42,27 +42,47 @@ cd salida && python3 ../piezas/merce/gen-plan-merce.py
 node ../piezas/roma/exportar-plan.mjs planmerce 8
 ```
 
-### Las dos filas que NO salen como las escribió la app
+### Las cinco filas que NO salen como las escribió la app
 
-La app situó los dos actos más grandes de la fiesta en el sitio y la hora equivocados.
-Publicarlas tal cual era mandar a la gente a Montjuïc un domingo a las siete a ver unos
-fuegos que son en la playa a las diez — exactamente la promesa que la app no cumple. Se
-publica el programa oficial, y aquí queda escrito qué dijo la app:
+El plan trae **cinco actos de la fiesta**, y la app puso mal la hora de los cinco y el sitio
+de tres. No son erratas de redacción: Via Laietana dejó de ser el recorrido del correfoc en
+2022 y Montjuïc dejó de ser el sitio del piromusical este año. Se publica el programa
+oficial, y aquí queda escrito qué dijo la app. El generador lo imprime entero cada vez que
+se ejecuta, para que no se olvide.
 
-| Dónde | Lo que dijo la app | Lo que dice el programa oficial | Fuente |
+| Día | Lo que escribió la app | Lo que se publica | Fuente |
 |---|---|---|---|
-| Sáb 26 | 18:00 · Correfoc de La Mercè **en Via Laietana** | **20:30**, y sale del **passeig de Gràcia** (Provença → Consell de Cent). A las 18:00 es el *Correfoc dels Petits*, el mismo recorrido al revés; la Tabalada, a las 16:45 | barcelona.cat (Cultura Popular, «El Correfoc de la Mercè torna al passeig de Gràcia»); betevé |
-| Dom 27 | 19:00 · Piromusical de La Mercè **en Montjuïc** | **22 h**, en el litoral: se dispara desde el espigó del Bogatell y se ve desde la **platja de la Nova Icària**. Se ha movido este año por las obras de la Fira | ajuntament.barcelona.cat (programación de la Mercè 2026); betevé; ElNacional |
+| Mié 23 | 16:00 · Pregón y *paseacalles* inaugural | **18:30** · Pregón en el **Saló de Cent** | betevé: «de 18.30 a 20 h», Saló de Cent |
+| Jue 24 | 10:00 · Castellers en la plaça de Sant Jaume | **13:00** · Diada castellera | betevé: «13 h»; el Ajuntament corta los accesos de 11.30 a 14.30-15 h |
+| Jue 24 | 16:00 · Cabalgata **por el passeig de Gràcia** | **18:00** · de **pl. Catalunya a Sant Jaume** | betevé: «18 h plaça Catalunya, 19 h pl. Sant Jaume». No pasa por el passeig de Gràcia |
+| Sáb 26 | 18:00 · Correfoc **en Via Laietana** | **20:30** · Correfoc en el **passeig de Gràcia** | barcelona.cat/Cultura Popular: passeig de Gràcia desde 2022, Provença → Consell de Cent. Las 18 h son el *Correfoc dels Petits* |
+| Dom 27 | 19:00 · Piromusical **en Montjuïc** | **22:00** · Piromusical en la **platja de la Nova Icària** | ajuntament.barcelona.cat y betevé: 22 h, desde el espigó del Bogatell; movido al litoral por las obras de la Fira |
 
-Y una tercera, cosmética: la app escribe «pasea**c**alles» donde va «pasacalles». En la
-tarjeta va corregido; **en la captura del día 23 se ve el error**, porque una captura no se
-retoca nunca.
+Y la errata: la app escribe «pasea**c**alles» donde va «pasacalles». En la tarjeta va
+corregido; **en la captura del día 23 se ve el error**, porque una captura no se retoca nunca.
 
-**Lo que esto deja abierto**: corregido el correfoc a las 20:30, el sábado de la app tiene
-la cena de Bar Cañete a las 21:00, media hora después. El plan del sábado se sostiene, pero
-se sostiene justo. Si el dueño prefiere, regenera el sábado en la app con el dato bueno y el
-carrusel se vuelve a sacar en un minuto. Los tres errores están en la **issue de la app**,
-no aquí: son datos del producto, no de la campaña.
+### Por qué esto NO se publica todavía
+
+Corregir las filas no arregla los días, porque **el plan estaba montado alrededor de las
+horas malas**:
+
+- **Jueves 24**: diada castellera a las 13:00 y almuerzo en Can Culleretes a las 13:30. La
+  diada dura hasta las 14.30.
+- **Sábado 26**: correfoc a las 20:30 y cena en Bar Cañete a las 21:00.
+
+Los otros tres días (23, 25 y 27) quedan coherentes con la hora buena. Así que lo que falta
+es pequeño y concreto: **volver a generar en la app el jueves y el sábado** con los datos
+buenos y traer dos capturas nuevas (`planmerce-24-900.webp` y `planmerce-26-900.webp`). El
+carrusel se vuelve a sacar en un minuto.
+
+**Las historias diarias están bloqueadas por lo mismo, y es peor**: enseñan la captura de la
+app tal cual, sin corregir nada, y se suben el día que toca a gente que está en la calle en
+Barcelona. Una historia del sábado con el correfoc a las 18:00 en Via Laietana manda a
+alguien a la calle equivocada dos horas antes.
+
+Los cinco errores están en la **issue #6**, que es del producto y se lleva al repo de la app:
+lo que falla no es el generador de planes, es de dónde salen la hora y el sitio de un acto
+que cambia cada año.
 
 ### Qué foto lleva cada tarjeta
 
@@ -134,9 +154,10 @@ plan de HOY, en la ciudad donde hoy hay medio millón de personas. Y las histori
 único sitio donde el enlace se toca, que es de donde salieron el 88 % de las vistas del reel.
 
 `piezas/merce/gen-historias.py` escribe cinco, una por día. **Las cinco capturas ya están en
-el banco** (`planmerce-23` a `planmerce-27`), así que las cinco historias están montadas y
-listas desde hoy; el hueco naranja de «falta la captura» sólo saldría si se borrara alguna.
-Si el dueño regenera un día en la app, se sustituye esa captura y se vuelven a sacar:
+el banco** (`planmerce-23` a `planmerce-27`) y las cinco historias están montadas; el hueco
+naranja de «falta la captura» sólo saldría si se borrara alguna. **Pero no se suben todavía**:
+una historia enseña la captura tal cual y cuatro de los cinco días llevan una hora mala de la
+fiesta. Se sustituye la captura del día que se regenere y se vuelven a sacar:
 
 1. En la app, el plan de ese día en Barcelona. Captura vertical, con la barra de estado.
 2. Guardarla como `banco/capturas/planmerce-<día>-900.webp` — `planmerce-24-900.webp`, etc.
