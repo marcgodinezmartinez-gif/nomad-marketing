@@ -16,6 +16,34 @@ Ajuntament que no existe.
 Vidal»—, que es información, no reproducción. Y la portada la hacemos nosotros, que además
 es lo que distingue el feed.
 
+## Dos piezas, y cuál va primero
+
+El 21-sep el dueño paró el enfoque: *«no me acaba de gustar como lo he enfocado, es como que
+no hablo de la app»*. Tenía razón, y `campana/MERCADO` se la da: lo que nos diferencia no es
+contar bien un sitio famoso —eso ya lo hace la competencia curada en seis ciudades— sino **la
+generación**: cualquier sitio, cualquier tema, y el plan entero con precios. Así que hay dos
+piezas y el orden importa:
+
+| Pieza | Qué es | Estado |
+|---|---|---|
+| `gen-plan-merce.py` | **«Le pedimos a NOMAD un jueves de Mercè»**: el plan real del día 24, hora a hora y con precios, como el carrusel de Roma. El protagonista es el plan y la app es quien lo escribió | **La que va primero.** Falta el plan real de la app |
+| `gen-merce.py` | El carrusel de la historia de la fiesta (1687, 1868, el programa). Bueno, pero la app aparece en la tarjeta 5 de 6 | Montado, en reserva |
+
+**El plan tiene que ser el real.** El generador se niega a escribir nada si `JUEVES` está
+vacío: un plan inventado sería justo la promesa que la app no cumple, que es lo único que la
+casa no hace. Se lee de la captura, como se leyó el jueves de Roma.
+
+### Qué hay que pedirle a la app
+
+1. Nuevo viaje, **Barcelona**, el **jueves 24** (o los días de la Mercè, y se abre ese día).
+2. Que el plan incluya lo de la fiesta: si no sale, al asistente — *«añade los castells de
+   la plaça de Sant Jaume y la cercavila de gegants»*.
+3. **Dos cosas para mí**: la captura de la pantalla del plan del jueves, vertical y con la
+   barra de estado, guardada como `banco/capturas/planmerce-24-900.webp`; y que se lea bien
+   cada parada con su hora, su categoría y su precio, para poder escribirlas en la tarjeta 2.
+
+Con eso, el carrusel sale montado en diez minutos.
+
 ## Los hechos, verificados
 
 | Dato | En la tarjeta | Fuentes |
