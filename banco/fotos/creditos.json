@@ -243,6 +243,42 @@
     "lic": "CC0",
     "titulo": "File:Madrid - Gran Via, Edificio Telefónica 3.jpg"
   },
+  "f-merce-castell.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Lluis AB",
+    "titulo": "Human Tower Celebration in Catalonia",
+    "sitio": "Tarragona. Foto de archivo de un castell, NO de la Mercè",
+    "url": "https://www.pexels.com/photo/human-tower-celebration-in-catalonia-34793094/",
+    "verificada": "2026-09-21"
+  },
+  "f-merce-castell2.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Lluis AB",
+    "titulo": "Human Tower Festival in Streets of Catalonia",
+    "sitio": "Cataluña. Foto de archivo de un castell, NO de la Mercè",
+    "url": "https://www.pexels.com/photo/human-tower-festival-in-streets-of-catalonia-34779254/",
+    "verificada": "2026-09-21"
+  },
+  "f-merce-diable.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Ramon Perucho",
+    "titulo": "Spectacular Fire Festival in Les Borges Blanques",
+    "sitio": "Les Borges Blanques. Foto de archivo de un correfoc, NO de la Mercè",
+    "url": "https://www.pexels.com/photo/spectacular-fire-festival-in-les-borges-blanques-29100767/",
+    "verificada": "2026-09-21"
+  },
+  "f-merce-espurnes.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Ramon Perucho",
+    "titulo": "Festive Correfoc Celebration in Les Borges Blanques",
+    "sitio": "Les Borges Blanques. Foto de archivo de un correfoc, NO de la Mercè",
+    "url": "https://www.pexels.com/photo/festive-correfoc-celebration-in-les-borges-blanques-29100769/",
+    "verificada": "2026-09-21"
+  },
   "f-milan.jpg": {
     "lic": "CC0",
     "titulo": "File:Milan-duomo.jpg"
