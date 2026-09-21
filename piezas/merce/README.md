@@ -55,6 +55,30 @@ en `banco/fotos/creditos.json`, en el campo `sitio` de cada una.
 con el título de la parada y la audioguía a la vista, como las tres de la serie «¿Conocías
 este lugar?».
 
+## Las historias diarias, del 23 al 27
+
+Idea del dueño: *«cuando empiecen los días de fiesta, poner historias con el planning que dé
+la app para cada día»*. Es la mejor forma de enseñar la app sin que parezca un anuncio: el
+plan de HOY, en la ciudad donde hoy hay medio millón de personas. Y las historias son el
+único sitio donde el enlace se toca, que es de donde salieron el 88 % de las vistas del reel.
+
+El molde ya está: `piezas/merce/gen-historias.py` escribe cinco, una por día, cada una con
+el hueco del móvil. **Cada mañana de fiesta**:
+
+1. En la app, el plan de ese día en Barcelona. Captura vertical, con la barra de estado.
+2. Guardarla como `banco/capturas/planmerce-<día>-900.webp` — `planmerce-24-900.webp`, etc.
+3. ```bash
+   bash piezas/preparar.sh
+   cd salida && python3 ../piezas/merce/gen-historias.py
+   node ../piezas/roma/exportar-plan.mjs mercehist 5 1080 1920
+   ```
+   `mercehist-1` … `mercehist-5` son los días 23, 24, 25, 26 y 27, en ese orden.
+4. Subirla **con el adhesivo de enlace**, que es lo que hace que esto sirva de algo:
+   `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=merce-dia`
+
+Las zonas seguras están respetadas: el texto vive entre y=290 e y=1493 y de y=1520 abajo
+queda libre para el adhesivo. Ese hueco no es un descuido de diseño, es su sitio.
+
 ## El pie
 
 > La Mercè es la fiesta mayor de Barcelona. Y su patrona lo es por una plaga de langostas.
