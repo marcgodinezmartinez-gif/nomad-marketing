@@ -7,7 +7,7 @@ para promocionar la app?»*
 
 Aquí están la respuesta con números (§1-2), el trato que encaja con ellos (§3), el encargo
 de contenido (§4), cómo se mide (§5), la lista verificada perfil a perfil (§6) y el primer
-mensaje (§7).
+mensaje (§7). **Lo pendiente vive en la issue #8.**
 
 ## 1. Cómo lo veo
 
