@@ -9,7 +9,80 @@ Aquí están la respuesta con números (§1-2), el trato que encaja con ellos (�
 de contenido (§4), cómo se mide (§5), la lista verificada perfil a perfil (§6) y el primer
 mensaje (§7).
 
-[[SECCIONES 1-2]]
+## 1. Cómo lo veo
+
+- **El tamaño es el bueno.** La skill `ads` lo dice sin rodeos: *un creador de 15K cuyo
+  público es exactamente tu comprador gana a uno de 500K*. Además, es el tamaño en el que
+  todavía se trabaja por canje.
+- **Pagar a 20-40 por alcance no cuadra, ni en el mejor caso.** Saldría por unos
+  9.000-26.000 € y traería del orden de 100-200 altas: **unos 100 € por alta, cuando un
+  alta vale 0,24 €** (§2). Por cada mil personas que lo ven, un microinfluencer pagado
+  cuesta 53 € en España y Meta unos 7,6 €. Es la misma conclusión de
+  `LANZAMIENTO-PUBLICIDAD.md` («comprar altas no se paga solo»), en un canal siete veces
+  más caro.
+- **El momento es el lanzamiento, no ahora.** La app no se puede usar hasta octubre: no
+  hay beta. Un creador sin la app en la mano sólo puede anunciarla, y *un reel que parece
+  un anuncio se salta*. Lo que funciona es la primera persona, y para eso hay que usarla.
+  **Se escribe ahora y se publica cuando salga**, o la semana antes si se les puede dar
+  una build de prueba.
+- **La lista de 20-40 sí hace falta, pero como cantera.** Cuando se ofrece producto a
+  cambio, contesta alrededor del 30 % y acepta alrededor del 10 % (Modash, 21-sep-2026:
+  es un dato de proveedor). De 23 cuentas salen dos o tres síes. Por eso se escribe a todas
+  las A y B, no a cinco.
+- **Lo que se paga es la pieza, no el alcance**: uno o dos reels con permiso de anuncio de
+  colaboración, que corren en Meta con el presupuesto de siempre y bajo la tabla de parada.
+  Es lo único que compra aprendizaje de verdad. En la campaña de Meta de finales de agosto, **456 de
+  457 visitas se fueron sin apuntarse**, y si lo que faltaba era confianza, una cara a la que
+  ya siguen es exactamente la prueba que no se ha hecho.
+
+## 2. Los números
+
+### Lo que cuesta
+
+| | En una cuenta de 10-40K | Fuente |
+|---|---|---|
+| **Un post** | ~10 € por cada 1.000 seguidores: 100-400 € | Shopify ES (20-jul-2026), ON ECONOMIA (1-ago-2026), Cronoshare (7-ene-2026) |
+| **Un reel** | 1,2-1,5 veces el post | Influencer Marketing Hub (31-ago-2026) |
+| **Una historia** | 30-50 % del post; se venden en packs de 3-5 | Influencer Marketing Hub |
+| **Reel + 3 historias** | 2,1-3 veces el post: **~450-650 € la mediana de la lista (22K)** | Cálculo sobre lo anterior |
+| **Permiso para anunciarlo** | +20-50 %, o un 30 % por mes | influee (24-abr-2026), Modash (3-jul-2026) |
+| **Material en bruto** | +30-50 % | influee (18-abr-2025) |
+| **Por cada 1.000 impresiones** | **53 €** (Meta en España: ~7,6 €) | IAB Spain y Primetag, *Influencer Economy* (17-abr-2024); Superads (sep-2025 a ago-2026) |
+
+### Lo que trae: los supuestos, a la vista y no enterrados
+
+Una cuenta de 22K que publica un reel y tres historias con enlace:
+
+- **Historias**: las ve el 10-12 % de los seguidores (IAB/Primetag), unas 2.400 personas.
+  Toca el enlace **un 1-3 %**. Este dato es un supuesto: no hay referencia pública, porque
+  Instagram no da los toques del adhesivo por API. Se apunta **un 5-15 %** de los que
+  llegan, frente al 0,22 % del tráfico frío pagado, porque llegan recomendados por alguien
+  a quien siguen. En total, **de 1 a 11 altas; lo probable, unas 5**.
+- **Reel**: llega al 24 % de los seguidores (contenido de marca en cuentas de 10-50K), unas
+  5.300 reproducciones. Pero en un reel el enlace no se puede tocar. El reel del demo
+  (6-sep) lo midió: de 1.258 espectadores, **4 tocaron el enlace**. Aporta 0-2 altas.
+
+| | A · Lo que se preguntó: 20-40 pagados | B · Lo que propongo: el piloto |
+|---|---|---|
+| **Qué es** | El paquete (reel + 3 historias) a 20-40 cuentas | Canje a las 16 A y B de España; pago sólo a 1-2 piezas |
+| **Dinero** | **9.000-13.000 € (20) · 18.000-26.000 € (40)** | **300-500 € por pieza** (reel + permiso de anuncio 60-90 días, en una cuenta de 10-20K). Tope: 1.000 € |
+| **Producto** | — | ~7 € de IA por creador y año |
+| **Qué trae** | ~110 altas con 20 y ~220 con 40. **Unos 100 € por alta** (entre 35 y 650 €) | 2-5 creadores publicando y 1-2 vídeos para anunciar |
+| **Qué se aprende** | Poco que no se sepa ya: que comprar alcance no se paga solo | Si una cara conocida convierte donde el anuncio no, **antes** de gastar en serio |
+
+**La prueba de la aritmética**: para que un microinfluencer pagado saliera a 0,25 € el
+alta, **una de cada cinco personas que ven su contenido tendría que apuntarse** (21 %:
+53 € ÷ 1.000 impresiones ÷ 0,25 €). La campaña de Meta consiguió una de cada 20.000.
+
+**Y una advertencia a favor de los influencers**: el enlace con UTM no ve a quien lo
+recuerda y se apunta días después. Según Modash (22-sep-2026, dato de proveedor), se queda
+sin atribuir un 50-60 % del efecto. Aun duplicando las altas, la opción A saldría a unos
+50 € el alta: no cambia la conclusión, pero hay que saberlo al leer los números.
+
+**Después del lanzamiento las cuentas no mejoran lo bastante.** El margen de un viaje
+vendido está entre ~0,9 € (uno corto, a 2,99 €) y 2,32 € (uno de 4,99 €), con los
+costes de `LANZAMIENTO-PUBLICIDAD.md`. Un paquete de 500 € necesitaría entre 200 y 550 compradores
+por creador.
 
 ## 3. El trato
 
