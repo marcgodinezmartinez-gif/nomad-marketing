@@ -13,7 +13,7 @@ mensaje (§7).
 
 - **El tamaño es el bueno.** La skill `ads` lo dice sin rodeos: *un creador de 15K cuyo
   público es exactamente tu comprador gana a uno de 500K*. Además, es el tamaño en el que
-  todavía se trabaja por canje.
+  todavía hay quien acepta canje en vez de dinero.
 - **Pagar a 20-40 por alcance no cuadra, ni en el mejor caso.** Saldría por unos
   9.000-26.000 € y traería del orden de 100-200 altas: **unos 100 € por alta, cuando un
   alta vale 0,24 €** (§2). Por cada mil personas que lo ven, un microinfluencer pagado
@@ -27,13 +27,14 @@ mensaje (§7).
   una build de prueba.
 - **La lista de 20-40 sí hace falta, pero como cantera.** Cuando se ofrece producto a
   cambio, contesta alrededor del 30 % y acepta alrededor del 10 % (Modash, 21-sep-2026:
-  es un dato de proveedor). De 23 cuentas salen dos o tres síes. Por eso se escribe a todas
-  las A y B, no a cinco.
+  es un dato de proveedor). De las 23 de España salen dos o tres síes. Por eso se escribe
+  a todas las que pasen la revisión de cinco minutos (§6), empezando por las A y B, y no
+  a cinco.
 - **Lo que se paga es la pieza, no el alcance**: uno o dos reels con permiso de anuncio de
   colaboración, que corren en Meta con el presupuesto de siempre y bajo la tabla de parada.
-  Es lo único que compra aprendizaje de verdad. En la campaña de Meta de finales de agosto, **456 de
-  457 visitas se fueron sin apuntarse**, y si lo que faltaba era confianza, una cara a la que
-  ya siguen es exactamente la prueba que no se ha hecho.
+  Es lo único que compra aprendizaje de verdad. En la campaña de Meta de finales de
+  agosto, **456 de 457 visitas se fueron sin apuntarse**. Si lo que faltaba era confianza,
+  una cara a la que ya siguen es exactamente la prueba que no se ha hecho.
 
 ## 2. Los números
 
@@ -45,7 +46,7 @@ mensaje (§7).
 | **Un reel** | 1,2-1,5 veces el post | Influencer Marketing Hub (31-ago-2026) |
 | **Una historia** | 30-50 % del post; se venden en packs de 3-5 | Influencer Marketing Hub |
 | **Reel + 3 historias** | 2,1-3 veces el post: **~450-650 € la mediana de la lista (22K)** | Cálculo sobre lo anterior |
-| **Permiso para anunciarlo** | +20-50 %, o un 30 % por mes | influee (24-abr-2026), Modash (3-jul-2026) |
+| **Permiso para anunciarlo** | +20-50 % (influee); +25-100 % por 1-3 meses (Modash) | influee (24-abr-2026), Modash (3-jul-2026). Sobre todo mercado de EE. UU. |
 | **Material en bruto** | +30-50 % | influee (18-abr-2025) |
 | **Por cada 1.000 impresiones** | **53 €** (Meta en España: ~7,6 €) | IAB Spain y Primetag, *Influencer Economy* (17-abr-2024); Superads (sep-2025 a ago-2026) |
 
@@ -64,15 +65,16 @@ Una cuenta de 22K que publica un reel y tres historias con enlace:
 
 | | A · Lo que se preguntó: 20-40 pagados | B · Lo que propongo: el piloto |
 |---|---|---|
-| **Qué es** | El paquete (reel + 3 historias) a 20-40 cuentas | Canje a las 16 A y B de España; pago sólo a 1-2 piezas |
-| **Dinero** | **9.000-13.000 € (20) · 18.000-26.000 € (40)** | **300-500 € por pieza** (reel + permiso de anuncio 60-90 días, en una cuenta de 10-20K). Tope: 1.000 € |
+| **Qué es** | El paquete (reel + 3 historias) a 20-40 cuentas | Canje a todas las de España que pasen la revisión, empezando por las 16 A y B; pago sólo a 1-2 piezas |
+| **Dinero** | **9.000-13.000 € (20) · 18.000-26.000 € (40)** | **0 € sólo con canje. 400-600 € por pieza pagada** (reel con 60-90 días de anuncio y material en bruto, más tres historias, en una cuenta de 10-15K). Se empieza por una; la segunda, sólo si la primera pasa la tabla de parada. **Tope: 1.200 €** |
 | **Producto** | — | ~7 € de IA por creador y año |
 | **Qué trae** | ~110 altas con 20 y ~220 con 40. **Unos 100 € por alta** (entre 35 y 650 €) | 2-5 creadores publicando y 1-2 vídeos para anunciar |
 | **Qué se aprende** | Poco que no se sepa ya: que comprar alcance no se paga solo | Si una cara conocida convierte donde el anuncio no, **antes** de gastar en serio |
 
 **La prueba de la aritmética**: para que un microinfluencer pagado saliera a 0,25 € el
-alta, **una de cada cinco personas que ven su contenido tendría que apuntarse** (21 %:
-53 € ÷ 1.000 impresiones ÷ 0,25 €). La campaña de Meta consiguió una de cada 20.000.
+alta, **una de cada cinco personas que ven su contenido tendría que apuntarse**. Cada
+impresión cuesta 0,053 € (53 € por mil), y 0,053 ÷ 0,25 = 21 %. La campaña de Meta
+consiguió una de cada 20.000.
 
 **Y una advertencia a favor de los influencers**: el enlace con UTM no ve a quien lo
 recuerda y se apunta días después. Según Modash (22-sep-2026, dato de proveedor), se queda
@@ -81,28 +83,30 @@ sin atribuir un 50-60 % del efecto. Aun duplicando las altas, la opción A saldr
 
 **Después del lanzamiento las cuentas no mejoran lo bastante.** El margen de un viaje
 vendido está entre ~0,9 € (uno corto, a 2,99 €) y 2,32 € (uno de 4,99 €), con los
-costes de `LANZAMIENTO-PUBLICIDAD.md`. Un paquete de 500 € necesitaría entre 200 y 550 compradores
-por creador.
+costes de `LANZAMIENTO-PUBLICIDAD.md`. Un paquete de 500 € necesitaría entre 200 y 550
+compradores por creador.
 
 ## 3. El trato
 
 **Canje para todos, dinero sólo por la pieza.**
 
 - **Lo que se ofrece a todos**: **todos sus viajes gratis durante un año**, acceso antes
-  que nadie y, si la app lo permite el día del lanzamiento, una oferta para sus
-  seguidores. A NOMAD le cuesta lo que cuesta la IA de cada viaje (1,19 € uno de 4-7 días
-  a un destino nuevo, según `LANZAMIENTO-PUBLICIDAD.md`): un creador que haga seis viajes
-  al año sale por unos 7 €.
-- **Lo que se paga**: sólo a 2 o 3, y **por la pieza, no por los seguidores**: el reel,
-  las historias, el permiso de anuncio de colaboración durante 90 días y el material en
+  que nadie y, si se prepara a tiempo, **un código para sus seguidores** (en iOS existe:
+  §5). Un creador prefiere algo que regalar a su gente antes que algo para él. A NOMAD le
+  cuesta lo que cuesta la IA de cada viaje (1,19 € uno de 4-7 días a un destino nuevo,
+  según `LANZAMIENTO-PUBLICIDAD.md`): un creador que haga seis viajes al año sale por unos
+  7 €.
+- **Lo que se paga**: sólo a uno o dos, y **por la pieza, no por los seguidores**: el
+  reel, las historias, el permiso para anunciarlo durante 60-90 días y el material en
   bruto (§4). Así el dinero compra algo que se queda: un vídeo con cara y con público
   propio, que se puede poner a correr en Meta con el presupuesto que ya existe.
 - **Lo que no se hace**: pagar por mil seguidores, repartir ingresos con alguien a quien
   todavía no se le puede atribuir nada, ni pagar por adelantado a una cuenta que no se ha
   revisado a mano (§6, «Antes de escribir»).
-- **Por escrito, aunque sea un correo**: qué se entrega y cuándo, la etiqueta de
-  publicidad (§4), el permiso de anuncio y durante cuánto tiempo, y que se paga **después**
-  de publicar.
+- **Por escrito, aunque sea un correo**: qué se entrega y cuándo, **la instrucción de
+  poner la etiqueta de publicidad** (§4: si falta, responde también la marca, salvo que el
+  creador se haya saltado la instrucción), el permiso de anuncio y durante cuánto tiempo, y
+  que se paga **después** de publicar.
 
 ## 4. Qué se les pide
 
@@ -123,7 +127,7 @@ Tres cosas que la casa ya sabe y que el encargo no puede saltarse:
 | Formato | Para quién | El gancho, en sus palabras |
 |---|---|---|
 | **Turista en mi ciudad** | Planes locales | «Llevo veinte años en Valencia y una app me ha contado cosas que no sabía». El tour de SU ciudad: se graba sin viajar, la semana del lanzamiento |
-| **El pueblo que no sale en las guías** (G5) | Escapadas y pueblos | «¿Tu app de viajes conoce Albarracín? La mía sí.» Es el foso contra lo curado: cualquier pueblo |
+| **El pueblo que no sale en las guías** (G5) | Escapadas y pueblos | «¿Tu app de viajes conoce el pueblo de mi abuela? La mía sí.» Es el foso contra lo curado: cualquier pueblo |
 | **Mi finde, al pie de la letra** | City breaks | «Le pedí a una app mi fin de semana en Oporto y lo seguí entero.» El plan con horas y precios (lo que se guarda) y luego la calle |
 | **La historia de este sitio** | Arte e historia | La voz de la app cuenta la parada y el creador remata. En museo (G1) sólo donde se puede grabar: el Thyssen sí, el Prado no |
 | **Quién debe qué** (G8) | Parejas y amigos | «Se acabó el viaje y nadie sabe quién debe qué.» El QR para unirse y los gastos repartidos |
@@ -131,14 +135,20 @@ Tres cosas que la casa ya sabe y que el encargo no puede saltarse:
 
 ### El paquete de un creador pagado
 
-1. **Un reel** de 20-45 s, vertical y con subtítulos, **publicado como colaboración con
-   @app.nomad** (sale en los dos perfiles). El audio lo elige el creador, de tendencias,
-   como hace la casa.
+1. **Un reel** de 20-45 s, vertical y con subtítulos, publicado **en coautoría con
+   @app.nomad** (la invitación de colaboración de Instagram: sale en los dos perfiles).
+   **Con audio original**, su voz y la de la app, o con música de la Sound Collection de
+   Meta. **Nunca con música de la biblioteca de Instagram**: Meta no deja anunciar un reel
+   que la lleve, y esta pieza se paga precisamente para anunciarla. Conviene pedírselo
+   también a los de canje: si su reel funciona y se quiere anunciar, con música de la
+   biblioteca ya no se puede.
 2. **Tres historias el mismo día**: dónde estoy y qué voy a probar · la voz sonando en una
    parada (que se oiga) · el veredicto con el **adhesivo de enlace** y su enlace propio
    (§5).
-3. **Permiso de anuncio de colaboración durante 90 días** y el **material en bruto**, para
-   cortar una versión de 15 s.
+3. **El código de anuncio de colaboración del reel**, que el creador genera desde el
+   propio post, **con 60-90 días de uso por contrato**, y el **material en bruto** para
+   cortar una versión de 15 s. Las historias con adhesivo de enlace no se pueden anunciar,
+   y no hace falta: son el orgánico.
 4. Si se deja, **dos o tres estáticos rápidos**, «como lo pondrías en tu historia»: la
    skill `ads` los recomienda como mini-embudo por creador, y cuestan casi nada añadidos.
 
@@ -151,7 +161,20 @@ A los de canje se les pide menos: el reel **o** las tres historias, lo que prefi
   «2,99 € el viaje entero» como cifra cerrada (un viaje largo cuesta más) y **nunca la
   comparación con la audioguía de 6 €**: el dueño la ha tirado dos veces. Si sale antes de
   que cierre la lista: «y en la lista, el primero por 1,99 €, dure lo que dure».
-- **La etiqueta de publicidad**, también en canje: [[ETIQUETA]]
+- **La etiqueta de publicidad, también en canje.** El *Código de conducta de publicidad
+  a través de influencers* (2.ª versión, en vigor desde el 1-oct-2025) cuenta como
+  contraprestación la entrega gratuita de producto: los viajes gratis también obligan.
+  - **En España**: la herramienta de Instagram, «Colaboración pagada con @app.nomad» (la
+    preferida), o «Publi», «Publicidad», «Patrocinado por…». Tiene que ir **al principio
+    del texto o sobre el vídeo desde el primer segundo**, y **sobreimpresa en cada
+    historia**. **No valen** «Colab», «sp», «Gracias a…», «Regalo de…» ni el hashtag de la
+    marca.
+  - **En Italia** (AGCOM, guía de 2026): «Pubblicità» o «ADV», sobreimpresa en las primeras
+    escenas del reel **y además** en la descripción. «In collaborazione con» no vale si hay
+    pago, y la etiqueta de Instagram no sustituye al texto.
+  - Ninguna cuenta de esta lista es «usuario de especial relevancia» (Ley 13/2022 y RD
+    444/2024: hace falta, a la vez, un millón de seguidores y 300.000 € al año). Pero la
+    publicidad encubierta es desleal igual (Ley de Competencia Desleal, art. 26).
 - **Su enlace**, el suyo y no el de la bio de @app.nomad (§5).
 
 ### Lo que no se les pide
@@ -173,7 +196,25 @@ entra en ella como un origen propio.
   → aparece en `waitlist.source` como `instagram/influencer/<usuario>`, en la consulta
   diaria de siempre, sin tocar nada. Si es italiano, `https://travelsnomad.com/it/?...` y
   `<usuario>-it`, como manda `AGENTS.md`.
-- **Después del lanzamiento (descargas)**: [[ENLACES TIENDA]]
+- **Después del lanzamiento (descargas)**, tres vías, de más limpia a menos:
+  1. **Un código de oferta por creador en iOS** (p. ej. `SELE`). Apple los admite en
+     compras únicas, y el viaje lo es, desde octubre de 2025. Hay hasta **10 ofertas
+     activas a la vez, justo lo que necesita un piloto**, y App Store Connect da unidades e
+     ingresos por oferta. Se configura en App Store Connect y en el repo de la app, no aquí.
+  2. **Un enlace de campaña de la App Store por creador**:
+     `https://apps.apple.com/app/apple-store/id<ID>?pt=<proveedor>&ct=<usuario>&mt=8`
+     (`ct` de hasta 30 caracteres). Da descargas y ventas por campaña, pero sólo cuenta
+     la descarga si llega en las 24 h siguientes al clic, y sólo enseña la cifra a partir
+     de 5. **El generador no funciona hasta que la app lleva 24 h publicada y con
+     descargas**: los enlaces se preparan al día siguiente del lanzamiento, no antes.
+  3. **Google Play**: `…/details?id=<paquete>&referrer=utm_source%3Dinstagram%26utm_medium%3Dinfluencer%26utm_campaign%3D<usuario>`.
+     Pero **desde junio-julio de 2026 la consola cuenta toques en «Instalar», no
+     instalaciones**, y el ejemplo oficial es de una guía retirada: **se prueba antes de
+     repartirlo**.
+
+  La web también tendría que pasar el `utm_campaign` al `ct` de su botón de la App Store;
+  si no, un seguidor que entra por la web y descarga desde allí se pierde. Es un cambio del
+  repo de la app.
 - **La decisión, en aritmética**: el coste por alta (o por compra) de cada creador,
   contando el dinero y el producto. El reel que retiene y trae altas pasa a anuncio de
   colaboración y entra en la tabla de parada de `AGENTS.md` como cualquier anuncio; el
@@ -186,7 +227,7 @@ entra en ella como un origen propio.
 **31 cuentas en el rango: 23 en España y 8 en Italia**, que es una prueba y no el
 mercado. Salieron de seis búsquedas por nicho el 23-sep, y cada cifra se comprobó con una
 búsqueda dedicada a esa cuenta (`site:instagram.com/<usuario>`). La cifra es la que
-devolvió el buscador, tal cual. Hay tres excepciones y van marcadas.
+devolvió el buscador, tal cual. Las cuatro excepciones van marcadas (¹ ² ³).
 
 **Lo que esta lista NO sabe**, porque Instagram no deja ver un perfil sin sesión y desde
 aquí no se puede: el engagement, la fecha del último post, el país de su público y si los
