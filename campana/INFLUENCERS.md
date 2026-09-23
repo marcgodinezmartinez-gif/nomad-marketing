@@ -108,4 +108,130 @@ entra en ella como un origen propio.
   texto**: se mira si su historia se vio y cuántos tocaron el enlace (las capturas de sus
   estadísticas, que se piden en el trato).
 
-[[SECCIONES 6-7]]
+## 6. La lista
+
+**31 cuentas en el rango: 23 en España y 8 en Italia**, que es una prueba y no el
+mercado. Salieron de seis búsquedas por nicho el 23-sep, y cada cifra se comprobó con una
+búsqueda dedicada a esa cuenta (`site:instagram.com/<usuario>`). La cifra es la que
+devolvió el buscador, tal cual. Hay tres excepciones y van marcadas.
+
+**Lo que esta lista NO sabe**, porque Instagram no deja ver un perfil sin sesión y desde
+aquí no se puede: el engagement, la fecha del último post, el país de su público y si los
+seguidores son comprados. Por eso cada cuenta lleva una prioridad y no un veredicto, y
+nadie recibe un mensaje sin pasar antes los cinco minutos de «Antes de escribir», más
+abajo.
+
+- **A**: encaja de lleno y no se le ve ninguna señal de riesgo. Primera ronda.
+- **B**: encaja, pero con algún pero (nicho vecino, base sin confirmar, mucho largo
+  radio). Segunda ronda.
+- **C**: tiene una señal concreta que hay que mirar antes que nada.
+
+### España · escapadas y pueblos
+
+| | Cuenta | Seguidores | Base | Qué hace | Ojo con |
+|---|---|---|---|---|---|
+| A | [@imanesdeviaje](https://www.instagram.com/imanesdeviaje/) | 21K · 949 posts | Santander | Pareja (Regi y Juanra): «qué ver en» pueblos y regiones de España | Nada a la vista |
+| A | [@viajesyrutas](https://www.instagram.com/viajesyrutas/) | 32K · 1.895 posts | No consta | Pareja (Javier y Carmen): pueblos, rutas en coche y patrimonio | Sigue a 1.500; mezcla Francia |
+| A | [@espanaxdescubrir_oficial](https://www.instagram.com/espanaxdescubrir_oficial/) | 40K | Zaragoza | Pareja (Raúl y Diana): sólo España, por regiones | En el techo: si pasa de 40K, a reserva |
+| B | [@unaideaunviaje](https://www.instagram.com/unaideaunviaje/) | 13K · 1.115 posts | Santiago | Eva Abal: rutas en coche por Galicia, rías y pueblos | Muy Galicia; algo de largo radio |
+| B | [@macarenatravelgirl](https://www.instagram.com/macarenatravelgirl/) | 13K · 465 posts | Sevilla | Escapadas «viajar más por menos» | Pesa mucho el alojamiento |
+| B | [@viajarescrecer.blog](https://www.instagram.com/viajarescrecer.blog/) | 16K · 300 posts | Córdoba | Familia: planes y rutas con niños | Nicho familia; afiliación en la bio |
+| C | [@exploraconpequeh](https://www.instagram.com/exploraconpequeh/) | 14K · 103 posts | Murcia | Familia: planes y escapadas | Pocos posts; puede ser muy local |
+| C | [@diario.deunaviajera](https://www.instagram.com/diario.deunaviajera/) | 18K · **54 posts** | No consta | Clau: itinerarios por destino | 18K con 54 posts: mirar si compró seguidores o cambió de nombre |
+
+### España · city breaks por Europa
+
+| | Cuenta | Seguidores | Base | Qué hace | Ojo con |
+|---|---|---|---|---|---|
+| A | [@hoyviajamos](https://www.instagram.com/hoyviajamos/) | 36K · 2.407 posts | Valencia | Pareja (Sandra y Juanvi): guías de Roma, París, Praga, Oporto… «viajar barato pero bien» | Nada a la vista; activos en septiembre |
+| A | [@viajerocronico](https://www.instagram.com/viajerocronico/) | 23K · 597 posts | No consta | Tomàs Garcia: Europa por libre (Bálticos, Sicilia) | Vende asesorías de viaje |
+| B | [@elrincondesele](https://www.instagram.com/elrincondesele/) | 29K ¹ | No consta | Sele: crónicas de viaje desde 2006 | Mucho largo radio |
+| B | [@locosxlosviajes](https://www.instagram.com/locosxlosviajes/) | 25K · 2.061 posts | Madrid | Mari Carmen: viajes en familia por España y Europa | Últimamente Japón y Corea |
+| C | [@viajocomoquiero](https://www.instagram.com/viajocomoquiero/) | 18K · 2.075 posts | Galicia | Pareja (Belén e Isaac): por libre y muy planificado | Sigue a 4.471; venden viajes en grupo, así que son casi agencia |
+| C | [@uncafeenparis_](https://www.instagram.com/uncafeenparis_/) | 10K · 121 posts | No consta | Romi: rutas poco típicas por Europa | Justo en el suelo; no se sabe de dónde es su público |
+
+### España · parejas y viajeras
+
+| | Cuenta | Seguidores | Base | Qué hace | Ojo con |
+|---|---|---|---|---|---|
+| A | [@quiero_viajarsola](https://www.instagram.com/quiero_viajarsola/) | 33K | No consta | Estela Gómez: viajar sola desde 2016; guías de España y Europa | Lo último del blog es largo radio |
+| B | [@travelwitheflow](https://www.instagram.com/travelwitheflow/) | 31K · 628 posts | No consta | Dolo: rutas y planes por España. **Se presenta como creadora UGC**, justo la pieza que se pagaría | Sigue a 4.318 cuentas |
+| B | [@conunpardemaletas](https://www.instagram.com/conunpardemaletas/) | 30K · 1.902 posts | País Vasco | Pareja (Marta y Javi): por libre y en camper | Ahora casi todo es China; venden un viaje propio |
+| B | [@viajerosconfesos](https://www.instagram.com/viajerosconfesos/) | 25K · 920 posts ² | No consta | Ángela: blog de viajes | Nicho y base sin mirar |
+| B | [@losviajesdedomi](https://www.instagram.com/losviajesdedomi/) | 28K · 705 posts ² | No consta | Domi Ramos: guías de viaje | Nicho y base sin mirar |
+
+### España · su propia ciudad (el tour se graba sin viajar)
+
+| | Cuenta | Seguidores | Base | Qué hace | Ojo con |
+|---|---|---|---|---|---|
+| A | [@milplanesporbilbao](https://www.instagram.com/milplanesporbilbao/) | >15K ³ | Bilbao | Esti y Patri, de más de 45 años: rutas a pie por barrios, curiosidades, fotos antiguas | Cifra de la prensa (abril); cuenta de 2025 |
+| C | [@planesvalencia_](https://www.instagram.com/planesvalencia_/) | 12K · 204 posts | Valencia | Ángela Martínez: cultura y ocio en Valencia | El buscador la da por inactiva |
+| C | [@jesus_guia_madrid](https://www.instagram.com/jesus_guia_madrid/) | 22K · 880 posts | Madrid | Guía oficial, historiador del arte: rincones y arte de Madrid | **Vende visitas guiadas: NOMAD es su competencia** |
+| C | [@secretosdesevilla](https://www.instagram.com/secretosdesevilla/) | 19K · 743 posts | Sevilla | Leyendas y Sevilla antigua | No consta que sea una persona; ofrece free tours (competencia) |
+
+¹ Cifra de una búsqueda de cuatro cuentas juntas, no de la suya sola. ² De una búsqueda
+general de `site:instagram.com` del mismo día, sin búsqueda dedicada. ³ «Ha superado los
+15.000 seguidores», Radio Nervión, 16-abr-2026. La búsqueda dedicada devolvió el perfil,
+pero sin cifra.
+
+### Italia · sólo si se abre la prueba italiana
+
+Encaja con la regla de idiomas: el italiano es una prueba con UTM propio (§5). La mitad de
+los seguidores de @app.nomad son italianos y ninguno se ha apuntado. Un creador italiano
+es la forma más limpia de saber si el problema era el idioma o que son seguidores de
+cortesía.
+
+| | Cuenta | Seguidores | Base | Qué hace | Ojo con |
+|---|---|---|---|---|---|
+| A | [@2romanintrip](https://www.instagram.com/2romanintrip/) | 15K · 538 posts | Roma | Pareja (Angela y Alessio): viajes low cost | Nada a la vista |
+| A | [@sarapaolo_adventures](https://www.instagram.com/sarapaolo_adventures/) | 13K · 546 posts | Turín | Pareja de videomakers: Italia y Europa poco concurridas | Su público grande está en YouTube |
+| A | [@cappellacciamerenda](https://www.instagram.com/cappellacciamerenda/) | 36K · 1.476 posts | Ferrara | Sara Govoni: pueblos e historias de Emilia-Romaña | Muy regional |
+| B | [@dueinviaggio.it](https://www.instagram.com/dueinviaggio.it/) | 14K | Valle de Aosta | Pareja: fines de semana y pueblos de montaña | Muy local |
+| B | [@duevaligieinviaggio](https://www.instagram.com/duevaligieinviaggio/) | 38K | Cerdeña | Michele Marongiu: pueblos, comida y naturaleza sardos | Muy Cerdeña |
+| C | [@beborghi_valebor](https://www.instagram.com/beborghi_valebor/) | 14K · 3.170 posts | Milán | Valentina Borghi: travel blogger y tour leader | Trabaja para una agencia |
+| C | [@iviaggidimanuel](https://www.instagram.com/iviaggidimanuel/) | 24K · 1.234 posts | Pescara | Manuel Santoro: itinerarios por libre | Casi todo es lejano |
+| C | [@wanderlustviola](https://www.instagram.com/wanderlustviola/) | 13K · 788 posts | No consta | Viola: viajes en familia | Sigue a 2.682 |
+
+### Reserva: fuera del rango o sin verificar
+
+- **Fuera del rango y muy buenas**: [@viajapi](https://www.instagram.com/viajapi/) (42K,
+  Madrid: itinerarios y planes en Madrid), [@disfrutarcoruna](https://www.instagram.com/disfrutarcoruna/)
+  (68K, Emma, historiadora y guía local de A Coruña) y
+  [@caminando_por_madrid_](https://www.instagram.com/caminando_por_madrid_/) (7,7K, Carlos
+  Osorio, doce libros sobre Madrid).
+- **En el rango según una búsqueda general, sin la dedicada**: @rutalavistafamilia (39K,
+  familia, Cataluña), @365sabadosviajando (39K, familia; sigue a 5.227), @eurotripblog
+  (37K) y @hazplanesmadrid (15K; no consta que sea una persona).
+
+### Antes de escribir a nadie: cinco minutos por perfil
+
+1. **Último post hace menos de dos semanas.** Si no, fuera.
+2. **Reels: la mediana de reproducciones de los últimos diez**, en la cuadrícula. Por
+   debajo del 10 % de los seguidores es mala señal: o se compraron o ya no llegan.
+3. **Los comentarios**: frases de gente con nombre que pregunta cosas, no «😍🔥» de
+   cuentas vacías.
+4. **Publis recientes con #publi**: dicen que colabora y a qué marcas. Si hay una app de
+   viajes de la competencia (GuideMapp y compañía), se aparta.
+5. **Al contestar, se le piden capturas de sus estadísticas** (alcance de historias,
+   toques en el enlace, país y edad del público de los últimos 30 días). Si no las
+   enseña, no se le paga.
+
+## 7. El primer mensaje
+
+Por mensaje directo o al correo de la bio. Corto, personal y **sin la palabra «gratis»
+en la primera línea**. La frase entre corchetes se escribe para cada uno: es lo que separa
+un mensaje de un spam.
+
+> Hola, [nombre]: soy [tu nombre], de NOMAD (@app.nomad). Vi [tu ruta por los pueblos de
+> Cantabria / tu guía de Oporto] y creo que a tu gente le iría muy bien lo que hemos hecho.
+>
+> NOMAD sale en octubre. Te escribe el viaje día a día y luego te guía a pie con una voz,
+> de parada en parada, por cualquier ciudad o pueblo, también sin cobertura.
+>
+> Me gustaría que la probaras de las primeras: te dejamos todos tus viajes gratis durante
+> un año. Si te convence y te apetece contarlo, lo hablamos; si no, no pasa nada.
+>
+> ¿Te paso el acceso?
+
+A quien conteste que sí se le manda el encargo (§4). A los dos o tres del pago, además,
+la propuesta con la cifra, el paquete y el permiso de anuncio.
