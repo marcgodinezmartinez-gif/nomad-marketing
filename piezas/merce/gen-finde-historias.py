@@ -70,12 +70,15 @@ if len(FINDE) != 2 or faltan:
 _planes, _euros, _gratis = cuentas(FINDE)
 S = {}
 
-# 1 · LA PORTADA. El reloj, como en el carrusel que gustó: queda el finde.
+# 1 · LA PORTADA. Una pregunta, y la historia siguiente la contesta. El titular es del dueño
+# (25-sep): «Queda el finde de Mercè» no le gustaba; «¿Qué planea NOMAD para la Mercè?», sí.
+# Pone a la app de sujeto, que era la queja del 21. El kicker deja de decir «la Mercè» para
+# no repetirla dos renglones más abajo.
 S['mercefinde-1'] = (raiz()
   + foto('f-bcn-festa.jpg', 1.04) + velo(VELO_FOTO)
-  + kicker('La Merc&egrave; &middot; el finde', 300)
-  + titular('Queda el finde<br>de Merc&egrave;.', 400, 92)
-  + sub('Se lo pedimos a NOMAD: s&aacute;bado y domingo, hora a hora y con precios. '
+  + kicker('Barcelona &middot; el finde', 300)
+  + titular('&iquest;Qu&eacute; planea NOMAD<br>para la Merc&egrave;?', 400, 92)
+  + sub('Se lo pedimos: s&aacute;bado y domingo, hora a hora y con precios. '
         f'{_planes} planes y {_euros}&nbsp;&euro; con todas las comidas dentro; {_gratis} no cuestan nada.',
         620, 38, ancho=880)
   + marca(MARCA_Y)

@@ -106,7 +106,7 @@ sábado y domingo solo»*. Seis historias de 1080×1920, en este orden:
 
 | # | Qué | Nota |
 |---|---|---|
-| 1 | «Queda el finde de Mercè» — 8 planes, 90 €, 4 gratis | El reloj, como la portada que gustó |
+| 1 | «¿Qué planea NOMAD para la Mercè?» — 8 planes, 90 €, 4 gratis | El titular es del dueño: «Queda el finde de Mercè» no le gustó |
 | 2 | El aviso: los dos cambios de sitio | Lo que se reenvía |
 | 3 | Sábado 26 · 4 planes · 75 € | |
 | 4 | Domingo 27 · 4 planes · 15 € | |
