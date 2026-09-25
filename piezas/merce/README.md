@@ -78,6 +78,10 @@ El corte del finde cambia tres cosas: la portada es un reloj («Quedan tres día
 — los dos actos que han cambiado de sitio este año. Esa tarjeta es la que gana el deslizar y
 la que se reenvía; y es, además, exactamente lo que la app puso mal.
 
+**Esa misma noche el corte cambió otra vez**: el viernes ya se había ido y el dueño prefirió
+la pregunta de portada, así que `finde` es ahora sábado y domingo en seis tarjetas —las
+mismas que las historias— con «¿Qué planea NOMAD para la Mercè?» delante.
+
 **Y la decisión del 25, que corrige la del 21**: el sábado sigue con el correfoc a las 20:30
 y la cena a las 21:00, y aun así se publica. Esperar a una captura regenerada costó cuatro
 días de una fiesta que dura cinco. Lo que se publica es verdad y es útil; lo apretado del
@@ -244,33 +248,35 @@ fiesta. Se sustituye la captura del día que se regenere y se vuelven a sacar:
 Las zonas seguras están respetadas: el texto vive entre y=290 e y=1493 y de y=1520 abajo
 queda libre para el adhesivo. Ese hueco no es un descuido de diseño, es su sitio.
 
-## El pie del corte del finde (el que se publica el 25)
+## El pie del post del finde (sábado y domingo, 25-sep por la noche)
 
-> Quedan tres días de Mercè. Le pedimos a NOMAD el finde entero y esto es lo que salió.
+El post lleva las mismas seis imágenes que las historias, en 1080×1350
+(`gen-plan-merce.py finde`), y este pie:
+
+> ¿Qué planea NOMAD para la Mercè? Se lo pedimos, y esto es lo que salió.
 >
-> Viernes, sábado y domingo hora a hora, con precios: 13 planes y 183 € con todas las
-> comidas y las cenas dentro. Cinco de ellos no cuestan nada.
+> Le dijimos dónde y cuándo, y la app devolvió el finde entero: 8 planes con su hora, su
+> categoría y su precio. 90 € sábado y domingo, con todas las comidas dentro. Y la mitad no
+> cuesta nada.
 >
-> Y dos avisos, porque este año han cambiado de sitio los dos actos más grandes:
+> Sáb 26 · 4 planes · 75 € — el Park Güell, comida en La Benaura, el correfoc (20.30 h, passeig de Gràcia) y cena en Bar Cañete.
+> Dom 27 · 4 planes · 15 € — puertas abiertas en el Palau de la Generalitat, la Rambla y la Boqueria, comida en Can Paixano y el piromusical (22 h, platja de la Nova Icària).
 >
-> · **Correfoc** — sábado 26, 20.30 h. Ya no pasa por Via Laietana: sale del passeig de
-> Gràcia y baja de Provença a Consell de Cent. A las 18 h, el de los pequeños.
-> · **Piromusical** — domingo 27, 22 h. Ya no es en Montjuïc: se dispara desde el espigón
-> del Bogatell y se ve desde la platja de la Nova Icària.
->
-> Vie 25 · 5 planes · 93 € — la Sagrada Família, la Ciutadella, La Puntual, el Picasso, los conciertos del Moll de la Fusta
-> Sáb 26 · 4 planes · 75 € — el Park Güell, La Benaura, el correfoc, Bar Cañete
-> Dom 27 · 4 planes · 15 € — puertas abiertas en el Palau de la Generalitat, la Boqueria, Can Paixano y el piromusical
+> Ojo, que este año los dos grandes han cambiado de sitio: el correfoc ya no pasa por Via
+> Laietana y el piromusical ya no es en Montjuïc.
 >
 > Los precios son estimados: la entrada de cada sitio y lo que se suele dejar en la mesa. El
 > programa oficial entero, en barcelona.cat/lamerce.
 >
 > NOMAD sale en octubre. Le dices dónde vas y cuántos días y te monta el viaje así, con
-> horas y precios, para cualquier sitio: no para seis ciudades. Desde 2,99 € el viaje
-> entero, sin suscripción, según lo que dure; y el primero, para quien esté en la lista de
-> espera, 1,99 € dure lo que dure. Enlace en la bio.
+> horas y precios, para cualquier sitio. Desde 2,99 € el viaje entero, sin suscripción,
+> según lo que dure; y el primero, para quien esté en la lista de espera, 1,99 € dure lo que
+> dure. Enlace en la bio.
 >
 > #lamerce #lamerce2026 #barcelona #correfoc #piromusical #festamajor #bcn #viajar
+
+«Le dijimos dónde y cuándo» y no una cita: lo que se escribió en la app fue «Barcelona, del
+23 al 27 de septiembre», y entrecomillar otra cosa sería inventarse la petición.
 
 ## El pie del carrusel de cinco días (el que ya no llegó a tiempo)
 

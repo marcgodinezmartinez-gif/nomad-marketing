@@ -47,12 +47,15 @@ HELMET = open('Main.dc.html').read().split('<helmet>')[1].split('</helmet>')[0]
 pagina = lambda cuerpo: _pagina(cuerpo, HELMET)
 
 # DOS CORTES DEL MISMO CARRUSEL. Sin argumento, los cinco días (el de antes de que
-# empezara la fiesta). Con `finde`, sólo lo que queda —viernes, sábado y domingo— más la
-# tarjeta del aviso: es lo que sirve a partir del día 25, porque un plan de cinco días
-# publicado el tercero es medio papel mojado.
+# empezara la fiesta). Con `finde`, sábado y domingo más la tarjeta del aviso: lo mismo que
+# las historias de gen-finde-historias.py, para que el post y las historias cuenten lo mismo.
+# (La mañana del 25 este corte era viernes-domingo con «Quedan tres días»; esa noche el
+# viernes ya se había ido y el dueño prefirió la pregunta de portada.)
 #     python3 ../piezas/merce/gen-plan-merce.py         → 8 tarjetas, los cinco días
-#     python3 ../piezas/merce/gen-plan-merce.py finde   → 7 tarjetas, viernes a domingo
+#     python3 ../piezas/merce/gen-plan-merce.py finde   → 6 tarjetas, sábado y domingo
 FINDE = 'finde' in sys.argv[1:]
+# El móvil del finde enseña el viernes a propósito: las capturas del sábado y el domingo
+# llevan el correfoc en Via Laietana y el piromusical en Montjuïc (ver gen-finde-historias).
 CAPTURA = 'planmerce-25-900.webp' if FINDE else 'planmerce-24-900.webp'
 
 def hay(f, carpeta='fotos'):
@@ -65,15 +68,15 @@ if not hay(CAPTURA, ''):
     sys.exit(f'FALTA LA CAPTURA {CAPTURA} en banco/capturas/')
 
 T = {}
-DIAS_QUE_VAN = DIAS[2:] if FINDE else DIAS
+DIAS_QUE_VAN = [d for d in DIAS if d['clave'] in ('26', '27')] if FINDE else DIAS
 _planes, _euros, _gratis = cuentas(DIAS_QUE_VAN)
 
-# 1 · LA PORTADA. En el corte del finde el gancho es el reloj: quedan tres días.
+# 1 · LA PORTADA. En el corte del finde, la pregunta del dueño: la app de sujeto.
 T['planmerce-1'] = (raiz(NOCHE)
   + foto('f-bcn-festa.jpg', 1.06) + velo(VELO_FOTO)
-  + (kicker('La Merc&egrave; &middot; lo que queda') if FINDE else kicker('Le pedimos esto a NOMAD'))
-  + (titular('Quedan tres d&iacute;as<br>de Merc&egrave;.', 210, 92) if FINDE else peticion(PETICION))
-  + (sub('Se lo pedimos a NOMAD: viernes, s&aacute;bado y domingo, hora a hora y con precios. '
+  + (kicker('Barcelona &middot; el finde') if FINDE else kicker('Le pedimos esto a NOMAD'))
+  + (titular('&iquest;Qu&eacute; planea NOMAD<br>para la Merc&egrave;?', 210, 92) if FINDE else peticion(PETICION))
+  + (sub('Se lo pedimos: s&aacute;bado y domingo, hora a hora y con precios. '
          f'{_planes} planes y {_euros}&nbsp;&euro; con todas las comidas dentro; {_gratis} no cuestan nada.',
          430, 38, ancho=880)
      if FINDE else
@@ -101,7 +104,7 @@ if FINDE:
 for d in DIAS_QUE_VAN:
     T[f'planmerce-{_i}'] = (raiz(NOCHE)
       + foto(d['foto'], 1.06) + velo(VELO_PROGRAMA)
-      + kicker(d['dia'] + (' &middot; hoy' if FINDE and d['clave'] == '25' else ''), 100, MENTA)
+      + kicker(d['dia'], 100, MENTA)
       + titular(f'{len(d["planes"])} planes &middot; {d["total"]}', 152, 76)
       + programa(d['planes'])
       + marca()
