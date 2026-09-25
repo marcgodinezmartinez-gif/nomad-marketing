@@ -44,7 +44,14 @@ from tarjetas import (SOMBRA, MENTA, PAPEL, NOCHE, VELO_FOTO, VELO_TELEFONO,
 HELMET = open('Main.dc.html').read().split('<helmet>')[1].split('</helmet>')[0]
 pagina = lambda cuerpo: _pagina(cuerpo, HELMET)
 
-CAPTURA = 'planmerce-24-900.webp'      # la pantalla del jueves, de la app real
+# DOS CORTES DEL MISMO CARRUSEL. Sin argumento, los cinco días (el de antes de que
+# empezara la fiesta). Con `finde`, sólo lo que queda —viernes, sábado y domingo— más la
+# tarjeta del aviso: es lo que sirve a partir del día 25, porque un plan de cinco días
+# publicado el tercero es medio papel mojado.
+#     python3 ../piezas/merce/gen-plan-merce.py         → 8 tarjetas, los cinco días
+#     python3 ../piezas/merce/gen-plan-merce.py finde   → 7 tarjetas, viernes a domingo
+FINDE = 'finde' in sys.argv[1:]
+CAPTURA = 'planmerce-25-900.webp' if FINDE else 'planmerce-24-900.webp'
 PETICION = 'Barcelona, del 23 al 27 de septiembre. Quiero vivir la Merc&egrave;.'
 
 # Cada parada: (hora, qué, categoría, precio, ¿gratis?). Copiado de las capturas.
@@ -145,6 +152,26 @@ def peticion(t, y=196):
             f'<span class="sans" style="display: block; margin-top: 16px; font-size: 40px; line-height: 1.28; '
             f'font-weight: 500; color: {PAPEL}">&laquo;{t}&raquo;</span></div>')
 
+# LOS DOS CAMBIOS DE SITIO DE ESTE AÑO. No es relleno: es lo que la gente busca el fin de
+# semana y lo único de esta pieza que alguien reenvía por WhatsApp. Y es exactamente lo que
+# la app puso mal, así que aquí se dice bien y con el sitio delante.
+AVISOS = [
+  ('Correfoc', 'S&aacute;bado 26, 20:30',
+   'Ya no pasa por Via Laietana: sale del <b>passeig de Gr&agrave;cia</b> y baja de Proven&ccedil;a a '
+   'Consell de Cent. A las 18 h es el infantil, en sentido contrario.'),
+  ('Piromusical', 'Domingo 27, 22:00',
+   'Ya no es en Montju&iuml;c: se dispara desde el espig&oacute;n del Bogatell y se ve desde la '
+   '<b>platja de la Nova Ic&agrave;ria</b>. Se ha movido por las obras de la Fira.'),
+]
+
+def aviso(titulo, cuando, texto, y):
+    return (f'<div style="position: absolute; left: 84px; top: {y}px; width: 912px">'
+            f'<span class="sans" style="display: block; font-size: 28px; letter-spacing: 0.16em; '
+            f'text-transform: uppercase; color: {MENTA}; font-weight: 700">{titulo} &middot; {cuando}</span>'
+            f'<span class="sans" style="display: block; margin-top: 14px; font-size: 36px; line-height: 1.36; '
+            f'font-weight: 500; color: rgba(255, 253, 249, 0.92); text-wrap: pretty; {SOMBRA}">{texto}</span>'
+            f'</div>')
+
 def hay(f, carpeta='fotos'):
     return os.path.exists(f'{carpeta}/{f}' if carpeta else f)
 
@@ -155,30 +182,54 @@ if not hay(CAPTURA, ''):
     sys.exit(f'FALTA LA CAPTURA {CAPTURA} en banco/capturas/')
 
 T = {}
+DIAS_QUE_VAN = DIAS[2:] if FINDE else DIAS
+_n = len(DIAS_QUE_VAN)
+_planes = sum(len(d['planes']) for d in DIAS_QUE_VAN)
+_euros = sum(int(p.split('&')[0]) for d in DIAS_QUE_VAN for _, _, _, p, _ in d['planes'] if p != 'gratis')
+_gratis = sum(1 for d in DIAS_QUE_VAN for p in d['planes'] if p[4])
 
-# 1 · LA PORTADA: la petición, y la promesa de lo que sale.
+# 1 · LA PORTADA. En el corte del finde el gancho es el reloj: quedan tres días.
 T['planmerce-1'] = (raiz(NOCHE)
   + foto('f-bcn-festa.jpg', 1.06) + velo(VELO_FOTO)
-  + kicker('Le pedimos esto a NOMAD')
-  + peticion(PETICION)
-  + titular('Y esto es lo<br>que sali&oacute;.', 470, 92)
-  + sub(f'Los cinco d&iacute;as, hora a hora: {CUANTOS} planes y {TOTAL} con todas las comidas dentro. '
-        f'{GRATIS} de ellos no cuestan nada.', 700, 38, ancho=880)
+  + (kicker('La Merc&egrave; &middot; lo que queda') if FINDE else kicker('Le pedimos esto a NOMAD'))
+  + (titular('Quedan tres d&iacute;as<br>de Merc&egrave;.', 210, 92) if FINDE else peticion(PETICION))
+  + (sub('Se lo pedimos a NOMAD: viernes, s&aacute;bado y domingo, hora a hora y con precios. '
+         f'{_planes} planes y {_euros}&nbsp;&euro; con todas las comidas dentro; {_gratis} no cuestan nada.',
+         430, 38, ancho=880)
+     if FINDE else
+     titular('Y esto es lo<br>que sali&oacute;.', 470, 92))
+  + ('' if FINDE else
+     sub(f'Los cinco d&iacute;as, hora a hora: {CUANTOS} planes y {TOTAL} con todas las comidas dentro. '
+         f'{GRATIS} de ellos no cuestan nada.', 700, 38, ancho=880))
   + marca()
   + '</div>')
 
-# 2-6 · UN DÍA POR TARJETA. ESTAS son las que se guardan: la lista, legible, con precios.
-for i, d in enumerate(DIAS, start=2):
-    T[f'planmerce-{i}'] = (raiz(NOCHE)
+_i = 2
+
+# 2 · EL AVISO (sólo en el corte del finde), antes de los días: es lo que gana el deslizar.
+if FINDE:
+    T['planmerce-2'] = (raiz(NOCHE)
+      + foto('f-merce-diable.jpg', 1.06) + velo(VELO_PROGRAMA)
+      + kicker('Ojo, este a&ntilde;o')
+      + titular('Dos cosas han<br>cambiado de sitio.', 170, 84)
+      + ''.join(aviso(*a, 470 + i * 300) for i, a in enumerate(AVISOS))
+      + marca()
+      + '</div>')
+    _i = 3
+
+# UN DÍA POR TARJETA. ESTAS son las que se guardan: la lista, legible, con precios.
+for d in DIAS_QUE_VAN:
+    T[f'planmerce-{_i}'] = (raiz(NOCHE)
       + foto(d['foto'], 1.06) + velo(VELO_PROGRAMA)
-      + kicker(d['dia'], 100, MENTA)
+      + kicker(d['dia'] + (' &middot; hoy' if FINDE and d['clave'] == '25' else ''), 100, MENTA)
       + titular(f'{len(d["planes"])} planes &middot; {d["total"]}', 152, 76)
       + programa(d['planes'])
       + marca()
       + '</div>')
+    _i += 1
 
-# 7 · CÓMO SE HIZO. La captura es de la app real, del jueves de la tarjeta 3.
-T['planmerce-7'] = (raiz(NOCHE)
+# CÓMO SE HIZO. La captura es de la app real, del mismo día que una de las tarjetas.
+T[f'planmerce-{_i}'] = (raiz(NOCHE)
   + foto('f-bcn-calle.jpg', 1.06) + velo(VELO_TELEFONO)
   + kicker('C&oacute;mo se hizo')
   + titular('Un minuto.<br>Ni una reserva.', 170, 88)
@@ -187,8 +238,8 @@ T['planmerce-7'] = (raiz(NOCHE)
   + telefono(CAPTURA, 430, 540)
   + '</div>')
 
-# 8 · EL CIERRE, el de siempre.
-T['planmerce-8'] = (raiz(NOCHE)
+# EL CIERRE, el de siempre.
+T[f'planmerce-{_i + 1}'] = (raiz(NOCHE)
   + foto('f-bcn-cierre.jpg', 1.04)
   + velo('linear-gradient(180deg, rgba(16, 14, 11, 0.6) 0%, rgba(16, 14, 11, 0.34) 32%, '
          'rgba(16, 14, 11, 0.9) 100%)')

@@ -61,7 +61,45 @@ se ejecuta, para que no se olvide.
 Y la errata: la app escribe «pasea**c**alles» donde va «pasacalles». En la tarjeta va
 corregido; **en la captura del día 23 se ve el error**, porque una captura no se retoca nunca.
 
-### Por qué esto NO se publica todavía
+### 25-sep: el corte del finde, porque el de cinco días llegó tarde
+
+Nadie subió nada y la fiesta empezó. El 25 el dueño quiso volver a publicar, y un plan de
+cinco días publicado el tercero es medio papel mojado: el 23 y el 24 ya han pasado. Así que
+el mismo generador tiene dos cortes:
+
+```bash
+python3 ../piezas/merce/gen-plan-merce.py          # 8 tarjetas, los cinco días
+python3 ../piezas/merce/gen-plan-merce.py finde    # 7 tarjetas, viernes a domingo
+node ../piezas/roma/exportar-plan.mjs planmerce 7
+```
+
+El corte del finde cambia tres cosas: la portada es un reloj («Quedan tres días de Mercè»,
+13 planes y 183 €), el viernes lleva «· hoy» en el kicker, y entra **la tarjeta 2, el aviso**
+— los dos actos que han cambiado de sitio este año. Esa tarjeta es la que gana el deslizar y
+la que se reenvía; y es, además, exactamente lo que la app puso mal.
+
+**Y la decisión del 25, que corrige la del 21**: el sábado sigue con el correfoc a las 20:30
+y la cena a las 21:00, y aun así se publica. Esperar a una captura regenerada costó cuatro
+días de una fiesta que dura cinco. Lo que se publica es verdad y es útil; lo apretado del
+sábado es del plan, no del dato.
+
+### Los dos avisos del finde (`gen-avisos.py`)
+
+Dos historias de 1080×1920, **el sábado por la mañana y el domingo**: el correfoc y el
+piromusical, con la hora y el sitio grandes y lo práctico debajo. Existen porque las
+historias diarias del sábado y el domingo **no se pueden subir** —enseñan la captura de la
+app tal cual, con la hora y la calle malas— y porque esos dos actos son lo más buscado del
+fin de semana. Una historia no se comparte por bonita: se comparte porque resuelve algo.
+
+```bash
+cd salida && python3 ../piezas/merce/gen-avisos.py
+node ../piezas/roma/exportar-plan.mjs merceaviso 2 1080 1920
+```
+
+Con el adhesivo de enlace, de 1520 para abajo:
+`https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=merce-aviso`
+
+### Por qué el carrusel de cinco días no llegó a publicarse
 
 Corregir las filas no arregla los días, porque **el plan estaba montado alrededor de las
 horas malas**:
@@ -173,7 +211,35 @@ fiesta. Se sustituye la captura del día que se regenere y se vuelven a sacar:
 Las zonas seguras están respetadas: el texto vive entre y=290 e y=1493 y de y=1520 abajo
 queda libre para el adhesivo. Ese hueco no es un descuido de diseño, es su sitio.
 
-## El pie del carrusel del plan (el que se publica)
+## El pie del corte del finde (el que se publica el 25)
+
+> Quedan tres días de Mercè. Le pedimos a NOMAD el finde entero y esto es lo que salió.
+>
+> Viernes, sábado y domingo hora a hora, con precios: 13 planes y 183 € con todas las
+> comidas y las cenas dentro. Cinco de ellos no cuestan nada.
+>
+> Y dos avisos, porque este año han cambiado de sitio los dos actos más grandes:
+>
+> · **Correfoc** — sábado 26, 20.30 h. Ya no pasa por Via Laietana: sale del passeig de
+> Gràcia y baja de Provença a Consell de Cent. A las 18 h, el de los pequeños.
+> · **Piromusical** — domingo 27, 22 h. Ya no es en Montjuïc: se dispara desde el espigón
+> del Bogatell y se ve desde la platja de la Nova Icària.
+>
+> Vie 25 · 5 planes · 93 € — la Sagrada Família, la Ciutadella, La Puntual, el Picasso, los conciertos del Moll de la Fusta
+> Sáb 26 · 4 planes · 75 € — el Park Güell, La Benaura, el correfoc, Bar Cañete
+> Dom 27 · 4 planes · 15 € — puertas abiertas en el Palau de la Generalitat, la Boqueria, Can Paixano y el piromusical
+>
+> Los precios son estimados: la entrada de cada sitio y lo que se suele dejar en la mesa. El
+> programa oficial entero, en barcelona.cat/lamerce.
+>
+> NOMAD sale en octubre. Le dices dónde vas y cuántos días y te monta el viaje así, con
+> horas y precios, para cualquier sitio: no para seis ciudades. Desde 2,99 € el viaje
+> entero, sin suscripción, según lo que dure; y el primero, para quien esté en la lista de
+> espera, 1,99 € dure lo que dure. Enlace en la bio.
+>
+> #lamerce #lamerce2026 #barcelona #correfoc #piromusical #festamajor #bcn #viajar
+
+## El pie del carrusel de cinco días (el que ya no llegó a tiempo)
 
 > Le pedimos a NOMAD los cinco días de la Mercè. Esto es lo que salió.
 >
