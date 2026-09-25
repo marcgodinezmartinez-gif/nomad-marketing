@@ -9,9 +9,14 @@
 #   bash piezas/preparar.sh && cd salida && python3 ../piezas/destacadas/gen-destacadas.py
 set -e
 R="$(cd "$(dirname "$0")/.." && pwd)"
-mkdir -p "$R/salida/fotos"
+mkdir -p "$R/salida/fotos" "$R/salida/fotos-historia"
 cp "$R"/banco/fuentes/Main.dc.html "$R"/salida/
 cp "$R"/banco/fotos/post/f-*.jpg "$R"/salida/fotos/
+# Los recortes de 1080×1920, para las historias. Hasta el 25-sep no se copiaban y las
+# historias estiraban el recorte de post (1350 → 1920, un 42 %): la trampa de AGENTS.md de
+# las postales, en pequeño. Van aparte y con el mismo nombre, así que una historia sólo
+# cambia la carpeta: fotos-historia/f-x.jpg en vez de fotos/f-x.jpg.
+cp "$R"/banco/fotos/historia/f-*.jpg "$R"/salida/fotos-historia/
 cp "$R"/banco/capturas/*.webp "$R"/banco/marca/*.png "$R"/banco/qr/tarjeta-qr-*.png "$R"/salida/
 [ -x "$R/node_modules/ffmpeg-static/ffmpeg" ] || echo "aviso: falta ffmpeg — npm install en la raíz (11 s) antes de montar un reel"
 echo "salida/ lista"

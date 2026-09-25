@@ -99,6 +99,39 @@ node ../piezas/roma/exportar-plan.mjs merceaviso 2 1080 1920
 Con el adhesivo de enlace, de 1520 para abajo:
 `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=merce-aviso`
 
+### 25-sep por la noche: el finde en historias (`gen-finde-historias.py`)
+
+El dueño: *«el carrusel molaba para subirlo a historias, pero ajústalo a contar los planes de
+sábado y domingo solo»*. Seis historias de 1080×1920, en este orden:
+
+| # | Qué | Nota |
+|---|---|---|
+| 1 | «Queda el finde de Mercè» — 8 planes, 90 €, 4 gratis | El reloj, como la portada que gustó |
+| 2 | El aviso: los dos cambios de sitio | Lo que se reenvía |
+| 3 | Sábado 26 · 4 planes · 75 € | |
+| 4 | Domingo 27 · 4 planes · 15 € | |
+| 5 | Cómo se hizo, con el móvil | **Enseña el viernes a propósito**: las capturas del sábado y el domingo llevan la calle y la hora malas, y un móvil que dijera «Montjuïc» justo después del aviso sería un gol en propia |
+| 6 | El cierre, señalando el adhesivo | |
+
+Es el carrusel bajado 190 px a la zona segura, con los velos rehechos para 1920. El plan
+sale de **`plan.py`**, que es de donde lo lee también el carrusel: las cinco filas
+corregidas viven en un sitio y no en dos. (Movidas sin tocar un byte: los dos cortes del
+carrusel dan exactamente el mismo HTML y la misma salida que antes.)
+
+```bash
+bash piezas/preparar.sh
+cd salida && python3 ../piezas/merce/gen-finde-historias.py
+node ../piezas/roma/exportar-plan.mjs mercefinde 6 1080 1920
+```
+
+Adhesivo de enlace en la primera y en la última (el hueco está reservado en las seis):
+`https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=merce-finde`
+
+**Y un arreglo que venía de antes**: `preparar.sh` sólo copiaba los recortes de post, así que
+toda historia estiraba una foto de 1350 a 1920 — la trampa de las postales de AGENTS.md, en
+pequeño. Ahora copia también `banco/fotos/historia/` a `salida/fotos-historia/`, y las tres
+piezas de historias de la Mercè (esta, los avisos y las diarias) leen de ahí.
+
 ### Por qué el carrusel de cinco días no llegó a publicarse
 
 Corregir las filas no arregla los días, porque **el plan estaba montado alrededor de las

@@ -39,7 +39,7 @@ DIAS = [
 VELO = ('linear-gradient(180deg, rgba(16, 14, 11, 0.84) 0%, rgba(16, 14, 11, 0.6) 32%, '
         'rgba(16, 14, 11, 0.72) 100%)')
 
-def hay(f, carpeta='fotos'):
+def hay(f, carpeta='fotos-historia'):
     return os.path.exists(f'{carpeta}/{f}' if carpeta else f)
 
 def telefono(png, ancho=440, arriba=540):
@@ -64,7 +64,7 @@ def pendiente(ancho=440, arriba=540):
 faltan = []
 for i, (dia, como, foto) in enumerate(DIAS, 1):
     captura = f'planmerce-{dia}-900.webp'
-    fondo = (f'<img src="fotos/{foto}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; '
+    fondo = (f'<img src="fotos-historia/{foto}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; '
              f'object-fit: cover; display: block">' if hay(foto) else '')
     cuerpo = (f'<div style="width: {W}px; height: {H}px; box-sizing: border-box; position: relative; '
               f'overflow: hidden; background: {NOCHE}; color: #FFFDF9">'

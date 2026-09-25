@@ -52,7 +52,7 @@ def texto(t, y, size, color=PAPEL, peso=500, familia='sans', alto=1.36, ancho=91
 for a in AVISOS:
     cuerpo = (f'<div style="width: {W}px; height: {H}px; box-sizing: border-box; position: relative; '
               f'overflow: hidden; background: {NOCHE}; color: {PAPEL}">'
-      + f'<img src="fotos/{a["foto"]}" alt="" style="position: absolute; inset: 0; width: 100%; '
+      + f'<img src="fotos-historia/{a["foto"]}" alt="" style="position: absolute; inset: 0; width: 100%; '
         f'height: 100%; object-fit: cover; display: block">'
       + f'<div style="position: absolute; inset: 0; background: {VELO}"></div>'
       # arriba, dentro de la zona segura (la interfaz tapa unos 250 px)
