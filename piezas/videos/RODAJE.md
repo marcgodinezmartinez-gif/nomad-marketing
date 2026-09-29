@@ -178,7 +178,24 @@ quien viaja llevan número en menta; cuando empieza a trabajar la app, se acaban
 | Preferencias e imprescindibles | 2 · Cómo te gusta viajar. |
 | El texto | 3 · Y lo que quieras pedirle. |
 | «Montando» | NOMAD lo monta en un minuto. |
-| El plan | Tres días, con horas y precios. |
+| El plan | Organiza los días y qué visitar. |
+
+El quinto era «Tres días, con horas y precios.» y al dueño no le gustó: *«algo mejor sería
+algo como organiza los días, qué visitar»*. Queda con sus palabras.
+
+**El pie del reel** (con el mismo cambio: nada de «con horas y precios»):
+
+> ¿Qué planea NOMAD para el puente del Pilar? Le dijimos Córdoba, del 10 al 12 de octubre, y
+> cómo nos gusta viajar.
+>
+> En menos de un minuto organizó los tres días y qué visitar: la Judería y la Mezquita el
+> sábado, el Alcázar y los patios de San Basilio el domingo, y Medina Azahara antes de
+> volver el lunes. Con tapas, que era lo que pedimos.
+>
+> Sale en octubre. Desde 2,99 € el viaje entero, sin suscripción, y en la lista el primero
+> por 1,99 €, dure lo que dure. El enlace, en la bio.
+>
+> #cordoba #puentedelpilar #escapada #viajar #viajes #andalucia
 
 Para hacerles sitio el móvil sube 270 px en vez de 370 (queda en y=330 y deja libre la
 franja 238-304) y el degradado de abajo baja 100, así que lo que se ve y lo que se tapa no
