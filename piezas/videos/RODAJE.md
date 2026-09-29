@@ -52,6 +52,47 @@ por función, 15 s en total, y que al acabar vuelva a empezar. Cada número abre
 | 5 | **Un tour temático** (G6) | «Un tour de heladerías por Roma» → las paradas | Sofá |
 | — | *Sin cobertura* (G7) | *Sólo si la build ya lleva el arreglo del audio descargado* | — |
 
+### El clip 1 al detalle: el viaje que se escribe (29-sep)
+
+**Córdoba, del sábado 10 al lunes 12 de octubre**: el puente del Pilar. Por qué:
+
+- Es la escapada típica de un puente, y octubre es su mejor mes.
+- No es ninguna de las seis ciudades que cubren las apps de contenido curado (`campana/MERCADO`).
+- **Ese fin de semana no hay fiesta grande.** El plan será monumentos, comida y paseos, que es lo
+  que la app hace bien. Con la Mercè salieron mal los cinco actos de la fiesta (issue #6).
+- El banco ya tiene fotos de Córdoba para el post del puente.
+
+**Qué marcar**, con los campos del resumen del paso 4:
+
+| Campo | Qué | Por qué |
+|---|---|---|
+| Tipo | Ciudad | |
+| Viajeros | **Con amigos** | El mismo viaje sirve para el clip 4, el del grupo y el QR: el listado cuenta un solo viaje |
+| Estilo | Cultural (y gastronomía, si deja marcar dos) | |
+| Ritmo | Mañanas, tardes y noches | Más paradas: el deslizamiento por el plan impresiona más |
+| Presupuesto | Moderado (€€) | Precios creíbles a la vista |
+| Movilidad | Sin limitaciones | |
+| Transporte | A pie y transporte público | El centro de Córdoba se hace andando |
+
+**En «Algo más que debamos saber»**:
+
+> Llegamos el sábado a media mañana y el lunes volvemos por la tarde. Nos gusta comer de
+> tapas sin gastar mucho.
+
+Dos condiciones que **se ven en el resultado**: el sábado empieza tarde y el lunes acaba
+pronto, y las comidas salen en tabernas con precios bajos. Una petición que no deja rastro
+en el plan no demuestra nada. Por eso no se nombra ningún monumento: que la app encaje las
+horas de llegada y vuelta impresiona más que obedecer una lista.
+
+**Coreografía** (`piezas/demo-app/GUION.md`, «Plano 1 al detalle»): el campo ya casi escrito
+con el teclado arriba; se teclean en cámara las últimas palabras («sin gastar mucho.»); se
+baja el teclado y aparece el resumen; un segundo quieto; «Generar viaje»; el plan aparece
+y se desliza despacio por los tres días.
+
+**Antes de publicar se revisa el plan**, como con la Mercè. Varios monumentos de Córdoba
+cierran los lunes, y el lunes 12 es festivo: si la app mete algo el día que cierra, se ve
+aquí y no en los comentarios.
+
 Las reglas de `piezas/demo-app/GUION.md` siguen valiendo: no molestar puesto, un plano por
 grabación y con margen por los dos lados, toques lentos, **la barra de estado entera**, y
 **el volumen subido**: la grabación de pantalla recoge el audio de la app, y la voz del tour
