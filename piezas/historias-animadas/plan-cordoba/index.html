@@ -74,7 +74,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="plan-cordoba" data-start="0"
-         data-width="1080" data-height="1920" data-duration="18.25">
+         data-width="1080" data-height="1920" data-duration="29.65">
       <img id="f1" class="fondo" src="assets/fondo-cordoba.jpg" alt="" />
       <div id="velo"></div>
       <div id="velo-cierre"></div>
@@ -86,7 +86,7 @@
           <!-- La grabaci&oacute;n de la app real, ya cortada y acelerada con ffmpeg (los tramos, en
                piezas/videos/RODAJE.md). El &lt;video&gt; lleva su tiempo y su envoltorio ninguno. -->
           <video id="pantalla" class="clip" src="assets/pantalla.mp4"
-                 data-start="0" data-duration="13.967" muted playsinline></video>
+                 data-start="0" data-duration="25.367" muted playsinline></video>
         </div>
       </div>
       <div id="velo-bajo"></div>
@@ -115,13 +115,19 @@
         var tl = gsap.timeline({ paused: true });
         var OUT = { autoAlpha: 0, y: -24, duration: 0.3, ease: "power2.in" };
 
-        // Los cortes de pantalla.mp4, contados en fotogramas al montarlo (70, 54, 62, 45 y
-        // 188 a 30 fps): el asistente, el texto, el resumen, &laquo;Montando&raquo; y el plan.
-        var T_ESCRIBIR = 2.333, T_RESUMEN = 4.133, T_MONTANDO = 6.2, T_PLAN = 7.7, T_FIN = 13.967;
+        // Los cortes de pantalla.mp4, contados en fotogramas al montarlo a 30 fps (71, 49,
+        // 62, 30, 108, 141, 75 y 225): buscar y nombrar el viaje (&times;4), las fechas (&times;2,5), las
+        // preferencias (&times;1,75), los imprescindibles (&times;2), el texto (&times;6), y a velocidad real
+        // la frase con el resumen, &laquo;Montando&raquo; y el plan. El 29-sep iba a &times;7,5 y &times;12 y el
+        // due&ntilde;o lo par&oacute;: &laquo;no da tiempo al usuario a apreciar c&oacute;mo se monta un viaje&raquo;.
+        // El resumen entero (todo lo que se ha marcado) s&oacute;lo exist&iacute;a medio segundo: su &uacute;ltimo
+        // fotograma se congela 1,4 s (T_CONGELA) mientras la c&aacute;mara baja a leerlo.
+        var T_FECHAS = 2.367, T_ESCRIBIR = 7.067, T_RESUMEN = 10.667, T_CONGELA = 13.967,
+            T_MONTANDO = 15.367, T_PLAN = 17.867, T_FIN = 25.367;
         var CIERRE = T_FIN - 0.73;   // el m&oacute;vil se va ANTES de que acabe su v&iacute;deo
-        var SUBIDA = 2.45;           // cuando la c&aacute;mara sube el m&oacute;vil
+        var SUBIDA = T_FECHAS;       // la c&aacute;mara sube el m&oacute;vil cuando llegan las fechas
 
-        tl.fromTo("#f1", { scale: 1.04 }, { scale: 1.1, duration: 18.25, ease: "none" }, 0);
+        tl.fromTo("#f1", { scale: 1.04 }, { scale: 1.1, duration: 29.65, ease: "none" }, 0);
 
         // 1 &middot; El gancho, en el primer segundo: la pregunta entra mientras el asistente ya
         // corre a &times;7,5 detr&aacute;s. El m&oacute;vil entra deprisa: no hay tiempo que perder.
@@ -136,6 +142,13 @@
         // plan), y con el m&oacute;vil en y=600 s&oacute;lo se ve&iacute;a la mitad de arriba. Arriba, en y=230,
         // se ve del 0 al 74 % de la pantalla sin encoger el m&oacute;vil, que es lo que deja leerlo.
         tl.to("#telefono", { y: -370, duration: 0.65, ease: "power2.inOut" }, SUBIDA - 0.05);
+
+        // 3 &middot; EL RESUMEN, A LEER. Cuando la app sube el resumen entero, la c&aacute;mara baja 400 px
+        // m&aacute;s para que se vean todas las opciones y &laquo;Generar viaje&raquo; fuera del degradado, y
+        // vuelve a su sitio con &laquo;Montando&raquo;: en el plan, la fila del Palacio de Viana tiene
+        // que quedar debajo de la franja opaca.
+        tl.to("#telefono", { y: -770, duration: 0.6, ease: "power2.inOut" }, T_CONGELA - 0.45);
+        tl.to("#telefono", { y: -370, duration: 0.6, ease: "power2.inOut" }, T_MONTANDO + 0.1);
 
         // El cierre, como el del demo: el m&oacute;vil se va por abajo antes de que acabe su v&iacute;deo,
         // cambia el velo y entran octubre, la oferta, la nota y la marca.

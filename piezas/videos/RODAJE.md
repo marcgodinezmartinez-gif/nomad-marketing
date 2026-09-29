@@ -119,16 +119,29 @@ aquí y no en los comentarios.
 
 El dueño grabó el asistente de un tirón y lo mandó en tres trozos (el chat corta a 30 MB),
 más el plan en una grabación aparte: 1206×2622, HEVC, sin audio. De ahí sale un reel de
-**18,3 s** con el molde del demo del 3-sep (el móvil de la casa a 808 px, el velo, el
+**29,7 s** con el molde del demo del 3-sep (el móvil de la casa a 808 px, el velo, el
 kicker y el titular, el cierre de octubre y el 1,99 €).
+
+**El primer corte duraba 18,3 s y el dueño lo paró**: *«se ve demasiado rápido; no da
+tiempo al usuario a apreciar cómo se monta un viaje»*. El asistente iba a ×7,5 y el texto a
+×12: no se leía nada. Es la misma queja que el 3-sep sobre el demo («va muy deprisa esas
+partes»), así que queda como regla de la casa: **en un reel que enseña la app, cada paso a
+la velocidad que deje leerlo**. Lo que se acelera es sólo teclear.
 
 | Tramo | Origen | Desde → hasta | Velocidad | Fotogramas |
 |---|---|---|---|---|
-| El asistente: Córdoba, fechas, estilo, ritmo, quién viaja | trozo 1 | 0,6 → 18,0 | ×7,5 | 70 |
-| El texto de «Algo más que debamos saber» | trozo 1 | 20,0 → 41,5 | ×12 | 54 |
-| La frase entera, el teclado bajando y el resumen | trozo 1 | 41,5 → 44,95 | ×1,6 | 62 |
-| «Montando tus 3 días en Córdoba» | trozo 3 | 1,2 → 2,7 | ×1 | 45 |
-| El plan: sábado, domingo y lunes | plan | 3,5 → 11,0 | ×1,2 | 188 |
+| Buscar Córdoba y ponerle nombre al viaje | trozo 1 | 0,8 → 10,3 | ×4 | 71 |
+| Las fechas en el calendario | trozo 1 | 10,3 → 14,4 | ×2,5 | 49 |
+| Estilo, ritmo, presupuesto y quién viaja | trozo 1 | 14,4 → 17,9 | ×1,75 | 62 |
+| Los imprescindibles de Córdoba | trozo 1 | 17,9 → 20,0 | ×2 | 30 |
+| El texto de «Algo más que debamos saber» | trozo 1 | 20,0 → 41,5 | ×6 | 108 |
+| La frase entera y el resumen, **+1,4 s congelado** | trozo 1 | 41,5 → 44,95 | ×1 | 141 |
+| «Montando tus 3 días en Córdoba» | trozo 3 | 0,8 → 3,3 | ×1 | 75 |
+| El plan: sábado, domingo y lunes | plan | 3,5 → 11,0 | ×1 | 225 |
+
+El resumen entero (todo lo que se ha marcado) sólo existía medio segundo en la grabación:
+se congela su último fotograma 1,4 s y la cámara baja 400 px más para leerlo con «Generar
+viaje» debajo; vuelve a su sitio con «Montando».
 
 Tres cosas que se quedan fuera, y por qué:
 
@@ -152,7 +165,7 @@ hay barra de estado fabricada**, porque esta grabación trae la de verdad.
 bash piezas/historias-animadas/construir.sh
 cd piezas/historias-animadas/plan-cordoba
 npx hyperframes check              # 0/0, 8/8 en contraste
-npx hyperframes render --output ../../../salida/reel-cordoba.mp4   # ~1 min
+npx hyperframes render --output ../../../salida/reel-cordoba.mp4   # ~1,5 min
 ```
 
 El render necesita `ffmpeg` y `ffprobe` en el PATH (`ffmpeg-static` no trae el segundo).
