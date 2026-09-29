@@ -203,12 +203,21 @@ algo como organiza los días, qué visitar»*. Queda con sus palabras.
    pregunta (`salida/reel-cordoba-portada.jpg`; el recorte de la cuadrícula la respeta) y
    visible en la cuadrícula. Es lo que se queda en el perfil y lo que se paga si se paga.
 2. **Historia, subiendo el mp4 desde el carrete, no compartiendo el reel.** Con el demo
-   del 2-sep, el 88 % de las vistas del reel vino de historias que lo compartían: se pasa
+   del 3-sep, el 88 % de las vistas del reel vino de historias que lo compartían: se pasa
    con un toque, la media se quedó en 4 s, y eso es lo que Instagram lee del reel. Subido
    aparte, la historia lleva el adhesivo de enlace (en la franja oscura de abajo, donde no
    tapa nada) y el reel conserva sólo a quien lo ve de verdad. Cabe en una historia: dura
    29,7 s y el tope es 60.
    `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=reel-cordoba`
+3. **En la personal del dueño, igual que el 2: subida desde el carrete, nunca compartiendo
+   el reel.** El demo se compartió desde ahí y desde las de su pareja, familia y amigos (7
+   republicaciones): de 1 258 espectadores salieron 4 toques al enlace de la bio, porque
+   para apuntarse había que ir de la historia al reel, del reel al perfil, del perfil a la
+   bio y de la bio a la web. Con el adhesivo es un toque. Lleva `-personal` en la campaña,
+   para que la tabla diga cuánto trae el círculo, y una mención a @app.nomad al lado del
+   enlace, que es por donde se llega al reel y a seguir la cuenta. Al resto del círculo,
+   mejor que lo mande por privado a quien le pueda servir que ponerlo en su historia.
+   `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=reel-cordoba-personal`
 
 Para hacerles sitio el móvil sube 270 px en vez de 370 (queda en y=330 y deja libre la
 franja 238-304) y el degradado de abajo baja 100, así que lo que se ve y lo que se tapa no
