@@ -84,10 +84,20 @@ pronto, y las comidas salen en tabernas con precios bajos. Una petición que no 
 en el plan no demuestra nada. Por eso no se nombra ningún monumento: que la app encaje las
 horas de llegada y vuelta impresiona más que obedecer una lista.
 
-**Coreografía** (`piezas/demo-app/GUION.md`, «Plano 1 al detalle»): el campo ya casi escrito
-con el teclado arriba; se teclean en cámara las últimas palabras («sin gastar mucho.»); se
-baja el teclado y aparece el resumen; un segundo quieto; «Generar viaje»; el plan aparece
-y se desliza despacio por los tres días.
+**Se graba el asistente entero, de un tirón** (corregido el mismo 29-sep, a pregunta del
+dueño): desde «Crear viaje» hasta el plan, escribiendo en cámara el destino y el texto.
+Grabarlo no cuesta nada y da material para todo: el listado, el reel del clip y, algún día,
+el vídeo de la ficha de la tienda.
+
+**Otra cosa es cuánto de eso sale en el montaje.** Los pasos 1 a 3 van acelerados (unas
+ocho veces, un segundo y poco en total) o fuera. Con el reel del 2-sep se fue el 75 % de la
+gente en los cuatro primeros segundos, y el premio es el plan, no el formulario. Además, el
+resumen del paso 4 ya enseña en un solo cuadro todo lo que se ha marcado. A velocidad normal
+van el final del paso 4 (las últimas palabras, el resumen, «Generar viaje»), la espera de
+la generación con un latido de «pensando» y el plan deslizándose despacio por los tres días.
+
+Por eso, **toques lentos**: un segundo quieto antes y después de cada selección. Lo que
+acelerado a ×8 se lee como «elige cuatro cosas y ya», con toques rápidos se lee como ruido.
 
 **Antes de publicar se revisa el plan**, como con la Mercè. Varios monumentos de Córdoba
 cierran los lunes, y el lunes 12 es festivo: si la app mete algo el día que cierra, se ve
