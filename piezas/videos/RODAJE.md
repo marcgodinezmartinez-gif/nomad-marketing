@@ -197,6 +197,19 @@ algo como organiza los días, qué visitar»*. Queda con sus palabras.
 >
 > #cordoba #puentedelpilar #escapada #viajar #viajes #andalucia
 
+**Cómo se publica (29-sep), y vale para los siguientes**: los dos, y en este orden.
+
+1. **Reel**: el mp4 tal cual, con la música elegida dentro de Instagram, la portada de la
+   pregunta (`salida/reel-cordoba-portada.jpg`; el recorte de la cuadrícula la respeta) y
+   visible en la cuadrícula. Es lo que se queda en el perfil y lo que se paga si se paga.
+2. **Historia, subiendo el mp4 desde el carrete, no compartiendo el reel.** Con el demo
+   del 2-sep, el 88 % de las vistas del reel vino de historias que lo compartían: se pasa
+   con un toque, la media se quedó en 4 s, y eso es lo que Instagram lee del reel. Subido
+   aparte, la historia lleva el adhesivo de enlace (en la franja oscura de abajo, donde no
+   tapa nada) y el reel conserva sólo a quien lo ve de verdad. Cabe en una historia: dura
+   29,7 s y el tope es 60.
+   `https://travelsnomad.com/?utm_source=instagram&utm_medium=organic&utm_campaign=reel-cordoba`
+
 Para hacerles sitio el móvil sube 270 px en vez de 370 (queda en y=330 y deja libre la
 franja 238-304) y el degradado de abajo baja 100, así que lo que se ve y lo que se tapa no
 cambia. El tercero sale antes de que la cámara baje al resumen, que le tapa la franja, y el
