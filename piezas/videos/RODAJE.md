@@ -19,6 +19,46 @@ hay que apretar, en el orden en que se puede apretar.
 
 Y el canal: *«el que se paga solo es el orgánico en vídeo — un alta orgánica cuesta cero»*.
 
+## La sesión de funcionalidades (29-sep): una grabación, dos formatos
+
+Idea del dueño: *«un reel mostrando cómo se usa la app, en plan diferentes
+funcionalidades»*. Es lo que fue el reel del demo del 2-sep, y está medido
+(`piezas/demo-app/GUION.md`, al final): 43 s, cuatro funciones en fila, **4 s de visionado
+medio y 0 guardados** con 1 258 espectadores. Lo que falló no fue enseñar la app, fue el
+formato: lento y lineal, con la primera recompensa (el plan) en el segundo 4, cuando ya se
+había ido el 75 %. Y además hoy enseña el aspecto viejo de la app (issue #5).
+
+Lo que sí aguanta varias funciones en un reel es **el listado rápido**: numerado, unos 3 s
+por función, 15 s en total, y que al acabar vuelva a empezar. Cada número abre la pregunta
+«¿y el siguiente?», que es lo que retiene; y un reel corto que se ve dos veces pasa del
+100 % de retención, que es lo que el algoritmo premia.
+
+**Una sola sesión de grabación da los dos formatos:**
+
+1. **«4 cosas que hace NOMAD en un viaje»** — el listado, ~15 s:
+   escribir el viaje → el tour al oído → el cuadro → los gastos del grupo → «Llega en
+   octubre · tu primer viaje por 1,99 €*».
+2. **Una función por reel**, 8-12 s cada uno, para ir soltándolos en la semana del
+   lanzamiento: son G6, G5, G3, G1 y G8 de abajo, con los mismos clips.
+
+### Qué grabar (pantalla del móvil, un clip por función)
+
+| # | Función | Qué se hace | Dónde |
+|---|---|---|---|
+| 1 | **Escribir el viaje** | Destino y días → «Generar viaje» → el plan aparece → deslizar despacio | Sofá. Con **el destino del puente del Pilar**: el clip sirve también para ese post |
+| 2 | **El tour al oído** | Abrir el tour → el mapa con la ruta → tocar una parada → play: **que suene la voz** | Sofá (mejor en la calle) |
+| 3 | **El museo** | La cámara sobre un cuadro → aparece su historia | Museo que deje grabar; en casa, con una lámina, sólo para probar |
+| 4 | **El grupo** | El QR → otro móvil lo escanea → un gasto → el reparto | Sofá, con un segundo móvil |
+| 5 | **Un tour temático** (G6) | «Un tour de heladerías por Roma» → las paradas | Sofá |
+| — | *Sin cobertura* (G7) | *Sólo si la build ya lleva el arreglo del audio descargado* | — |
+
+Las reglas de `piezas/demo-app/GUION.md` siguen valiendo: no molestar puesto, un plano por
+grabación y con margen por los dos lados, toques lentos, **la barra de estado entera**, y
+**el volumen subido**: la grabación de pantalla recoge el audio de la app, y la voz del tour
+es la prueba de ese plano. Se graba limpio; el texto va después.
+
+Con esos clips se cierra también la issue #5 (el demo con el aspecto viejo).
+
 ## Lo que cambia respecto a los guiones de agosto
 
 **El ancla de la audioguía está fuera.** G1 llevaba «La audioguía oficial: 5-8 €» y G4 era
