@@ -84,8 +84,20 @@ pronto, y las comidas salen en tabernas con precios bajos. Una petición que no 
 en el plan no demuestra nada. Por eso no se nombra ningún monumento: que la app encaje las
 horas de llegada y vuelta impresiona más que obedecer una lista.
 
-**Se graba el asistente entero, de un tirón** (corregido el mismo 29-sep, a pregunta del
-dueño): desde «Crear viaje» hasta el plan, escribiendo en cámara el destino y el texto.
+**Se graba el asistente entero, en tres tomas** (corregido dos veces el 29-sep, a pregunta
+del dueño): desde «Crear viaje» hasta el plan, escribiendo en cámara el destino y el texto.
+Tres tomas y no una porque **el chat no admite adjuntos de más de 30 MB**, y una grabación
+de pantalla de un minuto pasa de largo. Cada toma, de unos 30 s:
+
+1. **Los pasos 1 a 3**: destino, fechas y todas las selecciones.
+2. **El paso 4 y la generación**: el texto, el resumen, «Generar viaje» y la espera.
+3. **El plan**: deslizar despacio por los tres días.
+
+Entre toma y toma se para la grabación desde el Centro de control y se vuelve a arrancar;
+la app se queda donde estaba. Antes de mandarlas se mira el tamaño en Fotos (deslizar el
+vídeo hacia arriba) y, si alguna pasa de 30 MB, se recortan los extremos muertos (Editar,
+arrastrar los bordes, «Guardar como clip nuevo»). No se comprime por WhatsApp: destroza la
+nitidez del texto, que es lo que se tiene que leer.
 Grabarlo no cuesta nada y da material para todo: el listado, el reel del clip y, algún día,
 el vídeo de la ficha de la tienda.
 
