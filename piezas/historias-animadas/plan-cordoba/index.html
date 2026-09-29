@@ -32,8 +32,11 @@
          y su parte baja cae donde Instagram pinta el pie y los botones. Adem&aacute;s esconde la
          fila del Palacio de Viana del domingo, que la app puso a las 16:30 cuando los
          domingos de oto&ntilde;o cierra a las 15:00. */
-      #velo-bajo { position: absolute; left: 0; top: 1340px; width: 1080px; height: 580px;
-        background: linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,.94) 44%, rgba(16,14,11,1) 52%, rgba(16,14,11,1) 100%); }
+      /* 80 px m&aacute;s alto que el hueco que cubre: en el plan sube 70 (ver la l&iacute;nea de tiempo) y
+         tiene que seguir llegando al borde, o asoma la barra de pesta&ntilde;as de la app. Las paradas
+         del degradado van en px para que no dependan del alto. */
+      #velo-bajo { position: absolute; left: 0; top: 1440px; width: 1080px; height: 560px;
+        background: linear-gradient(180deg, rgba(16,14,11,0) 0px, rgba(16,14,11,.94) 254px, rgba(16,14,11,1) 302px, rgba(16,14,11,1) 100%); }
 
       /* Texto: la SOMBRA de la casa y las posiciones de la casa. Sin <br>. */
       .grupo { position: absolute; left: 84px; top: 300px; width: 912px;
@@ -49,6 +52,17 @@
       .nota { position: absolute; left: 0; top: 320px; width: 912px; display: block;
               font-size: 36px; line-height: 1.35; font-weight: 500; color: rgba(255,253,249,.8); }
       .menta { color: #5CC0A6; }
+      /* LOS SUBT&Iacute;TULOS DE CADA PASO (29-sep, a petici&oacute;n del due&ntilde;o: &laquo;&iquest;a&ntilde;adimos algo de
+         texto encima?&raquo;). Una l&iacute;nea en serif sobre la foto, en la franja que queda entre la
+         zona segura del reel (y=230) y el m&oacute;vil, que para dejarla baja 100 px (ver la l&iacute;nea
+         de tiempo). No van sobre la pantalla: taparle a la app lo que ense&ntilde;a es tapar la
+         prueba. Los tres pasos que hace quien viaja llevan n&uacute;mero en menta; cuando la app se
+         pone a trabajar, los n&uacute;meros se acaban. */
+      .paso { position: absolute; left: 84px; top: 238px; width: 912px; margin: 0;
+              font-size: 60px; line-height: 1.1; letter-spacing: -.015em; white-space: nowrap;
+              text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      .paso .num { font-family: 'Instrument Sans'; font-size: 36px; font-weight: 700;
+                   color: #5CC0A6; margin-right: 20px; vertical-align: 8px; }
       #marca { position: absolute; left: 84px; top: 1400px; display: flex; align-items: center;
                gap: 20px; text-shadow: 0 4px 34px rgba(0,0,0,.55); }
       #marca img { width: 54px; height: 54px; display: block; }
@@ -93,7 +107,13 @@
                  data-start="0" data-duration="25.367" muted playsinline></video>
         </div>
       </div>
-      <div id="velo-bajo"></div>
+      <div id="velo-bajo" data-layout-allow-overflow></div>
+
+      <p id="c1" class="paso serif"><span class="num">1</span>Dices d&oacute;nde y cu&aacute;ndo.</p>
+      <p id="c2" class="paso serif"><span class="num">2</span>C&oacute;mo te gusta viajar.</p>
+      <p id="c3" class="paso serif"><span class="num">3</span>Y lo que quieras pedirle.</p>
+      <p id="c4" class="paso serif">NOMAD lo monta en un minuto.</p>
+      <p id="c5" class="paso serif">Tres d&iacute;as, con horas y precios.</p>
 
       <!-- El gancho, en el formato que eligi&oacute; el due&ntilde;o para la Merc&egrave;: una pregunta con
            NOMAD de sujeto. El plan que viene detr&aacute;s es la respuesta. -->
@@ -141,18 +161,42 @@
         tl.fromTo("#t1b", { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.35);
         tl.to("#g1", OUT, SUBIDA);
 
-        // 2 &middot; LA C&Aacute;MARA SUBE EL M&Oacute;VIL 370 px. La app nueva tiene lo que importa en la
+        // 2 &middot; LA C&Aacute;MARA SUBE EL M&Oacute;VIL 270 px. La app nueva tiene lo que importa en la
         // mitad de abajo (el texto que se escribe, el resumen, &laquo;Montando&raquo;, las filas del
-        // plan), y con el m&oacute;vil en y=600 s&oacute;lo se ve&iacute;a la mitad de arriba. Arriba, en y=230,
-        // se ve del 0 al 74 % de la pantalla sin encoger el m&oacute;vil, que es lo que deja leerlo.
-        tl.to("#telefono", { y: -370, duration: 0.65, ease: "power2.inOut" }, SUBIDA - 0.05);
+        // plan), y con el m&oacute;vil en y=600 s&oacute;lo se ve&iacute;a la mitad de arriba. Sub&iacute;a 370 hasta
+        // que llegaron los subt&iacute;tulos: se queda en y=330 y deja libre la franja 238-304, y el
+        // degradado de abajo baja lo mismo, as&iacute; que lo que se ve y lo que se tapa no cambia.
+        tl.to("#telefono", { y: -270, duration: 0.65, ease: "power2.inOut" }, SUBIDA - 0.05);
 
         // 3 &middot; EL RESUMEN, A LEER. Cuando la app sube el resumen entero, la c&aacute;mara baja 400 px
         // m&aacute;s para que se vean todas las opciones y &laquo;Generar viaje&raquo; fuera del degradado, y
         // vuelve a su sitio con &laquo;Montando&raquo;: en el plan, la fila del Palacio de Viana tiene
         // que quedar debajo de la franja opaca.
         tl.to("#telefono", { y: -770, duration: 0.6, ease: "power2.inOut" }, T_CONGELA - 0.45);
-        tl.to("#telefono", { y: -370, duration: 0.6, ease: "power2.inOut" }, T_MONTANDO + 0.1);
+        tl.to("#telefono", { y: -270, duration: 0.6, ease: "power2.inOut" }, T_MONTANDO + 0.1);
+
+        // LOS SUBT&Iacute;TULOS. Entran un poco despu&eacute;s de que empiece su paso (el texto explica
+        // lo que ya se ve, no lo anuncia) y el tercero sale ANTES de que la c&aacute;mara baje al
+        // resumen, que tapa su franja; el cuarto espera a que el m&oacute;vil vuelva.
+        var T_PREFS = 4.0;
+        var IN_P = { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" };
+        var OUT_P = { autoAlpha: 0, y: -12, duration: 0.25, ease: "power2.in" };
+        tl.fromTo("#c1", { autoAlpha: 0, y: 16 }, IN_P, SUBIDA + 0.45);
+        tl.to("#c1", OUT_P, T_PREFS + 0.35);
+        tl.fromTo("#c2", { autoAlpha: 0, y: 16 }, IN_P, T_PREFS + 0.55);
+        tl.to("#c2", OUT_P, T_ESCRIBIR);
+        tl.fromTo("#c3", { autoAlpha: 0, y: 16 }, IN_P, T_ESCRIBIR + 0.2);
+        tl.to("#c3", OUT_P, T_CONGELA - 0.7);
+        tl.fromTo("#c4", { autoAlpha: 0, y: 16 }, IN_P, T_MONTANDO + 0.75);
+        tl.to("#c4", OUT_P, T_PLAN - 0.1);
+        tl.fromTo("#c5", { autoAlpha: 0, y: 16 }, IN_P, T_PLAN + 0.1);
+        tl.to("#c5", OUT_P, CIERRE - 0.1);
+
+        // EN EL PLAN, EL DEGRADADO SUBE 70 px, en el corte de &laquo;Montando&raquo; al s&aacute;bado (no se
+        // ve moverse). Con el domingo desplazado hacia arriba, la fila del Palacio de Viana
+        // (16:30, cuando los domingos cierra a las 15:00) asomaba gris por debajo. Durante el
+        // asistente se queda donde estaba, para que se sigan leyendo el presupuesto y el ritmo.
+        tl.to("#velo-bajo", { y: -70, duration: 0.2, ease: "none" }, T_PLAN - 0.1);
 
         // El cierre, como el del demo: el m&oacute;vil se va por abajo antes de que acabe su v&iacute;deo,
         // cambia el velo y entran octubre, la oferta, la nota y la marca.

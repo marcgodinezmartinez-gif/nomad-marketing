@@ -167,7 +167,27 @@ de notificación.
 split[a][b];[b]crop=680:28:0:100,vflip,scale=760:100,gblur=sigma=14[c];[a][c]overlay=0:0
 ```
 
-Lo nuevo respecto al demo: **la cámara sube el móvil 370 px** a los 2,45 s, porque la app
+**Con un subtítulo por paso** (pedido del dueño con el vídeo ya aprobado: *«¿añadimos algo
+de texto encima?»*): una línea en serif sobre la foto, **encima del móvil y no sobre la
+pantalla**, que taparle a la app lo que enseña es tapar la prueba. Los tres pasos que hace
+quien viaja llevan número en menta; cuando empieza a trabajar la app, se acaban:
+
+| Cuándo | Subtítulo |
+|---|---|
+| Las fechas | 1 · Dices dónde y cuándo. |
+| Preferencias e imprescindibles | 2 · Cómo te gusta viajar. |
+| El texto | 3 · Y lo que quieras pedirle. |
+| «Montando» | NOMAD lo monta en un minuto. |
+| El plan | Tres días, con horas y precios. |
+
+Para hacerles sitio el móvil sube 270 px en vez de 370 (queda en y=330 y deja libre la
+franja 238-304) y el degradado de abajo baja 100, así que lo que se ve y lo que se tapa no
+cambia. El tercero sale antes de que la cámara baje al resumen, que le tapa la franja, y el
+cuarto espera a que vuelva. En el plan el degradado sube 70 px en el corte (el domingo,
+desplazado, dejaba asomar la fila del Palacio de Viana) y es 80 px más alto de lo que
+cubre, para no destapar la barra de pestañas al subir.
+
+Lo nuevo respecto al demo: **la cámara sube el móvil** (370 px en el primer corte, 270 desde los subtítulos) a los 2,4 s, porque la app
 nueva tiene lo que importa en la mitad de abajo (el texto, el resumen, «Montando», las
 filas del plan) y con el móvil en y=600 sólo se veía la de arriba; y la isla del marco vuelve a
 su tamaño de siempre, porque la de la grabación (con el punto rojo de «grabando») se va con
@@ -176,7 +196,7 @@ la barra de estado.
 ```bash
 bash piezas/historias-animadas/construir.sh
 cd piezas/historias-animadas/plan-cordoba
-npx hyperframes check              # 0/0, 8/8 en contraste
+npx hyperframes check              # 0/0, 11/11 en contraste
 npx hyperframes render --output ../../../salida/reel-cordoba.mp4   # ~1,5 min
 ```
 
