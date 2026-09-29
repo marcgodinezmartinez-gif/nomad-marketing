@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>El plan &middot; C&oacute;rdoba en el puente del Pilar</title>
+    <!-- Las dos fuentes reales, embebidas (construir.sh). Nada depende de la red. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* El reel del demo (demo-reel/) con la grabaci&oacute;n del 29-sep: mismo m&oacute;vil de la casa,
+         mismos velos, mismos kicker y titular, mismo cierre. Lo que cambia est&aacute; explicado
+         donde cambia: la isla, la c&aacute;mara que sube el m&oacute;vil y el degradado de abajo. */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+              color: #FFFDF9; background: #100E0B; }
+
+      .fondo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+               display: block; object-fit: cover; }
+
+      /* VELO_TELEFONO, el de las tarjetas con m&oacute;vil. */
+      #velo { position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(16,14,11,.82) 0%, rgba(16,14,11,.46) 36%, rgba(16,14,11,.55) 100%); }
+      /* El velo de qe-7, la tarjeta de cierre. */
+      #velo-cierre { position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(16,14,11,.55) 0%, rgba(16,14,11,.35) 30%, rgba(16,14,11,.9) 100%); }
+      /* NUEVO. Un degradado POR ENCIMA del m&oacute;vil, de y=1380 abajo. La app nueva pone su
+         contenido m&aacute;s abajo que la de agosto, as&iacute; que el m&oacute;vil sube (ver la l&iacute;nea de tiempo)
+         y su parte baja cae donde Instagram pinta el pie y los botones. Adem&aacute;s esconde la
+         fila del Palacio de Viana del domingo, que la app puso a las 16:30 cuando los
+         domingos de oto&ntilde;o cierra a las 15:00. */
+      #velo-bajo { position: absolute; left: 0; top: 1340px; width: 1080px; height: 580px;
+        background: linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,.94) 44%, rgba(16,14,11,1) 52%, rgba(16,14,11,1) 100%); }
+
+      /* Texto: la SOMBRA de la casa y las posiciones de la casa. Sin <br>. */
+      .grupo { position: absolute; left: 84px; top: 300px; width: 912px;
+               text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      .kicker { position: absolute; left: 0; top: 0; margin: 0; font-size: 32px;
+                letter-spacing: .18em; text-transform: uppercase; font-weight: 600;
+                color: rgba(255,253,249,.82); white-space: nowrap; }
+      .tit { position: absolute; left: 0; top: 80px; margin: 0; width: 912px;
+             font-size: 72px; line-height: 1.08; letter-spacing: -.015em; }
+      .tit span { display: block; }
+      .oferta { position: absolute; left: 0; top: 180px; margin: 0; width: 912px; display: block;
+                font-size: 96px; line-height: 1.05; letter-spacing: -.015em; }
+      .nota { position: absolute; left: 0; top: 320px; width: 912px; display: block;
+              font-size: 36px; line-height: 1.35; font-weight: 500; color: rgba(255,253,249,.8); }
+      .menta { color: #5CC0A6; }
+      #marca { position: absolute; left: 84px; top: 1400px; display: flex; align-items: center;
+               gap: 20px; text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      #marca img { width: 54px; height: 54px; display: block; }
+      #marca span { font-size: 30px; font-weight: 600; letter-spacing: .02em;
+                    color: rgba(255,253,249,.85); }
+
+      /* El m&oacute;vil de la casa a 808 px, como en el demo: a menos, el plan no se lee. */
+      #telefono { position: absolute; left: 136px; top: 600px; width: 808px; height: 1750px;
+                  background: #0b0b0d; border-radius: 111px; padding: 24px; box-sizing: border-box;
+                  box-shadow: 0 84px 200px rgba(0,0,0,.6); }
+      #aro { position: absolute; inset: 0; border-radius: 111px; border: 8px solid #98979c; }
+      /* LA ISLA, m&aacute;s ancha que la del demo a prop&oacute;sito. Esta grabaci&oacute;n trae su propia barra
+         de estado y, en ella, la isla desplegada con el punto rojo de &laquo;grabando&raquo;: 517x110
+         px en la grabaci&oacute;n (x 335-852, y 42-152), 326x70 escalada a 760. La isla del marco
+         la tapa entera, con 2 px de margen, y el punto rojo no se ve. */
+      #isla { position: absolute; top: 48px; left: 233px; width: 330px; height: 74px;
+              background: #0b0b0d; border-radius: 37px; z-index: 2; }
+      #pantalla-caja { position: relative; width: 760px; height: 1702px; border-radius: 88px;
+                       background: #F5F0E8; overflow: hidden; }
+      /* 1206x2622 escalado a 760 de ancho. Sin barra de estado a&ntilde;adida: &eacute;sta es la real. */
+      #pantalla { width: 760px; height: 1652px; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="plan-cordoba" data-start="0"
+         data-width="1080" data-height="1920" data-duration="18.25">
+      <img id="f1" class="fondo" src="assets/fondo-cordoba.jpg" alt="" />
+      <div id="velo"></div>
+      <div id="velo-cierre"></div>
+
+      <div id="telefono" data-layout-allow-overflow>
+        <div id="aro"></div>
+        <div id="isla"></div>
+        <div id="pantalla-caja">
+          <!-- La grabaci&oacute;n de la app real, ya cortada y acelerada con ffmpeg (los tramos, en
+               piezas/videos/RODAJE.md). El &lt;video&gt; lleva su tiempo y su envoltorio ninguno. -->
+          <video id="pantalla" class="clip" src="assets/pantalla.mp4"
+                 data-start="0" data-duration="13.967" muted playsinline></video>
+        </div>
+      </div>
+      <div id="velo-bajo"></div>
+
+      <!-- El gancho, en el formato que eligi&oacute; el due&ntilde;o para la Merc&egrave;: una pregunta con
+           NOMAD de sujeto. El plan que viene detr&aacute;s es la respuesta. -->
+      <div id="g1" class="grupo">
+        <p id="k1" class="kicker sans">C&oacute;rdoba &middot; 10-12 de octubre</p>
+        <h1 class="tit serif"><span id="t1a">&iquest;Qu&eacute; planea NOMAD</span><span id="t1b">para el puente del Pilar?</span></h1>
+      </div>
+      <!-- El cierre del demo, el que eligi&oacute; el due&ntilde;o el 3-sep. -->
+      <div id="g4" class="grupo">
+        <h1 class="tit serif"><span id="t4">Llega en octubre.</span></h1>
+        <h2 id="l1" class="oferta serif">Tu primer viaje por <span class="menta">1,99&nbsp;&euro;</span>*</h2>
+        <span id="l2" class="nota sans">*Si te apuntas a la lista de espera en travelsnomad.com</span>
+      </div>
+      <div id="marca">
+        <img src="assets/mark.png" alt="" />
+        <span class="sans">travelsnomad.com</span>
+      </div>
+    </div>
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes.
+      // Estado inicial dentro del fromTo, nunca en CSS; las salidas con .to.
+      document.fonts.ready.then(function () {
+        var tl = gsap.timeline({ paused: true });
+        var OUT = { autoAlpha: 0, y: -24, duration: 0.3, ease: "power2.in" };
+
+        // Los cortes de pantalla.mp4, contados en fotogramas al montarlo (70, 54, 62, 45 y
+        // 188 a 30 fps): el asistente, el texto, el resumen, &laquo;Montando&raquo; y el plan.
+        var T_ESCRIBIR = 2.333, T_RESUMEN = 4.133, T_MONTANDO = 6.2, T_PLAN = 7.7, T_FIN = 13.967;
+        var CIERRE = T_FIN - 0.73;   // el m&oacute;vil se va ANTES de que acabe su v&iacute;deo
+        var SUBIDA = 2.45;           // cuando la c&aacute;mara sube el m&oacute;vil
+
+        tl.fromTo("#f1", { scale: 1.04 }, { scale: 1.1, duration: 18.25, ease: "none" }, 0);
+
+        // 1 &middot; El gancho, en el primer segundo: la pregunta entra mientras el asistente ya
+        // corre a &times;7,5 detr&aacute;s. El m&oacute;vil entra deprisa: no hay tiempo que perder.
+        tl.fromTo("#telefono", { y: 60, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" }, 0);
+        tl.fromTo("#k1", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.1);
+        tl.fromTo("#t1a", { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.2);
+        tl.fromTo("#t1b", { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.35);
+        tl.to("#g1", OUT, SUBIDA);
+
+        // 2 &middot; LA C&Aacute;MARA SUBE EL M&Oacute;VIL 370 px. La app nueva tiene lo que importa en la
+        // mitad de abajo (el texto que se escribe, el resumen, &laquo;Montando&raquo;, las filas del
+        // plan), y con el m&oacute;vil en y=600 s&oacute;lo se ve&iacute;a la mitad de arriba. Arriba, en y=230,
+        // se ve del 0 al 74 % de la pantalla sin encoger el m&oacute;vil, que es lo que deja leerlo.
+        tl.to("#telefono", { y: -370, duration: 0.65, ease: "power2.inOut" }, SUBIDA - 0.05);
+
+        // El cierre, como el del demo: el m&oacute;vil se va por abajo antes de que acabe su v&iacute;deo,
+        // cambia el velo y entran octubre, la oferta, la nota y la marca.
+        tl.to("#telefono", { y: 1500, duration: 0.7, ease: "power2.in" }, CIERRE);
+        tl.to("#velo-bajo", { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.2);
+        tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
+        tl.to("#velo", { autoAlpha: 0, duration: 0.6, ease: "power1.inOut" }, CIERRE + 0.4);
+        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 0.95);
+        tl.fromTo("#l1", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 1.45);
+        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.05);
+        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 2.55);
+
+        window.__timelines["plan-cordoba"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>

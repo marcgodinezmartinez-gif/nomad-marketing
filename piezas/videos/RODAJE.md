@@ -115,6 +115,51 @@ acelerado a ×8 se lee como «elige cuatro cosas y ya», con toques rápidos se 
 cierran los lunes, y el lunes 12 es festivo: si la app mete algo el día que cierra, se ve
 aquí y no en los comentarios.
 
+### El clip 1, montado (29-sep): `piezas/historias-animadas/plan-cordoba/`
+
+El dueño grabó el asistente de un tirón y lo mandó en tres trozos (el chat corta a 30 MB),
+más el plan en una grabación aparte: 1206×2622, HEVC, sin audio. De ahí sale un reel de
+**18,3 s** con el molde del demo del 3-sep (el móvil de la casa a 808 px, el velo, el
+kicker y el titular, el cierre de octubre y el 1,99 €).
+
+| Tramo | Origen | Desde → hasta | Velocidad | Fotogramas |
+|---|---|---|---|---|
+| El asistente: Córdoba, fechas, estilo, ritmo, quién viaja | trozo 1 | 0,6 → 18,0 | ×7,5 | 70 |
+| El texto de «Algo más que debamos saber» | trozo 1 | 20,0 → 41,5 | ×12 | 54 |
+| La frase entera, el teclado bajando y el resumen | trozo 1 | 41,5 → 44,95 | ×1,6 | 62 |
+| «Montando tus 3 días en Córdoba» | trozo 3 | 1,2 → 2,7 | ×1 | 45 |
+| El plan: sábado, domingo y lunes | plan | 3,5 → 11,0 | ×1,2 | 188 |
+
+Tres cosas que se quedan fuera, y por qué:
+
+- **La hoja de pago de Apple entera** (trozo 2): enseña el correo del dueño y «Solo con
+  fines de prueba», que es el entorno de pruebas. Se corta de «Generar viaje» a
+  «Montando…» y el precio lo dice el cierre.
+- **El final del trozo 3**: el Centro de control abierto al parar la grabación.
+- **La fila del Palacio de Viana del domingo** (16:30). Desde septiembre los domingos
+  cierra a las 15:00, y la app lo puso por la tarde: el mismo tipo de error que los cinco
+  de la Mercè (issue #6). Queda debajo de una franja opaca a partir de y=1640, que es
+  además donde Instagram pinta el pie y los botones. **Medina Azahara el lunes 12 sí está
+  bien**: el 12 de octubre es uno de sus festivos de apertura, de 9:00 a 15:00.
+
+Lo nuevo respecto al demo: **la cámara sube el móvil 370 px** a los 2,45 s, porque la app
+nueva tiene lo que importa en la mitad de abajo (el texto, el resumen, «Montando», las
+filas del plan) y con el móvil en y=600 sólo se veía la de arriba; **la isla del marco es
+más ancha** (330×74) para tapar la isla desplegada de la grabación con su punto rojo; y **no
+hay barra de estado fabricada**, porque esta grabación trae la de verdad.
+
+```bash
+bash piezas/historias-animadas/construir.sh
+cd piezas/historias-animadas/plan-cordoba
+npx hyperframes check              # 0/0, 8/8 en contraste
+npx hyperframes render --output ../../../salida/reel-cordoba.mp4   # ~1 min
+```
+
+El render necesita `ffmpeg` y `ffprobe` en el PATH (`ffmpeg-static` no trae el segundo).
+El aviso de `StaticGuard` sobre las fuentes es falso: están en `assets/fuentes.css`,
+enlazado, y los fotogramas salen en Instrument Serif. `pantalla.mp4` se versiona, como el
+del demo: los originales viven en el móvil del dueño.
+
 Las reglas de `piezas/demo-app/GUION.md` siguen valiendo: no molestar puesto, un plano por
 grabación y con margen por los dos lados, toques lentos, **la barra de estado entera**, y
 **el volumen subido**: la grabación de pantalla recoge el audio de la app, y la voz del tour
