@@ -60,15 +60,19 @@
                   background: #0b0b0d; border-radius: 111px; padding: 24px; box-sizing: border-box;
                   box-shadow: 0 84px 200px rgba(0,0,0,.6); }
       #aro { position: absolute; inset: 0; border-radius: 111px; border: 8px solid #98979c; }
-      /* LA ISLA, m&aacute;s ancha que la del demo a prop&oacute;sito. Esta grabaci&oacute;n trae su propia barra
-         de estado y, en ella, la isla desplegada con el punto rojo de &laquo;grabando&raquo;: 517x110
-         px en la grabaci&oacute;n (x 335-852, y 42-152), 326x70 escalada a 760. La isla del marco
-         la tapa entera, con 2 px de margen, y el punto rojo no se ve. */
-      #isla { position: absolute; top: 48px; left: 233px; width: 330px; height: 74px;
+      /* La isla del demo, a su tama&ntilde;o. La grabaci&oacute;n tra&iacute;a su propia isla desplegada con el
+         punto rojo de &laquo;grabando&raquo;, pero ya no llega hasta aqu&iacute;: ver #pantalla. */
+      #isla { position: absolute; top: 47px; left: calc(50% - 121px); width: 242px; height: 67px;
               background: #0b0b0d; border-radius: 37px; z-index: 2; }
       #pantalla-caja { position: relative; width: 760px; height: 1702px; border-radius: 88px;
                        background: #F5F0E8; overflow: hidden; }
-      /* 1206x2622 escalado a 760 de ancho. Sin barra de estado a&ntilde;adida: &eacute;sta es la real. */
+      /* 1206x2622 escalado a 760 de ancho. SIN BARRA DE ESTADO, a petici&oacute;n del due&ntilde;o (29-sep:
+         &laquo;que no se vea la info de la hora, la bater&iacute;a y dem&aacute;s&raquo;). Los 100 px de arriba, donde
+         estaban la hora, la cobertura, la bater&iacute;a y la isla con el punto rojo, van cocidos en
+         el v&iacute;deo como reflejo desenfocado de la franja de justo debajo (y 100-128, x 0-680):
+         crema sobre crema en el asistente, mapa sobre mapa en el plan. La franja fuente para
+         antes de &laquo;PASO 1 DE 4&raquo; (y=140) y del cartel rojo de la N-432 del lunes (x&gt;680), que
+         reflejados sal&iacute;an como una mancha gris y como un punto rojo de notificaci&oacute;n. */
       #pantalla { width: 760px; height: 1652px; display: block; }
     </style>
   </head>

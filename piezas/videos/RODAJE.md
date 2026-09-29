@@ -155,11 +155,23 @@ Tres cosas que se quedan fuera, y por qué:
   además donde Instagram pinta el pie y los botones. **Medina Azahara el lunes 12 sí está
   bien**: el 12 de octubre es uno de sus festivos de apertura, de 9:00 a 15:00.
 
+**Sin barra de estado** (pedido del dueño el mismo 29-sep: *«que no se vea la info de la
+hora, la batería y demás»*): los 100 px de arriba de la grabación, en la escala de 760, se
+sustituyen al montar cada tramo por el reflejo desenfocado de la franja de justo debajo, que
+es lo que ya hizo el demo del 3-sep, y ya sin glifos encima. La franja fuente va de y=100 a
+128 y de x=0 a 680: más abajo cogía «PASO 1 DE 4», y más a la derecha el cartel rojo de la
+N-432 del mapa del lunes, que reflejados salían como una mancha gris y como un punto rojo
+de notificación.
+
+```
+split[a][b];[b]crop=680:28:0:100,vflip,scale=760:100,gblur=sigma=14[c];[a][c]overlay=0:0
+```
+
 Lo nuevo respecto al demo: **la cámara sube el móvil 370 px** a los 2,45 s, porque la app
 nueva tiene lo que importa en la mitad de abajo (el texto, el resumen, «Montando», las
-filas del plan) y con el móvil en y=600 sólo se veía la de arriba; **la isla del marco es
-más ancha** (330×74) para tapar la isla desplegada de la grabación con su punto rojo; y **no
-hay barra de estado fabricada**, porque esta grabación trae la de verdad.
+filas del plan) y con el móvil en y=600 sólo se veía la de arriba; y la isla del marco vuelve a
+su tamaño de siempre, porque la de la grabación (con el punto rojo de «grabando») se va con
+la barra de estado.
 
 ```bash
 bash piezas/historias-animadas/construir.sh
