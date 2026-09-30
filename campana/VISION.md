@@ -12,6 +12,24 @@ fábrica con IA (§7), el calendario hasta Semana Santa (§8), cómo se mide (§
 cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue que abre este
 documento**, no aquí.
 
+## En una pantalla
+
+- **La idea: «Tu pueblo, contado».** La gente pide su pueblo en los comentarios y NOMAD
+  contesta con su audioguía. En Navidad, «Tu abuela sabe más»: ponle la audioguía a tu
+  abuela y graba lo que corrige. Y una pieza de 60-90 s, «La otra audioguía». Es lo que
+  nadie más puede enseñar, y la gente lo reenvía (§3).
+- **De enero a Semana Santa, «Organizadores Anónimos»**, para el que siempre organiza el
+  viaje, con «La Amnistía»: NOMAD salda deudas de viajes entre amigos (§4).
+- **Siempre encendido**: «¿Qué planea NOMAD para…?» con el plan copiable en la app, y
+  cinco vídeos a la semana, TikTok primero (§5).
+- **Los creadores tienen un papel, no un precio por seguidor**: una abuela para la pieza
+  de Navidad, creadores de pueblo para la serie, un humorista que ya hizo «el amigo que
+  organiza» (§6 y `CREADORES.md`).
+- **IA detrás de la cámara, gente y sitios de verdad delante, y etiquetado** (§7).
+- **Lo grande va en diciembre**, cuando esté Android; octubre es para probar con iOS (§8).
+- **Tres presupuestos hasta enero: unos 700, 4.400 o 18.000 €**, y se sube de nivel con
+  datos (§10). Lo que decides tú, en §11.
+
 **Lo que este documento NO hace**, para que nadie lo busque dentro:
 
 - No fabrica ninguna pieza, no escribe a ningún creador y no gasta un euro. Cada pieza se
@@ -69,13 +87,13 @@ Y dos hechos que ordenan el calendario:
 Parecen opuestas —una hamburguesería gamberra y una cerveza con cine de verano— y hacen lo
 mismo: **la gente reenvía su publicidad porque no parece publicidad.** Vicio pasó de 0,2 M€
 de facturación en 2020 a 55 M€ en 2024 diciendo que *«no ha habido nunca paid»*. Estrella
-Damm estrena cada junio desde 2009 un corto que la prensa trata como el aviso de que empieza
-el verano.
+Damm estrena cada verano desde 2009 un corto que la prensa trata como el aviso de que
+empieza el verano.
 
 | | Vicio | Estrella Damm |
 |---|---|---|
 | **El método** | «Provocación educada»; una sola voz *«desde el producto, al packaging, al DM»*; equipo propio; *«falla rápido, falla barato»*. **Y el fundador no sale:** *«nunca participo directamente con mi imagen»* | Un lugar real, un grupo de amigos o un amor, nostalgia de lo que se repite, una canción que no suena a anuncio y **un estreno con fecha fija** |
-| **La acción que lo resume** | Abril de 2024: flyers en el pomo de cada habitación del hotel de la convención mundial de McDonald's en Barcelona. 300.000 reproducciones en menos de 24 h, por el precio de una noche de hotel | *Verano del 78* (2024): una nieta recibe las fotos de su abuela, que ya ha muerto, y recorre los sitios de aquel verano. Es casi literalmente lo que hace NOMAD |
+| **La acción que lo resume** | Abril de 2024: flyers en el pomo de cada habitación del hotel de la convención mundial de McDonald's en Barcelona, reservando una sola noche. 300.000 reproducciones en menos de 24 h | *Verano del 78* (2024): una nieta recibe las fotos de su abuela, que ya ha muerto, y recorre los sitios de aquel verano. Es casi literalmente lo que hace NOMAD |
 | **La que más se parece a esto** | Febrero de 2026: una clienta de A Coruña les mandó más de 800 mensajes pidiendo un local, y en la apertura la hicieron protagonista | *Lo mismo de siempre* (2025): cinco amigos, la misma casa, la misma playa, las mismas excursiones |
 | **Lo que no se copia** | La Velada del Año, donde se jugaron la mitad de su presupuesto anual; Ferran Torres; cien creadores | Veinte caras conocidas y producción de cine |
 
@@ -221,8 +239,8 @@ formato («Quién debe qué») y el copy E de agosto también. Aquí sube a camp
 - **La idea**: un grupo de apoyo para los que siempre organizan el viaje. *«Hola, soy Marta
   y llevo once años organizando el viaje de las amigas.»* Aplausos. Una serie de
   confesiones de 20-30 s, con creadores de humor y abierta a que la gente mande la suya.
-  Cierre: *«Paso uno: admitir que necesitas ayuda. Paso dos: este viaje no lo organizas
-  tú.»*
+  Cierre: *«Paso uno: admitir que necesitas ayuda. Paso dos: dejar que organice otro.»* Y
+  la firma, que ya está en la bio de TikTok: **«Nosotros organizamos. Tú viajas.»**
 - **La acción, a lo Vicio: «La Amnistía»**, la semana de la cuesta de enero (arranca el
   Blue Monday, 18-ene-2027). Cuéntanos la deuda de viaje más antigua de tu grupo y NOMAD
   la salda: un jurado elige las diez mejores historias y se le paga al que puso el dinero,
@@ -275,7 +293,9 @@ para…?» es un carrusel.
 **Una cosa que comprobar antes de la primera pieza**: la casa sube los reels sin audio para
 elegir el de tendencia dentro de la app, y hay fuentes que dicen que **una cuenta de empresa
 sólo ve la biblioteca comercial** en Instagram y en TikTok. Se mira en @app.nomad; si es así,
-la música sale de esa biblioteca, que además es la única que deja anunciar la pieza.
+la música sale de esa biblioteca. Y aunque no lo fuera, una pieza con música de tendencia no
+se puede anunciar después (§6): lo que tenga papeletas de acabar en anuncio va con la voz de
+la app o con música comercial desde el primer día.
 
 **La voz**: la de la app es seria y concreta; la de la campaña es la misma persona con un
 punto de guasa. Humor seco, frases cortas, cero exclamaciones y cero superlativos, que es lo
@@ -294,7 +314,44 @@ Picasso no sale en un anuncio sin licencia: su obra está protegida hasta finale
 
 ## 6. A quién se contrata, y para qué
 
-[[CREADORES]]
+**Nadie se contrata por alcance**: `INFLUENCERS.md` ya hizo la cuenta, y sale por unos 100 €
+el alta. **Cada creador tiene un papel en la idea**, se le paga **la pieza** —con permiso
+para anunciarla— y el resto va a canje. La lista entera, con sus números y lo que cuesta
+cada tramo, está en **`campana/CREADORES.md`**; aquí va la elección.
+
+**Y el precio se negocia por la mediana de vistas, no por los seguidores.** Medido hoy:
+@ahora.vas.y.lo.vi tiene 24.000 seguidores y una mediana de 66.000 vistas por vídeo;
+@romansocias, 600.000 seguidores y 17.000 vistas.
+
+| Papel | Cuándo | La elección | Si no | Trato |
+|---|---|---|---|---|
+| **La pieza de Navidad**, «La otra audioguía» | Rodaje hasta el 11-dic | **@layayamaricarmen**: una abuela leonesa que vive en Barcelona y a la que graba su nieto (367K en TikTok, mediana 154K). Su cuenta ya tiene a los personajes de la pieza; la propuesta sería llevarla a su tierra con la audioguía puesta | Un creador de `CREADORES.md` A o B que grabe a su propia abuela, o alguien de la familia del dueño (§11, punto 7). Con dinero de sobra, @teresalapelaya: 95 años, de Ágreda (Soria), mediana de 642K | Pagada, con 60 días de derechos de anuncio y el material en bruto |
+| **La serie del pueblo** | Noviembre-diciembre | **@carloartspain** («te muestro la otra España»; mediana 81K) y **@laguiadeltorrao** (la historia de los nombres de los pueblos de Murcia; 8.758 seguidores y mediana de 33K) | @andybu_rural, que vive en un pueblo de 32 habitantes. Y como socios, sin dinero: Los Pueblos Más Bonitos de España y @nosvamospalpueblo.es | Carlo, pagado; el resto, canje más una tarifa pequeña |
+| **«Lo que planea NOMAD»** y **«Este finde hago lo que diga NOMAD»** | Octubre-marzo | **@ahora.vas.y.lo.vi**: itinerarios día a día por España, que es lo que escribe la app | @anastasia.viajera (pueblos y fiestas) o @imartatravels (Barcelona) | Una pieza pagada; el resto, canje |
+| **«Organizadores Anónimos»** | Enero-marzo | **@ramonteli**: publicó «El amigo que organiza todo en los viajes» en abril de 2025, antes de que existiera esta campaña (mediana 45K) | @petercomey («Diferentes tipos de…») o @rikomedy, que junta pueblo, grupo y fiesta en la misma cuenta | Pagado, con derechos de anuncio |
+| **El museo** | Siempre | Pedro Torrijos (castillos y pueblos contados, sobre todo en Instagram) o @la.inercia (un monumento en 60 s) | @lidiamerenciano, arqueóloga | Canje; si hay pieza, pagada |
+| **La cantera** | Octubre-noviembre | Las 16 cuentas A y B de Instagram de `INFLUENCERS.md` | — | Canje: un bono de regalo con código, que la app ya tiene (`regalar-viaje`) |
+
+**Lo que no se negocia con ninguno:**
+
+- **La etiqueta, dentro del vídeo y desde el primer segundo**: «publi» o «publicidad»,
+  además de la herramienta de cada red. Es el criterio que la CNMC aplica a los grandes
+  (lo recordó en sus requerimientos de junio de 2026), y se le pide a todos. **El canje también obliga**: el código de conducta de 2025
+  cuenta el producto gratis como pago.
+- **Audio original o de la biblioteca comercial** en todo lo que se pueda querer anunciar.
+  Un reel con música de tendencia de Instagram no se puede convertir en anuncio después; la
+  voz de la app es audio original y sí vale.
+- **Su enlace de campaña de la App Store (`ct=<creador>`), su código de oferta** y las
+  capturas de sus estadísticas. Sin ellas no se paga.
+- **Nadie que venda tours o guías**: @teexplicouncuadro vende una guía del Prado y
+  @albasaenc, viajes en grupo. Fuera.
+- **Se mira la polémica antes de firmar.** @ramonteli opina de política territorial y
+  @helioroque_ tuvo una polémica en un acto político; está anotado en `CREADORES.md`.
+
+**Lo que cabe esperar**: de cien microcuentas de TikTok escritas en frío contestan 5-10 y
+publican 1-4 (Janney y Elev8or, 2026). Con mensaje personalizado y desde un correo propio,
+la respuesta sube al 25-40 %. Por eso el canje solo no basta —un viaje de 2,99 € vale poco
+para un creador— y funciona mejor **canje más una tarifa pequeña, o pagarle la escapada**.
 
 ---
 
@@ -358,11 +415,11 @@ Los festivos, del BOE; los días de la semana, calculados.
 
 | Cuándo | Qué | Por qué entonces |
 |---|---|---|
-| **1-11 oct** · iOS en la tienda | Lo que ya está hecho: el reel de Córdoba para el puente del Pilar (sábado 10 a lunes 12) y «¿Qué pasa el día que abra NOMAD?», si se decide el punto 8 de §11. **Diez pueblos de prueba**: generados, comprobados y montados, sin publicar todavía | La tienda abre y el Pilar es el primer puente. Los diez pueblos dicen si la idea aguanta **antes** de anunciarla |
+| **1-11 oct** · iOS en la tienda, si Apple la aprueba estos días | Lo que ya está hecho: el reel de Córdoba para el puente del Pilar (sábado 10 a lunes 12) y «¿Qué pasa el día que abra NOMAD?», si se decide el punto 8 de §11. **Diez pueblos de prueba**: generados, comprobados y montados, sin publicar todavía | La tienda abre y el Pilar es el primer puente. Los diez pueblos dicen si la idea aguanta **antes** de anunciarla |
 | **13-30 oct** | Las pruebas en TikTok: seis piezas de cada pilar (§5), y las primeras respuestas de pueblo con los comentarios que haya. La cantera de `INFLUENCERS.md`, con canje | Se aprende con iOS y una cuenta pequeña, antes de que llegue el público grande |
 | **31 oct-2 nov** | La serie del pueblo calla | Todos los Santos: el lunes 2 es festivo en nueve comunidades, y es cuando más gente vuelve al pueblo, al cementerio |
 | **Noviembre** · Android en la tienda (previsto) | Segundo lanzamiento. La serie del pueblo, a diario, y los creadores de pueblo. El plan del puente de diciembre | Con las dos tiendas abiertas, el alcance ya no se regala |
-| **5-8 dic** | «¿Qué planea NOMAD para el puente?» | El lunes 7 es festivo en diez comunidades, y allí el puente es de cuatro días |
+| **5-8 dic** | «¿Qué planea NOMAD para el puente?» | El lunes 7 es festivo en nueve comunidades y en Melilla, y allí el puente es de cuatro días |
 | **Hasta el 11 dic** | Rodar «La otra audioguía» | |
 | **Semana del 14 dic** | Estreno de la pieza. Si pasa la tabla de §9, un empujón pagado pequeño | La gente vuelve al pueblo por Navidad, que cae en viernes |
 | **20 dic-6 ene** | «Tu abuela sabe más»: el reto, abierto por los creadores de abuelos | Las familias están juntas hasta Reyes (miércoles 6) |
@@ -405,7 +462,8 @@ nuevas en los comentarios**, que es la señal de que el formato se está contagi
   y por creador (`ct=pueblo`, `ct=planes`, `ct=<creador>`).
 - **Compras por código de oferta** de Apple, uno por creador (hasta diez a la vez).
 - **Viajes con dos o más miembros**, que mide si el bucle del grupo funciona: una compra
-  que trae a tres amigos vale cuatro veces.
+  que trae a tres amigos son cuatro personas que ya han usado NOMAD, y tres de ellas no
+  han costado nada.
 - **Tours de pueblo generados**, y cuántas de esas cuentas compran después un viaje.
 
 Parte de esto aún no se registra en la app (NOMAD#308 lo está montando); hasta que lo haga,
@@ -425,7 +483,45 @@ cuanto se sepa qué parte de las descargas compra, que hoy no se sabe.
 
 ## 10. Lo que cuesta
 
-[[PRESUPUESTO]]
+Tres niveles, de octubre a enero. **Lo que se paga a un creador compra una pieza que se
+queda, no alcance.** Las cifras de creadores son estimaciones sobre su mediana de vistas y
+las tablas de `CREADORES.md` (12-35 € por cada mil vistas, más un 15-30 % por los
+derechos); **ninguna es un precio pedido**.
+
+| | Mínimo | Recomendado | Ambicioso |
+|---|---:|---:|---:|
+| Herramientas (§7), cuatro meses | 80 € | 80 € | 80 € |
+| IA de los pueblos, y del tour gratis si se decide (§3.5) | 50 € | 300 € | 300 € |
+| La cantera, con canje (la IA de sus viajes) | 50 € | 50 € | 50 € |
+| «La otra audioguía» | 300 €: el viaje, con alguien de la familia | 1.000 €: un micro que graba a su abuela, más un día de videógrafo | 5.000 €: @layayamaricarmen con derechos |
+| La serie del pueblo, con creadores | 0 €: socios y canje | 300 €: dos nanos con tarifa pequeña | 2.300 €: además, @carloartspain |
+| «Lo que planea NOMAD» | 0 € | 500 €: @ahora.vas.y.lo.vi | 3.000 €: además, @imartatravels |
+| «Organizadores Anónimos» | 0 €: lo graba el dueño o un micro con canje | 1.200 €: @ramonteli, con 30 días de derechos | 5.200 €: además, @rikomedy |
+| «La Amnistía» | 250 €: cinco premios | 500 €: diez | 500 € |
+| Amplificar lo que ya ganó gratis (§9) | 0 € | 500 € | 2.000 € |
+| **Total, hasta enero** | **unos 700 €** | **unos 4.400 €** | **unos 18.000 €** |
+
+Con @teresalapelaya en lugar de @layayamaricarmen, el ambicioso sube entre 3.000 y
+15.000 € más.
+
+**Qué compra cada uno:**
+
+- **Mínimo**: la idea entera probada, con el dinero de una cena. La pieza de Navidad
+  depende de la familia.
+- **Recomendado**: cuatro piezas con cara que se pueden anunciar, y la acción de enero
+  completa.
+- **Ambicioso**: caras conocidas en los dos momentos grandes. Sólo tiene sentido si antes
+  se ha visto qué parte de las descargas compra.
+
+**Se sube de nivel con datos, no con ganas.** El recomendado se desbloquea si la serie del
+pueblo pasa la tabla de §9 en octubre-noviembre; el ambicioso, si el primer mes de tienda
+dice cuánto vale una descarga. Hasta entonces, cada euro de más es una apuesta.
+
+**Y lo que no está en la tabla, a propósito**: campañas de instalación en TikTok, que en
+iOS exigen un medidor externo de instalaciones compatible con SKAdNetwork, un gasto y una
+complejidad que no tocan todavía; y Apple Ads, que en España cuesta una mediana de 1,43 $
+por instalación (AppTweak, 2025). Apple Ads es el primer canal de pago con sentido —quien
+busca «audioguía» ya quiere una—, en cuanto se sepa qué parte de las descargas compra.
 
 ---
 
