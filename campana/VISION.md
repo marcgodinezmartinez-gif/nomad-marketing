@@ -42,6 +42,10 @@ cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue 
 - No tira lo hecho: los guiones G1-G8, «¿Qué planea NOMAD para…?», «¿Conocías este
   lugar?» y la lista de `INFLUENCERS.md` se recolocan dentro de esto (§5 y §6).
 
+**Y no es el único menú**: la misma idea para ciudad, playa, naturaleza, esquí y road trip,
+con su comparativa y una propuesta de cuáles y en qué orden, está en
+**`campana/TIPOS-DE-VIAJE.md`** (30-sep, a petición del dueño).
+
 ---
 
 ## 1. Por qué hace falta: lo que dicen los datos

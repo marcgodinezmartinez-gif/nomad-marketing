@@ -10,8 +10,8 @@ vivían en la misma sesión y cada uno pagaba las reglas del otro.
 ```
 campana/         los planes y sus decisiones: PLAN-INSTAGRAM, INSTAGRAM-ARRANQUE,
                  LANZAMIENTO-PUBLICIDAD, MERCADO. Son el porqué; se leen antes de opinar.
-                 VISION (30-sep, de octubre a Semana Santa) y CREADORES son una propuesta
-                 pendiente de decidir en la issue #9
+                 VISION (30-sep, de octubre a Semana Santa), TIPOS-DE-VIAJE y CREADORES son
+                 una propuesta pendiente de decidir en la issue #9
 piezas/          los generadores (reels, destacadas, el taller), preparar.sh, construir-todo.sh
 banco/           el kit: fotos con sus créditos, capturas reales, marca, fuentes, iconos, QR
 .claude/skills/  siete skills de marketing (Corey Haines, MIT); su README dice por qué siete
