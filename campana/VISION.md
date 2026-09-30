@@ -65,7 +65,44 @@ Y dos hechos que ordenan el calendario:
 
 ## 2. Lo que se coge de Vicio y de Estrella Damm
 
-[[REFERENCIAS]]
+Parecen opuestas —una hamburguesería gamberra y una cerveza con cine de verano— y hacen lo
+mismo: **la gente reenvía su publicidad porque no parece publicidad.** Vicio pasó de 0,2 M€
+de facturación en 2020 a 55 M€ en 2024 diciendo que *«no ha habido nunca paid»*. Estrella
+Damm estrena cada junio desde 2009 un corto que la prensa trata como el aviso de que empieza
+el verano.
+
+| | Vicio | Estrella Damm |
+|---|---|---|
+| **El método** | «Provocación educada»; una sola voz *«desde el producto, al packaging, al DM»*; equipo propio; *«falla rápido, falla barato»*. **Y el fundador no sale:** *«nunca participo directamente con mi imagen»* | Un lugar real, un grupo de amigos o un amor, nostalgia de lo que se repite, una canción que no suena a anuncio y **un estreno con fecha fija** |
+| **La acción que lo resume** | Abril de 2024: flyers en el pomo de cada habitación del hotel de la convención mundial de McDonald's en Barcelona. 300.000 reproducciones en menos de 24 h, por el precio de una noche de hotel | *Verano del 78* (2024): una nieta recibe las fotos de su abuela, que ya ha muerto, y recorre los sitios de aquel verano. Es casi literalmente lo que hace NOMAD |
+| **La que más se parece a esto** | Febrero de 2026: una clienta de A Coruña les mandó más de 800 mensajes pidiendo un local, y en la apertura la hicieron protagonista | *Lo mismo de siempre* (2025): cinco amigos, la misma casa, la misma playa, las mismas excursiones |
+| **Lo que no se copia** | La Velada del Año, donde se jugaron la mitad de su presupuesto anual; Ferran Torres; cien creadores | Veinte caras conocidas y producción de cine |
+
+**Lo que sí se coge, en cinco reglas:**
+
+1. **Una sola voz, del pie de foto al mensaje directo** (Vicio).
+2. **El producto por delante del famoso.** En «Perdona Ferran» (22-sep-2026) una
+   hamburguesa tapa la cara del campeón del mundo. Aquí no hay famoso que tapar: la
+   protagonista es la voz de NOMAD contando un sitio real.
+3. **Lo que pide un fan se convierte en el acto.** Los 800 mensajes de A Coruña son, en
+   pequeño, «pide tu pueblo en los comentarios» (Vicio).
+4. **Un sitio concreto, gente de verdad y un ritual con fecha** (Estrella Damm).
+5. **Los mayores, con dignidad y nunca como chiste.** Marina Prieto, la abuela gallega de
+   100 años que JCDecaux y DAVID pusieron en el Metro de Madrid en 2023, pasó de 28 a más de
+   39.000 seguidores y ganó seis Leones en Cannes. Nocilla, La Cocinera y Fabada Litoral se
+   llevaron críticas por pintar a los mayores como torpes.
+
+**Y una sexta que enseñan los que lo hicieron mal: la IA como estética fracasa.** Coca-Cola
+se llevó críticas por sus anuncios de Navidad hechos con IA en 2024 y otra vez en 2025, y
+McDonald's Países Bajos retiró el suyo en diciembre de 2025. Kantar (noviembre de 2025) lo
+resume en que el público rechaza lo que «distrae o es poco natural». La IA funciona cuando
+es el chiste —«el anuncio de CampofrIA», 2023— o **cuando hace algo que nadie más podría
+hacer**, que es el caso de §3.4.
+
+(De paso, una advertencia gratis de la otra cara del descaro: en julio de 2026 FACUA
+denunció a Milfshakes, el socio de Vicio en su falso juicio, por prometer un 99 % de
+descuento si España ganaba el Mundial. **El descaro se para donde empieza la promesa que
+no se cumple.**)
 
 ---
 
