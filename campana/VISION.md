@@ -116,8 +116,11 @@ contada.»** La campaña es su segunda mitad llevada a donde ninguna guía ha ll
 
 ### 3.1 Por qué el pueblo
 
-- **Casi todo el mundo en España tiene uno**, y ninguna guía le ha contado nunca su
-  historia. [[PUEBLO-DATOS]]
+- **España es un país de pueblos, y a casi ninguno lo ha contado nunca una guía.** De
+  8.132 municipios, 4.980 tienen menos de 1.000 habitantes (el 61 %) y 1.406 no llegan a
+  cien (INE, a 1-ene-2025). Cuánta gente «tiene pueblo» no lo mide ninguna encuesta
+  fiable: es la intuición de la campaña, y la mide la propia serie. Si nadie pide el suyo
+  en los comentarios, la intuición era falsa.
 - **Enseña el foso sin enseñar la app.** `MERCADO-2026-08-15.md` lo dejó escrito: el
   itinerario lo regala ChatGPT; lo que nadie más hace es guiarte a pie *por cualquier
   sitio*. Un pueblo de 300 habitantes contado con voz es esa frase demostrada, y con
@@ -131,7 +134,11 @@ contada.»** La campaña es su segunda mitad llevada a donde ninguna guía ha ll
 - **Es barato de verdad.** Narrar un tour nuevo de siete paradas le cuesta a NOMAD unos
   0,10 € (0,20 € desde enero, cuando Gemini dobla la tarifa: `docs/ECONOMIA.md`), y **cero**
   si ese pueblo ya se narró antes.
-- **Nadie lo tiene.** [[PUEBLO-COMPETENCIA]]
+- **Nadie lo tiene.** De lo revisado, ninguno promete «cualquier pueblo, a demanda»:
+  VoiceMap cubre las grandes ciudades con guías humanos, izi.TRAVEL depende de que alguien
+  suba la guía, SmartGuide es una herramienta para oficinas de turismo, y Audiala, la más
+  parecida, hace audioguías con IA de unas 1.100 ciudades. Faltan por mirar las apps de
+  diputaciones y ayuntamientos.
 
 ### 3.2 Tres niveles, como una campaña y no como un post
 
@@ -150,7 +157,12 @@ contada.»** La campaña es su segunda mitad llevada a donde ninguna guía ha ll
    verdad, app de verdad. Cierra con: *«La historia de tu pueblo te la cuenta NOMAD. La de
    verdad, tu abuela.»* Y la música, si puede ser, **una canción del pueblo cantada por
    ella**: una canción popular tradicional es de dominio público y el momento no lo compra
-   ningún presupuesto.
+   ningún presupuesto. Es, en pequeño, *Verano del 78*.
+
+**Un permiso que no se salta**: para volver a publicar en la cuenta de NOMAD el vídeo de
+alguien con su abuela hace falta su permiso por escrito (un mensaje basta) y el de la abuela.
+La voz y la imagen de una persona no se usan en publicidad sin consentimiento expreso (Ley
+Orgánica 1/1982, art. 7.6).
 
 **Por qué «Tu abuela sabe más» es la parte lista y no sólo la tierna**: el mayor riesgo de
 la idea es que la IA diga algo inexacto de un pueblo de 300 habitantes delante de los 300.
@@ -163,7 +175,9 @@ innovador. (Eso no quita la regla de §7: lo que publica NOMAD se comprueba ante
 
 El territorio es tierno; el tono de la serie, no siempre. Ganchos de ejemplo:
 
-- *«Le hemos hecho audioguía al pueblo más pequeño de España. [[PUEBLO-MINIMO]]»*
+- *«Le hemos hecho audioguía al pueblo más pequeño de España. Tiene seis habitantes.»* Y
+  son dos, empatados a seis según el INE: Torremochuela (Guadalajara) y Villanueva de Gormaz
+  (Soria). La rivalidad viene hecha: *«¿cuál de los dos?»*.
 - *«Los de [pueblo A] dicen que lo suyo es más bonito que [pueblo B]. Que decida la
   audioguía.»*
 - *«Audioguía de tu pueblo para los del pueblo de al lado.»*
@@ -211,12 +225,25 @@ formato («Quién debe qué») y el copy E de agosto también. Aquí sube a camp
   tú.»*
 - **La acción, a lo Vicio: «La Amnistía»**, la semana de la cuesta de enero (arranca el
   Blue Monday, 18-ene-2027). Cuéntanos la deuda de viaje más antigua de tu grupo y NOMAD
-  la salda: se eligen las diez mejores historias y se le paga al que puso el dinero, hasta
-  50 € cada una. Todos etiquetan a su deudor en los comentarios. Tope: 500 €. [[CONCURSO]]
+  la salda: un jurado elige las diez mejores historias y se le paga al que puso el dinero,
+  hasta 50 € cada una. Tope: 500 €. Lo que la hace legal y barata, a confirmar con un
+  asesor antes de lanzarla:
+  - **Es un concurso, no un sorteo.** Gratis y decidido por un jurado, queda fuera de la ley
+    del juego y de su impuesto del 10 %; con premios de menos de 300 € no hay retención de
+    IRPF. Lleva sus bases legales publicadas; el notario no es obligatorio.
+  - **Etiquetar al deudor, opcional.** Meta prohíbe exigir o premiar etiquetas en una
+    promoción. La gente etiquetará igual: es lo gracioso.
+  - **Sólo se publica una historia con permiso de las dos personas.** Señalar a alguien
+    como deudor en público toca su derecho al honor.
+  - Se paga por transferencia, con justificante.
 - **El argumento de producto, en una línea**: una compra abre el viaje a todo el grupo y
   entra sola en los gastos. *«Sale a menos de un euro por cabeza, y la app ya lo ha
   apuntado.»*
-- **Por qué en enero**: la Semana Santa de 2027 es del 25 al 29 de marzo, y [[SEMANASANTA]].
+- **Por qué en enero**: la Semana Santa de 2027 va del Jueves Santo 25 al Lunes de Pascua
+  29 de marzo, y enero es cuando empieza a hablarse de ella en los grupos. No hay un dato
+  público fiable de con cuánta antelación se planifica, así que la fecha de arranque es una
+  apuesta, dicha como tal. Y la semana del Blue Monday es también la de FITUR (20-24 de
+  enero), con la prensa de viajes mirando.
 
 ---
 
@@ -258,7 +285,10 @@ que ya pide `.agents/product-marketing.md`. La gracia sale de lo concreto: *«El
 **Lo que se hereda de la casa y no se discute**: primera persona y nunca cara de anuncio;
 subtítulos siempre; el plan escrito en el pie, porque es lo que se guarda; capturas de la app
 real; «desde 2,99 €» y nunca «2,99 €» a secas; el café como ancla; **nada construido sobre un
-acto con fecha y hora** (la app se equivocó en los cinco de la Mercè, issue #6).
+acto con fecha y hora** (la app se equivocó en los cinco de la Mercè, issue #6). Y en un
+museo, sólo donde se puede grabar: el Thyssen sí (sin flash, sin palo ni trípode), el Prado
+no, y el Reina Sofía pide autorización para grabar con fines comerciales. Un cuadro de
+Picasso no sale en un anuncio sin licencia: su obra está protegida hasta finales de 2053.
 
 ---
 
@@ -324,7 +354,39 @@ multas desde 6.000 €: mejor llegar etiquetando.
 
 ## 8. El calendario, de octubre a Semana Santa
 
-[[CALENDARIO]]
+Los festivos, del BOE; los días de la semana, calculados.
+
+| Cuándo | Qué | Por qué entonces |
+|---|---|---|
+| **1-11 oct** · iOS en la tienda | Lo que ya está hecho: el reel de Córdoba para el puente del Pilar (sábado 10 a lunes 12) y «¿Qué pasa el día que abra NOMAD?», si se decide el punto 8 de §11. **Diez pueblos de prueba**: generados, comprobados y montados, sin publicar todavía | La tienda abre y el Pilar es el primer puente. Los diez pueblos dicen si la idea aguanta **antes** de anunciarla |
+| **13-30 oct** | Las pruebas en TikTok: seis piezas de cada pilar (§5), y las primeras respuestas de pueblo con los comentarios que haya. La cantera de `INFLUENCERS.md`, con canje | Se aprende con iOS y una cuenta pequeña, antes de que llegue el público grande |
+| **31 oct-2 nov** | La serie del pueblo calla | Todos los Santos: el lunes 2 es festivo en nueve comunidades, y es cuando más gente vuelve al pueblo, al cementerio |
+| **Noviembre** · Android en la tienda (previsto) | Segundo lanzamiento. La serie del pueblo, a diario, y los creadores de pueblo. El plan del puente de diciembre | Con las dos tiendas abiertas, el alcance ya no se regala |
+| **5-8 dic** | «¿Qué planea NOMAD para el puente?» | El lunes 7 es festivo en diez comunidades, y allí el puente es de cuatro días |
+| **Hasta el 11 dic** | Rodar «La otra audioguía» | |
+| **Semana del 14 dic** | Estreno de la pieza. Si pasa la tabla de §9, un empujón pagado pequeño | La gente vuelve al pueblo por Navidad, que cae en viernes |
+| **20 dic-6 ene** | «Tu abuela sabe más»: el reto, abierto por los creadores de abuelos | Las familias están juntas hasta Reyes (miércoles 6) |
+| **Lunes 18 ene** (Blue Monday) | «Organizadores Anónimos» y «La Amnistía» | La cuesta de enero; los grupos empiezan a hablar de Semana Santa; FITUR es esa semana |
+| **Febrero-marzo** | Planes de Semana Santa (Jueves Santo 25 a Lunes de Pascua 29 de marzo), y San Valentín (domingo 14) para parejas | |
+
+Una fecha para apuntar: **el 1 de octubre es el Día de los Pueblos Más Bonitos de
+España**, la asociación de 126 pueblos que tiene su propia red de creadores y acepta
+«menciones, takeovers, contenido conjunto». Este año llega un día tarde; en 2027 puede ser
+el cumpleaños de la serie, que es el ritual con fecha fija que hace Estrella Damm. Y
+escribirles antes es barato: ofrecerles sus 126 pueblos contados.
+
+### Las dos primeras semanas, paso a paso
+
+| # | Quién | Qué |
+|---|---|---|
+| 1 | Dueño | Contestar §11; como mínimo, los puntos 1, 4 y 5 |
+| 2 | Sesión | Elegir los diez pueblos de prueba: uno de los dos más pequeños de España, tres de menos de 500 habitantes, tres de Los Pueblos Más Bonitos y tres que pida gente conocida |
+| 3 | Dueño | Generarlos en la app y grabar la pantalla con la voz. Diez tours nuevos cuestan alrededor de un euro |
+| 4 | Sesión | Comprobar cada narración, frase a frase, contra dos fuentes, y contar cuántas se sostienen. **Si se sostienen menos del 90 %, la idea se replantea antes de publicar nada.** El umbral es una suposición, y está en una línea para poder cambiarlo |
+| 5 | Sesión | Montar los que pasen, con el molde de `piezas/historias-animadas/` |
+| 6 | Dueño | Publicar lo del lanzamiento y el reel de Córdoba antes del sábado 10 |
+| 7 | Dueño | Escribir a las 16 A y B de `INFLUENCERS.md` con el mensaje de su §7, ahora con la app en la tienda y un bono de regalo (§6) |
+| 8 | Sesión | En cuanto la app tenga datos, los enlaces de campaña de la App Store, y un código de oferta por creador |
 
 ---
 
