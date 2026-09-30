@@ -28,8 +28,9 @@ cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue 
   organiza» (§6 y `CREADORES.md`).
 - **IA detrás de la cámara, gente y sitios de verdad delante, y etiquetado** (§7).
 - **Lo grande va en diciembre**, cuando esté Android; octubre es para probar con iOS (§8).
-- **Tres presupuestos hasta enero: unos 700, 4.400 o 18.000 €**, y se sube de nivel con
-  datos (§10). Lo que decides tú, en §11.
+- **Tres presupuestos hasta enero: unos 700, 4.400 o 18.000 €.** El dueño elige el de
+  4.400 como techo, en tres tramos que sólo se abren si el anterior funcionó: hoy se
+  arriesgan 325 € (§10). Lo demás que decides tú, en §11.
 
 **Lo que este documento NO hace**, para que nadie lo busque dentro:
 
@@ -595,6 +596,35 @@ complejidad que no tocan todavía; y Apple Ads, que en España cuesta una median
 por instalación (AppTweak, 2025). Apple Ads es el primer canal de pago con sentido —quien
 busca «audioguía» ya quiere una—, en cuanto se sepa qué parte de las descargas compra.
 
+### El recomendado, por tramos (elegido el 30-sep)
+
+El dueño se queda con el recomendado, *«aunque a lo mejor es mucho»*. Lo es si se gasta de
+golpe, y por eso no se gasta de golpe: **4.400 € es el techo, no el objetivo.** Se abre en
+tres tramos, y cada uno sólo si el anterior ha funcionado. Las escapadas de §3.6 van dentro:
+salen de lo que la tabla de arriba reservaba para amplificar y para regalar audioguías, que
+ahora va aparte.
+
+| Tramo | Cuándo | Qué | Cuánto | Se abre si… |
+|---|---|---|---|---|
+| 1 | Octubre | Herramientas, la IA de las pruebas, la cantera por canje y tres escapadas grabadas por el dueño (unos 75 € cada una, entre gasolina y comida) | **325 €** | Ya |
+| 2 | Noviembre-diciembre | Cuatro escapadas más, dos nanos de pueblo, @ahora.vas.y.lo.vi, «La otra audioguía», la IA de la serie y un empujón pequeño a la pieza de Navidad | **2.340 €** | Algún formato pasa la tabla de §9 **y** los diez pueblos se sostienen (§8) |
+| 3 | Enero | @ramonteli para «Organizadores Anónimos», y «La Amnistía» | **1.720 €** | La Navidad trajo descargas y ya se sabe qué parte compra (NOMAD#308) |
+| | | **Total** | **4.385 €** | |
+
+**Lo que se arriesga de verdad hoy son 325 €.** Si el primer tramo no pasa, se para ahí y se
+replantea. Si pasa el segundo y no el tercero, el gasto se queda en unos 2.665 €.
+
+**Dos palancas para bajarlo sin tocar la idea:**
+
+- «La otra audioguía» con alguien de la familia del dueño en vez de con un creador: 700 €
+  menos.
+- «La Amnistía» con cinco premios en vez de diez: 250 € menos.
+
+Con las dos, unos 3.450 €.
+
+**Y una que lo subiría**: si se regala la audioguía del pueblo (§3.5), hasta 200 € más de IA
+en el segundo tramo. Sería buena noticia: querría decir que la está usando mucha gente.
+
 ---
 
 ## 11. Lo que decide el dueño
@@ -614,7 +644,8 @@ Diez preguntas en cuatro bloques. Están también en la issue, con sus casillas.
 
 **El dinero**
 
-4. **El nivel de gasto hasta enero** (§10): mínimo, recomendado o ambicioso.
+4. **El nivel de gasto hasta enero** (§10): mínimo, recomendado o ambicioso. *Decidido el
+   30-sep: el recomendado, con 4.400 € de techo y por tramos.*
 5. **La audioguía del pueblo gratis durante la campaña** (§3.5). Si es que sí, hace falta
    una issue en el repo de la app antes de noviembre.
 
