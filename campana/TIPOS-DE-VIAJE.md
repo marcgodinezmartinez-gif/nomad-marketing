@@ -227,13 +227,46 @@ público propio y nadie le habla de viajes.
 
 ## 7. Para comparar
 
-[[COMPARATIVA]]
+| Campaña | Qué enseña de la app | Cuándo | Cómo se comparte | Coste | El riesgo |
+|---|---|---|---|---|---|
+| **Pueblo**: «Tu pueblo, contado» (`VISION.md`) | La voz en cualquier sitio | Octubre-enero | Al grupo de la familia; orgullo y rivalidad de pueblo | Bajo | Que la app se equivoque con un pueblo pequeño |
+| **Ciudad**: «Fíjate en…» | La voz y su «Fíjate en» | Todo el año | Se guarda y se manda a quien va a ir | Casi cero | Es lo más visto: se gana con el detalle, no con el sitio |
+| **Playa**: «Verano en enero», y luego «Planear para no hacer nada» | El día según el sol, y un plan que presume de tener poco | Canarias, diciembre-febrero; el resto, verano | Humor: «esto es lo que necesito» | Bajo, con un creador que ya vive allí | La masificación, y que el verano es de Estrella Damm |
+| **Naturaleza**: «Tres semanas de cobre», y luego «Sin postureo» | La honestidad de la ruta, y qué día ir | Otoño (ahora) y primavera | Se guarda para el fin de semana | Bajo, en el mismo viaje que la escapada | La seguridad, la masificación y los drones |
+| **Esquí**: «Nieve a medias» y «Plan B» | Los gastos del grupo, y el plan B | Diciembre-marzo | Al grupo del viaje | Medio o alto: el esquí es caro | La nieve, que no se promete |
+| **Road trip**: «Prohibido comer en la gasolinera» | Las paradas y la comida en ruta; cinco horas de coche como mucho | Puentes, Semana Santa y verano | Se guarda la ruta | Gasolina y comida | Grabar al volante: nunca |
+
+**Lo que se junta solo**: el pueblo, la escapada del dueño, el road trip y la naturaleza
+son la misma historia —un sitio pequeño, un restaurante de verdad y la voz de la app— vista
+desde cuatro sitios. El esquí es la misma que «Organizadores Anónimos» y «La Amnistía»: un
+grupo, un viaje caro y las cuentas.
 
 ---
 
 ## 8. Una propuesta de cuáles, y en qué orden
 
-[[PROPUESTA]]
+**El calendario elige casi todo**: cada tipo tiene su momento, y el que es ahora gana
+ahora. Para la ventana de octubre a marzo, la de los tres tramos:
+
+1. **La principal sigue siendo «Tu pueblo, contado»**, como decide `VISION.md`.
+2. **Octubre y noviembre: «Tres semanas de cobre».** Pasa ahora y sólo ahora, y cabe en el
+   mismo viaje que la escapada: las tres escapadas del primer tramo pueden ser a pueblos
+   junto a un hayedo. Coste añadido: cero.
+3. **Siempre: «Fíjate en…».** Es el formato más barato que hay, se graba en cualquier
+   ciudad en la que esté el dueño, y es la evolución del mejor formato publicado.
+4. **De diciembre a marzo, el esquí dentro de «Organizadores Anónimos»**, sin campaña
+   aparte: la edición nieve. La pieza de @ramonteli del tercer tramo puede ser la de nieve,
+   y en «La Amnistía» cabe la deuda del forfait.
+5. **Road trip, para Semana Santa**: «Prohibido comer en la gasolinera», preparado en
+   febrero y publicado en marzo. Queda fuera de la ventana de los 4.400 €, así que se decide
+   en febrero, con datos.
+6. **Playa**: «Verano en enero» sólo si hay un creador canario que lo haga por canje o por
+   poco dinero. «Planear para no hacer nada» se decide en abril.
+7. **El pádel**, aparcado.
+
+**Nada de esto sube el techo de 4.400 €.** Cambia a qué se dedican las tres escapadas del
+primer tramo (a pueblos con hayedo) y cuál es la pieza de «Organizadores Anónimos» del
+tercero (la de nieve).
 
 ---
 
