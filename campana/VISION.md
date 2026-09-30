@@ -369,7 +369,40 @@ cuanto se sepa qué parte de las descargas compra, que hoy no se sabe.
 
 ## 11. Lo que decide el dueño
 
-[[DECISIONES]]
+Nueve preguntas en cuatro bloques. Están también en la issue, con sus casillas.
+
+**La idea**
+
+1. **«Tu pueblo, contado» como campaña principal hasta Reyes, y «Organizadores Anónimos»
+   de enero a Semana Santa.** ¿Así, al revés o sólo una? Recomiendo ese orden: el pueblo
+   abre la conversación con lo que nadie más puede enseñar, y el grupo es lo que se vende
+   en primavera.
+2. **El tono**: la voz de la app con un punto de guasa (§5). ¿Te encaja, o la quieres más
+   seria o más gamberra?
+3. **La bio de TikTok ya dice «Nosotros organizamos. Tú viajas.»** Es el cierre natural
+   de «Organizadores Anónimos». ¿Se queda?
+
+**El dinero**
+
+4. **El nivel de gasto hasta enero** (§10): mínimo, recomendado o ambicioso.
+5. **La audioguía del pueblo gratis durante la campaña** (§3.5). Si es que sí, hace falta
+   una issue en el repo de la app antes de noviembre.
+
+**Tú**
+
+6. **¿Sales en cámara?** No hace falta: el fundador de Vicio no sale nunca. Pero «una app
+   de viajes hecha por una sola persona» es una historia que compra la prensa, y basta con
+   la voz, sin la cara.
+7. **La pieza de Navidad, ¿con un creador y su abuela, o con alguien de tu familia que
+   tenga pueblo?** Lo segundo es más barato y más verdad; lo primero trae público.
+
+**Lo demás**
+
+8. **La lista de espera, ¿se cierra de verdad el día que abra iOS?** Para Android sigue
+   abierta hasta que salga (NOMAD#305). De esto depende que se publique «¿Qué pasa el día
+   que abra NOMAD?» (`piezas/lanzamiento/`), que lo promete.
+9. **Italia**: ¿«Il tuo paese, raccontato» con las tres A italianas de `INFLUENCERS.md` en
+   diciembre, o se aparca? La nonna funciona igual que la abuela.
 
 ---
 
