@@ -16,7 +16,9 @@ cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue 
 - **La idea: «Tu pueblo, contado».** La gente pide su pueblo en los comentarios y NOMAD
   contesta con su audioguía. En Navidad, «Tu abuela sabe más»: ponle la audioguía a tu
   abuela y graba lo que corrige. Y una pieza de 60-90 s, «La otra audioguía». Es lo que
-  nadie más puede enseñar, y la gente lo reenvía (§3).
+  nadie más puede enseñar, y la gente lo reenvía (§3). Y una vez a la semana, **la
+  escapada**: un pueblo muy pequeño con el día escrito por la app, hasta la mesa del
+  restaurante y la cuenta (idea del dueño, §3.6).
 - **De enero a Semana Santa, «Organizadores Anónimos»**, para el que siempre organiza el
   viaje, con «La Amnistía»: NOMAD salda deudas de viajes entre amigos (§4).
 - **Siempre encendido**: «¿Qué planea NOMAD para…?» con el plan copiable en la app, y
@@ -226,6 +228,77 @@ Y un paso más allá, para después: **una página `travelsnomad.com/pueblo/<nom
 se escucha la primera parada sin instalar nada, con su tarjeta de previsualización para
 WhatsApp. Es lo que convertiría cada grupo de familia en un canal. Es trabajo grande (coste
 por escucha, abuso, caché) y va después de probar la serie a mano.
+
+### 3.6 La escapada al pueblo (idea del dueño, 30-sep)
+
+*«Mostrar pueblos pequeños, hacer el tour por el pueblo y lo que tenga cerca, como una
+escapada. Y el gancho de que te recomienda el restaurante del pueblo: grabar en el
+restaurante, que se come súper bien y súper barato.»*
+
+Es la mitad que le faltaba a la idea. La serie de respuestas enseña la audioguía de **tu**
+pueblo; la escapada enseña un pueblo al que **no** has ido, con el día entero escrito. Lo
+que añade:
+
+- **El producto entero en una historia**: el plan, la voz, lo de alrededor, la comida y lo
+  que cuesta. La respuesta de pueblo sólo enseña la audioguía.
+- **Convierte**: lo que se compra es un viaje, y una escapada es un viaje de uno a tres
+  días, desde 2,99 €, que se puede copiar con el código R-.
+- **La comida es el final que se guarda y se reenvía**, y el restaurante y el ayuntamiento
+  lo comparten.
+- **Ayuda al pueblo sin sermón**: llevar gente al único bar de un pueblo pequeño es el
+  propósito que Estrella Damm contaba con el plástico, aquí sin predicar.
+
+**Lo que hay que comprobar antes de grabar, porque la app no siempre nombra el
+restaurante.** En una ciudad casi siempre lo hace; en un pueblo, sólo si Mapbox encuentra
+cerca un sitio de comer con ese nombre (#256 del repo de la app, 28-sep). Si no, la comida
+se queda en «Comida en <pueblo>». Visto hoy en los viajes creados desde ese día: Vigo sale
+con «Comida en O Portón» y «Comida en A Chabola», y Cangas, al otro lado de la ría, con
+«Comida en Cangas». En un pueblo de cien habitantes lo normal será lo segundo, o que no haya
+dónde comer. **Cuanto más pequeño el pueblo, mejor el gancho y menos probable el
+restaurante.** Por eso el orden es: generar el plan, mirar si nombra un restaurante real,
+llamarlo para saber si abre ese día, y sólo entonces ir. La app también pone precio a cada
+comida (25 € era lo típico en esos viajes): lo que se enseña al final es **la cuenta de
+verdad**, y si sale más barata que lo que dijo la app, mejor.
+
+**El formato: 60-75 s en TikTok y un carrusel en Instagram.**
+
+| Tramo | Qué se ve |
+|---|---|
+| 0-2 s | El cartel del pueblo y el número: *«38 habitantes. Le pedí a una app que me organizara el día aquí.»* |
+| 2-8 s | El plan en la pantalla, con horas y precios |
+| 8-35 s | El tour con la voz de la app, y lo de alrededor: *«y a diez minutos…»* |
+| 35-55 s | La comida: lo que dijo la app, la mesa, el menú y **la cuenta** |
+| 55-65 s | *«Todo el día: X €. Cópialo con el código R-…»*, y *«¿qué pueblo hacemos la semana que viene?»* |
+
+El carrusel lleva el plan entero por horas, el restaurante con su precio y el total: es lo
+que se guarda.
+
+**Ganchos para elegir** con las tres primeras (los números, los reales de cada pueblo):
+
+- *«Le dejé a una app elegir dónde comer en un pueblo de 40 habitantes.»*
+- *«Un pueblo de 38 habitantes, su audioguía y un menú de 14 €.»*
+- *«El único bar de un pueblo de 50 habitantes. Lo encontró una app.»*
+- Y la serie, con cuenta atrás: *«Hay 4.980 pueblos en España con menos de mil habitantes.
+  Empezamos por el que más votéis.»* Con «menos de cien» son 1.406 y el gancho pega más,
+  pero casi ninguno tiene dónde comer.
+
+**La placa, que es el gesto de Vicio**: al irse, una pegatina en la puerta del restaurante,
+con su permiso: *«Este pueblo tiene audioguía»*, con un QR a la App Store con su propio
+`ct=placa-<pueblo>`. Cuesta unos euros, se graba como cierre del episodio y deja en el pueblo
+un punto de descarga que se puede medir.
+
+**Lo que no se hace**: decir que la app recomendó un sitio que no recomendó; dejar que
+invite el restaurante sin decirlo (se paga la cuenta, y si invitan, se dice); grabar dentro
+sin permiso o a otros clientes reconocibles sin el suyo; construir el episodio sobre una
+fiesta con fecha y hora; y escribir «barato» donde puede ir la cuenta.
+
+**Quién lo graba y cuánto cuesta**: el dueño, sin salir en cámara si no quiere —funciona en
+primera persona, con las manos, la mesa y la voz de la app—, por la gasolina y la comida,
+unos 50-100 € y un día por episodio. O @ahora.vas.y.lo.vi, que ya hacen itinerarios día a
+día por España (unos 500 € por pieza, `CREADORES.md`), y los creadores de pueblo de §6, cada
+uno en su zona. **Uno a la semana como mucho**; las respuestas con la audioguía llenan el
+resto de días. El primer episodio puede ser uno de los diez pueblos de prueba de §8: la
+misma comprobación, más la del restaurante.
 
 ---
 
@@ -526,7 +599,7 @@ busca «audioguía» ya quiere una—, en cuanto se sepa qué parte de las desca
 
 ## 11. Lo que decide el dueño
 
-Nueve preguntas en cuatro bloques. Están también en la issue, con sus casillas.
+Diez preguntas en cuatro bloques. Están también en la issue, con sus casillas.
 
 **La idea**
 
@@ -560,6 +633,8 @@ Nueve preguntas en cuatro bloques. Están también en la issue, con sus casillas
    que abra NOMAD?» (`piezas/lanzamiento/`), que lo promete.
 9. **Italia**: ¿«Il tuo paese, raccontato» con las tres A italianas de `INFLUENCERS.md` en
    diciembre, o se aparca? La nonna funciona igual que la abuela.
+10. **La escapada al pueblo (§3.6)**: ¿la grabas tú o un creador, desde qué ciudad se sale
+    —para buscar pueblos a menos de dos horas— y con qué gancho?
 
 ---
 
