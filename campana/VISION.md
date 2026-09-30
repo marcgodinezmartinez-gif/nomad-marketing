@@ -9,8 +9,7 @@ marcas así».*
 Aquí están: por qué hace falta (§1), qué se coge de esas dos marcas (§2), la idea (§3), la
 segunda campaña (§4), lo que se publica cada semana (§5), a quién se contrata (§6), la
 fábrica con IA (§7), el calendario hasta Semana Santa (§8), cómo se mide (§9), lo que
-cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue que abre este
-documento**, no aquí.
+cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue #9**, no aquí.
 
 ## En una pantalla
 
