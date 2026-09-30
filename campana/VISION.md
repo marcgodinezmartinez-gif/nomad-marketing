@@ -51,9 +51,10 @@ Y dos hechos que ordenan el calendario:
 
 - **iOS sale en días; Android, no antes de la segunda quincena de octubre.** La prueba
   cerrada de Google se aprobó el 30-sep y pide 12 testers durante 14 días (NOMAD#303), y
-  después Google revisa. Lo prudente es contar con noviembre. [[ANDROID]] **Gastar el
-  alcance grande antes de que salga Android es regalar la mayor parte**, así que el golpe
-  grande va en diciembre (§8).
+  después Google revisa. Lo prudente es contar con noviembre. Y en España **casi siete de
+  cada diez móviles son Android**: el 69,5 % del tráfico web móvil de 2026 (StatCounter,
+  enero-septiembre). **Gastar el alcance grande antes de que salga Android es regalar la
+  mayor parte**, así que el golpe grande va en diciembre (§8).
 - **La app ya sabe contar un sitio pequeño.** `tours_cache` tiene 55 tours de 15 sitios, y
   no sólo capitales: Porrentruy (Suiza, unos 7.000 habitantes), Premià de Mar, Arrecife. La
   primera parada de Porrentruy empieza así: *«Durante más de doscientos años, este castillo
@@ -122,8 +123,9 @@ contada.»** La campaña es su segunda mitad llevada a donde ninguna guía ha ll
   sitio*. Un pueblo de 300 habitantes contado con voz es esa frase demostrada, y con
   emoción en vez de con una lista de funciones.
 - **Se reenvía solo.** Tu pueblo narrado se manda al grupo de la familia, y el orgullo de
-  pueblo —y la rivalidad con el de al lado— llena los comentarios. En Instagram, los
-  envíos por mensaje son la señal que más pesa para llegar a quien no te sigue [[IG-ENVIOS]].
+  pueblo —y la rivalidad con el de al lado— llena los comentarios. En Instagram, Mosseri
+  cuenta tres señales —tiempo de visionado, «me gusta» por alcance y **envíos por alcance**—
+  y los envíos son los que más pesan para llegar a quien no te sigue.
 - **No se acaba.** Cada pueblo es un vídeo nuevo, una búsqueda nueva («qué ver en…») y, a
   veces, una noticia en la prensa local.
 - **Es barato de verdad.** Narrar un tour nuevo de siete paradas le cuesta a NOMAD unos
@@ -177,15 +179,17 @@ cuando más gente vuelve al pueblo a los cementerios, la serie calla.
 **Una marca que contesta cada comentario con una audioguía hecha para ese pueblo.** No es IA
 de adorno ni un anuncio hecho con IA: es el producto trabajando delante del público, en
 personalizado y a escala. Eso sólo lo puede hacer quien genera las guías, y es lo que lo
-separa del «anuncio hecho con IA» que la gente ya se salta [[IA-RECHAZO]].
+separa del «anuncio hecho con IA» que la gente ya se salta: en junio de 2026, el 73 % decía
+confiar menos en un anuncio que sospecha hecho con IA (Harris Poll y 4As).
 
 ### 3.5 La palanca que lo multiplica todo (repo de la app, decisión del dueño)
 
 **Que la audioguía de tu pueblo sea gratis durante la campaña**, una por cuenta. Hoy un tour
 suelto cuesta 0,99 €, y generarlo le cuesta a NOMAD 0,10-0,20 €. Regalar el primero
-convierte cada vídeo en una descarga con premio inmediato, por unos céntimos, frente a
-[[CPI]] de una instalación comprada. Necesita un cambio en el servidor (un derecho de «un
-tour gratis por cuenta», o un código de oferta) y es trabajo del repo de la app, no de éste.
+convierte cada vídeo en una descarga con premio inmediato, por unos céntimos por cuenta que
+la usa. Comprar una instalación en Apple Ads cuesta en España una mediana de **1,43 $**
+(AppTweak, datos de 2025). Necesita un cambio en el servidor (un derecho de «un tour gratis
+por cuenta», o un código de oferta) y es trabajo del repo de la app, no de éste.
 
 Y un paso más allá, para después: **una página `travelsnomad.com/pueblo/<nombre>`** donde
 se escucha la primera parada sin instalar nada, con su tarjeta de previsualización para
@@ -227,8 +231,24 @@ Tres pilares, una sola cuenta y una sola voz:
 | **Con gracia** | Tours absurdos (G6: heladerías, vermuts), temas del día, respuestas a comentarios, y el fundador si quiere salir | Personalidad y seguidores | 25 % |
 
 **El ritmo que aguanta una persona con la fábrica de §7**: cinco vídeos a la semana en
-TikTok, los mismos en Reels y en Shorts, dos carruseles, y una historia al día.
-[[FRECUENCIA]]
+TikTok, los mismos en Reels y en Shorts, dos carruseles, y una historia al día. Cinco y no
+uno porque el volumen se nota: pasar de un vídeo a la semana a entre dos y cinco da un 17 %
+más de visualizaciones **por vídeo**, y entre seis y diez, un 29 % (Buffer, sobre 11,4 M de
+publicaciones, también en cuentas pequeñas). Duolingo empezó igual: tres a cinco a la
+semana, entre 15 minutos y dos horas cada uno.
+
+**TikTok primero, Instagram después.** Los reels de prueba de Instagram —los que se
+enseñan sólo a quien no te sigue— piden 1.000 seguidores, y TikTok es donde una cuenta
+pequeña todavía llega a desconocidos. La serie se estrena allí y se sube a Reels la que
+funcione. En TikTok, lo que más interacción saca son los vídeos de 15-30 s (6 %,
+Socialinsider, sobre 6 M de vídeos de 2026); en Instagram, el carrusel logra nueve veces
+más guardados que la foto suelta (Metricool, 2026), que es por lo que «¿Qué planea NOMAD
+para…?» es un carrusel.
+
+**Una cosa que comprobar antes de la primera pieza**: la casa sube los reels sin audio para
+elegir el de tendencia dentro de la app, y hay fuentes que dicen que **una cuenta de empresa
+sólo ve la biblioteca comercial** en Instagram y en TikTok. Se mira en @app.nomad; si es así,
+la música sale de esa biblioteca, que además es la única que deja anunciar la pieza.
 
 **La voz**: la de la app es seria y concreta; la de la campaña es la misma persona con un
 punto de guasa. Humor seco, frases cortas, cero exclamaciones y cero superlativos, que es lo
@@ -272,11 +292,33 @@ delante.** La única IA que sale en pantalla es la voz de la app, y se dice que 
 Las fotos del pueblo: las que mande quien lo pidió (con su permiso, por mensaje), las del
 banco con su licencia, o las que ya enseña la app en la parada. Nunca Street View.
 
-**Las herramientas** [[HERRAMIENTAS]]
+**Las herramientas, por menos de 20 € al mes** (precios de septiembre de 2026):
+
+| Para qué | Qué | Cuánto |
+|---|---|---|
+| Guiones, pies, comprobar datos, montar, pedir prensa | Claude, en la sesión sobre este repo, y `piezas/` | Lo que ya se paga |
+| La voz y la historia | **La propia app** | 0,10-0,20 € por pueblo nuevo; 0 si ya está narrado |
+| Recortar, subtitular, montar rápido en el móvil | **Edits**, de Meta: gratis, y su asistente de IA lee la retención. **CapCut no**: desde junio de 2025 sus términos se quedan una licencia perpetua sobre lo que subes, cara y voz incluidas | 0 € |
+| Mapas animados, transiciones, planos que no sean un sitio real | Google AI Plus (Veo en Flow) | 4,99 €/mes |
+| Música para una pieza que se vaya a anunciar | La biblioteca comercial de cada red, primero. Suno Pro (uso comercial, anuncios incluidos) sólo si hace falta algo propio, sabiendo que un tribunal de Múnich falló contra Suno en julio de 2026 y la sentencia está recurrida | 0 € / 10 $/mes |
+| El italiano, si se abre la prueba | La app ya narra en italiano | 0 € |
+
+**Sora ya no existe** (OpenAI cerró la app el 26-abr-2026), y no hace falta: nada de esta
+visión necesita vídeo generado.
 
 **Lo que no se hace con IA, nunca**: personas inventadas, testimonios inventados, un sitio
 real pintado por una máquina como si fuera una foto, ni la voz o la cara de alguien que no
-lo ha autorizado. [[IA-LEY]]
+lo ha autorizado.
+
+**Y lo que sí se hace, se dice.** Desde el 2 de agosto de 2026 el artículo 50 del
+Reglamento de IA obliga a avisar de un vídeo realista generado con IA, también si lo que
+enseña es un lugar real. Meta pide etiquetar el **audio realista creado digitalmente**, y la
+voz de la app lo es; TikTok, el contenido realista hecho con IA. Así que cada pieza con la
+voz lleva la etiqueta de la red y una línea en el pie («la voz es de NOMAD, generada con
+IA»). No cuesta nada: el 87 % de los internautas españoles considera imprescindible
+etiquetar lo que hace la IA (IAB Spain, 2026). Y en España hay un proyecto de ley, aprobado
+por el Gobierno en mayo de 2026 y aún en el Congreso, que pondría una marca «IA» visible y
+multas desde 6.000 €: mejor llegar etiquetando.
 
 ---
 
