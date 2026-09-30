@@ -470,4 +470,70 @@ Nueve preguntas en cuatro bloques. Están también en la issue, con sus casillas
 
 ## Fuentes
 
-[[FUENTES]]
+Consultadas entre el 30-sep-2026 y las fechas que dice cada una. Lo que venía de una sola
+fuente débil no ha entrado en el documento.
+
+**Datos propios**: `public.waitlist` y `tours_cache`, consultadas el 30-sep-2026;
+`campana/BRIEF-REFORMULACION.md`; `piezas/demo-app/GUION.md`; `docs/ECONOMIA.md` y las
+issues #303, #305 y #308 del repo de la app.
+
+**Vicio**: [CESTE](https://www.ceste.es/areas-de-negocio/empresas/caso-exito-vicio/) ·
+[Dircomfidencial, mar-2025](https://dircomfidencial.com/marketing/vicio-nos-convertiremos-en-un-icono-o-venderemos-en-el-intento-20250325-0404/) ·
+[Marketing News, 2022](https://www.marketingnews.es/marcas/noticia/1168004054305/aleix-puig-marca-vicio-mas-grande-mi-pasado-ganador-de-masterchef.1.html) ·
+[c de c](https://www.marketingdirecto.com/especiales/c-de-c-club-creatividad/vicio-claves-exito-creativo-c-de-c) ·
+[la convención de McDonald's](https://www.marketingnews.es/marcas/noticia/1183245054305/asi-sido-la-repercusion-de-la-accion-gamberra-de-vicio-en-la-convencion-de-mcdonalds.1.html) ·
+[La Velada IV](https://www.kolsquare.com/es/blog/analisis-de-la-velada-del-ano-4-influencers-estrategias-de-marketing-y-el-secreto-del-exito) ·
+[A Coruña](https://www.merca20.com/vicio-campana-publicidad-apertura-a-coruna/) ·
+[«Perdona Ferran»](https://ipmark.com/vicio-ficha-ferran-torres-demostrar-burgers-mandan/) ·
+[FACUA y Milfshakes](https://www.ondavasca.com/el-youtuber-nil-ojeda-denunciado-por-facua-tras-ofrecer-un-99-de-descuento-si-espana-ganaba-el-mundial/)
+
+**Estrella Damm y otras marcas**: [todos los «Mediterráneamente»](https://www.reasonwhy.es/actualidad/campanas/todos-los-spots-de-estrella-damm-mediterraneamente) ·
+[c de c, 2026](https://www.reasonwhy.es/actualidad/club-de-creatividad-recupera-mediterraneamente-estrella-damm-2026) ·
+[*La leyenda de Canyut*](https://www.eldebate.com/economia/20260611/estrella-damm-decreta-comienzo-verano-campana-leyenda-canyut_427825.html) ·
+[Marina Prieto](https://www.storyboard18.com/advertising/global-ads-spotlight-when-marina-prieto-revived-the-future-of-spains-subway-advertising-68272.htm) ·
+[anuncios edadistas](https://www.65ymas.com/economia/empresas/10-anuncios-mas-edadistas-ultimos-anos-abuelo-satisfyer-fabada-litoral_80478_102.html) ·
+[CampofrIA](https://www.reasonwhy.es/actualidad/anuncio-navidad-campofrio-2023-inteligencia-artificial) ·
+[Coca-Cola](https://www.genbeta.com/actualidad/coca-cola-ha-lanzado-tres-anuncios-ia-para-anunciar-navidad-que-no-queda-claro-queria-arruinar) ·
+[McDonald's Países Bajos](https://www.reasonwhy.es/actualidad/mcdonalds-paises-bajos-retira-anuncio-navidad-inteligencia-artificial) ·
+[Kantar sobre la IA en publicidad](https://www.elespanol.com/omicrono/tecnologia/20260201/publicidad-abraza-ia-hacer-campanas-imparable-gente-no-quiere-anuncios-cutres/1003744105164_0.html) ·
+[Duolingo en TikTok](https://digiday.com/marketing/how-duolingo-is-using-its-unhinged-content-with-duo-the-owl-to-make-people-laugh-on-tiktok/)
+
+**Plataformas y medición**: [el algoritmo de Instagram](https://blog.hootsuite.com/instagram-algorithm/) ·
+[reels de prueba](https://www.socialsamosa.com/news-2/instagram-introduces-wider-access-trial-reels-9493132) ·
+[Metricool, Instagram 2026](https://metricool.com/es/estudio-instagram/) ·
+[Buffer, frecuencia en TikTok](https://buffer.com/resources/how-often-should-you-post-on-tiktok/) ·
+[Socialinsider, duración](https://www.socialinsider.io/blog/how-long-are-tiktok-videos/) ·
+[StatCounter, España](https://gs.statcounter.com/os-market-share/mobile/spain) ·
+[IAB Spain 2026](https://ppc.land/spains-social-media-users-jump-to-7-2-platforms-but-42-quit-at-least-one/) ·
+[Harris Poll y 4As](https://www.marketingbrew.com/stories/harris-poll-ai-fatigue-less-trust-ai-generated-ads-cannes-lions) ·
+[Apple Ads, AppTweak](https://www.apptweak.com/en/aso-blog/apple-ads-benchmarks) ·
+[enlaces de campaña](https://developer.apple.com/help/app-store-connect-analytics/acquisition/campaign-links) ·
+[códigos de oferta](https://developer.apple.com/documentation/storekit/supporting-offer-codes-in-your-app)
+
+**Herramientas**: [Google AI Plus en España](https://www.profesionalreview.com/2026/06/09/google-rebaja-ai-plus-a-499-euros-al-mes-en-espana-con-400-gb/) ·
+[Edits](https://techcrunch.com/2026/06/11/metas-edits-app-is-getting-an-ai-assistant-and-a-desktop-version/) ·
+[los términos de CapCut](https://www.techloy.com/capcuts-latest-terms-of-service-raises-big-questions-about-content-ownership/) ·
+[Suno](https://suno.com/blog/suno-updates-tos) ·
+[GEMA contra Suno](https://www.justiz.bayern.de/gerichte-und-behoerden/landgericht/muenchen-1/presse/2026/16.php) ·
+[el cierre de Sora](https://the-decoder.com/openai-sets-two-stage-sora-shutdown-with-app-closing-april-2026-and-api-following-in-september/)
+
+**Normativa**: [art. 50 del Reglamento de IA](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act) ·
+[lo que entró el 2-ago-2026](https://www.morganlewis.com/blogs/sourcingatmorganlewis/2026/08/eu-ai-acts-transparency-rules-what-went-into-effect-on-2-august) ·
+[etiquetas de Meta](https://transparency.meta.com/governance/tracking-impact/labeling-ai-content) ·
+[etiquetas de TikTok](https://newsroom.tiktok.com/more-ways-to-spot-shape-and-understand-ai-content?lang=en) ·
+[el proyecto de ley español](https://www.xataka.com/legislacion-y-derechos/espana-aprueba-su-ley-ia-deepfakes-sexuales-fuera-etiqueta-ia-obligatoria-multas-millonarias-al-sector-privado) ·
+[código de influencers, 2.ª versión](https://www.autocontrol.es/app/uploads/codigo-de-conducta-de-publicidad-a-traves-de-influencers-2025.pdf) ·
+[CNMC, jun-2026](https://www.cnmc.es/prensa/requerimientos-influencer-20260603) ·
+[RD 444/2024](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-8716) ·
+[Ley 13/2011 del juego](https://www.boe.es/buscar/act.php?id=BOE-A-2011-9280) ·
+[Reglamento del IRPF](https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820) ·
+[promociones en Meta](https://www.facebook.com/policies_center/pages_groups_events/) ·
+[LO 1/1982](https://www.boe.es/buscar/act.php?id=BOE-A-1982-11196) ·
+[Thyssen](https://www.museothyssen.org/sites/default/files/document/2025-04/FolletoThyssen_ES-19.pdf) ·
+[Reina Sofía](https://www.museoreinasofia.es/visita/visita-individual/) ·
+[festivos de 2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-21667)
+
+**Pueblos**: [INE, cifras a 1-ene-2025](https://www.ine.es/jaxiT3/Tabla.htm?t=2872) ·
+[Los Pueblos Más Bonitos, para creadores](https://lospueblosmasbonitosdeespana.org/para-creadores) ·
+[su día, el 1 de octubre](https://lospueblosmasbonitosdeespana.org/eventos/el-1-de-octubre-ven-a-un-pueblo) ·
+[izi.TRAVEL](https://izi.travel/es) · [VoiceMap](https://voicemap.me/) · [Audiala](https://audiala.com/)
