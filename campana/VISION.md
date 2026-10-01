@@ -13,6 +13,14 @@ cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue 
 
 ## En una pantalla
 
+**Lo decidido el 1-oct, que manda sobre lo de abajo** (§3.7 y §11): se empieza **solo** por la
+serie **«Cosas que no sabías de…»**. Cada vídeo cuenta un sitio con la voz de la app, sea tu
+pueblo o uno que quieres visitar, y acaba preguntando cuál es el tuyo. Arranca con un reel que,
+si a las 48 horas alguien ha pedido un sitio, se promociona con hasta 50 €. La voz de los reels
+es **Kore**; la de la app sigue siendo la del teléfono. Subtítulos siempre, grabados en el
+vídeo. Los primeros episodios se graban desde Barcelona. La Navidad, «Organizadores
+Anónimos», la escapada y los demás tipos de viaje quedan para más adelante.
+
 - **La idea: «Tu pueblo, contado».** La gente pide su pueblo en los comentarios y NOMAD
   contesta con su audioguía. En Navidad, «Tu abuela sabe más»: ponle la audioguía a tu
   abuela y graba lo que corrige. Y una pieza de 60-90 s, «La otra audioguía». Es lo que
@@ -172,11 +180,13 @@ contada.»** La campaña es su segunda mitad llevada a donde ninguna guía ha ll
 
 ### 3.2 Tres niveles, como una campaña y no como un post
 
-1. **La serie: «¿Tu pueblo tiene audioguía?»** (siempre encendida desde noviembre). La
-   gente pide su pueblo en los comentarios y NOMAD **contesta con un vídeo**: la voz real
-   de la app, tres paradas, dónde ponerse y la curiosidad que nadie sabía. En TikTok es
-   «responder con vídeo»; en Instagram, «responder con un reel». Cada respuesta es un vídeo
-   nuevo que sale en el perfil de NOMAD y le llega a quien lo pidió.
+1. **La serie: «Cosas que no sabías de…»** (desde octubre; el nombre lo eligió el dueño el
+   1-oct, y sustituye a «¿Tu pueblo tiene audioguía?»). Cada vídeo cuenta un sitio, sea tu
+   pueblo o uno que quieres visitar, con la voz real de la app: tres paradas, dónde ponerse
+   y la curiosidad que nadie sabía. Acaba preguntando cuál es el tuyo, y NOMAD **contesta
+   con un vídeo** a los más pedidos. En TikTok es «responder con vídeo»; en Instagram,
+   «responder con un reel». Cada respuesta es un vídeo nuevo que sale en el perfil de NOMAD
+   y le llega a quien lo pidió. Cómo arranca, en §3.7.
 2. **El ritual: «Tu abuela sabe más»** (Navidad). *Ponle la audioguía de su pueblo a tu
    abuela y graba lo que dice.* La app cuenta la historia que está escrita; la abuela, la
    que no: dónde estaba el cine, quién vivía en esa casa, que eso no fue así. **La IA sabe
@@ -188,6 +198,10 @@ contada.»** La campaña es su segunda mitad llevada a donde ninguna guía ha ll
    verdad, tu abuela.»* Y la música, si puede ser, **una canción del pueblo cantada por
    ella**: una canción popular tradicional es de dominio público y el momento no lo compra
    ningún presupuesto. Es, en pequeño, *Verano del 78*.
+
+**Los niveles 2 y 3, por decidir** (1-oct): el dueño empieza solo por la serie. Si la pieza de
+Navidad entra, hay que decidirla como tarde a mediados de noviembre, porque el rodaje acaba el
+11 de diciembre (fecha límite elegida aquí, no medida).
 
 **Un permiso que no se salta**: para volver a publicar en la cuenta de NOMAD el vídeo de
 alguien con su abuela hace falta su permiso por escrito (un mensaje basta) y el de la abuela.
@@ -311,9 +325,62 @@ uno en su zona. **Uno a la semana como mucho**; las respuestas con la audioguía
 resto de días. El primer episodio puede ser uno de los diez pueblos de prueba de §8: la
 misma comprobación, más la del restaurante.
 
+**Aplazada el 1-oct**: el dueño empieza por la serie y deja la escapada para más adelante.
+
+### 3.7 El reel de arranque (decidido el 1-oct)
+
+La propuesta es del dueño: *«empezar con un reel contando la idea de "¿Quién te guía por tu
+pueblo?" o algo como "Cosas que no sabías de tu pueblo". Ese reel se debería publicitar porque
+de ahí empezaríamos a tener comentarios… La idea no es solo tu pueblo sino lugares que te
+resultarían interesantes visitar… las mismas voces TTS que las audioguías… y subtitular los
+reels para la gente con problemas auditivos».* Quedó así:
+
+- **El nombre es «Cosas que no sabías de…»**: vale para un pueblo, una ciudad o un monumento,
+  y la gente busca así. «¿Quién te guía por tu pueblo?» se guarda para Navidad, donde la
+  respuesta es «tu abuela».
+- **El reel enseña, no explica.** El del demo explicaba la app y se vieron 4 segundos de 43.
+  El de arranque ya es un episodio: un sitio real, lo que nadie sabía, dónde ponerse y la voz
+  de la app. Al final: *«¿Cuál es tu pueblo? Escríbelo en los comentarios: cada semana
+  contamos los más pedidos.»*
+- **Se promete «los más pedidos», no «todos».** Cada respuesta lleva unos 20 minutos con la
+  comprobación de datos, y prometer y no cumplir delante de todos es lo peor que le puede pasar
+  a esta serie.
+- **La voz es Kore**, elegida de oído el 1-oct entre las tres de la app. Es el mismo modelo
+  (`gemini-3.1-flash-tts-preview`) con la misma instrucción de tono que usa `narrate`. Las
+  frases que no están en la app (el gancho y el cierre) se generan igual, por céntimos. **La
+  app sigue con la voz del teléfono por defecto, siempre** (decisión del dueño). Como Kore se
+  elige en la bienvenida, el pie dice qué voz es (*«La voz es Kore, una de las de la app,
+  generada con IA»*), para que quien se baje la app la encuentre.
+- **Subtítulos siempre, grabados en el vídeo**, además de los automáticos de cada red. Salen
+  del texto exacto de la narración y van frase a frase, al ritmo de la voz: cada frase se
+  genera aparte y su duración da el tiempo. Como mucho dos líneas, con una banda oscura detrás
+  y dentro de la zona segura del reel (y = 230-1480). La referencia es la UNE 153010, la norma
+  española de subtitulado para personas sordas.
+- **El dinero: primero, 48 horas sin pagar.** Si en ese tiempo alguien ha pedido un sitio, se
+  promociona la misma publicación con **hasta 50 €** y con iOS ya en la tienda: «Promocionar»
+  en Instagram y Promote en TikTok, no un anuncio aparte, para que los comentarios se queden en
+  el reel. Los 50 € son una cifra elegida, no medida, y salen del empujón de Navidad del tramo
+  2, así que el techo no se mueve (§10). Si nadie pide un sitio gratis, pagar no lo arregla:
+  se cambia el gancho.
+- **Cuándo se para el empujón** (una suposición, escrita en una línea para poder cambiarla):
+  con 25 € gastados y menos de 10 peticiones de sitio, se para y se cambia el gancho, no el
+  texto. Y si la red apenas le da gasto, también (la tabla de `AGENTS.md`).
+- **Android**: la lista de espera se cierra para todos el día que salga la primera tienda
+  (decisión 8, §11). A «¿y en Android?» se contesta *«síguenos y te avisamos el día que
+  salga»*, sin fecha.
+- **Desde Barcelona**: de ahí salen los primeros episodios de ciudad. Los de pueblo no
+  necesitan viajar: se hacen con la app grabada, las fotos que mande quien lo pidió o las del
+  banco (§7).
+
+Queda por decidir si el dueño sale en los vídeos (decisión 6).
+
 ---
 
 ## 4. La segunda campaña (enero-marzo): «Organizadores Anónimos»
+
+**Por decidir desde el 1-oct**: el dueño empieza solo por «Cosas que no sabías de…» y esta la
+pensará después. Si entra, conviene decidirla a mediados de diciembre, porque arrancaría el 18
+de enero (fecha límite elegida aquí, no medida).
 
 El pueblo abre la conversación; **lo que se vende en Semana Santa es el viaje en grupo**, y
 el que paga es siempre el mismo: el que organiza. `INFLUENCERS.md` ya lo apuntó como
@@ -380,7 +447,8 @@ la música sale de esa biblioteca. Y aunque no lo fuera, una pieza con música d
 se puede anunciar después (§6): lo que tenga papeletas de acabar en anuncio va con la voz de
 la app o con música comercial desde el primer día.
 
-**La voz**: la de la app es seria y concreta; la de la campaña es la misma persona con un
+**La voz** (decidido el 1-oct: así, con un punto de guasa; y en los reels suena Kore, §3.7):
+la de la app es seria y concreta; la de la campaña es la misma persona con un
 punto de guasa. Humor seco, frases cortas, cero exclamaciones y cero superlativos, que es lo
 que ya pide `.agents/product-marketing.md`. La gracia sale de lo concreto: *«El grupo "Roma
 2027 🍝" tiene 347 mensajes y ningún plan»* hace reír porque es verdad, no porque grite.
@@ -562,11 +630,12 @@ estas dos semanas:
 | Días | Qué | Estado |
 |---|---|---|
 | 1-3 oct | El Panteón de «¿Conocías este lugar?»: carrusel en Instagram y en modo foto en TikTok | Listo desde el 16-sep, si no ha salido ya |
-| 2-5 oct | Los primeros «Fíjate en…» de la ciudad del dueño (`TIPOS-DE-VIAJE.md` §1) | Se graban en una tarde |
+| 2-5 oct | Los primeros episodios de «Cosas que no sabías de…» en Barcelona, la ciudad del dueño (§3.7) | Se graban en una tarde |
 | 6-8 oct | «¿Qué planea NOMAD para el puente del Pilar?», el reel de Córdoba | Montado el 29-sep; sale antes del puente (10-12) |
 | 6-14 oct | Los pueblos de prueba que pasen la comprobación (abajo) | Dependen de los diez pueblos |
 | El día de la tienda | El anuncio, la bio nueva y, si se decide el punto 8 de §11, «¿Qué pasa el día que abra NOMAD?» | Hecho el 29-sep |
-| 10-12 oct | La primera escapada, a un pueblo junto a un hayedo, para publicarla la semana siguiente | Depende de los tres pueblos candidatos |
+| Con iOS en la tienda | El reel de arranque (§3.7): 48 horas gratis y, si alguien pide un sitio, hasta 50 € a la misma publicación | Guion y voz por hacer |
+| 10-12 oct | La primera escapada, a un pueblo junto a un hayedo, para publicarla la semana siguiente | **Aplazada el 1-oct** |
 
 **Lo que no se hace para crecer**: comprar seguidores, nunca; seguir y dejar de seguir;
 grupos de «me gusta»; y sorteos de «sigue y etiqueta a tres amigos», porque Meta prohíbe
@@ -676,13 +745,15 @@ ahora va aparte.
 
 | Tramo | Cuándo | Qué | Cuánto | Se abre si… |
 |---|---|---|---|---|
-| 1 | Octubre | Herramientas, la IA de las pruebas, la cantera por canje y tres escapadas grabadas por el dueño (unos 75 € cada una, entre gasolina y comida) | **325 €** | Ya |
-| 2 | Noviembre-diciembre | Cuatro escapadas más, dos nanos de pueblo, @ahora.vas.y.lo.vi, «La otra audioguía», la IA de la serie y un empujón pequeño a la pieza de Navidad | **2.340 €** | Algún formato pasa la tabla de §9 **y** los diez pueblos se sostienen (§8) |
+| 1 | Octubre | Herramientas, la IA de las pruebas, la cantera por canje, el reel de arranque (hasta 50 €, §3.7) y tres escapadas grabadas por el dueño (unos 75 € cada una, entre gasolina y comida; **aplazadas el 1-oct**) | **375 €** | Ya |
+| 2 | Noviembre-diciembre | Cuatro escapadas más, dos nanos de pueblo, @ahora.vas.y.lo.vi, «La otra audioguía», la IA de la serie y un empujón pequeño a la pieza de Navidad (con 50 € menos, que pasaron al reel de arranque) | **2.290 €** | Algún formato pasa la tabla de §9 **y** los diez pueblos se sostienen (§8) |
 | 3 | Enero | @ramonteli para «Organizadores Anónimos», y «La Amnistía» | **1.720 €** | La Navidad trajo descargas y ya se sabe qué parte compra (NOMAD#308) |
 | | | **Total** | **4.385 €** | |
 
-**Lo que se arriesga de verdad hoy son 325 €.** Si el primer tramo no pasa, se para ahí y se
-replantea. Si pasa el segundo y no el tercero, el gasto se queda en unos 2.665 €.
+**Lo que se arriesga de verdad hoy son 375 €**, y menos mientras la escapada siga aplazada. Si
+el primer tramo no pasa, se para ahí y se replantea. Si pasa el segundo y no el tercero, el
+gasto se queda en unos 2.665 €. Desde el 1-oct, qué entra en los tramos 2 y 3 depende de lo
+que el dueño decida después: el reparto de arriba es el techo, no un compromiso.
 
 **Dos palancas para bajarlo sin tocar la idea:**
 
@@ -699,7 +770,9 @@ en el segundo tramo. Sería buena noticia: querría decir que la está usando mu
 
 ## 11. Lo que decide el dueño
 
-Diez preguntas en cuatro bloques. Están también en la issue, con sus casillas.
+Diez preguntas en cuatro bloques, y una undécima de `TIPOS-DE-VIAJE.md`. Están también en la
+issue, con sus casillas. **El 1-oct se decidieron cuatro más y se aplazaron casi todas las
+demás**; lo decidido va en cursiva debajo de cada una.
 
 **La idea**
 
@@ -707,10 +780,14 @@ Diez preguntas en cuatro bloques. Están también en la issue, con sus casillas.
    de enero a Semana Santa.** ¿Así, al revés o sólo una? Recomiendo ese orden: el pueblo
    abre la conversación con lo que nadie más puede enseñar, y el grupo es lo que se vende
    en primavera.
+   *Decidido el 1-oct: de momento, solo la serie «Cosas que no sabías de…» (§3.7). El
+   dueño: «lo siguiente ya lo pensaré».*
 2. **El tono**: la voz de la app con un punto de guasa (§5). ¿Te encaja, o la quieres más
    seria o más gamberra?
+   *Decidido el 1-oct: así, con un punto de guasa.*
 3. **La bio de TikTok ya dice «Nosotros organizamos. Tú viajas.»** Es el cierre natural
    de «Organizadores Anónimos». ¿Se queda?
+   *Aplazada, junto con «Organizadores Anónimos».*
 
 **El dinero**
 
@@ -718,24 +795,43 @@ Diez preguntas en cuatro bloques. Están también en la issue, con sus casillas.
    30-sep: el recomendado, con 4.400 € de techo y por tramos.*
 5. **La audioguía del pueblo gratis durante la campaña** (§3.5). Si es que sí, hace falta
    una issue en el repo de la app antes de noviembre.
+   *Aplazada el 1-oct: se decide con datos, cuando se vea cuánta gente pide su pueblo.*
 
 **Tú**
 
 6. **¿Sales en cámara?** No hace falta: el fundador de Vicio no sale nunca. Pero «una app
    de viajes hecha por una sola persona» es una historia que compra la prensa, y basta con
    la voz, sin la cara.
+   *Pendiente: el 1-oct el dueño «no lo sé todavía».*
 7. **La pieza de Navidad, ¿con un creador y su abuela, o con alguien de tu familia que
    tenga pueblo?** Lo segundo es más barato y más verdad; lo primero trae público.
+   *Aplazada, con los niveles 2 y 3 de §3.2. Si entra, como tarde a mediados de noviembre.*
 
 **Lo demás**
 
 8. **La lista de espera, ¿se cierra de verdad el día que abra iOS?** Para Android sigue
    abierta hasta que salga (NOMAD#305). De esto depende que se publique «¿Qué pasa el día
    que abra NOMAD?» (`piezas/lanzamiento/`), que lo promete.
+   *Decidido el 1-oct: se cierra para todos (iPhone, Android y ordenador) el día que salga
+   la primera tienda, sea iOS o Android. Cambia lo que estaba preparado en NOMAD#305, que la
+   dejaba abierta en Android.*
 9. **Italia**: ¿«Il tuo paese, raccontato» con las tres A italianas de `INFLUENCERS.md` en
    diciembre, o se aparca? La nonna funciona igual que la abuela.
+   *Aplazada, con lo demás.*
 10. **La escapada al pueblo (§3.6)**: ¿la grabas tú o un creador, desde qué ciudad se sale
     —para buscar pueblos a menos de dos horas— y con qué gancho?
+    *Más adelante (1-oct). Lo que sí está decidido: los primeros episodios de la serie se
+    graban desde Barcelona.*
+11. **Qué campañas por tipo de viaje entran** (`TIPOS-DE-VIAJE.md` §8).
+    *Aplazada. La ciudad ya entra, como episodios de «Cosas que no sabías de…».*
+
+**Y tres que no estaban en la lista, decididas el 1-oct** (§3.7):
+
+- La voz de los reels es **Kore**, elegida de oído entre las tres de la app.
+- La voz por defecto de la app sigue siendo **la del teléfono, siempre**. Kore se elige en la
+  bienvenida.
+- El reel de arranque **se paga**: primero 48 horas gratis y, si alguien ha pedido un sitio,
+  hasta 50 € a la misma publicación.
 
 ---
 
