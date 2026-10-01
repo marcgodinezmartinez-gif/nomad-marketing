@@ -509,6 +509,66 @@ España**, la asociación de 126 pueblos que tiene su propia red de creadores y 
 el cumpleaños de la serie, que es el ritual con fecha fija que hace Estrella Damm. Y
 escribirles antes es barato: ofrecerles sus 126 pueblos contados.
 
+### Fase 0: calentar las cuentas, del 1 al 14 de octubre
+
+Pregunta del dueño, 1-oct: *«la app va a salir en 1-2 semanas. La cuenta de Instagram
+tiene 122 seguidores y la de TikTok, como 12. Habría que primero potenciar ambas cuentas
+y luego empezar las campañas».*
+
+**Sí a empezar ya; no a «primero seguidores y luego la campaña».** Hoy el alcance no lo
+deciden los seguidores, lo decide el vídeo. Alrededor del 70 % de las vistas de TikTok
+salen del «Para ti», que enseña cada vídeo a desconocidos (Metricool, 2026). En Instagram,
+lo que saca un reel fuera de tus seguidores son los envíos. Una cuenta de 12 seguidores con
+un buen vídeo llega a miles, y una de 10.000 con un mal vídeo, a nadie. **La campaña es lo
+que trae los seguidores**, no lo que viene después de tenerlos.
+
+Lo que sí hace falta tener antes del día de la tienda son cuatro cosas, y para eso son
+estas dos semanas:
+
+1. **Los perfiles listos, hoy, en una hora.**
+   - **Instagram**: en el nombre, que el buscador de Instagram lee, «NOMAD · app de viajes
+     y audioguías». Las destacadas, subidas, y tres publicaciones fijadas: qué es, el plan
+     de Córdoba y el primer pueblo cuando exista.
+   - **TikTok: pásala a cuenta de empresa.** Así el enlace de la bio se puede tocar desde
+     el primer seguidor (una cuenta personal necesita 1.000). A cambio sólo se usa la música
+     comercial, que es además la única con la que se puede anunciar una pieza (§5); el
+     sonido de la casa es la voz de la app.
+   - **El día que Apple apruebe**: la última línea de la bio deja la lista de espera y pasa
+     a decir que ya está en iPhone, con el enlace a `travelsnomad.com/app`.
+2. **El ritmo, desde ya**: un TikTok al día, tres o cuatro reels a la semana (los que mejor
+   hayan ido en TikTok) y una historia diaria con la app de verdad. Sin cuenta atrás: no hay
+   fecha de tienda, y una urgencia falsa es lo que la casa no hace.
+3. **Los primeros cien o trescientos, de verdad.** Son los que dan a cada vídeo su primera
+   hora, que es cuando la red decide si lo enseña a más gente:
+   - una historia en el Instagram personal del dueño, con su UTM (`story-personal`), y un
+     mensaje a sus grupos de WhatsApp. De las 14 altas de septiembre, 10 vinieron de
+     Instagram orgánico;
+   - las 14 personas de la lista y los testers de Android (NOMAD#303): un mensaje personal,
+     no un correo masivo;
+   - **veinte minutos al día comentando de verdad** en cuentas de viajes, de pueblos y de
+     oficinas de turismo, y contestando cada comentario propio en su primera hora (en
+     TikTok, con vídeo).
+4. **Llegar al lanzamiento sabiendo qué formato funciona.** Con unas catorce piezas en dos
+   semanas, la tabla de parada del orgánico (§9) ya dice algo el día de la tienda.
+
+**Lo que se publica** (primero lo que ya está hecho):
+
+| Días | Qué | Estado |
+|---|---|---|
+| 1-3 oct | El Panteón de «¿Conocías este lugar?»: carrusel en Instagram y en modo foto en TikTok | Listo desde el 16-sep, si no ha salido ya |
+| 2-5 oct | Los primeros «Fíjate en…» de la ciudad del dueño (`TIPOS-DE-VIAJE.md` §1) | Se graban en una tarde |
+| 6-8 oct | «¿Qué planea NOMAD para el puente del Pilar?», el reel de Córdoba | Montado el 29-sep; sale antes del puente (10-12) |
+| 6-14 oct | Los pueblos de prueba que pasen la comprobación (abajo) | Dependen de los diez pueblos |
+| El día de la tienda | El anuncio, la bio nueva y, si se decide el punto 8 de §11, «¿Qué pasa el día que abra NOMAD?» | Hecho el 29-sep |
+| 10-12 oct | La primera escapada, a un pueblo junto a un hayedo, para publicarla la semana siguiente | Depende de los tres pueblos candidatos |
+
+**Lo que no se hace para crecer**: comprar seguidores, nunca; seguir y dejar de seguir;
+grupos de «me gusta»; y sorteos de «sigue y etiqueta a tres amigos», porque Meta prohíbe
+exigir etiquetas y un sorteo paga el 10 % del impuesto del juego.
+
+**Un hito que sirve de algo**: los 1.000 seguidores de Instagram desbloquean los reels de
+prueba. No se le pone fecha: depende de qué formato funcione.
+
 ### Las dos primeras semanas, paso a paso
 
 | # | Quién | Qué |
