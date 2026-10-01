@@ -54,8 +54,8 @@ Anónimos», la escapada y los demás tipos de viaje quedan para más adelante.
 con su comparativa y una propuesta de cuáles y en qué orden, está en
 **`campana/TIPOS-DE-VIAJE.md`** (30-sep, a petición del dueño).
 
-**Y en presentación, para enseñarlo** (1-oct, a petición del dueño): diecisiete diapositivas
-con las capturas reales de la app y las notas de cada una, en
+**Y en presentación, para enseñarlo** (1-oct, a petición del dueño): con las capturas reales
+de la app, lo decidido ese día y las notas de cada diapositiva, en
 <https://claude.ai/artifact/WhgviY2r1rzZoJuNYaxpdz>. Es privada hasta que el dueño la
 comparta, y es una foto de este documento: si algo cambia, manda el documento y la
 presentación se rehace.
