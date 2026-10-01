@@ -371,6 +371,19 @@ reels para la gente con problemas auditivos».* Quedó así:
 - **Desde Barcelona**: de ahí salen los primeros episodios de ciudad. Los de pueblo no
   necesitan viajar: se hacen con la app grabada, las fotos que mande quien lo pidió o las del
   banco (§7).
+- **El primero se graba en Premià de Mar, el pueblo del dueño** (1-oct). Cuenta la historia
+  enseñándola, en cuatro partes:
+  1. *«He hecho una app que te cuenta cualquier sitio mientras lo caminas; la he probado en el
+     que mejor conozco, mi pueblo»*.
+  2. Una parada con Kore.
+  3. *«Queremos hacer esto con el vuestro»*.
+  4. La pregunta del final.
+
+  Necesita al menos la voz del dueño (decisión 6). Se genera con un viaje de un día que
+  incluya un paseo por el pueblo, con Kore elegida en Ajustes. Lo único de Premià que había en
+  la caché el 1-oct era un tour del Museu de l'Estampació, del 29-sep. Habla de la estampación
+  textil en general más que de Premià, y además grabar dentro de un museo pide permiso: para
+  el primero es mejor la calle.
 
 Queda por decidir si el dueño sale en los vídeos (decisión 6).
 
