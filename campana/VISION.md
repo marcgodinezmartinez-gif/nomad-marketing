@@ -46,6 +46,12 @@ cuesta (§10) y lo que decide el dueño (§11). **Lo pendiente vive en la issue 
 con su comparativa y una propuesta de cuáles y en qué orden, está en
 **`campana/TIPOS-DE-VIAJE.md`** (30-sep, a petición del dueño).
 
+**Y en presentación, para enseñarlo** (1-oct, a petición del dueño): diecisiete diapositivas
+con las capturas reales de la app y las notas de cada una, en
+<https://claude.ai/artifact/WhgviY2r1rzZoJuNYaxpdz>. Es privada hasta que el dueño la
+comparta, y es una foto de este documento: si algo cambia, manda el documento y la
+presentación se rehace.
+
 ---
 
 ## 1. Por qué hace falta: lo que dicen los datos
