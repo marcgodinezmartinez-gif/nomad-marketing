@@ -127,3 +127,19 @@ realista creados o alterados digitalmente (*«We'll require people to use this d
 and label tool when they post organic content with a photorealistic video or
 realistic-sounding audio that was digitally created or altered, and we may apply penalties
 if they fail to do so»*, Meta, febrero de 2024). Aquí lo son las dos cosas.
+
+## Y Kling (5-oct)
+
+El dueño quiso probar Kling AI (Video 3.0) para el plano de las manos, con su foto vertical
+de primer fotograma. Lo que hay que saber antes de usar nada de ahí:
+
+- **Los vídeos del plan gratis no se pueden publicar**: llevan la marca de Kling y, según las
+  guías de precios, son sólo para uso personal. Recortar la marca no lo arregla, sólo
+  esconde de dónde sale. La prueba gratis sirve para comparar con Veo, y para nada más.
+- **Si se paga**, antes hay que comprobar en la página de precios que el plan quita la marca
+  **a 1080p** (alguno, según esas guías, sólo a 720p) y que da uso comercial. A 720p no
+  compensa frente a Veo a 1080p.
+- **La cuenta**: 1080p y 5 s son 60 créditos en Video 3.0 (pantalla del dueño, con el audio
+  propio encendido). Los 660 del plan de 7 € dan para unos 11 planos al mes, de 0,15 $ el
+  segundo a 0,12 $ en Veo Fast. Es parecido, así que lo que decide es cuál hace mejor las
+  manos.
