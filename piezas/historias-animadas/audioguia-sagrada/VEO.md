@@ -106,9 +106,9 @@ todo junto hasta 28,6 s, loudnorm a −14 LUFS
 
 El fundido de 0,12 s es lo que hace que suene a cancelación y no a corte de edición.
 
-## Lo que dicen las voces: el texto de la app
+## Lo que dijeron las voces hasta la versión 4: el texto de la app
 
-Desde el 6-oct, **el texto es el de la parada de la app**, leído de la grabación del dueño
+Del 6-oct hasta la versión final, **el texto fue el de la parada de la app**, leído de la grabación del dueño
 («La historia» y el dato curioso de la Pasión):
 
 - Kore: «Esta fachada representa la agonía, crucifixión y muerte de Jesús.»
@@ -194,6 +194,65 @@ desplazado 0,8 s.
 **Lo que falta**: el chat se ve, pero nadie le pregunta nada. Una grabación con una pregunta
 escribiéndose y la respuesta entera sustituiría al último trozo. Y en la parada de la Pasión
 se lee, pequeño, «En la cera» (issue #10).
+
+## La versión final (6-oct, noche)
+
+Con la cuarta, el dueño pidió tres cambios *«y con esos cambios daría el reel por
+finalizado»*:
+
+1. **Otro texto para las voces.** *«No me gusta el texto que leen las voces; que lean algo
+   más y que sea interesante.»* Ya no es el texto de la app. Son tres detalles de la Pasión,
+   comprobados:
+   - Kore: «Gaudí la dibujó en 1911, enfermo en Puigcerdà y convencido de que se moría.
+     Quería que diera miedo.» Fiebres de Malta, hizo testamento y la proyectó entonces
+     (<https://blog.sagradafamilia.org/en/?p=4176>,
+     <https://bellesguardgaudi.com/en/one-of-the-first-works-one-of-the-last/>). Lo del
+     miedo está en el Cuaderno 07 de la basílica.
+   - Puck: «Fíjate en los soldados romanos: sus cascos son las chimeneas de La Pedrera.»
+     (<https://www.sagradafamiliatickets.info/hidden-symbols-passion-facade-sagrada-familia-decoder>)
+   - Charon: «Y junto a la Verónica, ese hombre que toma notas es el propio Gaudí.» Es el
+     homenaje de Subirachs
+     (<https://homepages.bluffton.edu/~SULLIVANM/spain/barcelona/sagrada/sagradapassion2.html>).
+   El dato del cuadrado mágico, que es el de la app, se queda en el móvil.
+2. **Música de fondo sin derechos de nadie**: generada con **Lyria 3** por la API de Gemini
+   (`lyria-3-clip-preview`, 30,8 s, instrumental, con la marca de agua SynthID). Prompt:
+   *«Instrumental background music for a 30-second travel app video about an audio guide in
+   Barcelona. Warm, cinematic and minimal: soft felt piano and gentle nylon-string Spanish
+   guitar, light airy strings, Mediterranean feel, calm, curious and elegant, about 80 BPM,
+   no drums, no vocals. Starts softly, builds a little in the middle, and resolves gently at
+   the end.»* Entra con la cancelación de ruido: a 0,22 debajo de las voces (unos 13 dB por
+   debajo, y el transcriptor saca las tres frases enteras de la mezcla), sube a 0,52 con el
+   móvil y se funde al final. **Al subirlo no se le añade música de Instagram**: ya la lleva.
+3. **El móvil, sólo con la parada 3.** *«Se ve feo que pase de la parada 1 a la 3 así, como
+   deprisa.»* `assets/pantalla.mp4` son cuatro trozos montados uno a uno, para saber dónde
+   cae cada corte: la parada (25,5-27,6 de la grabación, 0-2,43 en el clip), la historia
+   (27,6-29,4, hasta 4,23), el dato curioso (32,9-34,2 y 0,8 s quieto, hasta 6,63) y el chat
+   (30,0-31,8 y 0,3 s quieto, hasta 8,93). El primer texto pasa a «Cada parada, con su
+   audioguía.».
+
+Tiempos: la portada quieta hasta 0,8 s; la cancelación a 3,592; Kore a 3,762, Puck a
+11,165 y Charon a 15,578 (a ×1,06), hasta 20,101; el móvil de 20,551 a 29,151; el cierre,
+hasta 32,35. La tarjeta de la audioguía crece a 340 de alto (de 1130 a 1470), porque la
+frase de Kore ocupa tres líneas.
+
+Para rehacer el sonido sin volver a generar nada están en `assets/` la música, las tres
+voces (`voz-k/p/c.m4a`), la gente y la mezcla final (`sonido-final.m4a`). El vídeo final es
+el render de `index.html` con `sonido-final.m4a` encima.
+
+**El pie** (con «Muy pronto», como pidió el dueño):
+
+> ¿Y si tus viajes empiezan a sonar así? Nos plantamos delante de la fachada de la Pasión y
+> se la pedimos a NOMAD.
+>
+> Gaudí la dibujó enfermo, convencido de que se moría. Los soldados llevan de casco las
+> chimeneas de La Pedrera. Y junto a la Verónica, el que toma notas es el propio Gaudí. Cada
+> parada, con su audioguía, su dato curioso y un chat al que preguntarle lo que quieras. La
+> voz, la eliges tú.
+>
+> Muy pronto. Desde 2,99 € el viaje entero, sin suscripción, y en la lista el primero por
+> 1,99 €, dure lo que dure. El enlace, en la bio.
+>
+> #sagradafamilia #barcelona #gaudi #audioguia #viajar #viajes
 
 ## Al publicar
 

@@ -41,7 +41,7 @@
       .titular span { display: block; }
 
       /* La tarjeta de la audiogu&iacute;a: el icono y el nombre de la voz en verde, lo dem&aacute;s en negro. */
-      #tarjeta-audio { top: 1176px; height: 284px; }
+      #tarjeta-audio { top: 1130px; height: 340px; }
       #icono { position: absolute; left: 40px; top: 30px; width: 64px; height: 64px; border-radius: 32px;
                background: #106A63; display: flex; align-items: center; justify-content: center; gap: 5px; }
       .barra { width: 5px; height: 30px; border-radius: 3px; background: #FEFCF9; transform-origin: 50% 50%; }
@@ -102,11 +102,11 @@
   </head>
   <body>
     <div id="root" data-composition-id="audioguia-sagrada" data-start="0"
-         data-width="1080" data-height="1920" data-duration="29.4">
+         data-width="1080" data-height="1920" data-duration="32.35">
       <!-- La &uacute;ltima imagen de las torres, debajo del v&iacute;deo: cuando &eacute;ste acaba, se queda ella. -->
       <img id="fondo-fin" class="fondo" src="assets/fondo-fin.jpg" alt="" />
       <video id="fondo" class="clip fondo" src="assets/fondo.mp4"
-             data-start="0.8" data-duration="16.467" muted playsinline></video>
+             data-start="0.8" data-duration="19.9" muted playsinline></video>
       <div id="velo-app"></div>
 
       <!-- LA PORTADA, que es el primer fotograma: la misma foto de la que sale la toma de las
@@ -135,11 +135,12 @@
         </div>
         <p id="que-suena" class="sans">Audiogu&iacute;a &middot; Fachada de la Pasi&oacute;n</p>
         <div id="raya"></div>
-        <!-- El texto de la parada en la app (&laquo;La historia&raquo; y el dato curioso), con &laquo;Suma&raquo; y
-             &laquo;cuadrado&raquo; arreglados (issue #10). data-t: cu&aacute;ndo dice la voz cada palabra. -->
-        <p id="s-kore" class="frase sans"><span data-t="2.962">Esta</span> <span data-t="3.502">fachada</span> <span data-t="4.102">representa</span> <span data-t="4.722">la</span> <span data-t="4.962">agon&iacute;a,</span> <span data-t="5.742">crucifixi&oacute;n</span> <span data-t="6.342">y</span> <span data-t="6.702">muerte</span> <span data-t="7.002">de</span> <span data-t="7.202">Jes&uacute;s.</span></p>
-        <p id="s-puck" class="frase sans"><span data-t="7.838">Las</span> <span data-t="8.198">columnas</span> <span data-t="8.598">inclinadas</span> <span data-t="9.178">recuerdan</span> <span data-t="9.778">a</span> <span data-t="9.938">huesos</span> <span data-t="10.298">o</span> <span data-t="10.438">troncos</span> <span data-t="10.758">secos.</span></p>
-        <p id="s-charon" class="frase sans"><span data-t="11.354">Suma</span> <span data-t="11.734">los</span> <span data-t="11.974">n&uacute;meros</span> <span data-t="12.274">del</span> <span data-t="12.474">cuadrado</span> <span data-t="12.854">m&aacute;gico:</span> <span data-t="13.714">siempre</span> <span data-t="14.054">da</span> <span data-t="14.234">33,</span> <span data-t="15.234">la</span> <span data-t="15.374">edad</span> <span data-t="15.614">de</span> <span data-t="15.754">Cristo.</span></p>
+        <!-- Lo que cuentan las voces desde el 6-oct, a petici&oacute;n del due&ntilde;o (&laquo;no me gusta el texto que
+             leen las voces; que lean algo m&aacute;s y que sea interesante&raquo;): tres detalles de la Pasi&oacute;n,
+             comprobados (VEO.md). data-t: cu&aacute;ndo dice la voz cada palabra, sin el desplazamiento D. -->
+        <p id="s-kore" class="frase sans"><span data-t="2.962">Gaud&iacute;</span> <span data-t="3.3">la</span> <span data-t="3.562">dibuj&oacute;</span> <span data-t="4.022">en</span> <span data-t="4.262">1911,</span> <span data-t="5.622">enfermo</span> <span data-t="5.922">en</span> <span data-t="6.082">Puigcerd&agrave;</span> <span data-t="6.682">y</span> <span data-t="7.102">convencido</span> <span data-t="7.582">de</span> <span data-t="7.782">que</span> <span data-t="7.882">se</span> <span data-t="8.022">mor&iacute;a.</span> <span data-t="9.062">Quer&iacute;a</span> <span data-t="9.402">que</span> <span data-t="9.622">diera</span> <span data-t="9.842">miedo.</span></p>
+        <p id="s-puck" class="frase sans"><span data-t="10.365">F&iacute;jate</span> <span data-t="10.845">en</span> <span data-t="10.985">los</span> <span data-t="11.085">soldados</span> <span data-t="11.465">romanos:</span> <span data-t="12.305">sus</span> <span data-t="12.505">cascos</span> <span data-t="12.965">son</span> <span data-t="13.225">las</span> <span data-t="13.425">chimeneas</span> <span data-t="13.945">de</span> <span data-t="14.065">La</span> <span data-t="14.205">Pedrera.</span></p>
+        <p id="s-charon" class="frase sans"><span data-t="14.778">Y</span> <span data-t="15.178">junto</span> <span data-t="15.418">a</span> <span data-t="15.538">la</span> <span data-t="15.698">Ver&oacute;nica,</span> <span data-t="16.758">ese</span> <span data-t="16.798">hombre</span> <span data-t="17.078">que</span> <span data-t="17.298">toma</span> <span data-t="17.458">notas</span> <span data-t="18.018">es</span> <span data-t="18.298">el</span> <span data-t="18.478">propio</span> <span data-t="18.778">Gaud&iacute;.</span></p>
       </div>
 
       <div id="telefono" data-layout-allow-overflow>
@@ -150,12 +151,12 @@
                &laquo;Siguiente parada&raquo; hasta la Pasi&oacute;n, la historia, el toque que abre el dato curioso
                y el chat. El &lt;video&gt; lleva su tiempo y su envoltorio ninguno. -->
           <video id="pantalla" class="clip" src="assets/pantalla.mp4"
-                 data-start="17.2" data-duration="9.334" muted playsinline></video>
+                 data-start="20.551" data-duration="8.934" muted playsinline></video>
         </div>
       </div>
 
       <div id="tarjeta-app" class="tarjeta">
-        <p id="p1" class="texto paso serif">Te lleva de parada en parada.</p>
+        <p id="p1" class="texto paso serif">Cada parada, con su audiogu&iacute;a.</p>
         <p id="p2" class="texto paso serif">Con su dato curioso.</p>
         <p id="p3" class="texto paso serif">Y le preguntas lo que quieras.</p>
       </div>
@@ -182,14 +183,15 @@
         var D = 0.8;
         var T = 2.792 + D;
         var VOCES = [
-          { id: "kore",   ini: 2.962 + D,  fin: 7.638 + D },
-          { id: "puck",   ini: 7.838 + D,  fin: 11.154 + D },
-          { id: "charon", ini: 11.354 + D, fin: 16.032 + D }
+          { id: "kore",   ini: 2.962 + D,  fin: 10.165 + D },
+          { id: "puck",   ini: 10.365 + D, fin: 14.578 + D },
+          { id: "charon", ini: 14.778 + D, fin: 19.301 + D }
         ];
-        // La segunda mitad cuenta desde que arranca pantalla.mp4: el mapa y las paradas (0-3),
-        // la historia (3-4,8), el dato curioso (4,8-6,9) y el chat (6,9-9,3).
-        var P2 = 16.4 + D, FIN = 29.4;
-        var CIERRE = P2 + 9.0;
+        // La segunda mitad cuenta desde que arranca pantalla.mp4, que es s&oacute;lo la parada 3 (el due&ntilde;o:
+        // &laquo;se ve feo que pase de la parada 1 a la 3 as&iacute; como deprisa&raquo;): la parada (0-2,43), la
+        // historia (2,43-4,23), el dato curioso (4,23-6,63) y el chat (6,63-8,93).
+        var P2 = 19.751 + D, FIN = 32.35;
+        var CIERRE = P2 + 8.6;
 
         var ENTRA = { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" };
         var SALE = { autoAlpha: 0, y: -10, duration: 0.3, ease: "power2.in" };
@@ -240,10 +242,10 @@
         tl.fromTo("#telefono", { y: 1700, autoAlpha: 1 }, { y: 0, duration: 0.7, ease: "power3.out" }, P2);
         tl.fromTo("#tarjeta-app", { autoAlpha: 0, y: -20 }, ENTRA, P2 + 0.35);
         tl.fromTo("#p1", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, P2 + 0.45);
-        tl.to("#p1", SALE, P2 + 2.85);
-        tl.fromTo("#p2", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, P2 + 3.2);
-        tl.to("#p2", SALE, P2 + 6.6);
-        tl.fromTo("#p3", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, P2 + 6.95);
+        tl.to("#p1", SALE, P2 + 3.9);
+        tl.fromTo("#p2", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, P2 + 4.25);
+        tl.to("#p2", SALE, P2 + 6.4);
+        tl.fromTo("#p3", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, P2 + 6.75);
         tl.to("#tarjeta-app", { autoAlpha: 0, y: -20, duration: 0.4, ease: "power2.in" }, CIERRE - 0.2);
         tl.to("#telefono", { y: 1700, duration: 0.6, ease: "power2.in" }, CIERRE - 0.2);
 
