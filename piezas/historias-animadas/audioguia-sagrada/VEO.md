@@ -97,31 +97,65 @@ y no se cobra. Las voces de prueba, céntimos.
 
 ```
 gente (assets/gente.m4a) +4 dB hasta 2,792 s
-  → a partir de ahí, paso bajo a 220 Hz dos veces y −20 dB, en 0,12 s: la cancelación de ruido
-Kore a 2,962 s · Puck a 5,681 s · Charon a 8,251 s (las tres sin silencios delante ni detrás)
-todo junto hasta 14,13 s, loudnorm a −14 LUFS
+  → a partir de ahí, paso bajo a 220 Hz dos veces y −20 dB, en 0,12 s: la cancelación de ruido,
+    que se apaga del todo en la segunda mitad
+Kore a 2,962 s · Puck a 7,838 s · Charon a 11,354 s (sin silencios delante ni detrás, a ×1,12)
+la segunda mitad (desde 16,482 s) sin voz: la música se pone en Instagram
+todo junto hasta 28,682 s, loudnorm a −14 LUFS
 ```
 
 El fundido de 0,12 s es lo que hace que suene a cancelación y no a corte de edición.
 
-## Lo que es provisional
+## Lo que dicen las voces: el texto de la app
 
-**Las tres frases no son de la app**: son para ver el montaje, generadas con
-`piezas/ia/voz.py` con las mismas tres voces. Aun así, lo que dicen está comprobado:
+Desde el 6-oct, **el texto es el de la parada de la app**, leído de la grabación del dueño
+(«La historia» y el dato curioso de la Pasión):
 
-- Kore: «Estás delante de la fachada de la Pasión.»
-- Puck: «Gaudí quería que diera miedo.» Lo dejó escrito así: dura, desnuda, como hecha de
-  huesos, y que diera miedo (Cuaderno 07 de la propia basílica,
-  <https://sagradafamilia.org/documents/20142/1000558/Cuaderno_07.pdf/5cde86a6-368b-e11b-93c9-842465975f66>).
-- Charon: «Busca el cuadrado de números: cada fila suma 33, la edad de Cristo.» Es el
-  cuadrado de Subirachs junto al beso de Judas. Suman 33 las filas, las columnas y las
-  diagonales (<https://blog.sagradafamilia.org/en/the-magic-square-on-the-passion-facade/>).
+- Kore: «Esta fachada representa la agonía, crucifixión y muerte de Jesús.»
+- Puck: «Las columnas inclinadas recuerdan a huesos o troncos secos.»
+- Charon: «Suma los números del cuadrado mágico: siempre da 33, la edad de Cristo.»
 
-La de Puck salió mal en dos de cuatro tomas: una vez «diga miedo», otra «diera a mí». Por
-eso cada toma se transcribe antes de usarla.
+Comprobado: las esculturas son de Subirachs, el cuadrado está junto al beso de Judas y suma
+33 en filas, columnas y diagonales
+(<https://blog.sagradafamilia.org/en/the-magic-square-on-the-passion-facade/>).
 
-Lo que se publica es **la narración real de la parada**, sacada de la app y comprobada
-frase a frase (`piezas/videos/RODAJE.md`, clip 2).
+La grabación de la app viene sin sonido, así que las frases se generan con `piezas/ia/voz.py`,
+con las mismas tres voces. Van a ×1,12 porque a su ritmo la primera mitad pasaba de 17 s.
+Cada toma se transcribe antes de usarla: Puck dijo una vez «diga miedo» y otra «diera a mí».
+
+**La app tiene tres fallos en esa parada**, y la voz dice la versión buena:
+- «Colócate aquí: En **la cera** de Carrer de Sardenya…», donde tendría que decir «la acera».
+- «**Sume** los números…», de usted, cuando el resto de la app habla de tú.
+- «…del **cuadro** mágico…», donde tendría que decir «cuadrado».
+La pantalla del dato curioso sí sale tal cual en el reel. Hasta que la app los arregle, ahí
+se lee «Sume» y «cuadro».
+
+## La segunda mitad: la app (6-oct)
+
+De la grabación del dueño, `ScreenRecording_10-05-2026_19-15-50` (35 s, 1206×2622, HEVC,
+sin sonido), **sin cámara rápida**: del itinerario al tour, la espera de «Diseñando tu tour»
+(13 s), la parada y el dato curioso. Él mismo lo pidió: *«no creo que lo mejor sea ponerlo
+a cámara rápida sino recortarlo con lo necesario y útil, e incluso usar screenshots»*. Se
+queda con tres trozos (`assets/pantalla.mp4`, 9 s):
+
+| Trozo | De la grabación | Qué es |
+|---|---|---|
+| 0-3 s | 26,6-29,6 s | La parada de la Pasión, quieta y luego bajando hasta la historia |
+| 3-3,7 s | 32,9-33,6 s | El toque que abre el dato curioso |
+| 3,7-5,8 s | el fotograma de 33,6 s, congelado | El dato curioso, para leerlo |
+| 5,8-9 s | el fotograma de 32,4 s, congelado | El chat de la parada: las preguntas sugeridas y «Pregunta o envía una foto…» |
+
+Fuera quedan el itinerario, el «¿Qué visita quieres?», la espera y el Centro de control del
+final. La barra de estado (hora, batería, la isla con el punto rojo de grabar y la placa
+C-32 del mapa) se tapa como en Córdoba, con un reflejo desenfocado del mapa de justo debajo:
+`crop=630:16:0:115,vflip,scale=760:101,gblur=sigma=14` sobre el vídeo a 760×1652.
+
+En el reel, el móvil de la casa sube con la parada («1 Te la cuenta.»). Luego la cámara se
+acerca a ×1,45 hasta el dato curioso («2 Con su dato curioso.») y baja al chat («3 Y le
+preguntas lo que quieras.»). Los acercamientos están calculados en `index.html`.
+
+**Lo que falta**: el chat se ve, pero nadie le pregunta nada. Una grabación con una
+pregunta escribiéndose y la respuesta entera sustituiría al fotograma congelado del trozo 4.
 
 ## Al publicar
 
