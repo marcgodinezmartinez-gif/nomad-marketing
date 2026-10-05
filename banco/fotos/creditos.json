@@ -389,5 +389,15 @@
   "f-visita.jpg": {
     "lic": "CC0",
     "titulo": "File:Melk Abbey Library with Ceiling Fresco (9812838384).jpg"
+  },
+  "f-sagrada-estanque.jpg": {
+    "lic": "CC0",
+    "titulo": "File:Sagrada familia Barcelona - Spain - 2017.jpg",
+    "autor": "Pedu0303",
+    "url": "https://commons.wikimedia.org/wiki/File:Sagrada_familia_Barcelona_-_Spain_-_2017.jpg",
+    "sitio": "Fachada del Nacimiento desde la plaça de Gaudí, con el estanque, Barcelona",
+    "fuente": "commons",
+    "verificada": "2026-10-05",
+    "nota": "Hecha el 20-ago-2017: con grúas y sin las torres centrales de hoy. Es el primer fotograma de las tomas con IA del reel de la audioguía (piezas/historias-animadas/audioguia-sagrada/VEO.md). Bajada de la miniatura de 1920 px: el original da 429."
   }
 }

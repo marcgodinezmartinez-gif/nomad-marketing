@@ -6,6 +6,9 @@ __pycache__/
 # grabaciones originales viven en el móvil del dueño, no aquí. Sin ella no se rehace.
 !piezas/historias-animadas/demo-reel/assets/pantalla.mp4
 !piezas/historias-animadas/plan-cordoba/assets/pantalla.mp4
+# Y el fondo del reel de la audioguía: tres tomas hechas con IA (VEO.md), pagadas, que
+# no se repiten iguales. Las tomas en bruto no se guardan; lo que se usa, sí.
+!piezas/historias-animadas/audioguia-sagrada/assets/fondo.mp4
 
 # Historias animadas: lo derivado del banco por construir.sh y lo que escupe el render
 piezas/historias-animadas/*/assets/fuentes.css

@@ -335,6 +335,33 @@ relevo. En Instagram, la música es opcional y muy baja: aquí el contenido es l
 
 UTM `reel-sagrada` (y `reel-sagrada-personal` en la cuenta personal del dueño).
 
+### El clip 2 sin salir de casa: los 14 primeros segundos, con IA (5-oct)
+
+El mismo día, el dueño lo afinó y pidió hacerlo sin moverse de casa: *«grabación como si
+fuese desde las Meta glasses en primera persona, persona con auriculares en la mano y
+teléfono. Ruido de mucha gente y se pone los auriculares y de repente como que se cancela
+el ruido. Empieza la voz. ¿Y si tus viajes empiezan a sonar así? La app narrando una parada
+mientras se observa la parada, ahí mientras la cuenta se usan las tres voces y se pone en
+pantalla "y tú eliges quién te la cuenta". Eso sería todo hasta el segundo 14.»*
+
+Está montado en borrador en `piezas/historias-animadas/audioguia-sagrada/`, con tres
+planos de Veo 3.1 hechos **a partir de una foto real CC0** de la fachada del Nacimiento. Sin
+la foto, la IA se inventa la basílica. El cómo, los prompts y lo que costó (3,84 $) están en
+su `VEO.md`. Sale de 15,9 s y no de 14, porque la frase de Charon necesita su tiempo; con
+la narración real se reajusta.
+
+Lo que cambia respecto a lo de arriba:
+
+- **Los planos de la calle ya no hacen falta.** Al dueño sólo le queda grabar la app en el
+  sofá (A-F), que es lo que pone las voces y el texto de verdad.
+- **Las frases del borrador son provisionales**: tienen las tres voces de la app, pero el
+  texto no es suyo. Si al cambiar de voz la app lee el mismo texto, el relevo puede hacerse
+  con `piezas/ia/voz.py` sobre el texto real de la parada, y casa por construcción.
+- **Va con la etiqueta de IA de Instagram**: el vídeo es fotorrealista y lo ha hecho una IA,
+  y Meta lo exige (`VEO.md`, al final).
+- **La foto es de 2017**: si la narración habla de las torres centrales, hay que buscar una
+  foto reciente.
+
 ## Lo que cambia respecto a los guiones de agosto
 
 **El ancla de la audioguía está fuera.** G1 llevaba «La audioguía oficial: 5-8 €» y G4 era

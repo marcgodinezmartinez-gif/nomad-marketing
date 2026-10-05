@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>La audiogu&iacute;a &middot; la Sagrada Fam&iacute;lia</title>
+    <!-- Las dos fuentes reales, embebidas (construir.sh). Nada depende de la red. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* LOS 14 PRIMEROS SEGUNDOS del reel de la audiogu&iacute;a (5-oct), como los imagin&oacute; el
+         due&ntilde;o: en primera persona, con los auriculares en la mano, el ruido de la gente que
+         se apaga al pon&eacute;rselos, la voz, y la parada contada con las tres voces de la app.
+         El fondo (assets/fondo.mp4) son tres planos hechos con IA a partir de UNA FOTO REAL
+         CC0 de la fachada del Nacimiento: sin la foto, la IA se inventaba la bas&iacute;lica (ver
+         RODAJE.md). El sonido va aparte y se mezcla despu&eacute;s (montar.sh). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+              color: #FFFDF9; background: #100E0B; }
+      #fondo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+               display: block; object-fit: cover; }
+
+      /* Dos velos para que el texto se lea sobre cielo y sobre agua. */
+      #velo-arriba { position: absolute; left: 0; top: 0; width: 1080px; height: 760px;
+        background: linear-gradient(180deg, rgba(16,14,11,.74) 0%, rgba(16,14,11,.56) 45%, rgba(16,14,11,0) 100%); }
+      #velo-abajo { position: absolute; left: 0; top: 1000px; width: 1080px; height: 920px;
+        background: linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,.55) 34%, rgba(16,14,11,.78) 62%, rgba(16,14,11,.82) 100%); }
+
+      /* El texto, en la zona segura del reel (230-1480) y con la sombra de la casa. */
+      .titular { position: absolute; left: 84px; top: 300px; width: 912px; margin: 0;
+                 font-size: 88px; line-height: 1.04; letter-spacing: -.018em;
+                 text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      .titular span { display: block; }
+      .menta { color: #5CC0A6; }
+
+      /* La c&aacute;psula de la voz: la marca, la onda y el nombre de la voz que suena. */
+      #pastilla { position: absolute; left: 84px; top: 1150px; height: 88px; padding: 0 34px 0 18px;
+                  display: flex; align-items: center; gap: 20px; border-radius: 44px;
+                  background: rgba(16,14,11,.62); border: 2px solid rgba(255,253,249,.16); }
+      #pastilla img { width: 52px; height: 52px; display: block; }
+      #onda { display: flex; align-items: center; gap: 7px; height: 44px; }
+      .barra { width: 7px; height: 44px; border-radius: 4px; background: #5CC0A6;
+               transform-origin: 50% 50%; }
+      #nombres { position: relative; width: 150px; height: 44px; }
+      .nombre { position: absolute; left: 0; top: 0; margin: 0; font-size: 36px; line-height: 44px;
+                font-weight: 600; letter-spacing: .01em; white-space: nowrap; }
+
+      /* Los subt&iacute;tulos de lo que dice la voz, para quien lo ve sin sonido. */
+      .sub { position: absolute; left: 84px; top: 1272px; width: 912px; margin: 0;
+             font-size: 46px; line-height: 1.24; font-weight: 500;
+             text-shadow: 0 3px 22px rgba(0,0,0,.7); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="audioguia-sagrada" data-start="0"
+         data-width="1080" data-height="1920" data-duration="15.9">
+      <video id="fondo" class="clip" src="assets/fondo.mp4"
+             data-start="0" data-duration="15.9" muted playsinline></video>
+      <div id="velo-arriba"></div>
+      <div id="velo-abajo" data-layout-allow-overflow></div>
+
+      <h1 id="gancho" class="titular serif"><span>&iquest;Y si tus viajes</span><span>empiezan a sonar as&iacute;?</span></h1>
+      <h1 id="eliges" class="titular serif"><span>Y t&uacute; eliges qui&eacute;n</span><span class="menta">te la cuenta.</span></h1>
+
+      <div id="pastilla">
+        <img src="assets/mark.png" alt="" />
+        <div id="onda">
+          <div class="barra"></div><div class="barra"></div><div class="barra"></div>
+          <div class="barra"></div><div class="barra"></div>
+        </div>
+        <div id="nombres">
+          <p id="n-kore" class="nombre sans">Kore</p>
+          <p id="n-puck" class="nombre sans">Puck</p>
+          <p id="n-charon" class="nombre sans">Charon</p>
+        </div>
+      </div>
+
+      <!-- PROVISIONAL: estas tres frases no son de la app. Son para ver el montaje; la
+           narraci&oacute;n buena sale de la parada real de la app y se comprueba frase a frase. -->
+      <p id="s-kore" class="sub sans">Est&aacute;s delante de la fachada del Nacimiento.</p>
+      <p id="s-puck" class="sub sans">Es la &uacute;nica que Gaud&iacute; vio levantarse.</p>
+      <p id="s-charon" class="sub sans">Cuando le preguntaban cu&aacute;ndo la acabar&iacute;a, dec&iacute;a: &laquo;Mi cliente no tiene prisa&raquo;.</p>
+    </div>
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes.
+      document.fonts.ready.then(function () {
+        var tl = gsap.timeline({ paused: true });
+
+        // Los tiempos salen del montaje del sonido (montar.sh): el corte y la cancelaci&oacute;n
+        // del ruido a la vez, y cada voz donde empieza y donde acaba.
+        var T_CASCOS = 3.333, FIN = 15.9;
+        var VOCES = [
+          { id: "kore",   ini: 3.50, fin: 6.323 },
+          { id: "puck",   ini: 6.58, fin: 9.278 },
+          { id: "charon", ini: 9.53, fin: 15.293 }
+        ];
+
+        var IN = { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" };
+        var OUT = { autoAlpha: 0, y: -16, duration: 0.3, ease: "power2.in" };
+
+        // El gancho, desde el primer segundo: la mayor&iacute;a decide sin sonido.
+        tl.fromTo("#gancho", { autoAlpha: 0, y: 24 }, IN, 0.15);
+        tl.to("#gancho", OUT, VOCES[1].ini - 0.35);
+        // Cuando cambia la voz por primera vez, la frase del due&ntilde;o.
+        tl.fromTo("#eliges", { autoAlpha: 0, y: 24 }, IN, VOCES[1].ini);
+        tl.to("#eliges", { autoAlpha: 0, duration: 0.4, ease: "power1.in" }, FIN - 0.45);
+
+        // El velo de abajo, s&oacute;lo cuando hay subt&iacute;tulos: en el primer plano oscurec&iacute;a las manos.
+        tl.fromTo("#velo-abajo", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "power1.out" }, T_CASCOS - 0.1);
+
+        // La c&aacute;psula entra con la primera voz y cambia de nombre con cada una.
+        tl.fromTo("#pastilla", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, VOCES[0].ini - 0.12);
+        tl.to("#pastilla", { autoAlpha: 0, duration: 0.4, ease: "power1.in" }, FIN - 0.45);
+        VOCES.forEach(function (v, i) {
+          tl.fromTo("#n-" + v.id, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, v.ini);
+          if (i < VOCES.length - 1) tl.to("#n-" + v.id, { autoAlpha: 0, y: -14, duration: 0.2, ease: "power2.in" }, VOCES[i + 1].ini - 0.2);
+          tl.fromTo("#s-" + v.id, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, v.ini);
+          tl.to("#s-" + v.id, { autoAlpha: 0, duration: 0.25, ease: "power1.in" }, v.fin + 0.12);
+        });
+
+        // La onda se mueve s&oacute;lo mientras habla una voz, y se aplana en las pausas.
+        var barras = gsap.utils.toArray(".barra");
+        barras.forEach(function (b, j) {
+          tl.set(b, { scaleY: 0.22 }, 0);
+          VOCES.forEach(function (v) {
+            var paso = 0.16 + j * 0.035;
+            var veces = Math.max(1, Math.floor((v.fin - v.ini) / paso) - 1);
+            if (veces % 2 === 0) veces -= 1;   // impar: acaba abajo
+            tl.fromTo(b, { scaleY: 0.22 }, { scaleY: 0.55 + 0.45 * ((j * 37) % 5) / 4, duration: paso,
+              repeat: veces, yoyo: true, ease: "sine.inOut" }, v.ini);
+          });
+        });
+
+        window.__timelines["audioguia-sagrada"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
