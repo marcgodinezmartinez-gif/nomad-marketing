@@ -8,249 +8,201 @@
     <link rel="stylesheet" href="assets/fuentes.css" />
     <script src="assets/gsap.min.js"></script>
     <style>
-      html, body { margin: 0; padding: 0; background: #100E0B; }
+      html, body { margin: 0; padding: 0; background: #FEFCF9; }
       .serif { font-family: 'Instrument Serif'; font-weight: 400; }
       .sans  { font-family: 'Instrument Sans'; }
 
-      /* EL REEL DE LA AUDIOGU&Iacute;A (5 y 6-oct). Dos mitades:
-         1. Lo que imagin&oacute; el due&ntilde;o: en primera persona, con los auriculares en la mano, el
-            ruido de la gente que se apaga al pon&eacute;rselos, y la parada contada con las tres voces
-            de la app. El fondo (assets/fondo.mp4) son tres planos hechos con IA a partir de la
-            foto que hizo el due&ntilde;o de la fachada de la Pasi&oacute;n el 4-oct (VEO.md).
-         2. La app de verdad: la parada de la Pasi&oacute;n, su dato curioso y su chat, recortados de la
-            grabaci&oacute;n del dueño del 5-oct (assets/pantalla.mp4) sin c&aacute;mara r&aacute;pida.
-         Y el cierre de la casa. El sonido va aparte y se mezcla despu&eacute;s (VEO.md). */
+      /* EL REEL DE LA AUDIOGU&Iacute;A, versi&oacute;n 2 (6-oct). El due&ntilde;o vio la primera &laquo;demasiado
+         cutre&raquo; y pidi&oacute; algo como &laquo;las presentaciones de Apple, la publi de Vicio o de Estrella
+         Damm&raquo;. Lo que cambia, y por qu&eacute;:
+         - FUERA LAS CAPAS. Ni velos oscuros por todas partes, ni c&aacute;psula, ni m&oacute;vil con marco.
+         - EL FONDO ES LA CREMA DE LA APP (#FEFCF9) y el texto, noche. As&iacute; la app no &laquo;entra&raquo; en
+           el reel: el reel ya tiene su color. El verde es el de la propia app (#106A63, medido en
+           la captura); el menta de la casa no llega a 3:1 sobre crema.
+         - UNA IDEA POR PLANO, LETRA GRANDE Y CENTRADA.
+         - LA CANCELACI&Oacute;N DE RUIDO SE VE: mientras suena la gente, la imagen ocupa todo; al
+           ponerse los auriculares el mundo se recoge en una ventana y aparece la calma (la crema).
+         - LOS SUBT&Iacute;TULOS SE ENCIENDEN PALABRA A PALABRA, con los tiempos de cada palabra sacados
+           de la propia voz (faster-whisper); la frase entera se ve desde el principio, tenue.
+         El fondo (assets/fondo.mp4) son los tres planos de IA de la foto del due&ntilde;o (VEO.md); la
+         app son tres capturas reales de su grabaci&oacute;n del 5-oct. */
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
-              color: #FFFDF9; background: #100E0B; }
-      .fondo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+              color: #100E0B; background: #FEFCF9; }
+
+      /* La ventana. El v&iacute;deo ocupa siempre el cuadro entero y lo que cambia es la m&aacute;scara:
+         de todo el cuadro a 940x700 en (70, 450), con las esquinas a 40. */
+      #sombra { position: absolute; left: 70px; top: 450px; width: 940px; height: 700px;
+                border-radius: 40px; box-shadow: 0 46px 110px rgba(16,14,11,.22); }
+      #ventana { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+                 clip-path: inset(0px 0px 0px 0px round 0px); background: #FEFCF9; }
+      #fondo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
                display: block; object-fit: cover; }
+      /* Las capturas, a 940 de ancho (escala 0,7794 de 1206): s&oacute;lo se ve lo que cae en la ventana. */
+      .app { position: absolute; left: 70px; width: 940px; height: 2044px; display: block; }
+      /* Para que el titular blanco del gancho se lea sobre el cielo gris, s&oacute;lo en el gancho. */
+      #velo-gancho { position: absolute; left: 0; top: 0; width: 1080px; height: 760px;
+        background: linear-gradient(180deg, rgba(16,14,11,.62) 0%, rgba(16,14,11,.42) 60%, rgba(16,14,11,0) 100%); }
 
-      /* Dos velos para que el texto se lea sobre el cielo gris del 4-oct y sobre la piedra. El
-         menta de la casa no llega a 3:1 sobre ese gris (medido: 2:1), as&iacute; que el titular va en blanco. */
-      #velo-arriba { position: absolute; left: 0; top: 0; width: 1080px; height: 760px;
-        background: linear-gradient(180deg, rgba(16,14,11,.8) 0%, rgba(16,14,11,.62) 45%, rgba(16,14,11,0) 100%); }
-      #velo-abajo { position: absolute; left: 0; top: 1000px; width: 1080px; height: 920px;
-        background: linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,.55) 34%, rgba(16,14,11,.78) 62%, rgba(16,14,11,.82) 100%); }
-      /* Detr&aacute;s del m&oacute;vil, la &uacute;ltima imagen de las torres, oscurecida. */
-      #velo-app { position: absolute; inset: 0; background: rgba(16,14,11,.6); }
-      /* El de qe-7, la tarjeta de cierre. */
-      #velo-cierre { position: absolute; inset: 0;
-        background: linear-gradient(180deg, rgba(16,14,11,.55) 0%, rgba(16,14,11,.35) 30%, rgba(16,14,11,.9) 100%); }
-
-      /* El texto, en la zona segura del reel (230-1480) y con la sombra de la casa. */
-      .titular { position: absolute; left: 84px; top: 300px; width: 912px; margin: 0;
-                 font-size: 88px; line-height: 1.04; letter-spacing: -.018em;
-                 text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      /* Titulares: centrados, grandes, en la franja de arriba (230-430) de la zona segura. */
+      .titular { position: absolute; left: 84px; top: 252px; width: 912px; margin: 0;
+                 text-align: center; font-size: 84px; line-height: 1.04; letter-spacing: -.02em; }
       .titular span { display: block; }
-      .menta { color: #5CC0A6; }
+      #gancho { color: #FFFDF9; text-shadow: 0 4px 30px rgba(0,0,0,.35); }
+      .verde { color: #106A63; }
 
-      /* La c&aacute;psula de la voz: la marca, la onda y el nombre de la voz que suena. */
-      #pastilla { position: absolute; left: 84px; top: 1150px; height: 88px; padding: 0 34px 0 18px;
-                  display: flex; align-items: center; gap: 20px; border-radius: 44px;
-                  background: rgba(16,14,11,.62); border: 2px solid rgba(255,253,249,.16); }
-      #pastilla img { width: 52px; height: 52px; display: block; }
-      #onda { display: flex; align-items: center; gap: 7px; height: 44px; }
-      .barra { width: 7px; height: 44px; border-radius: 4px; background: #5CC0A6;
+      /* La voz que suena: el nombre en versalitas y una onda fina, sin c&aacute;psula. */
+      #voz { position: absolute; left: 0; top: 1188px; width: 1080px; height: 34px;
+             display: flex; justify-content: center; align-items: center; gap: 16px; }
+      #onda { display: flex; align-items: center; gap: 5px; height: 30px; }
+      .barra { width: 4px; height: 30px; border-radius: 2px; background: #106A63;
                transform-origin: 50% 50%; }
-      #nombres { position: relative; width: 150px; height: 44px; }
-      .nombre { position: absolute; left: 0; top: 0; margin: 0; font-size: 36px; line-height: 44px;
-                font-weight: 600; letter-spacing: .01em; white-space: nowrap; }
+      #nombres { position: relative; width: 190px; height: 34px; }
+      .nombre { position: absolute; left: 0; top: 0; margin: 0; font-size: 28px; line-height: 34px;
+                font-weight: 600; letter-spacing: .24em; color: #106A63; white-space: nowrap; }
 
-      /* Los subt&iacute;tulos de lo que dice la voz, para quien lo ve sin sonido. */
-      .sub { position: absolute; left: 84px; top: 1272px; width: 912px; margin: 0;
-             font-size: 46px; line-height: 1.24; font-weight: 500;
-             text-shadow: 0 3px 22px rgba(0,0,0,.7); }
+      /* La frase, debajo de la ventana: tenue entera desde el principio, y cada palabra se
+         enciende cuando la dice la voz. Tres l&iacute;neas como mucho: 1244 + 3 x 62 &lt; 1480. */
+      .sub { position: absolute; left: 84px; top: 1244px; width: 912px; margin: 0;
+             text-align: center; font-size: 54px; line-height: 1.14; letter-spacing: -.01em; }
+      .sub span { opacity: .16; }
 
-      /* El m&oacute;vil de la casa, el de C&oacute;rdoba: 808 px, la pantalla a 760. Arriba del todo
-         queda a y=330 y deja libre la franja de los pasos (238-304). */
-      #telefono { position: absolute; left: 136px; top: 330px; width: 808px; height: 1750px;
-                  background: #0b0b0d; border-radius: 111px; padding: 24px; box-sizing: border-box;
-                  box-shadow: 0 84px 200px rgba(0,0,0,.6); }
-      #aro { position: absolute; inset: 0; border-radius: 111px; border: 8px solid #98979c; }
-      #isla { position: absolute; top: 47px; left: calc(50% - 121px); width: 242px; height: 67px;
-              background: #0b0b0d; border-radius: 37px; z-index: 2; }
-      #pantalla-caja { position: relative; width: 760px; height: 1702px; border-radius: 88px;
-                       background: #FEFCF9; overflow: hidden; }
-      /* 1206x2622 escalado a 760 de ancho, SIN BARRA DE ESTADO, como en C&oacute;rdoba: los 101 px
-         de arriba (la hora, la bater&iacute;a, la isla con el punto rojo de grabar y la placa C-32)
-         van cocidos en el v&iacute;deo como reflejo desenfocado del mapa de justo debajo. */
-      #pantalla { width: 760px; height: 1652px; display: block; }
-      /* Cuando la c&aacute;mara se acerca al m&oacute;vil, la crema de la app llega hasta arriba y los
-         pasos en blanco no se leer&iacute;an: este velo va POR ENCIMA del m&oacute;vil, s&oacute;lo entonces. */
-      /* Casi opaco hasta y=360: con .8 asomaba el texto de la app por detr&aacute;s de los pasos. Acaba
-         en 620, por encima de la caja del dato curioso (633). */
-      #velo-pasos { position: absolute; left: 0; top: 0; width: 1080px; height: 620px;
-        background: linear-gradient(180deg, rgba(16,14,11,.97) 0%, rgba(16,14,11,.93) 58%, rgba(16,14,11,0) 100%); }
-      /* Los pasos, como en C&oacute;rdoba: una l&iacute;nea en serif con el n&uacute;mero en menta. */
-      .paso { position: absolute; left: 84px; top: 238px; width: 912px; margin: 0;
-              font-size: 60px; line-height: 1.1; letter-spacing: -.015em; white-space: nowrap;
-              text-shadow: 0 4px 34px rgba(0,0,0,.55); }
-      .paso .num { font-family: 'Instrument Sans'; font-size: 36px; font-weight: 700;
-                   color: #5CC0A6; margin-right: 20px; vertical-align: 8px; }
-
-      /* El cierre del demo, el que eligi&oacute; el due&ntilde;o el 3-sep. */
-      .grupo { position: absolute; left: 84px; top: 300px; width: 912px;
-               text-shadow: 0 4px 34px rgba(0,0,0,.55); }
-      .tit { position: absolute; left: 0; top: 80px; margin: 0; width: 912px;
-             font-size: 72px; line-height: 1.08; letter-spacing: -.015em; }
-      .tit span { display: block; }
-      .oferta { position: absolute; left: 0; top: 180px; margin: 0; width: 912px; display: block;
-                font-size: 96px; line-height: 1.05; letter-spacing: -.015em; }
-      .nota { position: absolute; left: 0; top: 320px; width: 912px; display: block;
-              font-size: 36px; line-height: 1.35; font-weight: 500; color: rgba(255,253,249,.8); }
-      #marca { position: absolute; left: 84px; top: 1400px; display: flex; align-items: center;
-               gap: 20px; text-shadow: 0 4px 34px rgba(0,0,0,.55); }
-      #marca img { width: 54px; height: 54px; display: block; }
-      #marca span { font-size: 30px; font-weight: 600; letter-spacing: .02em;
-                    color: rgba(255,253,249,.85); }
+      /* El cierre: crema, la marca y el precio de la lista. */
+      #marca-grande { position: absolute; left: 465px; top: 520px; width: 150px; height: 150px; display: block; }
+      .cierre { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; }
+      #t-llega { top: 720px; font-size: 104px; line-height: 1; letter-spacing: -.02em; }
+      #t-precio { top: 850px; font-size: 70px; line-height: 1.05; letter-spacing: -.015em; }
+      #t-nota { top: 968px; font-size: 30px; line-height: 1.4; font-weight: 500; color: rgba(16,14,11,.62); }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="audioguia-sagrada" data-start="0"
-         data-width="1080" data-height="1920" data-duration="28.682">
-      <!-- La &uacute;ltima imagen de las torres, debajo del v&iacute;deo: cuando &eacute;ste acaba, se queda ella. -->
-      <img class="fondo" src="assets/fondo-fin.jpg" alt="" />
-      <video id="fondo" class="clip fondo" src="assets/fondo.mp4"
-             data-start="0" data-duration="16.467" muted playsinline></video>
-      <div id="velo-arriba"></div>
-      <div id="velo-abajo" data-layout-allow-overflow></div>
-      <div id="velo-app"></div>
-      <div id="velo-cierre"></div>
+         data-width="1080" data-height="1920" data-duration="26.8">
+      <div id="sombra"></div>
+      <div id="ventana" data-layout-allow-overflow>
+        <video id="fondo" class="clip" src="assets/fondo.mp4"
+               data-start="0" data-duration="16.467" muted playsinline></video>
+        <!-- top = 450 - y0 x 0,7794: la parada desde y0=330 (sin la caja de &laquo;Col&oacute;cate aqu&iacute;&raquo;,
+             que dice &laquo;la cera&raquo;); el dato curioso centrado en 800; el chat pegado abajo. -->
+        <img id="app-parada" class="app" src="assets/app-parada.png" alt="" style="top: 193px" />
+        <img id="app-dato" class="app" src="assets/app-dato.png" alt="" style="top: -620px" />
+        <img id="app-chat" class="app" src="assets/app-chat.png" alt="" style="top: -894px" />
+      </div>
+      <div id="velo-gancho"></div>
 
       <h1 id="gancho" class="titular serif"><span>&iquest;Y si tus viajes</span><span>empiezan a sonar as&iacute;?</span></h1>
       <h1 id="eliges" class="titular serif"><span>Y t&uacute; eliges qui&eacute;n</span><span>te la cuenta.</span></h1>
+      <h1 id="a1" class="titular serif"><span>Te la cuenta</span><span>parada a parada.</span></h1>
+      <h1 id="a2" class="titular serif"><span>Con su</span><span>dato curioso.</span></h1>
+      <h1 id="a3" class="titular serif"><span>Y le preguntas</span><span>lo que quieras.</span></h1>
 
-      <div id="pastilla">
-        <img src="assets/mark.png" alt="" />
+      <div id="voz">
         <div id="onda">
           <div class="barra"></div><div class="barra"></div><div class="barra"></div>
           <div class="barra"></div><div class="barra"></div>
         </div>
         <div id="nombres">
-          <p id="n-kore" class="nombre sans">Kore</p>
-          <p id="n-puck" class="nombre sans">Puck</p>
-          <p id="n-charon" class="nombre sans">Charon</p>
+          <p id="n-kore" class="nombre sans">KORE</p>
+          <p id="n-puck" class="nombre sans">PUCK</p>
+          <p id="n-charon" class="nombre sans">CHARON</p>
         </div>
       </div>
 
-      <!-- Lo que dicen las voces es el texto de la parada en la app (&laquo;La historia&raquo; y el
-           dato curioso, grabaci&oacute;n del 5-oct), con dos arreglos que tambi&eacute;n tiene que hacer la
-           app: &laquo;Sume&raquo; por &laquo;Suma&raquo; y &laquo;cuadro m&aacute;gico&raquo; por &laquo;cuadrado m&aacute;gico&raquo;. -->
-      <p id="s-kore" class="sub sans">Esta fachada representa la agon&iacute;a, crucifixi&oacute;n y muerte de Jes&uacute;s.</p>
-      <p id="s-puck" class="sub sans">Las columnas inclinadas recuerdan a huesos o troncos secos.</p>
-      <p id="s-charon" class="sub sans">Suma los n&uacute;meros del cuadrado m&aacute;gico: siempre da 33, la edad de Cristo.</p>
+      <!-- El texto de la parada en la app (&laquo;La historia&raquo; y el dato curioso), con &laquo;Suma&raquo;
+           y &laquo;cuadrado&raquo; arreglados (issue #10). data-t: cu&aacute;ndo dice la voz cada palabra. -->
+      <p id="s-kore" class="sub serif"><span data-t="2.962">Esta</span> <span data-t="3.502">fachada</span> <span data-t="4.102">representa</span> <span data-t="4.722">la</span> <span data-t="4.962">agon&iacute;a,</span> <span data-t="5.742">crucifixi&oacute;n</span> <span data-t="6.342">y</span> <span data-t="6.702">muerte</span> <span data-t="7.002">de</span> <span data-t="7.202">Jes&uacute;s.</span></p>
+      <p id="s-puck" class="sub serif"><span data-t="7.838">Las</span> <span data-t="8.198">columnas</span> <span data-t="8.598">inclinadas</span> <span data-t="9.178">recuerdan</span> <span data-t="9.778">a</span> <span data-t="9.938">huesos</span> <span data-t="10.298">o</span> <span data-t="10.438">troncos</span> <span data-t="10.758">secos.</span></p>
+      <p id="s-charon" class="sub serif"><span data-t="11.354">Suma</span> <span data-t="11.734">los</span> <span data-t="11.974">n&uacute;meros</span> <span data-t="12.274">del</span> <span data-t="12.474">cuadrado</span> <span data-t="12.854">m&aacute;gico:</span> <span data-t="13.714">siempre</span> <span data-t="14.054">da</span> <span data-t="14.234">33,</span> <span data-t="15.234">la</span> <span data-t="15.374">edad</span> <span data-t="15.614">de</span> <span data-t="15.754">Cristo.</span></p>
 
-      <div id="telefono" data-layout-allow-overflow>
-        <div id="aro"></div>
-        <div id="isla"></div>
-        <div id="pantalla-caja">
-          <!-- La grabaci&oacute;n de la app real, ya cortada con ffmpeg (los tramos, en VEO.md). El
-               &lt;video&gt; lleva su tiempo y su envoltorio ninguno. -->
-          <video id="pantalla" class="clip" src="assets/pantalla.mp4"
-                 data-start="16.382" data-duration="9" muted playsinline></video>
-        </div>
-      </div>
-      <div id="velo-pasos"></div>
-
-      <p id="c1" class="paso serif"><span class="num">1</span>Te la cuenta.</p>
-      <p id="c2" class="paso serif"><span class="num">2</span>Con su dato curioso.</p>
-      <p id="c3" class="paso serif"><span class="num">3</span>Y le preguntas lo que quieras.</p>
-
-      <div id="g4" class="grupo">
-        <h1 class="tit serif"><span id="t4">Llega en octubre.</span></h1>
-        <h2 id="l1" class="oferta serif">Tu primer viaje por <span class="menta">1,99&nbsp;&euro;</span>*</h2>
-        <span id="l2" class="nota sans">*Si te apuntas a la lista de espera en travelsnomad.com</span>
-      </div>
-      <div id="marca">
-        <img src="assets/mark.png" alt="" />
-        <span class="sans">travelsnomad.com</span>
-      </div>
+      <img id="marca-grande" src="assets/mark.png" alt="" />
+      <h1 id="t-llega" class="cierre serif">Llega en octubre.</h1>
+      <h2 id="t-precio" class="cierre serif">Tu primer viaje por <span class="verde">1,99&nbsp;&euro;</span>*</h2>
+      <p id="t-nota" class="cierre sans">*Si te apuntas a la lista de espera en travelsnomad.com</p>
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes.
       document.fonts.ready.then(function () {
         var tl = gsap.timeline({ paused: true });
 
-        // Los tiempos salen del montaje del sonido (VEO.md): el corte y la cancelaci&oacute;n del
-        // ruido a la vez, y cada voz donde empieza y donde acaba. El corte va a los 3,75 s de la
-        // toma de las manos, con la mano subiendo: desde ah&iacute; el estuche saca un palo negro.
-        var T_CASCOS = 2.792, MITAD = 16.482, FIN = 28.682;
+        // Los tiempos salen del montaje del sonido (VEO.md): el corte y la cancelaci&oacute;n del ruido
+        // a la vez, y cada voz donde empieza y donde acaba.
+        var T = 2.792;
         var VOCES = [
           { id: "kore",   ini: 2.962,  fin: 7.638 },
           { id: "puck",   ini: 7.838,  fin: 11.154 },
           { id: "charon", ini: 11.354, fin: 16.032 }
         ];
-        // La segunda mitad cuenta desde que arranca pantalla.mp4: la parada (0-3), el toque que
-        // abre el dato curioso (3-3,7), el dato quieto (3,7-5,8) y el chat, quieto (5,8-9).
-        var V0 = 16.382;
+        var A0 = 16.4, A1 = 18.7, A2 = 21.2, E0 = 23.4, FIN = 26.8;   // la app y el cierre
 
-        var IN = { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" };
-        var OUT = { autoAlpha: 0, y: -16, duration: 0.3, ease: "power2.in" };
+        var ENTRA = { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" };
+        var SALE = { autoAlpha: 0, y: -14, filter: "blur(6px)", duration: 0.35, ease: "power2.in" };
+        function titular(sel, ini, fin) {
+          tl.fromTo(sel, { autoAlpha: 0, y: 22, filter: "blur(8px)" }, ENTRA, ini);
+          if (fin) tl.to(sel, SALE, fin);
+        }
 
-        // 1. EL GANCHO, desde el primer segundo: la mayor&iacute;a decide sin sonido.
-        tl.fromTo("#gancho", { autoAlpha: 0, y: 24 }, IN, 0.15);
-        tl.to("#gancho", OUT, VOCES[1].ini - 0.35);
-        // Cuando cambia la voz por primera vez, la frase del due&ntilde;o.
-        tl.fromTo("#eliges", { autoAlpha: 0, y: 24 }, IN, VOCES[1].ini);
-        tl.to("#eliges", { autoAlpha: 0, duration: 0.35, ease: "power1.in" }, MITAD - 0.35);
+        // 1. EL GANCHO, a sangre, con el ruido de la gente. Desde el primer segundo: la mayor&iacute;a
+        // decide sin sonido.
+        titular("#gancho", 0.12, VOCES[1].ini - 0.4);
+        // 2. LOS AURICULARES: el mundo se recoge en la ventana y aparece la crema. El titular pasa a
+        // noche a la vez, porque detr&aacute;s ya no hay cielo sino crema.
+        // Los dos extremos de la m&aacute;scara, escritos igual: as&iacute; GSAP interpola cada n&uacute;mero.
+        tl.fromTo("#ventana", { clipPath: "inset(0px 0px 0px 0px round 0px)" },
+          { clipPath: "inset(450px 70px 770px 70px round 40px)", duration: 0.8, ease: "expo.inOut" }, T - 0.06);
+        tl.to("#velo-gancho", { autoAlpha: 0, duration: 0.5, ease: "power1.inOut" }, T);
+        tl.to("#gancho", { color: "#100E0B", textShadow: "0 0 0 rgba(0,0,0,0)", duration: 0.6, ease: "power1.inOut" }, T + 0.05);
+        tl.fromTo("#sombra", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, T + 0.35);
+        // Dentro de la ventana, el plano se acerca despacio mientras habla la voz.
+        tl.fromTo("#fondo", { scale: 1 }, { scale: 1.06, duration: A0 - T, ease: "none" }, T);
 
-        // El velo de abajo, s&oacute;lo cuando hay subt&iacute;tulos: en el primer plano oscurec&iacute;a las manos.
-        tl.fromTo("#velo-abajo", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "power1.out" }, T_CASCOS - 0.1);
-
-        // La c&aacute;psula entra con la primera voz y cambia de nombre con cada una.
-        tl.fromTo("#pastilla", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, VOCES[0].ini - 0.12);
-        tl.to("#pastilla", { autoAlpha: 0, duration: 0.35, ease: "power1.in" }, MITAD - 0.35);
+        // 3. LAS TRES VOCES. Con la segunda, la frase del due&ntilde;o.
+        titular("#eliges", VOCES[1].ini, A0 - 0.45);
+        // La primera vez espera a que la ventana haya bajado de su sitio (y=1150), o la pisar&iacute;a.
+        var TRAS_VENTANA = T + 0.45;
+        tl.fromTo("#voz", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, TRAS_VENTANA);
+        tl.to("#voz", { autoAlpha: 0, duration: 0.35, ease: "power1.in" }, A0 - 0.4);
         VOCES.forEach(function (v, i) {
-          tl.fromTo("#n-" + v.id, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, v.ini);
-          if (i < VOCES.length - 1) tl.to("#n-" + v.id, { autoAlpha: 0, y: -14, duration: 0.2, ease: "power2.in" }, VOCES[i + 1].ini - 0.2);
-          tl.fromTo("#s-" + v.id, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, v.ini);
-          // Entre voz y voz hay 0,2 s: el subt&iacute;tulo se va en 0,15 para no pisar al siguiente.
-          tl.to("#s-" + v.id, { autoAlpha: 0, duration: 0.15, ease: "power1.in" }, v.fin + 0.02);
+          tl.fromTo("#n-" + v.id, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, v.ini - 0.05);
+          if (i < VOCES.length - 1) tl.to("#n-" + v.id, { autoAlpha: 0, y: -12, duration: 0.18, ease: "power2.in" }, VOCES[i + 1].ini - 0.2);
+          // La frase entra tenue entera y cada palabra se enciende con la voz.
+          tl.fromTo("#s-" + v.id, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "power1.out" }, i === 0 ? TRAS_VENTANA : v.ini - 0.12);
+          gsap.utils.toArray("#s-" + v.id + " span").forEach(function (w) {
+            tl.to(w, { opacity: 1, duration: 0.14, ease: "power1.out" }, parseFloat(w.getAttribute("data-t")));
+          });
+          // Entre voz y voz hay 0,2 s: la frase se va en 0,15 para no pisar a la siguiente.
+          tl.to("#s-" + v.id, { autoAlpha: 0, duration: 0.15, ease: "power1.in" }, (i < VOCES.length - 1 ? VOCES[i + 1].ini - 0.17 : A0 - 0.3));
         });
 
         // La onda se mueve s&oacute;lo mientras habla una voz, y se aplana en las pausas.
-        var barras = gsap.utils.toArray(".barra");
-        barras.forEach(function (b, j) {
-          tl.set(b, { scaleY: 0.22 }, 0);
+        gsap.utils.toArray(".barra").forEach(function (b, j) {
+          tl.set(b, { scaleY: 0.25 }, 0);
           VOCES.forEach(function (v) {
             var paso = 0.16 + j * 0.035;
             var veces = Math.max(1, Math.floor((v.fin - v.ini) / paso) - 1);
             if (veces % 2 === 0) veces -= 1;   // impar: acaba abajo
-            tl.fromTo(b, { scaleY: 0.22 }, { scaleY: 0.55 + 0.45 * ((j * 37) % 5) / 4, duration: paso,
+            tl.fromTo(b, { scaleY: 0.25 }, { scaleY: 0.55 + 0.45 * ((j * 37) % 5) / 4, duration: paso,
               repeat: veces, yoyo: true, ease: "sine.inOut" }, v.ini);
           });
         });
 
-        // 2. LA APP. El m&oacute;vil sube con la parada; luego la c&aacute;mara se acerca al dato curioso y
-        // baja al chat. Los acercamientos se calculan con el origen arriba a la izquierda del
-        // m&oacute;vil: un punto P de la pantalla cae en (136 + x + 1,45&middot;Px, 330 + y + 1,45&middot;Py).
-        // El dato curioso (y 1033-1263 de la pantalla a 760) queda centrado en y=800, y la zona
-        // del chat (y 1311-1613 del fotograma de las 32,4) en y=860.
-        tl.set("#telefono", { transformOrigin: "0 0" }, 0);
-        tl.fromTo("#velo-app", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, V0 - 0.1);
-        // Antes de subir est&aacute; entero por debajo del borde (330 + 1750 &gt; 1920), sombra incluida.
-        tl.fromTo("#telefono", { y: 1750, autoAlpha: 1 }, { y: 0, duration: 0.65, ease: "power3.out" }, V0);
-        tl.to("#telefono", { x: -181.8, y: -1230.1, scale: 1.45, duration: 0.6, ease: "power2.inOut" }, V0 + 3.0);
-        tl.to("#telefono", { y: -1624.7, duration: 0.6, ease: "power2.inOut" }, V0 + 5.7);
-        tl.fromTo("#velo-pasos", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "power1.inOut" }, V0 + 2.9);
-        tl.to("#velo-pasos", { autoAlpha: 0, duration: 0.4, ease: "power1.inOut" }, V0 + 8.3);
-        tl.to("#telefono", { autoAlpha: 0, duration: 0.45, ease: "power1.in" }, V0 + 8.3);
+        // 4. LA APP, en la misma ventana: tres capturas reales que suben como al desplazarse.
+        var ENTRA_APP = { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" };
+        tl.fromTo("#app-parada", { autoAlpha: 0, y: 70 }, ENTRA_APP, A0);
+        tl.fromTo("#app-parada", { scale: 1 }, { scale: 1.04, duration: A1 - A0, ease: "none", transformOrigin: "50% 30%", immediateRender: false }, A0);
+        tl.fromTo("#app-dato", { autoAlpha: 0, y: 70 }, ENTRA_APP, A1);
+        tl.to("#app-parada", { autoAlpha: 0, duration: 0.4, ease: "power1.in" }, A1 + 0.1);
+        tl.fromTo("#app-dato", { scale: 1 }, { scale: 1.04, duration: A2 - A1, ease: "none", transformOrigin: "50% 40%", immediateRender: false }, A1);
+        tl.fromTo("#app-chat", { autoAlpha: 0, y: 70 }, ENTRA_APP, A2);
+        tl.to("#app-dato", { autoAlpha: 0, duration: 0.4, ease: "power1.in" }, A2 + 0.1);
+        titular("#a1", A0 + 0.1, A1 - 0.3);
+        titular("#a2", A1 + 0.05, A2 - 0.3);
+        titular("#a3", A2 + 0.05, E0 - 0.35);
 
-        var IN_P = { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" };
-        var OUT_P = { autoAlpha: 0, y: -12, duration: 0.25, ease: "power2.in" };
-        tl.fromTo("#c1", { autoAlpha: 0, y: 16 }, IN_P, V0 + 0.45);
-        tl.to("#c1", OUT_P, V0 + 2.85);
-        tl.fromTo("#c2", { autoAlpha: 0, y: 16 }, IN_P, V0 + 3.1);
-        tl.to("#c2", OUT_P, V0 + 5.6);
-        tl.fromTo("#c3", { autoAlpha: 0, y: 16 }, IN_P, V0 + 5.95);
-        tl.to("#c3", OUT_P, V0 + 8.2);
-
-        // 3. EL CIERRE de la casa.
-        tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, V0 + 8.4);
-        tl.fromTo("#t4", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, V0 + 8.8);
-        tl.fromTo("#l1", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, V0 + 9.3);
-        tl.fromTo("#l2", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, V0 + 9.9);
-        tl.fromTo("#marca", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, V0 + 10.3);
+        // 5. EL CIERRE: la ventana se va y quedan la crema, la marca y el precio de la lista.
+        tl.to(["#ventana", "#sombra"], { autoAlpha: 0, y: -40, duration: 0.5, ease: "power2.in" }, E0 - 0.3);
+        tl.fromTo("#marca-grande", { autoAlpha: 0, scale: 0.85 }, { autoAlpha: 1, scale: 1, duration: 0.8, ease: "power3.out" }, E0 + 0.1);
+        titular("#t-llega", E0 + 0.35);
+        titular("#t-precio", E0 + 0.85);
+        titular("#t-nota", E0 + 1.35);
 
         window.__timelines["audioguia-sagrada"] = tl;
         if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();

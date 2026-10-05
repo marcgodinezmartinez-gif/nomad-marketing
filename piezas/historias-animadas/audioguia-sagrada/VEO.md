@@ -100,8 +100,8 @@ gente (assets/gente.m4a) +4 dB hasta 2,792 s
   → a partir de ahí, paso bajo a 220 Hz dos veces y −20 dB, en 0,12 s: la cancelación de ruido,
     que se apaga del todo en la segunda mitad
 Kore a 2,962 s · Puck a 7,838 s · Charon a 11,354 s (sin silencios delante ni detrás, a ×1,12)
-la segunda mitad (desde 16,482 s) sin voz: la música se pone en Instagram
-todo junto hasta 28,682 s, loudnorm a −14 LUFS
+la segunda mitad (desde 16,4 s) sin voz: la música se pone en Instagram
+todo junto hasta 26,8 s, loudnorm a −14 LUFS
 ```
 
 El fundido de 0,12 s es lo que hace que suene a cancelación y no a corte de edición.
@@ -133,29 +133,42 @@ se lee «Sume» y «cuadro».
 ## La segunda mitad: la app (6-oct)
 
 De la grabación del dueño, `ScreenRecording_10-05-2026_19-15-50` (35 s, 1206×2622, HEVC,
-sin sonido), **sin cámara rápida**: del itinerario al tour, la espera de «Diseñando tu tour»
-(13 s), la parada y el dato curioso. Él mismo lo pidió: *«no creo que lo mejor sea ponerlo
-a cámara rápida sino recortarlo con lo necesario y útil, e incluso usar screenshots»*. Se
-queda con tres trozos (`assets/pantalla.mp4`, 9 s):
+sin sonido): del itinerario al tour, la espera de «Diseñando tu tour» (13 s), la parada y
+el dato curioso. Él mismo lo pidió: *«no creo que lo mejor sea ponerlo a cámara rápida sino
+recortarlo con lo necesario y útil, e incluso usar screenshots»*. Primero se montó con tres
+trozos de vídeo dentro del móvil de la casa. En la versión 2 se queda en **tres capturas
+fijas** de esa grabación, sin barra de estado, a 940 de ancho dentro de la ventana:
 
-| Trozo | De la grabación | Qué es |
+| Captura | Fotograma | Qué se ve en la ventana |
 |---|---|---|
-| 0-3 s | 26,6-29,6 s | La parada de la Pasión, quieta y luego bajando hasta la historia |
-| 3-3,7 s | 32,9-33,6 s | El toque que abre el dato curioso |
-| 3,7-5,8 s | el fotograma de 33,6 s, congelado | El dato curioso, para leerlo |
-| 5,8-9 s | el fotograma de 32,4 s, congelado | El chat de la parada: las preguntas sugeridas y «Pregunta o envía una foto…» |
+| `app-parada.png` | 26,0 s | La parada desde y=330: el título, «Monumento» y el reproductor de la audioguía. Se para justo antes de la caja de «Colócate aquí», que dice «la cera» |
+| `app-dato.png` | 33,6 s | El dato curioso abierto, centrado en y=800 |
+| `app-chat.png` | 32,4 s | El chat de la parada pegado abajo: las preguntas sugeridas y «Pregunta o envía una foto…» |
 
-Fuera quedan el itinerario, el «¿Qué visita quieres?», la espera y el Centro de control del
-final. La barra de estado (hora, batería, la isla con el punto rojo de grabar y la placa
-C-32 del mapa) se tapa como en Córdoba, con un reflejo desenfocado del mapa de justo debajo:
-`crop=630:16:0:115,vflip,scale=760:101,gblur=sigma=14` sobre el vídeo a 760×1652.
+**Lo que falta**: el chat se ve, pero nadie le pregunta nada. Una grabación con una pregunta
+escribiéndose y la respuesta entera sustituiría a la tercera captura.
 
-En el reel, el móvil de la casa sube con la parada («1 Te la cuenta.»). Luego la cámara se
-acerca a ×1,45 hasta el dato curioso («2 Con su dato curioso.») y baja al chat («3 Y le
-preguntas lo que quieras.»). Los acercamientos están calculados en `index.html`.
+## La versión 2: el diseño (6-oct)
 
-**Lo que falta**: el chat se ve, pero nadie le pregunta nada. Una grabación con una
-pregunta escribiéndose y la respuesta entera sustituiría al fotograma congelado del trozo 4.
+El dueño vio la primera *«demasiado cutre»* y pidió algo como *«las presentaciones de Apple,
+la publi de Vicio o de Estrella Damm»*. Probó a pedírselo a Claude Design con un prompt y
+salió *«bastante mal también»*. Así que se rehizo aquí. El porqué de cada cambio está
+en la cabecera de `index.html`:
+
+- **Fuera las capas**: ni velos oscuros por todas partes, ni cápsula, ni móvil con marco.
+- **El fondo es la crema de la app (#FEFCF9)** y el texto, noche. El verde es el de la app
+  (#106A63, medido en la captura). El menta de la casa no llega a 3:1 sobre crema.
+- **La cancelación de ruido se ve.** Con la gente, la imagen va a sangre. Al ponerse los
+  auriculares, el mundo se recoge en una ventana de 940×700 con esquinas de 40, y alrededor
+  aparece la crema. Está hecho con una máscara (`clip-path`) sobre el vídeo a pantalla
+  completa, así que no se reencuadra nada.
+- **Los subtítulos se encienden palabra a palabra.** Los tiempos de cada palabra se sacan de
+  la propia voz con `faster-whisper`, y la frase entera se ve tenue desde el principio.
+- **Una idea por plano, letra grande y centrada**: titular arriba (230-430), ventana en medio
+  (450-1150), voz y frase debajo (1188-1430). Todo cabe en la zona segura.
+
+Tiempos: el gancho hasta 2,792 s; las voces, de 2,962 a 16,032; la app desde 16,4 (parada),
+18,7 (dato) y 21,2 (chat); el cierre en crema, de 23,4 a 26,8.
 
 ## Al publicar
 
