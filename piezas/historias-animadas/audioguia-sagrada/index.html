@@ -74,27 +74,53 @@
       #tarjeta-app .texto { top: 30px; }
       .paso { font-size: 58px; line-height: 64px; letter-spacing: -.015em; white-space: nowrap; }
 
-      /* EL CIERRE, en otra tarjeta: la marca, octubre y el precio de la lista. */
-      #tarjeta-cierre { top: 600px; height: 560px; text-align: center; }
-      #tarjeta-cierre img { position: absolute; left: 401px; top: 56px; width: 110px; height: 110px; }
-      .cierre { position: absolute; left: 44px; width: 820px; margin: 0; text-align: center; }
-      #t-llega { top: 196px; font-size: 92px; line-height: 1; letter-spacing: -.02em; }
-      #t-precio { top: 314px; font-size: 60px; line-height: 1.05; letter-spacing: -.015em; }
-      #t-nota { top: 430px; font-size: 28px; line-height: 1.4; font-weight: 500; color: rgba(16,14,11,.6); }
-      .verde { color: #106A63; }
+      /* LA PORTADA Y EL CIERRE, en el estilo del feed (piezas/tarjetas.py): la foto del due&ntilde;o a
+         sangre, VELO_FOTO, kicker en versalitas, serif blanca con la SOMBRA de la casa y la marca.
+         El due&ntilde;o vio la portada suelta y pidi&oacute; &laquo;fusionarla con alg&uacute;n efecto con el v&iacute;deo y usarla
+         de cierre tambi&eacute;n, sin la cajita&raquo;, y &laquo;Muy pronto&raquo; en vez de &laquo;Llega en octubre&raquo;. */
+      .velo-feed { position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(16,14,11,.72) 0%, rgba(16,14,11,.34) 42%, rgba(16,14,11,.62) 100%); }
+      .feed { position: absolute; left: 84px; width: 912px; margin: 0; color: #FFFDF9;
+              text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      .kicker { top: 340px; font-size: 30px; letter-spacing: .18em; text-transform: uppercase;
+                font-weight: 600; color: rgba(255,253,249,.82); }
+      #tit-portada { top: 400px; font-size: 96px; line-height: 1.1; letter-spacing: -.018em; }
+      #tit-portada span { display: block; }
+      .marca-feed { position: absolute; left: 84px; top: 1500px; display: flex; align-items: center; gap: 20px;
+                    text-shadow: 0 4px 34px rgba(0,0,0,.55); }
+      .marca-feed img { width: 54px; height: 54px; display: block; }
+      .marca-feed span { font-size: 30px; font-weight: 600; letter-spacing: .02em; color: rgba(255,253,249,.85); }
+      #t-pronto { top: 400px; font-size: 104px; line-height: 1; letter-spacing: -.02em; }
+      #t-oferta { top: 530px; font-size: 76px; line-height: 1.05; letter-spacing: -.015em; }
+      #t-nota { top: 640px; font-size: 32px; line-height: 1.4; font-weight: 500; color: rgba(255,253,249,.8); }
+      .menta { color: #5CC0A6; }
+      /* El velo del cierre, m&aacute;s oscuro que VELO_FOTO: con el gris del cielo de ese d&iacute;a, el menta
+         del precio no llegaba a 3:1 (medido: 2,56). */
+      #velo-cierre { position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(16,14,11,.8) 0%, rgba(16,14,11,.62) 45%, rgba(16,14,11,.74) 100%); }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="audioguia-sagrada" data-start="0"
-         data-width="1080" data-height="1920" data-duration="28.6">
+         data-width="1080" data-height="1920" data-duration="29.4">
       <!-- La &uacute;ltima imagen de las torres, debajo del v&iacute;deo: cuando &eacute;ste acaba, se queda ella. -->
       <img id="fondo-fin" class="fondo" src="assets/fondo-fin.jpg" alt="" />
       <video id="fondo" class="clip fondo" src="assets/fondo.mp4"
-             data-start="0" data-duration="16.467" muted playsinline></video>
+             data-start="0.8" data-duration="16.467" muted playsinline></video>
       <div id="velo-app"></div>
 
+      <!-- LA PORTADA, que es el primer fotograma: la misma foto de la que sale la toma de las
+           manos, as&iacute; que al arrancar el v&iacute;deo la foto cobra vida sin corte. -->
+      <img id="foto-portada" class="fondo" src="assets/portada.jpg" alt="" />
+      <div id="velo-portada" class="velo-feed"></div>
+      <!-- El velo del cierre va aqu&iacute;, por debajo de la marca, que es la de la portada y vuelve al
+           final: encima la apagaba. -->
+      <div id="velo-cierre"></div>
+      <p id="kicker-portada" class="feed kicker sans">Barcelona &middot; la Sagrada Fam&iacute;lia</p>
+      <h1 id="tit-portada" class="feed serif"><span data-layout-allow-overlap>&iquest;Y si tus viajes</span><span data-layout-allow-overlap>empiezan a sonar as&iacute;?</span></h1>
+      <div id="marca-portada" class="marca-feed"><img src="assets/mark.png" alt="" /><span class="sans">travelsnomad.com</span></div>
+
       <div id="tarjeta-arriba" class="tarjeta">
-        <h1 id="gancho" class="texto titular serif"><span>&iquest;Y si tus viajes</span><span>empiezan a sonar as&iacute;?</span></h1>
         <h1 id="eliges" class="texto titular serif"><span>Y t&uacute; eliges qui&eacute;n</span><span>te la cuenta.</span></h1>
       </div>
 
@@ -124,7 +150,7 @@
                &laquo;Siguiente parada&raquo; hasta la Pasi&oacute;n, la historia, el toque que abre el dato curioso
                y el chat. El &lt;video&gt; lleva su tiempo y su envoltorio ninguno. -->
           <video id="pantalla" class="clip" src="assets/pantalla.mp4"
-                 data-start="16.4" data-duration="9.334" muted playsinline></video>
+                 data-start="17.2" data-duration="9.334" muted playsinline></video>
         </div>
       </div>
 
@@ -134,12 +160,15 @@
         <p id="p3" class="texto paso serif">Y le preguntas lo que quieras.</p>
       </div>
 
-      <div id="tarjeta-cierre" class="tarjeta">
-        <img src="assets/mark.png" alt="" />
-        <h1 id="t-llega" class="cierre serif">Llega en octubre.</h1>
-        <h2 id="t-precio" class="cierre serif">Tu primer viaje por <span class="verde">1,99&nbsp;&euro;</span>*</h2>
-        <p id="t-nota" class="cierre sans">*Si te apuntas a la lista de espera en travelsnomad.com</p>
-      </div>
+      <!-- EL CIERRE, como la portada y sin caja: la misma foto, que pasa de desenfocada a n&iacute;tida. -->
+      <!-- La foto es la misma de la portada (#foto-portada), que vuelve: dos &lt;img&gt; con el mismo
+           fichero hacen que el render los descubra dos veces. -->
+
+      <p id="kicker-cierre" class="feed kicker sans">Lista de espera abierta</p>
+      <h1 id="t-pronto" class="feed serif">Muy pronto.</h1>
+      <h2 id="t-oferta" class="feed serif">Tu primer viaje por <span class="menta">1,99&nbsp;&euro;</span>*</h2>
+      <p id="t-nota" class="feed sans">*Si te apuntas a la lista de espera en travelsnomad.com</p>
+      <!-- La marca del cierre es la de la portada (#marca-portada), que vuelve. -->
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes.
@@ -148,25 +177,35 @@
 
         // Los tiempos salen del montaje del sonido (VEO.md): el corte y la cancelaci&oacute;n del ruido
         // a la vez, y cada voz donde empieza y donde acaba.
-        var T = 2.792;
+        // D: lo que dura la portada quieta antes de que arranque el v&iacute;deo. Todo lo dem&aacute;s se
+        // desplaza lo mismo; los data-t de las palabras est&aacute;n sin desplazar.
+        var D = 0.8;
+        var T = 2.792 + D;
         var VOCES = [
-          { id: "kore",   ini: 2.962,  fin: 7.638 },
-          { id: "puck",   ini: 7.838,  fin: 11.154 },
-          { id: "charon", ini: 11.354, fin: 16.032 }
+          { id: "kore",   ini: 2.962 + D,  fin: 7.638 + D },
+          { id: "puck",   ini: 7.838 + D,  fin: 11.154 + D },
+          { id: "charon", ini: 11.354 + D, fin: 16.032 + D }
         ];
         // La segunda mitad cuenta desde que arranca pantalla.mp4: el mapa y las paradas (0-3),
         // la historia (3-4,8), el dato curioso (4,8-6,9) y el chat (6,9-9,3).
-        var P2 = 16.4, FIN = 28.6;
+        var P2 = 16.4 + D, FIN = 29.4;
         var CIERRE = P2 + 9.0;
 
         var ENTRA = { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" };
         var SALE = { autoAlpha: 0, y: -10, duration: 0.3, ease: "power2.in" };
 
-        // 1. LA IMAGEN ENTERA, quieta: s&oacute;lo se mueven las tarjetas.
-        tl.fromTo("#tarjeta-arriba", { autoAlpha: 0, y: 24 }, ENTRA, 0.12);
+        // 0. LA PORTADA: quieta D segundos con el ruido de la gente; luego la foto cobra vida (es el
+        // primer fotograma de la toma de las manos), se van el kicker y la marca, y el t&iacute;tulo se
+        // queda hasta que se apaga el ruido.
+        tl.to("#foto-portada", { autoAlpha: 0, duration: 0.35, ease: "power1.inOut" }, D);
+        tl.to(["#kicker-portada", "#marca-portada"], { autoAlpha: 0, y: -10, duration: 0.4, ease: "power2.in" }, D + 0.1);
+        tl.to("#tit-portada", { autoAlpha: 0, y: -16, duration: 0.4, ease: "power2.in" }, T - 0.1);
+        tl.to("#velo-portada", { autoAlpha: 0, duration: 0.5, ease: "power1.inOut" }, T);
+
+        // 1. LA IMAGEN ENTERA, quieta: s&oacute;lo se mueven las tarjetas. Con la segunda voz, arriba,
+        // &laquo;Y t&uacute; eliges qui&eacute;n te la cuenta&raquo;.
+        tl.fromTo("#tarjeta-arriba", { autoAlpha: 0, y: 24 }, ENTRA, VOCES[1].ini);
         tl.to("#tarjeta-arriba", { autoAlpha: 0, y: -20, duration: 0.4, ease: "power2.in" }, P2 - 0.45);
-        tl.to("#gancho", SALE, VOCES[1].ini - 0.3);
-        tl.fromTo("#eliges", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, VOCES[1].ini);
 
         // Con los auriculares puestos (el corte y el silencio), sube la tarjeta de la audiogu&iacute;a.
         tl.fromTo("#tarjeta-audio", { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, T);
@@ -176,7 +215,7 @@
           if (i < VOCES.length - 1) tl.to("#n-" + v.id, { autoAlpha: 0, y: -10, duration: 0.18, ease: "power2.in" }, VOCES[i + 1].ini - 0.2);
           tl.fromTo("#s-" + v.id, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "power1.out" }, i === 0 ? T + 0.1 : v.ini - 0.12);
           gsap.utils.toArray("#s-" + v.id + " span").forEach(function (w) {
-            tl.to(w, { opacity: 1, duration: 0.14, ease: "power1.out" }, parseFloat(w.getAttribute("data-t")));
+            tl.to(w, { opacity: 1, duration: 0.14, ease: "power1.out" }, parseFloat(w.getAttribute("data-t")) + D);
           });
           // Entre voz y voz hay 0,2 s: la frase se va en 0,15 para no pisar a la siguiente.
           if (i < VOCES.length - 1) tl.to("#s-" + v.id, { autoAlpha: 0, duration: 0.15, ease: "power1.in" }, VOCES[i + 1].ini - 0.17);
@@ -208,11 +247,15 @@
         tl.to("#tarjeta-app", { autoAlpha: 0, y: -20, duration: 0.4, ease: "power2.in" }, CIERRE - 0.2);
         tl.to("#telefono", { y: 1700, duration: 0.6, ease: "power2.in" }, CIERRE - 0.2);
 
-        // 3. EL CIERRE.
-        tl.fromTo("#tarjeta-cierre", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }, CIERRE + 0.3);
-        tl.fromTo("#t-llega", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 0.55);
-        tl.fromTo("#t-precio", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 0.95);
-        tl.fromTo("#t-nota", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, CIERRE + 1.35);
+        // 3. EL CIERRE, como la portada: la foto pasa de desenfocada a n&iacute;tida sobre las torres
+        // desenfocadas, y entra el texto del feed.
+        tl.fromTo("#foto-portada", { autoAlpha: 0, filter: "blur(24px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.9, ease: "power2.out", immediateRender: false }, CIERRE + 0.1);
+        tl.fromTo("#velo-cierre", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.7, ease: "power1.inOut" }, CIERRE + 0.1);
+        tl.fromTo("#kicker-cierre", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, CIERRE + 0.6);
+        tl.fromTo("#t-pronto", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 0.8);
+        tl.fromTo("#t-oferta", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, CIERRE + 1.2);
+        tl.fromTo("#t-nota", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, CIERRE + 1.6);
+        tl.fromTo("#marca-portada", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, CIERRE + 1.9);
 
         window.__timelines["audioguia-sagrada"] = tl;
         if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();

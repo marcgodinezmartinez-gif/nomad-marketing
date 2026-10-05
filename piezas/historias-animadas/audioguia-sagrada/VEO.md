@@ -170,13 +170,26 @@ se lee «Sume» y «cuadro».
 
   Encima del móvil, otra tarjeta: «Te lleva de parada en parada.», «Con su dato curioso.» y
   «Y le preguntas lo que quieras.».
-- **El cierre**, en una tarjeta blanco roto: la marca, «Llega en octubre.» y «Tu primer viaje
-  por 1,99 €*».
 - La barra de estado se tapa como en Córdoba: `crop=518:14:0:94,vflip,scale=624:83,gblur=sigma=12`
   sobre la grabación a 624×1356.
 
-Tiempos: el gancho hasta 2,792 s; las voces, de 2,962 a 16,032; el móvil, de 16,4 a 25,4;
-el cierre, hasta 28,6.
+**La portada y el cierre (6-oct, tarde).** El dueño vio la portada en el estilo del feed
+(su foto, VELO_FOTO, «Barcelona · la Sagrada Família», el título en serif blanca y la
+marca) y pidió *«fusionarla con algún efecto con el vídeo y usarla de cierre también, sin la
+cajita»*, y *«Muy pronto»* en vez de «Llega en octubre». Así queda:
+- **El primer fotograma del reel es la portada**, quieta 0,8 s con el ruido de la gente.
+  Como la toma de las manos sale de esa misma foto, al arrancar el vídeo la foto cobra vida
+  sin corte. El kicker y la marca se van, y el título se queda hasta que se apaga el ruido.
+- **El cierre es la misma foto**, que pasa de desenfocada a nítida sobre las torres
+  desenfocadas, con «Lista de espera abierta», «Muy pronto.», «Tu primer viaje por 1,99 €*»
+  (en menta, como en el feed), la nota y la marca. El velo es más oscuro que VELO_FOTO,
+  porque sobre el gris de ese día el menta no llegaba a 3:1.
+- La portada para subir a Instagram es ese primer fotograma
+  (`salida/reel-sagrada-portada.jpg`).
+
+Tiempos: la portada quieta hasta 0,8 s; el gancho hasta 3,592; las voces, de 3,762 a
+16,832; el móvil, de 17,2 a 26,2; el cierre, hasta 29,4. El sonido es el de arriba
+desplazado 0,8 s.
 
 **Lo que falta**: el chat se ve, pero nadie le pregunta nada. Una grabación con una pregunta
 escribiéndose y la respuesta entera sustituiría al último trozo. Y en la parada de la Pasión
