@@ -57,9 +57,9 @@
   </head>
   <body>
     <div id="root" data-composition-id="audioguia-sagrada" data-start="0"
-         data-width="1080" data-height="1920" data-duration="14.8">
+         data-width="1080" data-height="1920" data-duration="14.13">
       <video id="fondo" class="clip" src="assets/fondo.mp4"
-             data-start="0" data-duration="14.8" muted playsinline></video>
+             data-start="0" data-duration="14.13" muted playsinline></video>
       <div id="velo-arriba"></div>
       <div id="velo-abajo" data-layout-allow-overflow></div>
 
@@ -92,11 +92,13 @@
 
         // Los tiempos salen del montaje del sonido (VEO.md): el corte y la cancelaci&oacute;n
         // del ruido a la vez, y cada voz donde empieza y donde acaba.
-        var T_CASCOS = 3.458, FIN = 14.8;
+        // El corte va a los 3,75 s de la toma de las manos, con la mano subiendo: desde 3,8 s el
+        // auricular sac&oacute;a un palo negro (VEO.md). De paso, la voz entra 0,7 s antes.
+        var T_CASCOS = 2.792, FIN = 14.13;
         var VOCES = [
-          { id: "kore",   ini: 3.63, fin: 6.099 },
-          { id: "puck",   ini: 6.35, fin: 8.665 },
-          { id: "charon", ini: 8.92, fin: 14.252 }
+          { id: "kore",   ini: 2.962, fin: 5.431 },
+          { id: "puck",   ini: 5.681, fin: 7.996 },
+          { id: "charon", ini: 8.251, fin: 13.583 }
         ];
 
         var IN = { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" };

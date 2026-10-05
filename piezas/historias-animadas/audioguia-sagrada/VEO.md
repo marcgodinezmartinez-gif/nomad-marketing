@@ -36,16 +36,19 @@ sin palabras (comprobado transcribiéndolo: no sale ni una).
 
 | Toma | Primer fotograma | Qué se pidió | Qué se usa |
 |---|---|---|---|
-| t1 | La foto, 9:16 (x 306-1755 de 1932×2576) | Las manos suben con el móvil y el estuche, sacan un auricular y lo llevan a la oreja | 0,4-4,55 s a ×1,2 |
+| t1 | La foto, 9:16 (x 306-1755 de 1932×2576) | Las manos suben con el móvil y el estuche, sacan un auricular y lo llevan a la oreja | 0,4-3,75 s a ×1,2 |
 | t2 | La misma | Ya con los auriculares, la mirada sube despacio del pórtico a las torres. Sin manos | 0-5,46 s, con Kore y Puck |
 | t3 | Las torres (x 564-1564, y 300-2078) | La mirada sube por las torres hasta las puntas. Sin manos | 2,12-8 s, con Charon: empuja hacia las puntas y se queda en ellas |
 
-En t1 la mano sale por la derecha a los 4,55 s: ahí se corta, que es justo cuando el ruido
-se apaga. El corte y el silencio a la vez se leen como «se lo ha puesto».
+El corte de t1 va a los 3,75 s, con la mano subiendo, y ahí mismo se apaga el ruido. El corte
+y el silencio a la vez se leen como «se lo ha puesto». Al principio iba a los 4,55 s, cuando
+la mano sale por la derecha, pero el 6-oct se adelantó por el defecto de abajo. De paso, la
+voz entra 0,7 s antes.
 
 **Dos defectos de t1, por si alguien los ve**:
-- Entre los 3,9 y los 4,2 s, el auricular de la mano parece llevar un palo negro. A ×1,2
-  son unas dos décimas.
+- La mano no saca un auricular: levanta el estuche entero, y desde los 3,5 s le cuelga algo
+  negro. A partir de 3,8 s es un palo largo, y eso es lo que el corte deja fuera. Lo que
+  queda, unas dos décimas, pasa por la correa del estuche.
 - La pantalla apagada del móvil refleja una silueta oscura. Se lee como el reflejo de
   quien mira, que es lo que sería de verdad.
 
@@ -93,10 +96,10 @@ y no se cobra. Las voces de prueba, céntimos.
 ## El sonido
 
 ```
-gente (assets/gente.m4a) +4 dB hasta 3,458 s
+gente (assets/gente.m4a) +4 dB hasta 2,792 s
   → a partir de ahí, paso bajo a 220 Hz dos veces y −20 dB, en 0,12 s: la cancelación de ruido
-Kore a 3,63 s · Puck a 6,35 s · Charon a 8,92 s (las tres sin silencios delante ni detrás)
-todo junto hasta 14,8 s, loudnorm a −14 LUFS
+Kore a 2,962 s · Puck a 5,681 s · Charon a 8,251 s (las tres sin silencios delante ni detrás)
+todo junto hasta 14,13 s, loudnorm a −14 LUFS
 ```
 
 El fundido de 0,12 s es lo que hace que suene a cancelación y no a corte de edición.
@@ -143,3 +146,15 @@ de primer fotograma. Lo que hay que saber antes de usar nada de ahí:
   propio encendido). Los 660 del plan de 7 € dan para unos 11 planos al mes, de 0,15 $ el
   segundo a 0,12 $ en Veo Fast. Es parecido, así que lo que decide es cuál hace mejor las
   manos.
+
+**Lo que salió (6-oct)**: peor que Veo, y el dueño lo vio antes que nadie: *«muy flojito, la
+imagen de la Sagrada Família no tiene animación ni nada»*. Medido:
+- **La basílica no se mueve.** La diferencia media entre fotogramas en la mitad de arriba es
+  de 0,53, frente a 12,82 en la toma de Veo. Son unas manos pegadas encima de una foto quieta.
+- **Las manos no sacan el auricular**: suben con el móvil y el estuche, lo tocan y se van.
+- **Lleva la marca de agua «KlingAI 3.0»** abajo a la derecha.
+
+**Parte es culpa del consejo**: se le puso la misma foto de fotograma inicial y final para que
+no se inventara la basílica, y con dos extremos iguales Kling entiende que la cámara no se
+mueve. Si se vuelve a probar, sólo con el inicial. Con este resultado no se paga el plan, y la
+toma de las manos sigue siendo la de Veo.
