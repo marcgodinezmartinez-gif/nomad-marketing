@@ -192,6 +192,13 @@ a capturar; una captura vieja en un anuncio es una promesa que la app no cumple.
   público» no es gratis: deja fuera casi toda la fotografía de calle española, que es EL
   mercado. Cuando pase, se decide a conciencia (ver `piezas/barcelona/GUION.md`), no se
   cuela una CC BY-SA por las bravas.
+- **Promocionar desde la app de Instagram del iPhone cobra la comisión de Apple.** El 5-oct,
+  55 € de anuncios (11 €/día, 5 días) salían a **95,50 €**: 23,57 € de comisión de Apple,
+  16,50 € de IVA, que se calcula también sobre la comisión, y 0,43 € de comisiones locales.
+  Además, había que pagarlo todo por adelantado. **Se promociona desde el navegador**
+  (Business Suite o el Administrador de anuncios), o se añaden los fondos en la web y luego
+  se promociona desde el móvil. Así no hay comisión
+  ([Engadget](https://www.engadget.com/meta-will-make-advertisers-cover-apples-30-percent-fee-on-boosted-facebook-and-instagram-posts-160823453.html)).
 
 ## Al trabajar
 
