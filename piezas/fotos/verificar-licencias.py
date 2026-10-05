@@ -88,6 +88,9 @@ def main():
         if v.get('fuente') in ('unsplash', 'pexels'):
             print(f'  OK  {nombre:18} «{v["lic"]}», verificada a mano el {v.get("verificada", "?")}: {v["url"]}')
             continue
+        if v.get('fuente') == 'dueño':   # las que hace el dueño: no hay licencia que mirar
+            print(f'  OK  {nombre:18} propia, hecha el {v.get("fecha", "?")}')
+            continue
         lics, libre = licencia(v['titulo'])
         # CC BY y CC BY-SA entran SÓLO con la atribución ya escrita en la entrada (decisión
         # del dueño, 7-sep, para la Plaça del Diamant y su refugio): sin ese texto, no cumplen.

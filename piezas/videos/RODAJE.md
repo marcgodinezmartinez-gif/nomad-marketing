@@ -345,10 +345,11 @@ mientras se observa la parada, ahí mientras la cuenta se usan las tres voces y 
 pantalla "y tú eliges quién te la cuenta". Eso sería todo hasta el segundo 14.»*
 
 Está montado en borrador en `piezas/historias-animadas/audioguia-sagrada/`, con tres
-planos de Veo 3.1 hechos **a partir de una foto real CC0** de la fachada del Nacimiento. Sin
-la foto, la IA se inventa la basílica. El cómo, los prompts y lo que costó (3,84 $) están en
-su `VEO.md`. Sale de 15,9 s y no de 14, porque la frase de Charon necesita su tiempo; con
-la narración real se reajusta.
+planos de Veo 3.1 hechos **a partir de una foto real**. Sin la foto, la IA se inventa la
+basílica. Primero se hizo con una CC0 de 2017. Esa misma tarde el dueño trajo la suya, del
+4-oct, y es la que vale: sale la basílica de hoy. **Es la fachada de la Pasión**, así que
+la narración real tiene que hablar de la Pasión o de la basílica en general. El cómo, los
+prompts y lo que costó (6,72 $ entre las dos versiones) están en su `VEO.md`. Dura 14,8 s.
 
 Lo que cambia respecto a lo de arriba:
 
@@ -359,8 +360,9 @@ Lo que cambia respecto a lo de arriba:
   con `piezas/ia/voz.py` sobre el texto real de la parada, y casa por construcción.
 - **Va con la etiqueta de IA de Instagram**: el vídeo es fotorrealista y lo ha hecho una IA,
   y Meta lo exige (`VEO.md`, al final).
-- **La foto es de 2017**: si la narración habla de las torres centrales, hay que buscar una
-  foto reciente.
+- **La parada que se graba en la app tiene que casar con la fachada de la foto.** Si la
+  narración de la Sagrada Família habla sólo del Nacimiento, o hace falta otra foto, o se
+  usa la de 2017 que ya está en el banco.
 
 ## Lo que cambia respecto a los guiones de agosto
 

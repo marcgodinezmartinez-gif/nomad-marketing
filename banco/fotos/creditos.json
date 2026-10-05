@@ -399,5 +399,13 @@
     "fuente": "commons",
     "verificada": "2026-10-05",
     "nota": "Hecha el 20-ago-2017: con grúas y sin las torres centrales de hoy. Es el primer fotograma de las tomas con IA del reel de la audioguía (piezas/historias-animadas/audioguia-sagrada/VEO.md). Bajada de la miniatura de 1920 px: el original da 429."
+  },
+  "f-sagrada-pasion.jpg": {
+    "lic": "propia",
+    "autor": "el dueño",
+    "fuente": "dueño",
+    "fecha": "2026-10-04",
+    "sitio": "Fachada de la Pasión desde la calle Sardenya, Barcelona",
+    "nota": "Hizo cuatro casi iguales con el cielo cubierto; ésta es la más nítida (varianza del laplaciano en las torres: 3064 contra 3011, 2882 y 2045). Sale la basílica de hoy, con la estrella de la torre de María y las torres centrales. Es el primer fotograma de las tomas con IA del reel de la audioguía (piezas/historias-animadas/audioguia-sagrada/VEO.md)."
   }
 }

@@ -15,17 +15,18 @@
       /* LOS 14 PRIMEROS SEGUNDOS del reel de la audiogu&iacute;a (5-oct), como los imagin&oacute; el
          due&ntilde;o: en primera persona, con los auriculares en la mano, el ruido de la gente que
          se apaga al pon&eacute;rselos, la voz, y la parada contada con las tres voces de la app.
-         El fondo (assets/fondo.mp4) son tres planos hechos con IA a partir de UNA FOTO REAL
-         CC0 de la fachada del Nacimiento: sin la foto, la IA se inventaba la bas&iacute;lica (ver
-         RODAJE.md). El sonido va aparte y se mezcla despu&eacute;s (montar.sh). */
+         El fondo (assets/fondo.mp4) son tres planos hechos con IA a partir de UNA FOTO REAL:
+         la que hizo el due&ntilde;o de la fachada de la Pasi&oacute;n el 4-oct. Sin foto, la IA se inventaba
+         la bas&iacute;lica (VEO.md). El sonido va aparte y se mezcla despu&eacute;s (VEO.md). */
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
               color: #FFFDF9; background: #100E0B; }
       #fondo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
                display: block; object-fit: cover; }
 
-      /* Dos velos para que el texto se lea sobre cielo y sobre agua. */
+      /* Dos velos para que el texto se lea sobre el cielo gris del 4-oct y sobre la piedra. El
+         menta de la casa no llega a 3:1 sobre ese gris (medido: 2:1), as&iacute; que el titular va en blanco. */
       #velo-arriba { position: absolute; left: 0; top: 0; width: 1080px; height: 760px;
-        background: linear-gradient(180deg, rgba(16,14,11,.74) 0%, rgba(16,14,11,.56) 45%, rgba(16,14,11,0) 100%); }
+        background: linear-gradient(180deg, rgba(16,14,11,.8) 0%, rgba(16,14,11,.62) 45%, rgba(16,14,11,0) 100%); }
       #velo-abajo { position: absolute; left: 0; top: 1000px; width: 1080px; height: 920px;
         background: linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,.55) 34%, rgba(16,14,11,.78) 62%, rgba(16,14,11,.82) 100%); }
 
@@ -56,14 +57,14 @@
   </head>
   <body>
     <div id="root" data-composition-id="audioguia-sagrada" data-start="0"
-         data-width="1080" data-height="1920" data-duration="15.9">
+         data-width="1080" data-height="1920" data-duration="14.8">
       <video id="fondo" class="clip" src="assets/fondo.mp4"
-             data-start="0" data-duration="15.9" muted playsinline></video>
+             data-start="0" data-duration="14.8" muted playsinline></video>
       <div id="velo-arriba"></div>
       <div id="velo-abajo" data-layout-allow-overflow></div>
 
       <h1 id="gancho" class="titular serif"><span>&iquest;Y si tus viajes</span><span>empiezan a sonar as&iacute;?</span></h1>
-      <h1 id="eliges" class="titular serif"><span>Y t&uacute; eliges qui&eacute;n</span><span class="menta">te la cuenta.</span></h1>
+      <h1 id="eliges" class="titular serif"><span>Y t&uacute; eliges qui&eacute;n</span><span>te la cuenta.</span></h1>
 
       <div id="pastilla">
         <img src="assets/mark.png" alt="" />
@@ -80,22 +81,22 @@
 
       <!-- PROVISIONAL: estas tres frases no son de la app. Son para ver el montaje; la
            narraci&oacute;n buena sale de la parada real de la app y se comprueba frase a frase. -->
-      <p id="s-kore" class="sub sans">Est&aacute;s delante de la fachada del Nacimiento.</p>
-      <p id="s-puck" class="sub sans">Es la &uacute;nica que Gaud&iacute; vio levantarse.</p>
-      <p id="s-charon" class="sub sans">Cuando le preguntaban cu&aacute;ndo la acabar&iacute;a, dec&iacute;a: &laquo;Mi cliente no tiene prisa&raquo;.</p>
+      <p id="s-kore" class="sub sans">Est&aacute;s delante de la fachada de la Pasi&oacute;n.</p>
+      <p id="s-puck" class="sub sans">Gaud&iacute; quer&iacute;a que diera miedo.</p>
+      <p id="s-charon" class="sub sans">Busca el cuadrado de n&uacute;meros: cada fila suma 33, la edad de Cristo.</p>
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes.
       document.fonts.ready.then(function () {
         var tl = gsap.timeline({ paused: true });
 
-        // Los tiempos salen del montaje del sonido (montar.sh): el corte y la cancelaci&oacute;n
+        // Los tiempos salen del montaje del sonido (VEO.md): el corte y la cancelaci&oacute;n
         // del ruido a la vez, y cada voz donde empieza y donde acaba.
-        var T_CASCOS = 3.333, FIN = 15.9;
+        var T_CASCOS = 3.458, FIN = 14.8;
         var VOCES = [
-          { id: "kore",   ini: 3.50, fin: 6.323 },
-          { id: "puck",   ini: 6.58, fin: 9.278 },
-          { id: "charon", ini: 9.53, fin: 15.293 }
+          { id: "kore",   ini: 3.63, fin: 6.099 },
+          { id: "puck",   ini: 6.35, fin: 8.665 },
+          { id: "charon", ini: 8.92, fin: 14.252 }
         ];
 
         var IN = { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" };
