@@ -262,6 +262,23 @@ and label tool when they post organic content with a photorealistic video or
 realistic-sounding audio that was digitally created or altered, and we may apply penalties
 if they fail to do so»*, Meta, febrero de 2024). Aquí lo son las dos cosas.
 
+**Dónde está el interruptor** (buscado el 5-oct, guía de Storrito:
+<https://storrito.com/help-center/how-to-label-ai-generated-content/>): en el reel, en la
+última pantalla antes de publicar, dentro de «Configuración avanzada»; en la historia, en el
+menú de los tres puntos del editor, arriba a la derecha. **Las dos cosas se marcan antes de
+publicar**, en la cuenta de NOMAD y en la personal.
+
+**Lo demás, como se publicó Córdoba** (`piezas/videos/RODAJE.md`, «Cómo se publica»: el reel
+con su portada, y la historia subida desde el carrete con adhesivo de enlace), con dos
+cambios:
+- **Sin música de Instagram**: el reel ya lleva la suya.
+- **El adhesivo, pequeño y justo debajo del móvil** (y ≈ 1590-1670). Más arriba tapa la barra
+  del chat («Pregunta o envía una foto…», en y ≈ 1530) justo cuando la tarjeta dice «Y le
+  preguntas lo que quieras». Más abajo lo tapa la barra de responder.
+
+Portada: `salida/reel-sagrada-portada.jpg`. UTM `reel-sagrada` en @app.nomad y
+`reel-sagrada-personal` en la cuenta del dueño.
+
 ## Y Kling (5-oct)
 
 El dueño quiso probar Kling AI (Video 3.0) para el plano de las manos, con su foto vertical
