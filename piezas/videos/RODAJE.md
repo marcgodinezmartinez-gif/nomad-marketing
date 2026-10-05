@@ -364,6 +364,48 @@ Lo que cambia respecto a lo de arriba:
   narración de la Sagrada Família habla sólo del Nacimiento, o hace falta otra foto, o se
   usa la de 2017 que ya está en el banco.
 
+### El clip 2, la parte de la app: la fachada de la Pasión y nada más (5-oct)
+
+El dueño dio por bueno el relevo (*«está bien que cada voz narre algo diferente»*) y propuso
+la segunda mitad: *«nos centramos en la fachada de la Pasión únicamente, hago algo de scroll
+para que se vea la parada completa y abro el "dato curioso". Incluso podríamos abrir el chat
+con el asistente de la parada y preguntarle algo»*. Sustituye a los pasos 1 a 3 de arriba:
+fuera el plan y el mapa. Una sola parada, contada, con su dato curioso y su chat, es más
+fácil de entender que un viaje entero, y **una audioguía a la que se le pregunta** es lo que
+no tiene ninguna.
+
+| Tiempo | Imagen | Texto |
+|---|---|---|
+| 0-14,8 s | Lo de la IA, con la narración real | (lo de arriba) |
+| 14,8-17,5 s | El móvil con la parada de la Pasión, deslizando despacio | «1 Te la cuenta.» |
+| 17,5-20 s | El dato curioso, abierto | «2 Con su dato curioso.» |
+| 20-24,5 s | El chat de la parada: la pregunta escribiéndose y la respuesta entera | «3 Y le preguntas lo que quieras.» |
+| 24,5-28 s | El cierre de la casa | «Llega en octubre.» · «Tu primer viaje por 1,99 €*» |
+
+**Qué grabar**: todo grabación de pantalla con sonido, en «No molestar», con toques lentos
+y un segundo quieto antes y después de cada uno. En trozos de menos de 30 MB.
+
+1. **La parada de la Pasión con Kore, con Puck y con Charon**, la narración entera cada vez.
+   Es la voz y el texto de verdad de los 14,8 primeros segundos. Antes, una prueba de 5 s
+   escuchada.
+2. **La parada entera**, deslizando de arriba abajo y parando en cada parte.
+3. **El dato curioso abierto**, tres segundos quieto para que se lea.
+4. **El chat de la parada**, con dos o tres preguntas escritas despacio, esperando cada
+   respuesta entera. Si la narración real habla del cuadrado de Subirachs, la primera es
+   «¿Dónde está el cuadrado mágico?»: la voz lo deja en el aire y el chat lo contesta. Otras:
+   «¿Por qué las columnas parecen huesos?», «¿Quién hizo las esculturas?».
+5. **Dos capturas fijas**, la parada y el chat, para el banco
+   (`banco/capturas/parada-pasion-900.webp`, `chat-pasion-900.webp`). Hoy el banco no tiene
+   ninguna de la app actual que no sea un itinerario.
+
+**Lo que se comprueba antes de publicar**: la narración, el dato curioso y las respuestas del
+chat, frase a frase, como con la Mercè y con Córdoba. Lo que esté mal se corta y va a una issue.
+
+**Una pregunta antes de publicar nada de esto**: el dato curioso y el chat de la parada no
+están en la lista de lo que hace la app de `campana/PROYECTO-CLAUDE.md` (*«Nunca prometas nada
+que no esté en esta lista»*). Si van en la versión de octubre, se añaden a la lista; si no,
+no salen en el reel.
+
 ## Lo que cambia respecto a los guiones de agosto
 
 **El ancla de la audioguía está fuera.** G1 llevaba «La audioguía oficial: 5-8 €» y G4 era
