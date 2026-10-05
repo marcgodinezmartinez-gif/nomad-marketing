@@ -251,6 +251,90 @@ es la prueba de ese plano. Se graba limpio; el texto va después.
 
 Con esos clips se cierra también la issue #5 (el demo con el aspecto viejo).
 
+### El clip 2 al detalle: la audioguía en la Sagrada Família (5-oct)
+
+Idea del dueño: *«algo con audio, rollo introducir las audioguías, usando la voz de Kore,
+Puck y Charon que tenemos en la app»*, un reel *«que simule que estamos visitando la
+Sagrada Família y nos la está contando NOMAD»*, con *«¿y si tus viajes empiezan a sonar
+así?»*, una mini explicación de la audioguía y algo del viaje para ver cómo será la app.
+
+Es el G3 de abajo, el paseo, con un monumento que conoce todo el mundo, y es el reel que
+pide MERCADO: *«un vídeo siguiendo la guía por la calle enseña el foso»*. Lo nuevo es que el
+argumento entra por el oído. **La voz es la prueba y también el gancho**, y por eso este reel
+sí lleva audio propio. La regla 3 ya lo dejaba: lo que suena es la narración real de la app.
+
+**El reel, unos 25 s:**
+
+| Tiempo | Imagen | Sonido | Texto |
+|---|---|---|---|
+| 0-2,5 s | La fachada del Nacimiento, subiendo hacia las torres | El ruido de la calle se apaga de golpe, como al ponerte los cascos, y entra la voz | **«¿Y si tus viajes empiezan a sonar así?»** |
+| 2,5-9 s | Más planos de la fachada. Abajo, una píldora con la marca, la onda de la voz y su nombre | La narración real de la parada: el mejor trozo, no el principio | Subtítulos, frase a frase |
+| 9-14 s | Siguen los planos | **El relevo**: la historia sigue y cambia de voz en cada frase (Kore, Puck, Charon); la píldora cambia el nombre | «Tú eliges quién te la cuenta.» |
+| 14-21,5 s | El móvil, con la grabación de pantalla | La voz, baja | «1 Te escribe el viaje.» (el plan del día) · «2 Te lleva de parada en parada.» (el mapa) · «3 Y en cada una, te la cuenta.» (la parada sonando) |
+| 21,5-25 s | El cierre de la casa | — | «Llega en octubre.» · «Tu primer viaje por 1,99 €*» · la nota |
+
+- **El relevo depende de la app.** Si al cambiar de voz la app lee el mismo texto, cada
+  frase sale de una grabación y la historia no se corta. Si lo reescribe, no casa: entonces
+  va la misma frase con las tres voces, 1,5 s cada una.
+- **Lo que se ve de la app es sobre todo el tour**, el mapa y la parada; el itinerario sólo
+  pasa 2,5 s. El itinerario es lo que ChatGPT regala (MERCADO).
+- **«Sin cobertura» no se dice** hasta que la build lleve el arreglo del audio descargado
+  (G7, abajo).
+- **Y nada que suene a oficial**: es NOMAD contando un sitio, no la audioguía de la basílica.
+  Tampoco ninguna comparación de precio con audioguías (`AGENTS.md`).
+
+**Qué grabar en la app**, con sonido: el modo silencio quitado y el volumen alto. **Primero
+una prueba de 5 s, y se escucha**: las grabaciones del clip 1 llegaron sin audio, y aquí el
+audio es la pieza.
+
+| # | Qué | Para qué |
+|---|---|---|
+| A | La parada de la Sagrada Família de un tour de Barcelona, **entera**, con Kore | De ahí sale el mejor trozo |
+| B | La misma parada, con Puck | El relevo |
+| C | La misma parada, con Charon | El relevo |
+| D | Cambiar de voz en la app, si se ve dónde | «Tú eliges quién te la cuenta» |
+| E | El tour: el mapa con la ruta, tocar la parada y darle al play | Pasos 2 y 3 |
+| F | El plan del día con la Sagrada Família, deslizando despacio | Paso 1 |
+
+Si la app enseña el texto mientras habla, que salga en la grabación: sirve para los
+subtítulos y para comprobarlo. Una pantalla quieta pesa poco, pero si alguna pasa de 30 MB,
+se graba en dos trozos.
+
+**Los planos de la Sagrada Família, si el dueño puede ir.** Es lo que más se nota: primera
+persona y el sitio de verdad. En vertical, a 30 fps, de 6 a 8 s cada plano, quieto o andando
+despacio y **con el sonido de la cámara**, porque el ruido de la calle es el del principio:
+
+1. Desde la plaça de Gaudí, con el estanque delante, la fachada del Nacimiento.
+2. De las puertas a las torres, subiendo despacio.
+3. Un detalle de la fachada del Nacimiento.
+4. Si va acompañado: la mano con el móvil sonando delante de la fachada, con los cascos
+   puestos.
+5. La fachada de la Pasión y la torre de Jesucristo, desde la calle Sardenya.
+
+La del Nacimiento mira a donde sale el sol y la de la Pasión a donde se pone: **la primera,
+por la mañana; la segunda, por la tarde.**
+
+**Sólo desde la calle.** La norma de la basílica (<https://sagradafamilia.org/es/normativa>):
+*«Tampoco se permite tomar fotografías, realizar grabaciones de sonido y/o videográficas o
+retransmitir contenidos desde el recinto de la Basílica con finalidades comerciales,
+publicitarias o divulgativas sin la autorización previa y por escrito de la Fundación.»*
+Habla del recinto. Desde la calle lo cubre el artículo 35.2 de la Ley de Propiedad
+Intelectual: las obras que están siempre en la vía pública se pueden fotografiar y grabar
+libremente.
+
+Si no puede ir: dos o tres vídeos de Pexels, que se bajan desde un navegador (desde aquí la
+web de Pexels devuelve 403), y se miran uno a uno como las fotos.
+
+**Antes de publicar, la narración se comprueba frase a frase.** Con la Mercè, la app falló
+la hora de los cinco actos de la fiesta (issue #6). Lo que esté mal se corta del reel y va a
+una issue del repo de la app. Para tener el texto se transcribe el audio en local
+(`faster-whisper`, que se instala desde aquí), salvo que la app lo enseñe.
+
+**El sonido**: la voz al 100 %, la calle a un 15 % por debajo y fundidos cortos en el
+relevo. En Instagram, la música es opcional y muy baja: aquí el contenido es la voz.
+
+UTM `reel-sagrada` (y `reel-sagrada-personal` en la cuenta personal del dueño).
+
 ## Lo que cambia respecto a los guiones de agosto
 
 **El ancla de la audioguía está fuera.** G1 llevaba «La audioguía oficial: 5-8 €» y G4 era
