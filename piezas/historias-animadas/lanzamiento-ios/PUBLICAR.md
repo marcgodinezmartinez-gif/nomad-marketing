@@ -23,15 +23,13 @@ el texto de las pantallas se emborrona.
 
 ## 0. Antes de publicar: la bio (Instagram y TikTok)
 
-El pie manda a la bio, y la bio de @app.nomad todavía dice «Apúntate y no te pierdas el
-lanzamiento ↓» (la lista ya está cerrada; issue #12). **Cámbiala primero**, o el anuncio manda a
-la gente a apuntarse a algo que no existe:
+El dueño dijo el 24-oct que el perfil de Instagram ya está limpio (issue #12). Sólo una comprobación,
+porque el pie manda a la bio:
 
-1. Instagram → **Editar perfil** → **Presentación**: cambia la última línea por
-   `Ya en la App Store, para iPhone. Android, pronto 👇`
-2. **Enlaces**: comprueba que el enlace abre la ficha de «Nomad: guía de viajes» desde tu iPhone.
-3. TikTok → **Editar perfil** → **Biografía**: la misma línea.
-4. Marca la casilla «Bio» en la issue #12.
+1. Instagram → tu perfil: la bio dice que ya está en la App Store para iPhone y Android pronto, y
+   **no** dice «Apúntate» ni «lista de espera».
+2. Toca el enlace de la bio desde tu iPhone: tiene que abrir la ficha de «Nomad: guía de viajes».
+3. TikTok → **Editar perfil** → **Biografía**: `Ya en la App Store, para iPhone. Android, pronto 👇`
 
 ---
 
