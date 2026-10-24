@@ -15,9 +15,19 @@ APP = sys.argv[1] if len(sys.argv) > 1 else '/home/user/NOMAD'
 os.makedirs(A, exist_ok=True)
 
 # Las fotos, tal cual del banco (créditos en banco/fotos/creditos.json).
-for src, dst in [('f-debod-nubes.jpg', 'fondo-debod.jpg'), ('f-cordoba.jpg', 'fondo-cordoba.jpg'),
+for src, dst in [('f-debod-nubes.jpg', 'fondo-debod.jpg'),
                  ('f-merce-diable.jpg', 'fondo-correfoc.jpg'), ('f-bcn-festa.jpg', 'fondo-gotic.jpg')]:
     shutil.copy(f'{R}/banco/fotos/historia/{src}', f'{A}/{dst}')
+# Córdoba, desenfocada A PROPÓSITO (revisión del 24-oct). Es la única foto de Córdoba del banco
+# y es blanda: un tercio del detalle fino de las otras tres, bloques de JPEG y el cielo quemado.
+# Nítida al lado de Debod, el correfoc y el Gòtic delataba el montaje; desenfocada y un poco más
+# oscura se lee como fondo de ambiente detrás de la pantalla, que es lo que es. Una foto nítida
+# no se pudo traer: Commons da 429 y Unsplash pide un reto de bots desde el contenedor.
+from PIL import ImageEnhance, ImageFilter
+im = Image.open(f'{R}/banco/fotos/historia/f-cordoba.jpg').convert('RGB')
+im = im.filter(ImageFilter.GaussianBlur(16))
+im = ImageEnhance.Brightness(im).enhance(0.86)
+im.save(f'{A}/fondo-cordoba.jpg', quality=92)
 shutil.copy(f'{R}/piezas/historias-animadas/plan-cordoba/assets/gsap.min.js', f'{A}/gsap.min.js')
 shutil.copy(f'{R}/banco/marca/icono-app.png', f'{A}/icono-app.png')
 # La insignia oficial de Apple, sin tocar (la misma que web/insignias/app-store-es.svg de la app).
@@ -30,22 +40,29 @@ def recorte(src, caja, ancho, dst):
     print(dst, im.size)
 
 # La audioguía de Debod (banco/capturas/tourdebod-900.webp, 900 de ancho): del final del mapa,
-# con la ruta y las paradas 4-6, a «Descargar el audio · Para oírlo sin cobertura». Sin barra
-# de estado (empieza en y=510).
-recorte(f'{R}/banco/capturas/tourdebod-900.webp', (0, 510, 900, 1435), 720, 'pantalla-debod.png')
+# con la ruta hasta la parada 6, a «Descargar el audio · Para oírlo sin cobertura» ENTERA, con
+# su recuadro (acaba en 1456) y 14 px de aire. Sin barra de estado (empieza en y=600). 720x696.
+recorte(f'{R}/banco/capturas/tourdebod-900.webp', (0, 600, 900, 1470), 720, 'pantalla-debod.png')
 # Qué hay esos días y los gastos: capturas en bruto del iPhone del dueño, 1206 de ancho.
 P = f'{APP}/docs/tienda/capturas/piezas'
 if os.path.exists(f'{P}/pantalla-eventos.png'):
     recorte(f'{P}/pantalla-eventos.png', (0, 200, 1206, 1400), 720, 'pantalla-eventos.png')
-    # Los gastos, SOLO hasta encima de la tarjeta negra: ahí sale el nombre de una persona real.
-    recorte(f'{P}/pantalla-gastos.png', (0, 400, 1206, 990), 720, 'pantalla-gastos.png')
+    # Los gastos, SOLO hasta la barra: debajo va «• Tú 56 €», el redondeo de la leyenda, que al
+    # lado de «Gasto del grupo 55,99 €» parece una cuenta mal hecha; y más abajo, la tarjeta
+    # negra con el nombre de una persona real. 720x290.
+    recorte(f'{P}/pantalla-gastos.png', (0, 400, 1206, 885), 720, 'pantalla-gastos.png')
 
 # Escribir el viaje: tres trozos de la grabación de Córdoba (760x1652, 30 fps), cada uno con
-# su ventana, a 720x700. Fotogramas: el tecleo 250-324, «Montando» 461-517 y el sábado
-# 536-610. El 611 es el domingo con el Palacio de Viana mal puesto: NO entra. Antes del 461
-# sale el resumen con el nombre del viaje: tampoco.
+# su ventana (760x739 desde la y que se dice), a 720x700. Fotogramas: el tecleo 250-324,
+# «Montando» 461-517 y el sábado 536-610. El 611 es el domingo con el Palacio de Viana mal
+# puesto: NO entra. Antes del 461 sale el resumen con el nombre del viaje: tampoco.
+# - El tecleo, desde y=295: acaba en 1034, por encima de 1050, que es donde asoman las burbujas
+#   de tecla del teclado de iOS (medido fotograma a fotograma). Empieza debajo de las barras de
+#   «Paso 4 de 4», que acaban en ~275.
+# - El sábado, desde y=252: el borde de la hoja está en 248, el «+» empieza en 270 y entra
+#   entero, y por encima no queda mapa (el pico de la esquina lo tapa el redondeo de la pantalla).
 G = f'{R}/piezas/historias-animadas/plan-cordoba/assets/pantalla.mp4'
-tramos = [(250, 325, 320), (461, 518, 520), (536, 611, 290)]
+tramos = [(250, 325, 295), (461, 518, 520), (536, 611, 252)]
 f = ';'.join(f'[0:v]trim=start_frame={a}:end_frame={b},setpts=PTS-STARTPTS,crop=760:739:0:{y},'
              f'scale=720:700:flags=lanczos,setsar=1[t{i}]' for i, (a, b, y) in enumerate(tramos))
 f += ';' + ''.join(f'[t{i}]' for i in range(3)) + 'concat=n=3:v=1:a=0,fps=30,format=yuv420p[v]'
