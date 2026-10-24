@@ -16,3 +16,5 @@ piezas/historias-animadas/*/assets/fuentes.css
 piezas/historias-animadas/*/assets/mark.png
 piezas/historias-animadas/*/snapshots/
 piezas/historias-animadas/*/contact-sheet.jpg
+# Lo que deja `npx hyperframes check` (informes y capturas de cada pasada)
+piezas/historias-animadas/*/.hyperframes/

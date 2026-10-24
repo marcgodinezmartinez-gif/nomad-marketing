@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nomad &middot; portada del anuncio</title>
+    <!-- LA PORTADA DEL REEL (24-oct). La foto y el titular de la primera escena, con el nombre
+         exacto debajo. El texto cabe en el recorte 3:4 de la cuadr&iacute;cula (y 240-1680) y en la
+         franja 360-1560. Se fotograf&iacute;a con portada.sh. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <style>
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #FFFDF9; }
+      .fondo { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      .banda { position: absolute; left: 0; top: 0; width: 1080px; height: 1100px;
+        background: linear-gradient(180deg, rgba(16,14,11,.55) 0%, rgba(16,14,11,.78) 30%, rgba(16,14,11,.6) 62%, rgba(16,14,11,0) 100%); }
+      .banda-baja { position: absolute; left: 0; top: 1180px; width: 1080px; height: 740px;
+        background: linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,.72) 40%, rgba(16,14,11,.85) 100%); }
+      p, h1 { margin: 0; position: absolute; left: 84px; width: 912px; text-shadow: 0 4px 34px rgba(0,0,0,.5); }
+      .kicker { top: 400px; font-family: 'Instrument Sans'; font-size: 34px; letter-spacing: .18em;
+                text-transform: uppercase; font-weight: 600; color: rgba(255,253,249,.88); }
+      h1 { top: 460px; font-family: 'Instrument Serif'; font-weight: 400; font-size: 168px; line-height: .98; letter-spacing: -.025em; }
+      h1 span { display: block; }
+      .menta { color: #5CC0A6; }
+      .marca { position: absolute; left: 84px; top: 1400px; display: flex; align-items: center; gap: 28px; }
+      .marca img { width: 112px; height: 112px; border-radius: 25px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+      .marca span { font-family: 'Instrument Serif'; font-size: 64px; line-height: 1; text-shadow: 0 4px 34px rgba(0,0,0,.5); }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <img class="fondo" src="assets/fondo-debod.jpg" alt="" />
+      <div class="banda"></div>
+      <div class="banda-baja"></div>
+      <p class="kicker">Ya en la App Store</p>
+      <h1><span>La ciudad,</span><span class="menta">contada.</span></h1>
+      <div class="marca"><img src="assets/icono-app.png" alt="" /><span>Nomad: gu&iacute;a de viajes</span></div>
+    </div>
+  </body>
+</html>

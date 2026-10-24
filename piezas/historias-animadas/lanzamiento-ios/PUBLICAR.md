@@ -1,0 +1,123 @@
+# Cómo publicar el anuncio del lanzamiento
+
+Dos ficheros, y nada más que hacer con ellos:
+
+- `nomad-lanzamiento-1080x1920.mp4`: el vídeo. Dura 24,6 s y ya lleva la música y la voz. Es el
+  mismo para el reel, la historia y TikTok.
+- `nomad-lanzamiento-portada.jpg`: la portada del reel.
+
+Pásalos al iPhone (AirDrop o Fotos de iCloud). **No los mandes por WhatsApp**: los comprime y
+el texto de las pantallas se emborrona.
+
+**Tres cosas que valen para todo:**
+
+1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva la suya, y además la voz
+   de la audioguía.
+2. **Marca la etiqueta de IA en cada publicación.** La música, la voz y la narración están
+   generadas con IA (Lyria y Gemini TTS). Meta exige marcar el audio realista creado
+   digitalmente, y TikTok, el contenido generado con IA.
+3. **Antes de pagar una promoción, mira la pantalla de pago.** Si aparece «Comisión de Apple»,
+   cancela y promociona desde el navegador o desde la app Meta Ads Manager (AGENTS.md).
+
+---
+
+## 1. Instagram: el reel (@app.nomad)
+
+1. **+** → **Reel** → elige `nomad-lanzamiento-1080x1920.mp4` del carrete → **Siguiente**.
+2. En el editor **no toques la música** → **Siguiente**.
+3. **Editar portada** → **Añadir del carrete** → `nomad-lanzamiento-portada.jpg`. En la cuadrícula
+   se ve recortada a 3:4, y el texto cabe dentro.
+4. Pega el pie (abajo).
+5. **Configuración avanzada** → activa **Etiqueta de IA** («Añadir etiqueta "Información de IA"»).
+   Si no la ves ahí, está en la última pantalla, en **Más opciones**.
+6. Deja activado **Mostrar en la cuadrícula**.
+7. **Compartir**.
+8. Nada más publicarlo, escribe el comentario de abajo desde @app.nomad y **fíjalo**: mantén
+   pulsado el comentario → **Fijar**.
+
+**Pie del reel** (la primera línea es la que se ve antes del «más»):
+
+```
+Nomad ya está en la App Store. Se llama «Nomad: guía de viajes».
+
+Le dices a dónde vas y cómo te gusta viajar, y escribe el viaje día a día: qué ver cada jornada y en qué orden. Después te lo cuenta parada a parada, con audioguías de paseos y museos que se descargan y suenan sin cobertura. Y además, qué hay esos días en la ciudad y los gastos del grupo.
+
+Lo que suena es la parada del Templo de Debod, en Madrid, con el texto tal como lo escribió la app.
+
+Descargarla es gratis. Se paga por viaje, sin suscripción: desde 2,99 €.
+
+Para iPhone con iOS 15.1 o superior. Android, pronto.
+
+El enlace, en la bio.
+
+#appdeviajes #viajar #viajes #audioguia #escapada
+```
+
+**Comentario para fijar** (Instagram y TikTok):
+
+```
+Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos el día que salga.
+```
+
+## 2. Instagram: la historia (@app.nomad)
+
+**Súbela desde el carrete, no compartas el reel.** Si compartes el reel, la gente lo ve con un
+toque desde la historia y no tiene enlace. Subido aparte, lleva el adhesivo de enlace.
+
+1. Desliza a **Historia** → elige el mismo `nomad-lanzamiento-1080x1920.mp4`. Dura 24,6 s:
+   cabe en una sola historia.
+2. **Adhesivos** → **Enlace** → pega:
+   `https://travelsnomad.com/app?utm_source=instagram&utm_medium=organic&utm_campaign=lanzamiento-ios`
+   y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
+3. **Coloca el adhesivo abajo, por debajo de la franja del texto**: más o menos a un 80 % de la
+   altura, justo encima de «Enviar mensaje». Ahí no tapa nada en ningún momento del vídeo (en el
+   cierre queda debajo de «Pronto en Android»). Déjalo pequeño.
+4. **Etiqueta de IA**: los tres puntos de arriba a la derecha → **Etiqueta de IA** → activar.
+5. **Tu historia**.
+
+Y en la cuenta personal, si quieres, lo mismo (subida desde el carrete, nunca compartiendo el
+reel), con `utm_campaign=lanzamiento-ios-personal` en el enlace y una mención a @app.nomad.
+
+## 3. TikTok
+
+**Antes, una vez:** pasa la cuenta a **cuenta de empresa**: Perfil → ☰ → **Ajustes y
+privacidad** → **Cuenta** → **Cambiar a cuenta de empresa** → categoría «Viajes» (o «Apps» si
+la hay) → **Siguiente**. Pon en la bio el enlace `https://travelsnomad.com/app` (Perfil → Editar
+perfil → Sitio web).
+
+1. **+** → **Subir** → elige `nomad-lanzamiento-1080x1920.mp4` → **Siguiente**.
+2. **No añadas sonido.** Si te sugiere uno, quítalo: el vídeo ya trae el suyo.
+3. **Siguiente**. Pega el pie (abajo).
+4. **Portada**: elige el fotograma del principio (el templo con «La ciudad, contada.»). TikTok
+   no deja subir una imagen aparte en todas las versiones; si te deja, usa
+   `nomad-lanzamiento-portada.jpg`.
+5. **Más opciones**:
+   - activa **Contenido generado por IA** («Etiqueta de contenido generado por IA»);
+   - activa **Divulgar contenido comercial** → marca **Tu marca**.
+6. **Publicar**.
+7. Escribe el comentario de arriba y **fíjalo** (mantén pulsado → Fijar).
+
+**Pie de TikTok:**
+
+```
+Le dices a dónde vas y Nomad escribe el viaje día a día. Después te lo cuenta parada a parada, también sin cobertura. Se llama «Nomad: guía de viajes» y ya está en la App Store. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Android, pronto. Enlace en el perfil.
+
+#viajes #viajar #appdeviajes #audioguia #escapada
+```
+
+## Cuándo
+
+**Mañana, domingo 25 de octubre, entre las 20:00 y las 21:00** (hora peninsular), primero el
+reel y en el mismo minuto la historia; TikTok, a la misma hora. El domingo por la tarde es cuando
+se piensa en la próxima escapada. Es una regla general, no un dato de la cuenta: si en
+Instagram, **Panel profesional → Estadísticas → Seguidores → Momentos de más actividad**, sale
+otra franja, usa ésa. Si no puedes el domingo, de martes a jueves entre las 19:30 y las 21:00.
+
+## Si algo falla
+
+- **Instagram te pide añadir música**: no hace falta; sigue sin elegir.
+- **El vídeo se ve borroso al subirlo**: Instagram → Configuración → Uso de datos y calidad
+  multimedia → activa **Subir con la máxima calidad**.
+- **No encuentras la etiqueta de IA**: actualiza la app; Meta y TikTok la mueven de sitio.
+- **Te preguntan por Android**: «Todavía no. Pronto, pero sin fecha, y no vamos a inventarnos una.
+  Síguenos y te avisamos el día que salga.»
