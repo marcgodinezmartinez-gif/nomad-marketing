@@ -58,13 +58,20 @@ if os.path.exists(f'{P}/pantalla-eventos.png'):
 # puesto: NO entra. Antes del 461 sale el resumen con el nombre del viaje: tampoco.
 # - El tecleo, desde y=295: acaba en 1034, por encima de 1050, que es donde asoman las burbujas
 #   de tecla del teclado de iOS (medido fotograma a fotograma). Empieza debajo de las barras de
-#   «Paso 4 de 4», que acaban en ~275.
+#   «Paso 4 de 4», que acaban en ~275. Y aun así: el cuerpo de la burbuja, tenue, empieza en
+#   y≈1000 y su sombra en y≈970 (umbral 3 contra el fotograma 250: fotogramas 251, 255, 266,
+#   270, 276, 282, 299, 301 y 304). De 965 a 1034 no cambia nada en ningún otro fotograma, así
+#   que esa franja se tapa entera con la del 250, que está limpia.
 # - El sábado, desde y=252: el borde de la hoja está en 248, el «+» empieza en 270 y entra
 #   entero, y por encima no queda mapa (el pico de la esquina lo tapa el redondeo de la pantalla).
 G = f'{R}/piezas/historias-animadas/plan-cordoba/assets/pantalla.mp4'
 tramos = [(250, 325, 295), (461, 518, 520), (536, 611, 252)]
-f = ';'.join(f'[0:v]trim=start_frame={a}:end_frame={b},setpts=PTS-STARTPTS,crop=760:739:0:{y},'
-             f'scale=720:700:flags=lanczos,setsar=1[t{i}]' for i, (a, b, y) in enumerate(tramos))
+PARCHE_Y = 965   # de la fuente; el tecleo empieza en 295, así que va a 670 dentro de su ventana
+f = (f'[0:v]select=eq(n\\,250),crop=760:{295 + 739 - PARCHE_Y}:0:{PARCHE_Y},setpts=PTS-STARTPTS[p];'
+     f'[0:v]trim=start_frame=250:end_frame=325,setpts=PTS-STARTPTS,crop=760:739:0:295[c0];'
+     f'[c0][p]overlay=0:{PARCHE_Y - 295}:eof_action=repeat,scale=720:700:flags=lanczos,setsar=1[t0];')
+f += ';'.join(f'[0:v]trim=start_frame={a}:end_frame={b},setpts=PTS-STARTPTS,crop=760:739:0:{y},'
+              f'scale=720:700:flags=lanczos,setsar=1[t{i}]' for i, (a, b, y) in enumerate(tramos) if i > 0)
 f += ';' + ''.join(f'[t{i}]' for i in range(3)) + 'concat=n=3:v=1:a=0,fps=30,format=yuv420p[v]'
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', G, '-filter_complex', f, '-map', '[v]', '-an',
                 '-c:v', 'libx264', '-crf', '14', '-preset', 'slow', '-movflags', '+faststart',

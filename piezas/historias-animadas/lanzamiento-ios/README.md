@@ -86,9 +86,13 @@ Cómo se publica, con los pies listos para copiar: `PUBLICAR.md`.
   recuadro, por encima de 1400); por debajo de 1460 no hay nada (adhesivo de enlace de la
   historia, pie de TikTok).
 - **Los recortes de la grabación** (`preparar.py`, revisión del 24-oct): el tecleo empieza en y=295
-  de la fuente y acaba en 1034, por encima de 1050, que es donde asoman las burbujas de tecla del
-  teclado de iOS (antes se colaban siete, de un fotograma cada una); el sábado empieza en 252, con
-  la cabecera «Sábado, 10 oct» con aire y el «+» entero.
+  de la fuente y acaba en 1034; el sábado empieza en 252, con la cabecera «Sábado, 10 oct» con
+  aire y el «+» entero.
+- **Las burbujas de tecla del teclado de iOS**: recortar no bastaba. El cuerpo blanco asoma en
+  y≥1050, pero su parte tenue empieza en y≈1000 y su sombra en y≈970 (medido contra el fotograma
+  250 con umbral 3, en los nueve fotogramas con burbuja: 251, 255, 266, 270, 276, 282, 299, 301 y
+  304). Como la franja 965-1034 no cambia en ningún otro fotograma, `preparar.py` la tapa entera con
+  la del 250, que está limpia. Comprobado en los fotogramas de 8,20 y 9,23 s del máster.
 - **Los gastos, hasta la barra**: debajo va «• Tú 56 €», el redondeo de la leyenda de la app, que
   al lado de «Gasto del grupo 55,99 €» parecía una cuenta mal hecha.
   Comprobado en `revision/zonas-seguras.jpg` de la entrega.
