@@ -21,6 +21,20 @@ el texto de las pantallas se emborrona.
 
 ---
 
+## 0. Antes de publicar: la bio (Instagram y TikTok)
+
+El pie manda a la bio, y la bio de @app.nomad todavía dice «Apúntate y no te pierdas el
+lanzamiento ↓» (la lista ya está cerrada; issue #12). **Cámbiala primero**, o el anuncio manda a
+la gente a apuntarse a algo que no existe:
+
+1. Instagram → **Editar perfil** → **Presentación**: cambia la última línea por
+   `Ya en la App Store, para iPhone. Android, pronto 👇`
+2. **Enlaces**: comprueba que el enlace abre la ficha de «Nomad: guía de viajes» desde tu iPhone.
+3. TikTok → **Editar perfil** → **Biografía**: la misma línea.
+4. Marca la casilla «Bio» en la issue #12.
+
+---
+
 ## 1. Instagram: el reel (@app.nomad)
 
 1. **+** → **Reel** → elige `nomad-lanzamiento-1080x1920.mp4` del carrete → **Siguiente**.
@@ -42,7 +56,7 @@ Nomad ya está en la App Store. Se llama «Nomad: guía de viajes».
 
 Le dices a dónde vas y cómo te gusta viajar, y escribe el viaje día a día: qué ver cada jornada y en qué orden. Después te lo cuenta parada a parada, con audioguías de paseos y museos que se descargan y suenan sin cobertura. Y además, qué hay esos días en la ciudad y los gastos del grupo.
 
-Lo que suena es la parada del Templo de Debod, en Madrid, con el texto tal como lo escribió la app.
+Lo que suena es un trozo de la parada del Templo de Debod, en Madrid: el texto que escribió la app, leído con Kore, una de las voces que puedes elegir en ella.
 
 Descargarla es gratis. Se paga por viaje, sin suscripción: desde 2,99 €.
 
@@ -66,9 +80,17 @@ toque desde la historia y no tiene enlace. Subido aparte, lleva el adhesivo de e
 
 1. Desliza a **Historia** → elige el mismo `nomad-lanzamiento-1080x1920.mp4`. Dura 24,6 s:
    cabe en una sola historia.
-2. **Adhesivos** → **Enlace** → pega:
-   `https://travelsnomad.com/app?utm_source=instagram&utm_medium=organic&utm_campaign=lanzamiento-ios`
+2. **Adhesivos** → **Enlace** → pega el enlace directo a la ficha de la App Store:
+   `https://apps.apple.com/app/id6797973945`
    y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
+
+   **Con ese enlace la historia NO se puede medir**: App Store Connect no sabrá que la descarga
+   vino de aquí. Para medirla hace falta tu token de proveedor (`pt`), que está en App Store
+   Connect → la app → **Analítica** → **Fuentes** → **Enlaces de campaña** (o al generar uno ahí
+   mismo). Si lo tienes a mano, pega en su lugar
+   `https://apps.apple.com/app/id6797973945?pt=TU_TOKEN&ct=ig-historia-anuncio`
+   (issues #13 y #14). **No uses `travelsnomad.com/app?utm_…`**: esa página salta a la
+   tienda y por el camino tira el UTM, así que tampoco mide, y en un Android lleva a la portada.
 3. **Coloca el adhesivo abajo, por debajo de la franja del texto**: más o menos a un 80 % de la
    altura, justo encima de «Enviar mensaje». Ahí no tapa nada en ningún momento del vídeo (en el
    cierre queda debajo de «Pronto en Android»). Déjalo pequeño.
@@ -76,7 +98,7 @@ toque desde la historia y no tiene enlace. Subido aparte, lleva el adhesivo de e
 5. **Tu historia**.
 
 Y en la cuenta personal, si quieres, lo mismo (subida desde el carrete, nunca compartiendo el
-reel), con `utm_campaign=lanzamiento-ios-personal` en el enlace y una mención a @app.nomad.
+reel), con una mención a @app.nomad; con el token, `ct=ig-historia-anuncio-personal`.
 
 ## 3. TikTok
 
@@ -85,12 +107,17 @@ privacidad** → **Cuenta** → **Cambiar a cuenta de empresa** → categoría �
 la hay) → **Siguiente**. Pon en la bio el enlace `https://travelsnomad.com/app` (Perfil → Editar
 perfil → Sitio web).
 
+**Si el campo «Sitio web» no aparece** (TikTok lo da según el tipo de cuenta y, en algunos
+sitios, según los seguidores, y la cuenta es nueva): quita del pie la frase «Enlace en el
+perfil.». El pie ya dice el nombre exacto, «Nomad: guía de viajes», y el comentario fijado
+explica cómo encontrarla.
+
 1. **+** → **Subir** → elige `nomad-lanzamiento-1080x1920.mp4` → **Siguiente**.
 2. **No añadas sonido.** Si te sugiere uno, quítalo: el vídeo ya trae el suyo.
 3. **Siguiente**. Pega el pie (abajo).
-4. **Portada**: elige el fotograma del principio (el templo con «La ciudad, contada.»). TikTok
-   no deja subir una imagen aparte en todas las versiones; si te deja, usa
-   `nomad-lanzamiento-portada.jpg`.
+4. **Portada**: si te deja subir una imagen, usa `nomad-lanzamiento-portada.jpg`. Si no, arrastra
+   el selector hasta **el segundo 1**: el templo con «La ciudad, contada.» y la tarjeta de Nomad.
+   (El primer fotograma ya lleva el texto y la marca, así que dejarlo como viene también vale.)
 5. **Más opciones**:
    - activa **Contenido generado por IA** («Etiqueta de contenido generado por IA»);
    - activa **Divulgar contenido comercial** → marca **Tu marca**.
@@ -107,7 +134,7 @@ Le dices a dónde vas y Nomad escribe el viaje día a día. Después te lo cuent
 
 ## Cuándo
 
-**Mañana, domingo 25 de octubre, entre las 20:00 y las 21:00** (hora peninsular), primero el
+**El domingo 25 de octubre de 2026, entre las 20:00 y las 21:00** (hora peninsular), primero el
 reel y en el mismo minuto la historia; TikTok, a la misma hora. El domingo por la tarde es cuando
 se piensa en la próxima escapada. Es una regla general, no un dato de la cuenta: si en
 Instagram, **Panel profesional → Estadísticas → Seguidores → Momentos de más actividad**, sale

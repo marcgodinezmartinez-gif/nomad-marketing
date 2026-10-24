@@ -128,6 +128,9 @@ cuatro anuncios), `invitacion` (/join), `recomendacion` (/r), y lo que lleve UTM
 - **Los reels salen sin pista de audio**, a propósito: se elige dentro de Instagram, de
   tendencias, que es lo que el algoritmo premia. Un reel que parece un anuncio se salta:
   primera persona, alguien enseñando lo que ha probado.
+  **Excepción, por decisión del dueño (24-oct):** el anuncio de marca del lanzamiento
+  (`piezas/historias-animadas/lanzamiento-ios/`) lleva la música y la voz dentro y se publica
+  sin añadirle nada. Si eso pasa a ser la regla de los anuncios de marca, se decide en #15.
 - **Zonas seguras**: en una historia la interfaz tapa ~250 px arriba y abajo — el texto
   vive entre y=280 e y=1500 y de 1520 para abajo va el adhesivo de enlace. En un reel,
   entre 230 y 1480.

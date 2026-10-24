@@ -1,8 +1,9 @@
 # UNA PISTA DE MÚSICA CON LYRIA por la API de Gemini (24-oct, anuncio del lanzamiento).
 #
 # El 6-oct se hizo a mano para el reel de la Sagrada Família (VEO.md, «La versión final»);
-# esto lo deja escrito. `lyria-3-clip-preview` devuelve un clip de unos 30 s, instrumental si
-# se pide, con la marca de agua SynthID dentro. Lo que sale es música generada con IA: al
+# esto lo deja escrito. El modelo de clips de Lyria (se pasa como argumento; el nombre vivo sale
+# de `GET /v1beta/models`, buscando «lyria» y «clip») devuelve un clip de unos 30 s,
+# instrumental si se pide, con la marca de agua SynthID dentro. Lo que sale es música generada con IA: al
 # publicar se marca la etiqueta de IA (Instagram: Configuración avanzada; TikTok: «Contenido
 # generado por IA»).
 #
