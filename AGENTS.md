@@ -21,6 +21,29 @@ Issues debe ser la biblia de lo que queda pendiente»). Las tres últimas de mar
 quedaron en el repo de la app —#68 subir destacadas y reels, #69 la tabla de parada,
 #70 esta separación— y se cierran allí; las nuevas se abren aquí.
 
+## Dónde estamos (24-oct-2026) — léelo antes de tocar cualquier pieza
+
+- **La app está en la App Store desde el 19-oct**: «Nomad: guía de viajes», iPhone con iOS 15.1 o
+  superior, **descarga gratis y se paga por viaje** (2,99 / 4,99 / 6,99 €), sin suscripción. Ficha:
+  `https://apps.apple.com/app/id6797973945`. Datos leídos de la ficha pública (24-oct) con
+  `itunes.apple.com/lookup?id=6797973945&country=es`; **la ficha está sólo en español en todos
+  los países** (nombre, descripción y capturas), y hay media docena de apps «Nomad» en la tienda:
+  una pieza nueva da el nombre exacto y el icono.
+- **La lista de espera está cerrada para todos** (decisión del dueño, 17-oct, NOMAD#305): la web
+  la oculta en cuanto una tienda está encendida. **El 1,99 € ya no se ofrece a nadie nuevo y no
+  sale en ninguna pieza nueva.** Cómo lo canjean quienes estaban dentro no consta en este repo:
+  hasta que el dueño lo confirme, no se afirma nada de eso en público.
+- **Android: sin fecha.** La respuesta decidida el 1-oct es «síguenos y te avisamos el día que
+  salga». Nunca una fecha, nunca «disponible», y «pronto» —que es la palabra del dueño—, no «muy
+  pronto» con un mes detrás.
+- **Todo lo anterior al 19-oct que diga «lista de espera», «llega en octubre», «apúntate» o «1,99 €»
+  está desfasado**: el cierre «Lista de espera abierta / Llega en octubre / 1,99 €*» está horneado en
+  casi todos los generadores, las destacadas «La lista» y «Qué es» (tarjeta 7) y los pies de los
+  reels. No se reutiliza. La lista de lo que hay que retirar o rehacer, con quién actúa, vive en
+  la issue de este repo «Ya en la App Store: lo que sigue diciendo "lista de espera"».
+- **El anuncio de la salida** es `piezas/lanzamiento/gen-ios.py` (carrusel) y
+  `gen-ios-historias.py` (historias); `gen-abre.py` («¿Qué pasa el día que abra?») está obsoleto.
+
 ## Los números que gobiernan las decisiones
 
 Calculados de costes reales en `campana/LANZAMIENTO-PUBLICIDAD.md`; no se discuten en
@@ -30,9 +53,10 @@ cada sesión, se aplican:
 - **Coste objetivo por alta (TCPL): 0,25 €.** Un alta pagada en Meta en España cuesta
   0,30-1,50 €, así que **lo pagado compra aprendizaje** (qué argumento mueve), no altas.
 - **Precio**: **desde 2,99 € el viaje entero**, sin suscripción — 2,99 € hasta 3 días, 4,99 €
-  de 4 a 7 y 6,99 € de 8 a 30, como dice la web—; en la lista, **el primero por 1,99 € sea
-  cual sea la duración** (hasta 30 días). Siempre en ese orden. **Nunca «2,99 € el viaje
-  entero» como cifra cerrada**: un viaje largo cuesta más, y así lo dijo el dueño el 13-sep
+  de 4 a 7 y 6,99 € de 8 a 30, como dice la web—. *Hasta el 19-oct, en la lista, el primero por
+  1,99 € sea cual sea la duración (hasta 30 días), siempre después del precio normal; desde la
+  apertura la lista está cerrada y ese precio no se ofrece a nadie nuevo (ver «Dónde estamos»).*
+  **Nunca «2,99 € el viaje entero» como cifra cerrada**: un viaje largo cuesta más, y así lo dijo el dueño el 13-sep
   al ver que ese texto estaba en el reel, en las destacadas y en los anuncios. El ancla del precio es **el café**, nunca «la audioguía de 6 €»:
   el dueño la ha tirado dos veces y no vuelve por ninguna puerta.
 
@@ -59,7 +83,17 @@ diagnóstico de la portada, en `campana/LANZAMIENTO-PUBLICIDAD.md`.
 
 ## Medir antes de opinar
 
-La única tabla de resultados es la base de datos, no lo que Meta se atribuya. Sin píxel,
+**Desde el 19-oct esta sección mide la lista, que está cerrada: las consultas de abajo siguen
+valiendo para la historia (septiembre-octubre) y ya no cuentan lo que traen las piezas nuevas.**
+Lo que sí cuenta ahora son las **descargas y las compras**, y salen de App Store Connect, no de
+este repo: hacen falta enlaces de campaña (`pt` y `ct`) de la ficha, uno por pieza o por canal.
+`travelsnomad.com/app` **pierde el UTM**: `tienda.js` salta a la tienda con `location.replace` y
+la ficha sólo ve «travelsnomad.com» como origen. Para que una pieza se pueda comparar con otra, el
+adhesivo de enlace lleva el enlace de campaña directo a la ficha. La tabla de parada y el «alta
+vale 0,24 €» de arriba están definidas para altas de lista; **no hay todavía una unidad nueva**
+(`campana/VISION.md` §9 dice que se recalcula cuando se sepa qué parte de las descargas compra).
+
+La única tabla de resultados era la base de datos, no lo que Meta se atribuya. Sin píxel,
 a propósito. Dos consultas, cada día:
 
 ```sql

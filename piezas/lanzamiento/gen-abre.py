@@ -1,3 +1,8 @@
+# OBSOLETO DESDE EL 19-OCT-2026. NO SE PUBLICA, NI SE RECICLAN SUS TARJETAS NI SU PIE.
+# La tienda abrió, la lista de espera está cerrada para todos y este carrusel promete justo lo
+# contrario («la lista se cierra el día que abramos», «apúntate»). El anuncio de la salida es
+# gen-ios.py. Se conserva sólo como historia de cómo se montó el molde.
+#
 # «¿QUÉ PASA EL DÍA QUE ABRA NOMAD?» — carrusel de 5 tarjetas (29-sep).
 #
 # EL POST DE LA SEMANA DEL CIERRE. `campana/LANZAMIENTO-PUBLICIDAD.md` lo dejó escrito en

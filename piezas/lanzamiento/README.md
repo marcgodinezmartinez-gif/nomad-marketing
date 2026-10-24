@@ -43,6 +43,64 @@ EN FR DE IT ES; la casa dice cuatro) y cualquier fecha de Android.
 países** (nombre, descripción y capturas), y el nombre se repite con media docena de apps
 «Nomad» (de ahí el cierre: nombre exacto, icono, insignia).
 
+### El pie, la bio y lo demás del día (verificado el 24-oct contra la ficha y AGENTS.md)
+
+El panel de copy escribió tres versiones independientes (producto, voz, novedad) y un verificador
+adversarial las rompió contra los hechos de la ficha y las reglas de precio (17 correcciones:
+«gratis» sólo acompaña a «descargarla», sin «voz real» ni «tiempo real», sin los 0,99 € de la visita
+suelta —contradicen el «desde»—, sin nombre del dueño en el comentario, sin el 1,99 € en nada
+público). Lo que quedó:
+
+> Nomad ya está en la App Store, para iPhone. Descargarla es gratis. Android, pronto.
+>
+> Se llama «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono. El
+> enlace, en la bio.
+>
+> Dices a dónde vas y qué días. Nomad escribe el viaje entero: qué ver cada jornada, en qué orden y
+> cuánto cuesta. Y luego te lo cuenta al oído mientras lo andas.
+>
+> Lo que hay dentro:
+> · El itinerario, día a día.
+> · Audioguías para pasear una ciudad o recorrer un museo. Se descargan y suenan sin cobertura.
+> · Un asistente al que preguntar sobre la marcha, que ve por la cámara lo que tienes delante.
+> · Los gastos del grupo, con quién debe qué a quién.
+> · El viaje de otra persona, que puedes copiar y amoldar a tus días.
+>
+> Descargarla es gratis. Se paga por viaje, sin suscripción ni renovaciones: desde 2,99 € el viaje
+> entero. Son 2,99 € hasta 3 días, 4,99 € de 4 a 7 y 6,99 € de 8 a 30. Una compra abre el viaje para
+> todo el grupo. Y la escapada de hasta 3 días sale por poco más que un café.
+>
+> Android: pronto, sin fecha. Síguenos y te avisamos el día que salga.
+>
+> Los días escritos. La ciudad, contada.
+>
+> #appdeviajes #audioguia #viajar #viajes #itinerario #iphone
+
+La primera línea mide 83 caracteres: el golpe entero antes del «ver más». Sin `#nomad` ni
+`#nomads` a propósito (son de nómadas digitales). «Poco más que un café» sólo vale para la escapada
+de hasta 3 días y sólo en el pie; si suena forzado, se corta esa frase sin tocar nada más.
+
+- **Bio** (última línea): «Ya en la App Store, para iPhone. Android, pronto 👇». El enlace:
+  `travelsnomad.com/app` (en un iPhone salta a la ficha; en un Android cae en «Muy pronto en
+  Android») o la portada a secas; lo decide el dueño.
+- **Comentario para fijar:** «Para encontrarla: App Store, "Nomad: guía de viajes". Hay más apps
+  que se llaman Nomad: fíjate en el icono. Necesita un iPhone con iOS 15.1 o superior. Descargarla
+  es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos
+  el día que salga.»
+- **A «¿y en Android?»:** «Todavía no. Pronto, pero sin fecha, y no vamos a inventarnos una.
+  Síguenos y te avisamos el día que salga.»
+- **Historias** (`gen-ios-historias.py`): `iosh-1` el anuncio, con el adhesivo de enlace por debajo
+  de y=1520 (enlace de campaña directo a la ficha, no `/app`); `iosh-2` «¿Y en Android?».
+  **Una tercera, para quienes estaban en la lista** («gracias por llegar antes, ya puedes
+  descargarla, te hemos escrito aparte»), no se publica hasta que el dueño confirme cómo canjean
+  su 1,99 € y les haya escrito antes de que lo vean en el feed.
+
+**Lo que hay que confirmar antes de publicar** (lo dejó el verificador): qué se ve antes de pagar un
+viaje y si hay prueba gratuita (será la primera pregunta en los comentarios); cómo canjean el 1,99 €
+las 14 personas de la lista; que Android va a salir «pronto» de verdad; que el asistente con cámara y
+«copiar el viaje de otra persona» funcionan como los anuncia la ficha; qué idiomas tiene la app (la
+ficha lista EN FR DE IT ES; la casa dice cuatro y el alemán no consta).
+
 ## «¿Qué pasa el día que abra NOMAD?» (29-sep) — `gen-abre.py` — OBSOLETO desde el 19-oct
 
 

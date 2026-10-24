@@ -43,22 +43,22 @@ for f in ('fotos/f-sagrada-pasion.jpg', 'fotos/f-bcn-cierre.jpg', 'fotos/f-bcn-n
 
 # ---------------------------------------------------------------- el copy, en un solo sitio
 COPY = {
-    'portada': dict(kicker='Ya en iPhone &middot; Android, muy pronto',
+    'portada': dict(kicker='Ya en iPhone &middot; Android, pronto',
                     titular='Nomad ya est&aacute;<br>en la App Store.',
                     sub='Los d&iacute;as escritos. La ciudad, contada.'),
     'crear':   dict(kicker='El viaje', l1='T&uacute; dices d&oacute;nde.', l2='Nomad lo escribe.',
-                    sub='Destino, fechas y c&oacute;mo te gusta viajar. Sale el viaje d&iacute;a a d&iacute;a: '
-                        'qu&eacute; ver, en qu&eacute; orden y cu&aacute;nto cuesta.'),
+                    sub='Dices a d&oacute;nde vas y qu&eacute; d&iacute;as. Sale el viaje entero: qu&eacute; ver cada '
+                        'jornada, en qu&eacute; orden y cu&aacute;nto cuesta.'),
     'oido':    dict(kicker='Al o&iacute;do', l1='La ciudad,', l2='contada.',
-                    sub='Audioguías con voz real, parada a parada. Las descargas y suenan sin cobertura.'),
+                    sub='Las audioguías se descargan y suenan sin cobertura, en modo avi&oacute;n: en un museo '
+                        'o en un pa&iacute;s que no es el tuyo.'),
     'grupo':   dict(kicker='El grupo', l1='Los gastos,', l2='en paz.',
-                    sub='Qui&eacute;n pag&oacute; qu&eacute; y a qui&eacute;n se debe. Una compra abre el viaje '
-                        'para todo el grupo.'),
+                    sub='Con qui&eacute;n debe qu&eacute; a qui&eacute;n. Y una compra abre el viaje para todo el grupo.'),
     'precio':  dict(kicker='El precio', titular='Desde 2,99&nbsp;&euro;<br>el viaje entero.',
-                    sub='Sin suscripci&oacute;n. Descargarla es gratis: se paga por viaje.'),
-    'cierre':  dict(kicker='Ya en iPhone', l1='B&uacute;scala como', l2=NOMBRE_TIENDA,
+                    sub='Sin suscripci&oacute;n ni renovaciones. Descargarla es gratis: se paga por viaje.'),
+    'cierre':  dict(kicker='Enlace en la bio', l1='B&uacute;scala como', l2=NOMBRE_TIENDA,
                     sub='Hay m&aacute;s apps que se llaman Nomad: f&iacute;jate en el icono.',
-                    android='Android: muy pronto. S&iacute;guenos y te avisamos.'),
+                    android='Android: pronto. S&iacute;guenos y te avisamos.'),
 }
 
 TARIFAS = [('Hasta 3 d&iacute;as', '2,99&nbsp;&euro;'),
