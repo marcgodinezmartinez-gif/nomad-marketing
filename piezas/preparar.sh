@@ -17,6 +17,6 @@ cp "$R"/banco/fotos/post/f-*.jpg "$R"/salida/fotos/
 # las postales, en pequeño. Van aparte y con el mismo nombre, así que una historia sólo
 # cambia la carpeta: fotos-historia/f-x.jpg en vez de fotos/f-x.jpg.
 cp "$R"/banco/fotos/historia/f-*.jpg "$R"/salida/fotos-historia/
-cp "$R"/banco/capturas/*.webp "$R"/banco/marca/*.png "$R"/banco/qr/tarjeta-qr-*.png "$R"/salida/
+cp "$R"/banco/capturas/*.webp "$R"/banco/marca/*.png "$R"/banco/marca/*.svg "$R"/banco/qr/tarjeta-qr-*.png "$R"/salida/
 [ -x "$R/node_modules/ffmpeg-static/ffmpeg" ] || echo "aviso: falta ffmpeg — npm install en la raíz (11 s) antes de montar un reel"
 echo "salida/ lista"
