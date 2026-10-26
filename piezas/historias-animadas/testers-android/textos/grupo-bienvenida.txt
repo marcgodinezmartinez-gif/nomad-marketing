@@ -1,0 +1,48 @@
+NOMAD · PRUEBA EN ANDROID · TEST SU ANDROID · ANDROID TEST
+
+— ESPAÑOL —
+Solo para mayores de 18 años.
+Nomad es una app de viajes: le dices a dónde vas, te escribe el viaje día a día y te lo cuenta con audioguías. Ya está en la App Store; antes de que salga en Google Play, Google nos pide que la prueben personas reales durante 14 días.
+
+Si has llegado desde Instagram, abre antes esta página en Chrome (menú ⋮, arriba a la derecha). Los tres pasos, con la MISMA cuenta de Google, la de la Play Store de tu móvil:
+1. Únete a este grupo («Unirse al grupo»).
+2. Abre https://play.google.com/apps/testing/com.mgodinezdev.nomad y pulsa «Convertirse en tester». Si te dice que no tienes acceso, espera unos minutos y vuelve a abrirlo.
+3. Instala Nomad: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad
+Si la Play Store dice que no la encuentra, espera unos minutos: tarda un poco en reconocerte como tester.
+
+Antes de tu primer viaje: abre Nomad, espera unos segundos, ciérrala del todo (quítala de Recientes) y vuelve a abrirla. Así carga la última versión; si no, la primera compra puede fallar.
+Durante la prueba generas tus viajes gratis: al pagar, Google Play te enseña una compra de prueba y no te cobra. Si ves tu tarjeta de verdad sin el aviso de prueba, cancela.
+Durante 14 días: ábrela varios días distintos, crea un viaje y escucha una audioguía. No la desinstales ni salgas de la prueba.
+Si algo falla: Perfil → Reportar un error, o soporte@travelsnomad.com.
+
+— ITALIANO —
+Solo per maggiorenni.
+Nomad è un'app di viaggi: le dici dove vai, ti prepara il viaggio giorno per giorno e te lo racconta con le audioguide. È già sull'App Store; prima che esca su Google Play, Google ci chiede di farla provare a persone reali per 14 giorni. L'app è anche in italiano.
+
+Se arrivi da Instagram, prima apri questa pagina in Chrome (menu ⋮ in alto a destra). I tre passaggi, con lo STESSO account Google, quello del Play Store del tuo telefono:
+1. Iscriviti a questo gruppo («Iscriviti al gruppo»).
+2. Apri https://play.google.com/apps/testing/com.mgodinezdev.nomad e tocca «Diventa un tester». Se ti dice che non hai accesso, aspetta qualche minuto e riaprilo.
+3. Installa Nomad: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad
+Se il Play Store dice che non la trova, aspetta qualche minuto: ci mette un po' a riconoscerti come tester.
+
+Prima del primo viaggio: apri Nomad, aspetta qualche secondo, chiudila del tutto (toglila dalle app recenti) e riaprila. Così carica l'ultima versione; altrimenti il primo acquisto può non andare a buon fine.
+Durante il test generi i tuoi viaggi gratis: al momento del pagamento Google Play ti mostra un acquisto di prova e non ti addebita nulla. Se vedi la tua carta vera senza l'avviso di prova, annulla.
+Per 14 giorni: aprila in giorni diversi, crea un viaggio e ascolta un'audioguida. Non disinstallarla e non uscire dal test.
+Se qualcosa non va: Profilo → Segnala un errore, oppure soporte@travelsnomad.com.
+
+— ENGLISH —
+18+ only.
+Nomad is a travel app: tell it where you're going, it writes your trip day by day and talks you through it with audio guides. It's already on the App Store; before it launches on Google Play, Google asks for real people to test it for 14 days.
+
+Coming from Instagram? First open this page in Chrome (the ⋮ menu, top right). Three steps, all with the SAME Google account, the one in your phone's Play Store:
+1. Join this group ("Join group").
+2. Open https://play.google.com/apps/testing/com.mgodinezdev.nomad and tap "Become a tester". If it says you don't have access, wait a few minutes and open it again.
+3. Install Nomad: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad
+If the Play Store can't find it, wait a few minutes: it takes a little while to recognise you as a tester.
+
+Before your first trip: open Nomad, wait a few seconds, fully close it (swipe it away from Recents) and open it again. That loads the latest version; otherwise the first purchase may fail.
+During the test your trips are free: at checkout Google Play shows a test purchase and charges nothing. If you see your real card without the test notice, cancel.
+For 14 days: open it on several different days, create a trip and listen to an audio guide. Don't uninstall it or leave the test.
+If something breaks: Profile → Report a bug, or soporte@travelsnomad.com.
+
+https://travelsnomad.com

@@ -4,51 +4,55 @@ Cada bloque entre las líneas de guiones se copia entero. Los *asteriscos* son l
 ==================================================================
 1 · CASTELLANO (para tu gente: amigos, familia, compañeros)
 ------------------------------------------------------------------
-¡Hola! ¿Tienes un móvil Android? Te pido un favor: estoy sacando Nomad, mi app de viajes, en Google Play, y antes Google me pide que la prueben personas reales durante 14 días. Apuntarte son 2 minutos, y durante la prueba generas tus viajes gratis.
+¡Hola! ¿Tienes un móvil Android y eres mayor de 18? Te pido un favor: estoy sacando Nomad, mi app de viajes, en Google Play, y antes Google me pide que la prueben personas reales durante 14 días. Apuntarte son 2 minutos, y durante la prueba generas tus viajes gratis.
 
 Los tres pasos, *con la misma cuenta de Google que usas en la Play Store*:
 1. Únete al grupo: https://groups.google.com/g/nomad-testers
 2. Abre https://play.google.com/apps/testing/com.mgodinezdev.nomad y pulsa «Convertirse en tester» (si te dice que no tienes acceso, espera unos minutos y vuelve a abrirlo)
-3. Instálala: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad
+3. Instálala: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad (si la Play Store dice que no la encuentra, espera unos minutos: tarda un poco en reconocerte como tester)
+
+Antes de tu primer viaje: ábrela, espera unos segundos, ciérrala del todo (quítala de Recientes) y vuelve a abrirla. Así carga la última versión; si no, la primera compra puede fallar.
 
 Y durante 14 días:
 • ábrela varios días distintos, aunque sea un rato
 • crea un viaje y escucha alguna audioguía
 • *no la desinstales ni te salgas de la prueba*, que entonces no cuenta
 
-Al pagar un viaje, Google Play te enseña una compra de prueba y no te cobra nada. Si te sale tu tarjeta de verdad sin el aviso de prueba, cancela y dímelo. Si la primera vez no te deja pagar, cierra la app del todo y vuelve a abrirla.
+Al pagar un viaje, Google Play te enseña una compra de prueba y no te cobra nada. Si te sale tu tarjeta de verdad sin el aviso de prueba, cancela y dímelo.
 
-Si algo falla o no se entiende, dímelo por aquí o desde la app: Perfil → Reportar un error. Es para mayores de 18. ¡Mil gracias!
+Si algo falla o no se entiende, dímelo por aquí o desde la app: Perfil → Reportar un error. ¡Mil gracias!
 ------------------------------------------------------------------
 
 ==================================================================
 2 · ITALIANO (per amici e follower italiani)
 ------------------------------------------------------------------
-Ciao! Hai un telefono Android? Ti chiedo un favore: sto lanciando Nomad, la mia app di viaggio, su Google Play, e prima Google mi chiede di farla provare a persone reali per 14 giorni. Iscriversi richiede 2 minuti, e durante il test generi i tuoi viaggi gratis. L'app è anche in italiano.
+Ciao! Hai un telefono Android e sei maggiorenne? Ti chiedo un favore: sto lanciando Nomad, la mia app di viaggi, su Google Play, e prima Google mi chiede di farla provare a persone reali per 14 giorni. Ci vogliono 2 minuti, e durante il test generi i tuoi viaggi gratis. L'app è anche in italiano.
 
-I tre passi, *con lo stesso account Google che usi sul Play Store*:
+I tre passaggi, *con lo stesso account Google che usi sul Play Store*:
 1. Iscriviti al gruppo: https://groups.google.com/g/nomad-testers
-2. Apri https://play.google.com/apps/testing/com.mgodinezdev.nomad e tocca «Diventa un tester» (se dice che non hai accesso, aspetta qualche minuto e riaprilo)
-3. Installala: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad
+2. Apri https://play.google.com/apps/testing/com.mgodinezdev.nomad e tocca «Diventa un tester» (se ti dice che non hai accesso, aspetta qualche minuto e riaprilo)
+3. Installala: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad (se il Play Store dice che non la trova, aspetta qualche minuto: ci mette un po' a riconoscerti come tester)
+
+Prima del primo viaggio: aprila, aspetta qualche secondo, chiudila del tutto (toglila dalle app recenti) e riaprila. Così carica l'ultima versione; altrimenti il primo acquisto può non andare a buon fine.
 
 E per 14 giorni:
-• aprila in giorni diversi, anche solo per un momento
+• aprila in giorni diversi, anche solo per qualche minuto
 • crea un viaggio e ascolta qualche audioguida
 • *non disinstallarla e non uscire dal test*, altrimenti non conta
 
-Quando paghi un viaggio, Google Play ti mostra un acquisto di prova e non ti addebita nulla. Se vedi la tua carta vera senza l'avviso di prova, annulla e dimmelo. Se la prima volta non ti lascia pagare, chiudi del tutto l'app e riaprila.
+Al momento del pagamento, Google Play ti mostra un acquisto di prova e non ti addebita nulla. Se vedi la tua carta vera senza l'avviso di prova, annulla e dimmelo.
 
-Se qualcosa non va o non è chiaro, scrivimi qui o dall'app: Profilo → Segnala un errore. Solo per maggiorenni. Grazie mille!
+Se qualcosa non va o non è chiaro, scrivimi qui o dall'app: Profilo → Segnala un errore. Grazie mille!
 ------------------------------------------------------------------
 
 ==================================================================
 3 · PARA REENVIAR (lo mandas a quien ya está dentro, y ellos lo reenvían tal cual)
 ------------------------------------------------------------------
 Castellano:
-¿Tienes Android? Un amigo está probando Nomad, su app de viajes, y necesita gente que la use 14 días antes de que salga en Google Play. Durante la prueba los viajes son gratis. Todo está aquí, con la misma cuenta de Google de tu Play Store: https://groups.google.com/g/nomad-testers (mayores de 18)
+¿Tienes Android y eres mayor de 18? Un amigo está probando Nomad, su app de viajes, y necesita gente que la use 14 días antes de que salga en Google Play. Durante la prueba los viajes son gratis. Todo está aquí (usa la misma cuenta de Google de tu Play Store): https://groups.google.com/g/nomad-testers
 
 Italiano:
-Hai Android? Un amico sta testando Nomad, la sua app di viaggio, e cerca persone che la usino per 14 giorni prima che esca su Google Play. Durante il test i viaggi sono gratis. Trovi tutto qui, con lo stesso account Google del tuo Play Store: https://groups.google.com/g/nomad-testers (solo maggiorenni)
+Hai Android e sei maggiorenne? Un amico sta testando Nomad, la sua app di viaggi, e cerca persone che la usino per 14 giorni prima che esca su Google Play. Durante il test i viaggi sono gratis. Trovi tutto qui (usa lo stesso account Google del Play Store): https://groups.google.com/g/nomad-testers
 ------------------------------------------------------------------
 
 ==================================================================
@@ -58,5 +62,5 @@ Castellano:
 ¡Hola! Vamos por la mitad de la prueba de Nomad, gracias por seguir ahí. Para que cuente hasta el final: ábrela hoy o mañana un rato y *no la desinstales ni te salgas* hasta el [FECHA DEL DÍA 14]. Si has visto algo raro, cuéntamelo aunque sea pequeño: me sirve mucho.
 
 Italiano:
-Ciao! Siamo a metà del test di Nomad, grazie di esserci ancora. Perché conti fino alla fine: aprila un momento oggi o domani e *non disinstallarla e non uscire dal test* fino al [DATA DEL GIORNO 14]. Se hai notato qualcosa di strano, raccontamelo anche se è piccolo: mi aiuta tantissimo.
+Ciao! Siamo a metà del test di Nomad, grazie di esserci ancora. Perché il test valga fino alla fine: aprila un attimo oggi o domani e *non disinstallarla e non uscire dal test* fino al [DATA DEL GIORNO 14]. Se hai notato qualcosa di strano, dimmelo anche se è una piccolezza: mi aiuta tantissimo.
 ------------------------------------------------------------------
