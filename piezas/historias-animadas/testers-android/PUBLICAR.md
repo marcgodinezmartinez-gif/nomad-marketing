@@ -7,9 +7,9 @@ Lo que hay en esta carpeta:
 
 | fichero | para qué |
 |---|---|
-| `nomad-testers-android-es.mp4` | la historia en castellano: 10 s, 1080×1920, con la pantalla real del itinerario |
-| `nomad-testers-android-it.mp4` | la italiana: el mismo texto en italiano, **sin pantalla** (abajo, por qué) |
-| `nomad-testers-android-es.png`, `-it.png` | el último fotograma, por si prefieres una tarjeta fija |
+| `nomadapp-testers-android-es.mp4` | la historia en castellano: 10 s, 1080×1920, con la pantalla real del itinerario |
+| `nomadapp-testers-android-it.mp4` | la italiana: el mismo texto en italiano, **sin pantalla** (abajo, por qué) |
+| `nomadapp-testers-android-es.png`, `-it.png` | el último fotograma, por si prefieres una tarjeta fija |
 | `grupo-bienvenida.txt` | los pasos (castellano, italiano e inglés): van en el **Mensaje de bienvenida** del grupo |
 | `grupo-descripcion.txt` | una línea para la **Descripción** del grupo |
 | `mensajes-whatsapp.txt` | los mensajes en castellano y en italiano, el de reenviar y el recordatorio del día 7 |
@@ -37,7 +37,7 @@ pueden ver o a pagar de verdad.
 
 ### 0.1 Play Console (1 minuto)
 
-1. **Configuración → Pruebas de licencias**: tiene que estar `nomad-testers@googlegroups.com`. Si no está,
+1. **Configuración → Pruebas de licencias**: tiene que estar `nomadapp-testers@googlegroups.com`. Si no está,
    los testers **pagan de verdad**, y la historia dice que es gratis.
 2. **Pruebas → Prueba cerrada → Testers**: tiene que estar el mismo grupo.
 3. **Qué versión sirve hoy la prueba cerrada.** Si es la 1.0.1 (2), la primera compra de una instalación
@@ -47,7 +47,7 @@ pueden ver o a pagar de verdad.
 
 ### 0.2 El grupo: lo que ve quien llega
 
-Entra en https://groups.google.com/g/nomad-testers con la cuenta que lo administra → **Configuración
+Entra en https://groups.google.com/g/nomadapp-testers con la cuenta que lo administra → **Configuración
 del grupo** (el engranaje). Los nombres son los de la pantalla en español:
 
 1. **Quién puede ver el grupo**: *Cualquier usuario en la Web*. **Hoy no es así**: sin sesión de Google,
@@ -72,7 +72,7 @@ del grupo** (el engranaje). Los nombres son los de la pantalla en español:
 ### 0.3 Comprobarlo como lo verá un tester
 
 1. Desde cualquier ordenador, sin sesión:
-   `curl -s -o /dev/null -w '%{http_code}\n' https://groups.google.com/g/nomad-testers` tiene que dar
+   `curl -s -o /dev/null -w '%{http_code}\n' https://groups.google.com/g/nomadapp-testers` tiene que dar
    **200**, no 302. (O pídemelo y lo miro yo.)
 2. **El camino de verdad**: con un Android que no tenga tu cuenta, abre Instagram, manda el enlace del
    grupo por mensaje directo a esa cuenta (o mira una historia de prueba en «Mejores amigos») y tócalo.
@@ -96,8 +96,8 @@ Las dos se suben desde el carrete; no compartas un reel.
 
 **La castellana:**
 
-1. **+** → **Historia** → elige `nomad-testers-android-es.mp4`.
-2. **Adhesivos** → **Enlace** → pega `https://groups.google.com/g/nomad-testers`.
+1. **+** → **Historia** → elige `nomadapp-testers-android-es.mp4`.
+2. **Adhesivos** → **Enlace** → pega `https://groups.google.com/g/nomadapp-testers`.
 3. **Personalizar el texto del adhesivo**: `Únete a la prueba`. **Exactamente ése**: la historia dice
    «Toca «Únete a la prueba»». Si cambias uno, cambia el otro (`preparar.py`, tabla TEXTOS).
 4. **Dónde colocarlo**: centrado, justo debajo de los dos chevrones que botan, a un 83 % de la altura
@@ -105,7 +105,7 @@ Las dos se suben desde el carrete; no compartas un reel.
    blanco. `revision/zonas-seguras-es.jpg` enseña dónde va.
 5. **Tu historia**.
 
-**La italiana**, igual: `nomad-testers-android-it.mp4`, el mismo enlace, y en el adhesivo
+**La italiana**, igual: `nomadapp-testers-android-it.mp4`, el mismo enlace, y en el adhesivo
 `Partecipa al test` (la historia dice «Tocca «Partecipa al test»»).
 
 **En tu cuenta personal**, cada una el mismo día que en @app.nomad, también desde el carrete, con una
@@ -148,7 +148,7 @@ la que haya traído menos gente.
 
 **Cada noche, durante los primeros tres días**:
 
-1. **El grupo**: en https://groups.google.com/g/nomad-testers → **Miembros**, cuenta cuántos hay. Hacen
+1. **El grupo**: en https://groups.google.com/g/nomadapp-testers → **Miembros**, cuenta cuántos hay. Hacen
    falta **12 como mínimo durante 14 días seguidos**; apunta a 15-20, porque siempre se cae alguno.
 2. **El paso 2 no sale en el grupo.** Estar en el grupo no es haber pulsado «Convertirse en tester».
    A quien conozcas, pregúntale si ya la tiene instalada desde Google Play. Si en la ficha de Nomad

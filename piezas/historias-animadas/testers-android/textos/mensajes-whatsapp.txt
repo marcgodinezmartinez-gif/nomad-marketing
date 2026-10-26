@@ -7,7 +7,7 @@ Cada bloque entre las líneas de guiones se copia entero. Los *asteriscos* son l
 ¡Hola! ¿Tienes un móvil Android y eres mayor de 18? Te pido un favor: estoy sacando Nomad, mi app de viajes, en Google Play, y antes Google me pide que la prueben personas reales durante 14 días. Apuntarte son 2 minutos, y durante la prueba generas tus viajes gratis.
 
 Los tres pasos, *con la misma cuenta de Google que usas en la Play Store*:
-1. Únete al grupo: https://groups.google.com/g/nomad-testers
+1. Únete al grupo: https://groups.google.com/g/nomadapp-testers
 2. Abre https://play.google.com/apps/testing/com.mgodinezdev.nomad y pulsa «Convertirse en tester» (si te dice que no tienes acceso, espera unos minutos y vuelve a abrirlo)
 3. Instálala: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad (si la Play Store dice que no la encuentra, espera unos minutos: tarda un poco en reconocerte como tester)
 
@@ -29,7 +29,7 @@ Si algo falla o no se entiende, dímelo por aquí o desde la app: Perfil → Rep
 Ciao! Hai un telefono Android e sei maggiorenne? Ti chiedo un favore: sto lanciando Nomad, la mia app di viaggi, su Google Play, e prima Google mi chiede di farla provare a persone reali per 14 giorni. Ci vogliono 2 minuti, e durante il test generi i tuoi viaggi gratis. L'app è anche in italiano.
 
 I tre passaggi, *con lo stesso account Google che usi sul Play Store*:
-1. Iscriviti al gruppo: https://groups.google.com/g/nomad-testers
+1. Iscriviti al gruppo: https://groups.google.com/g/nomadapp-testers
 2. Apri https://play.google.com/apps/testing/com.mgodinezdev.nomad e tocca «Diventa un tester» (se ti dice che non hai accesso, aspetta qualche minuto e riaprilo)
 3. Installala: https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad (se il Play Store dice che non la trova, aspetta qualche minuto: ci mette un po' a riconoscerti come tester)
 
@@ -49,10 +49,10 @@ Se qualcosa non va o non è chiaro, scrivimi qui o dall'app: Profilo → Segnala
 3 · PARA REENVIAR (lo mandas a quien ya está dentro, y ellos lo reenvían tal cual)
 ------------------------------------------------------------------
 Castellano:
-¿Tienes Android y eres mayor de 18? Un amigo está probando Nomad, su app de viajes, y necesita gente que la use 14 días antes de que salga en Google Play. Durante la prueba los viajes son gratis. Todo está aquí (usa la misma cuenta de Google de tu Play Store): https://groups.google.com/g/nomad-testers
+¿Tienes Android y eres mayor de 18? Un amigo está probando Nomad, su app de viajes, y necesita gente que la use 14 días antes de que salga en Google Play. Durante la prueba los viajes son gratis. Todo está aquí (usa la misma cuenta de Google de tu Play Store): https://groups.google.com/g/nomadapp-testers
 
 Italiano:
-Hai Android e sei maggiorenne? Un amico sta testando Nomad, la sua app di viaggi, e cerca persone che la usino per 14 giorni prima che esca su Google Play. Durante il test i viaggi sono gratis. Trovi tutto qui (usa lo stesso account Google del Play Store): https://groups.google.com/g/nomad-testers
+Hai Android e sei maggiorenne? Un amico sta testando Nomad, la sua app di viaggi, e cerca persone che la usino per 14 giorni prima che esca su Google Play. Durante il test i viaggi sono gratis. Trovi tutto qui (usa lo stesso account Google del Play Store): https://groups.google.com/g/nomadapp-testers
 ------------------------------------------------------------------
 
 ==================================================================
