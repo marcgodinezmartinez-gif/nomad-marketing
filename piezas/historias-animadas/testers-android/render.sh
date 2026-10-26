@@ -1,8 +1,8 @@
 #!/bin/bash
 # Renderiza la historia de los testers de Android en castellano y en italiano (26-oct).
 # Escribe en <salida> (por defecto salida/ del repo):
-#   nomadapp-testers-android-<es|it>.mp4   1080x1920, 30 fps, 10 s, H.264 + una pista AAC en SILENCIO
-#   nomadapp-testers-android-<es|it>.png   el último fotograma, por si se prefiere una tarjeta fija
+#   nomad-testers-android-<es|it>.mp4   1080x1920, 30 fps, 10 s, H.264 + una pista AAC en SILENCIO
+#   nomad-testers-android-<es|it>.png   el último fotograma, por si se prefiere una tarjeta fija
 # Uso, desde cualquier sitio: bash piezas/historias-animadas/testers-android/render.sh [salida]
 #
 # La pista de audio va en silencio a propósito (README.md, «El sonido»): el fichero cumple H.264 +
@@ -21,10 +21,10 @@ for L in es it; do
   ( cd "$D" && $HF render --quiet --video-bitrate 10M --output "$OUT/.render-$L.mp4" >/dev/null 2>&1 )
   ffmpeg -v error -y -i "$OUT/.render-$L.mp4" -f lavfi -i anullsrc=r=48000:cl=stereo \
     -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 128k -shortest -movflags +faststart \
-    "$OUT/nomadapp-testers-android-$L.mp4"
-  ffmpeg -v error -y -sseof -0.1 -i "$OUT/.render-$L.mp4" -frames:v 1 -update 1 "$OUT/nomadapp-testers-android-$L.png"
+    "$OUT/nomad-testers-android-$L.mp4"
+  ffmpeg -v error -y -sseof -0.1 -i "$OUT/.render-$L.mp4" -frames:v 1 -update 1 "$OUT/nomad-testers-android-$L.png"
   rm -f "$OUT/.render-$L.mp4"
-  echo "$OUT/nomadapp-testers-android-$L.mp4"
+  echo "$OUT/nomad-testers-android-$L.mp4"
 done
 # El index.html versionado es el castellano.
 python3 "$D/preparar.py" es >/dev/null

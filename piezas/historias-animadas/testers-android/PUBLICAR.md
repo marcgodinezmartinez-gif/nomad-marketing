@@ -7,9 +7,9 @@ Lo que hay en esta carpeta:
 
 | fichero | para qué |
 |---|---|
-| `nomadapp-testers-android-es.mp4` | la historia en castellano: 10 s, 1080×1920, con la pantalla real del itinerario |
-| `nomadapp-testers-android-it.mp4` | la italiana: el mismo texto en italiano, **sin pantalla** (abajo, por qué) |
-| `nomadapp-testers-android-es.png`, `-it.png` | el último fotograma, por si prefieres una tarjeta fija |
+| `nomad-testers-android-es.mp4` | la historia en castellano: 10 s, 1080×1920, con la pantalla real del itinerario |
+| `nomad-testers-android-it.mp4` | la italiana: el mismo texto en italiano, **sin pantalla** (abajo, por qué) |
+| `nomad-testers-android-es.png`, `-it.png` | el último fotograma, por si prefieres una tarjeta fija |
 | `grupo-bienvenida.txt` | los pasos (castellano, italiano e inglés): van en el **Mensaje de bienvenida** del grupo |
 | `grupo-descripcion.txt` | una línea para la **Descripción** del grupo |
 | `mensajes-whatsapp.txt` | los mensajes en castellano y en italiano, el de reenviar y el recordatorio del día 7 |
@@ -96,7 +96,7 @@ Las dos se suben desde el carrete; no compartas un reel.
 
 **La castellana:**
 
-1. **+** → **Historia** → elige `nomadapp-testers-android-es.mp4`.
+1. **+** → **Historia** → elige `nomad-testers-android-es.mp4`.
 2. **Adhesivos** → **Enlace** → pega `https://groups.google.com/g/nomadapp-testers`.
 3. **Personalizar el texto del adhesivo**: `Únete a la prueba`. **Exactamente ése**: la historia dice
    «Toca «Únete a la prueba»». Si cambias uno, cambia el otro (`preparar.py`, tabla TEXTOS).
@@ -105,7 +105,7 @@ Las dos se suben desde el carrete; no compartas un reel.
    blanco. `revision/zonas-seguras-es.jpg` enseña dónde va.
 5. **Tu historia**.
 
-**La italiana**, igual: `nomadapp-testers-android-it.mp4`, el mismo enlace, y en el adhesivo
+**La italiana**, igual: `nomad-testers-android-it.mp4`, el mismo enlace, y en el adhesivo
 `Partecipa al test` (la historia dice «Tocca «Partecipa al test»»).
 
 **En tu cuenta personal**, cada una el mismo día que en @app.nomad, también desde el carrete, con una
