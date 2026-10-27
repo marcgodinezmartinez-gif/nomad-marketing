@@ -4,7 +4,7 @@
 # Escribe en <salida> (por defecto salida/ del repo):
 #   nomad-trazo-historia-1080x1920.mp4  con la flecha hacia el adhesivo de enlace
 #   nomad-trazo-reel-1080x1920.mp4      con «Enlace en el perfil» (reel de Instagram y TikTok)
-# Los dos: 1080x1920, 30 fps, 38,9 s, H.264 + AAC, con la voz y la música dentro.
+# Los dos: 1080x1920, 30 fps, 31,1 s (todo a 1,25×), H.264 + AAC, con la voz y la música dentro.
 # Y en revision/, los PNG de comprobación: uno por escena y versión, y el cierre con las zonas
 # seguras dibujadas encima.
 # Uso, desde cualquier sitio: bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh [salida]
@@ -24,7 +24,7 @@ bash "$R/piezas/historias-animadas/construir.sh" >/dev/null
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la historia.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version historia' EXIT
 # Un instante por escena: cuando ya está todo dentro y nada se mueve.
-ESCENAS="0.00:0-el-logo 2.30:0-el-logo-y-la-linea 7.65:1-tu-eliges 12.05:2-el-plan 16.15:3-paseos-y-museos 20.85:4-sin-cobertura 25.25:5-cuatro-voces 28.55:6-los-gastos 33.40:7-lugares 38.00:8-el-cierre"
+ESCENAS="0.00:0-el-logo 1.84:0-el-logo-y-la-linea 6.12:1-tu-eliges 9.64:2-el-plan 12.92:3-paseos-y-museos 16.68:4-sin-cobertura 20.20:5-cuatro-voces 22.84:6-los-gastos 26.72:7-lugares 30.40:8-el-cierre"
 for V in ${VERSIONES:-historia reel}; do
   version "$V"
   ( cd "$D" && $HF check --at-transitions 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -E "Check (passed|failed)|✗|⚠|WCAG" ) | tee /tmp/trazo-check.txt

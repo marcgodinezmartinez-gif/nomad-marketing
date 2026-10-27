@@ -131,7 +131,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="lanzamiento-trazo" data-start="0"
-         data-width="1080" data-height="1920" data-duration="38.9333">
+         data-width="1080" data-height="1920" data-duration="31.1333">
 
       <!-- LO DE DEBAJO: el tramo de la l&iacute;nea que ensarta las opciones (pasa por detr&aacute;s de ellas, como un
            collar) y el mapa de Lugares. -->
@@ -278,7 +278,7 @@
 
       <!-- El sonido, hecho aparte (mezclar.sh): la m&uacute;sica de Lyria y los tic, a -14 LUFS. Va aqu&iacute; para
            que la vista previa suene; el m&aacute;ster se vuelve a montar con este mismo fichero (README.md). -->
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="38.9333"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.1333"></audio>
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes (las medidas de las
@@ -300,8 +300,12 @@
         // tal cual). Las animaciones no se reescriben: s&oacute;lo van m&aacute;s despacio donde la frase es m&aacute;s larga, de
         // &times;1,25 en el cierre a &times;2,16 en &laquo;T&uacute; eliges&raquo;. Las frases empiezan 0,25 s despu&eacute;s de su corte
         // (mezclar.sh): si se mueve un corte aqu&iacute;, se mueve all&iacute;.
+        // Y TODO a VELOCIDAD (el due&ntilde;o, 27-oct: &laquo;se oye muy lento, hay que ponerlo a 1,25&times;&raquo;). Los fotogramas de
+        // MAPA son los de la voz a 1&times;; aqu&iacute; se dividen entre VELOCIDAD y se redondean a un fotograma entero, y
+        // mezclar.sh acelera la voz y la m&uacute;sica lo mismo (sin cambiar el tono). Si cambia, cambia en los dos sitios.
+        var VELOCIDAD = 1.25;
         var MAPA = [[0, 0], [T1, 72], [T2, 234], [T3, 365], [T4, 501], [T5, 629], [T6, 760], [T7, 859], [T8, 1006], [T8 + 1.2, 1042], [FIN, 1168]]
-          .map(function (p) { return [p[0], p[1] / FPS]; });
+          .map(function (p) { return [p[0], Math.round(p[1] / VELOCIDAD) / FPS]; });
         function interpola(t, i, j) {
           for (var k = 1; k < MAPA.length; k++) {
             if (t <= MAPA[k][i] || k === MAPA.length - 1) { var p = MAPA[k - 1], q = MAPA[k]; return p[j] + (q[j] - p[j]) * (t - p[i]) / (q[i] - p[i]); }
@@ -311,8 +315,10 @@
         function viejo(t) { return interpola(t, 1, 0); }
         // Lo que tiene que caer en una palabra se escribe en el tiempo del v&iacute;deo final, medido sobre la toma:
         // cada opci&oacute;n se elige cuando la voz la nombra (&laquo;a d&oacute;nde vas&raquo;, &laquo;cu&aacute;ntos d&iacute;as&raquo;, &laquo;c&oacute;mo te gusta
-        // viajar&raquo;) y Kore se queda elegida justo antes de &laquo;Esta, por ejemplo&raquo;.
-        var TELIGE = [3.55, 5.0, 6.15, 6.5, 6.95].map(viejo), TKORE = viejo(23.9);
+        // viajar&raquo;) y Kore se queda elegida justo antes de &laquo;Esta, por ejemplo&raquo;. Los segundos son los de la voz a
+        // 1&times; (los que se midieron); se dividen entre VELOCIDAD.
+        function aVelocidad(t) { return viejo(t / VELOCIDAD); }
+        var TELIGE = [3.55, 5.0, 6.15, 6.5, 6.95].map(aVelocidad), TKORE = aVelocidad(23.9);
         var IN = { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" };
         var ARR = { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" };
         var RAPIDO = { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" };

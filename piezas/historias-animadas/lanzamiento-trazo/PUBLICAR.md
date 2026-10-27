@@ -10,7 +10,8 @@ en los pies.
 
 **Y ahora con voz** (27-oct, la opción A que elegiste): Kore, la misma voz de la app, cuenta cada
 apartado mientras se dibuja, y debajo va una música nueva, tranquila, de piano y cuerdas, muy por
-debajo de la voz. Sin «tic». Cada escena dura lo que su frase, así que el vídeo pasa de 25,8 a 38,9 s.
+debajo de la voz. Sin «tic». Cada escena dura lo que su frase, y todo va a 1,25× (voz, música y dibujo, sin cambiar el tono de la
+voz), como pediste: el vídeo dura 31,1 s.
 Lo que dice Kore:
 
 > Esto es Nomad. · Le dices a dónde vas, cuántos días y cómo te gusta viajar. · Y te escribe el viaje
@@ -32,7 +33,7 @@ Cuatro ficheros:
 - `nomad-trazo-limpia-1080x1920.mp4`: sólo si hace falta (TikTok sin el campo «Sitio web», o una
   historia promocionada). Acaba sin flecha y sin texto.
 
-Los vídeos duran 38,9 s y ya llevan la voz y la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
+Los vídeos duran 31,1 s y ya llevan la voz y la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
 **No los mandes por WhatsApp**: los comprime y la letra pequeña se emborrona.
 
 **Tres cosas que valen para todo:**
@@ -158,7 +159,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 **Súbela desde el carrete, no compartas el reel.** Compartido, el reel se ve con un toque y no lleva
 enlace. Subida aparte, lleva el adhesivo.
 
-1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 38,9 s: cabe en una sola (el límite es 60).
+1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 31,1 s: cabe en una sola (el límite es 60).
 2. **Adhesivos** → **Enlace** → pega `https://apps.apple.com/app/id6797973945` (o el de
    `ct=ig-historia-anuncio` si tienes el `pt`) y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
 3. **Colócalo abajo, donde apuntan las flechas**: más o menos a un 80 % de la altura, justo encima de

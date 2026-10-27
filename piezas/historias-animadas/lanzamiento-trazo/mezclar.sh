@@ -20,8 +20,12 @@
 # propia pieza. Así el final de la pista (su último acorde, que se apaga solo) cae en el cierre.
 set -e
 cd "$(dirname "$0")/assets"
-DUR=38.9333
-# Dónde empieza cada frase, en segundos del vídeo final.
+# TODO A 1,25× (el dueño, 27-oct: «se oye muy lento, hay que ponerlo a 1,25×»): la voz y la música se
+# aceleran con rubberband, que no cambia el tono, y el vídeo lo mismo (VELOCIDAD en index.html). Los
+# tiempos de aquí se escriben a 1× y se dividen entre VEL.
+VEL=1.25
+DUR=31.1333
+# Dónde empieza cada frase, en segundos del vídeo a 1×.
 EMPIEZA=(0.25 2.65 8.05 12.4167 16.95 21.2167 25.5833 28.8833 33.7333)
 T=$(mktemp -d)
 trap 'rm -rf "$T"' EXIT
@@ -33,12 +37,15 @@ trap 'rm -rf "$T"' EXIT
 # salió la primera versión con voz, con «Esto es Nomad» sin sus últimos 0,23 s («Nom…», lo oyó el
 # dueño) y la frase de los paseos sin 0,34. Reproducido con dos tonos: sin apad, el de 1,76 s puesto en
 # 0,3 acaba en 1,84; con apad, en 2,06. La comprobación va al final de este script.
+# La aceleración va en su propia pasada, toma a toma: puesto dentro del grafo grande, rubberband dejaba
+# ffmpeg girando sin acabar (más de cinco minutos al 100 %, 27-oct).
 ENTRADAS=""; FILTRO=""; MEZCLA=""
 for i in 1 2 3 4 5 6 7 8 9; do
+  ffmpeg -v error -y -i voz/f$i.flac -af "rubberband=tempo=$VEL" -c:a pcm_s24le "$T/f$i.wav"
   I=$(ffmpeg -hide_banner -i voz/f$i.flac -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
   GAN=$(echo "-18 - ($I)" | bc -l)
-  MS=$(echo "${EMPIEZA[$((i-1))]} * 1000 / 1" | bc)
-  ENTRADAS="$ENTRADAS -i voz/f$i.flac"
+  MS=$(echo "${EMPIEZA[$((i-1))]} * 1000 / $VEL / 1" | bc)
+  ENTRADAS="$ENTRADAS -i $T/f$i.wav"
   FILTRO="$FILTRO[$((i-1)):a]highpass=f=80,volume=${GAN}dB,acompressor=threshold=-24dB:ratio=2.5:attack=8:release=160:makeup=1,apad=pad_dur=1,adelay=$MS[v$i];"
   MEZCLA="$MEZCLA[v$i]"
 done
@@ -46,14 +53,16 @@ ffmpeg -v error -y $ENTRADAS -filter_complex "${FILTRO}${MEZCLA}amix=inputs=9:no
   -map "[voz]" -ac 1 -c:a pcm_s24le "$T/voz.wav"
 # Que ninguna frase llegue cortada: los 50 ms de antes de su fundido final tienen que sonar en la pista
 # de voz (un corte deja ahí ceros exactos). Si no, se para.
-python3 - "$T/voz.wav" "${EMPIEZA[@]}" <<'PY'
+python3 - "$T/voz.wav" "$VEL" "${EMPIEZA[@]}" <<'PY'
 import subprocess, sys, numpy as np
 sr = 48000
 v = np.frombuffer(subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', sys.argv[1], '-f', 'f32le', '-ac', '1', '-ar', str(sr), '-'],
                                  capture_output=True).stdout, np.float32)
 mal = []
-for i, t0 in enumerate(map(float, sys.argv[2:]), 1):
-    d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'voz/f{i}.flac'],
+vel = float(sys.argv[2])
+for i, t0 in enumerate(map(float, sys.argv[3:]), 1):
+    t0 /= vel
+    d = 1 / vel * float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'voz/f{i}.flac'],
                              capture_output=True, text=True).stdout)
     x = v[int((t0 + d - 0.10) * sr):int((t0 + d - 0.05) * sr)]
     db = 20 * np.log10(np.sqrt(np.mean(x.astype(np.float64) ** 2)) + 1e-12)
@@ -68,15 +77,17 @@ ffmpeg -v error -y -i musica-calma.mp3 -filter_complex "
 [0:a]aresample=48000,asplit=2[a][b];
 [a]atrim=0:30.5,asetpts=PTS-STARTPTS[a1];
 [b]atrim=start=47.72,asetpts=PTS-STARTPTS[b1];
-[a1][b1]acrossfade=d=2:c1=qsin:c2=qsin,afade=t=in:d=0.03,apad,atrim=0:$DUR,afade=t=out:st=$(echo "$DUR - 0.8" | bc -l):d=0.8[m]" \
-  -map "[m]" -ac 2 -c:a pcm_s24le "$T/mus0.wav"
+[a1][b1]acrossfade=d=2:c1=qsin:c2=qsin[m]" \
+  -map "[m]" -ac 2 -c:a pcm_s24le "$T/mus1.wav"
+ffmpeg -v error -y -i "$T/mus1.wav" -af "rubberband=tempo=$VEL,afade=t=in:d=0.03,apad,atrim=0:$DUR,afade=t=out:st=$(echo "$DUR - 0.8" | bc -l):d=0.8" \
+  -ac 2 -c:a pcm_s24le "$T/mus0.wav"
 IM=$(ffmpeg -hide_banner -i "$T/mus0.wav" -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
 ffmpeg -v error -y -i "$T/mus0.wav" -i "$T/voz.wav" -filter_complex "
 [0:a]volume=$(echo "-33 - ($IM)" | bc -l)dB[mus];
 [1:a]asplit=2[v1][sc];
 [mus][sc]sidechaincompress=threshold=0.04:ratio=3:attack=60:release=550[dk];
 [v1]pan=stereo|c0=c0|c1=c0[vs];
-[dk][vs]amix=inputs=2:normalize=0,alimiter=limit=0.7:attack=3:release=60:level=false[mx]" \
+[dk][vs]amix=inputs=2:normalize=0,alimiter=limit=0.28:attack=3:release=60:level=false[mx]" \
   -map "[mx]" -c:a pcm_s24le "$T/mezcla.wav"
 
 # loudnorm en dos pasadas a -16 LUFS integrados y -1,5 dBTP, y LINEAL: una ganancia fija. Si la
@@ -87,10 +98,10 @@ g() { echo "$M" | python3 -c "import json,sys;print(json.load(sys.stdin)['$1'])"
 LN="loudnorm=I=-16:TP=-1.5:LRA=20:measured_I=$(g input_i):measured_TP=$(g input_tp):measured_LRA=$(g input_lra):measured_thresh=$(g input_thresh):offset=$(g target_offset):linear=true"
 TIPO=$(ffmpeg -hide_banner -i "$T/mezcla.wav" -af "$LN:print_format=json" -f null - 2>&1 | sed -n '/^{/,/^}/p' \
   | python3 -c "import json,sys;print(json.load(sys.stdin)['normalization_type'])")
+if [ -n "$PISTAS" ]; then mkdir -p "$PISTAS" && cp "$T/voz.wav" "$T/mus0.wav" "$T/mezcla.wav" "$PISTAS/"; fi
 if [ "$TIPO" != "linear" ]; then
   echo "loudnorm no queda lineal ($TIPO): baja el limit del alimiter" >&2; exit 1
 fi
 echo "loudnorm: $TIPO (entrada $(g input_i) LUFS, $(g input_tp) dBTP)"
 ffmpeg -v error -y -i "$T/mezcla.wav" -af "$LN,aresample=48000" -ar 48000 -ac 2 -c:a aac -b:a 256k sonido.m4a
-if [ -n "$PISTAS" ]; then mkdir -p "$PISTAS" && cp "$T/voz.wav" "$T/mus0.wav" "$T/mezcla.wav" "$PISTAS/"; fi
 ffmpeg -hide_banner -i sonido.m4a -af ebur128=peak=true -f null - 2>&1 | grep -E "^\s+(I|Peak|LRA):" | tr -s ' '
