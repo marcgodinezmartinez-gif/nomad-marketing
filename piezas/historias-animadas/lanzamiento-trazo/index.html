@@ -152,7 +152,7 @@
 
       <svg id="trazos" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path id="onda" stroke="#0F766E" stroke-width="10" />
-        <path id="r1" stroke="#0F766E" stroke-width="10" d="M900,1030 C900,1150 420,1180 250,1010" />
+        <path id="r1" stroke="#0F766E" stroke-width="10" d="M890,1030 C890,1150 420,1180 250,1010" />
         <path id="r2" stroke="#0F766E" stroke-width="10" d="M250,1010 C250,890 830,900 830,780" />
         <path id="r3" stroke="#0F766E" stroke-width="10" d="M830,780 C830,660 230,720 230,590" />
         <path id="h3" class="hebra" stroke="#0F766E" stroke-opacity=".4" stroke-width="8" />
@@ -236,9 +236,9 @@
         // &mdash;&mdash; LA ONDA: una funci&oacute;n del tiempo. Una envolvente sim&eacute;trica (una campana que respira) por
         // dos senos que corren, como la forma de onda de una voz: sin picos sueltos. A(t) late en las
         // notas fuertes de la escena 2. Desde el corte de 5,17 NO se aplana: sigue viva mientras se
-        // recoge desde la izquierda, y su punta derecha (900,1030), que no se mueve nunca, es donde
+        // recoge desde la izquierda, y su punta derecha (890,1030), que no se mueve nunca, es donde
         // nace la ruta. Cada fotograma lleva el mismo n&uacute;mero de puntos.
-        var X0 = 180, X1 = 900, Y = 1030, N = 180, FPS = 30;
+        var X0 = 190, X1 = 890, Y = 1030, N = 180, FPS = 30;
         function amplitud(t) {
           var a = 1;
           LATIDOS.forEach(function (tb) { if (t >= tb) a += 0.45 * Math.exp(-(t - tb) / 0.14); });

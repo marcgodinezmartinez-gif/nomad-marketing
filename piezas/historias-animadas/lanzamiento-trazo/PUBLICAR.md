@@ -16,9 +16,12 @@ Los vídeos duran 17,5 s y ya llevan la música. Pásalos al iPhone por AirDrop 
 **Tres cosas que valen para todo:**
 
 1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva la suya, cuadrada con lo que
-   se ve: las barras que caen, los días de la ruta y el golpe del cierre.
-2. **Marca la etiqueta de IA en cada publicación.** La música está generada con IA (Lyria, de Google).
-   Lo demás (el dibujo, los textos y los «tic») no lleva IA.
+   se ve: las barras que caen, los cortes, los días de la ruta, el precio y el golpe del cierre.
+   **Escúchala antes en el altavoz del iPhone**, sin auriculares: está mezclada para que el precio y
+   el cierre se oigan ahí (`README.md`, «La música»). Si no te gusta, se pide otra toma.
+2. **Marca la etiqueta de IA en cada publicación.** La música está generada con IA (Lyria, de Google);
+   por eso se marca. Los «tic» y los dos acentos del precio y del cierre se sintetizan en
+   `mezclar.sh`, y el resto está dibujado en código: no sale de un generador de imagen, vídeo ni voz.
 3. **Antes de pagar una promoción, mira la pantalla de pago.** Si aparece «Comisión de Apple», cancela
    y promociona desde el navegador o desde la app Meta Ads Manager (AGENTS.md).
 
@@ -33,12 +36,22 @@ Instagram y de TikTok. Antes de publicar:
 1. **Historia de prueba**: sube cualquier foto como historia **sólo para Mejores amigos** (y que en la
    lista no haya nadie, o sólo tú), ponle el adhesivo de enlace del paso 2 y tócalo desde tu iPhone.
    Tiene que abrirse la App Store en la ficha de «Nomad: guía de viajes». Bórrala después.
-2. **La bio de Instagram**: toca el enlace de tu perfil desde el iPhone. Lo mismo.
+2. **La bio de Instagram**: primero, pon el enlace. El reel dice «Enlace en el perfil», así que el
+   enlace de la bio tiene que llevar a la tienda: **Editar perfil** → **Enlaces** → el de la ficha,
+   `https://apps.apple.com/app/id6797973945` (o el de `ct=ig-bio`, si ya tienes el `pt`). Hoy la bio
+   lleva `travelsnomad.com` a secas, que fue decisión tuya antes de la tienda
+   (`campana/INSTAGRAM-ARRANQUE.md`, #12): desde ahí son dos toques hasta la ficha. Si prefieres
+   `travelsnomad.com/app`, también abre la tienda en un iPhone, pero **no mide** (pierde el `pt` y el
+   `ct`, #14). Después, toca el enlace de tu perfil desde el iPhone: tiene que abrirse la ficha.
 3. **La bio de TikTok**, si ya tienes el campo «Sitio web» (paso 3).
 
 Si en alguno se queda en blanco o no abre la tienda: en esa pantalla, **⋯ → Abrir en el navegador
 externo** sí la abre. Apunta qué pasó en la issue #13; si falla en los tres, no digas «toca y se abre»
 en ningún sitio.
+
+Y una pregunta antes de subirlo: **«Pronto en Android» va dentro del vídeo**, y una vez publicado no se
+cambia. En #13 sigue abierta la casilla «¿Android sale pronto de verdad?». Si puede tardar meses,
+dilo antes: se cambia a «En camino para Android» y se vuelve a renderizar en unos minutos.
 
 Y comprueba la bio: dice que ya está en la App Store para iPhone y Android pronto, y **no** dice
 «Apúntate» ni «lista de espera». En TikTok: **Editar perfil** → **Biografía**:
@@ -47,20 +60,21 @@ Y comprueba la bio: dice que ya está en la App Store para iPhone y Android pron
 ## Para poder medirlo: el `pt` (opcional, pero sin él no se mide)
 
 Con `https://apps.apple.com/app/id6797973945` la gente llega a la ficha, pero **App Store Connect no
-sabrá de dónde vino**. Para saberlo hace falta tu **token de proveedor** (`pt`): App Store Connect → la
-app → **Analítica** → **Adquisición** → **Campañas** → **+** (al generar un enlace sale dentro).
-Con él, usa sólo **tres** campañas, para que lleguen antes a las 5 primeras descargas que Apple pide
-para enseñar una:
+sabrá de dónde vino**. Para saberlo hace falta un **enlace de campaña**: App Store Connect → la app →
+**Analítica** → **Adquisición** → **Campañas** → **+**. **Copia tal cual el enlace que te da** (lleva
+tu token de proveedor, `pt`, y la forma de Apple: `…/app/apple-store/id6797973945?pt=…&ct=…&mt=8`) y
+cambia sólo el `ct`. No lo escribas a mano. Usa sólo **tres** campañas, para que lleguen antes a las
+5 primeras descargas que Apple pide para enseñar una, con los nombres de #13 y #14:
 
-| dónde | enlace |
+| dónde | `ct` |
 |---|---|
-| el adhesivo de la historia | `https://apps.apple.com/app/id6797973945?pt=TU_TOKEN&ct=ig-historia` |
-| la bio de Instagram | `https://apps.apple.com/app/id6797973945?pt=TU_TOKEN&ct=ig-bio` |
-| la bio de TikTok | `https://apps.apple.com/app/id6797973945?pt=TU_TOKEN&ct=tiktok-bio` |
+| el adhesivo de la historia | `ig-historia-anuncio` |
+| la bio de Instagram | `ig-bio` |
+| la bio de TikTok | `tt-bio` |
 
 **No uses `travelsnomad.com/app`** para medir: salta a la tienda y por el camino pierde el `pt`, el
-`ct` y el UTM (issue #14). Y ojo: este enlace, abierto en un Android, lleva a la ficha web de la tienda
-de EE. UU., donde no se puede instalar nada. Por eso el vídeo dice «Pronto en Android».
+`ct` y el UTM (issue #14). Y ojo: este enlace, abierto en un Android, lleva a la ficha web de la App
+Store, donde desde un Android no se puede instalar nada. Por eso el vídeo dice «Pronto en Android».
 
 ---
 
@@ -100,7 +114,7 @@ El enlace, en la bio.
 **Comentario para fijar** (Instagram y TikTok):
 
 ```
-Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono verde. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos el día que salga.
+Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono crema con la marca verde. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos el día que salga.
 ```
 
 ## 2. Instagram: la historia (@app.nomad)
@@ -109,8 +123,8 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 enlace. Subida aparte, lleva el adhesivo.
 
 1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 17,5 s: cabe en una sola.
-2. **Adhesivos** → **Enlace** → pega `https://apps.apple.com/app/id6797973945` (o el de `ct=ig-historia`
-   si tienes el `pt`) y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
+2. **Adhesivos** → **Enlace** → pega `https://apps.apple.com/app/id6797973945` (o el de
+   `ct=ig-historia-anuncio` si tienes el `pt`) y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
 3. **Colócalo abajo, donde apuntan las flechas**: más o menos a un 80 % de la altura, justo encima de
    «Enviar mensaje». El vídeo deja esa franja libre todo el rato; en el cierre queda debajo de la
    letra pequeña de Apple y de las flechas. Déjalo pequeño y **que no tape la insignia**.
@@ -119,13 +133,16 @@ enlace. Subida aparte, lleva el adhesivo.
 
 Si la quieres **promocionar**: una historia promocionada no admite el adhesivo. Sube aparte
 `nomad-trazo-limpia-1080x1920.mp4` y pon el enlace como botón al crear el anuncio, desde el navegador
-o desde Meta Ads Manager.
+o desde Meta Ads Manager. **No es un paso de un minuto**: el botón que lleva a la App Store
+(«Instalar», «Descargar») sólo existe con el objetivo **«Promoción de la app»**, y ese objetivo pide
+dar de alta la app en **Meta for Developers**. La app no lleva el SDK de Meta, así que el anuncio sólo
+se podrá optimizar para clics. Sin eso hecho, no se promociona la historia.
 
 ## 3. TikTok
 
 **Antes, una vez:** pasa la cuenta a **cuenta de empresa**: Perfil → ☰ → **Ajustes y privacidad** →
 **Cuenta** → **Cambiar a cuenta de empresa** → categoría «Viajes» (o «Apps» si la hay). Después,
-Perfil → **Editar perfil** → **Sitio web**: el enlace de la App Store (con `ct=tiktok-bio` si tienes el
+Perfil → **Editar perfil** → **Sitio web**: el enlace de la App Store (con `ct=tt-bio` si tienes el
 `pt`).
 
 **Si el campo «Sitio web» no aparece** (TikTok lo da con 1.000 seguidores o con una cuenta de empresa
@@ -137,7 +154,7 @@ explica cómo encontrarla.
 2. **No añadas sonido.** Si te sugiere uno, quítalo: el vídeo ya trae el suyo.
 3. **Siguiente**. Pega el pie (abajo).
 4. **Portada**: si te deja subir una imagen, `nomad-trazo-portada.jpg`. Si no, deja el primer fotograma:
-   ya lleva la marca, «¿Sin cobertura?», las barras y la onda.
+   ya lleva «Ya en la App Store, para iPhone», «¿Sin cobertura?», las barras y la onda.
 5. **Más opciones**:
    - activa **Contenido generado por IA** (por la música);
    - activa **Divulgar contenido comercial** → marca **Tu marca**.
