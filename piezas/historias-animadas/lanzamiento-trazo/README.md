@@ -157,9 +157,14 @@ Las de la primera versión, sin cambios:
 
 Todo centrado en x=540 y nada a la derecha de x=900 (la columna de los botones de TikTok e
 Instagram). Medido en los 774 fotogramas de cada versión, con lo que se aparta del papel (los dos, el
-blanco y el crema del cierre):
+blanco y el crema del cierre, más de 40 niveles; la trama de puntos del papel y las calles grises del
+mapa de Lugares quedan por debajo y no cuentan):
 
-ZONAS
+| versión | tinta, de arriba abajo | tinta, de izquierda a derecha | de y=1500 para abajo |
+|---|---|---|---|
+| historia | 288-1472 (lo más bajo, los chevrones al botar) | 185-895 | nada, en ningún fotograma |
+| reel | 288-1423 | 185-895 | nada |
+| limpia | 288-1423 | 185-895 | nada |
 
 En la historia, de 1500 para abajo no hay nada y la franja 1520-1700 queda para el adhesivo; el reel
 y la limpia, dentro de 230-1480. Comprobado también sobre los fotogramas con las zonas pintadas encima:
@@ -231,7 +236,7 @@ generada con IA y se etiqueta al publicar.**
 ```bash
 bash piezas/historias-animadas/construir.sh                       # las fuentes y mark.png
 bash piezas/historias-animadas/lanzamiento-trazo/mezclar.sh       # assets/sonido.m4a (PISTAS=… para medir los tic)
-bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh     # historia y reel, y revision/ (~8 min cada una)
+bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh     # historia y reel, y revision/ (~2 min cada una)
 VERSIONES=limpia bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh
 bash piezas/historias-animadas/lanzamiento-trazo/portada.sh salida/nomad-trazo-portada.jpg
 ```
@@ -244,9 +249,14 @@ render leen el mismo `index.html`), se para si `hyperframes check --at-transitio
 poner el sonido medido encima del render sin recodificar y pasa `hyperframes clean` (el disco va
 justo). Al acabar deja `version.js` en «historia», que es la versionada. Los MP4 no se versionan.
 
-La puerta deja dos avisos que se han mirado y se aceptan: el día 2 del plan está 0,25 s en pantalla
-(«la lista se reescribe deprisa»: es el paso, no algo que leer), y «Ya en la App Store, para iPhone»
-sale de debajo del logo a los 1,87 s, pero sigue en la cabecera hasta el cierre.
+`hyperframes check --at-transitions` pasa (los 26 textos, con contraste WCAG AA), con tres clases de
+aviso que se han mirado y se aceptan (27-oct, la pasada final):
+
+- **los ocho renglones del día 2** (hora y plan) están entre 0,23 y 0,27 s en pantalla: es el paso del
+  día 1 al 3 («la lista se reescribe deprisa»), no algo que leer; los días 1 y 3 se quedan enteros;
+- **la marca sale dos veces** (`#logo` y la de la cabecera son el mismo PNG): es a propósito, el logo
+  vuela a la cabecera y en el fotograma en que llega se cambia por la de la cabecera;
+- **el fichero es largo** (la puerta cuenta 673 líneas): es una sola línea de tiempo, a propósito.
 
 Lo que hay que saber al tocar `index.html`:
 
@@ -344,7 +354,10 @@ Tres revisiones de la versión 2 (`d23b281`): diseño, reglas y verdad, y técni
 - **«la App Store» frente a «el App Store»**: se deja como la casa; lo decide el dueño.
 - **La excepción de la música dentro** de AGENTS.md nombra `lanzamiento-ios/`, no este vídeo: lo confirma
   el dueño en #15 antes de publicar (`PUBLICAR.md`, punto 1). No se ha tocado AGENTS.md.
-- **Cuatro tramos congelados de 0,5 a 0,9 s**: ahora latidos en las pausas. FROZEN
+- **Cuatro tramos congelados de 0,5 a 0,9 s**: ahora latidos en las pausas. Medido en los 774 fotogramas
+  de cada versión (a 270×480, cambio de más de 2 niveles entre dos seguidos): el tramo quieto más largo
+  es de **0,23 s** (8,67-8,90, con el museo recién hecho y antes de que laten las paradas), y no hay otro
+  de más de 0,2 s.
 - **Seis «tic» que no se oían**: arriba, en «La música».
 - **Los latidos del cierre «en cada tiempo»** sin tiempos que se oigan: el texto dice ahora que van al
   tempo, sobre el acorde que se apaga.
