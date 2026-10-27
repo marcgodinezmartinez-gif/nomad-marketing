@@ -1,36 +1,38 @@
 #!/bin/bash
-# El sonido de «Un trazo» (27-oct): la música de Lyria montada para que su golpe caiga en el
-# cierre, los «tic» y dos acentos sintetizados aquí mismo, y todo a -14 LUFS. Escribe
+# El sonido de «Un trazo», versión 2 (27-oct): la música de Lyria montada para que su golpe caiga en
+# el cierre, los «tic» y el acorde del cierre sintetizados aquí mismo, y todo a -14 LUFS. Escribe
 # assets/sonido.m4a, que es lo que se pone encima del render (README.md, «Para rehacerla»).
 #
-# LA MÚSICA (assets/musica-lyria.mp3, la toma 3 de las tres que se pidieron; README.md, «La
-# música»): 30,77 s, en re mayor, unos 96 BPM. Medido con librosa y con los arranques por
-# bandas, no con `hyperframes beats`, que le dio 128 BPM con confianza baja:
-#   - 24,04 s: entra el bajo y cambia la sección (la «B» de `hyperframes audio --only sections`
-#     empieza en 24,065). Es el tiempo fuerte más claro de la pista.
-#   - 26,57 s: el golpe, un compás después (2,53 s); de ahí se apaga sola hasta 30,77.
-# Se empieza en 14,04, así que el bajo cae en el 10,00 del vídeo (el precio) y el golpe en el
-# 12,53 (el cierre). Un compás son 2,5 s, y la nota más fuerte de cada uno cae en 0,18 + 2,5k:
-# ahí van los cortes del index.html (2,67 / 5,17 / 7,67). Las corcheas, en 0,025 + 0,3125k.
+# LA MÚSICA (assets/musica-lyria.mp3, la toma 2 de las tres que se pidieron el 27-oct; README.md, «La
+# música»): 29,28 s, en si bemol mayor, 96 BPM. Medido con librosa (arranques por bandas y la fase de
+# la rejilla de corcheas), no con `hyperframes beats`:
+#   - la rejilla de corcheas cae en 0,25 + 0,3125k;
+#   - 12,75 s: entra la batería (el bombo); 15,76-15,88 s: entra el bajo, grave y lleno;
+#   - 26,50 s: el golpe, con el acorde entero; de ahí se apaga sola en un segundo y medio.
+# Se empieza en 5,25, así que la rejilla del vídeo es 0,3125k, la batería cae en el 7,50 (los paseos),
+# el bajo en el 10,5 (la audioguía) y el golpe en el 21,25 (el cierre).
 #
-# EL BAJO Y EL GOLPE SON SUBGRAVE (revisión del 27-oct): el golpe tiene el pico en 37 Hz, un re,
-# y el 90 % de su energía por debajo de 62 Hz. El altavoz de un iPhone no lo da, así que en el
-# móvil el precio y el cierre sonaban como si la música se apagara. Por eso, desde el 10,0:
-#   - un paso alto a 30 Hz (quita también la continua de la sección B) y un estante de -7 dB
-#     por debajo de 120 Hz, y los medios a ganancia 1 (antes se bajaba todo 4,4 dB);
-#   - un acento que se oye en el móvil: un acorde de re mayor sintetizado (re, fa#, la, con
-#     armónicos hasta 3 kHz) en el 12,53, y uno corto y suave (re y la) en el 10,00.
-# La sección A va 2,3 dB más fuerte por la izquierda (viene así de Lyria): se compensa sólo ahí.
+# EL BAJO Y EL BOMBO SON SUBGRAVE (como en la primera versión): el altavoz de un iPhone no los da, y
+# lo que no se oye ahí no golpea. Por eso, desde el 7,5: un paso alto a 30 Hz y un estante de -6 dB por
+# debajo de 120 Hz. Y el golpe del cierre lleva encima un acorde de si bemol mayor sintetizado, con
+# armónicos hasta 3 kHz y un chasquido brillante, que se oye en el móvil y que, además, alarga la cola:
+# la de la toma dura un segundo y medio y el cierre dura cuatro y medio.
 #
-# LOS TIC: un seno corto que se apaga, sin IA. Los tiempos son los del index.html (BARRAS, DIAS,
-# LLEGAN): si se mueve uno, se mueve en los dos sitios.
-#   - las cuatro barras de cobertura que caen: 0,3375 / 0,65 / 0,9625 / 1,275, cada uno más grave;
-#   - los tres días de la ruta: 5,65 / 6,275 / 6,90;
-#   - las cuatro personas, más suaves, cuando cada línea llega a su cabeza: 8,15 / 8,4625 / 8,775 / 9,0875.
+# LOS TIC: un seno corto que se apaga, sin IA, en notas de si bemol mayor. Los tiempos son los del
+# index.html (las corcheas E(k) = 0,3125k): si se mueve uno, se mueve en los dos sitios.
+#   - nace la línea, del logo: E(1);
+#   - las siete opciones que se eligen: E(9)…E(15), subiendo la escala;
+#   - los cuatro planes del día: E(18)…E(21);
+#   - las tres paradas del paseo: E(25)…E(27);
+#   - las cuatro barras que caen: E(33), E(33,5), E(34), E(34,5), cada una más grave;
+#   - las cuatro voces que suenan, E(45)…E(48), y la elegida, E(49);
+#   - las cuatro personas del grupo: E(54)…E(57), más suaves;
+#   - las tres chinchetas de Lugares: E(62)…E(64).
 set -e
 cd "$(dirname "$0")/assets"
-DUR=17.5
-INICIO=14.04
+DUR=25.8
+INICIO=5.25
+e() { echo "0.3125*$1" | bc -l; }
 tic() {  # tiempo, frecuencia, amplitud, caída (s)
   echo "if(between(t,$1,$1+0.3),$3*min(1,(t-$1)/0.002)*sin(2*PI*$2*(t-$1))*exp(-(t-$1)/$4),0)"
 }
@@ -42,35 +44,37 @@ nota() {  # tiempo, frecuencia, amplitud, caída (s): cuatro armónicos, los alt
   echo "if(between(t,$1,$1+4.6),$p,0)"
 }
 E="0"
-for p in "0.3375 2200" "0.65 1850" "0.9625 1550" "1.275 1300"; do set -- $p; E="$E+$(tic $1 $2 0.30 0.020)"; done
-for t in 5.65 6.275 6.9; do E="$E+$(tic $t 1660 0.26 0.028)+$(tic $t 3320 0.08 0.012)"; done
-for t in 8.15 8.4625 8.775 9.0875; do E="$E+$(tic $t 990 0.16 0.035)"; done
-# El acento del precio (10,00): re y la, cortos.
+E="$E+$(tic $(e 1) 1174.66 0.16 0.030)"
+k=9; for f in 932.33 1046.50 1174.66 1244.51 1396.91 1567.98 1760.00; do E="$E+$(tic $(e $k) $f 0.22 0.022)"; k=$((k+1)); done
+for k in 18 19 20 21; do E="$E+$(tic $(e $k) 1396.91 0.20 0.026)+$(tic $(e $k) 2793.83 0.05 0.012)"; done
+for k in 25 26 27; do E="$E+$(tic $(e $k) 1174.66 0.20 0.026)"; done
+for p in "33 1864.66" "33.5 1567.98" "34 1396.91" "34.5 1174.66"; do set -- $p; E="$E+$(tic $(e $1) $2 0.28 0.020)"; done
+for k in 45 46 47 48; do E="$E+$(tic $(e $k) 1396.91 0.12 0.020)"; done
+E="$E+$(tic $(e 49) 1864.66 0.20 0.026)"
+for k in 54 55 56 57; do E="$E+$(tic $(e $k) 932.33 0.15 0.035)"; done
+k=62; for f in 1396.91 1567.98 1864.66; do E="$E+$(tic $(e $k) $f 0.22 0.024)"; k=$((k+1)); done
+# El del cierre (21,25): si bemol mayor abierto, del si bemol 3 al si bemol 5, y un chasquido brillante.
 G=${GOLPE:-1}
-E="$E+$(nota 10.0 587.33 $(echo "0.15*$G" | bc -l) 0.40)+$(nota 10.0 880 $(echo "0.09*$G" | bc -l) 0.32)"
-# El del cierre (12,53): re mayor abierto, del re4 al re6, y un chasquido brillante encima.
-for n in "293.66 0.16" "369.99 0.11" "440 0.12" "587.33 0.13" "880 0.07" "1174.66 0.05"; do
-  set -- $n; E="$E+$(nota 12.53 $1 $(echo "$2*$G" | bc -l) 1.30)"
+for n in "233.08 0.15" "293.66 0.12" "349.23 0.11" "466.16 0.13" "587.33 0.08" "698.46 0.06" "932.33 0.05"; do
+  set -- $n; E="$E+$(nota 21.25 $1 $(echo "$2*$G" | bc -l) 1.70)"
 done
-E="$E+$(tic 12.53 2349.3 $(echo "0.10*$G" | bc -l) 0.030)+$(tic 12.53 2960 $(echo "0.06*$G" | bc -l) 0.022)"
+E="$E+$(tic 21.25 2349.32 $(echo "0.10*$G" | bc -l) 0.030)+$(tic 21.25 2793.83 $(echo "0.06*$G" | bc -l) 0.022)"
 
-# La música: del 14,04 al final de la pista (16,73 s) y silencio hasta 17,5. Dos copias que se
-# cruzan en 20 ms en el 10,0: hasta ahí, la sección A con el balance corregido; desde ahí, la B
-# con el paso alto y el estante. El fundido acaba en 16,70, antes de que se acabe el fichero
-# (antes acababa en 17,5 y la cola se cortaba en seco en 16,73). 15 ms de entrada, sin chasquido.
+# La música: del 5,25 al final de la pista (24,03 s del vídeo) y silencio hasta 25,8. Dos copias que se
+# cruzan en 20 ms en el 7,5: hasta ahí, tal cual; desde ahí, con el estante. 15 ms de entrada, sin
+# chasquido, y un fundido de 0,6 s que acaba antes de que se acabe el fichero.
 ffmpeg -v error -y -i musica-lyria.mp3 -f lavfi -i "aevalsrc='$E':s=48000:d=$DUR" -filter_complex "
 [0:a]atrim=start=$INICIO,asetpts=PTS-STARTPTS,aresample=48000,apad,atrim=0:$DUR,highpass=f=30,asplit=2[ma][mb];
-[ma]pan=stereo|c0=0.876*c0|c1=1.141*c1,volume='if(lt(t,9.98),1,if(lt(t,10.0),1-(t-9.98)/0.02,0))':eval=frame[a1];
-[mb]lowshelf=f=120:g=-7,volume='if(lt(t,9.98),0,if(lt(t,10.0),(t-9.98)/0.02,1))':eval=frame[b1];
-[a1][b1]amix=inputs=2:normalize=0,afade=t=in:d=0.015,afade=t=out:st=15.4:d=1.3[mus];
+[ma]volume='if(lt(t,7.48),1,if(lt(t,7.5),1-(t-7.48)/0.02,0))':eval=frame[a1];
+[mb]lowshelf=f=120:g=-6,volume='if(lt(t,7.48),0,if(lt(t,7.5),(t-7.48)/0.02,1))':eval=frame[b1];
+[a1][b1]amix=inputs=2:normalize=0,afade=t=in:d=0.015,afade=t=out:st=23.35:d=0.6[mus];
 [1:a]pan=stereo|c0=c0|c1=c0[tics];
-[mus][tics]amix=inputs=2:normalize=0:duration=first,afade=t=out:st=16.6:d=0.8,alimiter=limit=0.72:level=false:attack=2:release=60:asc=1[mix]" \
+[mus][tics]amix=inputs=2:normalize=0:duration=first,afade=t=out:st=24.6:d=1.15,alimiter=limit=0.72:level=false:attack=2:release=60:asc=1[mix]" \
   -map "[mix]" -ar 48000 -ac 2 -c:a pcm_s24le /tmp/trazo-mezcla.wav
-# loudnorm en dos pasadas a -14 LUFS integrados y -1,5 dBTP, y LINEAL: una ganancia fija que deja
-# la mezcla como se ha escrito arriba. LRA=20 y no 11: con 11, el rango de esta mezcla bastaba para
-# que loudnorm se fuera al modo dinámico; en lineal el LRA no se usa para nada más. Si la ganancia
-# dejara el pico verdadero por encima de -1,5, loudnorm se pasaría al modo DINÁMICO sin avisar
-# (lanzamiento-ios/README.md): por eso el limitador de arriba deja sitio, y por eso se comprueba.
+# loudnorm en dos pasadas a -14 LUFS integrados y -1,5 dBTP, y LINEAL: una ganancia fija que deja la
+# mezcla como se ha escrito arriba. Si la ganancia dejara el pico verdadero por encima de -1,5,
+# loudnorm se pasaría al modo DINÁMICO sin avisar (lanzamiento-ios/README.md): por eso el limitador de
+# arriba deja sitio, y por eso se comprueba.
 M=$(ffmpeg -hide_banner -i /tmp/trazo-mezcla.wav -af loudnorm=I=-14:TP=-1.5:LRA=20:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
 g() { echo "$M" | python3 -c "import json,sys;print(json.load(sys.stdin)['$1'])"; }
 LN="loudnorm=I=-14:TP=-1.5:LRA=20:measured_I=$(g input_i):measured_TP=$(g input_tp):measured_LRA=$(g input_lra):measured_thresh=$(g input_thresh):offset=$(g target_offset):linear=true"

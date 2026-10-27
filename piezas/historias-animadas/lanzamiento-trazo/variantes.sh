@@ -1,9 +1,9 @@
 #!/bin/bash
-# Renderiza las dos versiones de «Un trazo» (27-oct) y sus fotogramas de revisión.
+# Renderiza las versiones de «Un trazo», versión 2 (27-oct), y sus fotogramas de revisión.
 # Escribe en <salida> (por defecto salida/ del repo):
 #   nomad-trazo-historia-1080x1920.mp4  con la flecha hacia el adhesivo de enlace
 #   nomad-trazo-reel-1080x1920.mp4      con «Enlace en el perfil» (reel de Instagram y TikTok)
-# Los dos: 1080x1920, 30 fps, 17,5 s, H.264 + AAC, la música dentro.
+# Los dos: 1080x1920, 30 fps, 25,8 s, H.264 + AAC, la música dentro.
 # Y en revision/, los PNG de comprobación: uno por escena y versión, y el cierre con las zonas
 # seguras dibujadas encima.
 # Uso, desde cualquier sitio: bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh [salida]
@@ -23,7 +23,7 @@ bash "$R/piezas/historias-animadas/construir.sh" >/dev/null
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la historia.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version historia' EXIT
 # Un instante por escena: cuando ya está todo dentro y nada se mueve.
-ESCENAS="1.40:1-la-senal-cae 4.30:2-sigue-sonando 7.20:3-el-viaje 9.60:4-el-grupo 12.20:5-el-precio 15.00:6-el-cierre"
+ESCENAS="0.00:0-el-logo 2.35:0-el-logo-y-la-linea 4.90:1-tu-eliges 7.20:2-el-plan 9.85:3-paseos-y-museos 13.40:4-sin-cobertura 15.90:5-cuatro-voces 18.45:6-los-gastos 20.95:7-lugares 24.50:8-el-cierre"
 for V in ${VERSIONES:-historia reel}; do
   version "$V"
   ( cd "$D" && $HF check --at-transitions 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -E "Check (passed|failed)|✗|⚠|WCAG" ) | tee /tmp/trazo-check.txt
@@ -38,7 +38,7 @@ for V in ${VERSIONES:-historia reel}; do
   done
   # El cierre con las zonas seguras encima (AGENTS.md): historia, texto entre 280 y 1500 y el
   # adhesivo de 1520 para abajo; reel, entre 230 y 1480, y la columna de botones a la derecha.
-  python3 - "$D/revision/$V-6-el-cierre.png" "$D/revision/$V-6-el-cierre-zonas.png" "$V" <<'PY'
+  python3 - "$D/revision/$V-8-el-cierre.png" "$D/revision/$V-8-el-cierre-zonas.png" "$V" <<'PY'
 import sys
 from PIL import Image, ImageDraw
 im = Image.open(sys.argv[1]).convert('RGBA'); v = sys.argv[3]
