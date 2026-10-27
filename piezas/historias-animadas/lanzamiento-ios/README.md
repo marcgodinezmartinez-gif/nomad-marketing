@@ -1,5 +1,9 @@
 # El anuncio del lanzamiento (24-oct)
 
+> **Rechazado por el dueño el 27-oct** (*«los recortes de la app se ven mal y reutilizamos vídeos de
+> cosas ya anunciadas»*). No se publica: lo sustituye `../lanzamiento-trazo/`, que se queda con su
+> cierre. Esto se guarda como registro y por lo que enseñó (la mezcla, la insignia, el cierre).
+
 Un vídeo de **24,6 s**, 1080×1920, con la música y la voz dentro, que vale tal cual para el
 reel, la historia y TikTok. Sale de lo que pidió el dueño al ver la idea de presentarse él
 («He hecho una app»): *«No me gusta la idea de promocionarla así. Quiero que lo montes tú de una

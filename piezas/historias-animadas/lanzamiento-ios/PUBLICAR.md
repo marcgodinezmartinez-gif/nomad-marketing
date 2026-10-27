@@ -1,5 +1,9 @@
 # Cómo publicar el anuncio del lanzamiento
 
+> **Rechazado por el dueño el 27-oct** (*«los recortes de la app se ven mal y reutilizamos vídeos de
+> cosas ya anunciadas»*). No se publica: lo sustituye `../lanzamiento-trazo/`, que se queda con su
+> cierre. Esto se guarda como registro y por lo que enseñó (la mezcla, la insignia, el cierre).
+
 Dos ficheros, y nada más que hacer con ellos:
 
 - `nomad-lanzamiento-1080x1920.mp4`: el vídeo. Dura 24,6 s y ya lleva la música y la voz. Es el
