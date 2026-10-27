@@ -1,5 +1,10 @@
 # Cómo publicar «Un trazo», el anuncio de que Nomad ya está en la App Store
 
+Versión 2 (27-oct), la que pediste al ver la primera: abre con el logo, del logo nace la línea, y la
+línea va contando cada apartado (lo que eliges al crear el viaje, el plan entero día a día, los paseos
+y museos con su audioguía, la audioguía sin cobertura y sus cuatro voces, los gastos divididos y
+Lugares) hasta el cierre que ya aprobaste. El precio no sale en el vídeo: va en los pies.
+
 Cuatro ficheros:
 
 - `nomad-trazo-reel-1080x1920.mp4`: el **reel** de Instagram y el vídeo de **TikTok**. Acaba con
@@ -10,18 +15,19 @@ Cuatro ficheros:
 - `nomad-trazo-limpia-1080x1920.mp4`: sólo si hace falta (TikTok sin el campo «Sitio web», o una
   historia promocionada). Acaba sin flecha y sin texto.
 
-Los vídeos duran 17,5 s y ya llevan la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
+Los vídeos duran 25,8 s y ya llevan la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
 **No los mandes por WhatsApp**: los comprime y la letra pequeña se emborrona.
 
 **Tres cosas que valen para todo:**
 
-1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva la suya, cuadrada con lo que
-   se ve: las barras que caen, los cortes, los días de la ruta, el precio y el golpe del cierre.
-   **Escúchala antes en el altavoz del iPhone**, sin auriculares: está mezclada para que el precio y
-   el cierre se oigan ahí (`README.md`, «La música»). Si no te gusta, se pide otra toma.
+1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva la suya, nueva y cuadrada con
+   lo que se ve: los cortes de escena, las opciones que se eligen, los planes del día, la batería que
+   entra con los paseos, las barras que caen, las voces, las chinchetas y el golpe del cierre.
+   **Escúchala antes en el altavoz del iPhone**, sin auriculares: está mezclada para que la batería, el
+   bajo y el cierre se oigan ahí (`README.md`, «La música»). Si no te gusta, se pide otra toma.
 2. **Marca la etiqueta de IA en cada publicación.** La música está generada con IA (Lyria, de Google);
-   por eso se marca. Los «tic» y los dos acentos del precio y del cierre se sintetizan en
-   `mezclar.sh`, y el resto está dibujado en código: no sale de un generador de imagen, vídeo ni voz.
+   por eso se marca. Los «tic» y el acorde del cierre se sintetizan en `mezclar.sh`, y el resto está
+   dibujado en código: no sale de un generador de imagen, vídeo ni voz.
 3. **Antes de pagar una promoción, mira la pantalla de pago.** Si aparece «Comisión de Apple», cancela
    y promociona desde el navegador o desde la app Meta Ads Manager (AGENTS.md).
 
@@ -96,9 +102,13 @@ Store, donde desde un Android no se puede instalar nada. Por eso el vídeo dice 
 **Pie del reel** (la primera línea es la que se ve antes del «más»):
 
 ```
-¿Sin cobertura? La audioguía sigue sonando. «Nomad: guía de viajes» ya está disponible para iPhone.
+«Nomad: guía de viajes» ya está en la App Store, para iPhone. Así funciona, de un trazo.
 
-Le dices a dónde vas y qué días, y te deja el viaje escrito: qué ver cada jornada y en qué orden. Después te lo cuenta parada a parada, con audioguías de paseos y museos que se descargan y suenan en modo avión. Y lleva las cuentas del grupo.
+Le dices a dónde vas, qué días, tu estilo, tu ritmo y tu presupuesto, y te escribe el plan entero, día a día: visitas, comidas y horas.
+
+Cada paseo y cada museo del plan lleva su audioguía. Las que descargas suenan en modo avión, y eliges entre cuatro voces.
+
+Apuntáis los gastos del grupo y la app los divide y os dice quién debe a quién. Y en Lugares guardas tus restaurantes y sitios de interés, en el mapa del viaje.
 
 Descargarla es gratis. Se paga por viaje, sin suscripción: desde 2,99 €. Una compra abre el viaje a todo el grupo.
 
@@ -106,7 +116,7 @@ Para iPhone con iOS 15.1 o superior. Android, pronto.
 
 El enlace, en la bio.
 
-¿Cuál sería tu primera escapada con ella?
+¿A dónde sería tu primer viaje con ella?
 
 #appdeviajes #viajar #viajes #audioguia #escapada
 ```
@@ -122,7 +132,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 **Súbela desde el carrete, no compartas el reel.** Compartido, el reel se ve con un toque y no lleva
 enlace. Subida aparte, lleva el adhesivo.
 
-1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 17,5 s: cabe en una sola.
+1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 25,8 s: cabe en una sola.
 2. **Adhesivos** → **Enlace** → pega `https://apps.apple.com/app/id6797973945` (o el de
    `ct=ig-historia-anuncio` si tienes el `pt`) y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
 3. **Colócalo abajo, donde apuntan las flechas**: más o menos a un 80 % de la altura, justo encima de
@@ -154,7 +164,7 @@ explica cómo encontrarla.
 2. **No añadas sonido.** Si te sugiere uno, quítalo: el vídeo ya trae el suyo.
 3. **Siguiente**. Pega el pie (abajo).
 4. **Portada**: si te deja subir una imagen, `nomad-trazo-portada.jpg`. Si no, deja el primer fotograma:
-   ya lleva «Ya en la App Store, para iPhone», «¿Sin cobertura?», las barras y la onda.
+   ya lleva el logo, «Nomad: guía de viajes» y «Ya en la App Store, para iPhone».
 5. **Más opciones**:
    - activa **Contenido generado por IA** (por la música);
    - activa **Divulgar contenido comercial** → marca **Tu marca**.
@@ -164,7 +174,7 @@ explica cómo encontrarla.
 **Pie de TikTok:**
 
 ```
-¿Sin cobertura? La audioguía de Nomad sigue sonando: se descarga y suena en modo avión. Antes, te deja el viaje escrito día a día. Se llama «Nomad: guía de viajes» y ya está disponible para iPhone. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción, y una compra vale para todo el grupo. Android, pronto. Enlace en el perfil.
+«Nomad: guía de viajes» ya está en la App Store, para iPhone. Eliges destino, días, estilo, ritmo y presupuesto, y te escribe el plan entero, día a día. Cada paseo y cada museo, con su audioguía: las descargadas suenan en modo avión, y hay cuatro voces. Los gastos del grupo, divididos, y tus restaurantes y sitios de interés, guardados en Lugares. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Android, pronto. Enlace en el perfil.
 
 #viajes #viajar #appdeviajes #audioguia #escapada
 ```
@@ -176,7 +186,8 @@ peninsular): primero el reel y en el mismo minuto la historia; TikTok, a la mism
 general, no un dato de la cuenta: si en Instagram, **Panel profesional → Estadísticas → Seguidores →
 Momentos de más actividad**, sale otra franja, usa ésa.
 
-**El anuncio de `lanzamiento-ios/` no se publica**: es el que se rechazó el 27-oct. Éste lo sustituye.
+**El anuncio de `lanzamiento-ios/` no se publica**: es el que se rechazó el 27-oct. **Ni la primera
+versión de «Un trazo»** (17,5 s, la que acababa en el precio): ésta la sustituye.
 
 ## Si algo falla
 
@@ -186,5 +197,10 @@ Momentos de más actividad**, sale otra franja, usa ésa.
 - **No encuentras la etiqueta de IA**: actualiza la app; Meta y TikTok la mueven de sitio.
 - **Te preguntan por Android**: «Todavía no. Pronto, pero sin fecha, y no vamos a inventarnos una.
   Síguenos y te avisamos el día que salga.»
+- **Te preguntan por las voces**: «Son cuatro: la del teléfono, que no necesita internet, y Kore, Puck y
+  Charon. Se escuchan antes de elegir. Para oír una de esas tres sin cobertura, descarga el audio del
+  tour antes de salir.»
+- **Te preguntan cuánto cuesta**: «Descargarla es gratis. El viaje se paga una vez, sin suscripción:
+  2,99 € hasta 3 días, 4,99 € de 4 a 7 y 6,99 € de 8 a 30. Una compra vale para todo el grupo.»
 - **Te preguntan por qué la insignia no se puede tocar**: es una imagen dentro del vídeo; en ninguna
   red se puede. El enlace está en el adhesivo de la historia y en la bio.
