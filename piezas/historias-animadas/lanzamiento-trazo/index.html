@@ -15,23 +15,27 @@
       .serif { font-family: 'Instrument Serif'; font-weight: 400; }
       .sans  { font-family: 'Instrument Sans'; }
 
-      /* UN TRAZO, VERSI&Oacute;N 2 (27-oct). Lo que pidi&oacute; el due&ntilde;o al ver la primera: abrir con el logo, que del
-         logo nazca la l&iacute;nea, y que la l&iacute;nea vaya contando cada apartado: lo que eliges al crear el
-         viaje, el plan entero que sale de ah&iacute;, los paseos y museos con su gu&iacute;a, la audiogu&iacute;a sin
-         cobertura y sus voces, los gastos divididos y Lugares. El cierre es el aprobado. Ni pantallas,
-         ni fotos, ni voz, ni precio. Decisiones, en README.md. Lo que hay que saber al tocar esto:
+      /* UN TRAZO, VERSI&Oacute;N 2 (27-oct), con los arreglos de la revisi&oacute;n. Lo que pidi&oacute; el due&ntilde;o al ver la
+         primera: abrir con el logo, que del logo nazca la l&iacute;nea, y que la l&iacute;nea vaya contando cada
+         apartado: lo que eliges al crear el viaje, el plan entero que sale de ah&iacute;, los paseos y museos de
+         ese plan con su gu&iacute;a, la audiogu&iacute;a sin cobertura y sus voces, los gastos divididos y Lugares. El
+         cierre es el aprobado. Ni pantallas, ni fotos, ni voz, ni precio. Decisiones, en README.md.
          - Un solo eje: todo va centrado en x=540, y nada pasa de x=900 (la columna derecha la tapan los
            botones de TikTok e Instagram). Todo entre y=280 e y=1480; en la historia, de 1520 para abajo
            va el adhesivo de enlace.
+         - La frase que explica cada apartado va SIEMPRE en el mismo sitio, abajo (y=1170): el ojo no tiene
+           que buscarla en cada corte. Arriba, s&oacute;lo un t&iacute;tulo corto cuando lo hay.
+         - Cada dibujo acaba pronto y se queda quieto (latiendo un poco con la m&uacute;sica) al menos un segundo
+           antes del corte: es lo que deja leerlo en un m&oacute;vil.
          - El verde de la app (#0F766E): sobre el papel da 5,4:1.
          - Los tiempos salen de la m&uacute;sica (README.md, &laquo;La m&uacute;sica&raquo;): 96 BPM, una corchea son 0,3125 s
-           y el v&iacute;deo empieza en una nota, as&iacute; que la rejilla es 0,3125k. Los cortes van en las mitades de
-           comp&aacute;s (1,25 s), en el fotograma de antes de la nota cuando la nota cae entre dos. La bater&iacute;a
-           entra en 7,50 (los paseos), el bajo en 10,6 (la audiogu&iacute;a) y el golpe en 21,25 (el cierre).
-         - Cada tramo de l&iacute;nea se dibuja con su dashoffset y se recoge desde su principio: la cola sigue a
-           la punta, y la punta del siguiente sale de donde acab&oacute; el anterior. La onda es una funci&oacute;n del
-           tiempo calculada fotograma a fotograma ANTES de reproducir: HyperFrames salta a cada instante
-           con los eventos apagados, as&iacute; que nada puede depender de un onUpdate. */
+           y el v&iacute;deo empieza en una nota, as&iacute; que la rejilla es 0,3125k. Los cortes van en las negras, en
+           el fotograma de antes de la nota cuando la nota cae entre dos. La bater&iacute;a entra en 7,50 (del
+           plan a los paseos), el bajo hacia 10,5 (las barras que caen) y el golpe en 21,25 (el cierre).
+         - LA L&Iacute;NEA ES UNA SOLA, del logo a la onda: cinco trazados seguidos (cada uno empieza donde acaba el
+           anterior) y dos funciones del tiempo, la punta y la cola, medidas en largo de recorrido. Cada
+           fotograma se calcula ANTES de reproducir: HyperFrames salta a cada instante con los eventos
+           apagados, as&iacute; que nada puede depender de un onUpdate. */
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
               background-color: #FFFDF9;
               background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
@@ -39,7 +43,7 @@
       .verde { color: #0F766E; }
       svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
 
-      /* LA MARCA DE ARRIBA, desde que el logo llega a ella (2,9 s) y hasta el cierre. */
+      /* LA MARCA DE ARRIBA, desde que el logo llega a ella (2,2 s) y hasta el cierre. */
       #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
                justify-content: center; align-items: center; gap: 16px; }
       #marca img { display: block; width: 45px; height: 52px; }
@@ -52,47 +56,47 @@
       .s44 { font-size: 44px; line-height: 52px; font-weight: 500; color: rgba(16,14,11,.78); }
 
       /* 0 &middot; EL LOGO, la marca de la app (adaptive-icon.png del repo de la app, recortado a su contenido:
-         el vectorial que hay le falta una de sus cuatro formas, StaticLogo.tsx). Centro en (540, 640). */
+         el vectorial que hay le falta una de sus cuatro formas, StaticLogo.tsx). Su cuenco es un c&iacute;rculo
+         de centro (540,3, 661,3) y radio 143,6, medido sobre el PNG: de ah&iacute; sale la l&iacute;nea. */
       #logo { position: absolute; left: 396.5px; top: 475px; width: 287px; height: 330px; display: block; }
       #o-nombre { top: 902px; font-size: 92px; line-height: 1; }
       #o-anuncio { top: 1036px; font-size: 42px; line-height: 56px; font-weight: 600; }
 
-      /* 1 &middot; T&Uacute; ELIGES: las opciones reales del asistente, ensartadas por la l&iacute;nea. */
-      .fila { position: absolute; left: 0; width: 1080px; height: 130px; }
+      /* 1 &middot; T&Uacute; ELIGES: opciones reales del asistente, ensartadas por la l&iacute;nea. Tres filas, y ninguna m&aacute;s
+         ancha de 510 px: as&iacute; cada vuelta del collar entra en su fila por el lado, en horizontal. */
+      .fila { position: absolute; left: 0; width: 1080px; height: 124px; }
       .etq { margin: 0; text-align: center; font-size: 30px; line-height: 36px; font-weight: 600; color: rgba(16,14,11,.58); white-space: nowrap; }
-      .chips { position: absolute; left: 0; top: 48px; width: 1080px; display: flex; justify-content: center; gap: 18px; }
-      .chip { display: block; height: 76px; line-height: 70px; box-sizing: border-box; padding: 0 30px; margin: 0;
-              border: 3px solid rgba(16,14,11,.26); border-radius: 38px; background: #FFFDF9;
-              font-size: 36px; font-weight: 600; white-space: nowrap; color: #100E0B; }
+      .chips { position: absolute; left: 0; top: 48px; width: 1080px; display: flex; justify-content: center; gap: 12px; }
+      .chip { display: block; height: 70px; line-height: 64px; box-sizing: border-box; padding: 0 22px; margin: 0;
+              border: 3px solid rgba(16,14,11,.26); border-radius: 35px; background: #FFFDF9;
+              font-size: 32px; font-weight: 600; white-space: nowrap; color: #100E0B; }
 
-      /* 2 &middot; EL PLAN, d&iacute;a a d&iacute;a: el ra&iacute;l con los planes numerados, como el itinerario de la app. */
-      #dias { position: absolute; left: 0; width: 1080px; top: 398px; display: flex; justify-content: center; gap: 56px; }
-      #dias p { margin: 0; font-size: 40px; line-height: 48px; font-weight: 600; color: rgba(16,14,11,.4); white-space: nowrap; }
-      #dias p.hoy { color: #0F766E; }
+      /* 2 &middot; EL PLAN, d&iacute;a a d&iacute;a: el ra&iacute;l con los planes numerados, como el itinerario de la app, y las
+         tres pesta&ntilde;as de los d&iacute;as. */
+      #dias { position: absolute; left: 0; width: 1080px; top: 398px; display: flex; justify-content: center; gap: 70px; }
+      #dias p { margin: 0; font-size: 40px; line-height: 48px; font-weight: 600; color: rgba(16,14,11,.52); white-space: nowrap; }
+      #raya { position: absolute; top: 452px; height: 6px; border-radius: 3px; background: #0F766E; }
       .hora { position: absolute; left: 190px; width: 230px; margin: 0; text-align: right; font-size: 60px; line-height: 64px; white-space: nowrap; }
       .plan { position: absolute; left: 526px; margin: 0; font-size: 46px; line-height: 56px; font-weight: 600; white-space: nowrap; }
 
-      /* 3 &middot; PASEOS Y MUSEOS: las dos p&iacute;ldoras con el nombre que llevan en el plan de la app. */
-      .pildora { position: absolute; margin: 0; height: 60px; line-height: 54px; box-sizing: border-box; padding: 0 26px;
-                 border: 3px solid #0F766E; border-radius: 30px; background: #FFFDF9; color: #0F766E;
-                 font-size: 32px; font-weight: 600; white-space: nowrap; transform: translateX(-50%); }
-
-      /* 4 &middot; LAS BARRAS DE COBERTURA (las de la primera versi&oacute;n, dibujadas aqu&iacute;: no son los s&iacute;mbolos de iOS). */
+      /* 4 &middot; LAS BARRAS DE COBERTURA (dibujadas aqu&iacute;: no son los s&iacute;mbolos de iOS). Llenas con la tinta del
+         texto, no con negro: el negro puro era la mancha m&aacute;s pesada del v&iacute;deo. */
       .barra { position: absolute; bottom: 1100px; width: 60px; box-sizing: border-box;
                border: 3px solid rgba(16,14,11,.3); border-radius: 13px; }
       .lleno { position: absolute; left: -3px; top: -3px; right: -3px; bottom: -3px;
-               border-radius: 13px; background: #100E0B; transform-origin: 50% 100%; }
+               border-radius: 13px; background: rgba(16,14,11,.72); transform-origin: 50% 100%; }
       #audioguia { position: absolute; left: 0; width: 1080px; top: 872px; height: 52px; display: flex;
                    justify-content: center; align-items: center; gap: 16px; }
       #audioguia svg { display: block; }
       #audioguia p { margin: 0; font-size: 44px; line-height: 52px; font-weight: 600; white-space: nowrap; }
 
-      /* 5 &middot; LAS VOCES, en lista y con su bot&oacute;n de escuchar, como en el selector de la app. */
-      .voz { position: absolute; left: 320px; width: 440px; height: 72px; box-sizing: border-box; margin: 0;
-             border: 3px solid rgba(16,14,11,.26); border-radius: 36px; background: #FFFDF9;
-             display: flex; align-items: center; justify-content: center; gap: 16px;
+      /* 5 &middot; LAS VOCES, en lista, como en el selector de la app: la del tel&eacute;fono sin bot&oacute;n de escuchar
+         (en la app, su hueco, para que los nombres queden alineados) y las otras tres con el suyo. */
+      .voz { position: absolute; left: 300px; width: 480px; height: 72px; box-sizing: border-box; margin: 0;
+             padding-left: 64px; border: 3px solid rgba(16,14,11,.26); border-radius: 36px; background: #FFFDF9;
+             display: flex; align-items: center; gap: 18px;
              font-size: 36px; font-weight: 600; white-space: nowrap; color: #100E0B; }
-      .voz svg { display: block; }
+      .voz svg { display: block; flex: none; }
       .voz svg path { fill: #0F766E; stroke: #0F766E; }
 
       /* 6 &middot; LOS GASTOS. */
@@ -100,8 +104,10 @@
       #g-total { top: 440px; font-size: 180px; line-height: 1; letter-spacing: -.03em; }
       .parte { position: absolute; width: 140px; margin: 0; text-align: center; font-size: 40px; line-height: 48px; font-weight: 600; white-space: nowrap; }
 
-      /* 7 &middot; LUGARES. */
-      .sitio { position: absolute; width: 300px; margin: 0; text-align: center; font-size: 32px; line-height: 40px; font-weight: 600; white-space: nowrap; color: #100E0B; }
+      /* 7 &middot; LUGARES: un mapa de calles (gris, irregulares, con una avenida en diagonal y un parque) y las
+         etiquetas de las chinchetas sobre el papel, para que no las cruce una calle. */
+      .sitio { position: absolute; margin: 0; padding: 2px 12px; border-radius: 10px; background: #FFFDF9;
+               font-size: 32px; line-height: 40px; font-weight: 600; white-space: nowrap; color: #100E0B; }
 
       /* 8 &middot; EL CIERRE que aprob&oacute; el due&ntilde;o (sin cambios desde la primera versi&oacute;n): la insignia aparece entera
          de un fotograma a otro y no se mueve nunca, y al final van las l&iacute;neas de marca de Apple. */
@@ -127,54 +133,61 @@
     <div id="root" data-composition-id="lanzamiento-trazo" data-start="0"
          data-width="1080" data-height="1920" data-duration="25.8">
 
-      <!-- LOS TRAZOS DE DEBAJO: el hilo que ensarta las opciones (pasa por detr&aacute;s de ellas, como un
-           collar) y las calles del mapa de Lugares. -->
+      <!-- LO DE DEBAJO: el tramo de la l&iacute;nea que ensarta las opciones (pasa por detr&aacute;s de ellas, como un
+           collar) y el mapa de Lugares. -->
       <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path id="hilo" stroke="#0F766E" stroke-width="10" />
-        <g id="calles" stroke="rgba(16,14,11,.09)" stroke-width="6">
-          <path d="M190,712 L890,712" /><path d="M190,1196 L890,1196" />
-          <path d="M300,700 L300,1220" /><path d="M560,700 L560,1220" /><path d="M800,700 L800,1220" />
+        <g id="mapa">
+          <rect x="468" y="806" width="160" height="128" rx="22" fill="rgba(15,118,110,.13)" stroke="none" />
+          <path d="M190,1010 L560,570" stroke="rgba(16,14,11,.08)" stroke-width="24" />
+          <g stroke="rgba(16,14,11,.13)" stroke-width="7">
+            <path d="M190,640 L890,640" /><path d="M190,790 L650,790" /><path d="M330,950 L890,950" /><path d="M190,1080 L720,1080" />
+            <path d="M270,570 L270,1110" /><path d="M450,640 L450,1110" /><path d="M640,570 L640,950" /><path d="M800,640 L800,1110" />
+          </g>
         </g>
+        <path id="s-hilo" stroke="#0F766E" stroke-width="10" />
       </svg>
 
       <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
 
-      <!-- 0 &middot; EL LOGO (0-2,5). Es el fotograma 0, o sea la portada por defecto de TikTok. -->
+      <!-- 0 &middot; EL LOGO (0-1,87). Es el fotograma 0, o sea la portada por defecto de TikTok. -->
       <img id="logo" src="assets/marca-grande.png" alt="" />
       <p id="o-nombre" class="tit serif">Nomad: gu&iacute;a de viajes</p>
       <p id="o-anuncio" class="linea sans verde">Ya en la App Store, para iPhone</p>
 
-      <!-- 1 &middot; T&Uacute; ELIGES (2,5-5,0). Las opciones y sus nombres, los del asistente (CreateTripScreen.tsx). -->
-      <h1 id="t-eliges" class="tit serif t120" style="top: 388px;">T&uacute; eliges.</h1>
-      <div id="f1" class="fila" style="top: 580px;"><p class="etq sans">Destino y fechas</p>
+      <!-- 1 &middot; T&Uacute; ELIGES (1,87-4,37). Las opciones y sus nombres, los del asistente (CreateTripScreen.tsx). -->
+      <div id="f1" class="fila" style="top: 500px;"><p class="etq sans">Destino y fechas</p>
         <div class="chips sans"><p class="chip" data-sel>Lisboa</p><p class="chip" data-sel>3 d&iacute;as</p></div></div>
-      <div id="f2" class="fila" style="top: 760px;"><p class="etq sans">Estilo</p>
-        <div class="chips sans"><p class="chip" data-sel>Cultural</p><p class="chip" data-sel>Gastronom&iacute;a</p><p class="chip">Relax</p></div></div>
-      <div id="f3" class="fila" style="top: 940px;"><p class="etq sans">Ritmo</p>
-        <div class="chips sans"><p class="chip" data-sel>Ma&ntilde;anas</p><p class="chip" data-sel>Tardes</p><p class="chip">Noches</p></div></div>
-      <div id="f4" class="fila" style="top: 1120px;"><p class="etq sans">Presupuesto</p>
-        <div class="chips sans"><p class="chip">Econ&oacute;mico</p><p class="chip" data-sel>Moderado</p><p class="chip">Lujo</p></div></div>
+      <div id="f2" class="fila" style="top: 690px;"><p class="etq sans">Estilo</p>
+        <div class="chips sans"><p class="chip" data-sel>Cultural</p><p class="chip" data-sel>Gastronom&iacute;a</p></div></div>
+      <div id="f3" class="fila" style="top: 880px;"><p class="etq sans">Ritmo</p>
+        <div class="chips sans"><p class="chip">Ma&ntilde;anas</p><p class="chip" data-sel>Tardes</p><p class="chip">Noches</p></div></div>
+      <h1 id="t-eliges" class="tit serif t120" style="top: 1170px;">T&uacute; eliges.</h1>
 
-      <!-- 2 &middot; EL PLAN (5,0-7,5): el viaje entero, d&iacute;a a d&iacute;a, con horas. Ilustraci&oacute;n: ni sitios ni nombres. -->
-      <div id="dias" class="sans"><p class="hoy">D&iacute;a 1</p><p>D&iacute;a 2</p><p>D&iacute;a 3</p></div>
-      <p id="h1" class="hora serif" style="top: 568px;">09:30</p>
-      <p id="h2" class="hora serif" style="top: 728px;">13:00</p>
-      <p id="h3" class="hora serif" style="top: 888px;">16:30</p>
-      <p id="h4" class="hora serif" style="top: 1048px;">20:30</p>
-      <p id="q1" class="plan sans" style="top: 572px;">Museo</p>
-      <p id="q2" class="plan sans" style="top: 732px;">Comida</p>
-      <p id="q3" class="plan sans" style="top: 892px;">Tour guiado</p>
-      <p id="q4" class="plan sans" style="top: 1052px;">Cena</p>
-      <h1 id="t-plan-a" class="tit serif t84" style="top: 1190px;">Y te escribe el plan entero,</h1>
-      <h1 id="t-plan-b" class="tit serif t84 verde" style="top: 1278px;">d&iacute;a a d&iacute;a.</h1>
+      <!-- 2 &middot; EL PLAN (4,37-7,5): los tres d&iacute;as, con horas. Ilustraci&oacute;n: ni sitios ni nombres, las
+           categor&iacute;as de la app (Visita, Museo, Tour guiado, Comida) y la cena. -->
+      <div id="dias" class="sans"><p id="d1">D&iacute;a 1</p><p id="d2">D&iacute;a 2</p><p id="d3">D&iacute;a 3</p></div>
+      <div id="raya"></div>
+      <p id="h11" class="hora serif" style="top: 513px;">09:30</p><p id="q11" class="plan sans" style="top: 517px;">Visita</p>
+      <p id="h21" class="hora serif" style="top: 663px;">13:00</p><p id="q21" class="plan sans" style="top: 667px;">Comida</p>
+      <p id="h31" class="hora serif" style="top: 813px;">16:30</p><p id="q31" class="plan sans" style="top: 817px;">Tour guiado</p>
+      <p id="h41" class="hora serif" style="top: 963px;">20:30</p><p id="q41" class="plan sans" style="top: 967px;">Cena</p>
+      <p id="h12" class="hora serif" style="top: 513px;">09:00</p><p id="q12" class="plan sans" style="top: 517px;">Tour guiado</p>
+      <p id="h22" class="hora serif" style="top: 663px;">13:30</p><p id="q22" class="plan sans" style="top: 667px;">Comida</p>
+      <p id="h32" class="hora serif" style="top: 813px;">16:00</p><p id="q32" class="plan sans" style="top: 817px;">Museo</p>
+      <p id="h42" class="hora serif" style="top: 963px;">21:00</p><p id="q42" class="plan sans" style="top: 967px;">Cena</p>
+      <p id="h13" class="hora serif" style="top: 513px;">10:00</p><p id="q13" class="plan sans" style="top: 517px;">Museo</p>
+      <p id="h23" class="hora serif" style="top: 663px;">14:00</p><p id="q23" class="plan sans" style="top: 667px;">Comida</p>
+      <p id="h33" class="hora serif" style="top: 813px;">17:00</p><p id="q33" class="plan sans" style="top: 817px;">Tour guiado</p>
+      <p id="h43" class="hora serif" style="top: 963px;">20:30</p><p id="q43" class="plan sans" style="top: 967px;">Cena</p>
+      <h1 id="t-plan-a" class="tit serif t84" style="top: 1170px;">Y te sale el plan entero,</h1>
+      <h1 id="t-plan-b" class="tit serif t84 verde" style="top: 1258px;">d&iacute;a a d&iacute;a.</h1>
 
-      <!-- 3 &middot; PASEOS Y MUSEOS (7,5-10,0), cuando entra la bater&iacute;a. -->
-      <p id="p-tour" class="pildora sans" style="left: 440px; top: 780px;">Tour guiado</p>
-      <p id="p-museo" class="pildora sans" style="left: 750px; top: 676px;">Gu&iacute;a del museo</p>
-      <h1 id="t-paseo-a" class="tit serif t84" style="top: 1190px;">Cada paseo y cada museo,</h1>
-      <h1 id="t-paseo-b" class="tit serif t84 verde" style="top: 1278px;">con su audiogu&iacute;a.</h1>
+      <!-- 3 &middot; PASEOS Y MUSEOS (7,5-10,0), cuando entra la bater&iacute;a: del plan se quedan el museo y el tour, y
+           de cada uno sale su gu&iacute;a. -->
+      <h1 id="t-paseo-a" class="tit serif t84" style="top: 1170px;">Paseos y museos,</h1>
+      <h1 id="t-paseo-b" class="tit serif t84 verde" style="top: 1258px;">con su audiogu&iacute;a.</h1>
 
-      <!-- 4 &middot; SIN COBERTURA, Y SIGUE SONANDO (10,0-13,73). -->
+      <!-- 4 &middot; SIN COBERTURA, Y SIGUE SONANDO (10,0-13,12). -->
       <h1 id="t-cob" class="tit serif t120" style="top: 388px;">&iquest;Sin cobertura?</h1>
       <div id="b0" class="barra" style="left: 381px; height: 80px;"><div class="lleno"></div></div>
       <div id="b1" class="barra" style="left: 467px; height: 130px;"><div class="lleno"></div></div>
@@ -184,32 +197,32 @@
         <svg width="34" height="38" viewBox="0 0 34 38"><path d="M4 4 L30 19 L4 34 Z" fill="#0F766E" stroke="#0F766E" stroke-width="6" stroke-linejoin="round" /></svg>
         <p class="sans verde">Audiogu&iacute;a</p>
       </div>
-      <h1 id="t-suena" class="tit serif t120 verde" style="top: 1150px;">Sigue sonando.</h1>
-      <p id="a1" class="linea sans s44" style="top: 1300px;">Las audiogu&iacute;as descargadas</p>
-      <p id="a2" class="linea sans s44" style="top: 1352px;">suenan en modo avi&oacute;n.</p>
+      <h1 id="t-suena" class="tit serif t120 verde" style="top: 1170px;">Sigue sonando.</h1>
+      <p id="a1" class="linea sans s44" style="top: 1314px;">Las audiogu&iacute;as descargadas</p>
+      <p id="a2" class="linea sans s44" style="top: 1366px;">funcionan en modo avi&oacute;n.</p>
 
-      <!-- 5 &middot; LAS VOCES (13,73-16,23): las cuatro del selector (narrationVoices.ts), con sus nombres. -->
+      <!-- 5 &middot; LAS VOCES (13,12-15,62): las cuatro del selector (NarrationVoicePicker.tsx, narrationVoices.ts). -->
       <h1 id="t-voces" class="tit serif t120" style="top: 388px;">Cuatro voces.</h1>
-      <p id="s-voces" class="linea sans s44" style="top: 528px;">Esc&uacute;chalas y elige.</p>
-      <div id="v0" class="voz sans" style="top: 840px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Voz del tel&eacute;fono</span></div>
-      <div id="v1" class="voz sans" style="top: 930px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Kore</span></div>
-      <div id="v2" class="voz sans" style="top: 1020px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Puck</span></div>
-      <div id="v3" class="voz sans" style="top: 1110px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Charon</span></div>
+      <div id="v0" class="voz sans" style="top: 760px;"><svg width="24" height="28" viewBox="0 0 24 28"></svg><span>Voz del tel&eacute;fono</span></div>
+      <div id="v1" class="voz sans" style="top: 846px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Kore</span></div>
+      <div id="v2" class="voz sans" style="top: 932px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Puck</span></div>
+      <div id="v3" class="voz sans" style="top: 1018px;"><svg width="24" height="28" viewBox="0 0 24 28"><path d="M4 4 L20 14 L4 24 Z" stroke-width="5" stroke-linejoin="round" /></svg><span>Charon</span></div>
+      <h1 id="t-escucha" class="tit serif t84 verde" style="top: 1170px;">Esc&uacute;chalas y elige.</h1>
 
-      <!-- 6 &middot; LOS GASTOS DEL GRUPO, DIVIDIDOS (16,23-18,73). -->
+      <!-- 6 &middot; LOS GASTOS DEL GRUPO, DIVIDIDOS (15,62-18,12). -->
       <p id="g-concepto" class="linea sans">Cena</p>
       <p id="g-total" class="linea serif verde">84&nbsp;&euro;</p>
-      <p id="pa0" class="parte sans" style="left: 680px; top: 1000px;">21&nbsp;&euro;</p>
-      <p id="pa1" class="parte sans" style="left: 540px; top: 1000px;">21&nbsp;&euro;</p>
-      <p id="pa2" class="parte sans" style="left: 400px; top: 1000px;">21&nbsp;&euro;</p>
-      <p id="pa3" class="parte sans" style="left: 260px; top: 1000px;">21&nbsp;&euro;</p>
-      <h1 id="t-gastos-a" class="tit serif t84" style="top: 1150px;">Los gastos del grupo,</h1>
-      <h1 id="t-gastos-b" class="tit serif t84 verde" style="top: 1238px;">divididos.</h1>
+      <p id="pa0" class="parte sans" style="left: 260px; top: 1000px;">21&nbsp;&euro;</p>
+      <p id="pa1" class="parte sans" style="left: 400px; top: 1000px;">21&nbsp;&euro;</p>
+      <p id="pa2" class="parte sans" style="left: 540px; top: 1000px;">21&nbsp;&euro;</p>
+      <p id="pa3" class="parte sans" style="left: 680px; top: 1000px;">21&nbsp;&euro;</p>
+      <h1 id="t-gastos-a" class="tit serif t84" style="top: 1170px;">Los gastos del grupo,</h1>
+      <h1 id="t-gastos-b" class="tit serif t84 verde" style="top: 1258px;">divididos.</h1>
 
-      <!-- 7 &middot; LUGARES (18,73-21,23): el apartado de la app, con sus tres categor&iacute;as (PlacesTab.tsx). -->
+      <!-- 7 &middot; LUGARES (18,12-21,25): el apartado de la app, con sus tres categor&iacute;as (PlacesTab.tsx). -->
       <h1 id="t-lugares" class="tit serif t120 verde" style="top: 388px;">Lugares</h1>
-      <p id="l1" class="linea sans s44" style="top: 530px;">Guarda tus restaurantes</p>
-      <p id="l2" class="linea sans s44" style="top: 582px;">y sitios de inter&eacute;s.</p>
+      <h1 id="t-lugares-a" class="tit serif t84" style="top: 1170px;">Guarda tus restaurantes</h1>
+      <h1 id="t-lugares-b" class="tit serif t84 verde" style="top: 1258px;">y sitios de inter&eacute;s.</h1>
       <p id="si0" class="sitio sans">Comida</p>
       <p id="si1" class="sitio sans">Puntos de inter&eacute;s</p>
       <p id="si2" class="sitio sans">Ocio nocturno</p>
@@ -218,32 +231,33 @@
       <div id="papel"></div>
 
       <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path id="espiral" stroke="#0F766E" stroke-width="10" />
-        <path id="sube" stroke="#0F766E" stroke-width="10" d="M280,1206 C150,1206 150,490 400,490 C445,490 470,515 470,560" />
-        <path id="carril" stroke="#0F766E" stroke-width="10" d="M470,560 L470,1120" />
-        <path id="paseo" stroke="#0F766E" stroke-width="10" />
-        <path id="baja" stroke="#0F766E" stroke-width="10" d="M870,640 C894,760 890,900 890,1030" />
+        <!-- La l&iacute;nea, del logo a la onda: cada trazado empieza donde acaba el anterior (el del collar va en la
+             capa de abajo, por detr&aacute;s de las opciones). -->
+        <path id="s-espiral" stroke="#0F766E" stroke-width="10" />
+        <path id="s-plan" stroke="#0F766E" stroke-width="10" />
+        <path id="s-paseo" stroke="#0F766E" stroke-width="10" />
+        <path id="s-baja" stroke="#0F766E" stroke-width="10" />
         <path id="onda" stroke="#0F766E" stroke-width="10" />
-        <path id="hb3" stroke="#0F766E" stroke-width="8" />
-        <path id="hb2" stroke="#0F766E" stroke-width="8" />
-        <path id="hb1" stroke="#0F766E" stroke-width="8" />
         <path id="hb0" stroke="#0F766E" stroke-width="8" />
+        <path id="hb1" stroke="#0F766E" stroke-width="8" />
+        <path id="hb2" stroke="#0F766E" stroke-width="8" />
+        <path id="hb3" stroke="#0F766E" stroke-width="8" />
         <!-- El camino de Lugares, invisible: s&oacute;lo se mide (lo dibuja la onda). -->
         <path id="ruta" stroke="none" visibility="hidden" />
-        <!-- Los planes del d&iacute;a y las paradas del paseo, numerados como en la app. -->
-        <g id="n1"><circle cx="470" cy="600" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="611" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">1</text></g>
-        <g id="n2"><circle cx="470" cy="760" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="771" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">2</text></g>
-        <g id="n3"><circle cx="470" cy="920" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="931" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">3</text></g>
-        <g id="n4"><circle cx="470" cy="1080" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="1091" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">4</text></g>
-        <g id="e1"><circle cx="330" cy="1010" r="28" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="330" y="1020" text-anchor="middle" class="sans" font-size="28" font-weight="700" fill="#FFFDF9" stroke="none">1</text></g>
-        <g id="e2"><circle cx="230" cy="800" r="28" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="230" y="810" text-anchor="middle" class="sans" font-size="28" font-weight="700" fill="#FFFDF9" stroke="none">2</text></g>
-        <g id="e3"><circle cx="440" cy="660" r="28" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="440" y="670" text-anchor="middle" class="sans" font-size="28" font-weight="700" fill="#FFFDF9" stroke="none">3</text></g>
+        <!-- Los planes del d&iacute;a, numerados como en la app (ItineraryTimeline.tsx), y las paradas del paseo. -->
+        <g id="n1"><circle cx="470" cy="545" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="556" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">1</text></g>
+        <g id="n2"><circle cx="470" cy="695" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="706" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">2</text></g>
+        <g id="n3"><circle cx="470" cy="845" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="856" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">3</text></g>
+        <g id="n4"><circle cx="470" cy="995" r="30" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="470" y="1006" text-anchor="middle" class="sans" font-size="30" font-weight="700" fill="#FFFDF9" stroke="none">4</text></g>
+        <g id="e1"><circle cx="300" cy="995" r="28" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="300" y="1005" text-anchor="middle" class="sans" font-size="28" font-weight="700" fill="#FFFDF9" stroke="none">1</text></g>
+        <g id="e2"><circle cx="520" cy="1078" r="28" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="520" y="1088" text-anchor="middle" class="sans" font-size="28" font-weight="700" fill="#FFFDF9" stroke="none">2</text></g>
+        <g id="e3"><circle cx="730" cy="1005" r="28" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="730" y="1015" text-anchor="middle" class="sans" font-size="28" font-weight="700" fill="#FFFDF9" stroke="none">3</text></g>
         <!-- Las cuatro personas del grupo: cabeza y hombros, sin cara (las de la primera versi&oacute;n). -->
-        <g id="g3" stroke="#0F766E" stroke-width="7"><circle cx="330" cy="904" r="24" fill="#FFFDF9" /><path d="M292,982 C292,942 368,942 368,982" /></g>
-        <g id="g2" stroke="#0F766E" stroke-width="7"><circle cx="470" cy="904" r="24" fill="#FFFDF9" /><path d="M432,982 C432,942 508,942 508,982" /></g>
-        <g id="g1" stroke="#0F766E" stroke-width="7"><circle cx="610" cy="904" r="24" fill="#FFFDF9" /><path d="M572,982 C572,942 648,942 648,982" /></g>
-        <g id="g0" stroke="#0F766E" stroke-width="7"><circle cx="750" cy="904" r="24" fill="#FFFDF9" /><path d="M712,982 C712,942 788,942 788,982" /></g>
-        <!-- Los tres sitios guardados: chinchetas con la punta en la l&iacute;nea. -->
+        <g id="g0" stroke="#0F766E" stroke-width="7"><circle cx="330" cy="904" r="24" fill="#FFFDF9" /><path d="M292,982 C292,942 368,942 368,982" /></g>
+        <g id="g1" stroke="#0F766E" stroke-width="7"><circle cx="470" cy="904" r="24" fill="#FFFDF9" /><path d="M432,982 C432,942 508,942 508,982" /></g>
+        <g id="g2" stroke="#0F766E" stroke-width="7"><circle cx="610" cy="904" r="24" fill="#FFFDF9" /><path d="M572,982 C572,942 648,942 648,982" /></g>
+        <g id="g3" stroke="#0F766E" stroke-width="7"><circle cx="750" cy="904" r="24" fill="#FFFDF9" /><path d="M712,982 C712,942 788,942 788,982" /></g>
+        <!-- Los tres sitios guardados: chinchetas con la punta en el camino. -->
         <g id="pin0"><g class="pos"><path d="M0,0 C-6,-12 -26,-30 -26,-52 A26,26 0 1 1 26,-52 C26,-30 6,-12 0,0 Z" fill="#0F766E" stroke="#FFFDF9" stroke-width="5" /><circle cx="0" cy="-52" r="9" fill="#FFFDF9" /></g></g>
         <g id="pin1"><g class="pos"><path d="M0,0 C-6,-12 -26,-30 -26,-52 A26,26 0 1 1 26,-52 C26,-30 6,-12 0,0 Z" fill="#0F766E" stroke="#FFFDF9" stroke-width="5" /><circle cx="0" cy="-52" r="9" fill="#FFFDF9" /></g></g>
         <g id="pin2"><g class="pos"><path d="M0,0 C-6,-12 -26,-30 -26,-52 A26,26 0 1 1 26,-52 C26,-30 6,-12 0,0 Z" fill="#0F766E" stroke="#FFFDF9" stroke-width="5" /><circle cx="0" cy="-52" r="9" fill="#FFFDF9" /></g></g>
@@ -273,47 +287,35 @@
         var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
         var tl = gsap.timeline({ paused: true });
         // LOS TIEMPOS, medidos sobre la m&uacute;sica (README.md, &laquo;La m&uacute;sica&raquo;). Corchea de 0,3125 s desde el 0;
-        // E(k) es la corchea k. Los cortes, en las mitades de comp&aacute;s; los de 13,75 / 16,25 / 18,75 / 21,25
-        // caen entre dos fotogramas y van en el de antes. Los &laquo;tic&raquo; de mezclar.sh caen en estas mismas
-        // corcheas: si se mueve una, se mueve en los dos sitios.
+        // E(k) es la corchea k. Los cortes, en negras; los que caen entre dos fotogramas, en el de antes. Los
+        // &laquo;tic&raquo; de mezclar.sh caen en estas mismas corcheas: si se mueve una, se mueve en los dos sitios.
         var F = 1 / 30, FPS = 30;
         function E(k) { return 0.3125 * k; }
-        var T1 = 75 * F, T2 = 150 * F, T3 = 225 * F, T4 = 300 * F, T5 = 412 * F, T6 = 487 * F, T7 = 562 * F, T8 = 637 * F;
+        function antes(t) { return Math.floor(t * FPS + 1e-6) / FPS; }
+        var T1 = antes(E(6)), T2 = antes(E(14)), T3 = E(24), T4 = E(32), T5 = antes(E(42)), T6 = antes(E(50)), T7 = antes(E(58)), T8 = 637 * F;
         var FIN = 25.8, TIEMPO = 0.625;
         var IN = { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" };
         var ARR = { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" };
-        var root = document.getElementById("root");
+        var RAPIDO = { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" };
+        var a = document.getElementById.bind(document);
+        var SVGNS = "http://www.w3.org/2000/svg";
         function corta(sel, t) { tl.to(sel, { autoAlpha: 0, duration: 0 }, t); }
         function aparece(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 }, t); }
         function entra(sel, t, dy, vars) { tl.fromTo(sel, { autoAlpha: 0, y: dy }, vars || IN, t); }
+        function apaga(sel, t, dur) { tl.fromTo(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: dur || 0.2, ease: "power1.out", immediateRender: false }, t); }
         function suave(q) { q = Math.min(1, Math.max(0, q)); return 0.5 - 0.5 * Math.cos(Math.PI * q); }
-        function prepara(el) {
-          var L = el.getTotalLength();
-          // El hueco, 20 px m&aacute;s largo que el trazo: con el remate redondo, un guion de largo cero en
-          // la punta pinta un punto (as&iacute; quedaban puntos sueltos donde acababa cada tramo).
-          el.setAttribute("stroke-dasharray", L + " " + (L + 20));
-          el.setAttribute("stroke-dashoffset", L);
-          return L;
+        // Los puntos y las personas crecen desde donde los toca la l&iacute;nea. El origen se fija UNA vez, antes
+        // de ninguna escala y en coordenadas del SVG (si va s&oacute;lo en el estado final de un fromTo, GSAP lo
+        // compensa con una traslaci&oacute;n y el punto queda desplazado: as&iacute; sali&oacute; la primera versi&oacute;n).
+        function brota(sel, t, ease) {
+          tl.fromTo(sel, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: ease || "back.out(3)" }, t);
         }
-        function dibuja(el, t, dur, ease) {
-          var L = prepara(el);
-          tl.fromTo(el, { attr: { "stroke-dashoffset": L } }, { attr: { "stroke-dashoffset": 0 }, duration: dur, ease: ease || "sine.inOut" }, t);
-          return L;
-        }
-        // Dibuja un trazo pasando por sus puntos a la hora dada: [[t, largo], ...]. Cada tramo con su
-        // curva, as&iacute; que la punta se para en cada punto (una opci&oacute;n, un plan, una parada) y arranca otra vez.
-        function trazaPor(el, puntos) {
-          var L = prepara(el);
-          for (var i = 0; i + 1 < puntos.length; i++) {
-            var a = puntos[i], b = puntos[i + 1];
-            tl.fromTo(el, { attr: { "stroke-dashoffset": L - a[1] } },
-                      { attr: { "stroke-dashoffset": L - b[1] }, duration: b[0] - a[0], ease: b[2] || "sine.inOut", immediateRender: i === 0 }, a[0]);
-          }
-          return L;
-        }
-        // Borra un trazo desde su principio: la cola sigue a la punta.
-        function recoge(el, t, dur, L, ease) {
-          tl.fromTo(el, { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": -L - 2 }, duration: dur, ease: ease || "power1.in", immediateRender: false }, t);
+        // Un latido con la m&uacute;sica: crece un 4 % y vuelve. Va en las pausas, para que el dibujo, ya entero,
+        // no se quede en el mismo fotograma (en Reels y TikTok eso parece un v&iacute;deo atascado).
+        function late(sel, t, amp, dur) {
+          var s = 1 + (amp || 0.04);
+          tl.fromTo(sel, { scale: 1 }, { scale: s, duration: 0.12, ease: "power2.out", immediateRender: false }, t);
+          tl.fromTo(sel, { scale: s }, { scale: 1, duration: (dur || 0.6) - 0.12, ease: "power1.inOut", immediateRender: false }, t + 0.12);
         }
         // Lo largo que hay que recorrer un trazo hasta el punto (x, y): el de la muestra m&aacute;s cercana.
         function largoHasta(el, x, y) {
@@ -324,163 +326,300 @@
           }
           return mejor;
         }
-        // Los puntos y las personas crecen desde donde los toca la l&iacute;nea. El origen se fija UNA vez, antes
-        // de ninguna escala y en coordenadas del SVG (si va s&oacute;lo en el estado final de un fromTo, GSAP lo
-        // compensa con una traslaci&oacute;n y el punto queda desplazado: as&iacute; sali&oacute; la primera versi&oacute;n).
-        function brota(sel, t, ease) {
-          tl.fromTo(sel, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: ease || "back.out(3)" }, t);
+        // Un trazado que se escribe orden a orden, con marcas: el largo hasta cada marca se mide sobre el
+        // trazado hasta ah&iacute; (no por el punto m&aacute;s cercano, que en un trazado que vuelve sobre s&iacute; mismo es ambiguo).
+        function Camino() { this.c = []; this.m = {}; }
+        Camino.prototype.o = function (s) { this.c.push(s); return this; };
+        Camino.prototype.marca = function (n) { this.m[n] = this.c.length; return this; };
+        Camino.prototype.d = function () { return this.c.join(" "); };
+        function mide(cam, el) {
+          var tmp = document.createElementNS(SVGNS, "path"), out = {};
+          el.parentNode.appendChild(tmp);
+          for (var n in cam.m) { tmp.setAttribute("d", cam.c.slice(0, cam.m[n]).join(" ")); out[n] = cam.m[n] > 0 ? tmp.getTotalLength() : 0; }
+          el.parentNode.removeChild(tmp);
+          return out;
         }
-        var a = document.getElementById.bind(document);
+        // Dibuja y recoge un trazo suelto (las hebras de los gastos).
+        function prepara(el) {
+          var L = el.getTotalLength();
+          el.setAttribute("stroke-dasharray", L + " " + (L + 20));
+          el.setAttribute("stroke-dashoffset", L);
+          return L;
+        }
 
-        // &mdash;&mdash; 0 &middot; EL LOGO (0-2,5). Est&aacute; desde el fotograma 0, con el nombre y lo que anuncia. En la primera
-        // corchea nace la l&iacute;nea del fondo de la marca (el punto m&aacute;s bajo del cuenco, (540, 805)) y la rodea
-        // en espiral hasta su lado izquierdo, mientras la marca respira. La espiral es abierta: se aleja de
-        // la marca y no se cruza consigo misma.
-        var CX = 540, CY = 640, ESP = [];
-        for (var i = 0; i <= 150; i++) {
-          var q = i / 150, th = (90 - 270 * q) * Math.PI / 180, r = 163 + 74 * q;
-          ESP.push((i ? "L" : "M") + (CX + r * Math.cos(th)).toFixed(1) + "," + (CY + r * Math.sin(th)).toFixed(1));
-        }
-        var espiral = a("espiral");
-        espiral.setAttribute("d", ESP.join(" "));
-        var LE = dibuja(espiral, E(1), E(7) - E(1), "sine.inOut");
-        gsap.set("#logo", { transformOrigin: "50% 50%" });
-        tl.fromTo("#logo", { scale: 1 }, { scale: 1.035, duration: 0.14, ease: "power2.out", immediateRender: false }, E(1));
-        tl.fromTo("#logo", { scale: 1.035 }, { scale: 1, duration: 0.45, ease: "power1.inOut", immediateRender: false }, E(1) + 0.14);
+        // &mdash;&mdash; LA L&Iacute;NEA. Cinco trazados seguidos: la espiral del logo, el collar de las opciones, el paso al
+        // plan con su ra&iacute;l, el paseo con el museo, y la bajada a la onda. Se pinta de cada uno lo que cae entre la
+        // cola y la punta, medidas en largo de recorrido sobre los cinco puestos uno detr&aacute;s de otro.
 
-        // 1 &middot; T&Uacute; ELIGES. La marca vuela a la cabecera (y ah&iacute; se queda hasta el cierre), la espiral se recoge
-        // y su punta sigue: ensarta las opciones fila a fila, y cada una que se elige se pone verde cuando
-        // la punta pasa por ella, en una corchea.
-        var mc = a("marca"), mimg = mc.querySelector("img");
-        var dx = mc.offsetLeft + mimg.offsetLeft + mimg.offsetWidth / 2 - CX;
-        var dy = mc.offsetTop + mimg.offsetTop + mimg.offsetHeight / 2 - CY;
-        tl.fromTo("#logo", { x: 0, y: 0, scale: 1 }, { x: dx, y: dy, scale: mimg.offsetHeight / 330, duration: 0.36, ease: "power3.inOut", immediateRender: false }, T1);
-        corta("#logo", T1 + 0.36);
-        aparece("#marca img", T1 + 0.36);
-        entra("#marca p", T1 + 0.3, 0, { autoAlpha: 1, y: 0, duration: 0.24, ease: "none" });
-        corta(["#o-nombre", "#o-anuncio"], T1);
-        recoge(espiral, T1, 0.3, LE);
-        // El hilo: de la punta de la espiral (305, 640) baja a la primera fila y la recorre; da la vuelta
-        // por fuera (radio 90, hasta x=890) a la siguiente, en sentido contrario, y as&iacute; las cuatro.
-        var FY = [666, 846, 1026, 1206], XI = 280, XD = 800, K = 49.7;
-        var dh = "M305,640 C305,656 314,666 335,666 L" + XD + "," + FY[0];
-        for (var f = 0; f < 3; f++) {
-          var y0 = FY[f], y1 = FY[f + 1], ym = (y0 + y1) / 2;
-          if (f % 2 === 0) {
-            dh += " C" + (XD + K) + "," + y0 + " 890," + (ym - K) + " 890," + ym + " C890," + (ym + K) + " " + (XD + K) + "," + y1 + " " + XD + "," + y1 + " L" + XI + "," + y1;
-          } else {
-            dh += " C" + (XI - K) + "," + y0 + " 190," + (ym - K) + " 190," + ym + " C190," + (ym + K) + " " + (XI - K) + "," + y1 + " " + XI + "," + y1 + " L" + XD + "," + y1;
-          }
+        // 0 &middot; La espiral: nace DENTRO del cuenco, tangente a su borde y con su misma curvatura (el cuenco es un
+        // c&iacute;rculo, medido sobre el PNG), y se va despegando hacia fuera como una cinta, media vuelta: por la
+        // derecha, por encima, y sale hacia la izquierda, que es donde empieza la primera fila. Es del mismo
+        // verde que la marca, as&iacute; que mientras va por dentro no se ve: la l&iacute;nea sale del logo.
+        var BX = 540.3, BY = 661.3, BR = 143.6;
+        var esp = new Camino(), NE = 160, PH0 = 72, PH1 = -112;
+        for (var i = 0; i <= NE; i++) {
+          var u = i / NE, ph = (PH0 + (PH1 - PH0) * u) * Math.PI / 180, r = BR - 8 + 138 * Math.pow(u, 1.3);
+          esp.o((i ? "L" : "M") + (BX + r * Math.cos(ph)).toFixed(1) + "," + (BY + r * Math.sin(ph)).toFixed(1));
+          if (r - 5 >= BR + 1.5 && esp.m.fuera === undefined) esp.marca("fuera");
         }
-        var hilo = a("hilo");
-        hilo.setAttribute("d", dh);
-        // Las elegidas, en el orden en que pasa la punta (las filas pares van de derecha a izquierda).
+        esp.marca("fin");
+        var phF = PH1 * Math.PI / 180, rF = BR - 8 + 138;
+        var XE = BX + rF * Math.cos(phF), YE = BY + rF * Math.sin(phF);
+
+        // 1 &middot; El collar. Las medidas de las opciones salen de su texto: la l&iacute;nea entra en cada fila por el lado,
+        // a la altura de las opciones, pasa por detr&aacute;s de todas y da la vuelta por fuera, en horizontal, antes
+        // de tocar la siguiente. La primera fila, de izquierda a derecha.
+        var FILAS = ["f1", "f2", "f3"], FY = [], XI = 270, XD = 810, RX = 80;
+        FILAS.forEach(function (id) { FY.push(a(id).offsetTop + 48 + 35); });
         var ELEGIDAS = [];
-        ["f1", "f2", "f3", "f4"].forEach(function (id, fi) {
-          var fila = a(id), sel = [].slice.call(fila.querySelectorAll(".chip[data-sel]"));
-          if (fi % 2 === 1) sel.reverse();
-          sel.forEach(function (c) {
-            var cx = fila.offsetLeft + c.parentNode.offsetLeft + c.offsetLeft + c.offsetWidth / 2;
-            ELEGIDAS.push({ el: c, x: cx, y: FY[fi] });
+        var hilo = new Camino();
+        hilo.o("M" + XE.toFixed(1) + "," + YE.toFixed(1));
+        // De la punta de la espiral (va hacia la izquierda y un poco hacia abajo) a la primera fila, en horizontal.
+        hilo.o("C" + (XE - 120).toFixed(1) + "," + (YE + 34).toFixed(1) + " 205," + (FY[0] - 70) + " 230," + (FY[0] - 22));
+        hilo.o("C240," + (FY[0] - 4) + " 262," + FY[0] + " 300," + FY[0]);
+        FILAS.forEach(function (id, fi) {
+          var fila = a(id), chips = [].slice.call(fila.querySelectorAll(".chip"));
+          if (fi % 2 === 1) chips.reverse();
+          var y = FY[fi];
+          chips.forEach(function (c, ci) {
+            var x0 = fila.offsetLeft + c.parentNode.offsetLeft + c.offsetLeft, x1 = x0 + c.offsetWidth, cx = (x0 + x1) / 2;
+            if (fi === 0 && ci === 0) { hilo.o("L" + (x0 + 16) + "," + y).marca("tapada"); }
+            hilo.o("L" + cx + "," + y);
+            if (c.hasAttribute("data-sel")) { hilo.marca("c" + ELEGIDAS.length); ELEGIDAS.push({ el: c }); }
+          });
+          if (fi + 1 < FILAS.length) {
+            var y1 = FY[fi + 1], ym = (y + y1) / 2, ry = (y1 - y) / 2, k = 0.5523;
+            if (fi % 2 === 0) {
+              hilo.o("L" + XD + "," + y).o("C" + (XD + k * RX) + "," + y + " " + (XD + RX) + "," + (ym - k * ry) + " " + (XD + RX) + "," + ym)
+                  .o("C" + (XD + RX) + "," + (ym + k * ry) + " " + (XD + k * RX) + "," + y1 + " " + XD + "," + y1);
+            } else {
+              hilo.o("L" + XI + "," + y).o("C" + (XI - k * RX) + "," + y + " " + (XI - RX) + "," + (ym - k * ry) + " " + (XI - RX) + "," + ym)
+                  .o("C" + (XI - RX) + "," + (ym + k * ry) + " " + (XI - k * RX) + "," + y1 + " " + XI + "," + y1);
+            }
+          }
+        });
+        // Acaba detr&aacute;s de la &uacute;ltima opci&oacute;n: la punta no asoma.
+        hilo.marca("fin");
+        var XU = parseFloat(hilo.c[hilo.c.length - 1].slice(1));
+
+        // 2 &middot; Al plan: de la punta del collar sube por la derecha, cruza por encima de las pesta&ntilde;as de los d&iacute;as, baja
+        // entre &laquo;D&iacute;a 1&raquo; y &laquo;D&iacute;a 2&raquo; y es el ra&iacute;l. Al acabar el ra&iacute;l vuelve sobre s&iacute; mismo hasta el plan 3, el
+        // tour: de ah&iacute; sale el paseo, y la cola, al recoger el ra&iacute;l, lo encoge hacia ese plan.
+        var NY = [545, 695, 845, 995], YT = FY[2];
+        var plan = new Camino();
+        plan.o("M" + XU + "," + YT).o("L" + XD + "," + YT).o("C" + (XD + 44) + "," + YT + " 885," + (YT - 30) + " 885," + (YT - 74))
+            .o("L885,410 C885,386 868,372 844,372 L512,372 C488,372 470,388 470,412").marca("arriba");
+        NY.forEach(function (y, k) { plan.o("L470," + y).marca("n" + (k + 1)); });
+        plan.o("L470,1035").marca("fondo").o("L470," + NY[2]).marca("fin");
+
+        // 3 &middot; El paseo y el museo. Del plan 3 (el tour) baja el paseo con sus tres paradas numeradas, por debajo
+        // de su fila; sube por la derecha y, debajo del plan 1 (el museo), dibuja la fachada de un solo trazo,
+        // volviendo sobre lo ya pintado para no levantarse: dos gradas, cuatro columnas, arquitrabe, cornisa y
+        // front&oacute;n, que es el pictograma de museo que todo el mundo reconoce.
+        var PARADAS = [[300, 995], [520, 1078], [730, 1005]];
+        var pas = new Camino();
+        pas.o("M470," + NY[2]).o("C470,935 300,915 300,995").marca("p1")
+           .o("C300,1062 420,1078 520,1078").marca("p2")
+           .o("C620,1078 650,1005 730,1005").marca("p3")
+           .o("C800,1005 880,995 880,925 L880,812 C880,796 870,786 854,786").marca("suelo")
+           .o("L520,786 L520,768 L820,768 L765,768 L765,690 L795,690 L795,672 L545,672 L670,618 L795,672 L795,690 L545,690")
+           .o("L575,690 L575,768 L575,690 L638,690 L638,768 L638,690 L702,690 L702,768 L702,690 L795,690").marca("fin");
+
+        // 4 &middot; La bajada: del museo, por la derecha (por fuera de las barras), hasta donde nace la onda.
+        var baj = new Camino();
+        baj.o("M795,690 C842,690 885,706 885,752 L885,990 C885,1012 888,1022 890,1030").marca("fin");
+
+        var TRAMOS = [[esp, a("s-espiral")], [hilo, a("s-hilo")], [plan, a("s-plan")], [pas, a("s-paseo")], [baj, a("s-baja")]];
+        var S = 0, M = [];
+        TRAMOS.forEach(function (t) {
+          t[1].setAttribute("d", t[0].d());
+          var L = t[1].getTotalLength(), mk = mide(t[0], t[1]);
+          t.push(S, L);
+          var g = {};
+          for (var n in mk) g[n] = S + mk[n];
+          g.ini = S;
+          M.push(g);
+          S += L;
+        });
+        var ESP = M[0], HIL = M[1], PLA = M[2], PAS = M[3], BAJ = M[4];
+        var TG = E(32) + 0.2;   // la punta llega a la onda
+
+        // La punta y la cola: [hora, largo, curva para llegar ah&iacute;].
+        var PUNTA = [
+          [0, 0], [E(1), 0], [T1, ESP.fin, "sine.in"],   // sin pararse: la espiral sigue en el collar
+          [E(7.5), HIL.c0], [E(8), HIL.c1], [E(9), HIL.c2, "power1.inOut"],
+          [E(9.5), HIL.c3], [E(10.5), HIL.c4, "power1.inOut"], [E(11), HIL.fin, "power1.out"],
+          [E(14), PLA.ini], [E(15), PLA.n1, "power1.inOut"], [E(16), PLA.n2], [E(17), PLA.n3], [E(18), PLA.n4],
+          [E(18.5), PLA.fondo, "power1.out"],
+          [E(24), PLA.fondo], [E(24.4), PAS.ini, "power1.inOut"],
+          [E(25), PAS.p1, "power1.inOut"], [E(25.5), PAS.p2, "power1.inOut"], [E(26), PAS.p3, "power1.inOut"],
+          [E(28), PAS.fin, "power1.inOut"],
+          [E(31.25), PAS.fin], [TG, BAJ.fin, "power1.in"]
+        ];
+        var COLA = [
+          [0, 0], [T1 - 0.001, 0], [T1, ESP.fuera],          // lo que iba por dentro del cuenco, fuera antes de que el logo se mueva
+          [T1 + 0.3, ESP.fin, "power1.in"], [E(8), HIL.tapada, "power1.out"],   // y el principio del collar, detr&aacute;s de Lisboa
+          [T2 - 0.001, HIL.tapada], [T2, HIL.fin - 50], [E(16), PLA.arriba + 103, "power1.in"],   // sin las opciones, el collar no se ense&ntilde;a; el ra&iacute;l, desde encima del plan 1
+          [T3, PLA.arriba + 103], [E(24.6), PLA.fondo, "power1.inOut"], [E(25), PLA.fin, "power1.out"],
+          [E(31.25), PAS.ini], [T4 - 0.01, PAS.fin], [TG + 0.3, BAJ.fin, "power1.inOut"]   // el museo ya no est&aacute; cuando llega el corte
+        ];
+        var CURVAS = {};
+        function curva(n) { return CURVAS[n] || (CURVAS[n] = n ? gsap.parseEase(n) : function (q) { return q; }); }
+        function valor(keys, t) {
+          if (t <= keys[0][0]) return keys[0][1];
+          for (var i = 1; i < keys.length; i++) {
+            if (t <= keys[i][0]) {
+              var p = keys[i - 1], q = keys[i], d = q[0] - p[0];
+              if (d <= 0) return q[1];
+              return p[1] + (q[1] - p[1]) * curva(q[2])((t - p[0]) / d);
+            }
+          }
+          return keys[keys.length - 1][1];
+        }
+        // Cada fotograma, lo que se ve de cada trazado: un solo guion, de la cola a la punta. Vac&iacute;o, el guion
+        // va m&aacute;s all&aacute; del final (con el remate redondo, un guion de largo cero pinta un punto).
+        function ventana(L, ini, c, p) {
+          var lo = Math.max(c - ini, 0), hi = Math.min(p - ini, L);
+          if (hi - lo < 0.5) return { "stroke-dasharray": "0.01 " + (L + 60).toFixed(1), "stroke-dashoffset": (-(L + 25)).toFixed(1) };
+          return { "stroke-dasharray": (hi - lo).toFixed(2) + " " + (L + 60).toFixed(1), "stroke-dashoffset": (-lo).toFixed(2) };
+        }
+        var KF = Math.round((TG + 0.4) * FPS) + 1;
+        TRAMOS.forEach(function (t) {
+          var el = t[1], ini = t[2], L = t[3], prev = null;
+          for (var k = 0; k <= KF; k++) {
+            var tt = k / FPS, v = ventana(L, ini, valor(COLA, tt), valor(PUNTA, tt));
+            if (k === 0) { el.setAttribute("stroke-dasharray", v["stroke-dasharray"]); el.setAttribute("stroke-dashoffset", v["stroke-dashoffset"]); }
+            else if (v["stroke-dasharray"] !== prev["stroke-dasharray"] || v["stroke-dashoffset"] !== prev["stroke-dashoffset"]) {
+              tl.fromTo(el, { attr: prev }, { attr: v, duration: F, ease: "none", immediateRender: false }, (k - 1) / FPS);
+            }
+            prev = v;
+          }
+        });
+
+        // &mdash;&mdash; 0 &middot; EL LOGO (0-1,87). Est&aacute; desde el fotograma 0, con el nombre y lo que anuncia. En la primera
+        // corchea nace la l&iacute;nea dentro del cuenco y se despega de su borde, mientras la marca respira.
+        gsap.set("#logo", { transformOrigin: "50% 50%" });
+        tl.fromTo("#logo", { scale: 1 }, { scale: 1.025, duration: 0.14, ease: "power2.out", immediateRender: false }, E(1));
+        tl.fromTo("#logo", { scale: 1.025 }, { scale: 1, duration: 0.45, ease: "power1.inOut", immediateRender: false }, E(1) + 0.14);
+
+        // 1 &middot; T&Uacute; ELIGES. La marca vuela a la cabecera (y ah&iacute; se queda hasta el cierre). Las opciones entran
+        // deprisa, y cada una que se elige se pone verde cuando la punta pasa por ella.
+        var mc = a("marca"), mimg = mc.querySelector("img");
+        var dx = mc.offsetLeft + mimg.offsetLeft + mimg.offsetWidth / 2 - 540;
+        var dy = mc.offsetTop + mimg.offsetTop + mimg.offsetHeight / 2 - 640;
+        tl.fromTo("#logo", { x: 0, y: 0, scale: 1 }, { x: dx, y: dy, scale: mimg.offsetHeight / 330, duration: 0.3, ease: "power3.inOut", immediateRender: false }, T1);
+        corta("#logo", T1 + 0.3);
+        aparece("#marca img", T1 + 0.3);
+        aparece("#marca p", T1 + 0.3);
+        // El nombre y lo que anuncia se apagan deprisa (lo que anuncia sigue arriba, en la cabecera) y las
+        // opciones entran cuando el logo ya ha pasado por encima de ellas.
+        apaga(["#o-nombre", "#o-anuncio"], T1, 0.12);
+        ["#f1", "#f2", "#f3"].forEach(function (s, k) { entra(s, T1 + 0.16 + 0.04 * k, 14, { autoAlpha: 1, y: 0, duration: 0.2, ease: "power3.out" }); });
+        entra("#t-eliges", T1 + 0.1, 24);
+        var TELIGE = [E(7.5), E(8), E(9), E(9.5), E(10.5)];
+        ELEGIDAS.forEach(function (c, k) {
+          var t = TELIGE[k];
+          tl.fromTo(c.el, { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" },
+                    { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9", duration: 0.12, ease: "power1.out", immediateRender: false }, t - 0.02);
+          tl.fromTo(c.el, { scale: 1 }, { scale: 1.08, duration: 0.1, ease: "power2.out", immediateRender: false }, t - 0.02);
+          tl.fromTo(c.el, { scale: 1.08 }, { scale: 1, duration: 0.22, ease: "power2.inOut", immediateRender: false }, t + 0.08);
+          late(c.el, E(12) + 0.04 * k, 0.04);
+        });
+        corta(["#t-eliges", "#f1", "#f2", "#f3"], T2);
+
+        // 2 &middot; EL PLAN. La punta sube, cruza sobre las pesta&ntilde;as y baja por el ra&iacute;l: en cada plan se para y brota su
+        // n&uacute;mero, con la hora a la izquierda y lo que es a la derecha. Es el d&iacute;a 1. Luego la pesta&ntilde;a pasa al d&iacute;a 2
+        // y la lista se reescribe deprisa, de arriba abajo, y luego al 3: el plan entero, d&iacute;a a d&iacute;a.
+        entra("#dias", T2, 14, RAPIDO);
+        var tabs = [a("d1"), a("d2"), a("d3")], dias = a("dias");
+        function tabX(k) { return dias.offsetLeft + tabs[k].offsetLeft; }
+        // La raya de la pesta&ntilde;a activa se mueve con transformaciones (x y escala), no con left/width.
+        gsap.set("#raya", { left: tabX(0), width: tabs[0].offsetWidth, transformOrigin: "0% 50%" });
+        entra("#raya", T2 + 0.1, 0, RAPIDO);
+        tl.fromTo("#d1", { color: "rgba(16,14,11,0.52)" }, { color: "#0F766E", duration: 0.2, ease: "none" }, T2);
+        entra("#t-plan-a", T2, 24);
+        entra("#t-plan-b", T2 + 0.08, 24);
+        NY.forEach(function (y, k) { gsap.set("#n" + (k + 1), { svgOrigin: "470 " + y }); });
+        [1, 2, 3, 4].forEach(function (n, k) {
+          brota("#n" + n, E(15 + k) - 0.03);
+          entra("#h" + n + "1", E(15 + k), 12, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+          entra("#q" + n + "1", E(15 + k) + 0.04, 12, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+        });
+        [[E(19), 1], [E(20), 2]].forEach(function (c) {
+          var td = c[0], d = c[1];
+          tl.fromTo("#d" + d, { color: "#0F766E" }, { color: "rgba(16,14,11,0.52)", duration: 0.16, ease: "none", immediateRender: false }, td);
+          tl.fromTo("#d" + (d + 1), { color: "rgba(16,14,11,0.52)" }, { color: "#0F766E", duration: 0.16, ease: "none", immediateRender: false }, td);
+          tl.fromTo("#raya", { x: tabX(d - 1) - tabX(0), scaleX: tabs[d - 1].offsetWidth / tabs[0].offsetWidth },
+                    { x: tabX(d) - tabX(0), scaleX: tabs[d].offsetWidth / tabs[0].offsetWidth, duration: 0.22, ease: "power2.inOut", immediateRender: false }, td);
+          [1, 2, 3, 4].forEach(function (n, k) {
+            var tr = td + 0.05 * k;
+            // La de antes sale del todo antes de que entre la nueva: nunca dos textos encima.
+            tl.fromTo(["#h" + n + d, "#q" + n + d], { autoAlpha: 1, y: 0 }, { autoAlpha: 0, y: -18, duration: 0.1, ease: "power1.in", immediateRender: false }, tr);
+            entra(["#h" + n + (d + 1), "#q" + n + (d + 1)], tr + 0.1, 18, { autoAlpha: 1, y: 0, duration: 0.2, ease: "power3.out" });
+            tl.fromTo("#n" + n, { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", immediateRender: false }, tr);
+            tl.fromTo("#n" + n, { scale: 1.16 }, { scale: 1, duration: 0.2, ease: "power2.inOut", immediateRender: false }, tr + 0.08);
           });
         });
-        var LH = hilo.getTotalLength();
-        var pasos = [[T1, 0]];
-        ELEGIDAS.forEach(function (c, k) { c.t = E(9 + k); pasos.push([c.t, largoHasta(hilo, c.x, c.y)]); });
-        pasos.push([E(16), LH]);
-        trazaPor(hilo, pasos);
-        ["#f1", "#f2", "#f3", "#f4"].forEach(function (s, k) { entra(s, T1 + 0.24 + 0.05 * k, 14, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" }); });
-        entra("#t-eliges", T1 + 0.32, 24);
-        ELEGIDAS.forEach(function (c) {
-          tl.fromTo(c.el, { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" },
-                    { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9", duration: 0.12, ease: "power1.out", immediateRender: false }, c.t - 0.02);
-          tl.fromTo(c.el, { scale: 1 }, { scale: 1.08, duration: 0.1, ease: "power2.out", immediateRender: false }, c.t - 0.02);
-          tl.fromTo(c.el, { scale: 1.08 }, { scale: 1, duration: 0.22, ease: "power2.inOut", immediateRender: false }, c.t + 0.08);
+        [1, 2, 3, 4].forEach(function (n, k) { late("#n" + n, E(22) + 0.03 * k, 0.06, 0.55); });
+
+        // 3 &middot; PASEOS Y MUSEOS, con la bater&iacute;a. El plan no se va: se quedan el museo y el tour del d&iacute;a, se
+        // apaga lo dem&aacute;s, el ra&iacute;l se encoge hacia el tour y de &eacute;l sale el paseo, que sube y dibuja el museo
+        // debajo de su plan.
+        apaga(["#dias", "#raya", "#h23", "#q23", "#h43", "#q43", "#n2", "#n4"], T3, 0.2);
+        tl.fromTo(["#n1", "#n3"], { scale: 1 }, { scale: 0.42, duration: 0.25, ease: "power2.inOut", immediateRender: false }, T3);
+        apaga(["#n1 text", "#n3 text"], T3, 0.12);
+        corta(["#t-plan-a", "#t-plan-b"], T3);
+        entra("#t-paseo-a", T3, 24);
+        entra("#t-paseo-b", T3 + 0.08, 24);
+        var TPAR = [E(25), E(25.5), E(26)];
+        PARADAS.forEach(function (p, k) {
+          gsap.set("#e" + (k + 1), { svgOrigin: p[0] + " " + p[1] });
+          brota("#e" + (k + 1), TPAR[k] - 0.03);
+          late("#e" + (k + 1), E(29) + 0.04 * k, 0.07, 0.3);
+          late("#e" + (k + 1), E(30) + 0.04 * k, 0.07, 0.45);
+          // Se van cuando las alcanza la cola.
+          tl.fromTo("#e" + (k + 1), { scale: 1, autoAlpha: 1 }, { scale: 0, autoAlpha: 0, duration: 0.1, ease: "power2.in", immediateRender: false }, E(31.25) + 0.06 + 0.05 * k);
         });
-        corta(["#t-eliges", "#f1", "#f2", "#f3", "#f4"], T2);
+        corta(["#h13", "#q13", "#h33", "#q33", "#n1", "#n3", "#t-paseo-a", "#t-paseo-b"], T4);
 
-        // 2 &middot; EL PLAN. El hilo se recoge; su punta sube por la izquierda hasta lo alto del ra&iacute;l y baja por &eacute;l.
-        // En cada plan se para y brota su n&uacute;mero, con la hora a la izquierda y lo que es a la derecha.
-        recoge(hilo, T2, 0.36, LH);
-        var sube = a("sube"), cp = a("carril");
-        var LS = dibuja(sube, T2, E(17) - T2, "power1.inOut");
-        recoge(sube, E(17) - 0.06, 0.28, LS);
-        var NODOS = [600, 760, 920, 1080];
-        var pp = [[E(17), 0]];
-        NODOS.forEach(function (y, k) { pp.push([E(18 + k), y - 560]); });
-        var LCP = cp.getTotalLength();
-        pp.push([E(22), LCP]);
-        trazaPor(cp, pp);
-        NODOS.forEach(function (y, k) { gsap.set("#n" + (k + 1), { svgOrigin: "470 " + y }); });
-        [1, 2, 3, 4].forEach(function (n, k) {
-          brota("#n" + n, E(18 + k) - 0.03);
-          entra("#h" + n, E(18 + k), 12, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
-          entra("#q" + n, E(18 + k) + 0.04, 12, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
-        });
-        entra("#dias", T2 + 0.1, 14);
-        entra("#t-plan-a", T2 + 0.31, 24);
-        entra("#t-plan-b", T2 + 0.41, 24);
-        corta(["#dias", "#h1", "#h2", "#h3", "#h4", "#q1", "#q2", "#q3", "#q4", "#n1", "#n2", "#n3", "#n4", "#t-plan-a", "#t-plan-b"], T3);
-
-        // 3 &middot; PASEOS Y MUSEOS, con la bater&iacute;a. Del final del ra&iacute;l sale un paseo con tres paradas (a la izquierda)
-        // que acaba en un museo (arriba a la derecha): la l&iacute;nea dibuja su fachada (base, columnas, cornisa y front&oacute;n) de un solo trazo, pasando
-        // otra vez por donde ya ha pintado para no levantarse.
-        recoge(cp, T3, 0.4, LCP);
-        var paseo = a("paseo");
-        var dp = "M470,1120 C470,1170 330,1130 330,1010"
-               + " C330,900 230,920 230,800"
-               + " C230,700 440,760 440,660"
-               + " C440,640 520,640 630,640"
-               + " L870,640 L850,640 L850,480 L870,480 L630,480 L750,390 L870,480"
-               + " L650,480 L650,640 L750,640 L750,480 L850,480 L850,640 L870,640";
-        paseo.setAttribute("d", dp);
-        var PARADAS = [[330, 1010], [230, 800], [440, 660]];
-        var ps = [[T3, 0]];
-        PARADAS.forEach(function (p, k) { ps.push([E(25 + k), largoHasta(paseo, p[0], p[1])]); });
-        var LP = paseo.getTotalLength();
-        ps.push([E(28), largoHasta(paseo, 630, 640), "power1.inOut"]);
-        ps.push([E(31), LP, "power1.inOut"]);
-        trazaPor(paseo, ps);
-        PARADAS.forEach(function (p, k) { gsap.set("#e" + (k + 1), { svgOrigin: p[0] + " " + p[1] }); brota("#e" + (k + 1), E(25 + k) - 0.03); });
-        entra("#p-tour", E(25), 12);
-        entra("#p-museo", E(28), 12);
-        entra("#t-paseo-a", T3 + 0.31, 24);
-        entra("#t-paseo-b", T3 + 0.41, 24);
-        corta(["#e1", "#e2", "#e3", "#p-tour", "#p-museo", "#t-paseo-a", "#t-paseo-b"], T4);
-
-        // 4 &middot; SIN COBERTURA. El paseo se recoge, la punta baja por la derecha (por fuera de las barras) y se
-        // convierte en la onda de la voz, que crece hacia la izquierda. Las barras se vac&iacute;an de la m&aacute;s alta a
-        // la m&aacute;s baja en cuatro semicorcheas, mientras entra el bajo; la onda no se entera.
-        // Deprisa y desde el principio: lo &uacute;ltimo que se dibuj&oacute;, el museo, est&aacute; donde entra el titular.
-        recoge(paseo, T4, 0.22, LP, "power2.out");
-        var baja = a("baja");
-        var LB = dibuja(baja, T4, 0.25, "power1.in");
-        recoge(baja, T4 + 0.25, 0.3, LB);
+        // 4 &middot; SIN COBERTURA. El paseo y el museo se han recogido ANTES del corte; la punta baja por la derecha y
+        // se convierte en la onda de la voz. Las barras y el titular entran cuando ya no queda nada del museo, y
+        // se vac&iacute;an de la m&aacute;s alta a la m&aacute;s baja en cuatro semicorcheas, mientras entra el bajo: la onda no se entera.
         var BARRAS = [E(33), E(33.5), E(34), E(34.5)];
         [["#b3 .lleno", BARRAS[0]], ["#b2 .lleno", BARRAS[1]], ["#b1 .lleno", BARRAS[2]], ["#b0 .lleno", BARRAS[3]]].forEach(function (b) {
           tl.fromTo(b[0], { scaleY: 1 }, { scaleY: 0, duration: 0.14, ease: "power2.in" }, b[1] - 0.05);
         });
-        ["#b0", "#b1", "#b2", "#b3", "#audioguia"].forEach(function (s) { aparece(s, T4); });
-        entra("#t-cob", T4 + 0.04, 20);
-        entra("#t-suena", E(36), 24);
-        entra("#a1", E(37), 14);
-        entra("#a2", E(37) + 0.08, 14);
+        ["#b0", "#b1", "#b2", "#b3", "#audioguia"].forEach(function (s) { aparece(s, T4 + 0.14); });
+        entra("#t-cob", T4 + 0.14, 20, RAPIDO);
+        entra("#t-suena", E(35), 24);
+        entra("#a1", E(36), 14);
+        entra("#a2", E(36) + 0.08, 14);
         corta(["#t-cob", "#b0", "#b1", "#b2", "#b3", "#audioguia", "#t-suena", "#a1", "#a2"], T5);
 
-        // &mdash;&mdash; LA ONDA: una funci&oacute;n del tiempo, de T4+0,25 a T7+0,25. Una envolvente sim&eacute;trica (una campana
-        // que respira) por dos senos que corren, como la forma de onda de una voz, sin picos sueltos (la de la
-        // primera versi&oacute;n). Crece hacia la izquierda, late en las notas fuertes y en cada voz que suena, sube a
-        // y=700 para dejar sitio a las voces y, en los gastos, se aplana y se encoge hasta ser el subrayado
-        // del total. En Lugares, el subrayado se dobla punto a punto en el camino del mapa, de izquierda a
-        // derecha (as&iacute; no se cruza nunca consigo mismo), y en el cierre se recoge en el centro del icono.
-        // Cada fotograma lleva el mismo n&uacute;mero de puntos.
-        var TG = T4 + 0.25, N = 180;
-        var RUTA = "M190,1100 C300,1100 330,860 450,860 C590,860 580,1100 720,1100 C820,1100 860,980 878,900 L884,880";
+        // &mdash;&mdash; LA ONDA: una funci&oacute;n del tiempo, de TG a T8+0,24. Una envolvente sim&eacute;trica (una campana que
+        // respira) por dos senos que corren, como la forma de onda de una voz. Crece hacia la izquierda, late en
+        // las notas fuertes y en cada voz que suena, sube a y=640 para dejar sitio a las voces y, en los gastos,
+        // se aplana y se encoge hasta ser el subrayado del total. En Lugares, el subrayado se dobla punto a
+        // punto en el camino del mapa, de izquierda a derecha (el camino nunca va hacia atr&aacute;s en x, as&iacute; que no
+        // se cruza consigo mismo), y en el cierre se recoge en el centro del icono. Mismo n&uacute;mero de puntos siempre.
+        var N = 180;
+        // El camino de Lugares va POR las calles del mapa: tramos rectos con las esquinas redondeadas.
+        function porCalles(pts, rr) {
+          var d = "M" + pts[0][0] + "," + pts[0][1];
+          for (var i = 1; i + 1 < pts.length; i++) {
+            var p0 = pts[i - 1], p1 = pts[i], p2 = pts[i + 1];
+            var ax = Math.sign(p0[0] - p1[0]), ay = Math.sign(p0[1] - p1[1]), bx = Math.sign(p2[0] - p1[0]), by = Math.sign(p2[1] - p1[1]);
+            d += " L" + (p1[0] + ax * rr) + "," + (p1[1] + ay * rr) + " Q" + p1[0] + "," + p1[1] + " " + (p1[0] + bx * rr) + "," + (p1[1] + by * rr);
+          }
+          var z = pts[pts.length - 1];
+          return d + " L" + z[0] + "," + z[1];
+        }
+        var RUTA = porCalles([[190, 1080], [270, 1080], [270, 790], [450, 790], [450, 950], [800, 950], [800, 640], [884, 640]], 30);
         var ruta = a("ruta");
         ruta.setAttribute("d", RUTA);
         var LR = ruta.getTotalLength(), RP = [];
         for (var j = 0; j <= N; j++) { var pr = ruta.getPointAtLength(LR * j / N); RP.push([pr.x, pr.y]); }
-        var LATIDOS = [E(36), E(38), E(40), E(42), E(45), E(46), E(47), E(48), E(49)];
+        var LATIDOS = [E(35), E(36), E(38), E(40), E(44), E(45), E(46), E(47)];
         function amplitud(t) {
           var v = 1;
           LATIDOS.forEach(function (tb) { if (t >= tb) v += 0.45 * Math.exp(-(t - tb) / 0.14); });
@@ -488,7 +627,7 @@
         }
         function onda(t) {
           if (t >= T7) {
-            var q7 = suave((t - T7 - 0.08) / 0.5), q8 = t >= T8 ? Math.pow(Math.min(1, (t - T8) / 0.2), 2) : 0, dr = "";
+            var q7 = suave((t - T7 - 0.04) / 0.42), q8 = t >= T8 ? Math.pow(Math.min(1, (t - T8) / 0.2), 2) : 0, dr = "";
             for (var i = 0; i <= N; i++) {
               var ux = 380 + 320 * i / N, x = ux + q7 * (RP[i][0] - ux), y = 650 + q7 * (RP[i][1] - 650);
               x += q8 * (540 - x); y += q8 * (630 - y);
@@ -497,10 +636,10 @@
             return dr;
           }
           var xs = 890 - 700 * suave((t - TG) / 0.5), xe = 890, Y = 1030, m = 1;
-          if (t >= T5) Y = 1030 - 330 * suave((t - T5) / 0.45);
+          if (t >= T5) Y = 1030 - 390 * suave((t - T5) / 0.45);
           if (t >= T6) {
-            var q6 = suave((t - T6) / 0.45);
-            xs = 190 + 190 * q6; xe = 890 - 190 * q6; Y = 700 - 50 * q6; m = 1 - q6;
+            var q6 = suave((t - T6) / 0.36);
+            xs = 190 + 190 * q6; xe = 890 - 190 * q6; Y = 640 + 10 * q6; m = 1 - q6;
           }
           var A = amplitud(t) * m, d = "";
           for (var i = 0; i <= N; i++) {
@@ -523,33 +662,37 @@
         aparece(ondaEl, TG);
         corta(ondaEl, K1 / FPS);
 
-        // 5 &middot; LAS VOCES. La onda sube y las cuatro del selector entran en lista; cada una suena (se pone verde y
-        // la onda late) en una corchea, y al final se queda elegida una. Ninguna lleva descripci&oacute;n, como en la
-        // app: la voz se escucha, no se adjetiva (narrationVoices.ts).
-        entra("#t-voces", T5 + 0.1, 24);
-        entra("#s-voces", T5 + 0.24, 14);
-        ["#v0", "#v1", "#v2", "#v3"].forEach(function (s, k) { entra(s, T5 + 0.3 + 0.05 * k, 14, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" }); });
+        // 5 &middot; LAS VOCES. La onda sube y entran las cuatro del selector; las tres que tienen bot&oacute;n de escuchar
+        // suenan (se ponen verdes y la onda late), una por corchea, y se queda elegida Kore. La del tel&eacute;fono no
+        // tiene bot&oacute;n en la app, as&iacute; que aqu&iacute; tampoco suena. Ninguna lleva descripci&oacute;n: la voz se escucha, no se
+        // adjetiva (narrationVoices.ts).
+        entra("#t-voces", T5 + 0.04, 24);
+        ["#v0", "#v1", "#v2", "#v3"].forEach(function (s, k) { entra(s, T5 + 0.08 + 0.04 * k, 14, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" }); });
+        entra("#t-escucha", T5 + 0.12, 24);
         var ON = { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9" };
         var OFF = { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" };
-        [0, 1, 2, 3].forEach(function (k) {
-          var t = E(45 + k), s = "#v" + k;
+        [1, 2, 3].forEach(function (n, k) {
+          var t = E(44 + k), s = "#v" + n;
           tl.fromTo(s, OFF, Object.assign({ duration: 0.08, ease: "power1.out", immediateRender: false }, ON), t - 0.02);
           tl.fromTo(s + " svg path", { fill: "#0F766E", stroke: "#0F766E" }, { fill: "#FFFDF9", stroke: "#FFFDF9", duration: 0.08, immediateRender: false }, t - 0.02);
           tl.fromTo(s, ON, Object.assign({ duration: 0.16, ease: "power1.in", immediateRender: false }, OFF), t + 0.2);
           tl.fromTo(s + " svg path", { fill: "#FFFDF9", stroke: "#FFFDF9" }, { fill: "#0F766E", stroke: "#0F766E", duration: 0.16, immediateRender: false }, t + 0.2);
         });
         // La elegida, Kore: verde hasta que se va la escena.
-        tl.fromTo("#v1", OFF, Object.assign({ duration: 0.1, ease: "power1.out", immediateRender: false }, ON), E(49) - 0.02);
-        tl.fromTo("#v1 svg path", { fill: "#0F766E", stroke: "#0F766E" }, { fill: "#FFFDF9", stroke: "#FFFDF9", duration: 0.1, immediateRender: false }, E(49) - 0.02);
-        tl.fromTo("#v1", { scale: 1 }, { scale: 1.05, duration: 0.1, ease: "power2.out", immediateRender: false }, E(49) - 0.02);
-        tl.fromTo("#v1", { scale: 1.05 }, { scale: 1, duration: 0.25, ease: "power2.inOut", immediateRender: false }, E(49) + 0.08);
-        corta(["#t-voces", "#s-voces", "#v0", "#v1", "#v2", "#v3"], T6);
+        tl.fromTo("#v1", OFF, Object.assign({ duration: 0.1, ease: "power1.out", immediateRender: false }, ON), E(47) - 0.02);
+        tl.fromTo("#v1 svg path", { fill: "#0F766E", stroke: "#0F766E" }, { fill: "#FFFDF9", stroke: "#FFFDF9", duration: 0.1, immediateRender: false }, E(47) - 0.02);
+        tl.fromTo("#v1", { scale: 1 }, { scale: 1.05, duration: 0.1, ease: "power2.out", immediateRender: false }, E(47) - 0.02);
+        tl.fromTo("#v1", { scale: 1.05 }, { scale: 1, duration: 0.25, ease: "power2.inOut", immediateRender: false }, E(47) + 0.08);
+        corta(["#t-voces", "#t-escucha", "#v0", "#v1", "#v2", "#v3"], T6);
 
         // 6 &middot; LOS GASTOS. La onda se aplana en el subrayado del total y de su centro salen cuatro l&iacute;neas, una
-        // por persona; cada una baja hasta lo alto de su cabeza y ah&iacute; brota la persona con su parte.
-        entra("#g-concepto", T6 + 0.06, 12);
-        tl.fromTo("#g-total", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, T6 + 0.1);
-        var XP = [750, 610, 470, 330], LLEGAN = [E(54), E(55), E(56), E(57)];
+        // por persona, de izquierda a derecha; cada una baja hasta lo alto de su cabeza y ah&iacute; brota la persona
+        // con su parte.
+        entra("#g-concepto", T6 + 0.04, 12);
+        tl.fromTo("#g-total", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, T6 + 0.2);
+        entra("#t-gastos-a", T6, 24);
+        entra("#t-gastos-b", T6 + 0.08, 24);
+        var XP = [330, 470, 610, 750], LLEGAN = [E(51), E(52), E(53), E(54)];
         var HEB = ["hb0", "hb1", "hb2", "hb3"];
         function hebra(x) {
           var xm = 540 + (x - 540) * 0.5;
@@ -560,38 +703,40 @@
           el.setAttribute("d", hebra(x));
           // Se dibuja hacia su persona y, en Lugares, se recoge al rev&eacute;s, hacia el subrayado del que sali&oacute;.
           var Lh = prepara(el);
-          tl.fromTo(el, { attr: { "stroke-dashoffset": Lh } }, { attr: { "stroke-dashoffset": 0 }, duration: LLEGAN[i] - T6 - 0.22, ease: "power1.inOut" }, T6 + 0.22);
+          tl.fromTo(el, { attr: { "stroke-dashoffset": Lh } }, { attr: { "stroke-dashoffset": 0 }, duration: LLEGAN[i] - T6 - 0.2, ease: "power1.inOut" }, T6 + 0.2);
           tl.fromTo(el, { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": Lh + 2 }, duration: 0.22, ease: "power1.in", immediateRender: false }, T7);
           gsap.set("#g" + i, { svgOrigin: x + " 880" });
           brota("#g" + i, LLEGAN[i], "back.out(2.4)");
           entra("#pa" + i, LLEGAN[i] + 0.06, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+          late("#g" + i, E(55) + 0.05 * i, 0.05, 0.3);
+          late("#g" + i, E(56) + 0.05 * i, 0.06, 0.55);
         });
-        entra("#t-gastos-a", T6 + 0.31, 24);
-        entra("#t-gastos-b", T6 + 0.41, 24);
         corta(["#g-concepto", "#g-total", "#pa0", "#pa1", "#pa2", "#pa3", "#g0", "#g1", "#g2", "#g3", "#t-gastos-a", "#t-gastos-b"], T7);
 
-        // 7 &middot; LUGARES. Las cuatro l&iacute;neas vuelven al subrayado, que se dobla en un camino sobre un mapa (calles
-        // en gris; lo hace la onda, arriba), y en tres corcheas brotan tres chinchetas con la categor&iacute;a de
-        // Lugares que les toca.
+        // 7 &middot; LUGARES. Las cuatro l&iacute;neas vuelven al subrayado, que se dobla en un camino por las calles de un mapa
+        // (lo hace la onda, arriba); brotan tres chinchetas, en una esquina o a media manzana, con la categor&iacute;a de
+        // Lugares que les toca, y laten con la m&uacute;sica hasta el golpe.
         HEB.forEach(function (id) { corta("#" + id, T7 + 0.24); });
-        tl.fromTo("#calles", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, T7 + 0.1);
-        // Las chinchetas, en el arranque, en lo alto de la loma y en el fondo del valle; la etiqueta, donde no
-        // pasa la l&iacute;nea (debajo, o encima de la cabeza de la chincheta en la loma).
-        var p0 = ruta.getPointAtLength(48);
-        [[p0.x, p0.y, 1], [450, 860, -1], [720, 1100, 1]].forEach(function (c, k) {
-          var p = { x: c[0], y: c[1] };
-          a("pin" + k).querySelector(".pos").setAttribute("transform", "translate(" + p.x.toFixed(1) + "," + p.y.toFixed(1) + ")");
-          gsap.set("#pin" + k, { svgOrigin: p.x.toFixed(1) + " " + p.y.toFixed(1) });
-          brota("#pin" + k, E(62 + k), "back.out(2.2)");
-          var et = a("si" + k);
-          et.style.left = (p.x - 150) + "px";
-          et.style.top = (c[2] > 0 ? p.y + 34 : p.y - 136) + "px";
-          entra("#si" + k, E(62 + k) + 0.06, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+        tl.fromTo("#mapa", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "none" }, T7 + 0.04);
+        entra("#t-lugares", T7 + 0.04, 24);
+        entra("#t-lugares-a", T7, 24);
+        entra("#t-lugares-b", T7 + 0.08, 24);
+        // [x, y, d&oacute;nde va la etiqueta]: la de la izquierda, a su derecha; la de en medio, debajo; la de la
+        // derecha, a su izquierda (a la derecha no cabe, y encima la cruzar&iacute;a el camino).
+        [[270, 1010, "der"], [625, 950, "abajo"], [800, 830, "izq"]].forEach(function (c, k) {
+          var x = c[0], y = c[1];
+          a("pin" + k).querySelector(".pos").setAttribute("transform", "translate(" + x + "," + y + ")");
+          gsap.set("#pin" + k, { svgOrigin: x + " " + y });
+          var tp = E(60 + k);
+          brota("#pin" + k, tp, "back.out(2.2)");
+          [E(64), E(66)].forEach(function (tb) { late("#pin" + k, tb + 0.05 * k, 0.07); });
+          var et = a("si" + k), w = et.offsetWidth;
+          if (c[2] === "der") { et.style.left = (x + 34) + "px"; et.style.top = (y - 74) + "px"; }
+          else if (c[2] === "abajo") { et.style.left = (x - w / 2) + "px"; et.style.top = (y + 22) + "px"; }
+          else { et.style.left = (x - 34 - w) + "px"; et.style.top = (y - 74) + "px"; }
+          entra("#si" + k, tp + 0.06, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
         });
-        entra("#t-lugares", T7 + 0.1, 24);
-        entra("#l1", T7 + 0.3, 14);
-        entra("#l2", T7 + 0.38, 14);
-        corta(["#t-lugares", "#l1", "#l2", "#si0", "#si1", "#si2", "#pin0", "#pin1", "#pin2", "#calles", "#marca"], T8);
+        corta(["#t-lugares", "#t-lugares-a", "#t-lugares-b", "#si0", "#si1", "#si2", "#pin0", "#pin1", "#pin2", "#mapa", "#marca"], T8);
 
         // 8 &middot; EL CIERRE, en el golpe (el de la primera versi&oacute;n). El camino se recoge en un punto, en el centro del
         // icono (lo hace la onda, arriba), y de ah&iacute; nace el icono. La insignia aparece ENTERA de un fotograma a otro y no se mueve nunca
@@ -602,8 +747,9 @@
         aparece("#c-insignia", T8 + 0.6);
         entra("#c-android", T8 + 0.8, 16, ARR);
         tl.fromTo("#c-credito", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, T8 + 1.0);
-        // Hasta el final, el icono late en cada tiempo (como lat&iacute;a la onda): sin eso, los &uacute;ltimos segundos
-        // eran el mismo fotograma, que en Reels y TikTok parece un v&iacute;deo atascado. La insignia, quieta.
+        // Hasta el final, el icono late al tempo de la m&uacute;sica, sobre el acorde que se apaga (despu&eacute;s del golpe ya no
+        // hay notas): sin eso, los &uacute;ltimos segundos eran el mismo fotograma, que en Reels y TikTok parece un
+        // v&iacute;deo atascado. La insignia, quieta.
         var T8N = 21.25;
         for (var tp = T8N + 2 * TIEMPO; tp < FIN - 0.18; tp += TIEMPO) {
           tl.fromTo("#c-icono", { scale: 1 }, { scale: 1.04, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
@@ -621,7 +767,7 @@
         } else {
           tl.set("#c-perfil", { autoAlpha: 0 }, 0);
           tl.fromTo("#c-flecha", { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, T8 + 0.95);
-          // Bota 12 px hacia abajo en cada tiempo de la m&uacute;sica, hasta el final.
+          // Bota 12 px hacia abajo al tempo de la m&uacute;sica, hasta el final.
           for (var tb = T8N + 2 * TIEMPO; tb < FIN - 0.18; tb += TIEMPO) {
             tl.fromTo("#c-flecha", { y: 0 }, { y: 12, duration: 0.18, ease: "power2.out", immediateRender: false }, tb);
             tl.fromTo("#c-flecha", { y: 12 }, { y: 0, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tb + 0.18);

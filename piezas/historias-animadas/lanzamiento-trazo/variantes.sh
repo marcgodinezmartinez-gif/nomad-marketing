@@ -1,5 +1,6 @@
 #!/bin/bash
-# Renderiza las versiones de «Un trazo», versión 2 (27-oct), y sus fotogramas de revisión.
+# Renderiza las versiones de «Un trazo», versión 2 (27-oct, con los arreglos de la revisión), y sus
+# fotogramas de revisión.
 # Escribe en <salida> (por defecto salida/ del repo):
 #   nomad-trazo-historia-1080x1920.mp4  con la flecha hacia el adhesivo de enlace
 #   nomad-trazo-reel-1080x1920.mp4      con «Enlace en el perfil» (reel de Instagram y TikTok)
@@ -23,7 +24,7 @@ bash "$R/piezas/historias-animadas/construir.sh" >/dev/null
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la historia.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version historia' EXIT
 # Un instante por escena: cuando ya está todo dentro y nada se mueve.
-ESCENAS="0.00:0-el-logo 2.35:0-el-logo-y-la-linea 4.90:1-tu-eliges 7.20:2-el-plan 9.85:3-paseos-y-museos 13.40:4-sin-cobertura 15.90:5-cuatro-voces 18.45:6-los-gastos 20.95:7-lugares 24.50:8-el-cierre"
+ESCENAS="0.00:0-el-logo 1.80:0-el-logo-y-la-linea 4.30:1-tu-eliges 7.40:2-el-plan 9.70:3-paseos-y-museos 13.00:4-sin-cobertura 15.55:5-cuatro-voces 18.05:6-los-gastos 21.15:7-lugares 24.50:8-el-cierre"
 for V in ${VERSIONES:-historia reel}; do
   version "$V"
   ( cd "$D" && $HF check --at-transitions 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -E "Check (passed|failed)|✗|⚠|WCAG" ) | tee /tmp/trazo-check.txt

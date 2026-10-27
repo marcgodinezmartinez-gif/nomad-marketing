@@ -21,13 +21,18 @@
 # LOS TIC: un seno corto que se apaga, sin IA, en notas de si bemol mayor. Los tiempos son los del
 # index.html (las corcheas E(k) = 0,3125k): si se mueve uno, se mueve en los dos sitios.
 #   - nace la línea, del logo: E(1);
-#   - las siete opciones que se eligen: E(9)…E(15), subiendo la escala;
-#   - los cuatro planes del día: E(18)…E(21);
-#   - las tres paradas del paseo: E(25)…E(27);
+#   - las cinco opciones que se eligen: E(7,5), E(8), E(9), E(9,5), E(10,5), subiendo la escala;
+#   - los cuatro planes del día 1: E(15)…E(18), y el paso a los días 2 y 3: E(19), E(20), un par de notas;
+#   - las tres paradas del paseo: E(25), E(25,5), E(26);
 #   - las cuatro barras que caen: E(33), E(33,5), E(34), E(34,5), cada una más grave;
-#   - las cuatro voces que suenan, E(45)…E(48), y la elegida, E(49);
-#   - las cuatro personas del grupo: E(54)…E(57), más suaves;
-#   - las tres chinchetas de Lugares: E(62)…E(64).
+#   - las tres voces que se escuchan, E(44)…E(46), y la elegida, E(47);
+#   - las cuatro personas del grupo: E(51)…E(54), más suaves;
+#   - las tres chinchetas de Lugares: E(60)…E(62).
+# Un «tic» que cae en la misma nota y en el mismo instante que una nota de la música se funde con ella
+# (la revisión del 27-oct midió seis por debajo de la música en su propia banda). Cada uno se mide con
+# PISTAS=<carpeta> bash mezclar.sh, que deja además los tic y la música por separado, y el criterio es
+# que el tic quede al menos 6 dB por encima de la música en su banda (README.md, «La música»): los que
+# no llegaban van una octava más arriba o más fuertes, y está dicho en cada línea.
 set -e
 cd "$(dirname "$0")/assets"
 DUR=25.8
@@ -45,14 +50,24 @@ nota() {  # tiempo, frecuencia, amplitud, caída (s): cuatro armónicos, los alt
 }
 E="0"
 E="$E+$(tic $(e 1) 1174.66 0.16 0.030)"
-k=9; for f in 932.33 1046.50 1174.66 1244.51 1396.91 1567.98 1760.00; do E="$E+$(tic $(e $k) $f 0.22 0.022)"; k=$((k+1)); done
-for k in 18 19 20 21; do E="$E+$(tic $(e $k) 1396.91 0.20 0.026)+$(tic $(e $k) 2793.83 0.05 0.012)"; done
-for k in 25 26 27; do E="$E+$(tic $(e $k) 1174.66 0.20 0.026)"; done
+# Las opciones: si bemol, do, re, mi bemol, fa (5 y 6).
+k=0; for p in "7.5 932.33" "8 1046.50" "9 1174.66" "9.5 1244.51" "10.5 1396.91"; do
+  set -- $p; E="$E+$(tic $(e $1) $2 0.22 0.022)"; k=$((k+1)); done
+# Los planes del día 1 (si bemol 6, con su octava: en fa 6, el primero y el último caían en una nota de
+# la marimba y no se oían, +2,5 y -1,1 dB), y el paso de día: dos notas seguidas, sol 6 y re 7 (en si
+# bemol 6, +4,7 y +1,4).
+for k in 15 16 17 18; do E="$E+$(tic $(e $k) 1864.66 0.20 0.026)+$(tic $(e $k) 3729.31 0.04 0.012)"; done
+for k in 19 20; do E="$E+$(tic $(e $k) 1567.98 0.14 0.020)+$(tic $(echo "0.3125*$k+0.07" | bc -l) 2349.32 0.12 0.020)"; done
+# Las paradas del paseo (re 6) y las barras que caen.
+for k in 25 25.5 26; do E="$E+$(tic $(e $k) 1174.66 0.20 0.026)"; done
 for p in "33 1864.66" "33.5 1567.98" "34 1396.91" "34.5 1174.66"; do set -- $p; E="$E+$(tic $(e $1) $2 0.28 0.020)"; done
-for k in 45 46 47 48; do E="$E+$(tic $(e $k) 1396.91 0.12 0.020)"; done
-E="$E+$(tic $(e 49) 1864.66 0.20 0.026)"
-for k in 54 55 56 57; do E="$E+$(tic $(e $k) 932.33 0.15 0.035)"; done
-k=62; for f in 1396.91 1567.98 1864.66; do E="$E+$(tic $(e $k) $f 0.22 0.024)"; k=$((k+1)); done
+# Las tres voces que se escuchan (fa 7: en fa 6 las dos primeras quedaban a -7,3 y -3,7) y la elegida.
+for k in 44 45 46; do E="$E+$(tic $(e $k) 2793.83 0.12 0.020)"; done
+E="$E+$(tic $(e 47) 1864.66 0.20 0.026)"
+# Las personas (la 6, más largas: en si bemol 5 la tercera quedaba a +2,2) y las chinchetas, subiendo el
+# acorde (fa 6, si bemol 6 y re 7: el sol 6 de en medio quedaba a +3,1).
+for k in 51 52 53 54; do E="$E+$(tic $(e $k) 1760.00 0.15 0.035)"; done
+k=60; for f in 1396.91 1864.66 2349.32; do E="$E+$(tic $(e $k) $f 0.22 0.024)"; k=$((k+1)); done
 # El del cierre (21,25): si bemol mayor abierto, del si bemol 3 al si bemol 5, y un chasquido brillante.
 G=${GOLPE:-1}
 for n in "233.08 0.15" "293.66 0.12" "349.23 0.11" "466.16 0.13" "587.33 0.08" "698.46 0.06" "932.33 0.05"; do
@@ -71,6 +86,18 @@ ffmpeg -v error -y -i musica-lyria.mp3 -f lavfi -i "aevalsrc='$E':s=48000:d=$DUR
 [1:a]pan=stereo|c0=c0|c1=c0[tics];
 [mus][tics]amix=inputs=2:normalize=0:duration=first,afade=t=out:st=24.6:d=1.15,alimiter=limit=0.72:level=false:attack=2:release=60:asc=1[mix]" \
   -map "[mix]" -ar 48000 -ac 2 -c:a pcm_s24le /tmp/trazo-mezcla.wav
+# Con PISTAS=<carpeta>, los tic y la música, por separado y con la misma cadena, para medir cada tic
+# contra la música en su banda (README.md, «La música»).
+if [ -n "$PISTAS" ]; then
+  mkdir -p "$PISTAS"
+  ffmpeg -v error -y -f lavfi -i "aevalsrc='$E':s=48000:d=$DUR" -ac 1 -c:a pcm_s16le "$PISTAS/tics.wav"
+  ffmpeg -v error -y -i musica-lyria.mp3 -filter_complex "
+[0:a]atrim=start=$INICIO,asetpts=PTS-STARTPTS,aresample=48000,apad,atrim=0:$DUR,highpass=f=30,asplit=2[ma][mb];
+[ma]volume='if(lt(t,7.48),1,if(lt(t,7.5),1-(t-7.48)/0.02,0))':eval=frame[a1];
+[mb]lowshelf=f=120:g=-6,volume='if(lt(t,7.48),0,if(lt(t,7.5),(t-7.48)/0.02,1))':eval=frame[b1];
+[a1][b1]amix=inputs=2:normalize=0,afade=t=in:d=0.015,afade=t=out:st=23.35:d=0.6,pan=mono|c0=0.5*c0+0.5*c1[mus]" \
+    -map "[mus]" -c:a pcm_s16le "$PISTAS/mus.wav"
+fi
 # loudnorm en dos pasadas a -14 LUFS integrados y -1,5 dBTP, y LINEAL: una ganancia fija que deja la
 # mezcla como se ha escrito arriba. Si la ganancia dejara el pico verdadero por encima de -1,5,
 # loudnorm se pasaría al modo DINÁMICO sin avisar (lanzamiento-ios/README.md): por eso el limitador de
