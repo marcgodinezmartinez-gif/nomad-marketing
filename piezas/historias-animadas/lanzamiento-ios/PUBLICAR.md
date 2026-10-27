@@ -132,11 +132,11 @@ Le dices a dónde vas y Nomad escribe el viaje día a día. Después te lo cuent
 
 ## Cuándo
 
-**El domingo 25 de octubre de 2026, entre las 20:00 y las 21:00** (hora peninsular), primero el
-reel y en el mismo minuto la historia; TikTok, a la misma hora. El domingo por la tarde es cuando
-se piensa en la próxima escapada. Es una regla general, no un dato de la cuenta: si en
-Instagram, **Panel profesional → Estadísticas → Seguidores → Momentos de más actividad**, sale
-otra franja, usa ésa. Si no puedes el domingo, de martes a jueves entre las 19:30 y las 21:00.
+**Hoy, martes 27, o mañana, miércoles 28 de octubre de 2026, entre las 19:30 y las 21:00** (hora
+peninsular): primero el reel y en el mismo minuto la historia; TikTok, a la misma hora. Iba a
+salir el domingo 25 y no salió. Es una regla general, no un dato de la cuenta: si en Instagram,
+**Panel profesional → Estadísticas → Seguidores → Momentos de más actividad**, sale otra franja,
+usa ésa. Para la próxima pieza, el domingo por la tarde, que es cuando se piensa en la escapada.
 
 ## Si algo falla
 
