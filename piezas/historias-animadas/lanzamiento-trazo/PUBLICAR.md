@@ -10,8 +10,8 @@ en los pies.
 
 **Y ahora con voz** (27-oct, la opción A que elegiste): Kore, la misma voz de la app, cuenta cada
 apartado mientras se dibuja, y debajo va una música nueva, tranquila, de piano y cuerdas, muy por
-debajo de la voz. Sin «tic». Cada escena dura lo que su frase, y todo va a 1,25× (voz, música y dibujo, sin cambiar el tono de la
-voz), como pediste: el vídeo dura 31,1 s.
+debajo de la voz. Sin «tic». Cada escena dura lo que su frase, y todo va a 1,15× (voz, música y dibujo, sin cambiar el tono de la
+voz), la velocidad que elegiste: el vídeo dura 33,9 s.
 Lo que dice Kore:
 
 > Esto es Nomad. · Le dices a dónde vas, cuántos días y cómo te gusta viajar. · Y te escribe el viaje
@@ -30,10 +30,12 @@ Cuatro ficheros:
 - `nomad-trazo-historia-1080x1920.mp4`: la **historia** de Instagram. Acaba con dos flechas finas que
   señalan abajo, donde va el adhesivo de enlace.
 - `nomad-trazo-portada.jpg`: la portada del reel (y la de TikTok, si te deja subirla).
-- `nomad-trazo-limpia-1080x1920.mp4`: sólo si hace falta (TikTok sin el campo «Sitio web», o una
-  historia promocionada). Acaba sin flecha y sin texto.
+- `nomad-trazo-limpia-1080x1920.mp4`: acaba sin flechas y sin «Enlace en el perfil». Es para **TikTok si
+  tu perfil no tiene el campo «Sitio web»** (TikTok no lo da hasta los 1.000 seguidores o una cuenta de
+  empresa registrada), porque entonces «Enlace en el perfil» mandaría a un enlace que no existe, y para
+  una **promoción pagada**, donde el botón lo pone Meta. Si no es ninguno de los dos casos, no la uses.
 
-Los vídeos duran 31,1 s y ya llevan la voz y la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
+Los vídeos duran 33,9 s y ya llevan la voz y la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
 **No los mandes por WhatsApp**: los comprime y la letra pequeña se emborrona.
 
 **Tres cosas que valen para todo:**
@@ -159,7 +161,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 **Súbela desde el carrete, no compartas el reel.** Compartido, el reel se ve con un toque y no lleva
 enlace. Subida aparte, lleva el adhesivo.
 
-1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 31,1 s: cabe en una sola (el límite es 60).
+1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 33,9 s: cabe en una sola (el límite es 60).
 2. **Adhesivos** → **Enlace** → pega `https://apps.apple.com/app/id6797973945` (o el de
    `ct=ig-historia-anuncio` si tienes el `pt`) y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
 3. **Colócalo abajo, donde apuntan las flechas**: más o menos a un 80 % de la altura, justo encima de

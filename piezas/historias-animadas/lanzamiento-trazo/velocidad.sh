@@ -9,7 +9,9 @@ python3 - "$1" <<'PY'
 import re, sys
 v = float(sys.argv[1])
 frames = round(1168 / v)          # 1168 fotogramas a 1× (MAPA en index.html)
-dur = f"{frames / 30:.4f}".rstrip('0').rstrip('.')
+# Truncado a milésimas y no redondeado: 1016/30 escrito 33.8667 eran 1016,001 fotogramas, y el render
+# sacaba uno de más (33,9 s de vídeo con 33,867 de sonido).
+dur = f"{int(frames / 30 * 1000) / 1000:.3f}".rstrip('0').rstrip('.')
 def cambia(fich, pat, nuevo, n):
     s = open(fich, encoding='utf-8').read()
     s2, k = re.subn(pat, nuevo, s)

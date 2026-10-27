@@ -1,6 +1,6 @@
 # Un trazo: el anuncio de que Nomad ya está en la App Store (27-oct, versión 2 con voz)
 
-Un vídeo de **31-34 s** según la velocidad, 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro, para Instagram (reel e
+Un vídeo de **33,9 s** (todo a 1,15×), 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro, para Instagram (reel e
 historia) y TikTok. Sustituye al de `lanzamiento-ios/`, que el dueño rechazó el 27-oct: *«los
 recortes de la app se ven mal y reutilizamos vídeos de cosas ya anunciadas»*. De aquel se queda lo
 que le gustó, **el cierre**, con la insignia de la App Store.
@@ -219,17 +219,17 @@ le dices…», que es lo que oyó el dueño; con los tres arreglos oye «Esto es
 5 s y en el vídeo entero. (Gemini, puesto a juzgar de oído, daba un 10 a la toma enviada: no sirve de
 juez para esto.)
 
-| Escena | En el vídeo final (a 1,25×) | Kore dice | Empieza |
+| Escena | En el vídeo final (a 1,15×) | Kore dice | Empieza |
 |---|---|---|---|
-| El logo | 0-1,93 | «Esto es Nomad.» | 0,20 |
-| Tú eliges | 1,93-6,23 | «Le dices a dónde vas, cuántos días y cómo te gusta viajar.» | 2,12 |
-| El plan | 6,23-9,73 | «Y te escribe el viaje entero, día a día.» | 6,44 |
-| Paseos y museos | 9,73-13,37 | «Paseos y museos, con su audioguía.» | 9,93 |
-| Sin cobertura | 13,37-16,77 | «Descárgala, y sigue sonando aunque no haya cobertura.» | 13,56 |
-| Las voces | 16,77-20,27 | «Elige la voz que te lo cuenta. Esta, por ejemplo.» | 16,97 |
-| Los gastos | 20,27-22,90 | «Los gastos del grupo, repartidos.» | 20,47 |
-| Lugares | 22,90-26,83 | «Y tus restaurantes y sitios favoritos, guardados en el mapa.» | 23,11 |
-| El cierre | 26,83-31,13 | «Nomad. Ya en la App Store, para iPhone.» | 26,99 |
+| El logo | 0-2,10 | «Esto es Nomad.» | 0,22 |
+| Tú eliges | 2,10-6,77 | «Le dices a dónde vas, cuántos días y cómo te gusta viajar.» | 2,30 |
+| El plan | 6,77-10,57 | «Y te escribe el viaje entero, día a día.» | 7,00 |
+| Paseos y museos | 10,57-14,53 | «Paseos y museos, con su audioguía.» | 10,80 |
+| Sin cobertura | 14,53-18,23 | «Descárgala, y sigue sonando aunque no haya cobertura.» | 14,74 |
+| Las voces | 18,23-22,03 | «Elige la voz que te lo cuenta. Esta, por ejemplo.» | 18,45 |
+| Los gastos | 22,03-24,90 | «Los gastos del grupo, repartidos.» | 22,25 |
+| Lugares | 24,90-29,17 | «Y tus restaurantes y sitios favoritos, guardados en el mapa.» | 25,12 |
+| El cierre | 29,17-33,87 | «Nomad. Ya en la App Store, para iPhone.» | 29,33 |
 
 **Una frase cambió respecto al guion aprobado**: «Cada paseo y cada museo, con su audioguía» pasó a
 **«Paseos y museos, con su audioguía»**, lo mismo que el texto de la pantalla. «Cada» ya se había quitado
@@ -242,13 +242,12 @@ tres voces de la nube del selector.
 
 **La velocidad se elige con `bash velocidad.sh <v>`**, que la cambia en los tres sitios que la llevan
 (`index.html`, `mezclar.sh` y `variantes.sh`); después, `mezclar.sh` y `variantes.sh`. A 1× el dueño lo oyó
-lento y a 1,25× demasiado deprisa (27-oct); **está en 1,15× mientras elige entre 1,15 y 1,2** (los dos
-reels se le mandaron para comparar). La tabla de arriba y las cuentas de abajo están hechas a 1,25×:
-se rehacen cuando elija.
+lento y a 1,25× demasiado deprisa; con los reels a 1,15× y a 1,2× delante, eligió **1,15×** (27-oct:
+*«el 1.15 va perfecto»*).
 
-**Y todo va más deprisa** (el dueño, 27-oct: *«se oye muy lento, hay que ponerlo a 1,25×»*): la voz y la música
+**Y todo va más deprisa** (el dueño, 27-oct: *«se oye muy lento»*, y después *«el 1.15 va perfecto»*): la voz y la música
 se aceleran con `rubberband`, que no cambia el tono, y el vídeo lo mismo (`VELOCIDAD`, en el `<script>`).
-Lo que sigue está contado a 1×, que es como se midió; en el vídeo, cada tiempo se divide entre 1,25.
+Lo que sigue está contado a 1×, que es como se midió; en el vídeo, cada tiempo se divide entre 1,15.
 
 Cada escena dura **lo que su frase más 0,55 s** (0,25 antes de la frase y 0,3 después), y el cierre, lo
 que su frase más 1,5 s para leer la insignia. La línea de tiempo se sigue escribiendo en los tiempos de
@@ -261,7 +260,7 @@ la misma línea de tiempo plana, con otros comienzos y otras duraciones: nada de
 Dos cosas van en el tiempo de la palabra, medido sobre la toma con faster-whisper: **cada opción se
 pone verde cuando la voz la nombra** (Lisboa en «a dónde vas», 3 días en «cuántos días», y Cultural,
 Gastronomía y Tardes en «cómo te gusta viajar») y **Kore se queda elegida justo antes de «Esta, por
-ejemplo»** (23,9 a 1×; 19,1 en el vídeo). Si cambia una toma, se vuelven a medir y se cambian `TELIGE` y `TKORE`; si cambia lo
+ejemplo»** (23,9 a 1×; 20,8 en el vídeo). Si cambia una toma, se vuelven a medir y se cambian `TELIGE` y `TKORE`; si cambia lo
 que dura, se mueve su corte en `MAPA` y su inicio en `EMPIEZA` de `mezclar.sh`.
 
 ## La música
@@ -273,19 +272,19 @@ dueño). Salió de **60,7 s** y no de 40, en unos 75 BPM (una negra de 0,8 s, me
 autocorrelación de los arranques), continua, sin golpes, con su propio final que se apaga solo.
 
 **Se usa su principio y su final**: hasta el 30,5 tal cual, y desde ahí la misma pista 19,22 s más
-adelante, que son **seis compases justos**; las dos se funden en dos segundos (28,5-30,5 a 1×; 22,8-24,4 en el vídeo) en el punto
+adelante, que son **seis compases justos**; las dos se funden en dos segundos (28,5-30,5 a 1×; 24,8-26,5 en el vídeo) en el punto
 donde sus acordes más se parecen (un croma comparado en cada desfase posible) y justo antes de una
 respiración de la propia pieza. Así su último acorde suena en el cierre y se apaga con el vídeo.
 
 **La mezcla** (`mezclar.sh`): cada toma de voz a −18 LUFS, con un paso alto a 80 Hz y una compresión
 suave; la música a **−33 LUFS**, quince por debajo, y apartándose unos cinco decibelios más mientras
 la voz habla (sidechain). Medido segundo a segundo, la voz queda **entre 8 y 20 dB por encima de la
-música** mientras habla, y la música sube un poco en las pausas. Máster: **−16,0 LUFS, pico −2,4 dBFS,
-LRA 1,9 LU**, loudnorm en dos pasadas y lineal (el script se para si no lo es): dos LU menos que la
+música** mientras habla, y la música sube un poco en las pausas. Máster: **−15,9 LUFS, pico −2,6 dBFS,
+LRA 2,2 LU**, loudnorm en dos pasadas y lineal (el script se para si no lo es): dos LU menos que la
 versión anterior, que al dueño le sonaba fuerte.
 
 **Que suene bien lo tiene que decir el dueño**, en el altavoz del iPhone y con auriculares: aquí sólo
-se ha medido. **La junta de la música** (22,8-24,4 en el vídeo, en Lugares) es lo primero que hay que escuchar: está
+se ha medido. **La junta de la música** (24,8-26,5 en el vídeo, en Lugares) es lo primero que hay que escuchar: está
 puesta en compás y donde los acordes se parecen, pero no se ha oído. Si no convence, otra toma de
 Lyria con el mismo prompt y se busca la junta otra vez.
 
@@ -427,7 +426,7 @@ Tres revisiones de la versión 2 (`d23b281`): diseño, reglas y verdad, y técni
 ## Lo que queda por decidir o probar
 
 - **Que la voz y la música le gusten**, en el altavoz del iPhone y con auriculares, y **la junta de la
-  música** (22,8-24,4): están medidas, no oídas.
+  música** (24,8-26,5): están medidas, no oídas.
 - **Que cada escena se lea con calma en un móvil**: ahora cada dibujo se queda entero alrededor de un
   segundo, y el titular está desde el corte. Si alguna se queda corta en la mano, se alarga medio
   compás y se mueve el golpe.
