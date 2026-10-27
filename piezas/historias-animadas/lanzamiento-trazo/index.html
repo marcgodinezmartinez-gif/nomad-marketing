@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad &middot; Un trazo</title>
+    <!-- Las dos fuentes reales, embebidas (construir.sh). Nada depende de la red. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <!-- Qu&eacute; versi&oacute;n se pinta: &laquo;historia&raquo; (la flecha hacia el adhesivo) o &laquo;reel&raquo;
+         (&laquo;Enlace en el perfil&raquo;). La escribe variantes.sh; la versionada es la historia. -->
+    <script src="assets/version.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #FFFDF9; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* UN TRAZO (27-oct). El anuncio de que la app ya est&aacute; en la App Store, contado por UNA l&iacute;nea
+         verde que no se levanta del papel: la onda de una audiogu&iacute;a, la ruta de un viaje, el grupo,
+         el subrayado del precio y el icono. Ni pantallas, ni fotos, ni voz. Decisiones, en README.md.
+         Lo que hay que saber al tocar esto:
+         - Todo el texto entre y=280 e y=1460 y entre x=84 y x=900 (la columna derecha la tapan los
+           botones de TikTok e Instagram). Por debajo de 1500 no hay nada: en la historia, de 1520
+           para abajo va el adhesivo de enlace.
+         - El verde de la app (#0F766E), no el menta de las piezas: sobre el papel da 5,4:1 y el
+           menta no llega a 2,5.
+         - Los tiempos salen de la m&uacute;sica (mezclar.sh): un comp&aacute;s son 2,5 s, el bajo entra en 10,00 y
+           el golpe cae en 12,53, que es donde empieza el cierre.
+         - La onda es una funci&oacute;n del tiempo, calculada fotograma a fotograma ANTES de reproducir, y
+           cada trozo es su propio fromTo: HyperFrames salta a cada instante con los eventos
+           apagados, as&iacute; que nada puede depender de un onUpdate ni de un estado acumulado. */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
+              background-color: #FFFDF9;
+              background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
+              background-size: 54px 54px; background-position: 3px 11px; }
+      .verde { color: #0F766E; }
+
+      /* LA MARCA, desde el fotograma 0 y hasta el cierre. */
+      #marca { position: absolute; left: 84px; top: 286px; height: 52px; display: flex; align-items: center; gap: 16px; }
+      #marca img { display: block; width: 52px; height: 52px; }
+      #marca p { margin: 0; font-size: 30px; line-height: 52px; font-weight: 600; color: rgba(16,14,11,.82); white-space: nowrap; }
+
+      .tit { position: absolute; left: 84px; margin: 0; white-space: nowrap; letter-spacing: -.02em; }
+      #t1 { top: 388px; font-size: 120px; line-height: 1.04; }
+      #t2 { top: 1150px; font-size: 120px; line-height: 1.04; }
+      .t84 { font-size: 84px; line-height: 1.04; }
+
+      /* 1 &middot; LAS BARRAS DE COBERTURA, dibujadas aqu&iacute; (no son los s&iacute;mbolos de iOS). El relleno se
+         vac&iacute;a hacia abajo y queda el contorno al 30 %. */
+      .barra { position: absolute; bottom: 1100px; width: 60px; box-sizing: border-box;
+               border: 3px solid rgba(16,14,11,.3); border-radius: 13px; }
+      .lleno { position: absolute; left: -3px; top: -3px; right: -3px; bottom: -3px;
+               border-radius: 13px; background: #100E0B; transform-origin: 50% 100%; }
+      #audioguia { position: absolute; left: 84px; top: 872px; height: 52px; display: flex; align-items: center; gap: 16px; }
+      #audioguia svg { display: block; }
+      #audioguia p { margin: 0; font-size: 44px; line-height: 52px; font-weight: 600; white-space: nowrap; }
+      .aclara { position: absolute; left: 84px; margin: 0; font-size: 38px; line-height: 46px; font-weight: 500;
+                color: rgba(16,14,11,.64); white-space: nowrap; }
+
+      /* 3 &middot; EL R&Oacute;TULO DE SALIDAS: cada ciudad sale hacia arriba por la m&aacute;scara. */
+      #rotulo { position: absolute; left: 84px; top: 392px; width: 816px; height: 112px; overflow: hidden; }
+      .ciudad { position: absolute; left: 0; top: 0; display: block; margin: 0; font-size: 92px; line-height: 112px;
+                letter-spacing: -.02em; white-space: nowrap; }
+      .dia { position: absolute; margin: 0; font-size: 36px; line-height: 44px; font-weight: 600; white-space: nowrap; }
+
+      /* 5 &middot; EL PRECIO, sobre el papel (el rechazado lo pon&iacute;a sobre tinta). */
+      .precio { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; }
+      #pr1 { top: 548px; font-size: 40px; line-height: 1.2; font-weight: 500; color: rgba(16,14,11,.64); }
+      #pr2 { top: 640px; font-size: 92px; line-height: 1.04; letter-spacing: -.02em; }
+      #pr3 { top: 752px; font-size: 220px; line-height: 1; letter-spacing: -.03em; }
+      #pr4 { top: 1072px; font-size: 44px; line-height: 1.2; font-weight: 600; }
+
+      /* LOS TRAZOS: una sola capa SVG, por encima del papel del cierre (la l&iacute;nea del precio se
+         recoge en el icono encima de &eacute;l). */
+      #trazos { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
+
+      /* 6 &middot; EL CIERRE que aprob&oacute; el due&ntilde;o (lanzamiento-ios/index.html), con los arreglos de Apple:
+         la insignia aparece entera de un fotograma a otro y no se mueve nunca, y al final van las
+         l&iacute;neas de marca de Apple. */
+      #papel { position: absolute; inset: 0; background: #F5F0E8; }
+      #c-icono { position: absolute; left: 430px; top: 520px; width: 220px; height: 220px; display: block;
+                 border-radius: 49px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 800px; width: 912px; margin: 0; text-align: center;
+                  font-size: 92px; line-height: 1; letter-spacing: -.02em; color: #100E0B; white-space: nowrap; }
+      /* La insignia oficial de Apple para Espa&ntilde;a, entera y sin tocar: 120 de alto (m&iacute;nimo 40) y m&aacute;s
+         de 30 de aire alrededor (un cuarto de su alto): 88 hasta el nombre y 70 hasta Android. */
+      #c-insignia { position: absolute; left: 360px; top: 980px; width: 359px; height: 120px; display: block; }
+      #c-android { position: absolute; left: 84px; top: 1170px; width: 912px; margin: 0; text-align: center;
+                   font-size: 38px; line-height: 1.2; font-weight: 600; color: rgba(16,14,11,.62); }
+      #c-credito { position: absolute; left: 150px; top: 1262px; width: 780px; margin: 0; text-align: center;
+                   font-size: 25px; line-height: 33px; font-weight: 500; color: rgba(16,14,11,.66); }
+      #c-perfil { position: absolute; left: 84px; top: 1404px; width: 912px; margin: 0; text-align: center;
+                  font-size: 36px; line-height: 1.2; font-weight: 600; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="lanzamiento-trazo" data-start="0"
+         data-width="1080" data-height="1920" data-duration="17.5">
+
+      <div id="marca"><img src="assets/mark.png" alt="" /><p class="sans">Nomad &middot; ya disponible para iPhone</p></div>
+
+      <!-- 1 Y 2 &middot; SIN COBERTURA, Y SIGUE SONANDO (0-5,0). Lo que hay en el fotograma 0 (marca, titular,
+           barras, audiogu&iacute;a y onda) est&aacute; desde el principio: es la portada por defecto de TikTok. -->
+      <h1 id="t1" class="tit serif">&iquest;Sin cobertura?</h1>
+      <div id="b0" class="barra" style="left: 84px; height: 80px;"><div class="lleno"></div></div>
+      <div id="b1" class="barra" style="left: 170px; height: 130px;"><div class="lleno"></div></div>
+      <div id="b2" class="barra" style="left: 256px; height: 180px;"><div class="lleno"></div></div>
+      <div id="b3" class="barra" style="left: 342px; height: 230px;"><div class="lleno"></div></div>
+      <div id="audioguia">
+        <svg width="34" height="38" viewBox="0 0 34 38"><path d="M4 4 L30 19 L4 34 Z" fill="#0F766E" stroke="#0F766E" stroke-width="6" stroke-linejoin="round" /></svg>
+        <p class="sans verde">Audiogu&iacute;a</p>
+      </div>
+      <h1 id="t2" class="tit serif verde">Sigue sonando.</h1>
+      <p id="a1" class="aclara sans" style="top: 1300px;">Las audiogu&iacute;as descargadas</p>
+      <p id="a2" class="aclara sans" style="top: 1346px;">suenan en modo avi&oacute;n.</p>
+
+      <!-- 3 &middot; EL VIAJE, DE UN TRAZO (5,0-7,5). La ruta es abstracta: ni calles ni paradas con nombre. -->
+      <div id="rotulo">
+        <p id="ci0" class="ciudad serif" data-layout-ignore data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>Lisboa</p>
+        <p id="ci1" class="ciudad serif" data-layout-ignore data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>N&aacute;poles</p>
+        <p id="ci2" class="ciudad serif" data-layout-ignore data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>Bilbao</p>
+        <p id="ci3" class="ciudad serif" data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>Sevilla</p>
+      </div>
+      <p id="d1" class="dia sans" style="left: 84px; top: 988px; width: 138px; text-align: right;">Viernes</p>
+      <p id="d2" class="dia sans" style="left: 600px; top: 758px; width: 196px; text-align: right;">S&aacute;bado</p>
+      <p id="d3" class="dia sans" style="left: 266px; top: 568px;">Domingo</p>
+      <h1 id="t3a" class="tit serif t84" style="top: 1218px;">Y el viaje,</h1>
+      <h1 id="t3b" class="tit serif t84 verde" style="top: 1306px;">escrito d&iacute;a a d&iacute;a.</h1>
+
+      <!-- 4 &middot; PARA TODO EL GRUPO (7,5-10,0). -->
+      <h1 id="t4a" class="tit serif t84" style="top: 1218px;">Se paga una vez</h1>
+      <h1 id="t4b" class="tit serif t84 verde" style="top: 1306px;">y lo abre todo el grupo.</h1>
+
+      <!-- 5 &middot; EL PRECIO (10,0-12,53), cuando entra el bajo. -->
+      <p id="pr1" class="precio sans">Descargarla es gratis.</p>
+      <p id="pr2" class="precio serif">El viaje, desde</p>
+      <p id="pr3" class="precio serif verde">2,99&nbsp;&euro;</p>
+      <p id="pr4" class="precio sans">Sin suscripci&oacute;n.</p>
+
+      <!-- 6 &middot; EL CIERRE (12,53-17,5), en el golpe. -->
+      <div id="papel"></div>
+
+      <svg id="trazos" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path id="onda" stroke="#0F766E" stroke-width="10" stroke-dasharray="2400 2400" stroke-dashoffset="0" />
+        <path id="r1" stroke="#0F766E" stroke-width="10" d="M900,1030 C900,1150 420,1180 250,1010" />
+        <path id="r2" stroke="#0F766E" stroke-width="10" d="M250,1010 C250,890 830,900 830,780" />
+        <path id="r3" stroke="#0F766E" stroke-width="10" d="M830,780 C830,660 230,720 230,590" />
+        <path id="h3" class="hebra" stroke="#0F766E" stroke-opacity=".4" stroke-width="8" />
+        <path id="h2" class="hebra" stroke="#0F766E" stroke-opacity=".55" stroke-width="8" />
+        <path id="h1" class="hebra" stroke="#0F766E" stroke-opacity=".75" stroke-width="8" />
+        <path id="h0" class="hebra" stroke="#0F766E" stroke-width="8" />
+        <circle id="p1" cx="250" cy="1010" r="15" fill="#0F766E" stroke="#FFFDF9" stroke-width="5" />
+        <circle id="p2" cx="830" cy="780" r="15" fill="#0F766E" stroke="#FFFDF9" stroke-width="5" />
+        <circle id="p3" cx="230" cy="590" r="15" fill="#0F766E" stroke="#FFFDF9" stroke-width="5" />
+        <circle id="g3" cx="360" cy="1080" r="28" fill="#F5F0E8" stroke="#0F766E" stroke-width="7" />
+        <circle id="g2" cx="510" cy="1080" r="28" fill="#F5F0E8" stroke="#0F766E" stroke-width="7" />
+        <circle id="g1" cx="660" cy="1080" r="28" fill="#F5F0E8" stroke="#0F766E" stroke-width="7" />
+        <circle id="g0" cx="810" cy="1080" r="28" fill="#F5F0E8" stroke="#0F766E" stroke-width="7" />
+        <path id="subraya" stroke="#0F766E" stroke-width="10" d="M300,1010 L780,1010" stroke-dasharray="480 480" />
+        <!-- S&oacute;lo en la historia: dos chevrones finos que botan hacia el adhesivo de enlace. -->
+        <g id="c-flecha">
+          <path d="M516,1420 L540,1436 L564,1420" stroke="#0F766E" stroke-width="6" />
+          <path d="M516,1442 L540,1458 L564,1442" stroke="#0F766E" stroke-opacity=".5" stroke-width="6" />
+        </g>
+      </svg>
+
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
+      <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Cons&iacute;guelo en el App Store" />
+      <p id="c-android" class="sans">Pronto en Android</p>
+      <p id="c-credito" class="sans" data-layout-ignore>Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros pa&iacute;ses. App Store es una marca de servicio de Apple Inc.</p>
+      <!-- S&oacute;lo en el reel y en TikTok: ah&iacute; no hay adhesivo, el enlace va en la bio. -->
+      <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
+
+      <!-- El sonido, hecho aparte (mezclar.sh): la m&uacute;sica de Lyria y los tic, a -14 LUFS. Va aqu&iacute; para
+           que la vista previa suene; el m&aacute;ster se vuelve a montar con este mismo fichero (README.md). -->
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="17.5"></audio>
+    </div>
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes.
+      // Estado inicial dentro del fromTo, nunca en CSS; las salidas con .to. Los cortes, en seco y en
+      // el tiempo fuerte: lo de una escena se va en el mismo fotograma en que entra la siguiente.
+      document.fonts.ready.then(function () {
+        var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
+        var tl = gsap.timeline({ paused: true });
+        // Los compases de la m&uacute;sica (mezclar.sh): 2,5 s; medio tiempo, 0,3125.
+        var T2 = 2.5, T3 = 5.0, T4 = 7.5, T5 = 10.0, T6 = 12.53, FIN = 17.5, TIEMPO = 0.627;
+        var IN = { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" };
+        var ARR = { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" };
+        function corta(sel, t) { tl.to(sel, { autoAlpha: 0, duration: 0 }, t); }
+        function aparece(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 }, t); }
+        function entra(sel, t, dy, vars) { tl.fromTo(sel, { autoAlpha: 0, y: dy }, vars || IN, t); }
+        function dibuja(el, t, dur, ease) {
+          var L = el.getTotalLength();
+          el.setAttribute("stroke-dasharray", L + " " + L);
+          tl.fromTo(el, { attr: { "stroke-dashoffset": L } }, { attr: { "stroke-dashoffset": 0 }, duration: dur, ease: ease || "sine.inOut" }, t);
+          return L;
+        }
+        // Borra un trazo desde su principio: la cola sigue a la punta.
+        function recoge(el, t, dur, L) {
+          tl.fromTo(el, { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": -L, }, duration: dur, ease: "none", immediateRender: false }, t);
+        }
+        function brota(sel, t, ease) {
+          tl.fromTo(sel, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: ease || "back.out(3)", transformOrigin: "50% 50%" }, t);
+        }
+
+        // ── LA ONDA: una funci&oacute;n del tiempo. y(x, t) = 1010 + A(t) &middot; envolvente(x) &middot; tres senos que
+        // corren. A(t) late un 45 % en cada tiempo de la escena 2 y se aplana del 5,0 al 5,3.
+        var X0 = 84, X1 = 900, Y = 1030, PASO = 6, FPS = 30;
+        var LATIDOS = [2.5, 3.125, 3.75, 4.375];
+        function amplitud(t) {
+          var a = 1;
+          LATIDOS.forEach(function (tb) { if (t >= tb) a += 0.45 * Math.exp(-(t - tb) / 0.14); });
+          if (t >= T3) a *= Math.max(0, 1 - (1 - Math.cos(Math.PI * Math.min(1, (t - T3) / 0.3))) / 2);
+          return a;
+        }
+        function onda(t) {
+          var a = amplitud(t), d = "";
+          for (var x = X0; x <= X1; x += PASO) {
+            var u = (x - X0) / (X1 - X0);
+            var env = Math.pow(Math.sin(Math.PI * u), 0.7) * (0.62 + 0.38 * Math.sin(2 * Math.PI * (x / 430 - 0.55 * t)));
+            var s = 0.58 * Math.sin(2 * Math.PI * (x / 150 - 1.9 * t))
+                  + 0.30 * Math.sin(2 * Math.PI * (x / 64 + 3.1 * t) + 1.3)
+                  + 0.12 * Math.sin(2 * Math.PI * (x / 37 - 5.3 * t) + 0.4);
+            d += (x === X0 ? "M" : " L") + x + "," + (Y + 54 * a * env * s).toFixed(1);
+          }
+          return d;
+        }
+        var ondaEl = document.getElementById("onda");
+        ondaEl.setAttribute("d", onda(0));
+        var ULTIMO = Math.round((T3 + 0.3) * FPS);   // desde aqu&iacute;, plana
+        for (var k = 0; k < ULTIMO; k++) {
+          tl.fromTo(ondaEl, { attr: { d: onda(k / FPS) } },
+                    { attr: { d: onda((k + 1) / FPS) }, duration: 1 / FPS, ease: "none", immediateRender: k === 0 }, k / FPS);
+        }
+
+        // 1 &middot; LA SE&Ntilde;AL CAE: las barras se vac&iacute;an de la m&aacute;s alta a la m&aacute;s baja, cada medio tiempo.
+        // La onda no se entera.
+        [["#b3 .lleno", 0.31], ["#b2 .lleno", 0.63], ["#b1 .lleno", 0.94], ["#b0 .lleno", 1.25]].forEach(function (b) {
+          tl.fromTo(b[0], { scaleY: 1 }, { scaleY: 0, duration: 0.16, ease: "power2.in" }, b[1] - 0.06);
+        });
+
+        // 2 &middot; Y SIGUE SONANDO.
+        entra("#t2", T2, 24);
+        entra("#a1", T2 + 0.63, 14);
+        entra("#a2", T2 + 0.71, 14);
+        ["#t1", "#b0", "#b1", "#b2", "#b3", "#audioguia", "#t2", "#a1", "#a2"].forEach(function (s) { corta(s, T3); });
+
+        // 3 &middot; EL VIAJE, DE UN TRAZO. La onda se aplana y su cola se recoge mientras, desde su punta
+        // derecha, la l&iacute;nea dibuja la ruta. Cada tramo acaba en un d&iacute;a, en un tiempo de la m&uacute;sica.
+        recoge(ondaEl, T3, 0.63, 830);
+        var R = [document.getElementById("r1"), document.getElementById("r2"), document.getElementById("r3")];
+        var DIAS = [5.63, 6.25, 6.88];
+        var LR = [dibuja(R[0], T3, DIAS[0] - T3), dibuja(R[1], DIAS[0], DIAS[1] - DIAS[0]), dibuja(R[2], DIAS[1], DIAS[2] - DIAS[1])];
+        ["#p1", "#p2", "#p3"].forEach(function (s, i) { brota(s, DIAS[i]); });
+        ["#d1", "#d2", "#d3"].forEach(function (s, i) { entra(s, DIAS[i] + 0.02, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" }); });
+        // El r&oacute;tulo de salidas: cada medio tiempo, la ciudad sale hacia arriba y entra la siguiente.
+        var CIUDADES = ["#ci0", "#ci1", "#ci2", "#ci3"];
+        // Fuera de la m&aacute;scara, cada ciudad est&aacute; adem&aacute;s apagada: as&iacute; no la cuenta nadie como texto encima de otro.
+        CIUDADES.forEach(function (s, i) {
+          var t = T3 + i * 0.3125;
+          aparece(s, t);
+          // La que sale y la que entra, con la MISMA curva: van pegadas, como un tambor, sin pisarse.
+          tl.fromTo(s, { yPercent: 100 }, { yPercent: 0, duration: 0.12, ease: "power2.out" }, t);
+          if (i < CIUDADES.length - 1) {
+            tl.to(s, { yPercent: -100, duration: 0.12, ease: "power2.out" }, t + 0.3125);
+            corta(s, t + 0.3125 + 0.12);
+          }
+        });
+        entra("#t3a", T3 + 0.31, 24);
+        entra("#t3b", T3 + 0.41, 24);
+        ["#rotulo", "#d1", "#d2", "#d3", "#t3a", "#t3b"].forEach(function (s) { corta(s, T4); });
+
+        // 4 &middot; PARA TODO EL GRUPO. La ruta se recoge hacia el domingo y de ah&iacute; salen cuatro l&iacute;neas
+        // paralelas, como en un plano de metro, cada una hasta su persona. Llegan cada medio tiempo.
+        recoge(R[0], T4, 0.16, LR[0]); recoge(R[1], T4 + 0.16, 0.16, LR[1]); recoge(R[2], T4 + 0.32, 0.18, LR[2]);
+        tl.to("#p1", { scale: 0, autoAlpha: 0, duration: 0.12, ease: "power2.in", transformOrigin: "50% 50%" }, T4 + 0.14);
+        tl.to("#p2", { scale: 0, autoAlpha: 0, duration: 0.12, ease: "power2.in", transformOrigin: "50% 50%" }, T4 + 0.30);
+        var HEBRAS = [0, 1, 2, 3].map(function (i) {
+          var x = [810, 660, 510, 360][i], y = 590 + 28 * i;
+          return "M230,590 C270,590 270," + y + " 310," + y + " L" + (x - 40) + "," + y
+               + " C" + (x - 18) + "," + y + " " + x + "," + (y + 18) + " " + x + "," + (y + 40) + " L" + x + ",1052";
+        });
+        var LLEGAN = [9.06, 8.75, 8.44, 8.13];   // la m&aacute;s corta, la primera
+        var LH = HEBRAS.map(function (d, i) {
+          var el = document.getElementById("h" + i);
+          el.setAttribute("d", d);
+          return dibuja(el, T4, LLEGAN[i] - T4, "power1.inOut");
+        });
+        [0, 1, 2, 3].forEach(function (i) { brota("#g" + i, LLEGAN[i], "back.out(2.4)"); });
+        entra("#t4a", T4 + 0.1, 24);
+        entra("#t4b", T4 + 0.2, 24);
+        ["#t4a", "#t4b", "#g0", "#g1", "#g2", "#g3", "#p3"].forEach(function (s) { corta(s, T5); });
+
+        // 5 &middot; EL PRECIO, con el bajo. Las cuatro l&iacute;neas se juntan en una (el mismo n&uacute;mero de puntos,
+        // as&iacute; que GSAP interpola el trazado) y esa l&iacute;nea subraya la cifra de izquierda a derecha.
+        var JUNTAS = "M300,1010 C306,1010 312,1010 318,1010 L324,1010 C328,1010 332,1010 336,1010 L340,1010";
+        [0, 1, 2, 3].forEach(function (i) {
+          tl.to("#h" + i, { attr: { d: JUNTAS }, duration: 0.5, ease: "expo.inOut" }, T5);
+        });
+        entra("#pr1", T5, 14);
+        entra("#pr2", T5 + 0.31, 20);
+        tl.fromTo("#pr3", { autoAlpha: 0, y: 36, scale: 0.95 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" }, T5 + 0.63);
+        tl.fromTo("#subraya", { autoAlpha: 0, attr: { "stroke-dashoffset": 440 } }, { autoAlpha: 1, duration: 0 }, T5 + 0.63);
+        tl.fromTo("#subraya", { attr: { "stroke-dashoffset": 440 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.4, ease: "power2.out", immediateRender: false }, T5 + 0.63);
+        ["#h0", "#h1", "#h2", "#h3"].forEach(function (s) { corta(s, T5 + 0.64); });
+        entra("#pr4", T5 + 1.25, 16);
+        ["#marca", "#pr1", "#pr2", "#pr3", "#pr4"].forEach(function (s) { corta(s, T6); });
+
+        // 6 &middot; EL CIERRE, en el golpe. La l&iacute;nea se recoge en un punto, en el centro del icono, y de ah&iacute;
+        // nace el icono. La insignia aparece ENTERA de un fotograma a otro y no se mueve nunca (Apple:
+        // &laquo;Don't modify, angle, or animate the App Store badge&raquo;).
+        aparece("#papel", T6);
+        tl.to("#subraya", { attr: { d: "M540,630 L540,630" }, duration: 0.2, ease: "power2.in" }, T6);
+        tl.fromTo("#c-icono", { autoAlpha: 0, scale: 0.06 }, { autoAlpha: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, T6 + 0.2);
+        corta("#subraya", T6 + 0.24);
+        entra("#c-nombre", T6 + 0.35, 24, ARR);
+        aparece("#c-insignia", T6 + 0.6);
+        entra("#c-android", T6 + 0.8, 16, ARR);
+        tl.fromTo("#c-credito", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, T6 + 1.0);
+        if (VERSION === "limpia") {
+          // Para una historia promocionada o un anuncio: el bot&oacute;n lo pone la plataforma.
+          tl.set(["#c-flecha", "#c-perfil"], { autoAlpha: 0 }, 0);
+        } else if (VERSION === "reel") {
+          entra("#c-perfil", T6 + 1.15, 12, ARR);
+          tl.set("#c-flecha", { autoAlpha: 0 }, 0);
+        } else {
+          tl.set("#c-perfil", { autoAlpha: 0 }, 0);
+          tl.fromTo("#c-flecha", { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, T6 + 0.95);
+          // Bota 12 px hacia abajo en cada tiempo de la m&uacute;sica, hasta el final.
+          for (var tb = T6 + 2 * TIEMPO; tb + TIEMPO <= FIN + 0.01; tb += TIEMPO) {
+            tl.fromTo("#c-flecha", { y: 0 }, { y: 12, duration: 0.18, ease: "power2.out", immediateRender: false }, tb);
+            tl.fromTo("#c-flecha", { y: 12 }, { y: 0, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tb + 0.18);
+          }
+        }
+        tl.set({}, {}, FIN);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["lanzamiento-trazo"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
