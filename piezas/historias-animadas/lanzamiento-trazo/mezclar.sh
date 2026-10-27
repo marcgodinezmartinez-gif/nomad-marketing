@@ -1,117 +1,74 @@
 #!/bin/bash
-# El sonido de «Un trazo», versión 2 (27-oct): la música de Lyria montada para que su golpe caiga en
-# el cierre, los «tic» y el acorde del cierre sintetizados aquí mismo, y todo a -14 LUFS. Escribe
-# assets/sonido.m4a, que es lo que se pone encima del render (README.md, «Para rehacerla»).
+# El sonido de «Un trazo», con voz (27-oct, opción A del dueño): Kore cuenta lo que se ve, debajo va
+# una música tranquila de piano y cuerdas, y no hay ningún «tic». Escribe assets/sonido.m4a, que es lo
+# que se pone encima del render (README.md, «Para rehacerla»).
 #
-# LA MÚSICA (assets/musica-lyria.mp3, la toma 2 de las tres que se pidieron el 27-oct; README.md, «La
-# música»): 29,28 s, en si bemol mayor, 96 BPM. Medido con librosa (arranques por bandas y la fase de
-# la rejilla de corcheas), no con `hyperframes beats`:
-#   - la rejilla de corcheas cae en 0,25 + 0,3125k;
-#   - 12,75 s: entra la batería (el bombo); 15,76-15,88 s: entra el bajo, grave y lleno;
-#   - 26,50 s: el golpe, con el acorde entero; de ahí se apaga sola en un segundo y medio.
-# Se empieza en 5,25, así que la rejilla del vídeo es 0,3125k, la batería cae en el 7,50 (los paseos),
-# el bajo en el 10,5 (la audioguía) y el golpe en el 21,25 (el cierre).
+# Lo que pidió el dueño al ver la v2: «no hay voz», la voz de Kore explicando todo; el sonido «muy
+# fuerte» y «de juguete», «no es un audio serio». Así que: la voz manda, la música va muy por debajo y
+# se aparta un poco más cuando habla (sidechain), y la mezcla queda a -16 LUFS, dos menos que la v2.
 #
-# EL BAJO Y EL BOMBO SON SUBGRAVE (como en la primera versión): el altavoz de un iPhone no los da, y
-# lo que no se oye ahí no golpea. Por eso, desde el 7,5: un paso alto a 30 Hz y un estante de -6 dB por
-# debajo de 120 Hz. Y el golpe del cierre lleva encima un acorde de si bemol mayor sintetizado, con
-# armónicos hasta 3 kHz y un chasquido brillante, que se oye en el móvil y que, además, alarga la cola:
-# la de la toma dura un segundo y medio y el cierre dura cuatro y medio.
+# LA VOZ (assets/voz/f1…f9.flac): Kore, la voz de la app, con gemini-3.1-flash-tts-preview y
+# piezas/ia/voz.py. Cada frase es una toma, recortada de silencio y comprobada con faster-whisper
+# (las nueve dicen todas sus palabras; voz.py avisa de que una toma puede comerse una). El guion y el
+# estilo, en README.md, «La voz». Cada frase empieza 0,25 s después de su corte de escena (0,3 la
+# primera, 0,2 la del cierre); los cortes están en MAPA, en index.html: si se mueve uno, se mueve aquí.
 #
-# LOS TIC: un seno corto que se apaga, sin IA, en notas de si bemol mayor. Los tiempos son los del
-# index.html (las corcheas E(k) = 0,3125k): si se mueve uno, se mueve en los dos sitios.
-#   - nace la línea, del logo: E(1);
-#   - las cinco opciones que se eligen: E(7,5), E(8), E(9), E(9,5), E(10,5), subiendo la escala;
-#   - los cuatro planes del día 1: E(15)…E(18), y el paso a los días 2 y 3: E(19), E(20), un par de notas;
-#   - las tres paradas del paseo: E(25), E(25,5), E(26);
-#   - las cuatro barras que caen: E(33), E(33,5), E(34), E(34,5), cada una más grave;
-#   - las tres voces que se escuchan, E(44), E(44,5), E(45), y la elegida, E(46);
-#   - las cuatro personas del grupo: E(51), E(51,5), E(52), E(52,5), más suaves;
-#   - las tres chinchetas de Lugares: E(60)…E(62).
-# Un «tic» que cae en la misma nota y en el mismo instante que una nota de la música se funde con ella
-# (la revisión del 27-oct midió seis por debajo de la música en su propia banda). Cada uno se mide con
-# PISTAS=<carpeta> bash mezclar.sh, que deja además los tic y la música por separado, y el criterio es
-# que el tic quede al menos 6 dB por encima de la música en su banda (README.md, «La música»): los que
-# no llegaban van una octava más arriba o más fuertes, y está dicho en cada línea.
+# LA MÚSICA (assets/musica-calma.mp3): Lyria 3 Pro con musica-prompt.txt, 60,7 s, unos 75 BPM (negra
+# de 0,8 s), sin percusión. Se usa su principio y su final: hasta el 30,5 tal cual, y desde ahí la
+# misma pista 19,22 s más adelante (seis compases justos), fundidas en dos segundos (28,5-30,5) donde
+# los acordes de las dos se parecen más (medido con un croma) y justo antes de una respiración de la
+# propia pieza. Así el final de la pista (su último acorde, que se apaga solo) cae en el cierre.
 set -e
 cd "$(dirname "$0")/assets"
-DUR=25.8
-INICIO=5.25
-e() { echo "0.3125*$1" | bc -l; }
-tic() {  # tiempo, frecuencia, amplitud, caída (s)
-  echo "if(between(t,$1,$1+0.3),$3*min(1,(t-$1)/0.002)*sin(2*PI*$2*(t-$1))*exp(-(t-$1)/$4),0)"
-}
-nota() {  # tiempo, frecuencia, amplitud, caída (s): cuatro armónicos, los altos se apagan antes
-  local p="$3*min(1,(t-$1)/0.004)*(sin(2*PI*$2*(t-$1))*exp(-(t-$1)/$4)"
-  p="$p+0.45*sin(2*PI*2*$2*(t-$1))*exp(-(t-$1)/($4*0.6))"
-  p="$p+0.22*sin(2*PI*3*$2*(t-$1))*exp(-(t-$1)/($4*0.4))"
-  p="$p+0.10*sin(2*PI*4*$2*(t-$1))*exp(-(t-$1)/($4*0.3)))"
-  echo "if(between(t,$1,$1+4.6),$p,0)"
-}
-E="0"
-E="$E+$(tic $(e 1) 1174.66 0.16 0.030)"
-# Las opciones: si bemol, do, re, mi bemol, fa (5 y 6).
-k=0; for p in "7.5 932.33" "8 1046.50" "9 1174.66" "9.5 1244.51" "10.5 1396.91"; do
-  set -- $p; E="$E+$(tic $(e $1) $2 0.22 0.022)"; k=$((k+1)); done
-# Los planes del día 1 (si bemol 6, con su octava: en fa 6, el primero y el último caían en una nota de
-# la marimba y no se oían, +2,5 y -1,1 dB), y el paso de día: dos notas seguidas, sol 6 y re 7 (en si
-# bemol 6, +4,7 y +1,4).
-for k in 15 16 17 18; do E="$E+$(tic $(e $k) 1864.66 0.20 0.026)+$(tic $(e $k) 3729.31 0.04 0.012)"; done
-for k in 19 20; do E="$E+$(tic $(e $k) 1567.98 0.14 0.020)+$(tic $(echo "0.3125*$k+0.07" | bc -l) 2349.32 0.12 0.020)"; done
-# Las paradas del paseo (re 6) y las barras que caen.
-for k in 25 25.5 26; do E="$E+$(tic $(e $k) 1174.66 0.20 0.026)"; done
-for p in "33 1864.66" "33.5 1567.98" "34 1396.91" "34.5 1174.66"; do set -- $p; E="$E+$(tic $(e $1) $2 0.28 0.020)"; done
-# Las tres voces que se escuchan (fa 7: en fa 6 las dos primeras quedaban a -7,3 y -3,7) y la elegida (re 7).
-for k in 44 44.5 45; do E="$E+$(tic $(e $k) 2793.83 0.12 0.020)"; done
-E="$E+$(tic $(e 46) 2349.32 0.20 0.026)"   # re 7: el si bemol 6 caía en una nota (+1,4)
-# Las personas (la 6, más largas: en si bemol 5 la tercera quedaba a +2,2) y las chinchetas, subiendo el
-# acorde (fa 6, si bemol 6 y re 7: el sol 6 de en medio quedaba a +3,1).
-for k in 51 51.5 52 52.5; do E="$E+$(tic $(e $k) 1760.00 0.15 0.035)"; done
-k=60; for f in 1396.91 1864.66 2349.32; do E="$E+$(tic $(e $k) $f 0.22 0.024)"; k=$((k+1)); done
-# El del cierre (21,25): si bemol mayor abierto, del si bemol 3 al si bemol 5, y un chasquido brillante.
-G=${GOLPE:-1}
-for n in "233.08 0.15" "293.66 0.12" "349.23 0.11" "466.16 0.13" "587.33 0.08" "698.46 0.06" "932.33 0.05"; do
-  set -- $n; E="$E+$(nota 21.25 $1 $(echo "$2*$G" | bc -l) 1.70)"
-done
-E="$E+$(tic 21.25 2349.32 $(echo "0.10*$G" | bc -l) 0.030)+$(tic 21.25 2793.83 $(echo "0.06*$G" | bc -l) 0.022)"
+DUR=38.9333
+# Dónde empieza cada frase, en segundos del vídeo final.
+EMPIEZA=(0.3 2.65 8.05 12.4167 16.95 21.2167 25.5833 28.8833 33.7333)
+T=$(mktemp -d)
+trap 'rm -rf "$T"' EXIT
 
-# La música: del 5,25 al final de la pista (24,03 s del vídeo) y silencio hasta 25,8. Dos copias que se
-# cruzan en 20 ms en el 7,5: hasta ahí, tal cual; desde ahí, con el estante. 15 ms de entrada, sin
-# chasquido, y un fundido de 0,6 s que acaba antes de que se acabe el fichero.
-ffmpeg -v error -y -i musica-lyria.mp3 -f lavfi -i "aevalsrc='$E':s=48000:d=$DUR" -filter_complex "
-[0:a]atrim=start=$INICIO,asetpts=PTS-STARTPTS,aresample=48000,apad,atrim=0:$DUR,highpass=f=30,asplit=2[ma][mb];
-[ma]volume='if(lt(t,7.48),1,if(lt(t,7.5),1-(t-7.48)/0.02,0))':eval=frame[a1];
-[mb]lowshelf=f=120:g=-6,volume='if(lt(t,7.48),0,if(lt(t,7.5),(t-7.48)/0.02,1))':eval=frame[b1];
-[a1][b1]amix=inputs=2:normalize=0,afade=t=in:d=0.015,afade=t=out:st=23.35:d=0.6[mus];
-[1:a]pan=stereo|c0=c0|c1=c0[tics];
-[mus][tics]amix=inputs=2:normalize=0:duration=first,afade=t=out:st=24.6:d=1.15,alimiter=limit=0.72:level=false:attack=2:release=60:asc=1[mix]" \
-  -map "[mix]" -ar 48000 -ac 2 -c:a pcm_s24le /tmp/trazo-mezcla.wav
-# Con PISTAS=<carpeta>, los tic y la música, por separado y con la misma cadena, para medir cada tic
-# contra la música en su banda (README.md, «La música»).
-if [ -n "$PISTAS" ]; then
-  mkdir -p "$PISTAS"
-  ffmpeg -v error -y -f lavfi -i "aevalsrc='$E':s=48000:d=$DUR" -ac 1 -c:a pcm_s16le "$PISTAS/tics.wav"
-  ffmpeg -v error -y -i musica-lyria.mp3 -filter_complex "
-[0:a]atrim=start=$INICIO,asetpts=PTS-STARTPTS,aresample=48000,apad,atrim=0:$DUR,highpass=f=30,asplit=2[ma][mb];
-[ma]volume='if(lt(t,7.48),1,if(lt(t,7.5),1-(t-7.48)/0.02,0))':eval=frame[a1];
-[mb]lowshelf=f=120:g=-6,volume='if(lt(t,7.48),0,if(lt(t,7.5),(t-7.48)/0.02,1))':eval=frame[b1];
-[a1][b1]amix=inputs=2:normalize=0,afade=t=in:d=0.015,afade=t=out:st=23.35:d=0.6,pan=mono|c0=0.5*c0+0.5*c1[mus]" \
-    -map "[mus]" -c:a pcm_s16le "$PISTAS/mus.wav"
-fi
-# loudnorm en dos pasadas a -14 LUFS integrados y -1,5 dBTP, y LINEAL: una ganancia fija que deja la
-# mezcla como se ha escrito arriba. Si la ganancia dejara el pico verdadero por encima de -1,5,
-# loudnorm se pasaría al modo DINÁMICO sin avisar (lanzamiento-ios/README.md): por eso el limitador de
-# arriba deja sitio, y por eso se comprueba.
-M=$(ffmpeg -hide_banner -i /tmp/trazo-mezcla.wav -af loudnorm=I=-14:TP=-1.5:LRA=20:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
+# Cada toma a -18 LUFS, para que ninguna frase suene más fuerte que otra, con un paso alto a 80 Hz y
+# una compresión suave. Y en su sitio.
+ENTRADAS=""; FILTRO=""; MEZCLA=""
+for i in 1 2 3 4 5 6 7 8 9; do
+  I=$(ffmpeg -hide_banner -i voz/f$i.flac -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
+  GAN=$(echo "-18 - ($I)" | bc -l)
+  MS=$(echo "${EMPIEZA[$((i-1))]} * 1000 / 1" | bc)
+  ENTRADAS="$ENTRADAS -i voz/f$i.flac"
+  FILTRO="$FILTRO[$((i-1)):a]highpass=f=80,volume=${GAN}dB,acompressor=threshold=-24dB:ratio=2.5:attack=8:release=160:makeup=1,adelay=$MS[v$i];"
+  MEZCLA="$MEZCLA[v$i]"
+done
+ffmpeg -v error -y $ENTRADAS -filter_complex "${FILTRO}${MEZCLA}amix=inputs=9:normalize=0,apad,atrim=0:$DUR,aresample=48000[voz]" \
+  -map "[voz]" -ac 1 -c:a pcm_s24le "$T/voz.wav"
+
+# La música: principio y final fundidos, a -33 LUFS (quince por debajo de la voz), y apartándose unos
+# cinco decibelios más mientras la voz habla.
+ffmpeg -v error -y -i musica-calma.mp3 -filter_complex "
+[0:a]aresample=48000,asplit=2[a][b];
+[a]atrim=0:30.5,asetpts=PTS-STARTPTS[a1];
+[b]atrim=start=47.72,asetpts=PTS-STARTPTS[b1];
+[a1][b1]acrossfade=d=2:c1=qsin:c2=qsin,afade=t=in:d=0.03,apad,atrim=0:$DUR,afade=t=out:st=$(echo "$DUR - 0.8" | bc -l):d=0.8[m]" \
+  -map "[m]" -ac 2 -c:a pcm_s24le "$T/mus0.wav"
+IM=$(ffmpeg -hide_banner -i "$T/mus0.wav" -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
+ffmpeg -v error -y -i "$T/mus0.wav" -i "$T/voz.wav" -filter_complex "
+[0:a]volume=$(echo "-33 - ($IM)" | bc -l)dB[mus];
+[1:a]asplit=2[v1][sc];
+[mus][sc]sidechaincompress=threshold=0.04:ratio=3:attack=60:release=550[dk];
+[v1]pan=stereo|c0=c0|c1=c0[vs];
+[dk][vs]amix=inputs=2:normalize=0,alimiter=limit=0.7:attack=3:release=60:level=false[mx]" \
+  -map "[mx]" -c:a pcm_s24le "$T/mezcla.wav"
+
+# loudnorm en dos pasadas a -16 LUFS integrados y -1,5 dBTP, y LINEAL: una ganancia fija. Si la
+# ganancia dejara el pico verdadero por encima de -1,5, loudnorm se pasaría al modo DINÁMICO sin
+# avisar (lanzamiento-ios/README.md): por eso el limitador de arriba deja sitio, y por eso se comprueba.
+M=$(ffmpeg -hide_banner -i "$T/mezcla.wav" -af loudnorm=I=-16:TP=-1.5:LRA=20:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
 g() { echo "$M" | python3 -c "import json,sys;print(json.load(sys.stdin)['$1'])"; }
-LN="loudnorm=I=-14:TP=-1.5:LRA=20:measured_I=$(g input_i):measured_TP=$(g input_tp):measured_LRA=$(g input_lra):measured_thresh=$(g input_thresh):offset=$(g target_offset):linear=true"
-TIPO=$(ffmpeg -hide_banner -i /tmp/trazo-mezcla.wav -af "$LN:print_format=json" -f null - 2>&1 | sed -n '/^{/,/^}/p' \
+LN="loudnorm=I=-16:TP=-1.5:LRA=20:measured_I=$(g input_i):measured_TP=$(g input_tp):measured_LRA=$(g input_lra):measured_thresh=$(g input_thresh):offset=$(g target_offset):linear=true"
+TIPO=$(ffmpeg -hide_banner -i "$T/mezcla.wav" -af "$LN:print_format=json" -f null - 2>&1 | sed -n '/^{/,/^}/p' \
   | python3 -c "import json,sys;print(json.load(sys.stdin)['normalization_type'])")
 if [ "$TIPO" != "linear" ]; then
-  echo "loudnorm no queda lineal ($TIPO): baja el limit del alimiter o la música" >&2; exit 1
+  echo "loudnorm no queda lineal ($TIPO): baja el limit del alimiter" >&2; exit 1
 fi
 echo "loudnorm: $TIPO (entrada $(g input_i) LUFS, $(g input_tp) dBTP)"
-ffmpeg -v error -y -i /tmp/trazo-mezcla.wav -af "$LN,aresample=48000" \
-  -ar 48000 -ac 2 -c:a aac -b:a 256k sonido.m4a
-rm -f /tmp/trazo-mezcla.wav
+ffmpeg -v error -y -i "$T/mezcla.wav" -af "$LN,aresample=48000" -ar 48000 -ac 2 -c:a aac -b:a 256k sonido.m4a
+if [ -n "$PISTAS" ]; then mkdir -p "$PISTAS" && cp "$T/voz.wav" "$T/mus0.wav" "$T/mezcla.wav" "$PISTAS/"; fi
 ffmpeg -hide_banner -i sonido.m4a -af ebur128=peak=true -f null - 2>&1 | grep -E "^\s+(I|Peak|LRA):" | tr -s ' '

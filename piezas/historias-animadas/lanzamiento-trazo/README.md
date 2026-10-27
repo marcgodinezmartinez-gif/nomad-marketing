@@ -1,6 +1,6 @@
-# Un trazo: el anuncio de que Nomad ya está en la App Store (27-oct, versión 2)
+# Un trazo: el anuncio de que Nomad ya está en la App Store (27-oct, versión 2 con voz)
 
-Un vídeo de **25,8 s**, 1080×1920, 30 fps, H.264 + AAC, con la música dentro, para Instagram (reel e
+Un vídeo de **38,9 s**, 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro, para Instagram (reel e
 historia) y TikTok. Sustituye al de `lanzamiento-ios/`, que el dueño rechazó el 27-oct: *«los
 recortes de la app se ven mal y reutilizamos vídeos de cosas ya anunciadas»*. De aquel se queda lo
 que le gustó, **el cierre**, con la insignia de la App Store.
@@ -22,6 +22,13 @@ pieza ya publicada. Todo va centrado en x=540, como la portada y el cierre.
 La versión 2 pasó por tres revisiones (diseño, reglas y verdad, técnica) el 27-oct y lleva sus arreglos:
 lo que dijeron y lo que se hizo con cada cosa está en «Lo que dijo la revisión», al final.
 
+**Y con voz desde la noche del 27-oct.** El dueño, al ver la versión 2: *«lo veo perfecto… la primera
+[cosa] es que no hay voz: me gustaría que la voz de Kore fuese la que explica todo lo que se está
+viendo»*, y del sonido: *«muy fuerte… muy de juguete… no es un audio serio. Todo lo que no me gusta es
+el audio. El vídeo está perfecto.»* Eligió la opción A: Kore cuenta cada escena, una música nueva y
+tranquila va muy por debajo, y fuera los «tic». El dibujo no se ha tocado: cada escena se ha estirado
+hasta lo que dura su frase («El tiempo de la voz», abajo). Lo de «sin voz» de este README es de antes.
+
 Cómo se publica, con los pies listos para copiar: `PUBLICAR.md`.
 
 ## Tres versiones, que sólo cambian en el cierre
@@ -42,6 +49,10 @@ que caen entre dos fotogramas, en el de antes. **Cada dibujo acaba pronto y se q
 un segundo antes del corte** (late un poco con la música, para que no parezca un vídeo atascado), y la
 frase que explica cada apartado va **siempre en el mismo sitio, abajo** (desde y=1170). Arriba, sólo un
 título corto cuando lo hay.
+
+**Los segundos de esta tabla son los de escritura** (los de la versión sin voz, sobre la rejilla de su
+música), y la columna «Sonido» es de entonces: ya no hay «tic». En el vídeo final cada escena va
+estirada hasta lo que dura su frase; los tiempos de verdad, en «El tiempo de la voz».
 
 | Segundos | Lo que dibuja la línea | Texto en pantalla | Sonido |
 |---|---|---|---|
@@ -176,66 +187,83 @@ y la limpia, dentro de 230-1480. Comprobado también sobre los fotogramas con la
 trazo.» y «Nomad: guía de viajes». En la cuadrícula se ve recortada a 3:4 (y=240-1680); la tinta va de
 519 a 1406, centrada en esa ventana.
 
+## La voz
+
+**Kore**, la voz de la app (`lib/narrationVoices.ts` del repo de la app), con el modelo de voz de
+Gemini (`gemini-3.1-flash-tts-preview`) y `piezas/ia/voz.py`, una toma por frase, con este estilo
+delante (no se lee): *«Lee en castellano de España, con voz cálida, cercana y tranquila, como una guía
+de viajes que cuenta algo bonito, sin prisa y sin entonación de anuncio:»*. Cada toma se recortó de
+silencio y **se transcribió con faster-whisper** (medium) para comprobar que dice todas sus palabras:
+las diez tomas usadas las dicen. Están en `assets/voz/f1…f9.flac`.
+
+| Escena | En el vídeo final | Kore dice | Empieza |
+|---|---|---|---|
+| El logo | 0-2,40 | «Esto es Nomad.» | 0,30 |
+| Tú eliges | 2,40-7,80 | «Le dices a dónde vas, cuántos días y cómo te gusta viajar.» | 2,65 |
+| El plan | 7,80-12,17 | «Y te escribe el viaje entero, día a día.» | 8,05 |
+| Paseos y museos | 12,17-16,70 | «Paseos y museos, con su audioguía.» | 12,42 |
+| Sin cobertura | 16,70-20,97 | «Descárgala, y sigue sonando aunque no haya cobertura.» | 16,95 |
+| Las voces | 20,97-25,33 | «Elige la voz que te lo cuenta. Esta, por ejemplo.» | 21,22 |
+| Los gastos | 25,33-28,63 | «Los gastos del grupo, repartidos.» | 25,58 |
+| Lugares | 28,63-33,53 | «Y tus restaurantes y sitios favoritos, guardados en el mapa.» | 28,88 |
+| El cierre | 33,53-38,93 | «Nomad. Ya en la App Store, para iPhone.» | 33,73 |
+
+**Una frase cambió respecto al guion aprobado**: «Cada paseo y cada museo, con su audioguía» pasó a
+**«Paseos y museos, con su audioguía»**, lo mismo que el texto de la pantalla. «Cada» ya se había quitado
+del vídeo por lo que dice «Las frases» (el generador no pone guía a un paseo en barco, en bici o en
+kayak), y se coló otra vez al escribir el guion de la voz. Lo demás está comprobado en «Las frases»:
+«Descárgala» es el «descargadas» de allí, y «Esta, por ejemplo» es verdad porque Kore es una de las
+tres voces de la nube del selector.
+
+### El tiempo de la voz
+
+Cada escena dura **lo que su frase más 0,55 s** (0,25 antes de la frase y 0,3 después), y el cierre, lo
+que su frase más 1,5 s para leer la insignia. La línea de tiempo se sigue escribiendo en los tiempos de
+la versión sin voz y al final se **estira por tramos** (`MAPA`, al principio del `<script>`): cada corte
+va a su fotograma nuevo, y cada animación, a su sitio, más despacio donde la frase es más larga
+(×1,29 el logo, **×2,16 «Tú eliges»**, ×1,39 el plan, ×1,81 los paseos, ×1,38 la audioguía, ×1,75 las
+voces, ×1,32 los gastos, ×1,56 Lugares, y el cierre, su primer segundo tal cual y el resto ×1,25). Es
+la misma línea de tiempo plana, con otros comienzos y otras duraciones: nada depende de un `onUpdate`.
+
+Dos cosas van en el tiempo de la palabra, medido sobre la toma con faster-whisper: **cada opción se
+pone verde cuando la voz la nombra** (Lisboa en «a dónde vas», 3 días en «cuántos días», y Cultural,
+Gastronomía y Tardes en «cómo te gusta viajar») y **Kore se queda elegida justo antes de «Esta, por
+ejemplo»** (23,9). Si cambia una toma, se vuelven a medir y se cambian `TELIGE` y `TKORE`; si cambia lo
+que dura, se mueve su corte en `MAPA` y su inicio en `EMPIEZA` de `mezclar.sh`.
+
 ## La música
 
-`assets/musica-lyria.mp3`: **Lyria**, su modelo de clips (`lyria-3-clip-preview`), por la API de
-Gemini, con `piezas/ia/musica.py` y `musica-prompt.txt` (96 BPM, continua, la batería y el bajo desde el
-compás 3, y un golpe en el compás 11 que se oiga en el altavoz de un móvil). Instrumental, con la marca
-de agua SynthID. Se pidieron **tres tomas** (0,04 $ cada una, 0,12 $ en total, en la cuenta de Google
-del dueño) y se eligió por lo que se mide:
+`assets/musica-calma.mp3`: **Lyria 3 Pro** (`lyria-3-pro-preview`), por la API de Gemini, con
+`piezas/ia/musica.py` y `musica-prompt.txt`: piano suave y cuerdas, tranquila, **sin percusión, sin
+sintetizadores y sin efectos**, para ir debajo de una voz. Una sola toma (en la cuenta de Google del
+dueño). Salió de **60,7 s** y no de 40, en unos 75 BPM (una negra de 0,8 s, medida con la
+autocorrelación de los arranques), continua, sin golpes, con su propio final que se apaga solo.
 
-- **toma 1**: continua, pero sin golpe ni final: suena igual hasta el segundo 30 y se corta en seco;
-  el bajo no entra hasta el 22;
-- **toma 2, la elegida**: continua (ningún hueco por debajo de −19 dB de RMS), en **si bemol mayor**, a
-  **96 BPM** exactos, con forma: ligera al principio, **la batería entra en el 12,75**, **el bajo en el
-  15,8** y **el golpe en el 26,50**, con el acorde entero; de ahí se apaga sola en segundo y medio;
-- **toma 3**: continua y ligera todo el rato, sin un golpe claro (dos acentos en 26,4 y 27,1) y cortada
-  en el 28,1.
+**Se usa su principio y su final**: hasta el 30,5 tal cual, y desde ahí la misma pista 19,22 s más
+adelante, que son **seis compases justos**; las dos se funden en dos segundos (28,5-30,5) en el punto
+donde sus acordes más se parecen (un croma comparado en cada desfase posible) y justo antes de una
+respiración de la propia pieza. Así su último acorde suena en el cierre y se apaga con el vídeo.
 
-**Dónde cae, medido con librosa** (la fase de la rejilla de corcheas sobre la envolvente de arranques,
-y los arranques por bandas, no `hyperframes beats`): las corcheas caen en **0,25 + 0,3125k**. `mezclar.sh`
-empieza en el **5,25**, así que en el vídeo la rejilla es 0,3125k exacta, la batería cae en el **7,50**
-(del plan a los paseos: el golpe de batería cae sobre lo que se abre del plan), el bajo hacia el
-**10,5** (las barras que caen) y el golpe en el **21,25** (el cierre). Todos los «tic» y todos los
-cambios del vídeo van en esa rejilla.
+**La mezcla** (`mezclar.sh`): cada toma de voz a −18 LUFS, con un paso alto a 80 Hz y una compresión
+suave; la música a **−33 LUFS**, quince por debajo, y apartándose unos cinco decibelios más mientras
+la voz habla (sidechain). Medido segundo a segundo, la voz queda **entre 8 y 20 dB por encima de la
+música** mientras habla, y la música sube un poco en las pausas. Máster: **−15,9 LUFS, pico −2,1 dBFS,
+LRA 2,1 LU**, loudnorm en dos pasadas y lineal (el script se para si no lo es): dos LU menos que la
+versión anterior, que al dueño le sonaba fuerte.
 
-**Los «tic» se oyen todos** (la revisión técnica del 27-oct encontró seis que caían en la misma nota y
-en el mismo instante que una de la marimba, y se fundían con ella). Ahora cada uno se mide contra la
-música en su propia banda (±1 ERB alrededor de su nota, sus primeros 40 ms): `PISTAS=<carpeta> bash
-mezclar.sh` deja los tic y la música por separado, con la misma cadena. **Los 32 quedan entre +9,0 y
-+36,2 dB** por encima de la música. Los que no llegaban se movieron de nota, dentro de si bemol mayor:
-los planes del día a si bemol 6 (en fa 6 daban +2,5 y −1,1), el cambio de día a sol 6 y re 7, las voces
-a fa 7 (−7,3 y −3,7 en fa 6) y la elegida a re 7 (+1,4 en si bemol 6), las personas a la 6 (+2,2 en si
-bemol 5) y las chinchetas a fa, si bemol y re (el sol 6 de en medio daba +3,1).
+**Que suene bien lo tiene que decir el dueño**, en el altavoz del iPhone y con auriculares: aquí sólo
+se ha medido. **La junta de la música** (28,5-30,5, en Lugares) es lo primero que hay que escuchar: está
+puesta en compás y donde los acordes se parecen, pero no se ha oído. Si no convence, otra toma de
+Lyria con el mismo prompt y se busca la junta otra vez.
 
-**El bombo y el bajo son subgrave**, como en la primera versión: desde el 7,5, un paso alto a 30 Hz y
-un estante de −6 dB por debajo de 120 Hz. Y el golpe lleva encima un **acorde de si bemol mayor**
-sintetizado (del si bemol 3 al si bemol 5, con armónicos hasta unos 3 kHz y un chasquido brillante),
-que se oye en el móvil y alarga la cola: la de la toma dura segundo y medio y el cierre, cuatro y
-medio. La tonalidad, medida con un cromagrama (si bemol mayor, 0,84; el acorde final, si bemol 1,00).
-Después del golpe la música ya no tiene notas: el icono y las flechas laten al tempo, sobre el acorde
-que se apaga.
-
-Medido en el máster, con un paso alto a 200 Hz (más o menos lo que suena en el altavoz de un iPhone):
-**−14,9 LUFS** el principio, **−15,4** con la batería, **−14,4** con el bajo y **−15,0** los 2 s del
-cierre: todo a menos de 1 LU. Máster: **−13,9 LUFS, pico verdadero −2,8 dBTP, LRA 2,4 LU**, loudnorm en
-dos pasadas y **lineal** (el script se para si no lo es). El balance izquierda-derecha de la toma va a
-menos de 1,3 dB en cada sección: no se toca.
-
-**Que suene bien lo tiene que decir el dueño con el altavoz del iPhone**: aquí sólo se ha medido. Las
-tomas 1 y 3 quedaron en el scratchpad de la sesión y se van con el contenedor: si el dueño prefiere
-otra música, se pide otra toma con el mismo prompt y se vuelven a medir los tiempos (cambian `INICIO`
-de `mezclar.sh` y, si la rejilla no cae en 0,3125k, las constantes del principio del `<script>` de
-`index.html` y los tiempos de los «tic»), y los tic otra vez contra la música.
-
-Según los términos de la API de Gemini, Google no reclama la propiedad de lo generado. **Es música
-generada con IA y se etiqueta al publicar.**
+Según los términos de la API de Gemini, Google no reclama la propiedad de lo generado. **La voz y la
+música son generadas con IA y se etiquetan al publicar.**
 
 ## Para rehacerla
 
 ```bash
 bash piezas/historias-animadas/construir.sh                       # las fuentes y mark.png
-bash piezas/historias-animadas/lanzamiento-trazo/mezclar.sh       # assets/sonido.m4a (PISTAS=… para medir los tic)
+bash piezas/historias-animadas/lanzamiento-trazo/mezclar.sh       # assets/sonido.m4a (PISTAS=… deja la voz, la música y la mezcla sueltas)
 bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh     # historia y reel, y revision/ (~2 min cada una)
 VERSIONES=limpia bash piezas/historias-animadas/lanzamiento-trazo/variantes.sh
 bash piezas/historias-animadas/lanzamiento-trazo/portada.sh salida/nomad-trazo-portada.jpg
@@ -299,18 +327,19 @@ Lo que hay que saber al tocar `index.html`:
 | `marca-grande.png` | `banco/marca/` = `mobile/assets/adaptive-icon.png` del repo de la app, recortado a su contenido | propio |
 | `icono-app.png`, `mark.png` | `banco/marca/` | propio |
 | `insignia-app-store-es.svg` | `banco/marca/` = `web/insignias/app-store-es.svg` de la app = la de Apple para es-es | insignia oficial de Apple, sin tocar |
-| `musica-lyria.mp3` | Lyria (toma 2 de 3, 27-oct) | generada con IA |
-| `sonido.m4a` | `mezclar.sh`: la música, los «tic» y el acorde del cierre sintetizados | — |
+| `voz/f1…f9.flac` | Kore, modelo de voz de Gemini (27-oct), una toma por frase | generada con IA |
+| `musica-calma.mp3` | Lyria 3 Pro (27-oct) | generada con IA |
+| `sonido.m4a` | `mezclar.sh`: la voz encima de la música | — |
 | Fuentes | Instrument Serif e Instrument Sans, `banco/fuentes/webfonts/` | OFL |
 | `gsap.min.js` | copia de `lanzamiento-ios/assets/` (GSAP 3.14.2) | licencia de GSAP |
 | La espiral, el collar, el raíl, el paseo, el museo, la onda, las barras, las personas, el mapa, las chinchetas y los chevrones | dibujados en el SVG de `index.html` | propio |
 
 ## Lo que no está, a propósito
 
-Capturas de la app, fotos, voz, el precio, la lista de espera, el 1,99 €, «voz real», «tiempo real»,
+Capturas de la app, fotos, el precio, la lista de espera, el 1,99 €, «voz real», «tiempo real»,
 la audioguía de 6 €, una fecha de Android, nombres de restaurantes o monumentos, adjetivos sobre las
 voces, «cada paseo», y «iPhone» o «App Store» en mayúsculas. Tampoco el asistente del chat ni la
-cartelera: en 26 s caben los seis apartados que pidió el dueño.
+cartelera: caben los seis apartados que pidió el dueño, y cada uno ya tiene su frase.
 
 ## Lo que dijo la revisión (27-oct) y qué se hizo
 
@@ -364,7 +393,8 @@ Tres revisiones de la versión 2 (`d23b281`): diseño, reglas y verdad, y técni
 
 ## Lo que queda por decidir o probar
 
-- **Que la música le guste**, escuchada en el altavoz del iPhone: está medida, no oída.
+- **Que la voz y la música le gusten**, en el altavoz del iPhone y con auriculares, y **la junta de la
+  música** (28,5-30,5): están medidas, no oídas.
 - **Que cada escena se lea con calma en un móvil**: ahora cada dibujo se queda entero alrededor de un
   segundo, y el titular está desde el corte. Si alguna se queda corta en la mano, se alarga medio
   compás y se mueve el golpe.

@@ -8,6 +8,20 @@ los gastos divididos y Lugares) hasta el cierre que ya aprobaste. Lleva los arre
 apartado va siempre abajo (`README.md`, «Lo que dijo la revisión»). El precio no sale en el vídeo: va
 en los pies.
 
+**Y ahora con voz** (27-oct, la opción A que elegiste): Kore, la misma voz de la app, cuenta cada
+apartado mientras se dibuja, y debajo va una música nueva, tranquila, de piano y cuerdas, muy por
+debajo de la voz. Sin «tic». Cada escena dura lo que su frase, así que el vídeo pasa de 25,8 a 38,9 s.
+Lo que dice Kore:
+
+> Esto es Nomad. · Le dices a dónde vas, cuántos días y cómo te gusta viajar. · Y te escribe el viaje
+> entero, día a día. · Paseos y museos, con su audioguía. · Descárgala, y sigue sonando aunque no haya
+> cobertura. · Elige la voz que te lo cuenta. Esta, por ejemplo. · Los gastos del grupo, repartidos. ·
+> Y tus restaurantes y sitios favoritos, guardados en el mapa. · Nomad. Ya en la App Store, para iPhone.
+
+Es el guion que aprobaste con un cambio: «Cada paseo y cada museo» pasa a **«Paseos y museos»**, como
+el texto del vídeo, porque la app no pone audioguía a todos los paseos (en barco, en bici o en kayak no
+la lleva) y «cada» prometería de más.
+
 Cuatro ficheros:
 
 - `nomad-trazo-reel-1080x1920.mp4`: el **reel** de Instagram y el vídeo de **TikTok**. Acaba con
@@ -18,23 +32,23 @@ Cuatro ficheros:
 - `nomad-trazo-limpia-1080x1920.mp4`: sólo si hace falta (TikTok sin el campo «Sitio web», o una
   historia promocionada). Acaba sin flecha y sin texto.
 
-Los vídeos duran 25,8 s y ya llevan la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
+Los vídeos duran 38,9 s y ya llevan la voz y la música. Pásalos al iPhone por AirDrop o Fotos de iCloud.
 **No los mandes por WhatsApp**: los comprime y la letra pequeña se emborrona.
 
 **Tres cosas que valen para todo:**
 
-1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva la suya, nueva y cuadrada con
-   lo que se ve: los cortes de escena, las opciones que se eligen, los planes del día, la batería que
-   entra cuando del plan salen los paseos, las barras que caen, las voces, las chinchetas y el golpe
-   del cierre. **Escúchala antes en el altavoz del iPhone**, sin auriculares: está mezclada para que la
-   batería, el bajo, los «tic» y el cierre se oigan ahí (`README.md`, «La música»). Si no te gusta, se
-   pide otra toma. **Una cosa antes**: la regla de la casa es que los reels salen sin pista de audio, y
+1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva su sonido: la voz de Kore y,
+   muy por debajo, la música, que se aparta un poco más cada vez que habla. Cada opción se elige cuando
+   la voz la nombra, y Kore se queda elegida justo cuando dice «Esta, por ejemplo». **Escúchalo antes
+   en el altavoz del iPhone y con auriculares**: está medido, no oído (`README.md`, «La voz» y «La
+   música»). Si algo no te gusta, se cambia la frase o la música sin tocar el dibujo. **Una cosa antes**: la regla de la casa es que los reels salen sin pista de audio, y
    la excepción que escribiste en AGENTS.md (24-oct) nombra el anuncio de `lanzamiento-ios/`, el que se
    rechazó, no éste. Confírmalo en la issue #15 (que la excepción pasa a «Un trazo») y se cambia la ruta
    en AGENTS.md en el mismo commit.
-2. **Marca la etiqueta de IA en cada publicación.** La música está generada con IA (Lyria, de Google);
-   por eso se marca. Los «tic» y el acorde del cierre se sintetizan en `mezclar.sh`, y el resto está
-   dibujado en código: no sale de un generador de imagen, vídeo ni voz.
+2. **Marca la etiqueta de IA en cada publicación.** La voz (Kore, con el modelo de voz de Gemini) y la
+   música (Lyria) están generadas con IA, de Google. Meta pide marcar el audio realista creado
+   digitalmente, y TikTok, el contenido generado con IA. El dibujo, en cambio, está hecho en código: no
+   sale de un generador de imagen ni de vídeo.
 3. **Antes de pagar una promoción, mira la pantalla de pago.** Si aparece «Comisión de Apple», cancela
    y promociona desde el navegador o desde la app Meta Ads Manager (AGENTS.md).
 
@@ -120,6 +134,8 @@ Los paseos a pie y los museos del plan llevan su audioguía. Las que descargas f
 
 Apuntáis los gastos del grupo y la app los divide y os dice quién debe a quién. Y en Lugares guardas tus restaurantes y sitios de interés, en el mapa del viaje.
 
+La voz que lo cuenta es Kore, una de las que puedes elegir en la app. La voz y la música están hechas con IA.
+
 Descargarla es gratis. Se paga por viaje, sin suscripción: desde 2,99 €. Una compra abre el viaje a todo el grupo.
 
 Para iPhone con iOS 15.1 o superior. Android, pronto.
@@ -142,7 +158,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 **Súbela desde el carrete, no compartas el reel.** Compartido, el reel se ve con un toque y no lleva
 enlace. Subida aparte, lleva el adhesivo.
 
-1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 25,8 s: cabe en una sola.
+1. Desliza a **Historia** → elige `nomad-trazo-historia-1080x1920.mp4`. Dura 38,9 s: cabe en una sola (el límite es 60).
 2. **Adhesivos** → **Enlace** → pega `https://apps.apple.com/app/id6797973945` (o el de
    `ct=ig-historia-anuncio` si tienes el `pt`) y en «Personalizar el texto del adhesivo» escribe **Descárgala**.
 3. **Colócalo abajo, donde apuntan las flechas**: más o menos a un 80 % de la altura, justo encima de
@@ -176,7 +192,7 @@ explica cómo encontrarla.
 4. **Portada**: si te deja subir una imagen, `nomad-trazo-portada.jpg`. Si no, deja el primer fotograma:
    ya lleva el logo, «Nomad: guía de viajes» y «Ya en la App Store, para iPhone».
 5. **Más opciones**:
-   - activa **Contenido generado por IA** (por la música);
+   - activa **Contenido generado por IA** (por la voz y la música);
    - activa **Divulgar contenido comercial** → marca **Tu marca**.
 6. **Publicar**.
 7. Escribe el comentario de arriba y **fíjalo** (mantén pulsado → Fijar).
