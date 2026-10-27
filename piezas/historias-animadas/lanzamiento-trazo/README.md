@@ -192,13 +192,36 @@ trazo.» y «Nomad: guía de viajes». En la cuadrícula se ve recortada a 3:4 (
 **Kore**, la voz de la app (`lib/narrationVoices.ts` del repo de la app), con el modelo de voz de
 Gemini (`gemini-3.1-flash-tts-preview`) y `piezas/ia/voz.py`, una toma por frase, con este estilo
 delante (no se lee): *«Lee en castellano de España, con voz cálida, cercana y tranquila, como una guía
-de viajes que cuenta algo bonito, sin prisa y sin entonación de anuncio:»*. Cada toma se recortó de
-silencio y **se transcribió con faster-whisper** (medium) para comprobar que dice todas sus palabras:
-las diez tomas usadas las dicen. Están en `assets/voz/f1…f9.flac`.
+de viajes que cuenta algo bonito, sin prisa y sin entonación de anuncio:»*. Cada toma **se transcribió
+con faster-whisper** (medium) para comprobar que dice todas sus palabras. Están en
+`assets/voz/f1…f9.flac`, recortadas con `recortar-voz.py` (abajo).
+
+**«Esto es Nomad» se oía «Nom…»** (el dueño, 27-oct: *«no dice Nomad, dice N-O-M-D»*). Eran tres cosas,
+y las tres están arregladas:
+
+1. **La mezcla cortaba en seco el final de las frases.** `adelay` + `amix` de ffmpeg 6.1 tiran lo que
+   `adelay` aún retiene cuando una entrada se acaba antes que otra: a «Esto es Nomad» le quitó sus
+   últimos 0,23 s, justo la «-ad», y a la de los paseos, 0,34. Reproducido con dos tonos, y arreglado con
+   un `apad` delante del `adelay`. `mezclar.sh` comprueba ahora que las nueve frases llegan enteras a la
+   pista de voz y se para si no (probado quitando el `apad`: se para en f1).
+2. **El recorte de silencio se comía la consonante final.** El primero cortaba por debajo de −45 dB, y
+   la «d» de «Nomad» (una explosión flojita después de un cierre de silencio) estaba por debajo: 0,11 s
+   menos. `recortar-voz.py` corta por detrás en −64 dB, une los huecos de menos de 0,15 s (el cierre
+   antes de una «d» o una «t») y suelta lo que viene después de un silencio más largo (un chasquido o
+   una respiración sueltos), con un fundido de 40 ms; por delante, a 40 ms de la primera sílaba fuerte.
+3. **La «a» de aquella toma era floja**: 10 dB por debajo de la «o», poco sonora y de 80 ms. Se pidieron
+   seis tomas más, tres con esto añadido al estilo: *«El nombre de la app es Nomad: pronúncialo entero y
+   claro, con sus dos sílabas, no-mad, sin comerte la a»*, y se eligió la que tenía la «a» más llena y
+   la «d» entera (en el espectrograma, como la de «Nomad» del cierre).
+
+Lo que lo demuestra, con el control delante: transcrito el audio enviado, whisper oía «Esto es **Nom**,
+le dices…», que es lo que oyó el dueño; con los tres arreglos oye «Esto es **Nomad**», en los primeros
+5 s y en el vídeo entero. (Gemini, puesto a juzgar de oído, daba un 10 a la toma enviada: no sirve de
+juez para esto.)
 
 | Escena | En el vídeo final | Kore dice | Empieza |
 |---|---|---|---|
-| El logo | 0-2,40 | «Esto es Nomad.» | 0,30 |
+| El logo | 0-2,40 | «Esto es Nomad.» | 0,25 |
 | Tú eliges | 2,40-7,80 | «Le dices a dónde vas, cuántos días y cómo te gusta viajar.» | 2,65 |
 | El plan | 7,80-12,17 | «Y te escribe el viaje entero, día a día.» | 8,05 |
 | Paseos y museos | 12,17-16,70 | «Paseos y museos, con su audioguía.» | 12,42 |
@@ -327,7 +350,7 @@ Lo que hay que saber al tocar `index.html`:
 | `marca-grande.png` | `banco/marca/` = `mobile/assets/adaptive-icon.png` del repo de la app, recortado a su contenido | propio |
 | `icono-app.png`, `mark.png` | `banco/marca/` | propio |
 | `insignia-app-store-es.svg` | `banco/marca/` = `web/insignias/app-store-es.svg` de la app = la de Apple para es-es | insignia oficial de Apple, sin tocar |
-| `voz/f1…f9.flac` | Kore, modelo de voz de Gemini (27-oct), una toma por frase | generada con IA |
+| `voz/f1…f9.flac` | Kore, modelo de voz de Gemini (27-oct), una toma por frase, recortada con `recortar-voz.py` | generada con IA |
 | `musica-calma.mp3` | Lyria 3 Pro (27-oct) | generada con IA |
 | `sonido.m4a` | `mezclar.sh`: la voz encima de la música | — |
 | Fuentes | Instrument Serif e Instrument Sans, `banco/fuentes/webfonts/` | OFL |

@@ -10,7 +10,7 @@
 # LA VOZ (assets/voz/f1…f9.flac): Kore, la voz de la app, con gemini-3.1-flash-tts-preview y
 # piezas/ia/voz.py. Cada frase es una toma, recortada de silencio y comprobada con faster-whisper
 # (las nueve dicen todas sus palabras; voz.py avisa de que una toma puede comerse una). El guion y el
-# estilo, en README.md, «La voz». Cada frase empieza 0,25 s después de su corte de escena (0,3 la
+# estilo, en README.md, «La voz». Cada frase empieza 0,25 s después de su corte de escena (también la
 # primera, 0,2 la del cierre); los cortes están en MAPA, en index.html: si se mueve uno, se mueve aquí.
 #
 # LA MÚSICA (assets/musica-calma.mp3): Lyria 3 Pro con musica-prompt.txt, 60,7 s, unos 75 BPM (negra
@@ -22,23 +22,45 @@ set -e
 cd "$(dirname "$0")/assets"
 DUR=38.9333
 # Dónde empieza cada frase, en segundos del vídeo final.
-EMPIEZA=(0.3 2.65 8.05 12.4167 16.95 21.2167 25.5833 28.8833 33.7333)
+EMPIEZA=(0.25 2.65 8.05 12.4167 16.95 21.2167 25.5833 28.8833 33.7333)
 T=$(mktemp -d)
 trap 'rm -rf "$T"' EXIT
 
 # Cada toma a -18 LUFS, para que ninguna frase suene más fuerte que otra, con un paso alto a 80 Hz y
 # una compresión suave. Y en su sitio.
+# EL apad ANTES DEL adelay NO SE QUITA. Sin él, ffmpeg 6.1 corta en seco el final de cada frase que
+# acaba antes que la siguiente: amix da por acabada la entrada y tira lo que adelay aún retenía. Así
+# salió la primera versión con voz, con «Esto es Nomad» sin sus últimos 0,23 s («Nom…», lo oyó el
+# dueño) y la frase de los paseos sin 0,34. Reproducido con dos tonos: sin apad, el de 1,76 s puesto en
+# 0,3 acaba en 1,84; con apad, en 2,06. La comprobación va al final de este script.
 ENTRADAS=""; FILTRO=""; MEZCLA=""
 for i in 1 2 3 4 5 6 7 8 9; do
   I=$(ffmpeg -hide_banner -i voz/f$i.flac -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
   GAN=$(echo "-18 - ($I)" | bc -l)
   MS=$(echo "${EMPIEZA[$((i-1))]} * 1000 / 1" | bc)
   ENTRADAS="$ENTRADAS -i voz/f$i.flac"
-  FILTRO="$FILTRO[$((i-1)):a]highpass=f=80,volume=${GAN}dB,acompressor=threshold=-24dB:ratio=2.5:attack=8:release=160:makeup=1,adelay=$MS[v$i];"
+  FILTRO="$FILTRO[$((i-1)):a]highpass=f=80,volume=${GAN}dB,acompressor=threshold=-24dB:ratio=2.5:attack=8:release=160:makeup=1,apad=pad_dur=1,adelay=$MS[v$i];"
   MEZCLA="$MEZCLA[v$i]"
 done
 ffmpeg -v error -y $ENTRADAS -filter_complex "${FILTRO}${MEZCLA}amix=inputs=9:normalize=0,apad,atrim=0:$DUR,aresample=48000[voz]" \
   -map "[voz]" -ac 1 -c:a pcm_s24le "$T/voz.wav"
+# Que ninguna frase llegue cortada: los 50 ms de antes de su fundido final tienen que sonar en la pista
+# de voz (un corte deja ahí ceros exactos). Si no, se para.
+python3 - "$T/voz.wav" "${EMPIEZA[@]}" <<'PY'
+import subprocess, sys, numpy as np
+sr = 48000
+v = np.frombuffer(subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', sys.argv[1], '-f', 'f32le', '-ac', '1', '-ar', str(sr), '-'],
+                                 capture_output=True).stdout, np.float32)
+mal = []
+for i, t0 in enumerate(map(float, sys.argv[2:]), 1):
+    d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'voz/f{i}.flac'],
+                             capture_output=True, text=True).stdout)
+    x = v[int((t0 + d - 0.10) * sr):int((t0 + d - 0.05) * sr)]
+    db = 20 * np.log10(np.sqrt(np.mean(x.astype(np.float64) ** 2)) + 1e-12)
+    if db < -100: mal.append(f'f{i} ({db:.0f} dB al final)')
+if mal: sys.exit('frases cortadas en la pista de voz: ' + ', '.join(mal))
+print('las nueve frases llegan enteras a la pista de voz')
+PY
 
 # La música: principio y final fundidos, a -33 LUFS (quince por debajo de la voz), y apartándose unos
 # cinco decibelios más mientras la voz habla.
