@@ -131,7 +131,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="lanzamiento-trazo" data-start="0"
-         data-width="1080" data-height="1920" data-duration="31.1333">
+         data-width="1080" data-height="1920" data-duration="33.8667">
 
       <!-- LO DE DEBAJO: el tramo de la l&iacute;nea que ensarta las opciones (pasa por detr&aacute;s de ellas, como un
            collar) y el mapa de Lugares. -->
@@ -278,7 +278,7 @@
 
       <!-- El sonido, hecho aparte (mezclar.sh): la m&uacute;sica de Lyria y los tic, a -14 LUFS. Va aqu&iacute; para
            que la vista previa suene; el m&aacute;ster se vuelve a montar con este mismo fichero (README.md). -->
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.1333"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="33.8667"></audio>
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes (las medidas de las
@@ -303,7 +303,7 @@
         // Y TODO a VELOCIDAD (el due&ntilde;o, 27-oct: &laquo;se oye muy lento, hay que ponerlo a 1,25&times;&raquo;). Los fotogramas de
         // MAPA son los de la voz a 1&times;; aqu&iacute; se dividen entre VELOCIDAD y se redondean a un fotograma entero, y
         // mezclar.sh acelera la voz y la m&uacute;sica lo mismo (sin cambiar el tono). Si cambia, cambia en los dos sitios.
-        var VELOCIDAD = 1.25;
+        var VELOCIDAD = 1.15;
         var MAPA = [[0, 0], [T1, 72], [T2, 234], [T3, 365], [T4, 501], [T5, 629], [T6, 760], [T7, 859], [T8, 1006], [T8 + 1.2, 1042], [FIN, 1168]]
           .map(function (p) { return [p[0], Math.round(p[1] / VELOCIDAD) / FPS]; });
         function interpola(t, i, j) {

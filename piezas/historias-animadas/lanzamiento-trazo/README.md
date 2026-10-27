@@ -1,6 +1,6 @@
 # Un trazo: el anuncio de que Nomad ya está en la App Store (27-oct, versión 2 con voz)
 
-Un vídeo de **31,1 s** (todo a 1,25×), 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro, para Instagram (reel e
+Un vídeo de **31-34 s** según la velocidad, 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro, para Instagram (reel e
 historia) y TikTok. Sustituye al de `lanzamiento-ios/`, que el dueño rechazó el 27-oct: *«los
 recortes de la app se ven mal y reutilizamos vídeos de cosas ya anunciadas»*. De aquel se queda lo
 que le gustó, **el cierre**, con la insignia de la App Store.
@@ -240,7 +240,13 @@ tres voces de la nube del selector.
 
 ### El tiempo de la voz
 
-**Y todo va a 1,25×** (el dueño, 27-oct: *«se oye muy lento, hay que ponerlo a 1,25×»*): la voz y la música
+**La velocidad se elige con `bash velocidad.sh <v>`**, que la cambia en los tres sitios que la llevan
+(`index.html`, `mezclar.sh` y `variantes.sh`); después, `mezclar.sh` y `variantes.sh`. A 1× el dueño lo oyó
+lento y a 1,25× demasiado deprisa (27-oct); **está en 1,15× mientras elige entre 1,15 y 1,2** (los dos
+reels se le mandaron para comparar). La tabla de arriba y las cuentas de abajo están hechas a 1,25×:
+se rehacen cuando elija.
+
+**Y todo va más deprisa** (el dueño, 27-oct: *«se oye muy lento, hay que ponerlo a 1,25×»*): la voz y la música
 se aceleran con `rubberband`, que no cambia el tono, y el vídeo lo mismo (`VELOCIDAD`, en el `<script>`).
 Lo que sigue está contado a 1×, que es como se midió; en el vídeo, cada tiempo se divide entre 1,25.
 

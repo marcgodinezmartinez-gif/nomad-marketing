@@ -23,8 +23,8 @@ cd "$(dirname "$0")/assets"
 # TODO A 1,25× (el dueño, 27-oct: «se oye muy lento, hay que ponerlo a 1,25×»): la voz y la música se
 # aceleran con rubberband, que no cambia el tono, y el vídeo lo mismo (VELOCIDAD en index.html). Los
 # tiempos de aquí se escriben a 1× y se dividen entre VEL.
-VEL=1.25
-DUR=31.1333
+VEL=1.15
+DUR=33.8667
 # Dónde empieza cada frase, en segundos del vídeo a 1×.
 EMPIEZA=(0.25 2.65 8.05 12.4167 16.95 21.2167 25.5833 28.8833 33.7333)
 T=$(mktemp -d)
