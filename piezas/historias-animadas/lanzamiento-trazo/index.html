@@ -396,18 +396,19 @@
               hilo.o("L" + XI + "," + y).o("C" + (XI - k * RX) + "," + y + " " + (XI - RX) + "," + (ym - k * ry) + " " + (XI - RX) + "," + ym)
                   .o("C" + (XI - RX) + "," + (ym + k * ry) + " " + (XI - k * RX) + "," + y1 + " " + XI + "," + y1);
             }
+          } else {
+            // La punta espera detr&aacute;s de la &uacute;ltima opci&oacute;n (no asoma) y, antes del corte, sale por debajo de ella.
+            hilo.marca("tras").o("L" + XD + "," + y);
           }
         });
-        // Acaba detr&aacute;s de la &uacute;ltima opci&oacute;n: la punta no asoma.
         hilo.marca("fin");
-        var XU = parseFloat(hilo.c[hilo.c.length - 1].slice(1));
 
         // 2 &middot; Al plan: de la punta del collar sube por la derecha, cruza por encima de las pesta&ntilde;as de los d&iacute;as, baja
         // entre &laquo;D&iacute;a 1&raquo; y &laquo;D&iacute;a 2&raquo; y es el ra&iacute;l. Al acabar el ra&iacute;l vuelve sobre s&iacute; mismo hasta el plan 3, el
         // tour: de ah&iacute; sale el paseo, y la cola, al recoger el ra&iacute;l, lo encoge hacia ese plan.
         var NY = [545, 695, 845, 995], YT = FY[2];
         var plan = new Camino();
-        plan.o("M" + XU + "," + YT).o("L" + XD + "," + YT).o("C" + (XD + 44) + "," + YT + " 885," + (YT - 30) + " 885," + (YT - 74))
+        plan.o("M" + XD + "," + YT).o("C" + (XD + 44) + "," + YT + " 885," + (YT - 30) + " 885," + (YT - 74))
             .o("L885,410 C885,386 868,372 844,372 L512,372 C488,372 470,388 470,412").marca("arriba");
         NY.forEach(function (y, k) { plan.o("L470," + y).marca("n" + (k + 1)); });
         plan.o("L470,1035").marca("fondo").o("L470," + NY[2]).marca("fin");
@@ -448,8 +449,8 @@
         var PUNTA = [
           [0, 0], [E(1), 0], [T1, ESP.fin, "sine.in"],   // sin pararse: la espiral sigue en el collar
           [E(7.5), HIL.c0], [E(8), HIL.c1], [E(9), HIL.c2, "power1.inOut"],
-          [E(9.5), HIL.c3], [E(10.5), HIL.c4, "power1.inOut"], [E(11), HIL.fin, "power1.out"],
-          [E(14), PLA.ini], [E(15), PLA.n1, "power1.inOut"], [E(16), PLA.n2], [E(17), PLA.n3], [E(18), PLA.n4],
+          [E(9.5), HIL.c3], [E(10.5), HIL.c4, "power1.inOut"], [E(11), HIL.tras, "power1.out"],
+          [E(13.5), HIL.tras], [E(15), PLA.n1, "power1.inOut"], [E(16), PLA.n2], [E(17), PLA.n3], [E(18), PLA.n4],   // la punta sale de detr&aacute;s de Noches antes del corte
           [E(18.5), PLA.fondo, "power1.out"],
           [E(24), PLA.fondo], [E(24.4), PAS.ini, "power1.inOut"],
           [E(25), PAS.p1, "power1.inOut"], [E(25.5), PAS.p2, "power1.inOut"], [E(26), PAS.p3, "power1.inOut"],
@@ -459,7 +460,7 @@
         var COLA = [
           [0, 0], [T1 - 0.001, 0], [T1, ESP.fuera],          // lo que iba por dentro del cuenco, fuera antes de que el logo se mueva
           [T1 + 0.3, ESP.fin, "power1.in"], [E(8), HIL.tapada, "power1.out"],   // y el principio del collar, detr&aacute;s de Lisboa
-          [T2 - 0.001, HIL.tapada], [T2, HIL.fin - 50], [E(16), PLA.arriba + 103, "power1.in"],   // sin las opciones, el collar no se ense&ntilde;a; el ra&iacute;l, desde encima del plan 1
+          [T2 - 0.001, HIL.tapada], [T2, HIL.tras], [E(16), PLA.arriba + 103, "power1.in"],   // sin las opciones, el collar no se ense&ntilde;a; el ra&iacute;l, desde encima del plan 1
           [T3, PLA.arriba + 103], [E(24.6), PLA.fondo, "power1.inOut"], [E(25), PLA.fin, "power1.out"],
           [E(31.25), PAS.ini], [T4 - 0.01, PAS.fin], [TG + 0.3, BAJ.fin, "power1.inOut"]   // el museo ya no est&aacute; cuando llega el corte
         ];
@@ -575,8 +576,10 @@
         PARADAS.forEach(function (p, k) {
           gsap.set("#e" + (k + 1), { svgOrigin: p[0] + " " + p[1] });
           brota("#e" + (k + 1), TPAR[k] - 0.03);
-          late("#e" + (k + 1), E(29) + 0.04 * k, 0.07, 0.3);
-          late("#e" + (k + 1), E(30) + 0.04 * k, 0.07, 0.45);
+          // Laten con la m&uacute;sica desde que el museo est&aacute; hecho (8,75) hasta que se recogen.
+          late("#e" + (k + 1), E(28.5) + 0.04 * k, 0.07, 0.3);
+          late("#e" + (k + 1), E(29.5) + 0.04 * k, 0.07, 0.3);
+          late("#e" + (k + 1), E(30.5) + 0.04 * k, 0.07, 0.3);
           // Se van cuando las alcanza la cola.
           tl.fromTo("#e" + (k + 1), { scale: 1, autoAlpha: 1 }, { scale: 0, autoAlpha: 0, duration: 0.1, ease: "power2.in", immediateRender: false }, E(31.25) + 0.06 + 0.05 * k);
         });
@@ -619,7 +622,7 @@
         ruta.setAttribute("d", RUTA);
         var LR = ruta.getTotalLength(), RP = [];
         for (var j = 0; j <= N; j++) { var pr = ruta.getPointAtLength(LR * j / N); RP.push([pr.x, pr.y]); }
-        var LATIDOS = [E(35), E(36), E(38), E(40), E(44), E(45), E(46), E(47)];
+        var LATIDOS = [E(35), E(36), E(38), E(40), E(44), E(44.5), E(45), E(46)];
         function amplitud(t) {
           var v = 1;
           LATIDOS.forEach(function (tb) { if (t >= tb) v += 0.45 * Math.exp(-(t - tb) / 0.14); });
@@ -636,7 +639,7 @@
             return dr;
           }
           var xs = 890 - 700 * suave((t - TG) / 0.5), xe = 890, Y = 1030, m = 1;
-          if (t >= T5) Y = 1030 - 390 * suave((t - T5) / 0.45);
+          if (t >= T5) Y = 1030 - 390 * suave((t - T5) / 0.3);
           if (t >= T6) {
             var q6 = suave((t - T6) / 0.36);
             xs = 190 + 190 * q6; xe = 890 - 190 * q6; Y = 640 + 10 * q6; m = 1 - q6;
@@ -667,32 +670,34 @@
         // tiene bot&oacute;n en la app, as&iacute; que aqu&iacute; tampoco suena. Ninguna lleva descripci&oacute;n: la voz se escucha, no se
         // adjetiva (narrationVoices.ts).
         entra("#t-voces", T5 + 0.04, 24);
-        ["#v0", "#v1", "#v2", "#v3"].forEach(function (s, k) { entra(s, T5 + 0.08 + 0.04 * k, 14, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" }); });
+        // Entran cuando la onda ya ha pasado por encima de ellas.
+        ["#v0", "#v1", "#v2", "#v3"].forEach(function (s, k) { entra(s, T5 + 0.22 + 0.04 * k, 14, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" }); });
         entra("#t-escucha", T5 + 0.12, 24);
         var ON = { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9" };
         var OFF = { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" };
+        // Una por semicorchea y la elegida en la negra siguiente: as&iacute; la lista entera se queda casi un segundo.
         [1, 2, 3].forEach(function (n, k) {
-          var t = E(44 + k), s = "#v" + n;
+          var t = E(44 + 0.5 * k), s = "#v" + n;
           tl.fromTo(s, OFF, Object.assign({ duration: 0.08, ease: "power1.out", immediateRender: false }, ON), t - 0.02);
           tl.fromTo(s + " svg path", { fill: "#0F766E", stroke: "#0F766E" }, { fill: "#FFFDF9", stroke: "#FFFDF9", duration: 0.08, immediateRender: false }, t - 0.02);
-          tl.fromTo(s, ON, Object.assign({ duration: 0.16, ease: "power1.in", immediateRender: false }, OFF), t + 0.2);
-          tl.fromTo(s + " svg path", { fill: "#FFFDF9", stroke: "#FFFDF9" }, { fill: "#0F766E", stroke: "#0F766E", duration: 0.16, immediateRender: false }, t + 0.2);
+          tl.fromTo(s, ON, Object.assign({ duration: 0.12, ease: "power1.in", immediateRender: false }, OFF), t + 0.12);
+          tl.fromTo(s + " svg path", { fill: "#FFFDF9", stroke: "#FFFDF9" }, { fill: "#0F766E", stroke: "#0F766E", duration: 0.12, immediateRender: false }, t + 0.12);
         });
         // La elegida, Kore: verde hasta que se va la escena.
-        tl.fromTo("#v1", OFF, Object.assign({ duration: 0.1, ease: "power1.out", immediateRender: false }, ON), E(47) - 0.02);
-        tl.fromTo("#v1 svg path", { fill: "#0F766E", stroke: "#0F766E" }, { fill: "#FFFDF9", stroke: "#FFFDF9", duration: 0.1, immediateRender: false }, E(47) - 0.02);
-        tl.fromTo("#v1", { scale: 1 }, { scale: 1.05, duration: 0.1, ease: "power2.out", immediateRender: false }, E(47) - 0.02);
-        tl.fromTo("#v1", { scale: 1.05 }, { scale: 1, duration: 0.25, ease: "power2.inOut", immediateRender: false }, E(47) + 0.08);
+        tl.fromTo("#v1", OFF, Object.assign({ duration: 0.1, ease: "power1.out", immediateRender: false }, ON), E(46) - 0.02);
+        tl.fromTo("#v1 svg path", { fill: "#0F766E", stroke: "#0F766E" }, { fill: "#FFFDF9", stroke: "#FFFDF9", duration: 0.1, immediateRender: false }, E(46) - 0.02);
+        tl.fromTo("#v1", { scale: 1 }, { scale: 1.05, duration: 0.1, ease: "power2.out", immediateRender: false }, E(46) - 0.02);
+        tl.fromTo("#v1", { scale: 1.05 }, { scale: 1, duration: 0.25, ease: "power2.inOut", immediateRender: false }, E(46) + 0.08);
         corta(["#t-voces", "#t-escucha", "#v0", "#v1", "#v2", "#v3"], T6);
 
         // 6 &middot; LOS GASTOS. La onda se aplana en el subrayado del total y de su centro salen cuatro l&iacute;neas, una
         // por persona, de izquierda a derecha; cada una baja hasta lo alto de su cabeza y ah&iacute; brota la persona
         // con su parte.
         entra("#g-concepto", T6 + 0.04, 12);
-        tl.fromTo("#g-total", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, T6 + 0.2);
+        tl.fromTo("#g-total", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, T6 + 0.28);
         entra("#t-gastos-a", T6, 24);
         entra("#t-gastos-b", T6 + 0.08, 24);
-        var XP = [330, 470, 610, 750], LLEGAN = [E(51), E(52), E(53), E(54)];
+        var XP = [330, 470, 610, 750], LLEGAN = [E(51), E(51.5), E(52), E(52.5)];   // una por semicorchea
         var HEB = ["hb0", "hb1", "hb2", "hb3"];
         function hebra(x) {
           var xm = 540 + (x - 540) * 0.5;
@@ -703,12 +708,12 @@
           el.setAttribute("d", hebra(x));
           // Se dibuja hacia su persona y, en Lugares, se recoge al rev&eacute;s, hacia el subrayado del que sali&oacute;.
           var Lh = prepara(el);
-          tl.fromTo(el, { attr: { "stroke-dashoffset": Lh } }, { attr: { "stroke-dashoffset": 0 }, duration: LLEGAN[i] - T6 - 0.2, ease: "power1.inOut" }, T6 + 0.2);
+          tl.fromTo(el, { attr: { "stroke-dashoffset": Lh } }, { attr: { "stroke-dashoffset": 0 }, duration: LLEGAN[i] - T6 - 0.14, ease: "power1.inOut" }, T6 + 0.14);
           tl.fromTo(el, { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": Lh + 2 }, duration: 0.22, ease: "power1.in", immediateRender: false }, T7);
           gsap.set("#g" + i, { svgOrigin: x + " 880" });
           brota("#g" + i, LLEGAN[i], "back.out(2.4)");
           entra("#pa" + i, LLEGAN[i] + 0.06, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
-          late("#g" + i, E(55) + 0.05 * i, 0.05, 0.3);
+          late("#g" + i, E(54) + 0.05 * i, 0.06, 0.55);
           late("#g" + i, E(56) + 0.05 * i, 0.06, 0.55);
         });
         corta(["#g-concepto", "#g-total", "#pa0", "#pa1", "#pa2", "#pa3", "#g0", "#g1", "#g2", "#g3", "#t-gastos-a", "#t-gastos-b"], T7);
@@ -729,6 +734,7 @@
           gsap.set("#pin" + k, { svgOrigin: x + " " + y });
           var tp = E(60 + k);
           brota("#pin" + k, tp, "back.out(2.2)");
+          late("#pin" + k, E(63) + 0.05 * k, 0.05, 0.3);
           [E(64), E(66)].forEach(function (tb) { late("#pin" + k, tb + 0.05 * k, 0.07); });
           var et = a("si" + k), w = et.offsetWidth;
           if (c[2] === "der") { et.style.left = (x + 34) + "px"; et.style.top = (y - 74) + "px"; }

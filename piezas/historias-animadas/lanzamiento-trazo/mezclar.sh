@@ -25,8 +25,8 @@
 #   - los cuatro planes del día 1: E(15)…E(18), y el paso a los días 2 y 3: E(19), E(20), un par de notas;
 #   - las tres paradas del paseo: E(25), E(25,5), E(26);
 #   - las cuatro barras que caen: E(33), E(33,5), E(34), E(34,5), cada una más grave;
-#   - las tres voces que se escuchan, E(44)…E(46), y la elegida, E(47);
-#   - las cuatro personas del grupo: E(51)…E(54), más suaves;
+#   - las tres voces que se escuchan, E(44), E(44,5), E(45), y la elegida, E(46);
+#   - las cuatro personas del grupo: E(51), E(51,5), E(52), E(52,5), más suaves;
 #   - las tres chinchetas de Lugares: E(60)…E(62).
 # Un «tic» que cae en la misma nota y en el mismo instante que una nota de la música se funde con ella
 # (la revisión del 27-oct midió seis por debajo de la música en su propia banda). Cada uno se mide con
@@ -61,12 +61,12 @@ for k in 19 20; do E="$E+$(tic $(e $k) 1567.98 0.14 0.020)+$(tic $(echo "0.3125*
 # Las paradas del paseo (re 6) y las barras que caen.
 for k in 25 25.5 26; do E="$E+$(tic $(e $k) 1174.66 0.20 0.026)"; done
 for p in "33 1864.66" "33.5 1567.98" "34 1396.91" "34.5 1174.66"; do set -- $p; E="$E+$(tic $(e $1) $2 0.28 0.020)"; done
-# Las tres voces que se escuchan (fa 7: en fa 6 las dos primeras quedaban a -7,3 y -3,7) y la elegida.
-for k in 44 45 46; do E="$E+$(tic $(e $k) 2793.83 0.12 0.020)"; done
-E="$E+$(tic $(e 47) 1864.66 0.20 0.026)"
+# Las tres voces que se escuchan (fa 7: en fa 6 las dos primeras quedaban a -7,3 y -3,7) y la elegida (re 7).
+for k in 44 44.5 45; do E="$E+$(tic $(e $k) 2793.83 0.12 0.020)"; done
+E="$E+$(tic $(e 46) 2349.32 0.20 0.026)"   # re 7: el si bemol 6 caía en una nota (+1,4)
 # Las personas (la 6, más largas: en si bemol 5 la tercera quedaba a +2,2) y las chinchetas, subiendo el
 # acorde (fa 6, si bemol 6 y re 7: el sol 6 de en medio quedaba a +3,1).
-for k in 51 52 53 54; do E="$E+$(tic $(e $k) 1760.00 0.15 0.035)"; done
+for k in 51 51.5 52 52.5; do E="$E+$(tic $(e $k) 1760.00 0.15 0.035)"; done
 k=60; for f in 1396.91 1864.66 2349.32; do E="$E+$(tic $(e $k) $f 0.22 0.024)"; k=$((k+1)); done
 # El del cierre (21,25): si bemol mayor abierto, del si bemol 3 al si bemol 5, y un chasquido brillante.
 G=${GOLPE:-1}

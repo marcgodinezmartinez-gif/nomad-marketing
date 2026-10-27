@@ -1,9 +1,12 @@
 # Cómo publicar «Un trazo», el anuncio de que Nomad ya está en la App Store
 
 Versión 2 (27-oct), la que pediste al ver la primera: abre con el logo, del logo nace la línea, y la
-línea va contando cada apartado (lo que eliges al crear el viaje, el plan entero día a día, los paseos
-y museos con su audioguía, la audioguía sin cobertura y sus cuatro voces, los gastos divididos y
-Lugares) hasta el cierre que ya aprobaste. El precio no sale en el vídeo: va en los pies.
+línea va contando cada apartado (lo que eliges al crear el viaje, el plan entero de los tres días, los
+paseos y museos que salen de ese plan con su audioguía, la audioguía sin cobertura y sus cuatro voces,
+los gastos divididos y Lugares) hasta el cierre que ya aprobaste. Lleva los arreglos de la revisión del
+27-oct: cada dibujo se queda entero alrededor de un segundo antes de cambiar, y la frase de cada
+apartado va siempre abajo (`README.md`, «Lo que dijo la revisión»). El precio no sale en el vídeo: va
+en los pies.
 
 Cuatro ficheros:
 
@@ -22,9 +25,13 @@ Los vídeos duran 25,8 s y ya llevan la música. Pásalos al iPhone por AirDrop 
 
 1. **No le pongas música** de Instagram ni de TikTok. El vídeo ya lleva la suya, nueva y cuadrada con
    lo que se ve: los cortes de escena, las opciones que se eligen, los planes del día, la batería que
-   entra con los paseos, las barras que caen, las voces, las chinchetas y el golpe del cierre.
-   **Escúchala antes en el altavoz del iPhone**, sin auriculares: está mezclada para que la batería, el
-   bajo y el cierre se oigan ahí (`README.md`, «La música»). Si no te gusta, se pide otra toma.
+   entra cuando del plan salen los paseos, las barras que caen, las voces, las chinchetas y el golpe
+   del cierre. **Escúchala antes en el altavoz del iPhone**, sin auriculares: está mezclada para que la
+   batería, el bajo, los «tic» y el cierre se oigan ahí (`README.md`, «La música»). Si no te gusta, se
+   pide otra toma. **Una cosa antes**: la regla de la casa es que los reels salen sin pista de audio, y
+   la excepción que escribiste en AGENTS.md (24-oct) nombra el anuncio de `lanzamiento-ios/`, el que se
+   rechazó, no éste. Confírmalo en la issue #15 (que la excepción pasa a «Un trazo») y se cambia la ruta
+   en AGENTS.md en el mismo commit.
 2. **Marca la etiqueta de IA en cada publicación.** La música está generada con IA (Lyria, de Google);
    por eso se marca. Los «tic» y el acorde del cierre se sintetizan en `mezclar.sh`, y el resto está
    dibujado en código: no sale de un generador de imagen, vídeo ni voz.
@@ -55,9 +62,12 @@ Si en alguno se queda en blanco o no abre la tienda: en esa pantalla, **⋯ → 
 externo** sí la abre. Apunta qué pasó en la issue #13; si falla en los tres, no digas «toca y se abre»
 en ningún sitio.
 
-Y una pregunta antes de subirlo: **«Pronto en Android» va dentro del vídeo**, y una vez publicado no se
+Y dos preguntas antes de subirlo. **«Pronto en Android» va dentro del vídeo**, y una vez publicado no se
 cambia. En #13 sigue abierta la casilla «¿Android sale pronto de verdad?». Si puede tardar meses,
-dilo antes: se cambia a «En camino para Android» y se vuelve a renderizar en unos minutos.
+dilo antes: se cambia a «En camino para Android» y se vuelve a renderizar en unos minutos. Y el vídeo
+dice **«la App Store»** (como la casa) durante 21 s y acaba en la insignia de Apple, que dice **«el App
+Store»**. No incumple nada, pero no casa: si prefieres el masculino de Apple, se cambia en la cabecera,
+la apertura, la portada y los pies, y se vuelve a renderizar.
 
 Y comprueba la bio: dice que ya está en la App Store para iPhone y Android pronto, y **no** dice
 «Apúntate» ni «lista de espera». En TikTok: **Editar perfil** → **Biografía**:
@@ -104,9 +114,9 @@ Store, donde desde un Android no se puede instalar nada. Por eso el vídeo dice 
 ```
 «Nomad: guía de viajes» ya está en la App Store, para iPhone. Así funciona, de un trazo.
 
-Le dices a dónde vas, qué días, tu estilo, tu ritmo y tu presupuesto, y te escribe el plan entero, día a día: visitas, comidas y horas.
+Le dices a dónde vas, qué días, tu estilo, tu ritmo y tu presupuesto, y te sale el plan entero, día a día: visitas, comidas y horas.
 
-Cada paseo y cada museo del plan lleva su audioguía. Las que descargas suenan en modo avión, y eliges entre cuatro voces.
+Los paseos a pie y los museos del plan llevan su audioguía. Las que descargas funcionan en modo avión, y eliges entre cuatro voces.
 
 Apuntáis los gastos del grupo y la app los divide y os dice quién debe a quién. Y en Lugares guardas tus restaurantes y sitios de interés, en el mapa del viaje.
 
@@ -174,7 +184,7 @@ explica cómo encontrarla.
 **Pie de TikTok:**
 
 ```
-«Nomad: guía de viajes» ya está en la App Store, para iPhone. Eliges destino, días, estilo, ritmo y presupuesto, y te escribe el plan entero, día a día. Cada paseo y cada museo, con su audioguía: las descargadas suenan en modo avión, y hay cuatro voces. Los gastos del grupo, divididos, y tus restaurantes y sitios de interés, guardados en Lugares. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Android, pronto. Enlace en el perfil.
+«Nomad: guía de viajes» ya está en la App Store, para iPhone. Eliges destino, días, estilo, ritmo y presupuesto, y te sale el plan entero, día a día. Paseos y museos, con su audioguía: las descargadas funcionan en modo avión, y hay cuatro voces. Los gastos del grupo, divididos, y tus restaurantes y sitios de interés, guardados en Lugares. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Android, pronto. Enlace en el perfil.
 
 #viajes #viajar #appdeviajes #audioguia #escapada
 ```
@@ -198,8 +208,8 @@ versión de «Un trazo»** (17,5 s, la que acababa en el precio): ésta la susti
 - **Te preguntan por Android**: «Todavía no. Pronto, pero sin fecha, y no vamos a inventarnos una.
   Síguenos y te avisamos el día que salga.»
 - **Te preguntan por las voces**: «Son cuatro: la del teléfono, que no necesita internet, y Kore, Puck y
-  Charon. Se escuchan antes de elegir. Para oír una de esas tres sin cobertura, descarga el audio del
-  tour antes de salir.»
+  Charon, que se escuchan antes de elegir. Para oír una de esas tres sin cobertura, descarga el audio
+  del tour antes de salir.»
 - **Te preguntan cuánto cuesta**: «Descargarla es gratis. El viaje se paga una vez, sin suscripción:
   2,99 € hasta 3 días, 4,99 € de 4 a 7 y 6,99 € de 8 a 30. Una compra vale para todo el grupo.»
 - **Te preguntan por qué la insignia no se puede tocar**: es una imagen dentro del vídeo; en ninguna
