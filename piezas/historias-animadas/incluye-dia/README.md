@@ -94,8 +94,9 @@ Lo común con A, en `../incluye-pago/README.md` (las motas de la línea, el cré
   el plan es el del viaje de ejemplo, del 21 al 28 de noviembre. El dueño lo aceptó para montar ya
   («Monta ya con lo que hay»). Lo arregla grabar la creación con el 21-28 nov en la próxima pasada de
   capturas, que el vídeo C necesita de todas formas.
-- **Dos pantallas quietas a cámara lenta**: b2 a 0,44× y b3 a 0,32×. Medido, no se mueve nada; las
-  sostiene la línea, que late en las pausas.
+- **Cuatro de las cinco tomas están quietas**: b1a, b2 a 0,44×, b3 a 0,32× y b4 a 0,86× (en ésta sólo
+  se oscurece el botón «Iniciar tour»). Sólo se mueve b1b, con los dos toques. Las sostiene la línea,
+  que late en las pausas.
 - **En la app se paga antes de ver el plan**: al tocar «Generar viaje» sale la hoja de pago. El vídeo
   se la salta (con «Secuencias acortadas») y no dice cuándo se paga; el pie dice «se paga al generarlo».
 - La letra de la app, pequeña; el mapa del plan con nombres de comercios. Lo mismo que en A.

@@ -109,7 +109,7 @@
       <p id="c1" class="chip sans">3 d&iacute;as</p>
       <p id="c2" class="chip sans">Cultural</p>
       <p id="c3" class="chip sans">Gastronom&iacute;a</p>
-      <!-- B3 &middot; Las horas del plan del s&aacute;bado de la pantalla. -->
+      <!-- B3 &middot; Las horas del plan del jueves 26 de la pantalla (toma b3). -->
       <p id="h0" class="hora serif" style="top: 492px;">10:00</p>
       <p id="h1" class="hora serif" style="top: 602px;">12:30</p>
       <p id="h2" class="hora serif" style="top: 712px;">13:45</p>
@@ -170,7 +170,7 @@
       <img id="c-icono" src="assets/icono-app.png" alt="" />
       <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
       <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Cons&iacute;guelo en el App Store" />
-      <p id="c-android" class="sans">Pronto en Android</p>
+      <p id="c-android" class="sans">Pronto en Android&trade;</p>
       <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros pa&iacute;ses. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
       <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
 
@@ -219,12 +219,12 @@
         });
         var col = new M.Camino();
         col.o("M" + XB + ",515 L752,515").marca("n0")
-           .o("C832,515 832,605 752,605").marca("n1")
+           .o("C880,515 880,605 752,605").marca("n1")   // por fuera de las p&iacute;ldoras, para que se vea avanzar
            .o("C672,605 672,695 752,695").marca("n2")
            .o("C832,695 832,785 752,785").marca("n3");
         var mL = M.pon(col, a("s-collar"));
         var CP = [[T1 + 0.95, 0], [TELIGE[0], mL.n0, "power1.out"], [TELIGE[1], mL.n1, "power1.inOut"], [TELIGE[2], mL.n2, "power1.inOut"],
-                  [TELIGE[3], mL.n3, "power1.inOut"], [T2 - 0.45, mL.n3], [T2 - 0.15, 0, "power1.in"]];
+                  [TELIGE[3], mL.n3, "power1.inOut"], [T2 - 0.3, mL.n3], [T2, 0, "power1.in"]];   // acaba en el mismo fotograma del corte
         M.cadena([[a("s-collar"), mL.L]], [[0, 0]], CP, T1 + 0.9, T2);
         M.late(["#c0", "#c1", "#c2", "#c3"], T2 - 0.95, 0.05, 0.45);
         M.corta(["#c0", "#c1", "#c2", "#c3"], T2);
@@ -243,9 +243,9 @@
         M.salida(a("s-estrella"), est, T2 + 0.1, T2 + 1.2, T3 - 0.45, T3 - 0.15, "power1.inOut");
         gsap.set("#estrella", { svgOrigin: EX + " " + EY });
         tl.fromTo("#estrella", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power2.out" }, T2 + 1.3);
-        M.late("#estrella", T2 + 2.4, 0.08, 0.5);
-        M.late("#estrella", T2 + 3.15, 0.08, 0.5);
-        M.late("#estrella", T2 + 3.9, 0.08, 0.5);
+        // Laten en la negra de la m&uacute;sica (0,092 + 0,80083&middot;n a 1&times;), el primero en cuanto se llena.
+        [T2 + 1.50, T2 + 2.26, T2 + 3.06].forEach(function (t) { M.late("#estrella", t, 0.08, 0.5); });
+        M.late("#estrella", T2 + 3.86, 0.08, 0.4);
         // En &laquo;lo quitas&raquo; (T2 + 4,27, medido en la toma b3) la estrella se vac&iacute;a y queda s&oacute;lo su trazo,
         // que despu&eacute;s vuelve al borde: es el imprescindible que se deja fuera.
         M.apaga("#estrella", T2 + 4.27, 0.3);
@@ -258,7 +258,7 @@
         for (k = 1; k < 5; k++) rail.o("L650," + NY[k]).marca("n" + k);
         var mR = M.salida(a("s-rail"), rail, T3 + 0.15, T3 + 1.75, T4 - 0.5, T4 - 0.2, "power1.inOut");
         NY.forEach(function (y, k) {
-          var tb = M.nodo("#n" + k, mR, "n" + k, 650, y, [T3 + 2.3 + 0.04 * k, T3 + 3.3 + 0.04 * k]);
+          var tb = M.nodo("#n" + k, mR, "n" + k, 650, y, [T3 + 2.60 + 0.04 * k, T3 + 3.40 + 0.04 * k]);
           M.entra("#h" + k, tb + 0.04, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
           M.apaga("#h" + k, mR.vuelve("n" + k) - 0.06, 0.1);
         });
@@ -274,7 +274,7 @@
            .o("C800,790 805,825 825,860").marca("n3")
            .o("C845,895 852,930 860,965").marca("n4");
         var mK = M.salida(a("s-camino"), cam, T4 + 0.15, T4 + 1.75, T5 - 0.5, T5 - 0.2, "power1.inOut");
-        KP.forEach(function (p, k) { M.nodo("#k" + k, mK, "n" + k, p[0], p[1], [T4 + 2.4 + 0.04 * k, T4 + 3.15 + 0.04 * k, T4 + 3.9 + 0.04 * k]); });
+        KP.forEach(function (p, k) { M.nodo("#k" + k, mK, "n" + k, p[0], p[1], [T4 + 2.60 + 0.04 * k, T4 + 3.40 + 0.04 * k, T4 + 4.21 + 0.04 * k]); });
         M.frase(["t4a", "t4b"], T4, T5);
 
         // &mdash;&mdash; B5 &middot; EL PRECIO Y EL GRUPO. La pantalla pasa a papel; la cola se come el borde y la punta tira
@@ -285,20 +285,21 @@
         sub.o("M" + x0 + ",490 C" + x0 + ",600 250," + SY + " 340," + SY).marca("ini").o("L540," + SY).marca("medio").o("L740," + SY).marca("fin");
         var mS = M.pon(sub, a("s-sub"));
         M.grupo(SY, 800, [T5 + 2.0, T5 + 2.2, T5 + 2.4, T5 + 2.6], T5 + 1.15);
-        [0, 1, 2, 3].forEach(function (k) { M.late("#g" + k, T5 + 3.25 + 0.05 * k, 0.06, 0.5); M.late("#g" + k, T5 + 4.75 + 0.05 * k, 0.06, 0.5); });
+        [0, 1, 2, 3].forEach(function (k) { M.late("#g" + k, T5 + 2.87 + 0.05 * k, 0.06, 0.5); M.late("#g" + k, T5 + 4.47 + 0.05 * k, 0.06, 0.5); });
         var TDESDE = 23.90 + 3.74;   // &laquo;desde&raquo;, medido en la toma b6
         M.entra("#b5-desde", TDESDE - 0.1, 16);
         tl.fromTo("#b5-precio", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, TDESDE + 0.1);
         M.entra("#b5-nota", TDESDE + 0.3, 12);
         gsap.set("#b5-precio", { transformOrigin: "50% 60%" });
-        M.late("#b5-precio", T5 + 5.45, 0.03, 0.5);
+        M.late("#b5-precio", T5 + 5.27, 0.03, 0.5);
         M.recogeGrupo(T8 - 0.3);
         M.corta(["#b5-desde", "#b5-precio", "#b5-nota"], T8);
         M.frase(["t5a", "t5b"], T5, T8);
-        var SP = [[T5, 0], [T5 + 0.8, mS.fin, "power2.inOut"], [T8, mS.fin], [T8 + 0.2, mS.medio, "power2.in"]];
-        var SC = [[T5, 0], [T5 + 0.5, 0], [T5 + 0.9, mS.ini, "power1.inOut"], [T8, mS.ini], [T8 + 0.2, mS.medio, "power2.in"]];
+        var SP = [[T5, 0], [T5 + 0.8, mS.fin, "power2.inOut"], [T8, mS.fin], [T8 + 0.2, mS.medio + 0.3, "power2.inOut"]];
+        var SC = [[T5, 0], [T5 + 0.5, 0], [T5 + 0.9, mS.ini, "power1.inOut"], [T8, mS.ini], [T8 + 0.2, mS.medio - 0.3, "power2.inOut"]];
         M.cadena([[a("s-sub"), mS.L]], SC, SP, T5 - F, T8 + 0.3);
-        tl.fromTo("#s-sub", { y: 0 }, { y: 630 - SY, duration: 0.2, ease: "power2.in", immediateRender: false }, T8);
+        tl.fromTo("#s-sub", { y: 0 }, { y: 630 - SY, duration: 0.2, ease: "power2.inOut", immediateRender: false }, T8);
+        M.corta("#s-sub", T8 + 0.24);
 
         // &mdash;&mdash; B6 &middot; EL CIERRE aprobado, con el aviso de Apple de las secuencias acortadas.
         M.corta("#marca", T8);

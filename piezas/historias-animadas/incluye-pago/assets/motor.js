@@ -118,13 +118,16 @@ window.Motor = function (tl, VELOCIDAD) {
     m.vuelve = function (n) { return cuando(PUNTA, m[n] - 0.5, t2, true); };
     return m;
   }
-  // Un punto que brota cuando la punta llega a su marca y se va cuando la punta, de vuelta, lo pasa.
+  // Un punto que brota cuando la punta llega a su marca y se va cuando la punta, de vuelta, lo pasa:
+  // brota justo en tb (con tb − 0,03 nacía un fotograma antes, 45 px por delante de una punta rápida) y
+  // acaba de encoger cuando la punta lo cruza (al recogerse, la punta pasa varios nodos en un fotograma
+  // y, encogiendo después, se quedaban dos o tres fotogramas sin línea). Revisión del 29-oct.
   function nodo(sel, m, marcaN, x, y, latidos) {
     gsap.set(sel, { svgOrigin: x + " " + y });
     var tb = m.llega(marcaN);
-    brota(sel, tb - 0.03);
+    brota(sel, tb);
     (latidos || []).forEach(function (t) { late(sel, t, 0.07, 0.4); });
-    encoge(sel, m.vuelve(marcaN));
+    encoge(sel, m.vuelve(marcaN) - 0.12);
     return tb;
   }
 
@@ -215,8 +218,10 @@ window.Motor = function (tl, VELOCIDAD) {
     aparece("#c-insignia", T8 + 0.6);
     entra("#c-android", T8 + 0.8, 16, ARR);
     tl.fromTo("#c-credito", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, T8 + 1.0);
-    var TIEMPO = 0.8;   // la negra de la música (75 BPM)
-    for (var tp = T8 + 1.25; tp < FIN - 0.25; tp += TIEMPO) {
+    // La negra de la música: 0,80083 s a 1×, con la primera en 0,092 (medido en sus notas, con la junta
+    // de mezclar.sh, que salta 28 negras justas). T8 + 1,49 cae en una.
+    var TIEMPO = 0.80083;
+    for (var tp = T8 + 1.49; tp < FIN - 0.8; tp += TIEMPO) {
       tl.fromTo("#c-icono", { scale: 1 }, { scale: 1.04, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
       tl.fromTo("#c-icono", { scale: 1.04 }, { scale: 1, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tp + 0.16);
     }
@@ -230,7 +235,7 @@ window.Motor = function (tl, VELOCIDAD) {
     } else {
       tl.set("#c-perfil", { autoAlpha: 0 }, 0);
       tl.fromTo("#c-flecha", { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, T8 + 0.95);
-      for (var tb = T8 + 1.25; tb < FIN - 0.25; tb += TIEMPO) {
+      for (var tb = T8 + 1.49; tb < FIN - 0.8; tb += TIEMPO) {
         tl.fromTo("#c-flecha", { y: 0 }, { y: 12, duration: 0.18, ease: "power2.out", immediateRender: false }, tb);
         tl.fromTo("#c-flecha", { y: 12 }, { y: 0, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tb + 0.18);
       }

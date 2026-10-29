@@ -166,7 +166,7 @@
       <img id="c-icono" src="assets/icono-app.png" alt="" />
       <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
       <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Cons&iacute;guelo en el App Store" />
-      <p id="c-android" class="sans">Pronto en Android</p>
+      <p id="c-android" class="sans">Pronto en Android&trade;</p>
       <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros pa&iacute;ses. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
       <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
 
@@ -193,7 +193,7 @@
         var cont = new M.Camino();
         cont.o("M" + esp.punta[0].toFixed(1) + "," + esp.punta[1].toFixed(1));
         var B = M.borde(cont, XC, esp.punta), mC = M.pon(cont, a("s-borde")), S0 = mE.L;
-        var PUNTA = [[0, 0], [0.3125, 0], [T1, mE.fin, "sine.in"], [T1 + 1.0, S0 + mC.fin, "power2.inOut"]];
+        var PUNTA = [[0, 0], [0.3125, 0], [T1, mE.fin, "sine.in"], [T1 + 1.2, S0 + mC.fin, "power2.inOut"]];
         var COLA = [[0, 0], [T1 - 0.001, 0], [T1, mE.fuera], [T1 + 0.3, mE.fin, "power1.in"], [T1 + 0.95, S0 + mC.borde, "power1.inOut"],
                     [T6, S0 + mC.borde], [T6 + 0.4, S0 + mC.fin, "power1.in"]];   // A6: el borde se deshace en el grupo
         M.cadena([[a("s-espiral"), mE.L], [a("s-borde"), mC.L]], COLA, PUNTA, 0, T6 + 0.7);
@@ -215,6 +215,7 @@
         for (var i = 1; i < 8; i++) dias.o("L752," + (470 + 80 * i)).marca("n" + i);
         var mD = M.salida(a("s-dias"), dias, T2 + 0.4, T2 + 1.6, T2 + 4.2, T2 + 4.55, "power1.inOut");
         for (i = 0; i < 8; i++) M.nodo("#d" + i, mD, "n" + i, 752, 470 + 80 * i, [T2 + 2.05 + 0.03 * i, T2 + 2.85 + 0.03 * i, T2 + 3.65 + 0.03 * i]);
+        // Los latidos van en la negra de la m&uacute;sica: 0,092 + 0,80083&middot;n a 1&times; (motor.js, cierre).
         M.frase(["t2a", "t2b"], T2, T3);
 
         // &mdash;&mdash; A3 &middot; RECORRIDOS GUIADOS: un paseo de cinco paradas numeradas.
@@ -226,7 +227,7 @@
            .o("C620,870 840,830 840,900").marca("n3")
            .o("C840,960 760,1000 700,1000").marca("n4");
         var mP = M.salida(a("s-paseo"), pas, T3 + 0.1, T3 + 1.15, T3 + 3.19, T3 + 3.49);
-        PAR.forEach(function (p, k) { M.nodo("#p" + k, mP, "n" + k, p[0], p[1], [T3 + 1.6 + 0.04 * k, T3 + 2.4 + 0.04 * k]); });
+        PAR.forEach(function (p, k) { M.nodo("#p" + k, mP, "n" + k, p[0], p[1], [T3 + 2.01 + 0.04 * k]); M.late("#p" + k, T3 + 2.81, 0.07, 0.25); });   // acaba antes de que el nodo encoja (T3 + 3,07)
         M.frase(["t3a", "t3b"], T3, T4);
 
         // &mdash;&mdash; A4 &middot; VISITAS CULTURALES, obra por obra: de un trazo, los marcos de las cuatro obras que siguen.
@@ -237,7 +238,7 @@
            .o("L742,758 L742,842 L630,842 L630,758 L742,758").marca("o4");
         var mO = M.salida(a("s-obras"), obr, T4 + 0.1, T4 + 1.25, T4 + 2.97, T4 + 3.27, "power1.inOut");
         [["#o2", "o2", 686, 728], ["#o3", "o3", 818, 728], ["#o4", "o4", 686, 878], ["#o5", "o5", 818, 878]].forEach(function (o, k) {
-          M.nodo(o[0], mO, o[1], o[2], o[3] - 10, [T4 + 1.7 + 0.05 * k, T4 + 2.4 + 0.05 * k]);
+          M.nodo(o[0], mO, o[1], o[2], o[3] - 10, [T4 + 1.52 + 0.05 * k, T4 + 2.32 + 0.05 * k]);
         });
         M.frase(["t4a", "t4b"], T4, T5);
 
@@ -249,8 +250,7 @@
         tl.fromTo("#pregunta", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, T5 + 1.0);
         var TRESP = T5 + 1.3 + 0.1;   // la respuesta entra en la pantalla 0,1 s despu&eacute;s del corte de la toma
         M.late("#pregunta", TRESP, 0.08, 0.5);
-        M.late("#pregunta", T5 + 2.3, 0.08, 0.5);
-        M.late("#pregunta", T5 + 3.3, 0.08, 0.5);
+        [T5 + 2.05, T5 + 2.85, T5 + 3.65].forEach(function (t) { M.late("#pregunta", t, 0.08, 0.5); });
         M.encoge("#pregunta", T5 + 4.5);
         M.frase(["t5a", "t5b"], T5, T6);
 
@@ -273,14 +273,15 @@
         M.entra("#a7-desde", T7 + 0.25, 16);
         tl.fromTo("#a7-precio", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, T7 + 0.4);
         gsap.set("#a7-precio", { transformOrigin: "50% 60%" });
-        [T7 + 1.1, T7 + 1.9, T7 + 2.9, T7 + 3.7].forEach(function (t) { M.late("#a7-precio", t, 0.03, 0.6); });
+        [T7 + 0.83, T7 + 1.63, T7 + 2.43, T7 + 3.23].forEach(function (t) { M.late("#a7-precio", t, 0.03, 0.6); });
         M.corta(["#a7-desde", "#a7-precio"], T8);
         M.frase(["t7a", "t7b"], T7, T8);
         // El subrayado: se dibuja en A6 y, en el cierre, se recoge en un punto en el centro del icono.
-        var SP = [[T6, 0], [T6 + 0.8, mS.fin, "power2.inOut"], [T8, mS.fin], [T8 + 0.2, mS.medio, "power2.in"]];
-        var SC = [[T6, 0], [T6 + 0.5, 0], [T6 + 0.9, mS.ini, "power1.inOut"], [T8, mS.ini], [T8 + 0.2, mS.medio, "power2.in"]];
+        var SP = [[T6, 0], [T6 + 0.8, mS.fin, "power2.inOut"], [T8, mS.fin], [T8 + 0.2, mS.medio + 0.3, "power2.inOut"]];
+        var SC = [[T6, 0], [T6 + 0.5, 0], [T6 + 0.9, mS.ini, "power1.inOut"], [T8, mS.ini], [T8 + 0.2, mS.medio - 0.3, "power2.inOut"]];
         M.cadena([[a("s-sub"), mS.L]], SC, SP, T6 - F, T8 + 0.3);
-        tl.fromTo("#s-sub", { y: 200 }, { y: -70, duration: 0.2, ease: "power2.in", immediateRender: false }, T8);
+        tl.fromTo("#s-sub", { y: 200 }, { y: -70, duration: 0.2, ease: "power2.inOut", immediateRender: false }, T8);
+        M.corta("#s-sub", T8 + 0.24);
 
         // &mdash;&mdash; A8 &middot; EL CIERRE aprobado, con el aviso de Apple de las secuencias acortadas.
         M.corta("#marca", T8);

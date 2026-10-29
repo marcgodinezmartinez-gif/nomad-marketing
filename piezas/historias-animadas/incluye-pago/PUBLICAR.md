@@ -63,7 +63,7 @@ Una compra abre el viaje a todo el grupo. Sin suscripción: 2,99 € hasta 3 dí
 
 Las pantallas son de la app, con un viaje de ejemplo a Lisboa, y las secuencias van acortadas. La voz que lo cuenta es Kore, una de las que puedes elegir en la app. La voz y la música están hechas con IA.
 
-Ya en la App Store, para iPhone con iOS 15.1 o superior. Android, pronto. El enlace, en la bio.
+Ya en la App Store, para iPhone con iOS 15.1 o superior. Android™, pronto. El enlace, en la bio.
 
 #appdeviajes #viajar #viajes #lisboa #escapada
 ```
@@ -72,7 +72,7 @@ Ya en la App Store, para iPhone con iOS 15.1 o superior. Android, pronto. El enl
 es lo que piden sus normas de marca cuando se nombra Android:
 
 ```
-Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono crema con la marca verde. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos el día que salga. Android es una marca comercial de Google LLC.
+Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono crema con la marca verde. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android™: pronto, sin fecha. Síguenos y te avisamos el día que salga. Android es una marca comercial de Google LLC.
 ```
 
 ## 2. Instagram: la historia
@@ -100,7 +100,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 **Pie de TikTok:**
 
 ```
-Un pago, y tienes el viaje entero, para todo el grupo: el itinerario completo, día a día; los recorridos guiados, parada a parada; las visitas culturales, obra por obra; y NOMAD AI durante todo el viaje. «Nomad: guía de viajes», ya en la App Store para iPhone. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Pantallas de la app, con un viaje de ejemplo y secuencias acortadas. Android, pronto. El enlace, en el perfil.
+Un pago, y tienes el viaje entero, para todo el grupo: el itinerario completo, día a día; los recorridos guiados, parada a parada; las visitas culturales, obra por obra; y NOMAD AI durante todo el viaje. «Nomad: guía de viajes», ya en la App Store para iPhone. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Pantallas de la app, con un viaje de ejemplo y secuencias acortadas. Android™, pronto. El enlace, en el perfil.
 
 #viajes #viajar #appdeviajes #lisboa #escapada
 ```
@@ -115,7 +115,8 @@ profesional → Estadísticas → Seguidores → Momentos de más actividad**.
 
 - **Cuánto cuesta**: «Descargarla es gratis. El viaje se paga una vez, sin suscripción: 2,99 € hasta
   3 días, 4,99 € de 4 a 7 y 6,99 € de 8 a 30. Una compra vale para todo el grupo.»
-- **Si NOMAD AI tiene límite**: «Con el viaje pagado le preguntas lo que quieras durante el viaje.
-  Antes de que empiece hay un cupo de 20 consultas, que es el que se ve en el vídeo.»
+- **Si NOMAD AI tiene límite**: «Con el viaje pagado, durante el viaje no hay cupo de consultas: sólo
+  un freno de 60 mensajes por hora contra abusos, que una conversación normal no toca. Antes de que
+  empiece hay un cupo de 20, que es el que se ve en el vídeo.»
 - **Por Android**: «Todavía no. Pronto, pero sin fecha, y no vamos a inventarnos una. Síguenos y te
   avisamos el día que salga.»

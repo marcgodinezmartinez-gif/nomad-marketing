@@ -52,8 +52,9 @@ borde verde, y se paró a medio render por eso.
 Las tomas van aceleradas o recortadas, así que el cierre lleva **«Secuencias acortadas.»** delante del
 crédito de Apple, en la misma letra pequeña. Y como el cierre nombra Android, el crédito acaba con
 **«Android es una marca comercial de Google LLC.»**: las normas de marca de Android piden esa línea en
-todo lo que use el nombre («Any use of the Android name needs to include this attribution»). «Un
-trazo» no la lleva; si se vuelve a renderizar, que la lleve también.
+todo lo que use el nombre («Any use of the Android name needs to include this attribution»), y el
+símbolo ™ la primera vez que sale, así que el cierre dice «Pronto en Android™». «Un trazo», ya
+publicado, no lleva ni lo uno ni lo otro, ni en el vídeo ni en su comentario fijado: está dicho en #13.
 
 ## El guion
 
@@ -184,6 +185,12 @@ sin metadatos con rutas ni nombres. Lo confirmado, y lo que se hizo:
 - Las entradas del cierre no iban igual en las tres versiones, por un objeto compartido en GSAP
   (`entra()` copia ahora el suyo).
 
+Una segunda pasada sobre los vídeos arreglados confirmó que no quedan motas ni cruces y que el sonido y
+la privacidad siguen igual, y encontró lo que quedaba: pausas cortas de 0,4-0,8 s, latidos que no
+caían en la negra de la música (ahora van todos en 0,092 + 0,80083·n a 1×, medida en sus notas), nodos
+que nacían un fotograma antes de la punta o se quedaban dos sin línea al recogerse, el subrayado que no
+acababa en un punto sobre el icono, el ™ de Android y la respuesta falsa de NOMAD AI (abajo).
+
 ## Lo que queda a la vista, y es sabido
 
 - **La letra de la app no se lee entera**: dentro de la pantalla, el texto normal queda a unos 6 pt en
@@ -193,8 +200,12 @@ sin metadatos con rutas ni nombres. Lo confirmado, y lo que se hizo:
 - **Atan el vídeo a la fecha de grabación**: «Faltan 23 días» en la portada del viaje y «Consultas antes
   del viaje: 19 de 20» en la cabecera de NOMAD AI. El 19 de 20 es el cupo de antes del viaje, cierto,
   pero se lee como un tope justo cuando Kore dice «lo que quieras»; «durante el viaje» lo salva.
-- **La respuesta de NOMAD AI es discutible**: dice que el sábado 21 es el día más cargado y el jueves 26
-  también tiene cinco planes (NOMAD#436, punto 11).
+- **La respuesta de NOMAD AI es falsa**: dice que el día más cargado es el sábado 21, con cinco
+  actividades, y en el viaje de ejemplo el lunes 23 tiene seis y el miércoles 25, siete (cinco planes y
+  los dos traslados a Sintra), contado en la base el 29-oct. No es un empate con el jueves 26, como se
+  dijo al principio. Nadie que vea el vídeo conoce el viaje, pero es la escena que vende NOMAD AI: si se
+  publica así, lo decide el dueño, y si no, se graba otra pregunta en la próxima pasada (NOMAD#436,
+  punto 11, es el fallo de la app).
 - **«Nomad AI» y «NOMAD AI»** en la misma pantalla del asistente (NOMAD#436, punto 9).
 - El mapa del plan lleva nombres de comercios y un trozo en inglés («View point»).
 
