@@ -1,0 +1,7 @@
+[
+ {"id": "b1a", "fichero": "recorrido-crear.mp4", "entrada": 20.35, "salida": 22.80, "inicio": 3.37, "fin": 5.82},
+ {"id": "b1b", "fichero": "recorrido-crear.mp4", "entrada": 25.29, "salida": 29.16, "inicio": 5.82, "fin": 8.24},
+ {"id": "b2", "fichero": "recorrido-crear.mp4", "entrada": 47.65, "salida": 49.65, "inicio": 8.24, "fin": 13.51},
+ {"id": "b3", "fichero": "recorrido-paseo.mp4", "entrada": 24.90, "salida": 28.91, "inicio": 13.51, "fin": 18.31},
+ {"id": "b4", "fichero": "recorrido-museo.mp4", "entrada": 11.08, "salida": 12.42, "inicio": 18.31, "fin": 23.65}
+]

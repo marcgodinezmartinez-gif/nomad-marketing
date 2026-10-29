@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad &middot; Tu viaje, d&iacute;a a d&iacute;a</title>
+    <!-- Las dos fuentes reales, embebidas (construir.sh). Nada depende de la red. -->
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <script src="assets/motor.js"></script>
+    <!-- Qu&eacute; versi&oacute;n se pinta: &laquo;historia&raquo;, &laquo;reel&raquo; o &laquo;limpia&raquo;. La escribe variantes.sh. -->
+    <script src="assets/version.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #FFFDF9; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* B &middot; TU VIAJE, D&Iacute;A A D&Iacute;A (29-oct), el v&iacute;deo B de la serie &laquo;Lo que incluye tu viaje&raquo; (#18):
+         del destino al itinerario, que es lo que compra la gente.
+         La est&eacute;tica de &laquo;Un trazo&raquo; (lanzamiento-trazo/): la l&iacute;nea verde nace del logo y no se levanta
+         del papel. Aqu&iacute; dibuja el borde de la pantalla de la app (no un iPhone: README.md), dentro corre la
+         grabaci&oacute;n real, y del borde salen los dibujos de la columna de la derecha. Kore cuenta cada escena.
+         - Todo centrado en x=540; la tinta entre x=138 y x=895, e y=286 y 1475. En la historia, de 1500
+           para abajo va el adhesivo de enlace.
+         - La frase de cada escena, SIEMPRE abajo, desde y=1300 (en &laquo;Un trazo&raquo;, 1170: aqu&iacute; baja para que
+           la pantalla mida 404 px).
+         - La pantalla, 404&times;806: la grabaci&oacute;n (1206&times;2622 a 0,335) sin la barra de estado ni la barra de
+           inicio, y con esquinas de 36 px, que no son las del iPhone. La isla negra viene pintada en la
+           grabaci&oacute;n del simulador, y con ella el borde verde ser&iacute;a un iPhone dibujado (README.md). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
+              background-color: #FFFDF9;
+              background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
+              background-size: 54px 54px; background-position: 3px 11px; }
+      .verde { color: #0F766E; }
+      svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
+
+      #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
+               justify-content: center; align-items: center; gap: 16px; }
+      #marca img { display: block; width: 45px; height: 52px; }
+      #marca p { margin: 0; font-size: 42px; line-height: 56px; font-weight: 600; white-space: nowrap; }
+
+      .tit { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; letter-spacing: -.02em; }
+      .t120 { font-size: 120px; line-height: 1.04; }
+      .t84 { font-size: 84px; line-height: 1.04; }
+      .linea { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; }
+
+      #logo { position: absolute; left: 396.5px; top: 475px; width: 287px; height: 330px; display: block; }
+      #o-nombre { top: 902px; font-size: 92px; line-height: 1; }
+      #o-anuncio { top: 1036px; font-size: 42px; line-height: 56px; font-weight: 600; }
+
+      /* LA PANTALLA: la grabaci&oacute;n sin las dos barras del sistema, en su proporci&oacute;n. */
+      #pantalla { position: absolute; left: 150px; top: 400px; width: 404px; height: 806px; border-radius: 36px;
+                  overflow: hidden; background: #F5F0E8; }
+      #pantalla video { position: absolute; left: 0; top: 0; width: 404px; height: 806px; display: block; }
+
+      .num { font-family: 'Instrument Sans'; font-weight: 700; }
+      /* B1 &middot; Las opciones del asistente, como p&iacute;ldoras, ensartadas por la l&iacute;nea (el collar de &laquo;Un trazo&raquo;, en
+         vertical). */
+      .chip { position: absolute; display: block; height: 70px; line-height: 64px; box-sizing: border-box; padding: 0 22px; margin: 0;
+              border: 3px solid rgba(16,14,11,.26); border-radius: 35px; background: #FFFDF9;
+              font-size: 32px; font-weight: 600; white-space: nowrap; color: #100E0B; }
+      .hora { position: absolute; left: 690px; margin: 0; font-size: 52px; line-height: 56px; white-space: nowrap; }
+      #b5-desde { top: 392px; font-size: 44px; line-height: 52px; font-weight: 600; color: rgba(16,14,11,.62); }
+      #b5-precio { top: 448px; font-size: 180px; line-height: 1; letter-spacing: -.03em; }
+      #b5-nota { top: 940px; font-size: 40px; line-height: 48px; font-weight: 600; color: rgba(16,14,11,.62); }
+
+      #papel { position: absolute; inset: 0; background: #F5F0E8; }
+      #c-icono { position: absolute; left: 430px; top: 520px; width: 220px; height: 220px; display: block;
+                 border-radius: 49px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 800px; width: 912px; margin: 0; text-align: center;
+                  font-size: 92px; line-height: 1; letter-spacing: -.02em; color: #100E0B; white-space: nowrap; }
+      #c-insignia { position: absolute; left: 360px; top: 980px; width: 359px; height: 120px; display: block; }
+      #c-android { position: absolute; left: 84px; top: 1170px; width: 912px; margin: 0; text-align: center;
+                   font-size: 38px; line-height: 1.2; font-weight: 600; color: rgba(16,14,11,.62); }
+      #c-credito { position: absolute; left: 180px; top: 1256px; width: 720px; margin: 0; text-align: center;
+                   font-size: 24px; line-height: 31px; font-weight: 500; color: rgba(16,14,11,.66); }
+      #c-perfil { position: absolute; left: 84px; top: 1404px; width: 912px; margin: 0; text-align: center;
+                  font-size: 36px; line-height: 1.2; font-weight: 600; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="incluye-dia" data-start="0"
+         data-width="1080" data-height="1920" data-duration="30.533">
+
+      <!-- LO DE DEBAJO: el collar de B1 pasa por detr&aacute;s de las p&iacute;ldoras. -->
+      <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path id="s-collar" stroke="#0F766E" stroke-width="10" />
+      </svg>
+
+      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
+
+      <!-- B0 &middot; EL LOGO. Es el fotograma 0, la portada por defecto de TikTok. -->
+      <img id="logo" src="assets/marca-grande.png" alt="" />
+      <p id="o-nombre" class="tit serif">Nomad: gu&iacute;a de viajes</p>
+      <p id="o-anuncio" class="linea sans verde">Ya en la App Store, para iPhone</p>
+
+      <!-- LA PANTALLA, a la izquierda todo el v&iacute;deo, con las tomas de la app (cortar-tomas.py, tomas.json).
+           Los tiempos son los del v&iacute;deo final (a 1,15&times;). -->
+      <div id="pantalla">
+        <video id="v-b1a" class="clip" src="assets/tomas/b1a.mp4" data-start="2.93" data-duration="2.131" muted playsinline></video>
+        <video id="v-b1b" class="clip" src="assets/tomas/b1b.mp4" data-start="5.061" data-duration="2.104" muted playsinline></video>
+        <video id="v-b2" class="clip" src="assets/tomas/b2.mp4" data-start="7.165" data-duration="4.583" muted playsinline></video>
+        <video id="v-b3" class="clip" src="assets/tomas/b3.mp4" data-start="11.748" data-duration="4.174" muted playsinline></video>
+        <video id="v-b4" class="clip" src="assets/tomas/b4.mp4" data-start="15.922" data-duration="4.643" muted playsinline></video>
+      </div>
+
+      <!-- B1 &middot; Lo que eliges, con los nombres del asistente (CreateTripScreen.tsx). -->
+      <p id="c0" class="chip sans">Lisboa</p>
+      <p id="c1" class="chip sans">3 d&iacute;as</p>
+      <p id="c2" class="chip sans">Cultural</p>
+      <p id="c3" class="chip sans">Gastronom&iacute;a</p>
+      <!-- B3 &middot; Las horas del plan del s&aacute;bado de la pantalla. -->
+      <p id="h0" class="hora serif" style="top: 492px;">10:30</p>
+      <p id="h1" class="hora serif" style="top: 602px;">13:30</p>
+      <p id="h2" class="hora serif" style="top: 712px;">15:15</p>
+      <p id="h3" class="hora serif" style="top: 822px;">16:30</p>
+      <p id="h4" class="hora serif" style="top: 932px;">20:30</p>
+
+      <!-- Las frases de cada escena, abajo. En verde, la segunda l&iacute;nea. -->
+      <h1 id="t1" class="tit serif t120" style="top: 1300px;">T&uacute; eliges.</h1>
+      <h1 id="t2a" class="tit serif t84" style="top: 1300px;">Te propone</h1>
+      <h1 id="t2b" class="tit serif t84 verde" style="top: 1388px;">los imprescindibles.</h1>
+      <h1 id="t3a" class="tit serif t84" style="top: 1300px;">Y te sale el plan entero,</h1>
+      <h1 id="t3b" class="tit serif t84 verde" style="top: 1388px;">d&iacute;a a d&iacute;a.</h1>
+      <h1 id="t4a" class="tit serif t84" style="top: 1300px;">Cada d&iacute;a, en su orden,</h1>
+      <h1 id="t4b" class="tit serif t84 verde" style="top: 1388px;">para no dar vueltas.</h1>
+      <p id="b5-desde" class="linea sans">desde</p>
+      <p id="b5-precio" class="linea serif verde">2,99&nbsp;&euro;</p>
+      <p id="b5-nota" class="linea sans">por viaje, sin suscripci&oacute;n</p>
+      <h1 id="t5a" class="tit serif t84" style="top: 1300px;">Un pago,</h1>
+      <h1 id="t5b" class="tit serif t84 verde" style="top: 1388px;">para todo el grupo.</h1>
+
+      <div id="papel"></div>
+
+      <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path id="s-espiral" stroke="#0F766E" stroke-width="10" />
+        <path id="s-borde" stroke="#0F766E" stroke-width="10" />
+        <path id="s-estrella" stroke="#0F766E" stroke-width="10" />
+        <path id="s-rail" stroke="#0F766E" stroke-width="10" />
+        <path id="s-camino" stroke="#0F766E" stroke-width="10" />
+        <path id="s-sub" stroke="#0F766E" stroke-width="10" />
+        <path id="hb0" stroke="#0F766E" stroke-width="8" />
+        <path id="hb1" stroke="#0F766E" stroke-width="8" />
+        <path id="hb2" stroke="#0F766E" stroke-width="8" />
+        <path id="hb3" stroke="#0F766E" stroke-width="8" />
+        <!-- B2 &middot; La estrella de los imprescindibles, que se llena como la del plan en la app. -->
+        <path id="estrella" fill="#0F766E" stroke="#0F766E" stroke-width="10" />
+        <!-- B3 &middot; Los cinco planes del d&iacute;a, numerados como el ra&iacute;l de la app. -->
+        <g id="n0"><circle cx="650" cy="520" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="650" y="530" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">1</text></g>
+        <g id="n1"><circle cx="650" cy="630" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="650" y="640" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">2</text></g>
+        <g id="n2"><circle cx="650" cy="740" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="650" y="750" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">3</text></g>
+        <g id="n3"><circle cx="650" cy="850" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="650" y="860" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">4</text></g>
+        <g id="n4"><circle cx="650" cy="960" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="650" y="970" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">5</text></g>
+        <!-- B4 &middot; Un d&iacute;a en su orden: un camino que no se cruza consigo mismo. -->
+        <g id="k0"><circle cx="660" cy="540" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="660" y="550" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">1</text></g>
+        <g id="k1"><circle cx="840" cy="630" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="840" y="640" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">2</text></g>
+        <g id="k2"><circle cx="670" cy="750" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="670" y="760" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">3</text></g>
+        <g id="k3"><circle cx="840" cy="860" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="840" y="870" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">4</text></g>
+        <g id="k4"><circle cx="700" cy="980" r="26" fill="#0F766E" stroke="#FFFDF9" stroke-width="6" /><text x="700" y="990" text-anchor="middle" class="num" font-size="30" fill="#FFFDF9" stroke="none">5</text></g>
+        <!-- B5 &middot; Las cuatro personas del grupo: cabeza y hombros, sin cara. -->
+        <g id="g0" stroke="#0F766E" stroke-width="8"><circle r="34" fill="#FFFDF9" /><path /></g>
+        <g id="g1" stroke="#0F766E" stroke-width="8"><circle r="34" fill="#FFFDF9" /><path /></g>
+        <g id="g2" stroke="#0F766E" stroke-width="8"><circle r="34" fill="#FFFDF9" /><path /></g>
+        <g id="g3" stroke="#0F766E" stroke-width="8"><circle r="34" fill="#FFFDF9" /><path /></g>
+        <g id="c-flecha">
+          <path d="M516,1420 L540,1436 L564,1420" stroke="#0F766E" stroke-width="6" />
+          <path d="M516,1442 L540,1458 L564,1442" stroke="#0F766E" stroke-opacity=".5" stroke-width="6" />
+        </g>
+      </svg>
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
+      <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Cons&iacute;guelo en el App Store" />
+      <p id="c-android" class="sans">Pronto en Android</p>
+      <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros pa&iacute;ses. App Store es una marca de servicio de Apple Inc.</p>
+      <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
+
+      <!-- El sonido, hecho aparte (mezclar.sh): la voz de Kore encima de la m&uacute;sica de &laquo;Un trazo&raquo;. -->
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="30.533"></audio>
+    </div>
+    <script>
+      document.fonts.ready.then(function () {
+        var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
+        var tl = gsap.timeline({ paused: true });
+        var VELOCIDAD = 1.15;
+        var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F;
+        // LOS CORTES, a 1&times;: cada escena dura su frase de Kore m&aacute;s 0,55 s, y algo m&aacute;s donde el dibujo lo
+        // pide, hasta que el &uacute;ltimo acorde de la m&uacute;sica cae 0,5 s despu&eacute;s del corte del cierre (mezclar.sh).
+        // Si se mueve un corte aqu&iacute;, se mueve EMPIEZA en mezclar.sh, tomas.json y el HTML de los v&iacute;deos.
+        var T1 = 2.42, T2 = 8.24, T3 = 13.51, T4 = 18.31, T5 = 23.65, T8 = 29.83;
+        var FIN = 916 / 30 * VELOCIDAD;
+        var XI = 150, XB = XI + 404 + 7;   // la pantalla, a la izquierda desde el principio, y su borde derecho
+
+        // &mdash;&mdash; 0 &middot; EL LOGO, y de su espiral, el borde de la pantalla (una sola cadena).
+        var esp = M.espiral(), mE = M.pon(esp, a("s-espiral"));
+        var cont = new M.Camino();
+        cont.o("M" + esp.punta[0].toFixed(1) + "," + esp.punta[1].toFixed(1));
+        M.borde(cont, XI, esp.punta);
+        var mC = M.pon(cont, a("s-borde")), S0 = mE.L;
+        var PUNTA = [[0, 0], [0.3125, 0], [T1, mE.fin, "sine.in"], [T1 + 1.0, S0 + mC.fin, "power2.inOut"]];
+        var COLA = [[0, 0], [T1 - 0.001, 0], [T1, mE.fuera], [T1 + 0.3, mE.fin, "power1.in"], [T1 + 0.95, S0 + mC.borde, "power1.inOut"],
+                    [T5, S0 + mC.borde], [T5 + 0.6, S0 + mC.fin, "power2.in"]];   // B5: el borde se deshace en el grupo
+        M.cadena([[a("s-espiral"), mE.L], [a("s-borde"), mC.L]], COLA, PUNTA, 0, T5 + 0.7);
+        M.logo(T1);
+        M.funde("#pantalla", T1 + 0.9, 0.15);
+
+        // &mdash;&mdash; B1 &middot; T&Uacute; ELIGES. Del borde sale el collar y ensarta las cuatro opciones; cada una se pone
+        // verde cuando Kore la nombra (los tiempos de &laquo;Un trazo&raquo; sobre la misma toma f2: Lisboa en &laquo;a d&oacute;nde
+        // vas&raquo;, 3 d&iacute;as en &laquo;cu&aacute;ntos d&iacute;as&raquo;, y Cultural y Gastronom&iacute;a en &laquo;c&oacute;mo te gusta viajar&raquo;).
+        var F2 = 2.67, TELIGE = [F2 + 0.90, F2 + 2.35, F2 + 3.50, F2 + 3.85];
+        var CY = [515, 605, 695, 785];
+        CY.forEach(function (y, k) {
+          var c = a("c" + k);
+          c.style.top = (y - 35) + "px"; c.style.left = (752 - c.offsetWidth / 2) + "px";
+          M.entra("#c" + k, T1 + 0.85 + 0.05 * k, 14, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" });
+          tl.fromTo("#c" + k, { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" },
+                    { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9", duration: 0.12, ease: "power1.out", immediateRender: false }, TELIGE[k] - 0.02);
+          tl.fromTo("#c" + k, { scale: 1 }, { scale: 1.08, duration: 0.1, ease: "power2.out", immediateRender: false }, TELIGE[k] - 0.02);
+          tl.fromTo("#c" + k, { scale: 1.08 }, { scale: 1, duration: 0.22, ease: "power2.inOut", immediateRender: false }, TELIGE[k] + 0.08);
+        });
+        var col = new M.Camino();
+        col.o("M" + XB + ",515 L752,515").marca("n0")
+           .o("C832,515 832,605 752,605").marca("n1")
+           .o("C672,605 672,695 752,695").marca("n2")
+           .o("C832,695 832,785 752,785").marca("n3");
+        var mL = M.pon(col, a("s-collar"));
+        var CP = [[T1 + 0.95, 0], [TELIGE[0], mL.n0, "power1.out"], [TELIGE[1], mL.n1, "power1.inOut"], [TELIGE[2], mL.n2, "power1.inOut"],
+                  [TELIGE[3], mL.n3, "power1.inOut"], [T2 - 0.45, mL.n3], [T2 - 0.15, 0, "power1.in"]];
+        M.cadena([[a("s-collar"), mL.L]], [[0, 0]], CP, T1 + 0.9, T2);
+        M.corta(["#c0", "#c1", "#c2", "#c3"], T2);
+        M.frase(["t1"], T1, T2);
+
+        // &mdash;&mdash; B2 &middot; LOS IMPRESCINDIBLES: del borde, de un trazo, una estrella, que se llena.
+        var est = new M.Camino(), EX = 752, EY = 706, pts = [];
+        for (var k = 0; k < 10; k++) {
+          var ang = (162 + 36 * k) * Math.PI / 180, rr = k % 2 ? 27 : 64;
+          pts.push([EX + rr * Math.cos(ang), EY + rr * Math.sin(ang)]);
+        }
+        est.o("M" + XB + "," + pts[0][1].toFixed(1) + " L" + pts[0][0].toFixed(1) + "," + pts[0][1].toFixed(1)).marca("v0");
+        for (k = 1; k <= 10; k++) est.o("L" + pts[k % 10][0].toFixed(1) + "," + pts[k % 10][1].toFixed(1));
+        est.marca("fin");
+        a("estrella").setAttribute("d", "M" + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" L") + " Z");
+        M.salida(a("s-estrella"), est, T2 + 0.1, T2 + 1.2, T3 - 0.45, T3 - 0.15, "power1.inOut");
+        gsap.set("#estrella", { svgOrigin: EX + " " + EY });
+        tl.fromTo("#estrella", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power2.out" }, T2 + 1.3);
+        M.late("#estrella", T2 + 2.4, 0.08, 0.5);
+        M.late("#estrella", T2 + 3.9, 0.08, 0.5);
+        M.encoge("#estrella", T3 - 0.45);
+        M.frase(["t2a", "t2b"], T2, T3);
+
+        // &mdash;&mdash; B3 &middot; EL PLAN: el ra&iacute;l con los cinco planes del s&aacute;bado y sus horas, las de la pantalla.
+        var NY = [520, 630, 740, 850, 960];
+        var rail = new M.Camino();
+        rail.o("M" + XB + ",470 C610,470 650,480 650,520").marca("n0");
+        for (k = 1; k < 5; k++) rail.o("L650," + NY[k]).marca("n" + k);
+        var mR = M.salida(a("s-rail"), rail, T3 + 0.15, T3 + 1.75, T4 - 0.5, T4 - 0.2, "power1.inOut");
+        NY.forEach(function (y, k) {
+          var tb = M.nodo("#n" + k, mR, "n" + k, 650, y, [T3 + 2.3 + 0.04 * k, T3 + 3.3 + 0.04 * k]);
+          M.entra("#h" + k, tb + 0.04, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+          M.apaga("#h" + k, mR.vuelve("n" + k) - 0.06, 0.1);
+        });
+        M.frase(["t3a", "t3b"], T3, T4);
+
+        // &mdash;&mdash; B4 &middot; EN SU ORDEN: un camino por los cinco planes que nunca se cruza consigo mismo.
+        var KP = [[660, 540], [840, 630], [670, 750], [840, 860], [700, 980]];
+        var cam = new M.Camino();
+        cam.o("M" + XB + ",520 C600,520 630,540 660,540").marca("n0")
+           .o("C740,540 840,560 840,630").marca("n1")
+           .o("C840,700 720,690 670,750").marca("n2")
+           .o("C620,810 840,790 840,860").marca("n3")
+           .o("C840,930 760,980 700,980").marca("n4");
+        var mK = M.salida(a("s-camino"), cam, T4 + 0.15, T4 + 1.75, T5 - 0.5, T5 - 0.2, "power1.inOut");
+        KP.forEach(function (p, k) { M.nodo("#k" + k, mK, "n" + k, p[0], p[1], [T4 + 2.4 + 0.04 * k, T4 + 3.9 + 0.04 * k]); });
+        M.frase(["t4a", "t4b"], T4, T5);
+
+        // &mdash;&mdash; B5 &middot; EL PRECIO Y EL GRUPO. La pantalla pasa a papel; la cola se come el borde y la punta tira
+        // de &eacute;l hasta un subrayado, del que bajan las cuatro personas. El precio, cuando Kore dice &laquo;desde&raquo;.
+        M.corta("#pantalla", T5);
+        var x0 = XI - 7, SY = 665;
+        var sub = new M.Camino();
+        sub.o("M" + x0 + ",490 C" + x0 + ",600 250," + SY + " 340," + SY).marca("ini").o("L540," + SY).marca("medio").o("L740," + SY).marca("fin");
+        var mS = M.pon(sub, a("s-sub"));
+        M.grupo(SY, 800, [T5 + 0.65, T5 + 0.85, T5 + 1.05, T5 + 1.25], T5 + 0.5);
+        [0, 1, 2, 3].forEach(function (k) { M.late("#g" + k, T5 + 1.9 + 0.05 * k, 0.06, 0.5); M.late("#g" + k, T5 + 2.9 + 0.05 * k, 0.06, 0.5); });
+        var TDESDE = 23.90 + 3.74;   // &laquo;desde&raquo;, medido en la toma b6
+        M.entra("#b5-desde", TDESDE - 0.1, 16);
+        tl.fromTo("#b5-precio", { autoAlpha: 0, y: 30, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, TDESDE + 0.1);
+        M.entra("#b5-nota", TDESDE + 0.3, 12);
+        M.recogeGrupo(T8 - 0.3);
+        M.corta(["#b5-desde", "#b5-precio", "#b5-nota"], T8);
+        M.frase(["t5a", "t5b"], T5, T8);
+        var SP = [[T5, 0], [T5 + 0.6, mS.fin, "power2.inOut"], [T8, mS.fin], [T8 + 0.2, mS.medio, "power2.in"]];
+        var SC = [[T5, 0], [T5 + 0.5, 0], [T5 + 0.9, mS.ini, "power1.inOut"], [T8, mS.ini], [T8 + 0.2, mS.medio, "power2.in"]];
+        M.cadena([[a("s-sub"), mS.L]], SC, SP, T5 - F, T8 + 0.3);
+        tl.fromTo("#s-sub", { y: 0 }, { y: 630 - SY, duration: 0.2, ease: "power2.in", immediateRender: false }, T8);
+
+        // &mdash;&mdash; B6 &middot; EL CIERRE aprobado, con el aviso de Apple de las secuencias acortadas.
+        M.corta("#marca", T8);
+        M.cierre(T8, FIN, VERSION);
+
+        M.acelera();
+        window.__timelines = window.__timelines || {};
+        window.__timelines["incluye-dia"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
