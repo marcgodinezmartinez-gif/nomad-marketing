@@ -186,7 +186,9 @@ concretos que ningún banco tiene.
 
 **Capturas: de la app real**, nunca maquetas. Están en `banco/capturas/` por pantalla e
 idioma (`plan-900.webp`, `plan-900-it.webp`…). Si la app cambia una pantalla, se vuelven
-a capturar; una captura vieja en un anuncio es una promesa que la app no cumple.
+a capturar; una captura vieja en un anuncio es una promesa que la app no cumple. Las
+**grabaciones** de la app (vídeos por función, del simulador) no están en el repo, porque llevan el
+código del viaje demo: `banco/metraje/README.md` dice dónde están y qué tapar antes de usarlas.
 
 ## Trampas ya pagadas
 
