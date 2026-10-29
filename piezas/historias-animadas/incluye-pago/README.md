@@ -50,23 +50,27 @@ las del iPhone. La primera versión de esta tarde llevaba la grabación entera, 
 borde verde, y se paró a medio render por eso.
 
 Las tomas van aceleradas o recortadas, así que el cierre lleva **«Secuencias acortadas.»** delante del
-crédito de Apple, en la misma letra pequeña.
+crédito de Apple, en la misma letra pequeña. Y como el cierre nombra Android, el crédito acaba con
+**«Android es una marca comercial de Google LLC.»**: las normas de marca de Android piden esa línea en
+todo lo que use el nombre («Any use of the Android name needs to include this attribution»). «Un
+trazo» no la lleva; si se vuelve a renderizar, que la lleve también.
 
 ## El guion
 
 Los segundos son los del vídeo final. Kore cuenta cada escena, y la frase de abajo va siempre en el
-mismo sitio, desde y=1300 (en «Un trazo», 1170: baja para que quepa la pantalla).
+mismo sitio, desde y=1282 (en «Un trazo», 1170: baja para que quepa la pantalla; y no más abajo, porque
+al entrar sube 24 px y en 1300 sus rabos pisaban la zona de los botones del reel, de 1480 para abajo).
 
 | segundos | Kore | texto abajo | la pantalla | lo que dibuja la línea al lado |
 |---|---|---|---|---|
 | 0-2,1 | «Esto es Nomad.» | «Nomad: guía de viajes» / «Ya en la App Store, para iPhone» | — | la espiral de «Un trazo», tal cual |
-| 2,1-5,2 | «Pagas una vez, y tienes el viaje entero.» | «Un pago, / todo el viaje.» | la portada del viaje (Lisboa, 21-28 nov) | la punta sale de la espiral y traza el borde de la pantalla, que se enciende al cerrarse |
+| 2,1-5,2 | «Pagas una vez, y tienes el viaje entero.» | «Un pago, / todo el viaje.» | la portada del viaje (Lisboa, 21-28 nov) | la punta sale de la espiral y traza el borde de la pantalla, que se enciende al cerrarse y late tres veces, con su borde |
 | 5,2-9,5 | «El itinerario completo, día a día, con sus horas.» | «Itinerario completo, / día a día.» | el plan del sábado 21 | la pantalla se va a la izquierda; del borde baja un raíl con los ocho días del viaje, 21 a 28, y el 21 lleno |
 | 9,5-12,7 | «Recorridos guiados, parada a parada.» | «Recorridos guiados, / parada a parada.» | «¿Qué visita quieres?» del paseo, y se elige «Media» | un paseo de cinco paradas numeradas |
 | 12,7-15,7 | «Visitas culturales, obra por obra.» | «Visitas culturales, / obra por obra.» | la obra 1 del Museo Nacional de Arte Antiguo, «1 de 5» | cuatro marcos de cuadro, 2 a 5 |
-| 15,7-20,2 | «Y NOMAD AI, para preguntarle lo que quieras durante el viaje.» | «NOMAD AI, / durante todo el viaje.» | se pregunta «¿Qué día va más cargado?» y llega la respuesta | un bocadillo con un «?», que late cuando llega la respuesta |
-| 20,2-22,3 | «Y vale para todo el grupo.» | «Y vale para / todo el grupo.» | se apaga; la línea se come el borde | un subrayado bajo «Un pago», y de él cuatro personas |
-| 22,3-25,9 | «Desde dos noventa y nueve por viaje, sin suscripción.» | «Por viaje, / sin suscripción.» | — | las personas se recogen en el subrayado del precio: «desde» / «2,99 €» |
+| 15,7-20,2 | «Y NOMAD AI, para preguntarle lo que quieras durante el viaje.» | «NOMAD AI, / durante todo el viaje.» | se pregunta «¿Qué día va más cargado?» y llega la respuesta | un bocadillo con un «?», que late cuando llega la respuesta y dos veces más |
+| 20,2-22,3 | «Y vale para todo el grupo.» | «Y vale para / todo el grupo.» | se apaga; la línea se come el borde | un subrayado, y de él cuatro personas; «Un pago» entra encima cuando el borde ya no está |
+| 22,3-25,9 | «Desde dos noventa y nueve por viaje, sin suscripción.» | «Por viaje, / sin suscripción.» | — | las personas se recogen en el subrayado del precio: «desde» / «2,99 €», que late con la música |
 | 25,9-30,5 | «Nomad. Ya en la App Store, para iPhone.» | el cierre de «Un trazo» | — | el subrayado se recoge en el icono, y el cierre aprobado |
 
 Lo que dice cada frase está comprobado contra el código de la app (la hoja de pago, `TripPaywall.tsx`,
@@ -158,6 +162,27 @@ cierre con las zonas seguras dibujadas encima, y renderiza. El motor de la líne
 **se edita aquí y se copia a `incluye-dia/` con `bash sincronizar.sh`.** Está explicado dentro; lo
 importante es que todo se escribe a 1× y se estira a 1/1,15 al final, así que los `<video>` llevan sus
 tiempos finales escritos a mano (los imprime `cortar-tomas.py`).
+
+## Lo que dijo la revisión (29-oct)
+
+Cuatro revisores con su verificador cada uno, sobre los seis vídeos renderizados (privacidad, verdad y
+reglas, diseño y ritmo, técnica). **La privacidad salió limpia**: ni código de invitación, ni QR, ni
+correos, ni precios en dólares, ni papelera, ni un resto de la barra de estado en ningún fotograma, y
+sin metadatos con rutas ni nombres. Lo confirmado, y lo que se hizo:
+
+- **La línea dejaba motas sueltas**, un punto o una rayita de un fotograma, unas diez por vídeo, cada
+  vez que un trazo nacía o se recogía. Era el motor: interpolaba entre dos estados que, estirados a
+  1/1,15, caían a medio camino en el render. Ahora cada estado se pone de golpe (`cadena()` en
+  `motor.js`).
+- **El borde cruzaba «Un pago»** casi medio segundo al apagarse la pantalla. La cola se come ahora el
+  borde en 0,4 s, el título entra después y el subrayado llega más despacio.
+- **Tramos quietos** de 2 y 2,3 s (la portada del viaje, la respuesta de NOMAD AI) y de 0,6-1 s en el
+  precio, cuando «Un trazo» se rehízo precisamente por eso. Ahora laten: la pantalla con su borde, el
+  «?» y el precio.
+- **Faltaba el crédito de Android** (arriba, «Apple»).
+- **La frase rozaba la zona de botones del reel** al entrar: sube 18 px.
+- Las entradas del cierre no iban igual en las tres versiones, por un objeto compartido en GSAP
+  (`entra()` copia ahora el suyo).
 
 ## Lo que queda a la vista, y es sabido
 

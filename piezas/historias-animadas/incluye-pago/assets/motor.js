@@ -21,7 +21,9 @@ window.Motor = function (tl, VELOCIDAD) {
   function corta(sel, t) { tl.to(sel, { autoAlpha: 0, duration: 0 }, t); }
   function aparece(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 }, t); }
   function funde(sel, t, d) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: d || 0.15, ease: "none" }, t); }
-  function entra(sel, t, dy, vars) { tl.fromTo(sel, { autoAlpha: 0, y: dy }, vars || IN, t); }
+  // Una copia de vars en cada llamada: GSAP escribe el punto de partida (startAt) DENTRO del objeto de
+  // llegada, así que con IN o ARR compartidos mandaba el último que los usó (revisión del 29-oct).
+  function entra(sel, t, dy, vars) { tl.fromTo(sel, { autoAlpha: 0, y: dy }, Object.assign({}, vars || IN), t); }
   function apaga(sel, t, dur) { tl.fromTo(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: dur || 0.2, ease: "power1.out", immediateRender: false }, t); }
   function brota(sel, t, ease) { tl.fromTo(sel, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: ease || "back.out(3)" }, t); }
   function encoge(sel, t) { tl.fromTo(sel, { scale: 1, autoAlpha: 1 }, { scale: 0, autoAlpha: 0, duration: 0.12, ease: "power2.in", immediateRender: false }, t); }
@@ -84,6 +86,10 @@ window.Motor = function (tl, VELOCIDAD) {
   // Una cadena de trazados seguidos (cada uno empieza donde acaba el anterior), con una cola y una
   // punta en largo de recorrido sobre todos, uno detrás de otro. tramos: [[el, L], …]. Devuelve el
   // comienzo de cada tramo en la cadena.
+  // Cada estado se pone DE GOLPE en su fotograma, sin interpolar con el anterior. Interpolado, al
+  // estirarlo todo a 1/1,15 los fotogramas del render caían a mitad de un paso, y el paso del trazo
+  // vacío (el guion de 0,01 más allá del final) a uno visible pintaba un punto suelto en mitad del
+  // camino durante un fotograma: diez por vídeo, encontrados en la revisión del 29-oct.
   function cadena(tramos, COLA, PUNTA, tA, tB) {
     var S = 0, ini = [];
     tramos.forEach(function (t) { ini.push(S); S += t[1]; });
@@ -94,7 +100,7 @@ window.Motor = function (tl, VELOCIDAD) {
         var v = ventana(L, ini[i], valor(COLA, k / FPS), valor(PUNTA, k / FPS));
         if (k === k0) { el.setAttribute("stroke-dasharray", v["stroke-dasharray"]); el.setAttribute("stroke-dashoffset", v["stroke-dashoffset"]); }
         else if (v["stroke-dasharray"] !== prev["stroke-dasharray"] || v["stroke-dashoffset"] !== prev["stroke-dashoffset"]) {
-          tl.fromTo(el, { attr: prev }, { attr: v, duration: F, ease: "none", immediateRender: false }, (k - 1) / FPS);
+          tl.fromTo(el, { attr: prev }, { attr: v, duration: 0, immediateRender: false }, k / FPS);
         }
         prev = v;
       }

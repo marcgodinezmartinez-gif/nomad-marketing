@@ -68,10 +68,11 @@ Ya en la App Store, para iPhone con iOS 15.1 o superior. Android, pronto. El enl
 #appdeviajes #viajar #viajes #lisboa #escapada
 ```
 
-**Comentario para fijar** (Instagram y TikTok), el de «Un trazo»:
+**Comentario para fijar** (Instagram y TikTok), el de «Un trazo» con el crédito de Android al final, que
+es lo que piden sus normas de marca cuando se nombra Android:
 
 ```
-Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono crema con la marca verde. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos el día que salga.
+Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se llaman Nomad: fíjate en el icono crema con la marca verde. Necesita un iPhone con iOS 15.1 o superior. Descargarla es gratis; el viaje se paga, sin suscripción. Android: pronto, sin fecha. Síguenos y te avisamos el día que salga. Android es una marca comercial de Google LLC.
 ```
 
 ## 2. Instagram: la historia

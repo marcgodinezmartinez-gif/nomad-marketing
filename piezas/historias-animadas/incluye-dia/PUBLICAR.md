@@ -25,7 +25,7 @@ Le dices a dónde vas, cuántos días y cómo te gusta viajar, y «Nomad: guía 
 
 Te propone los imprescindibles de la ciudad, todos marcados: el que no quieras, lo dejas fuera con un toque.
 
-Se paga por viaje, una vez y sin suscripción: desde 2,99 € (hasta 3 días; 4,99 € de 4 a 7 días y 6,99 € de 8 a 30 días). Una compra abre el viaje a todo el grupo. Descargarla es gratis.
+Se paga al generarlo, una vez y sin suscripción: desde 2,99 € (hasta 3 días; 4,99 € de 4 a 7 días y 6,99 € de 8 a 30 días). Una compra abre el viaje a todo el grupo. Descargarla es gratis.
 
 Las pantallas son de la app, con viajes de ejemplo a Lisboa, y las secuencias van acortadas. La voz es Kore, una de las que puedes elegir en la app. La voz y la música están hechas con IA.
 
@@ -37,7 +37,7 @@ Ya en la App Store, para iPhone con iOS 15.1 o superior. Android, pronto. El enl
 **Pie de TikTok:**
 
 ```
-Le dices a dónde vas, cuántos días y cómo te gusta viajar, y te sale el viaje entero, día a día y en su orden. Los imprescindibles, marcados: el que no quieras, fuera con un toque. «Nomad: guía de viajes», ya en la App Store para iPhone. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción, para todo el grupo. Pantallas de la app, con viajes de ejemplo y secuencias acortadas. Android, pronto. El enlace, en el perfil.
+Le dices a dónde vas, cuántos días y cómo te gusta viajar, y te sale el viaje entero, día a día y en su orden. Los imprescindibles, marcados: el que no quieras, fuera con un toque. «Nomad: guía de viajes», ya en la App Store para iPhone. Descargarla es gratis; el viaje se paga al generarlo, desde 2,99 € y sin suscripción, para todo el grupo. Pantallas de la app, con viajes de ejemplo y secuencias acortadas. Android, pronto. El enlace, en el perfil.
 
 #viajes #viajar #appdeviajes #planificarviaje #escapada
 ```
