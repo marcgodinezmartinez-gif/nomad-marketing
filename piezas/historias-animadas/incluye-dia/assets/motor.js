@@ -221,7 +221,7 @@ window.Motor = function (tl, VELOCIDAD) {
     // La negra de la música: 0,80083 s a 1×, con la primera en 0,092 (medido en sus notas, con la junta
     // de mezclar.sh, que salta 28 negras justas). T8 + 1,49 cae en una.
     var TIEMPO = 0.80083;
-    for (var tp = T8 + 1.49; tp < FIN - 0.8; tp += TIEMPO) {
+    for (var tp = T8 + 1.49; tp < FIN - 0.5; tp += TIEMPO) {   // el último se corta con el vídeo, como en «Un trazo»
       tl.fromTo("#c-icono", { scale: 1 }, { scale: 1.04, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
       tl.fromTo("#c-icono", { scale: 1.04 }, { scale: 1, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tp + 0.16);
     }
@@ -235,7 +235,7 @@ window.Motor = function (tl, VELOCIDAD) {
     } else {
       tl.set("#c-perfil", { autoAlpha: 0 }, 0);
       tl.fromTo("#c-flecha", { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, T8 + 0.95);
-      for (var tb = T8 + 1.49; tb < FIN - 0.8; tb += TIEMPO) {
+      for (var tb = T8 + 1.49; tb < FIN - 0.5; tb += TIEMPO) {
         tl.fromTo("#c-flecha", { y: 0 }, { y: 12, duration: 0.18, ease: "power2.out", immediateRender: false }, tb);
         tl.fromTo("#c-flecha", { y: 12 }, { y: 0, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tb + 0.18);
       }

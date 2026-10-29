@@ -256,7 +256,7 @@
         var rail = new M.Camino();
         rail.o("M" + XB + ",470 C610,470 650,480 650,520").marca("n0");
         for (k = 1; k < 5; k++) rail.o("L650," + NY[k]).marca("n" + k);
-        var mR = M.salida(a("s-rail"), rail, T3 + 0.15, T3 + 1.75, T4 - 0.5, T4 - 0.2, "power1.inOut");
+        var mR = M.salida(a("s-rail"), rail, T3 + 0.15, T3 + 2.15, T4 - 0.5, T4 - 0.2, "power1.inOut");
         NY.forEach(function (y, k) {
           var tb = M.nodo("#n" + k, mR, "n" + k, 650, y, [T3 + 2.60 + 0.04 * k, T3 + 3.40 + 0.04 * k]);
           M.entra("#h" + k, tb + 0.04, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
@@ -273,7 +273,7 @@
            .o("C740,685 750,720 775,755").marca("n2")
            .o("C800,790 805,825 825,860").marca("n3")
            .o("C845,895 852,930 860,965").marca("n4");
-        var mK = M.salida(a("s-camino"), cam, T4 + 0.15, T4 + 1.75, T5 - 0.5, T5 - 0.2, "power1.inOut");
+        var mK = M.salida(a("s-camino"), cam, T4 + 0.15, T4 + 2.15, T5 - 0.5, T5 - 0.2, "power1.inOut");
         KP.forEach(function (p, k) { M.nodo("#k" + k, mK, "n" + k, p[0], p[1], [T4 + 2.60 + 0.04 * k, T4 + 3.40 + 0.04 * k, T4 + 4.21 + 0.04 * k]); });
         M.frase(["t4a", "t4b"], T4, T5);
 

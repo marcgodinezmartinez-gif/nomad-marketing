@@ -193,7 +193,7 @@
         var cont = new M.Camino();
         cont.o("M" + esp.punta[0].toFixed(1) + "," + esp.punta[1].toFixed(1));
         var B = M.borde(cont, XC, esp.punta), mC = M.pon(cont, a("s-borde")), S0 = mE.L;
-        var PUNTA = [[0, 0], [0.3125, 0], [T1, mE.fin, "sine.in"], [T1 + 1.2, S0 + mC.fin, "power2.inOut"]];
+        var PUNTA = [[0, 0], [0.3125, 0], [T1, mE.fin, "sine.in"], [T1 + 1.4, S0 + mC.fin, "power2.inOut"]];
         var COLA = [[0, 0], [T1 - 0.001, 0], [T1, mE.fuera], [T1 + 0.3, mE.fin, "power1.in"], [T1 + 0.95, S0 + mC.borde, "power1.inOut"],
                     [T6, S0 + mC.borde], [T6 + 0.4, S0 + mC.fin, "power1.in"]];   // A6: el borde se deshace en el grupo
         M.cadena([[a("s-espiral"), mE.L], [a("s-borde"), mC.L]], COLA, PUNTA, 0, T6 + 0.7);

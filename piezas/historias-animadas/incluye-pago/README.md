@@ -201,8 +201,8 @@ acababa en un punto sobre el icono, el ™ de Android y la respuesta falsa de NO
   del viaje: 19 de 20» en la cabecera de NOMAD AI. El 19 de 20 es el cupo de antes del viaje, cierto,
   pero se lee como un tope justo cuando Kore dice «lo que quieras»; «durante el viaje» lo salva.
 - **La respuesta de NOMAD AI es falsa**: dice que el día más cargado es el sábado 21, con cinco
-  actividades, y en el viaje de ejemplo el lunes 23 tiene seis y el miércoles 25, siete (cinco planes y
-  los dos traslados a Sintra), contado en la base el 29-oct. No es un empate con el jueves 26, como se
+  actividades, y en el viaje de ejemplo el lunes 23 tiene seis, sin ningún traslado, y el miércoles 25,
+  siete (dos de ellas, traslados), contado en la base el 29-oct. No es un empate con el jueves 26, como se
   dijo al principio. Nadie que vea el vídeo conoce el viaje, pero es la escena que vende NOMAD AI: si se
   publica así, lo decide el dueño, y si no, se graba otra pregunta en la próxima pasada (NOMAD#436,
   punto 11, es el fallo de la app).
