@@ -148,7 +148,7 @@ window.Motor = function (tl, VELOCIDAD) {
        .o("L" + (x0 + w - r) + "," + (y0 + h)).o("A" + r + "," + r + " 0 0 0 " + (x0 + w) + "," + (y0 + h - r))
        .o("L" + (x0 + w) + "," + (y0 + r)).o("A" + r + "," + r + " 0 0 0 " + (x0 + w - r) + "," + y0)
        .o("L" + (x0 + r) + "," + y0).o("A" + r + "," + r + " 0 0 0 " + x0 + "," + (y0 + r))
-       .o("L" + x0 + "," + (YB + 20)).marca("fin");
+       .o("L" + x0 + "," + (YB + 60)).marca("fin");   // 60 y no 20: la punta pasa la junta deprisa (asi-funciona)
     return { x0: x0, x1: x0 + w, y0: y0, y1: y0 + h };
   }
 
@@ -223,10 +223,11 @@ window.Motor = function (tl, VELOCIDAD) {
     aparece("#c-insignia", T8 + 0.6);
     entra("#c-android", T8 + 0.8, 16, ARR);
     tl.fromTo("#c-credito", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, T8 + 1.0);
-    // La negra de la música: 0,80083 s a 1×, con la primera en 0,092 (medido en sus notas, con la junta
-    // de mezclar.sh, que salta 28 negras justas). T8 + 1,49 cae en una.
-    var TIEMPO = 0.80083;
-    for (var tp = T8 + 1.49; tp < FIN - 0.5; tp += TIEMPO) {   // el último se corta con el vídeo, como en «Un trazo»
+    // La negra de la música: 0,80083 s a 1×, con la primera en 0,092 (medido en sus notas). En
+    // asi-funciona la junta de mezclar.sh repite 8 negras justas, así que la rejilla se mantiene; los
+    // latidos del cierre van en la primera negra desde T8 + 1,49.
+    var TIEMPO = 0.80083, T0 = 0.092 + Math.ceil((T8 + 1.49 - 0.092) / TIEMPO) * TIEMPO;
+    for (var tp = T0; tp < FIN - 0.3; tp += TIEMPO) {   // el último se corta con el vídeo, como en «Un trazo»
       tl.fromTo("#c-icono", { scale: 1 }, { scale: 1.04, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
       tl.fromTo("#c-icono", { scale: 1.04 }, { scale: 1, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tp + 0.16);
     }
@@ -240,7 +241,7 @@ window.Motor = function (tl, VELOCIDAD) {
     } else {
       tl.set("#c-perfil", { autoAlpha: 0 }, 0);
       tl.fromTo("#c-flecha", { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power2.out" }, T8 + 0.95);
-      for (var tb = T8 + 1.49; tb < FIN - 0.5; tb += TIEMPO) {
+      for (var tb = T0; tb < FIN - 0.3; tb += TIEMPO) {
         tl.fromTo("#c-flecha", { y: 0 }, { y: 12, duration: 0.18, ease: "power2.out", immediateRender: false }, tb);
         tl.fromTo("#c-flecha", { y: 12 }, { y: 0, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tb + 0.18);
       }
