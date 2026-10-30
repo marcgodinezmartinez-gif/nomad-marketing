@@ -4,7 +4,7 @@
 # Escribe en <salida> (por defecto salida/ del repo):
 #   nomad-asi-funciona-historia-1080x1920.mp4  con la flecha hacia el adhesivo de enlace
 #   nomad-asi-funciona-reel-1080x1920.mp4      con «Enlace en el perfil» (reel de Instagram y TikTok)
-# Los dos: 1080x1920, 30 fps, 56,9 s (todo a 1,15×), H.264 + AAC, con la voz y la música dentro.
+# Los dos: 1080x1920, 30 fps, 59,3 s (todo a 1,15×), H.264 + AAC, con la voz y la música dentro.
 # Y en revision/, los PNG de comprobación: uno por escena y versión, y el cierre con las zonas
 # seguras dibujadas encima.
 # Uso, desde cualquier sitio: bash piezas/historias-animadas/asi-funciona/variantes.sh [salida]
@@ -26,7 +26,7 @@ ls "$D"/assets/tomas/*.mp4 >/dev/null 2>&1 || { echo "faltan las tomas: METRAJE=
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la historia.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version historia' EXIT
 # Un instante por escena: cuando ya está todo dentro y nada se mueve.
-ESCENAS="0.30:00-el-logo 7.60:01-te-monta 12.00:02-portada 17.00:03-dia-a-dia 22.50:04-la-guia 27.80:05-y-eso 32.00:06-asistente 36.50:07-gastos 41.50:08-el-mapa 46.40:09-lo-paga-uno 50.50:10-recomiendalo 56.00:11-el-cierre"
+ESCENAS="0.30:00-el-logo 7.60:01-te-monta 12.00:02-portada 17.00:03-dia-a-dia 22.50:04-la-guia 27.80:05-y-eso 32.00:06-asistente 36.50:07-gastos 41.50:08-el-mapa 48.60:09-lo-paga-uno 52.50:10-recomiendalo 58.40:11-el-cierre"
 for V in ${VERSIONES:-historia reel}; do
   version "$V"
   ( cd "$D" && $HF check --at-transitions 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -E "Check (passed|failed)|✗|⚠|WCAG" ) | tee /tmp/asi-funciona-check.txt

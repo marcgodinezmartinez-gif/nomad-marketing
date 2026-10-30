@@ -10,10 +10,11 @@ suelto. Kore lo cuenta:
 > guía que te lo cuenta al oído, como si fuera contigo. · ¿Y eso qué es? Hazle una foto y pregúntaselo.
 > · ¿Te apetece cambiar algo? Pídeselo al asistente y te cambia el plan al momento. · Y los gastos del
 > grupo, apuntados y repartidos. · ¿Te recomiendan un bar? Lo guardas y lo tenéis todos en el mapa. ·
-> Lo paga uno y el viaje es de todo el grupo. · Y cuando vuelvas, recomiéndalo, para que alguien lo
-> disfrute como lo has disfrutado tú. · Nomad. Descárgala gratis en la App Store.
+> Lo paga uno, se apunta automáticamente en los gastos del grupo y se reparte según os vais uniendo. ·
+> Y cuando vuelvas, recomiéndalo, para que alguien lo disfrute como lo has disfrutado tú. · Nomad.
+> Descárgala gratis en la App Store.
 
-Las pantallas son de la app de verdad, con el viaje de ejemplo a Lisboa. Dura 56,9 s y ya lleva la voz
+Las pantallas son de la app de verdad, con el viaje de ejemplo a Lisboa. Dura 59,3 s y ya lleva la voz
 y la música, la misma de «Un trazo».
 
 Cuatro ficheros:
@@ -32,9 +33,9 @@ letra pequeña se emborrona.
 **Lo mismo que con «Un trazo» y los vídeos A y B, y vale igual aquí:**
 
 1. **No le pongas música** de Instagram ni de TikTok. Escúchalo antes en el altavoz del iPhone y con
-   auriculares, sobre todo **entre los segundos 8 y 10**, donde la música repite dos compases para durar
-   lo que el vídeo, y **el final**: el último acorde suena con «…como lo has disfrutado tú» y el cierre
-   va sobre su cola. Está medido, no oído.
+   auriculares, sobre todo **entre los segundos 8 y 10 y entre el 13 y el 15**, donde la música repite
+   dos compases para durar lo que el vídeo, y **el final**: el último acorde suena en el cierre, con
+   «Descárgala gratis». Está medido, no oído.
 2. **Marca la etiqueta de IA** en cada publicación: la voz y la música están hechas con IA.
 3. **Antes de pagar una promoción, mira la pantalla de pago.** Si aparece «Comisión de Apple», cancela.
 4. **El enlace**: si ya probaste en tu iPhone que el adhesivo y la bio abren la ficha, no hace falta
@@ -63,7 +64,7 @@ vuelve a renderizar en unos minutos.
 
 Le dices a dónde vas y cómo te gusta viajar, y te monta el viaje entero, día a día: qué ver, a qué hora y dónde comer. En los paseos y en los museos, una guía te lo cuenta al oído. Si en un museo ves algo y no sabes qué es, hazle una foto y pregúntaselo. ¿Quieres cambiar algo? Pídeselo al asistente.
 
-Y para el grupo: los gastos, apuntados y repartidos; los sitios que os recomiendan, en un mapa que veis todos; y lo paga uno, para todos.
+Y para el grupo: los gastos, apuntados y repartidos; los sitios que os recomiendan, en un mapa que veis todos; y el viaje lo paga uno: se apunta solo en los gastos y se reparte entre los que os vais uniendo.
 
 Descargarla es gratis. El viaje se paga una vez, sin suscripción: 2,99 € hasta 3 días, 4,99 € de 4 a 7 días y 6,99 € de 8 a 30 días.
 
@@ -84,7 +85,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 
 **Súbela desde el carrete, no compartas el reel**: compartido no lleva enlace.
 
-1. **Historia** → `nomad-asi-funciona-historia-1080x1920.mp4` (56,9 s: cabe en una).
+1. **Historia** → `nomad-asi-funciona-historia-1080x1920.mp4` (59,3 s: cabe en una).
 2. **Adhesivos** → **Enlace** → `https://apps.apple.com/app/id6797973945` (o el de campaña con
    `ct=ig-historia-asi-funciona`, si ya tienes el `pt`, #14) → texto del adhesivo: **Descárgala**.
 3. Colócalo abajo, donde apuntan las flechas, más o menos a un 80 % de la altura, pequeño y sin tapar
@@ -105,7 +106,7 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
 **Pie de TikTok:**
 
 ```
-¿Cuatro días en Lisboa y no sabes por dónde empezar? Nomad te monta el viaje, día a día; te cuenta los paseos y los museos al oído; te cambia el plan si se lo pides; reparte los gastos del grupo y guarda en un mapa los sitios que os recomiendan. Lo paga uno, para todos. «Nomad: guía de viajes», ya en la App Store para iPhone. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Pantallas de la app, con un viaje de ejemplo y secuencias acortadas. Android™, pronto. El enlace, en el perfil.
+¿Cuatro días en Lisboa y no sabes por dónde empezar? Nomad te monta el viaje, día a día; te cuenta los paseos y los museos al oído; te cambia el plan si se lo pides; reparte los gastos del grupo y guarda en un mapa los sitios que os recomiendan. Lo paga uno, se apunta solo en los gastos y se reparte según os unís. «Nomad: guía de viajes», ya en la App Store para iPhone. Descargarla es gratis; el viaje, desde 2,99 € y sin suscripción. Pantallas de la app, con un viaje de ejemplo y secuencias acortadas. Android™, pronto. El enlace, en el perfil.
 
 #viajes #viajar #appdeviajes #lisboa #escapada
 ```

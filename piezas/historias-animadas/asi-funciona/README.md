@@ -1,6 +1,6 @@
 # Así funciona: el vídeo único de #18 (30-oct)
 
-Un vídeo de **56,9 s** (todo a 1,15×), 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro,
+Un vídeo de **59,3 s** (todo a 1,15×), 1080×1920, 30 fps, H.264 + AAC, con la voz y la música dentro,
 para Instagram (reel e historia) y TikTok. Recorre la app en el orden en que se usa: se monta el viaje,
 la portada, el plan del día, la guía de paseos y museos, la foto que pregunta, el asistente, los gastos,
 el mapa de lugares, el grupo y la recomendación. Sustituye a la idea de seis vídeos sueltos.
@@ -48,7 +48,7 @@ El cierre es el de A y B: «Secuencias acortadas.» y el crédito de Apple, y «
 | 7 | ¿Te apetece cambiar algo? Pídeselo al asistente y te cambia el plan al momento. | Pídeselo / al asistente. | un robot pequeño |
 | 8 | Y los gastos del grupo, apuntados y repartidos. | Los gastos, / repartidos. | tres personas y, debajo, «Cena · 64 €» |
 | 9 | ¿Te recomiendan un bar? Lo guardas y lo tenéis todos en el mapa. | Tus sitios, / en el mapa. | un pin |
-| 10 | Lo paga uno y el viaje es de todo el grupo. | Lo paga uno, / es de todos. | la pantalla se funde y su borde se recoge; cuatro personas en un suelo: se enciende la que paga (con «uno») y luego las demás |
+| 10 | Lo paga uno, se apunta automáticamente en los gastos del grupo y se reparte según os vais uniendo. | Lo paga uno, / se reparte solo. | la pantalla se funde; en un suelo aparece la que paga y se enciende con «uno»; con «se apunta» entra «Itinerario del viaje · 6,99 €», y con «según os vais uniendo» llegan las otras tres, una a una, y cambia «entre 2», «entre 3», «entre 4» |
 | 11 | Y cuando vuelvas, recomiéndalo, para que alguien lo disfrute como lo has disfrutado tú. | Recomiéndalo. / Que lo disfruten. | un avión de papel encima de los cuatro |
 | 12 | Nomad. Descárgala gratis en la App Store. | (el cierre) | |
 
@@ -114,24 +114,32 @@ punto 7).
 Kore, `gemini-3.1-flash-tts-preview`, con el estilo de A y B (lo que va antes de los dos puntos no se
 lee; dentro, «Nomad se pronuncia "nómad"»), y transcrita con faster-whisper para elegir. Una toma por
 frase, la primera, salvo v08 y v11, la segunda: v08-1 leyó en voz alta el texto del estilo y v11-1
-pronunció mal. Duran de 3,36 s (el cierre) a 6,38 s (la de la guía), a 1×.
+pronunció mal. Duran de 3,36 s (el cierre) a 6,44 s (la del pago), a 1×. La del pago (v10) es de después
+(ver abajo): la segunda de tres tomas, las tres con todas sus palabras.
 
 ## La música y la mezcla
 
 La de «Un trazo», con la cadena de A y B (`mezclar.sh`): la voz a −18 LUFS, la música a −33 y
-apartándose cuando habla Kore, y todo a −16 LUFS lineal. Medido: **−16,0 LUFS, pico −2,9 dBFS, LRA
-1,5 LU**, y las doce frases enteras en la pista de voz.
+apartándose cuando habla Kore, y todo a −16 LUFS lineal. Medido: **−16,0 LUFS, pico −3,0 dBFS, LRA
+1,6 LU**, y las doce frases enteras en la pista de voz.
 
-**Aquí la pista se alarga, no se acorta**: dura 60,7 s y el vídeo pide 65,4 a 1×. Se repiten **dos
-compases justos** (6,407 s): hasta el 11,26 de la pista tal cual y, desde ahí, la misma pista 6,407 s
-antes, fundidas en dos segundos (9,26-11,26 a 1×, encima del corte de la escena 2 a la 3) donde los
-acordes se parecen más (croma 0,916). Con tres compases no hay junta buena (0,6 como mucho: la armonía va
-de dos en dos) y con uno, 0,73. Por eso **el último acorde no cae en el cierre, como en A y B**: el
-arranque más fuerte del final de la pista (51,25) cae en 57,66 a 1×, debajo de «…como lo has disfrutado
-tú», y el cierre suena sobre su cola, que se apaga sola. Después de la junta vuelve a sonar la pausa que
-la pieza tiene en su segundo 5 (un bajón de unos 15 dB, 1,5 s después del corte): es de la música, no del
-fundido. **Está medido, no oído**: la junta y ese final hay que escucharlos en el altavoz del iPhone y con
-auriculares.
+**Aquí la pista se alarga, no se acorta**: dura 60,7 s y el vídeo pide 68,2 a 1×. Se repiten **dos veces dos
+compases justos** (6,407 s cada vez): hasta el 11,26 de la pista tal cual; desde ahí, la misma pista 6,407 s
+antes hasta el 11,26 otra vez; y desde ahí, otra vez 6,407 s antes y ya hasta el final. Las dos juntas se
+funden en dos segundos donde los acordes se parecen más (croma 0,916): la primera en 9,26-11,26 a 1×
+(8,1-9,8 en el vídeo, encima del corte de la escena 2 a la 3) y la segunda en 15,67-17,67 (13,6-15,4,
+encima del de la 3 a la 4). Sólo casan las repeticiones de dos compases: con uno, el croma da 0,73 como
+mucho; con tres, 0,6; con cuatro seguidos, 0,68. Así **el último acorde cae en el cierre, como en A y B**:
+el arranque más fuerte del final de la pista (51,25) cae en 64,06 a 1× (55,7 en el vídeo), 1,27 s después
+del corte del cierre, debajo de «Descárgala gratis», y se apaga con el vídeo. Comprobado contra la pista
+original: la larga casa con ella corrida dos y cuatro compases, con correlación 1,0. Después de cada junta
+vuelve a sonar la pausa que la pieza tiene en su segundo 5 (un bajón de unos 15 dB): es de la música, no
+del fundido. **Está medido, no oído**: las juntas y el final hay que escucharlos en el altavoz del iPhone
+y con auriculares.
+
+**Y una trampa de ffmpeg, por si se toca**: con `asplit`, el trozo del medio (el que lleva `atrim` con
+`end`) se perdía entero, sin aviso, y la pista salía de 65 s en vez de 73,5. Por eso `mezclar.sh` lee la
+pista tres veces.
 
 ## Cómo se rehace
 
@@ -204,3 +212,21 @@ calendario dice NOV 2026 con S D L M X J V S para el 21-28 (comprobado con el ca
 los cinco planes son las del sábado 21 de la toma; las doce frases de Kore suenan enteras, cada una con
 su escena; no se ve ningún código de invitación, correo ni dato personal; el cierre lleva los avisos de
 Apple y de Android, y las zonas seguras se respetan.
+
+## Lo que cambió después: el pago, apuntado y repartido (30-oct)
+
+Al ver el vídeo, el dueño: *«lo único que no me gusta es el lo paga uno y lo disfrutan todos, ahí se
+debería aclarar que el gasto se incluye automáticamente en los gastos y conforme se unen se divide»*.
+Comprobado en la app antes de decirlo: la compra crea un gasto del grupo, «NOMAD · Itinerario del viaje»,
+con reparto automático (`compra_como_gasto`, en `20260906150000_compra_como_gasto_del_grupo.sql`), y cada
+vez que alguien se une o se va se vuelve a repartir entre los aceptados
+(`reparto_automatico_al_cambiar_miembros`), a partes iguales y con el céntimo que sobra para quien paga.
+
+- **La voz**: «Lo paga uno, se apunta automáticamente en los gastos del grupo y se reparte según os vais
+  uniendo.» (6,44 s, antes 3,65). **Abajo**: «Lo paga uno, / se reparte solo.»
+- **El dibujo**: la que paga aparece y se enciende con «uno»; con «se apunta» entra «Itinerario del viaje
+  · 6,99 €» (el precio de un viaje de 8 a 30 días, como el de ejemplo) y, con «según os vais uniendo»,
+  llegan las otras tres una a una y cambia «entre 2», «entre 3», «entre 4». No se pinta lo que toca a
+  cada una porque la app no lo reparte exacto (1,77 para quien paga y 1,74 para las demás, entre cuatro).
+- **La escena dura 2,79 s más**, así que los cortes de después se corren (`T`, `EMPIEZA`) y el vídeo pasa
+  de 56,9 a 59,3 s; la música se alarga dos compases más (arriba) y su último acorde vuelve al cierre.

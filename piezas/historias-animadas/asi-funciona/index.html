@@ -48,6 +48,10 @@
               font-size: 32px; font-weight: 600; white-space: nowrap; color: #100E0B; }
       .hora { position: absolute; left: 718px; margin: 0; font-size: 52px; line-height: 56px; white-space: nowrap; }
       .num { font-family: 'Instrument Sans'; font-weight: 700; }
+      /* S10: el pago del viaje, apuntado solo en los gastos, y entre cuántos se reparte. */
+      #rep-gasto, .rep { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; }
+      #rep-gasto { top: 902px; font-size: 34px; line-height: 44px; font-weight: 600; color: #100E0B; }
+      .rep { top: 950px; font-size: 32px; line-height: 42px; font-weight: 600; }
       #gasto { position: absolute; left: 587px; width: 330px; top: 862px; margin: 0; text-align: center;
                font-size: 34px; line-height: 44px; font-weight: 600; color: #100E0B; white-space: nowrap; }
       #papel { position: absolute; inset: 0; background: #F5F0E8; }
@@ -66,7 +70,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="asi-funciona" data-start="0"
-         data-width="1080" data-height="1920" data-duration="56.867">
+         data-width="1080" data-height="1920" data-duration="59.3">
       <!-- Debajo de las píldoras: el collar pasa por detrás. -->
       <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path id="s-collar" stroke="#0F766E" stroke-width="10" />
@@ -104,6 +108,10 @@
       <p id="h3" class="hora serif" style="top: 822px;">16:30</p>
       <p id="h4" class="hora serif" style="top: 932px;">20:30</p>
       <p id="gasto" class="sans">Cena · 64 €</p>
+      <p id="rep-gasto" class="sans">Itinerario del viaje · 6,99 €</p>
+      <p id="rep2" class="rep sans verde">entre 2</p>
+      <p id="rep3" class="rep sans verde">entre 3</p>
+      <p id="rep4" class="rep sans verde">entre 4</p>
       <h1 id="t1a" class="tit serif t84" style="top: 1282px;">Cuatro días en Lisboa.</h1>
       <h1 id="t1b" class="tit serif t84 verde" style="top: 1370px;">¿Por dónde empiezo?</h1>
       <h1 id="t2a" class="tit serif t84" style="top: 1282px;">Te monta</h1>
@@ -123,7 +131,7 @@
       <h1 id="t9a" class="tit serif t84" style="top: 1282px;">Tus sitios,</h1>
       <h1 id="t9b" class="tit serif t84 verde" style="top: 1370px;">en el mapa.</h1>
       <h1 id="t10a" class="tit serif t84" style="top: 1282px;">Lo paga uno,</h1>
-      <h1 id="t10b" class="tit serif t84 verde" style="top: 1370px;">es de todos.</h1>
+      <h1 id="t10b" class="tit serif t84 verde" style="top: 1370px;">se reparte solo.</h1>
       <h1 id="t11a" class="tit serif t84" style="top: 1282px;">Recomiéndalo.</h1>
       <h1 id="t11b" class="tit serif t84 verde" style="top: 1370px;">Que lo disfruten.</h1>
       <div id="papel"></div>
@@ -174,7 +182,7 @@
       <p id="c-android" class="sans">Pronto en Android™</p>
       <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
       <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="56.867"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="59.3"></audio>
     </div>
     <script>
       document.fonts.ready.then(function () {
@@ -186,8 +194,8 @@
         var SVGNS = "http://www.w3.org/2000/svg";
         // LOS CORTES, a 1×: cada escena dura su frase de Kore más 0,55 s (0,25 antes y 0,3 después). La voz
         // de cada escena empieza en T + 0,25 (mezclar.sh). Si se mueve un corte, se mueve allí y en tomas.json.
-        var T = [0, 0, 4.34, 9.80, 15.70, 21.77, 28.70, 33.32, 39.29, 43.84, 49.53, 53.73, 60.00];
-        var FIN = 1706 / 30 * VELOCIDAD;
+        var T = [0, 0, 4.34, 9.80, 15.70, 21.77, 28.70, 33.32, 39.29, 43.84, 49.53, 56.52, 62.79];
+        var FIN = 1779 / 30 * VELOCIDAD;
         var XI = 150, XB = XI + 404 + 7;
         // La negra de la música, a 1×: los latidos caen en ella.
         function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
@@ -399,20 +407,36 @@
         respira("#pin-ojo", T[9] + 1.65, T[10] - 0.5, 0.08);
         M.frase(["t9a", "t9b"], T[9], T[10]);
 
-        // —— S10 · LO PAGA UNO: la pantalla se apaga (la cola se come el borde) y se dibuja un suelo con los
-        // cuatro del viaje. Se enciende el que paga y, después, los demás.
+        // —— S10 · LO PAGA UNO, Y SE REPARTE SOLO (30-oct, el dueño: «se debería aclarar que el gasto se incluye
+        // automáticamente en los gastos y conforme se unen se divide»). Es lo que hace la app: la compra crea un
+        // gasto del grupo con reparto automático, y cada vez que alguien se une se vuelve a repartir entre los
+        // aceptados (NOMAD, compra_como_gasto y reparto_automatico_al_cambiar_miembros). La pantalla se funde y su
+        // borde se recoge; en un suelo aparece la que paga y se enciende con «uno»; con «se apunta» entra el
+        // gasto, y con «se reparte según os vais uniendo» van llegando las otras tres y cambia entre cuántas se
+        // reparte. «entre N» y no lo que toca a cada una: la app da el céntimo que sobra a quien paga.
         M.apaga("#pantalla", T[10], 0.15);
         var SY = 880;
         var sue = new M.Camino();
         sue.o("M300," + SY + " L540," + SY).marca("medio").o("L780," + SY).marca("fin");
         var mS = M.pon(sue, a("s-suelo"));
-        var XP = [360, 480, 600, 720], TV = T[10] + 0.25;
-        XP.forEach(function (x, k) { persona("g" + k, x, SY - 108); M.brota("#g" + k, T[10] + 0.75 + 0.1 * k, "back.out(2.4)"); });
-        var LLENA = [T[10] + 1.15, TV + 2.8, TV + 3.0, TV + 3.2];   // la primera, con «uno», ya brotadas las cuatro
+        var XP = [360, 480, 600, 720], V10 = T[10] + 0.25;
+        // Las palabras de v10 (faster-whisper, a 1× desde que empieza la frase): «uno» 0,60, «se apunta» 1,34,
+        // «se reparte» 4,46, «según» 5,16, «vais» 5,74.
+        var LLEGA = [T[10] + 0.6, V10 + 4.46 - 0.1, V10 + 5.16 - 0.1, V10 + 5.74 - 0.1];
+        var LLENA = [V10 + 0.6, V10 + 4.46 + 0.12, V10 + 5.16 + 0.12, V10 + 5.74 + 0.12];
         XP.forEach(function (x, k) {
+          persona("g" + k, x, SY - 108);
+          M.brota("#g" + k, LLEGA[k], "back.out(2.4)");
           tl.fromTo("#g" + k + " circle", { attr: { fill: "#FFFDF9" } }, { attr: { fill: "#0F766E" }, duration: 0.15, ease: "power1.out", immediateRender: false }, LLENA[k]);
-          M.late("#g" + k, LLENA[k], 0.08, 0.4);
+          M.late("#g" + k, LLENA[k], 0.08, 0.6);
         });
+        gsap.set(["#rep-gasto", "#rep2", "#rep3", "#rep4"], { autoAlpha: 0 });
+        M.entra("#rep-gasto", V10 + 1.34, 12, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+        M.late("#rep-gasto", V10 + 3.2, 0.04, 0.45);   // en «gastos»
+        M.entra("#rep2", LLENA[1], 10, { autoAlpha: 1, y: 0, duration: 0.25, ease: "power3.out" });
+        M.corta("#rep2", LLENA[2]); M.aparece("#rep3", LLENA[2]); M.late("#rep3", LLENA[2], 0.08, 0.35);
+        M.corta("#rep3", LLENA[3]); M.aparece("#rep4", LLENA[3]); M.late("#rep4", LLENA[3], 0.08, 0.35);
+        M.apaga(["#rep-gasto", "#rep4"], T[11] - 0.4, 0.25);
         M.frase(["t10a", "t10b"], T[10], T[11]);
 
         // —— S11 · RECOMIÉNDALO: un avión de papel, encima de los cuatro.
@@ -425,7 +449,7 @@
         [negra(T[11] + 0.25 + 3.92)].forEach(function (t) { XP.forEach(function (x, k) { M.late("#g" + k, t + 0.05 * k, 0.07, 0.45); }); });
         XP.forEach(function (x, k) { M.encoge("#g" + k, T[12] - 0.3 + 0.03 * k); });
         respira("#s-avion", T[11] + 1.65, T[12] + 0.05, 0.04);   // el último, mientras se recoge
-        respira(["#g0", "#g1", "#g2", "#g3"], T[10] + 1.3, T[12] - 0.3, 0.045);
+        XP.forEach(function (x, k) { respira("#g" + k, LLENA[k] + 0.45, T[12] - 0.3, 0.045); });
         M.frase(["t11a", "t11b"], T[11], T[12]);
         // El suelo: nace en S10 y, en el cierre, se recoge en un punto en el centro del icono.
         var SP = [[T[10] + 0.4, 0], [T[10] + 0.95, mS.fin, "power2.inOut"], [T[12], mS.fin], [T[12] + 0.2, mS.medio + 0.3, "power2.inOut"]];

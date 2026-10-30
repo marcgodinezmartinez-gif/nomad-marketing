@@ -224,9 +224,10 @@ window.Motor = function (tl, VELOCIDAD) {
     entra("#c-android", T8 + 0.8, 16, ARR);
     tl.fromTo("#c-credito", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, T8 + 1.0);
     // La negra de la música: 0,80083 s a 1×, con la primera en 0,092 (medido en sus notas). En
-    // asi-funciona la junta de mezclar.sh repite 8 negras justas, así que la rejilla se mantiene; los
-    // latidos del cierre van en la primera negra desde T8 + 1,49.
-    var TIEMPO = 0.80083, T0 = 0.092 + Math.ceil((T8 + 1.49 - 0.092) / TIEMPO) * TIEMPO;
+    // asi-funciona las juntas de mezclar.sh repiten negras justas, así que la rejilla se mantiene; los
+    // latidos del cierre van en la primera negra desde T8 + 1,2 (con 1,49, según dónde cayera el corte, el
+    // cierre se quedaba quieto 0,67 s entre que acaba de entrar todo y el primer latido).
+    var TIEMPO = 0.80083, T0 = 0.092 + Math.ceil((T8 + 1.2 - 0.092) / TIEMPO) * TIEMPO;
     for (var tp = T0; tp < FIN - 0.3; tp += TIEMPO) {   // el último se corta con el vídeo, como en «Un trazo»
       tl.fromTo("#c-icono", { scale: 1 }, { scale: 1.04, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
       tl.fromTo("#c-icono", { scale: 1.04 }, { scale: 1, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tp + 0.16);

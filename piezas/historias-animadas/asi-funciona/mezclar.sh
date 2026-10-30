@@ -6,21 +6,23 @@
 # LA VOZ (assets/voz/v01…v12.flac): Kore, gemini-3.1-flash-tts-preview, piezas/ia/voz.py, una toma por
 # frase, recortada con recortar-voz.py de «Un trazo» y comprobada con faster-whisper (README.md, «La voz»).
 #
-# LA MÚSICA: la de «Un trazo», que dura 60,7 s, y el vídeo pide 65,4 a 1×: se alarga REPITIENDO dos compases
-# justos (6,407 s). Hasta el 11,26 de la pista tal cual y, desde ahí, la misma pista 6,407 s ANTES, fundidas
-# en dos segundos (9,26-11,26 a 1×, que es el corte de S2 a S3) donde los acordes de las dos se parecen
-# más (croma 0,916 en 2 s, 0,894 en 4). Con tres compases no hay junta buena (croma 0,6 como mucho: la
-# armonía va de dos en dos), y con uno, 0,73. Así su último acorde (el 51,25 de la pista, el arranque más
-# fuerte del final) cae en 57,66 a 1×, debajo de «…como lo has disfrutado tú», y el cierre suena sobre su
-# cola, que se apaga sola. La negra de la música (0,80083 s) no se mueve: la junta es de compases enteros.
+# LA MÚSICA: la de «Un trazo», que dura 60,7 s, y el vídeo pide 68,2 a 1×: se alarga REPITIENDO DOS VECES dos
+# compases justos (6,407 s cada vez). Hasta el 11,26 de la pista tal cual; desde ahí, la misma pista 6,407 s
+# ANTES hasta el 11,26 otra vez; y desde ahí, otra vez 6,407 s antes y ya hasta el final. Cada junta se funde
+# en dos segundos donde los acordes de las dos se parecen más (croma 0,916 en 2 s, 0,894 en 4): la primera en
+# 9,26-11,26 a 1× (el corte de S2 a S3), la segunda en 15,67-17,67 (el de S3 a S4). Sólo casan las
+# repeticiones de dos compases: con uno, el croma da 0,73 como mucho; con tres, 0,6; con cuatro seguidos,
+# 0,68. Así su último acorde (el 51,25 de la pista, el arranque más fuerte del final) cae en 64,06 a 1×,
+# 1,27 s después del corte del cierre, debajo de «Descárgala gratis», y se apaga con el vídeo. La negra
+# (0,80083 s) no se mueve: las juntas son de compases enteros.
 set -e
 cd "$(dirname "$0")/assets"
 VEL=1.15
-DUR=56.867
+DUR=59.3
 VOCES=(v01 v02 v03 v04 v05 v06 v07 v08 v09 v10 v11 v12)
 # Dónde empieza cada frase, en segundos del vídeo a 1×: su corte (T, en index.html) más 0,25, y la del
 # cierre, 0,2. Si se mueve un corte, se mueve aquí.
-EMPIEZA=(0.25 4.59 10.05 15.95 22.02 28.95 33.57 39.54 44.09 49.78 53.98 60.2)
+EMPIEZA=(0.25 4.59 10.05 15.95 22.02 28.95 33.57 39.54 44.09 49.78 56.77 62.99)
 T=$(mktemp -d)
 trap 'rm -rf "$T"' EXIT
 
@@ -69,11 +71,14 @@ PY
 
 # La música: principio y final fundidos, a -33 LUFS (quince por debajo de la voz), y apartándose unos
 # cinco decibelios más mientras la voz habla.
-ffmpeg -v error -y -i musica-calma.mp3 -filter_complex "
-[0:a]aresample=48000,asplit=2[a][b];
-[a]atrim=0:11.26,asetpts=PTS-STARTPTS[a1];
-[b]atrim=start=2.85336,asetpts=PTS-STARTPTS[b1];
-[a1][b1]acrossfade=d=2:c1=qsin:c2=qsin[m]" \
+# La pista se lee tres veces y no con asplit: con asplit, el trozo del medio (el que lleva atrim con end)
+# se perdía entero y la música acababa en el 65 en vez del 73,5 (medido el 30-oct, sin aviso de ffmpeg).
+ffmpeg -v error -y -i musica-calma.mp3 -i musica-calma.mp3 -i musica-calma.mp3 -filter_complex "
+[0:a]aresample=48000,atrim=0:11.26,asetpts=PTS-STARTPTS[a1];
+[1:a]aresample=48000,atrim=start=2.85336:end=11.26,asetpts=PTS-STARTPTS[b1];
+[2:a]aresample=48000,atrim=start=2.85336,asetpts=PTS-STARTPTS[c1];
+[a1][b1]acrossfade=d=2:c1=qsin:c2=qsin[ab];
+[ab][c1]acrossfade=d=2:c1=qsin:c2=qsin[m]" \
   -map "[m]" -ac 2 -c:a pcm_s24le "$T/mus1.wav"
 ffmpeg -v error -y -i "$T/mus1.wav" -af "rubberband=tempo=$VEL,afade=t=in:d=0.03,apad,atrim=0:$DUR,afade=t=out:st=$(echo "$DUR - 0.8" | bc -l):d=0.8" \
   -ac 2 -c:a pcm_s24le "$T/mus0.wav"
