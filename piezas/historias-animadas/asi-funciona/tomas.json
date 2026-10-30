@@ -1,0 +1,12 @@
+[
+ {"id": "s2a", "fichero": "recorrido-crear.mp4", "entrada": 20.85, "salida": 23.30, "inicio": 5.29, "fin": 7.60},
+ {"id": "s2b", "fichero": "recorrido-crear.mp4", "entrada": 25.29, "salida": 29.16, "inicio": 7.60, "fin": 9.80},
+ {"id": "s3", "fichero": "recorrido-paseo.mp4", "entrada": 20.75, "salida": 22.35, "inicio": 9.80, "fin": 15.70},
+ {"id": "s4", "fichero": "recorrido-paseo.mp4", "entrada": 24.90, "salida": 28.91, "inicio": 15.70, "fin": 21.77},
+ {"id": "s5a", "fichero": "recorrido-paseo.mp4", "entrada": 57.00, "salida": 61.00, "inicio": 21.77, "fin": 23.66},
+ {"id": "s5b", "fichero": "recorrido-museo.mp4", "entrada": 39.00, "salida": 42.60, "inicio": 23.66, "fin": 28.70},
+ {"id": "s6", "fichero": "recorrido-museo.mp4", "entrada": 45.00, "salida": 49.00, "inicio": 28.70, "fin": 33.32},
+ {"id": "s7", "fichero": "recorrido-asistente.mp4", "entrada": 12.00, "salida": 14.10, "inicio": 33.32, "fin": 39.29},
+ {"id": "s8", "fichero": "recorrido-gastos.mp4", "entrada": 34.00, "salida": 37.60, "inicio": 39.29, "fin": 43.84},
+ {"id": "s9", "fichero": "recorrido-lugares.mp4", "entrada": 42.00, "salida": 47.00, "inicio": 43.84, "fin": 49.53}
+]

@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad · Así funciona</title>
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <script src="assets/motor.js"></script>
+    <script src="assets/version.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #FFFDF9; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+      /* «ASÍ FUNCIONA» (30-oct): un solo vídeo que recorre la app en el orden en que se usa, con el guion
+         que aprobó el dueño. La estética de «Un trazo»: una línea verde que no se levanta del papel. Nace
+         del logo, que se disuelve en una espiral hacia su centro; dibuja el borde de la pantalla (no un
+         iPhone: README.md de incluye-pago), dentro corre la grabación real, y al lado dibuja en grande lo
+         que cuenta cada escena. Kore cuenta todo. Pantalla a la izquierda (x=150), dibujos en x 600-890.
+         La frase de cada escena, siempre abajo (y=1282 y 1370). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
+              background-color: #FFFDF9;
+              background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
+              background-size: 54px 54px; background-position: 3px 11px; }
+      .verde { color: #0F766E; }
+      svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
+      #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
+               justify-content: center; align-items: center; gap: 16px; }
+      #marca img { display: block; width: 45px; height: 52px; }
+      #marca p { margin: 0; font-size: 42px; line-height: 56px; font-weight: 600; white-space: nowrap; }
+      .tit { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; letter-spacing: -.02em; }
+      .t84 { font-size: 84px; line-height: 1.04; }
+      .linea { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; }
+      #o-nombre { top: 902px; font-size: 92px; line-height: 1; }
+      #pantalla { position: absolute; left: 150px; top: 400px; width: 404px; height: 806px; border-radius: 36px;
+                  overflow: hidden; background: #F5F0E8; }
+      #pantalla video { position: absolute; left: 0; top: 0; width: 404px; height: 806px; display: block; }
+      #flash { position: absolute; inset: 0; background: #FFFFFF; }
+      .chip { position: absolute; display: block; height: 70px; line-height: 64px; box-sizing: border-box; padding: 0 22px; margin: 0;
+              border: 3px solid rgba(16,14,11,.26); border-radius: 35px; background: #FFFDF9;
+              font-size: 32px; font-weight: 600; white-space: nowrap; color: #100E0B; }
+      .hora { position: absolute; left: 718px; margin: 0; font-size: 52px; line-height: 56px; white-space: nowrap; }
+      .num { font-family: 'Instrument Sans'; font-weight: 700; }
+      #gasto { position: absolute; left: 561px; width: 330px; top: 862px; margin: 0; text-align: center;
+               font-size: 34px; line-height: 44px; font-weight: 600; color: #100E0B; white-space: nowrap; }
+      #papel { position: absolute; inset: 0; background: #F5F0E8; }
+      #c-icono { position: absolute; left: 430px; top: 520px; width: 220px; height: 220px; display: block;
+                 border-radius: 49px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 800px; width: 912px; margin: 0; text-align: center;
+                  font-size: 92px; line-height: 1; letter-spacing: -.02em; color: #100E0B; white-space: nowrap; }
+      #c-insignia { position: absolute; left: 360px; top: 980px; width: 359px; height: 120px; display: block; }
+      #c-android { position: absolute; left: 84px; top: 1170px; width: 912px; margin: 0; text-align: center;
+                   font-size: 38px; line-height: 1.2; font-weight: 600; color: rgba(16,14,11,.62); }
+      #c-credito { position: absolute; left: 180px; top: 1256px; width: 720px; margin: 0; text-align: center;
+                   font-size: 24px; line-height: 31px; font-weight: 500; color: rgba(16,14,11,.66); }
+      #c-perfil { position: absolute; left: 84px; top: 1404px; width: 912px; margin: 0; text-align: center;
+                  font-size: 36px; line-height: 1.2; font-weight: 600; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="asi-funciona" data-start="0"
+         data-width="1080" data-height="1920" data-duration="56.867">
+      <!-- Debajo de las píldoras: el collar pasa por detrás. -->
+      <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path id="s-collar" stroke="#0F766E" stroke-width="10" />
+      </svg>
+      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
+      <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se disuelve en espiral. -->
+      <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
+          <path id="l1" d="M5030 8063 c-319 -48 -497 -104 -755 -237 -394 -203 -729 -497 -1035 -906 -252 -339 -453 -764 -545 -1155 -54 -229 -59 -277 -59 -530 0 -264 10 -341 75 -537 119 -363 387 -679 723 -854 103 -54 109 -55 88 -28 -147 189 -209 356 -219 584 -4 114 -2 151 17 240 94 456 445 780 1085 1000 66 22 246 77 400 121 518 149 719 231 970 396 127 85 304 259 364 360 99 167 141 310 148 508 4 115 2 157 -15 235 -102 493 -538 815 -1097 809 -66 -1 -131 -3 -145 -6z"/>
+          <path id="l2" d="M6790 5991 c0 -5 5 -13 11 -17 21 -12 78 -147 95 -222 41 -184 -19 -468 -149 -702 -140 -252 -420 -585 -688 -816 -1053 -908 -2278 -1050 -3074 -356 -257 223 -469 584 -539 917 l-13 60 -8 -60 c-11 -80 1 -375 20 -505 65 -444 253 -875 542 -1240 103 -131 344 -365 478 -466 360 -269 717 -423 1163 -500 141 -25 182 -28 402 -28 189 -1 271 3 360 17 406 64 741 189 1061 398 172 113 292 211 444 364 384 386 632 859 727 1392 19 110 22 162 23 378 0 225 -2 261 -24 360 -86 405 -282 715 -575 910 -111 73 -256 139 -256 116z"/>
+          <path id="l3" d="M6205 5973 c-317 -37 -658 -215 -980 -512 -126 -115 -227 -227 -418 -461 -246 -300 -314 -379 -432 -495 -299 -296 -550 -368 -772 -221 -29 19 -57 37 -62 40 -13 8 14 -102 43 -173 61 -150 199 -293 360 -371 140 -68 237 -90 406 -90 104 0 162 6 250 24 222 47 459 136 701 267 129 68 389 239 494 324 420 337 726 726 848 1078 29 85 31 102 32 222 0 122 -2 133 -27 181 -73 138 -245 211 -443 187z"/>
+        </g></g>
+      </svg>
+      <p id="o-nombre" class="tit serif">Nomad: guía de viajes</p>
+      <div id="pantalla">
+        <video id="v-s2a" class="clip" src="assets/tomas/s2a.mp4" data-start="4.6" data-duration="2.009" muted playsinline></video>
+        <video id="v-s2b" class="clip" src="assets/tomas/s2b.mp4" data-start="6.609" data-duration="1.913" muted playsinline></video>
+        <video id="v-s3" class="clip" src="assets/tomas/s3.mp4" data-start="8.522" data-duration="5.13" muted playsinline></video>
+        <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="13.652" data-duration="5.278" muted playsinline></video>
+        <video id="v-s5a" class="clip" src="assets/tomas/s5a.mp4" data-start="18.93" data-duration="1.644" muted playsinline></video>
+        <video id="v-s5b" class="clip" src="assets/tomas/s5b.mp4" data-start="20.574" data-duration="4.383" muted playsinline></video>
+        <video id="v-s6" class="clip" src="assets/tomas/s6.mp4" data-start="24.957" data-duration="4.017" muted playsinline></video>
+        <video id="v-s7" class="clip" src="assets/tomas/s7.mp4" data-start="28.974" data-duration="5.191" muted playsinline></video>
+        <video id="v-s8" class="clip" src="assets/tomas/s8.mp4" data-start="34.165" data-duration="3.957" muted playsinline></video>
+        <video id="v-s9" class="clip" src="assets/tomas/s9.mp4" data-start="38.122" data-duration="4.948" muted playsinline></video>
+        <div id="flash"></div>
+      </div>
+      <p id="c0" class="chip sans">Lisboa</p>
+      <p id="c1" class="chip sans">Cultural</p>
+      <p id="c2" class="chip sans">Gastronomía</p>
+      <p id="h0" class="hora serif" style="top: 492px;">10:30</p>
+      <p id="h1" class="hora serif" style="top: 602px;">13:30</p>
+      <p id="h2" class="hora serif" style="top: 712px;">15:15</p>
+      <p id="h3" class="hora serif" style="top: 822px;">16:30</p>
+      <p id="h4" class="hora serif" style="top: 932px;">20:30</p>
+      <p id="gasto" class="sans">Cena · 64 €</p>
+      <h1 id="t1a" class="tit serif t84" style="top: 1282px;">Cuatro días en Lisboa.</h1>
+      <h1 id="t1b" class="tit serif t84 verde" style="top: 1370px;">¿Por dónde empiezo?</h1>
+      <h1 id="t2a" class="tit serif t84" style="top: 1282px;">Te monta</h1>
+      <h1 id="t2b" class="tit serif t84 verde" style="top: 1370px;">el viaje entero.</h1>
+      <h1 id="t3a" class="tit serif t84" style="top: 1282px;">Lo que toca ahora,</h1>
+      <h1 id="t3b" class="tit serif t84 verde" style="top: 1370px;">de un vistazo.</h1>
+      <h1 id="t4a" class="tit serif t84" style="top: 1282px;">Tu viaje,</h1>
+      <h1 id="t4b" class="tit serif t84 verde" style="top: 1370px;">día a día.</h1>
+      <h1 id="t5a" class="tit serif t84" style="top: 1282px;">Una guía</h1>
+      <h1 id="t5b" class="tit serif t84 verde" style="top: 1370px;">que te lo cuenta.</h1>
+      <h1 id="t6a" class="tit serif t84" style="top: 1282px;">¿Y eso</h1>
+      <h1 id="t6b" class="tit serif t84 verde" style="top: 1370px;">qué es?</h1>
+      <h1 id="t7a" class="tit serif t84" style="top: 1282px;">Pídeselo</h1>
+      <h1 id="t7b" class="tit serif t84 verde" style="top: 1370px;">al asistente.</h1>
+      <h1 id="t8a" class="tit serif t84" style="top: 1282px;">Los gastos,</h1>
+      <h1 id="t8b" class="tit serif t84 verde" style="top: 1370px;">repartidos.</h1>
+      <h1 id="t9a" class="tit serif t84" style="top: 1282px;">Tus sitios,</h1>
+      <h1 id="t9b" class="tit serif t84 verde" style="top: 1370px;">en el mapa.</h1>
+      <h1 id="t10a" class="tit serif t84" style="top: 1282px;">Lo paga uno,</h1>
+      <h1 id="t10b" class="tit serif t84 verde" style="top: 1370px;">es de todos.</h1>
+      <h1 id="t11a" class="tit serif t84" style="top: 1282px;">Recomiéndalo.</h1>
+      <h1 id="t11b" class="tit serif t84 verde" style="top: 1370px;">Que lo disfruten.</h1>
+      <div id="papel"></div>
+      <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path id="s-morph" stroke="#0F766E" stroke-width="10" />
+        <path id="s-espiral" stroke="#0F766E" stroke-width="10" />
+        <path id="s-borde" stroke="#0F766E" stroke-width="10" />
+        <path id="s-cal" stroke="#0F766E" stroke-width="10" />
+        <path id="s-rail" stroke="#0F766E" stroke-width="10" />
+        <path id="s-casco" stroke="#0F766E" stroke-width="10" />
+        <path id="s-camara" stroke="#0F766E" stroke-width="10" />
+        <path id="s-robot" stroke="#0F766E" stroke-width="10" />
+        <path id="s-gasto" stroke="#0F766E" stroke-width="10" />
+        <path id="s-pin" stroke="#0F766E" stroke-width="10" />
+        <path id="s-suelo" stroke="#0F766E" stroke-width="10" />
+        <path id="s-avion" stroke="#0F766E" stroke-width="10" />
+        <!-- S3 · El calendario del viaje: noviembre de 2026, del 21 al 28 (empieza en lunes, como en España). -->
+        <g id="cal"></g>
+        <!-- S4 · Los cinco planes del sábado, numerados como en la app. -->
+        <g id="nodos"></g>
+        <!-- S6 · La lente de la cámara. -->
+        <circle id="lente" cx="752" cy="707" r="46" stroke="#0F766E" stroke-width="10" />
+        <!-- S7 · El asistente: la antena, los ojos y la sonrisa del robot. -->
+        <g id="robot-cara">
+          <path d="M752,642 L752,606" stroke="#0F766E" stroke-width="10" />
+          <circle cx="752" cy="596" r="12" fill="#0F766E" />
+          <circle cx="718" cy="698" r="13" fill="#0F766E" />
+          <circle cx="786" cy="698" r="13" fill="#0F766E" />
+          <path d="M724,736 Q752,758 780,736" stroke="#0F766E" stroke-width="8" />
+        </g>
+        <!-- S7 · La otra opción: la marca de Nomad con dos destellos, dentro del mismo marco. -->
+        <g id="asis-marca">
+          <image href="assets/marca-grande.png" x="702" y="655" width="100" height="115" />
+          <path d="M858,602 L863,615 L876,620 L863,625 L858,638 L853,625 L840,620 L853,615 Z" fill="#0F766E" />
+          <path d="M650,598 L654,606 L662,610 L654,614 L650,622 L646,614 L638,610 L646,606 Z" fill="#0F766E" />
+        </g>
+        <!-- S9 · El punto del pin. -->
+        <circle id="pin-ojo" cx="752" cy="652" r="24" stroke="#0F766E" stroke-width="10" />
+        <!-- S8 · Tres personas del grupo, sobre la línea del gasto. S10-S11 · las cuatro del viaje. -->
+        <g id="personas"></g>
+        <g id="c-flecha">
+          <path d="M516,1420 L540,1436 L564,1420" stroke="#0F766E" stroke-width="6" />
+          <path d="M516,1442 L540,1458 L564,1442" stroke="#0F766E" stroke-opacity=".5" stroke-width="6" />
+        </g>
+      </svg>
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: guía de viajes</p>
+      <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Consíguelo en el App Store" />
+      <p id="c-android" class="sans">Pronto en Android™</p>
+      <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
+      <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="56.867"></audio>
+    </div>
+    <script>
+      document.fonts.ready.then(function () {
+        var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
+        var ASISTENTE = window.NOMAD_ASISTENTE === "marca" ? "marca" : "robot";
+        var tl = gsap.timeline({ paused: true });
+        var VELOCIDAD = 1.15;
+        var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F, FPS = 30;
+        var SVGNS = "http://www.w3.org/2000/svg";
+        // LOS CORTES, a 1×: cada escena dura su frase de Kore más 0,55 s (0,25 antes y 0,3 después). La voz
+        // de cada escena empieza en T + 0,25 (mezclar.sh). Si se mueve un corte, se mueve allí y en tomas.json.
+        var T = [0, 0, 4.34, 9.80, 15.70, 21.77, 28.70, 33.32, 39.29, 43.84, 49.53, 53.73, 60.00];
+        var FIN = 1706 / 30 * VELOCIDAD;
+        var XI = 150, XB = XI + 404 + 7;
+        // La negra de la música, a 1×: los latidos caen en ella.
+        function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
+        function el(tag, at, padre) { var e = document.createElementNS(SVGNS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || a("trazos")).appendChild(e); return e; }
+
+        // —— S1 · EL LOGO SE DISUELVE EN ESPIRAL. El logo es el de la app, en vectores. Su silueta (lo más lejano
+        // del centro en cada dirección) se dibuja como línea mientras el relleno se apaga; después esa silueta
+        // se enrolla en una espiral hacia el centro, y de su centro sale la línea que dibuja la pantalla.
+        var CX = 540, CY = 640, ALTO = 330;
+        var lg = a("logo-g"), bb = lg.getBBox(), sc = ALTO / bb.height;
+        lg.setAttribute("transform", "translate(" + (CX - sc * (bb.x + bb.width / 2)) + "," + (CY - sc * (bb.y + bb.height / 2)) + ") scale(" + sc + ")");
+        var NB = 360, rad = new Array(NB).fill(0);
+        ["l1", "l2", "l3"].forEach(function (id) {
+          var p = a(id), L = p.getTotalLength(), m = p.getCTM();
+          for (var s = 0; s <= L; s += L / 2400) {
+            var q = p.getPointAtLength(s), x = m.a * q.x + m.c * q.y + m.e, y = m.b * q.x + m.d * q.y + m.f;
+            var th = Math.atan2(y - CY, x - CX), b = ((Math.round((th + Math.PI / 2) / (2 * Math.PI) * NB) % NB) + NB) % NB;
+            rad[b] = Math.max(rad[b], Math.hypot(x - CX, y - CY));
+          }
+        });
+        for (var i = 0; i < NB; i++) if (!rad[i]) { var j = i; while (!rad[j % NB]) j++; rad[i] = rad[j % NB]; }
+        var suave = rad.map(function (r, i) { var s = 0; for (var k = -3; k <= 3; k++) s += rad[(i + k + NB) % NB]; return s / 7; });
+        var VUELTAS = 2.25, R0 = suave[0];
+        function forma(p) {   // p = 0: la silueta; p = 1: la espiral
+          var d = [];
+          for (var i = 0; i <= NB; i++) {
+            var u = i / NB, th0 = -Math.PI / 2 + 2 * Math.PI * u, r0 = suave[i % NB];
+            var th1 = -Math.PI / 2 + 2 * Math.PI * VUELTAS * u, r1 = 4 + (R0 - 4) * Math.pow(1 - u, 0.9);
+            var th = th0 + (th1 - th0) * p, r = r0 + (r1 - r0) * p;
+            d.push((i ? "L" : "M") + (CX + r * Math.cos(th)).toFixed(1) + "," + (CY + r * Math.sin(th)).toFixed(1));
+          }
+          return d.join(" ");
+        }
+        var morph = a("s-morph"), D0 = forma(0);
+        morph.setAttribute("d", D0);
+        var Lsil = morph.getTotalLength();
+        morph.setAttribute("stroke-dasharray", Lsil + " " + (Lsil + 40));
+        tl.fromTo(morph, { attr: { "stroke-dashoffset": Lsil } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power1.inOut", immediateRender: false }, 0.45);
+        tl.set(morph, { attr: { "stroke-dashoffset": Lsil } }, 0);
+        tl.fromTo("#logo-g", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4, ease: "power1.in", immediateRender: false }, 0.85);
+        M.apaga("#o-nombre", 1.6, 0.3);
+        var TM0 = 1.1, TM1 = 3.3, ease = gsap.parseEase("power2.inOut"), prev = { d: D0, "stroke-dasharray": Lsil + " " + (Lsil + 40) };
+        for (var k = Math.ceil(TM0 * FPS); k <= Math.floor(TM1 * FPS); k++) {
+          var v = { d: forma(ease(Math.min(1, (k / FPS - TM0) / (TM1 - TM0)))), "stroke-dasharray": "none" };
+          tl.fromTo(morph, { attr: prev }, { attr: v, duration: 0, immediateRender: false }, k / FPS);
+          prev = v;
+        }
+        // La espiral ya quieta pasa a ser el primer tramo de la cadena; el segundo, el borde de la pantalla.
+        var esp = new M.Camino(); esp.o(forma(1)).marca("fin");
+        var mE = M.pon(esp, a("s-espiral"));
+        var pts = forma(1).split(" "), ult = pts[pts.length - 1].slice(1).split(",").map(Number);
+        var cont = new M.Camino(); cont.o("M" + ult[0] + "," + ult[1]);
+        M.borde(cont, XI, ult);
+        var mC = M.pon(cont, a("s-borde")), S0 = mE.L;
+        tl.set("#s-espiral", { autoAlpha: 0 }, 0);
+        M.corta("#s-morph", TM1);
+        M.aparece("#s-espiral", TM1);
+        var PUNTA = [[0, mE.L], [TM1 + 0.1, mE.L], [T[2] + 1.0, S0 + mC.fin, "power2.inOut"]];
+        var COLA = [[0, 0], [TM1 + 0.1, 0], [T[2] + 0.7, S0 + mC.borde, "power1.inOut"],
+                    [T[10], S0 + mC.borde], [T[10] + 0.4, S0 + mC.fin, "power1.in"]];
+        M.cadena([[a("s-espiral"), mE.L], [a("s-borde"), mC.L]], COLA, PUNTA, TM1, T[10] + 0.5);
+        M.frase(["t1a", "t1b"], 0.1, T[2]);
+        tl.fromTo("#marca", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none", immediateRender: false }, T[2] + 0.3);
+        tl.set("#marca", { autoAlpha: 0 }, 0);
+        M.funde("#pantalla", T[2] + 0.95, 0.15);
+
+        // —— S2 · TE MONTA EL VIAJE: el collar ensarta lo que eliges, y cada opción se enciende cuando Kore la nombra.
+        var TEL = [T[2] + 1.85, T[2] + 2.85, T[2] + 3.25], CYS = [560, 650, 740];
+        CYS.forEach(function (y, k) {
+          var c = a("c" + k);
+          c.style.top = (y - 35) + "px"; c.style.left = (752 - c.offsetWidth / 2) + "px";
+          M.entra("#c" + k, T[2] + 1.0 + 0.05 * k, 14, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" });
+          tl.fromTo("#c" + k, { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" },
+                    { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9", duration: 0.12, ease: "power1.out", immediateRender: false }, TEL[k] - 0.02);
+          M.late("#c" + k, TEL[k] - 0.02, 0.08, 0.32);
+        });
+        var col = new M.Camino();
+        col.o("M" + XB + ",560 L752,560").marca("n0").o("C880,560 880,650 752,650").marca("n1").o("C624,650 624,740 752,740").marca("n2");
+        var mL = M.pon(col, a("s-collar"));
+        M.cadena([[a("s-collar"), mL.L]], [[0, 0]], [[T[2] + 1.05, 0], [TEL[0], mL.n0, "power1.out"], [TEL[1], mL.n1, "power1.inOut"],
+                  [TEL[2], mL.n2, "power1.inOut"], [T[3] - 0.3, mL.n2], [T[3], 0, "power1.in"]], T[2] + 1.0, T[3]);
+        M.late(["#c0", "#c1", "#c2"], negra(T[3] - 1.0), 0.05, 0.45);
+        M.corta(["#c0", "#c1", "#c2"], T[3]);
+        M.frase(["t2a", "t2b"], T[2], T[3]);
+
+        // —— S3 · LA PORTADA, y al lado el calendario del viaje: la línea dibuja la hoja y los días se encienden.
+        var CAL = { x0: 610, x1: 890, y0: 540, y1: 860, r: 18 };
+        var cal = new M.Camino();
+        cal.o("M" + XB + ",600 C585,600 598,566 " + CAL.x0 + "," + (CAL.y0 + CAL.r)).marca("ini")
+           .o("L" + CAL.x0 + "," + (CAL.y1 - CAL.r) + " Q" + CAL.x0 + "," + CAL.y1 + " " + (CAL.x0 + CAL.r) + "," + CAL.y1)
+           .o("L" + (CAL.x1 - CAL.r) + "," + CAL.y1 + " Q" + CAL.x1 + "," + CAL.y1 + " " + CAL.x1 + "," + (CAL.y1 - CAL.r))
+           .o("L" + CAL.x1 + "," + (CAL.y0 + CAL.r) + " Q" + CAL.x1 + "," + CAL.y0 + " " + (CAL.x1 - CAL.r) + "," + CAL.y0)
+           .o("L" + (CAL.x0 + CAL.r) + "," + CAL.y0 + " Q" + CAL.x0 + "," + CAL.y0 + " " + CAL.x0 + "," + (CAL.y0 + CAL.r))
+           .o("L" + CAL.x0 + ",602 L" + CAL.x1 + ",602").marca("fin");
+        var mCal = M.salida(a("s-cal"), cal, T[3] + 0.1, T[3] + 1.2, T[4] - 0.45, T[4] - 0.15, "power1.inOut");
+        var gcal = a("cal");
+        el("text", { x: 750, y: 584, "text-anchor": "middle", "class": "num", "font-size": 28, fill: "#0F766E", stroke: "none" }, gcal).textContent = "NOV 2026";
+        // Sólo los días del viaje, del sábado 21 al sábado 28, en dos filas de cuatro y con números grandes.
+        var LETRA = ["S", "D", "L", "M", "X", "J", "V", "S"];
+        for (var d = 21; d <= 28; d++) {
+          var c = (d - 21) % 4, f = Math.floor((d - 21) / 4), x = 645 + 70 * c, y = 676 + 112 * f;
+          var g = el("g", { id: "dia" + d }, gcal);
+          el("rect", { x: x - 30, y: y - 46, width: 60, height: 96, rx: 14, fill: "#0F766E", stroke: "none" }, g);
+          el("text", { x: x, y: y - 14, "text-anchor": "middle", "class": "num", "font-size": 28, fill: "rgba(255,253,249,.8)", stroke: "none" }, g).textContent = LETRA[d - 21];
+          el("text", { x: x, y: y + 34, "text-anchor": "middle", "class": "num", "font-size": 40, fill: "#FFFDF9", stroke: "none" }, g).textContent = d;
+          gsap.set("#dia" + d, { svgOrigin: x + " " + (y + 2) });
+        }
+        tl.set("#cal", { autoAlpha: 0 }, 0);
+        tl.fromTo("#cal", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none", immediateRender: false }, T[3] + 1.1);
+        for (d = 21; d <= 28; d++) { tl.set("#dia" + d, { autoAlpha: 0 }, 0); M.brota("#dia" + d, T[3] + 1.5 + 0.13 * (d - 21)); }
+        [negra(T[3] + 3.2), negra(T[3] + 4.0)].forEach(function (t) { M.late("#cal", t, 0.025, 0.5); });
+        gsap.set("#cal", { svgOrigin: "750 730" });
+        M.apaga("#cal", T[4] - 0.5, 0.25);
+        M.frase(["t3a", "t3b"], T[3], T[4]);
+
+        // —— S4 · TU VIAJE, DÍA A DÍA: los cinco planes del sábado, unidos por una curva, con sus horas al lado.
+        var NY = [520, 630, 740, 850, 960], NX = [640, 672, 640, 672, 640];
+        var rail = new M.Camino();
+        rail.o("M" + XB + ",470 C600,470 " + NX[0] + ",480 " + NX[0] + "," + NY[0]).marca("n0");
+        for (var n = 1; n < 5; n++) rail.o("C" + NX[n - 1] + "," + (NY[n - 1] + 55) + " " + NX[n] + "," + (NY[n] - 55) + " " + NX[n] + "," + NY[n]).marca("n" + n);
+        var mR = M.salida(a("s-rail"), rail, T[4] + 0.15, T[4] + 2.15, T[5] - 0.5, T[5] - 0.2, "power1.inOut");
+        NY.forEach(function (y, k) {
+          var g = el("g", { id: "n" + k }, a("nodos"));
+          el("circle", { cx: NX[k], cy: y, r: 26, fill: "#0F766E", stroke: "#FFFDF9", "stroke-width": 6 }, g);
+          el("text", { x: NX[k], y: y + 10, "text-anchor": "middle", "class": "num", "font-size": 30, fill: "#FFFDF9", stroke: "none" }, g).textContent = k + 1;
+          tl.set("#n" + k, { autoAlpha: 0 }, 0);
+          M.nodo("#n" + k, mR, "n" + k, NX[k], y, [negra(T[4] + 2.6) + 0.04 * k, negra(T[4] + 3.4) + 0.04 * k, negra(T[4] + 4.2) + 0.04 * k]);
+          a("h" + k).style.left = (NX[k] + 48) + "px";
+          M.entra("#h" + k, mR.llega("n" + k) + 0.04, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+          M.apaga("#h" + k, mR.vuelve("n" + k) - 0.06, 0.1);
+        });
+        M.frase(["t4a", "t4b"], T[4], T[5]);
+
+        // —— S5 · UNA GUÍA QUE TE LO CUENTA: unos auriculares, que laten mientras Kore dice «al oído».
+        var cas = new M.Camino();
+        cas.o("M" + XB + ",790 C590,790 612,804 636,804").marca("ini")
+           .o("L636,716 Q636,700 652,700 L664,700 Q680,700 680,716 L680,804 Q680,820 664,820 L652,820 Q636,820 636,804")
+           .o("L636,716 Q636,700 652,700 L658,700 C658,548 846,548 846,700")
+           .o("L852,700 Q868,700 868,716 L868,804 Q868,820 852,820 L840,820 Q824,820 824,804 L824,716 Q824,700 840,700 L846,700").marca("fin");
+        var mCa = M.salida(a("s-casco"), cas, T[5] + 0.15, T[5] + 1.6, T[6] - 0.45, T[6] - 0.15, "power1.inOut");
+        gsap.set("#s-casco", { svgOrigin: XB + " 790" });   // crece desde donde toca el borde: la línea no se despega
+        [negra(T[5] + 0.25 + 4.1), negra(T[5] + 0.25 + 4.9), negra(T[5] + 0.25 + 5.7)].forEach(function (t) { M.late("#s-casco", t, 0.04, 0.5); });
+        M.frase(["t5a", "t5b"], T[5], T[6]);
+
+        // —— S6 · ¿Y ESO QUÉ ES?: una cámara; cuando Kore dice «foto», la pantalla destella como al disparar.
+        var cam = new M.Camino();
+        cam.o("M" + XB + ",705 C590,705 620,705 642,705").marca("ini")
+           .o("L642,652 Q642,630 664,630 L700,630 L708,612 L796,612 L804,630 L840,630 Q862,630 862,652 L862,758 Q862,780 840,780 L664,780 Q642,780 642,758 L642,705").marca("fin");
+        var mCm = M.salida(a("s-camara"), cam, T[6] + 0.1, T[6] + 1.2, T[7] - 0.45, T[7] - 0.15, "power1.inOut");
+        gsap.set("#lente", { svgOrigin: "752 707" });
+        tl.set("#lente", { autoAlpha: 0 }, 0);
+        M.brota("#lente", T[6] + 1.2);
+        M.encoge("#lente", T[7] - 0.5);
+        var TFOTO = T[6] + 0.25 + 2.38;
+        tl.set("#flash", { autoAlpha: 0 }, 0);
+        tl.fromTo("#flash", { autoAlpha: 0.85 }, { autoAlpha: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, TFOTO);
+        M.late("#lente", TFOTO, 0.12, 0.35);
+        M.frase(["t6a", "t6b"], T[6], T[7]);
+
+        // —— S7 · PÍDESELO AL ASISTENTE: un robot pequeño (o, en la otra versión, la marca con destellos).
+        var rob = new M.Camino();
+        rob.o("M" + XB + ",712 C600,712 640,712 662,712").marca("ini")
+           .o("L662,672 Q662,642 692,642 L812,642 Q842,642 842,672 L842,752 Q842,782 812,782 L692,782 Q662,782 662,752 L662,712").marca("fin");
+        var mRo = M.salida(a("s-robot"), rob, T[7] + 0.1, T[7] + 1.2, T[8] - 0.45, T[8] - 0.15, "power1.inOut");
+        var CARA = ASISTENTE === "marca" ? "#asis-marca" : "#robot-cara";
+        tl.set(["#robot-cara", "#asis-marca"], { autoAlpha: 0 }, 0);
+        gsap.set(CARA, { svgOrigin: "752 712" });
+        M.brota(CARA, T[7] + 1.25, "back.out(2)");
+        [negra(T[7] + 0.25 + 2.66), negra(T[7] + 0.25 + 3.96)].forEach(function (t) { M.late(CARA, t, 0.06, 0.45); });
+        M.encoge(CARA, T[8] - 0.5);
+        M.frase(["t7a", "t7b"], T[7], T[8]);
+
+        // —— S8 · LOS GASTOS: tres personas, y debajo la línea de un gasto con su concepto.
+        function persona(id, x, yc, padre) {
+          var g = el("g", { id: id, stroke: "#0F766E", "stroke-width": 8 }, padre || a("personas"));
+          el("circle", { cx: x, cy: yc, r: 32, fill: "#FFFDF9" }, g);
+          el("path", { d: "M" + (x - 50) + "," + (yc + 104) + " C" + (x - 50) + "," + (yc + 50) + " " + (x + 50) + "," + (yc + 50) + " " + (x + 50) + "," + (yc + 104) }, g);
+          gsap.set("#" + id, { svgOrigin: x + " " + (yc + 104) });
+          tl.set("#" + id, { autoAlpha: 0 }, 0);
+          return g;
+        }
+        var gas = new M.Camino();
+        gas.o("M" + XB + ",840 L890,840").marca("fin");
+        var mG = M.salida(a("s-gasto"), gas, T[8] + 0.1, T[8] + 0.7, T[9] - 0.45, T[9] - 0.15, "power2.out");
+        [662, 752, 842].forEach(function (x, k) { persona("p" + k, x, 700); M.brota("#p" + k, T[8] + 0.75 + 0.12 * k, "back.out(2.4)"); M.encoge("#p" + k, T[9] - 0.5 + 0.03 * k); });
+        M.entra("#gasto", T[8] + 1.0, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+        M.apaga("#gasto", T[9] - 0.5, 0.2);
+        [negra(T[8] + 0.25 + 3.3)].forEach(function (t) { [0, 1, 2].forEach(function (k) { M.late("#p" + k, t + 0.04 * k, 0.06, 0.45); }); });
+        M.frase(["t8a", "t8b"], T[8], T[9]);
+
+        // —— S9 · TUS SITIOS, EN EL MAPA: un pin.
+        var pin = new M.Camino();
+        pin.o("M" + XB + ",790 C640,790 700,800 752,800").marca("ini")
+           .o("C712,752 682,712 682,652 A70,70 0 1 1 822,652 C822,712 792,752 752,800").marca("fin");
+        var mP = M.salida(a("s-pin"), pin, T[9] + 0.1, T[9] + 1.3, T[10] - 0.45, T[10] - 0.15, "power1.inOut");
+        gsap.set("#pin-ojo", { svgOrigin: "752 652" });
+        tl.set("#pin-ojo", { autoAlpha: 0 }, 0);
+        M.brota("#pin-ojo", T[9] + 1.3);
+        [negra(T[9] + 0.25 + 4.06), negra(T[9] + 0.25 + 4.86)].forEach(function (t) { M.late("#pin-ojo", t, 0.1, 0.45); });
+        M.encoge("#pin-ojo", T[10] - 0.5);
+        M.frase(["t9a", "t9b"], T[9], T[10]);
+
+        // —— S10 · LO PAGA UNO: la pantalla se apaga, la cola se come el borde y la punta tira hasta un suelo
+        // donde están los cuatro del viaje. Se enciende el que paga y, después, los demás.
+        M.corta("#pantalla", T[10]);
+        var x0 = XI - 7, SY = 880;
+        var sue = new M.Camino();
+        sue.o("M" + x0 + ",490 C" + x0 + ",700 250," + SY + " 340," + SY).marca("ini").o("L540," + SY).marca("medio").o("L740," + SY).marca("fin");
+        var mS = M.pon(sue, a("s-suelo"));
+        var XP = [360, 480, 600, 720], TV = T[10] + 0.25;
+        XP.forEach(function (x, k) { persona("g" + k, x, SY - 108); M.brota("#g" + k, T[10] + 0.9 + 0.12 * k, "back.out(2.4)"); });
+        var LLENA = [TV + 0.45, TV + 2.8, TV + 3.0, TV + 3.2];
+        XP.forEach(function (x, k) {
+          tl.fromTo("#g" + k + " circle", { attr: { fill: "#FFFDF9" } }, { attr: { fill: "#0F766E" }, duration: 0.15, ease: "power1.out", immediateRender: false }, LLENA[k]);
+          M.late("#g" + k, LLENA[k], 0.08, 0.4);
+        });
+        M.frase(["t10a", "t10b"], T[10], T[11]);
+
+        // —— S11 · RECOMIÉNDALO: del suelo sale un avión de papel que vuela hacia quien lo vaya a disfrutar.
+        var avi = new M.Camino();
+        avi.o("M740," + SY + " C860," + SY + " 880,740 820,655").marca("ini")
+           .o("L800,610 L720,575 L870,530 L820,655 L800,610 L870,530").marca("fin");
+        var mA = M.salida(a("s-avion"), avi, T[11] + 0.2, T[11] + 1.6, T[12] - 0.45, T[12] - 0.15, "power1.inOut");
+        gsap.set("#s-avion", { svgOrigin: "740 " + SY });
+        [negra(T[11] + 0.25 + 1.76), negra(T[11] + 0.25 + 3.3), negra(T[11] + 0.25 + 4.1)].forEach(function (t) { M.late("#s-avion", t, 0.06, 0.45); });
+        [negra(T[11] + 0.25 + 3.92)].forEach(function (t) { XP.forEach(function (x, k) { M.late("#g" + k, t + 0.05 * k, 0.07, 0.45); }); });
+        XP.forEach(function (x, k) { M.encoge("#g" + k, T[12] - 0.3 + 0.03 * k); });
+        M.frase(["t11a", "t11b"], T[11], T[12]);
+        // El suelo: nace en S10 y, en el cierre, se recoge en un punto en el centro del icono.
+        var SP = [[T[10], 0], [T[10] + 0.8, mS.fin, "power2.inOut"], [T[12], mS.fin], [T[12] + 0.2, mS.medio + 0.3, "power2.inOut"]];
+        var SC = [[T[10], 0], [T[10] + 0.5, 0], [T[10] + 0.9, mS.ini, "power1.inOut"], [T[12], mS.ini], [T[12] + 0.2, mS.medio - 0.3, "power2.inOut"]];
+        M.cadena([[a("s-suelo"), mS.L]], SC, SP, T[10] - F, T[12] + 0.3);
+        tl.fromTo("#s-suelo", { y: 0 }, { y: 630 - SY, duration: 0.2, ease: "power2.inOut", immediateRender: false }, T[12]);
+        M.corta("#s-suelo", T[12] + 0.24);
+
+        // —— S12 · EL CIERRE aprobado, con los avisos de Apple y de Android.
+        M.corta("#marca", T[12]);
+        M.cierre(T[12], FIN, VERSION);
+
+        M.acelera();
+        window.__timelines = window.__timelines || {};
+        window.__timelines["asi-funciona"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
