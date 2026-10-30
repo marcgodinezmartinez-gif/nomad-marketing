@@ -76,9 +76,11 @@ tramos de 0,4 s o más (hasta 2,4 s en la guía y 2,3 en el mapa). Como en A y B
 en cada negra de la música mientras espera (`respira()` en `index.html`), sin pisar los latidos, brotes
 y recogidas que ya tenía: `M.late`, `M.brota` y `M.encoge` apuntan en `OCUPA` cuándo mueven cada cosa.
 Medido en el render con el detector de «Un trazo» (a 270×480 en grises, se mueve si algún píxel cambia
-más de 2 niveles): **ningún tramo quieto de 0,4 s o más**; los más largos, de 0,3 s. Como motas, sólo
-los tres fotogramas del cierre en que el suelo se recoge en un punto y sube al icono, que es a propósito,
-y el primer fotograma del brote de la cuarta persona de S10, que nace pequeña como todos los brotes.
+más de 2 niveles): **ningún tramo quieto de 0,4 s o más**; los más largos, de 0,33 s (medido otra vez con los dibujos
+editoriales y la voz nueva). Como motas, los tres fotogramas del cierre en que el suelo se recoge en un
+punto y sube al icono, que es a propósito, y el primer fotograma en que aparece un detalle suelto de los
+dibujos nuevos (la almohadilla de los auriculares, la lente de la cámara, la cara del robot): son piezas
+aparte del dibujo, no restos.
 
 ## El arranque: el logo se hace hilo
 
