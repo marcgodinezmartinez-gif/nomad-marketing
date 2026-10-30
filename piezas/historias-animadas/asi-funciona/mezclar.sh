@@ -35,10 +35,17 @@ trap 'rm -rf "$T"' EXIT
 # 0,3 acaba en 1,84; con apad, en 2,06. La comprobación va al final de este script.
 # La aceleración va en su propia pasada, toma a toma: puesto dentro del grafo grande, rubberband dejaba
 # ffmpeg girando sin acabar (más de cinco minutos al 100 %, 27-oct).
+# Y LA VOZ SE ACELERA CON atempo, NO CON rubberband (30-oct). El dueño oyó la voz «algo rara en algunos
+# momentos o palabras». rubberband con sus opciones de fábrica es un vocoder de fase: medido sobre las
+# doce tomas, la desviación de fase entre armónicos subía de 0,44 a 0,70 rad (un vocoder sin bloqueo
+# de fase da 0,90), dejaba un pre-eco agudo de +24 dB de mediana delante de las consonantes que siguen
+# a un silencio y quitaba 1,35 dB a cada toma. atempo (WSOLA) deja la fase y los ataques como en la toma
+# (0,44 y −0,3 dB), la potencia igual y la duración a ±20 ms. Ninguna opción del motor R2 lo arreglaba.
+# La música sigue con rubberband: lo que se oía raro era la voz.
 ENTRADAS=""; FILTRO=""; MEZCLA=""
 N=${#VOCES[@]}
 for i in $(seq 1 $N); do
-  ffmpeg -v error -y -i voz/${VOCES[$((i-1))]}.flac -af "rubberband=tempo=$VEL" -c:a pcm_s24le "$T/f$i.wav"
+  ffmpeg -v error -y -i voz/${VOCES[$((i-1))]}.flac -af "atempo=$VEL" -c:a pcm_s24le "$T/f$i.wav"
   I=$(ffmpeg -hide_banner -i voz/${VOCES[$((i-1))]}.flac -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
   GAN=$(echo "-18 - ($I)" | bc -l)
   MS=$(echo "${EMPIEZA[$((i-1))]} * 1000 / $VEL / 1" | bc)
@@ -81,7 +88,7 @@ ffmpeg -v error -y -i musica-calma.mp3 -i musica-calma.mp3 -i musica-calma.mp3 -
 [ab][c1]acrossfade=d=2:c1=qsin:c2=qsin[m]" \
   -map "[m]" -ac 2 -c:a pcm_s24le "$T/mus1.wav"
 ffmpeg -v error -y -i "$T/mus1.wav" -af "rubberband=tempo=$VEL,afade=t=in:d=0.03,apad,atrim=0:$DUR,afade=t=out:st=$(echo "$DUR - 0.8" | bc -l):d=0.8" \
-  -ac 2 -c:a pcm_s24le "$T/mus0.wav"
+  -ac 2 -c:a pcm_f32le "$T/mus0.wav"   # en coma flotante: rubberband sube la música hasta +2,4 dBFS y en s24 se recortaba
 IM=$(ffmpeg -hide_banner -i "$T/mus0.wav" -af ebur128 -f null - 2>&1 | sed -n 's/^ *I: *\(-*[0-9.]*\) LUFS/\1/p' | tail -1)
 ffmpeg -v error -y -i "$T/mus0.wav" -i "$T/voz.wav" -filter_complex "
 [0:a]volume=$(echo "-33 - ($IM)" | bc -l)dB[mus];
