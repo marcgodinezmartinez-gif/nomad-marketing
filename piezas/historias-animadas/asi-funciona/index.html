@@ -14,7 +14,7 @@
       .sans  { font-family: 'Instrument Sans'; }
       /* «ASÍ FUNCIONA» (30-oct): un solo vídeo que recorre la app en el orden en que se usa, con el guion
          que aprobó el dueño. La estética de «Un trazo»: una línea verde que no se levanta del papel. Nace
-         del logo, que se disuelve en una espiral hacia su centro; dibuja el borde de la pantalla (no un
+         del logo (S1 dice cómo); dibuja el borde de la pantalla (no un
          iPhone: README.md de incluye-pago), dentro corre la grabación real, y al lado dibuja en grande lo
          que cuenta cada escena. Kore cuenta todo. Pantalla a la izquierda (x=150), dibujos en x 600-890.
          La frase de cada escena, siempre abajo (y=1282 y 1370). */
@@ -65,13 +65,13 @@
         <path id="s-collar" stroke="#0F766E" stroke-width="10" />
       </svg>
       <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
-      <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se disuelve en espiral. -->
+      <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace línea (S1). -->
       <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
-        <g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
+        <g id="logo-a"><g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
           <path id="l1" d="M5030 8063 c-319 -48 -497 -104 -755 -237 -394 -203 -729 -497 -1035 -906 -252 -339 -453 -764 -545 -1155 -54 -229 -59 -277 -59 -530 0 -264 10 -341 75 -537 119 -363 387 -679 723 -854 103 -54 109 -55 88 -28 -147 189 -209 356 -219 584 -4 114 -2 151 17 240 94 456 445 780 1085 1000 66 22 246 77 400 121 518 149 719 231 970 396 127 85 304 259 364 360 99 167 141 310 148 508 4 115 2 157 -15 235 -102 493 -538 815 -1097 809 -66 -1 -131 -3 -145 -6z"/>
           <path id="l2" d="M6790 5991 c0 -5 5 -13 11 -17 21 -12 78 -147 95 -222 41 -184 -19 -468 -149 -702 -140 -252 -420 -585 -688 -816 -1053 -908 -2278 -1050 -3074 -356 -257 223 -469 584 -539 917 l-13 60 -8 -60 c-11 -80 1 -375 20 -505 65 -444 253 -875 542 -1240 103 -131 344 -365 478 -466 360 -269 717 -423 1163 -500 141 -25 182 -28 402 -28 189 -1 271 3 360 17 406 64 741 189 1061 398 172 113 292 211 444 364 384 386 632 859 727 1392 19 110 22 162 23 378 0 225 -2 261 -24 360 -86 405 -282 715 -575 910 -111 73 -256 139 -256 116z"/>
           <path id="l3" d="M6205 5973 c-317 -37 -658 -215 -980 -512 -126 -115 -227 -227 -418 -461 -246 -300 -314 -379 -432 -495 -299 -296 -550 -368 -772 -221 -29 19 -57 37 -62 40 -13 8 14 -102 43 -173 61 -150 199 -293 360 -371 140 -68 237 -90 406 -90 104 0 162 6 250 24 222 47 459 136 701 267 129 68 389 239 494 324 420 337 726 726 848 1078 29 85 31 102 32 222 0 122 -2 133 -27 181 -73 138 -245 211 -443 187z"/>
-        </g></g>
+        </g></g></g>
       </svg>
       <p id="o-nombre" class="tit serif">Nomad: guía de viajes</p>
       <div id="pantalla">
@@ -120,8 +120,9 @@
       <h1 id="t11b" class="tit serif t84 verde" style="top: 1370px;">Que lo disfruten.</h1>
       <div id="papel"></div>
       <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path id="s-morph" stroke="#0F766E" stroke-width="10" />
-        <path id="s-espiral" stroke="#0F766E" stroke-width="10" />
+        <path id="s-logo" stroke="#0F766E" stroke-width="10" />
+        <circle id="onda" stroke="#0F766E" stroke-width="6" />
+        <circle id="gota" fill="#0F766E" stroke="none" />
         <path id="s-borde" stroke="#0F766E" stroke-width="10" />
         <path id="s-cal" stroke="#0F766E" stroke-width="10" />
         <path id="s-rail" stroke="#0F766E" stroke-width="10" />
@@ -186,62 +187,67 @@
         function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
         function el(tag, at, padre) { var e = document.createElementNS(SVGNS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || a("trazos")).appendChild(e); return e; }
 
-        // —— S1 · EL LOGO SE DISUELVE EN ESPIRAL. El logo es el de la app, en vectores. Su silueta (lo más lejano
-        // del centro en cada dirección) se dibuja como línea mientras el relleno se apaga; después esa silueta
-        // se enrolla en una espiral hacia el centro, y de su centro sale la línea que dibuja la pantalla.
+        // —— S1 · EL LOGO SE HACE LÍNEA (30-oct). La espiral no gustó («feísimo»); hay tres maneras, y
+        // NOMAD_ARRANQUE elige una mientras el dueño decide:
+        // - "hilo": la línea recorre la silueta del logo, el relleno se apaga y el contorno sale tirado como
+        //   un hilo hacia la pantalla (la cola lo va recogiendo por el mismo camino);
+        // - "gota": el logo se recoge en una gota, que cae en el papel con una onda, y de ella sale la línea;
+        // - "curva": de todo el logo queda su curva, el borde de dentro del cuenco, y esa curva es la línea.
+        // Las dos curvas salen de los vectores del logo (mobile/assets/nomad_soft_swoosh_logo.svg), en las
+        // unidades de su viewBox: SILUETA, el contorno de los tres trazos con los huecos blancos cerrados
+        // (30 u; miden 22), empezando en el lado izquierdo de la coma y en el sentido del reloj; CURVA, el
+        // borde de dentro del cuenco, de su punta derecha a la izquierda. Las sacó un guion de Python con el
+        // logo rasterizado a 2048 px; no se tocan a mano.
+        var ARRANQUE = ["gota", "curva"].indexOf(window.NOMAD_ARRANQUE) >= 0 ? window.NOMAD_ARRANQUE : "hilo";
+        var SILUETA = "263.9,478.9 264.5,472.9 265.3,466.9 266.3,461 267.5,455.1 268.9,449.2 270.3,443.4 271.8,437.6 273.5,431.8 275.3,426.1 277.2,420.4 279.2,414.7 281.3,409.1 283.6,403.5 285.9,398 288.3,392.5 290.9,387 293.5,381.6 296.2,376.3 299,371 301.9,365.7 304.9,360.5 308,355.3 311.2,350.2 314.4,345.2 317.8,340.2 321.3,335.3 324.8,330.5 328.5,325.7 332.2,321 336,316.3 339.9,311.7 343.9,307.2 347.9,302.8 352,298.4 356.2,294.1 360.5,289.9 364.8,285.7 369.2,281.6 373.7,277.6 378.3,273.7 382.9,269.9 387.7,266.2 392.5,262.7 397.4,259.2 402.4,255.8 407.4,252.6 412.6,249.4 417.8,246.4 423,243.5 428.3,240.7 433.7,238 439.1,235.5 444.6,233 450.2,230.8 455.8,228.7 461.5,226.7 467.3,225 473.1,223.4 478.9,222 484.8,220.7 490.7,219.6 496.6,218.6 502.6,217.8 508.6,217.3 514.6,217 520.6,217 526.6,217.3 532.6,217.8 538.5,218.6 544.4,219.6 550.3,221 556.1,222.6 561.8,224.5 567.4,226.6 572.9,229.1 578.2,231.9 583.3,235 588.3,238.4 593,242.1 597.6,246 601.9,250.3 605.9,254.7 609.6,259.4 613,264.4 616.1,269.5 618.9,274.9 621.3,280.4 623.4,286 625.2,291.7 626.6,297.6 627.6,303.5 628.2,309.5 628.4,315.5 628.2,321.5 627.8,327.5 627.1,333.4 626.1,339.4 624.8,345.2 623.1,351 621,356.6 618.6,362.1 615.9,367.5 612.9,372.7 609.9,377.9 607.3,383.3 605.4,389 604.7,395 605.1,401 606.7,406.7 609.5,412.1 613.3,416.7 618,420.4 623.3,423.2 628.9,425.2 634.8,426.6 640.6,428 646.5,429.4 652.4,430.5 658.4,431 664.3,430.5 670.2,429.1 676,427.5 681.9,426.9 687.8,427.9 693.4,430.2 698.7,433.1 703.8,436.2 708.7,439.7 713.5,443.3 718,447.2 722.4,451.4 726.6,455.7 730.5,460.2 734.3,464.9 737.8,469.8 741.1,474.8 744.2,480 747,485.3 749.6,490.7 752,496.2 754.3,501.8 756.3,507.4 758.1,513.1 759.7,518.9 761.1,524.8 762.3,530.7 763.1,536.6 763.7,542.6 764.1,548.6 764.2,554.6 764.2,560.6 764.2,566.6 764.2,572.6 764,578.6 763.7,584.6 763.1,590.6 762.4,596.6 761.5,602.5 760.3,608.4 759.1,614.3 757.7,620.1 756.1,625.9 754.4,631.7 752.6,637.4 750.7,643.1 748.6,648.8 746.4,654.4 744.1,659.9 741.6,665.4 739,670.8 736.3,676.2 733.4,681.4 730.4,686.7 727.3,691.8 724.1,696.9 720.8,701.9 717.4,706.8 713.8,711.7 710.1,716.4 706.4,721.1 702.5,725.7 698.5,730.2 694.4,734.6 690.3,738.9 686,743.2 681.7,747.4 677.3,751.5 672.8,755.5 668.3,759.4 663.6,763.1 658.8,766.8 653.9,770.3 649,773.7 644,777.1 638.9,780.3 633.8,783.4 628.5,786.4 623.3,789.2 617.9,791.9 612.5,794.5 607,797 601.5,799.3 595.9,801.6 590.2,803.6 584.5,805.6 578.8,807.3 573,809 567.2,810.5 561.4,811.9 555.5,813.3 549.6,814.5 543.7,815.5 537.8,816.5 531.8,817.2 525.8,817.7 519.8,818 513.8,818.2 507.8,818.2 501.8,818.2 495.8,818.2 489.8,818 483.8,817.8 477.8,817.3 471.8,816.7 465.9,815.8 459.9,814.8 454,813.7 448.2,812.4 442.3,811.1 436.5,809.6 430.7,808 424.9,806.2 419.2,804.4 413.6,802.4 408,800.2 402.4,797.9 396.9,795.5 391.5,792.9 386.1,790.3 380.8,787.5 375.5,784.5 370.3,781.5 365.2,778.3 360.2,775.1 355.2,771.7 350.3,768.2 345.5,764.6 340.8,760.8 336.2,756.9 331.7,753 327.3,748.9 322.9,744.8 318.6,740.6 314.4,736.3 310.2,732 306.2,727.6 302.2,723 298.4,718.4 294.7,713.7 291.1,708.8 287.7,703.9 284.3,698.9 281.1,693.9 277.9,688.7 274.9,683.5 272.1,678.3 269.3,672.9 266.7,667.5 264.1,662.1 261.8,656.6 259.5,651 257.3,645.4 255.3,639.7 253.5,634 251.7,628.2 250.1,622.5 248.6,616.6 247.3,610.8 246.1,604.9 245.1,599 244.2,593 243.5,587.1 243,581.1 242.5,575.1 242.2,569.1 242,563.1 241.9,557.1 242.2,551.1 243.4,545.2 246,539.8 249.8,535.2 253.9,530.7 257.5,525.9 260.2,520.6 261.8,514.8 262.7,508.9 263.1,502.9 263.2,496.9 263.4,490.9 263.6,484.9";
+        var CURVA = "680.2,425.7 682.3,430.2 684.5,434.7 686.3,439.3 688,444 689.3,448.8 690.1,453.7 690.6,458.7 690.6,463.7 690.2,468.6 689.7,473.6 688.9,478.5 687.9,483.4 686.7,488.2 685.3,493 683.7,497.7 682,502.4 680.1,507 678.1,511.6 675.8,516 673.5,520.4 670.9,524.7 668.3,528.9 665.5,533.1 662.7,537.2 659.8,541.3 656.9,545.3 653.8,549.2 650.7,553.1 647.6,557 644.4,560.8 641.1,564.6 637.9,568.3 634.6,572.1 631.1,575.7 627.8,579.3 624.3,582.9 620.8,586.5 617.2,589.9 613.5,593.3 609.8,596.6 606.1,600 602.3,603.2 598.5,606.4 594.6,609.5 590.7,612.6 586.8,615.7 582.8,618.7 578.8,621.6 574.7,624.5 570.6,627.3 566.5,630.1 562.3,632.8 558.1,635.5 553.9,638.1 549.6,640.7 545.3,643.1 540.9,645.5 536.5,647.9 532,650.1 527.6,652.3 523.1,654.6 518.6,656.6 514,658.6 509.4,660.6 504.8,662.4 500.1,664.2 495.4,665.9 490.7,667.5 486,669 481.2,670.4 476.4,671.7 471.6,672.9 466.7,674.1 461.9,675.2 457,676.1 452,676.9 447.1,677.6 442.2,678.2 437.2,678.7 432.2,679.1 427.3,679.4 422.3,679.7 417.3,679.7 412.3,679.7 407.3,679.4 402.4,679.1 397.4,678.7 392.5,678.1 387.5,677.4 382.6,676.5 377.7,675.6 372.9,674.5 368,673.3 363.2,671.9 358.5,670.4 353.8,668.8 349.1,667.1 344.5,665.2 340,663.1 335.5,660.9 331.1,658.6 326.7,656.2 322.4,653.7 318.2,651 314.1,648.2 310,645.4 306,642.4 302.1,639.2 298.3,636 294.6,632.7 291,629.3 287.5,625.7 284.2,622 281,618.2 277.9,614.3 274.9,610.3 272,606.3 269.2,602.1 266.5,597.9 263.9,593.6 261.5,589.3 259.1,584.9 256.9,580.5 254.9,575.9 252.9,571.3 251.1,566.7 249.3,562 247.8,557.3 246.4,552.5 245.1,547.7 243.5,543";
         var CX = 540, CY = 640, ALTO = 330;
         var lg = a("logo-g"), bb = lg.getBBox(), sc = ALTO / bb.height;
-        lg.setAttribute("transform", "translate(" + (CX - sc * (bb.x + bb.width / 2)) + "," + (CY - sc * (bb.y + bb.height / 2)) + ") scale(" + sc + ")");
-        var NB = 360, rad = new Array(NB).fill(0);
-        ["l1", "l2", "l3"].forEach(function (id) {
-          var p = a(id), L = p.getTotalLength(), m = p.getCTM();
-          for (var s = 0; s <= L; s += L / 2400) {
-            var q = p.getPointAtLength(s), x = m.a * q.x + m.c * q.y + m.e, y = m.b * q.x + m.d * q.y + m.f;
-            var th = Math.atan2(y - CY, x - CX), b = ((Math.round((th + Math.PI / 2) / (2 * Math.PI) * NB) % NB) + NB) % NB;
-            rad[b] = Math.max(rad[b], Math.hypot(x - CX, y - CY));
-          }
-        });
-        for (var i = 0; i < NB; i++) if (!rad[i]) { var j = i; while (!rad[j % NB]) j++; rad[i] = rad[j % NB]; }
-        var suave = rad.map(function (r, i) { var s = 0; for (var k = -3; k <= 3; k++) s += rad[(i + k + NB) % NB]; return s / 7; });
-        var VUELTAS = 2.25, R0 = suave[0];
-        function forma(p) {   // p = 0: la silueta; p = 1: la espiral
-          var d = [];
-          for (var i = 0; i <= NB; i++) {
-            var u = i / NB, th0 = -Math.PI / 2 + 2 * Math.PI * u, r0 = suave[i % NB];
-            var th1 = -Math.PI / 2 + 2 * Math.PI * VUELTAS * u, r1 = 4 + (R0 - 4) * Math.pow(1 - u, 0.9);
-            var th = th0 + (th1 - th0) * p, r = r0 + (r1 - r0) * p;
-            d.push((i ? "L" : "M") + (CX + r * Math.cos(th)).toFixed(1) + "," + (CY + r * Math.sin(th)).toFixed(1));
-          }
-          return d.join(" ");
-        }
-        var morph = a("s-morph"), D0 = forma(0);
-        morph.setAttribute("d", D0);
-        var Lsil = morph.getTotalLength();
-        morph.setAttribute("stroke-dasharray", Lsil + " " + (Lsil + 40));
-        tl.fromTo(morph, { attr: { "stroke-dashoffset": Lsil } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power1.inOut", immediateRender: false }, 0.45);
-        tl.set(morph, { attr: { "stroke-dashoffset": Lsil } }, 0);
-        tl.fromTo("#logo-g", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4, ease: "power1.in", immediateRender: false }, 0.85);
+        var tx = CX - sc * (bb.x + bb.width / 2), ty = CY - sc * (bb.y + bb.height / 2);
+        lg.setAttribute("transform", "translate(" + tx + "," + ty + ") scale(" + sc + ")");
+        function enPagina(txt) { return txt.split(" ").map(function (q) { var p = q.split(","); return [tx + sc * p[0], ty + sc * p[1]]; }); }
+        function trazado(pts) { return "M" + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" L"); }
+        // Una punta que acelera hasta tj y frena hasta t1, con la misma velocidad a los dos lados de tj.
+        function acelera(t0, tj, t1, total) { var dj = total * (tj - t0) / (t1 - t0); return [[0, 0], [t0, 0], [tj, dj, "power1.in"], [t1, total, "power1.out"]]; }
+        gsap.set("#logo-a", { svgOrigin: CX + " " + CY });
+        gsap.set(["#gota", "#onda"], { autoAlpha: 0 });
         M.apaga("#o-nombre", 1.6, 0.3);
-        var TM0 = 1.1, TM1 = 3.3, ease = gsap.parseEase("power2.inOut"), prev = { d: D0, "stroke-dasharray": Lsil + " " + (Lsil + 40) };
-        for (var k = Math.ceil(TM0 * FPS); k <= Math.floor(TM1 * FPS); k++) {
-          var v = { d: forma(ease(Math.min(1, (k / FPS - TM0) / (TM1 - TM0)))), "stroke-dasharray": "none" };
-          tl.fromTo(morph, { attr: prev }, { attr: v, duration: 0, immediateRender: false }, k / FPS);
-          prev = v;
+        var cont = new M.Camino(), mC, tramos, S0, PUNTA, COLA;
+        if (ARRANQUE === "gota") {
+          // El logo se recoge (con un amago de crecer) en una gota, que toca el papel: se aplasta, vuelve y
+          // suelta una onda; la línea sale de ella mientras la gota se queda en el grueso de la línea.
+          tl.fromTo("#logo-a", { scale: 1 }, { scale: 0.13, duration: 0.7, ease: "back.in(1.4)", immediateRender: false }, 0.45);
+          M.apaga("#logo-a", 1.05, 0.07);
+          a("gota").setAttribute("cx", CX); a("gota").setAttribute("cy", CY); a("gota").setAttribute("r", 20);
+          a("onda").setAttribute("cx", CX); a("onda").setAttribute("cy", CY);
+          gsap.set("#gota", { svgOrigin: CX + " " + CY });
+          M.funde("#gota", 1.04, 0.07);
+          tl.fromTo("#gota", { scaleX: 1.5, scaleY: 0.62 }, { scaleX: 1, scaleY: 1, duration: 0.55, ease: "elastic.out(1, 0.5)", immediateRender: false }, 1.15);
+          tl.fromTo("#onda", { autoAlpha: 0.55, attr: { r: 30, "stroke-width": 5 } }, { autoAlpha: 0, attr: { r: 120, "stroke-width": 1.5 }, duration: 0.75, ease: "power2.out", immediateRender: false }, 1.22);
+          tl.fromTo("#gota", { attr: { r: 20 } }, { attr: { r: 5 }, duration: 0.35, ease: "power2.in", immediateRender: false }, 1.35);
+          cont.o("M" + CX + "," + CY); M.borde(cont, XI, [CX, CY], [CX - 150, CY - 25]);
+          mC = M.pon(cont, a("s-borde")); tramos = [[a("s-borde"), mC.L]]; S0 = 0;
+          PUNTA = acelera(1.35, 2.3, T[2] + 1.0, mC.fin);
+          COLA = [[0, 0], [1.75, 0], [T[2] + 0.7, mC.borde, "power1.inOut"]];
+          // Con radio 5 la gota es el remate redondo de la línea: se va en ese fotograma, sin salto.
+          M.corta("#gota", 1.71);
+        } else {
+          // "hilo" y "curva": la línea nace en el logo, recorre su curva y sigue sin levantarse hacia la pantalla.
+          var pts = enPagina(ARRANQUE === "hilo" ? SILUETA : CURVA);
+          if (ARRANQUE === "hilo") pts.push(pts[0]);
+          var log = new M.Camino(); log.o(trazado(pts)).marca("fin");
+          var mL = M.pon(log, a("s-logo")), u = pts[pts.length - 1], w = pts[pts.length - 2];
+          var dl = Math.hypot(u[0] - w[0], u[1] - w[1]);
+          cont.o("M" + u[0].toFixed(1) + "," + u[1].toFixed(1));
+          M.borde(cont, XI, u, [u[0] + 150 * (u[0] - w[0]) / dl, u[1] + 150 * (u[1] - w[1]) / dl]);
+          mC = M.pon(cont, a("s-borde")); tramos = [[a("s-logo"), mL.L], [a("s-borde"), mC.L]]; S0 = mL.L;
+          var HILO = ARRANQUE === "hilo";
+          PUNTA = acelera(0.35, HILO ? 1.8 : 2.0, T[2] + 1.0, S0 + mC.fin);
+          COLA = [[0, 0], [HILO ? 1.55 : 1.4, 0], [T[2] + 0.7, S0 + mC.borde, "power1.inOut"]];
+          M.apaga("#logo-a", HILO ? 1.0 : 0.8, HILO ? 0.6 : 0.7);
         }
-        // La espiral ya quieta pasa a ser el primer tramo de la cadena; el segundo, el borde de la pantalla.
-        var esp = new M.Camino(); esp.o(forma(1)).marca("fin");
-        var mE = M.pon(esp, a("s-espiral"));
-        var pts = forma(1).split(" "), ult = pts[pts.length - 1].slice(1).split(",").map(Number);
-        var cont = new M.Camino(); cont.o("M" + ult[0] + "," + ult[1]);
-        M.borde(cont, XI, ult);
-        var mC = M.pon(cont, a("s-borde")), S0 = mE.L;
-        tl.set("#s-espiral", { autoAlpha: 0 }, 0);
-        M.corta("#s-morph", TM1);
-        M.aparece("#s-espiral", TM1);
-        var PUNTA = [[0, mE.L], [TM1 + 0.1, mE.L], [T[2] + 1.0, S0 + mC.fin, "power2.inOut"]];
-        var COLA = [[0, 0], [TM1 + 0.1, 0], [T[2] + 0.7, S0 + mC.borde, "power1.inOut"],
-                    [T[10], S0 + mC.borde], [T[10] + 0.4, S0 + mC.fin, "power1.in"]];
-        M.cadena([[a("s-espiral"), mE.L], [a("s-borde"), mC.L]], COLA, PUNTA, TM1, T[10] + 0.5);
+        COLA.push([T[10], S0 + mC.borde], [T[10] + 0.4, S0 + mC.fin, "power1.in"]);
+        M.cadena(tramos, COLA, PUNTA, 0, T[10] + 0.5);
         M.frase(["t1a", "t1b"], 0.1, T[2]);
         tl.fromTo("#marca", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none", immediateRender: false }, T[2] + 0.3);
         tl.set("#marca", { autoAlpha: 0 }, 0);

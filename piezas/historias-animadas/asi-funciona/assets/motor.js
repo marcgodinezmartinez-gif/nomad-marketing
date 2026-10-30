@@ -136,9 +136,12 @@ window.Motor = function (tl, VELOCIDAD) {
   // la base, sube por la derecha, el borde de arriba y vuelve a bajar 20 px por la izquierda, para
   // cerrar sin hueco. Delante, la llegada desde donde acaba la espiral del logo.
   var P = { w: 404, h: 806, r: 36, y: 400, gap: 7 };
-  function borde(cam, x, desde) {
+  // sale: el primer punto de control de la llegada, para que la línea salga en la dirección en que venía
+  // (asi-funciona); sin él, sale hacia la izquierda, como desde la espiral de A y B.
+  function borde(cam, x, desde, sale) {
     var x0 = x - P.gap, y0 = P.y - P.gap, w = P.w + 2 * P.gap, h = P.h + 2 * P.gap, r = P.r + P.gap, YB = 470;
-    cam.o("C" + (desde[0] - 120).toFixed(1) + "," + (desde[1] + 12).toFixed(1) + " " + x0 + "," + (YB - 80) + " " + x0 + "," + YB).marca("borde");
+    var c1 = sale || [desde[0] - 120, desde[1] + 12];
+    cam.o("C" + c1[0].toFixed(1) + "," + c1[1].toFixed(1) + " " + x0 + "," + (YB - 80) + " " + x0 + "," + YB).marca("borde");
     cam.o("L" + x0 + "," + (y0 + h - r)).o("A" + r + "," + r + " 0 0 0 " + (x0 + r) + "," + (y0 + h)).marca("abajo")
        .o("L" + (x0 + w - r) + "," + (y0 + h)).o("A" + r + "," + r + " 0 0 0 " + (x0 + w) + "," + (y0 + h - r))
        .o("L" + (x0 + w) + "," + (y0 + r)).o("A" + r + "," + r + " 0 0 0 " + (x0 + w - r) + "," + y0)
