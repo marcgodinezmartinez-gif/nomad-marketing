@@ -1,0 +1,1779 @@
+{
+ "estilo": "editorial",
+ "grosor": 5,
+ "grosor_detalle": 3,
+ "notas": {
+  "trazo": "stroke #0F766E, stroke-linecap y stroke-linejoin round, fill none en el camino principal",
+  "pantalla": "rect x 143-561, y 393-1213, rx 43, al mismo grosor; el logo de S1 y el borde, también a este grosor",
+  "detalles": "cada uno lleva sus atributos completos (grosor incluido); los que llevan relleno lo dicen",
+  "rol": "«rol» es sólo para leerlo: no es un atributo SVG",
+  "revision": "Repaso de dirección de arte (30-oct): auriculares rehechos (cápsulas colgadas de una diadema de media elipse, almohadilla concéntrica); robot rehecho (cabeza más blanda con visera concéntrica, ojos sin brillos, sin coloretes, antena con ondas como las de los auriculares); itinerario con un seno regular (misma amplitud a los dos lados) y el punteado en fase, un punto en cada parada; calendario con márgenes iguales y anillas de verdad; cámara con el visor centrado y redondeado; pin más corto con la punta en el centro de su sombra; personas con hombros más naturales y más aire entre ellas; lazo izquierdo del collar más abierto; estela del avión con el punteado de S4 y un rizo limpio; los dibujos sueltos (S5, S6, S7, S9) centrados en y = 740."
+ },
+ "escenas": {
+  "s2": {
+   "principal": {
+    "id": "s-collar",
+    "d": "M752,560 C852,560 893,573 893,605 C893,637 852,650 752,650 C652,650 601,663 601,695 C601,727 652,740 752,740",
+    "inicio": [
+     752,
+     560
+    ],
+    "segmentos": [
+     {
+      "o": "M752,560",
+      "marca": "n0"
+     },
+     {
+      "o": "C852,560 893,573 893,605 C893,637 852,650 752,650",
+      "marca": "n1"
+     },
+     {
+      "o": "C652,650 601,663 601,695 C601,727 652,740 752,740",
+      "marca": "n2"
+     }
+    ],
+    "nota": "Empieza en el centro de la píldora 1 (escondido detrás); marcas n0, n1, n2 en el centro de cada píldora. Va en la capa de debajo (#bajo), como hoy."
+   },
+   "detalles": [],
+   "layout": {
+    "pildoras": [
+     {
+      "texto": "Lisboa",
+      "centro": [
+       752,
+       560
+      ]
+     },
+     {
+      "texto": "Cultural",
+      "centro": [
+       752,
+       650
+      ]
+     },
+     {
+      "texto": "Gastronomía",
+      "centro": [
+       752,
+       740
+      ]
+     }
+    ],
+    "pildora_css": "sin cambios (.chip de index.html)"
+   }
+  },
+  "s3": {
+   "principal": {
+    "id": "s-cal",
+    "d": "M610,600 L610,878 C610,891.3 620.7,902 634,902 L870,902 C883.3,902 894,891.3 894,878 L894,600 C894,586.7 883.3,576 870,576 L634,576 C620.7,576 610,586.7 610,600 L610,648 L894,648",
+    "inicio": [
+     610,
+     600
+    ],
+    "nota": "Empieza arriba a la izquierda, baja por el lado izquierdo y da la vuelta en sentido contrario al reloj; al cerrar, repasa el trozo de lado izquierdo hasta la cabecera y traza su raya (el único tramo que pasa dos veces, y es por encima de sí mismo)."
+   },
+   "detalles": [
+    {
+     "tag": "path",
+     "rol": "anilla",
+     "attrs": {
+      "fill": "#FFFDF9",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M672,558 C668.7,558 666,560.7 666,564 L666,590 C666,593.3 668.7,596 672,596 C675.3,596 678,593.3 678,590 L678,564 C678,560.7 675.3,558 672,558 Z"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "anilla",
+     "attrs": {
+      "fill": "#FFFDF9",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M832,558 C828.7,558 826,560.7 826,564 L826,590 C826,593.3 828.7,596 832,596 C835.3,596 838,593.3 838,590 L838,564 C838,560.7 835.3,558 832,558 Z"
+     }
+    },
+    {
+     "tag": "text",
+     "rol": "cabecera",
+     "texto": "NOV 2026",
+     "attrs": {
+      "x": 752,
+      "y": 621,
+      "text-anchor": "middle",
+      "font-family": "Instrument Sans",
+      "font-weight": 600,
+      "font-size": 26,
+      "letter-spacing": "3.5",
+      "fill": "#0F766E",
+      "stroke": "none"
+     }
+    }
+   ],
+   "dias": [
+    {
+     "id": "dia21",
+     "centro_brote": [
+      656.0,
+      718.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 628.0,
+        "y": 666,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "S",
+       "attrs": {
+        "x": 656.0,
+        "y": 699,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "rgba(255,253,249,.82)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "21",
+       "attrs": {
+        "x": 656.0,
+        "y": 750,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#FFFDF9",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia22",
+     "centro_brote": [
+      720.0,
+      718.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 692.0,
+        "y": 666,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "D",
+       "attrs": {
+        "x": 720.0,
+        "y": 699,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "22",
+       "attrs": {
+        "x": 720.0,
+        "y": 750,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia23",
+     "centro_brote": [
+      784.0,
+      718.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 756.0,
+        "y": 666,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "L",
+       "attrs": {
+        "x": 784.0,
+        "y": 699,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "23",
+       "attrs": {
+        "x": 784.0,
+        "y": 750,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia24",
+     "centro_brote": [
+      848.0,
+      718.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 820.0,
+        "y": 666,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "M",
+       "attrs": {
+        "x": 848.0,
+        "y": 699,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "24",
+       "attrs": {
+        "x": 848.0,
+        "y": 750,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia25",
+     "centro_brote": [
+      656.0,
+      832.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 628.0,
+        "y": 780,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "X",
+       "attrs": {
+        "x": 656.0,
+        "y": 813,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "25",
+       "attrs": {
+        "x": 656.0,
+        "y": 864,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia26",
+     "centro_brote": [
+      720.0,
+      832.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 692.0,
+        "y": 780,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "J",
+       "attrs": {
+        "x": 720.0,
+        "y": 813,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "26",
+       "attrs": {
+        "x": 720.0,
+        "y": 864,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia27",
+     "centro_brote": [
+      784.0,
+      832.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 756.0,
+        "y": 780,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "V",
+       "attrs": {
+        "x": 784.0,
+        "y": 813,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "27",
+       "attrs": {
+        "x": 784.0,
+        "y": 864,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    },
+    {
+     "id": "dia28",
+     "centro_brote": [
+      848.0,
+      832.0
+     ],
+     "elementos": [
+      {
+       "tag": "rect",
+       "rol": "casilla",
+       "attrs": {
+        "x": 820.0,
+        "y": 780,
+        "width": 56,
+        "height": 104,
+        "rx": 14,
+        "fill": "rgba(15,118,110,.07)",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "letra",
+       "texto": "S",
+       "attrs": {
+        "x": 848.0,
+        "y": 813,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 600,
+        "font-size": 20,
+        "letter-spacing": "1",
+        "fill": "#0F766E",
+        "stroke": "none"
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "28",
+       "attrs": {
+        "x": 848.0,
+        "y": 864,
+        "text-anchor": "middle",
+        "font-family": "Instrument Serif",
+        "font-size": 48,
+        "fill": "#100E0B",
+        "stroke": "none"
+       }
+      }
+     ]
+    }
+   ],
+   "layout": {
+    "hoja": {
+     "x0": 610,
+     "x1": 894,
+     "y0": 576,
+     "y1": 902,
+     "r": 24,
+     "raya_cabecera_y": 648
+    },
+    "casilla": {
+     "ancho": 56,
+     "alto": 104,
+     "rx": 14,
+     "centros_x": [
+      656.0,
+      720.0,
+      784.0,
+      848.0
+     ],
+     "tops_y": [
+      666,
+      780
+     ],
+     "hueco": [
+      8,
+      10
+     ],
+     "margen_a_la_hoja": 18,
+     "relleno": "rgba(15,118,110,.07) (el 21, hoy: #0F766E con letras crema)"
+    },
+    "letra": "Instrument Sans 600, 20 px, y = top + 33",
+    "numero": "Instrument Serif 48 px, negro, y = top + 84",
+    "anillas": "x 672 y 832: cápsulas de 12 × 38 (de y 558 a 596), trazo 3 px y relleno crema, que muerden el borde de arriba; van dentro de #cal y aparecen con la hoja, como la cabecera",
+    "origen_latido": [
+     752,
+     775
+    ]
+   }
+  },
+  "s4": {
+   "principal": {
+    "id": "s-rail",
+    "d": "M680,520 C637.3,566.6 637.3,583.4 680,630 C722.7,676.6 722.7,693.4 680,740 C637.3,786.6 637.3,803.4 680,850 C722.7,896.6 722.7,913.4 680,960",
+    "inicio": [
+     680,
+     520
+    ],
+    "segmentos": [
+     {
+      "o": "M680,520",
+      "marca": "n0"
+     },
+     {
+      "o": "C637.3,566.6 637.3,583.4 680,630",
+      "marca": "n1"
+     },
+     {
+      "o": "C722.7,676.6 722.7,693.4 680,740",
+      "marca": "n2"
+     },
+     {
+      "o": "C637.3,786.6 637.3,803.4 680,850",
+      "marca": "n3"
+     },
+     {
+      "o": "C722.7,896.6 722.7,913.4 680,960",
+      "marca": "n4"
+     }
+    ],
+    "nota": "Empieza en la parada 1 y baja serpenteando (primero a la izquierda, después a la derecha, siempre con la misma amplitud) por las cinco; marcas n0-n4 en cada parada. Se ve punteado: ver «punteado»."
+   },
+   "detalles": [],
+   "paradas": [
+    {
+     "id": "n0",
+     "centro": [
+      680,
+      520
+     ],
+     "elementos": [
+      {
+       "tag": "circle",
+       "rol": "parada",
+       "attrs": {
+        "cx": 680,
+        "cy": 520,
+        "r": 21,
+        "fill": "#0F766E",
+        "stroke": "#FFFDF9",
+        "stroke-width": 6
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "1",
+       "attrs": {
+        "x": 680,
+        "y": 528,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 700,
+        "font-size": 23,
+        "stroke": "none",
+        "fill": "#FFFDF9"
+       }
+      }
+     ]
+    },
+    {
+     "id": "n1",
+     "centro": [
+      680,
+      630
+     ],
+     "elementos": [
+      {
+       "tag": "circle",
+       "rol": "parada",
+       "attrs": {
+        "cx": 680,
+        "cy": 630,
+        "r": 21,
+        "fill": "#0F766E",
+        "stroke": "#FFFDF9",
+        "stroke-width": 6
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "2",
+       "attrs": {
+        "x": 680,
+        "y": 638,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 700,
+        "font-size": 23,
+        "stroke": "none",
+        "fill": "#FFFDF9"
+       }
+      }
+     ]
+    },
+    {
+     "id": "n2",
+     "centro": [
+      680,
+      740
+     ],
+     "elementos": [
+      {
+       "tag": "circle",
+       "rol": "parada",
+       "attrs": {
+        "cx": 680,
+        "cy": 740,
+        "r": 21,
+        "fill": "#0F766E",
+        "stroke": "#FFFDF9",
+        "stroke-width": 6
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "3",
+       "attrs": {
+        "x": 680,
+        "y": 748,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 700,
+        "font-size": 23,
+        "stroke": "none",
+        "fill": "#FFFDF9"
+       }
+      }
+     ]
+    },
+    {
+     "id": "n3",
+     "centro": [
+      680,
+      850
+     ],
+     "elementos": [
+      {
+       "tag": "circle",
+       "rol": "parada",
+       "attrs": {
+        "cx": 680,
+        "cy": 850,
+        "r": 21,
+        "fill": "#0F766E",
+        "stroke": "#FFFDF9",
+        "stroke-width": 6
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "4",
+       "attrs": {
+        "x": 680,
+        "y": 858,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 700,
+        "font-size": 23,
+        "stroke": "none",
+        "fill": "#FFFDF9"
+       }
+      }
+     ]
+    },
+    {
+     "id": "n4",
+     "centro": [
+      680,
+      960
+     ],
+     "elementos": [
+      {
+       "tag": "circle",
+       "rol": "parada",
+       "attrs": {
+        "cx": 680,
+        "cy": 960,
+        "r": 21,
+        "fill": "#0F766E",
+        "stroke": "#FFFDF9",
+        "stroke-width": 6
+       }
+      },
+      {
+       "tag": "text",
+       "rol": "numero",
+       "texto": "5",
+       "attrs": {
+        "x": 680,
+        "y": 968,
+        "text-anchor": "middle",
+        "font-family": "Instrument Sans",
+        "font-weight": 700,
+        "font-size": 23,
+        "stroke": "none",
+        "fill": "#FFFDF9"
+       }
+      }
+     ]
+    }
+   ],
+   "layout": {
+    "paradas_x": [
+     680,
+     680,
+     680,
+     680,
+     680
+    ],
+    "paradas_y": [
+     520,
+     630,
+     740,
+     850,
+     960
+    ],
+    "parada": "círculo r 21 relleno #0F766E con halo crema de 6 px (lo que corta el punteado al llegar); número Instrument Sans 700 23 px crema en y + 8",
+    "horas": {
+     "left": 724,
+     "tops": [
+      492,
+      602,
+      712,
+      822,
+      932
+     ],
+     "css": ".hora (Instrument Serif 52 px, line-height 56 px), sin cambios"
+    }
+   },
+   "punteado": {
+    "como": "el camino principal se pinta punteado y se descubre con una máscara: el trazo que anima stroke-dashoffset es el de la máscara",
+    "svg": [
+     {
+      "tag": "mask",
+      "attrs": {
+       "id": "m-rail",
+       "maskUnits": "userSpaceOnUse",
+       "x": 0,
+       "y": 0,
+       "width": 1080,
+       "height": 1920
+      },
+      "hijo": {
+       "tag": "path",
+       "attrs": {
+        "id": "s-rail",
+        "d": "M680,520 C637.3,566.6 637.3,583.4 680,630 C722.7,676.6 722.7,693.4 680,740 C637.3,786.6 637.3,803.4 680,850 C722.7,896.6 722.7,913.4 680,960",
+        "fill": "none",
+        "stroke": "#fff",
+        "stroke-width": 24,
+        "stroke-linecap": "round"
+       }
+      }
+     },
+     {
+      "tag": "path",
+      "attrs": {
+       "d": "M680,520 C637.3,566.6 637.3,583.4 680,630 C722.7,676.6 722.7,693.4 680,740 C637.3,786.6 637.3,803.4 680,850 C722.7,896.6 722.7,913.4 680,960",
+       "fill": "none",
+       "stroke": "#0F766E",
+       "stroke-width": 5,
+       "stroke-linecap": "round",
+       "stroke-dasharray": "0.1 11.719",
+       "mask": "url(#m-rail)"
+      }
+     }
+    ],
+    "nota": "cada tramo mide 130.01 px y lleva 11 huecos de 11.819: cae un punto justo en cada parada (debajo del disco), así los puntos salen y llegan simétricos"
+   }
+  },
+  "s5": {
+   "principal": {
+    "id": "s-casco",
+    "d": "M668,749 C650.9,749 637,762.9 637,780 L637,820 C637,837.1 650.9,851 668,851 C685.1,851 699,837.1 699,820 L699,780 C699,762.9 685.1,749 668,749 L668,727 C668,672.9 705.6,629 752,629 C798.4,629 836,672.9 836,727 L836,749 C853.1,749 867,762.9 867,780 L867,820 C867,837.1 853.1,851 836,851 C818.9,851 805,837.1 805,820 L805,780 C805,762.9 818.9,749 836,749",
+    "inicio": [
+     668,
+     749
+    ],
+    "nota": "Empieza arriba del casco izquierdo (donde lo coge la diadema), lo rodea por fuera en sentido contrario al reloj, sube por la diadema y baja a rodear el derecho por fuera; acaba arriba del derecho."
+   },
+   "detalles": [
+    {
+     "tag": "path",
+     "rol": "almohadilla",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M668,760 C657,760 648,769 648,780 L648,820 C648,831 657,840 668,840 C679,840 688,831 688,820 L688,780 C688,769 679,760 668,760 Z"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "almohadilla",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M836,760 C825,760 816,769 816,780 L816,820 C816,831 825,840 836,840 C847,840 856,831 856,820 L856,780 C856,769 847,760 836,760 Z"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "acolchado",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M708.3,660 C734,636 770,636 795.7,660"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "onda",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M629,824.4 C619.7,809.5 619.7,790.5 629,775.6"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "onda",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M614.1,826.3 C606,809.7 606,790.3 614.1,773.7"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "onda",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M875,775.6 C884.3,790.5 884.3,809.5 875,824.4"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "onda",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M889.9,773.7 C898,790.3 898,809.7 889.9,826.3"
+     }
+    }
+   ],
+   "layout": {
+    "origen_latido": [
+     752,
+     800.0
+    ],
+    "grupos": "almohadillas y acolchado brotan al acabar la línea; las cuatro ondas, después, y son lo que late con «al oído»"
+   }
+  },
+  "s6": {
+   "principal": {
+    "id": "s-camara",
+    "d": "M636,756 L636,704 C636,688.5 648.5,676 664,676 L688,676 C693.3,676 697.2,673.6 699.6,668.8 L711.5,653 C714.5,647 719.3,644 726,644 L778,644 C784.7,644 789.5,647 792.5,653 L804.4,668.8 C806.8,673.6 810.7,676 816,676 L840,676 C855.5,676 868,688.5 868,704 L868,808 C868,823.5 855.5,836 840,836 L664,836 C648.5,836 636,823.5 636,808 L636,756",
+    "inicio": [
+     636,
+     756.0
+    ],
+    "nota": "Empieza a media altura del lado izquierdo y da la vuelta en el sentido del reloj: sube, pasa por el visor, baja por la derecha y vuelve al principio."
+   },
+   "detalles": [
+    {
+     "tag": "circle",
+     "rol": "lente",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 5,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "cx": "752",
+      "cy": "758",
+      "r": 56
+     }
+    },
+    {
+     "tag": "circle",
+     "rol": "lente",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "cx": "752",
+      "cy": "758",
+      "r": 38
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "brillo",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M727.6,749.1 C730.3,741.6 736.4,735.7 744,733.3"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "disparador",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M666,673 L666,667 C666,664.3 667.3,663 670,663 L694,663 C696.7,663 698,664.3 698,667 L698,673"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "flash",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M812,704 C812,700.7 814.7,698 818,698 L840,698 C843.3,698 846,700.7 846,704 L846,712 C846,715.3 843.3,718 840,718 L818,718 C814.7,718 812,715.3 812,712 L812,704 Z"
+     }
+    },
+    {
+     "tag": "circle",
+     "rol": "piloto",
+     "attrs": {
+      "cx": "666",
+      "cy": "708",
+      "r": 5,
+      "fill": "#0F766E",
+      "stroke": "none"
+     }
+    }
+   ],
+   "layout": {
+    "lente_centro": [
+     752.0,
+     758.0
+    ],
+    "origen_latido_lente": [
+     752.0,
+     758.0
+    ],
+    "grupos": "los tres primeros detalles (dos aros y el brillo) son la lente: un <g id=\"lente\"> que brota y late con «foto»; el disparador, el flash y el piloto brotan con ella"
+   }
+  },
+  "s7": {
+   "principal": {
+    "id": "s-robot",
+    "d": "M742.7,659.4 L745.2,688.3 L781.1,685.2 C813,682.4 841.1,706 843.9,737.9 L844.1,739.9 C854,739 862.7,746.3 863.6,756.2 C864.4,766.1 857.1,774.9 847.2,775.7 L847.4,777.7 C850.2,809.6 826.6,837.8 794.7,840.6 L722.9,846.8 C691,849.6 662.9,826 660.1,794.1 L659.9,792.1 C650,793 641.3,785.7 640.4,775.8 C639.6,765.9 646.9,757.1 656.8,756.3 L656.6,754.3 C653.8,722.4 677.4,694.2 709.3,691.4 L745.2,688.3",
+    "inicio": [
+     742.7,
+     659.4
+    ],
+    "nota": "Empieza en la antena (justo debajo de la bola), baja a la cabeza y la rodea en el sentido del reloj con las dos orejas; acaba otra vez en la base de la antena. Inclinado -5° alrededor de (752, 766), ya horneado en las coordenadas."
+   },
+   "detalles": [
+    {
+     "tag": "path",
+     "rol": "visera",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M674.5,752.7 C672.6,730.7 688.9,711.3 710.9,709.4 L782.6,703.1 C804.6,701.2 824,717.4 826,739.5 L829.5,779.3 C831.4,801.3 815.1,820.7 793.1,822.6 L721.4,828.9 C699.4,830.8 680,814.6 678,792.5 L674.5,752.7 Z"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "ojo",
+     "attrs": {
+      "d": "M732.5,761.7 C733.2,768.8 729.7,775 724.7,775.4 C719.8,775.8 715.2,770.4 714.6,763.2 C714,756.1 717.5,749.9 722.5,749.5 C727.4,749.1 731.9,754.5 732.5,761.7 Z",
+      "fill": "#0F766E",
+      "stroke": "none"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "ojo",
+     "attrs": {
+      "d": "M788.3,756.8 C789,764 785.5,770.1 780.5,770.5 C775.6,771 771,765.5 770.4,758.4 C769.8,751.2 773.3,745.1 778.2,744.6 C783.2,744.2 787.7,749.6 788.3,756.8 Z",
+      "fill": "#0F766E",
+      "stroke": "none"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "sonrisa",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M738.1,790.3 C749.4,797.3 760,796.4 769.9,787.5"
+     }
+    },
+    {
+     "tag": "circle",
+     "rol": "bola",
+     "attrs": {
+      "fill": "#FFFDF9",
+      "stroke": "#0F766E",
+      "stroke-width": 5,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "cx": "741.7",
+      "cy": "648.4",
+      "r": "9"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "señal",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M727.1,662.1 C720.8,655.4 719.9,645.3 724.9,637.6"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "señal",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M717.8,666.5 C710.9,657.3 709.8,645 715,634.8"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "señal",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M756.3,634.8 C762.6,641.5 763.5,651.6 758.5,659.3"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "señal",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M765.7,630.4 C772.6,639.6 773.7,651.8 768.4,662.1"
+     }
+    }
+   ],
+   "layout": {
+    "origen_latido_cara": [
+     752,
+     766
+    ],
+    "inclinacion_grados": -5,
+    "orden_de_los_detalles": "visera, ojos, sonrisa, bola de la antena (crema, tapa el arranque de la línea) y cuatro arquitos de señal"
+   }
+  },
+  "s8": {
+   "principal": {
+    "id": "s-gasto",
+    "d": "M612,840 L892,840",
+    "inicio": [
+     612,
+     840
+    ],
+    "nota": "La línea del gasto, de izquierda a derecha."
+   },
+   "detalles": [
+    {
+     "tag": "path",
+     "rol": "reparto",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M705.3,829 L705.3,851"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "reparto",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M798.7,829 L798.7,851"
+     }
+    }
+   ],
+   "personas": [
+    {
+     "id": "p0",
+     "x": 658,
+     "base_y": 822,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M622,822 L622,810 C622,786 636.4,776 658,776 C679.6,776 694,786 694,810 L694,822"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#FFFDF9",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "658",
+        "cy": "743",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "x": 752,
+     "base_y": 822,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M716,822 L716,810 C716,786 730.4,776 752,776 C773.6,776 788,786 788,810 L788,822"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#FFFDF9",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "752",
+        "cy": "743",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "x": 846,
+     "base_y": 822,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M810,822 L810,810 C810,786 824.4,776 846,776 C867.6,776 882,786 882,810 L882,822"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#FFFDF9",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "846",
+        "cy": "743",
+        "r": 21
+       }
+      }
+     ]
+    }
+   ],
+   "layout": {
+    "personas_x": [
+     658,
+     752,
+     846
+    ],
+    "base_y": 822,
+    "persona": {
+     "r_cabeza": 21,
+     "cabeza_sobre_base": 79,
+     "medio_ancho": 36,
+     "alto_hombros": 46,
+     "lado_recto": 12,
+     "hombro": 0.6
+    },
+    "persona_svg": "hombros: <path d='M-36,0 L-36,-12 C-36,-36 -21.6,-46 0,-46 C21.6,-46 36,-36 36,-12 L36,0' transform='translate(x, yb)' fill='none'/> (o el d ya trasladado de cada persona); cabeza: <circle cx='x' cy='yb-79' r='21' fill='#FFFDF9' (o #0F766E, encendida)/>; las dos con stroke #0F766E de 5 px",
+    "origen_brote": "x, yb",
+    "texto": {
+     "left": 587,
+     "width": 330,
+     "top": 862,
+     "css": "#gasto sin cambios (Instrument Sans 600, 34 px, centrado en 752)"
+    },
+    "rayas_de_reparto": "x 705.3 y 798.7 (los tercios de la línea), de y 829 a 851, 3 px"
+   }
+  },
+  "s9": {
+   "principal": {
+    "id": "s-pin",
+    "d": "M752,827 C743,814 690,763.8 690,703 C690,668.8 717.8,641 752,641 C786.2,641 814,668.8 814,703 C814,763.8 761,814 752,827",
+    "inicio": [
+     752,
+     827
+    ],
+    "nota": "Empieza en la punta, sube por la izquierda, rodea la cabeza en el sentido del reloj y vuelve a la punta."
+   },
+   "detalles": [
+    {
+     "tag": "circle",
+     "rol": "ojo",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 5,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "cx": 752,
+      "cy": 703,
+      "r": 22
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "suelo",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M766,814.4 C792.2,816.1 809.1,822.2 805.5,828.7 C802,835.2 779.1,840 752,840 C724.9,840 702,835.2 698.5,828.7 C694.9,822.2 711.8,816.1 738,814.4"
+     }
+    }
+   ],
+   "layout": {
+    "ojo_centro": [
+     752,
+     703
+    ],
+    "origen_latido_ojo": [
+     752,
+     703
+    ],
+    "grupos": "el ojo (#pin-ojo) brota y late como hoy; la elipse del suelo (centrada en la punta, 752, 827) brota con él"
+   }
+  },
+  "s10": {
+   "principal": {
+    "id": "s-suelo",
+    "d": "M300,880 L540,880 L780,880",
+    "inicio": [
+     300,
+     880
+    ],
+    "segmentos": [
+     {
+      "o": "M300,880 L540,880",
+      "marca": "medio"
+     },
+     {
+      "o": "L780,880",
+      "marca": "fin"
+     }
+    ],
+    "nota": "El suelo, igual que hoy y a 5 px; marcas «medio» y «fin»."
+   },
+   "detalles": [],
+   "personas": [
+    {
+     "id": "g0",
+     "x": 360,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M324,878 L324,866 C324,842 338.4,832 360,832 C381.6,832 396,842 396,866 L396,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#0F766E",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "360",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "g1",
+     "x": 480,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M444,878 L444,866 C444,842 458.4,832 480,832 C501.6,832 516,842 516,866 L516,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#FFFDF9",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "480",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "g2",
+     "x": 600,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M564,878 L564,866 C564,842 578.4,832 600,832 C621.6,832 636,842 636,866 L636,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#FFFDF9",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "600",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "g3",
+     "x": 720,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M684,878 L684,866 C684,842 698.4,832 720,832 C741.6,832 756,842 756,866 L756,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#FFFDF9",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "720",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    }
+   ],
+   "layout": {
+    "personas_x": [
+     360,
+     480,
+     600,
+     720
+    ],
+    "base_y": 878,
+    "persona": "la de S8",
+    "suelo_y": 880,
+    "textos": {
+     "#rep-gasto": {
+      "top": 902
+     },
+     ".rep (entre N)": {
+      "top": 950
+     }
+    }
+   }
+  },
+  "s11": {
+   "principal": {
+    "id": "s-avion",
+    "d": "M883.5,524.2 L704.3,589.2 L789.4,611.6 L883.5,524.2 L809.6,669.8 L789.4,611.6",
+    "inicio": [
+     883.5,
+     524.2
+    ],
+    "nota": "Empieza en el morro; ala de arriba (morro → punta del ala → pliegue → morro), y la quilla (morro → cola → pliegue). Ningún tramo repetido."
+   },
+   "detalles": [
+    {
+     "tag": "path",
+     "rol": "estela",
+     "attrs": {
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 5,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "d": "M766,644 C764.3,646 762.6,648 760.8,650 C759,652 757.2,653.9 755.3,655.7 C753.4,657.6 751.5,659.4 749.6,661.1 C747.7,662.8 745.8,664.5 743.8,666.1 C741.8,667.7 739.8,669.2 737.8,670.7 C735.8,672.2 733.7,673.6 731.7,674.9 C729.7,676.2 727.7,677.5 725.6,678.6 C723.5,679.7 721.4,680.8 719.3,681.7 C717.2,682.7 715.1,683.5 713.1,684.3 C711.1,685.1 709,685.7 707,686.3 C705,686.9 703,687.4 701,687.8 C699,688.2 697,688.5 695.1,688.7 C693.2,688.9 691.3,689 689.5,689 C687.7,689 685.9,688.9 684.2,688.8 C682.5,688.6 680.8,688.4 679.2,688.1 C677.6,687.8 676.1,687.4 674.6,686.9 C673.1,686.4 671.6,685.8 670.3,685.2 C669,684.6 667.8,683.9 666.6,683.2 C665.4,682.5 664.3,681.6 663.3,680.8 C662.3,679.9 661.4,679 660.6,678.1 C659.8,677.2 659,676.2 658.4,675.2 C657.8,674.2 657.2,673.2 656.7,672.1 C656.2,671 655.9,670 655.6,668.9 C655.3,667.8 655.2,666.8 655.1,665.7 C655,664.6 655,663.5 655.1,662.5 C655.2,661.5 655.4,660.4 655.6,659.4 C655.8,658.4 656.1,657.4 656.5,656.5 C656.9,655.6 657.5,654.6 658,653.8 C658.5,652.9 659.1,652.1 659.8,651.4 C660.5,650.6 661.2,649.9 662,649.3 C662.8,648.7 663.6,648.1 664.5,647.6 C665.4,647.1 666.3,646.8 667.2,646.4 C668.1,646 669.1,645.7 670.1,645.5 C671.1,645.3 672.1,645.2 673.1,645.2 C674.1,645.2 675.1,645.2 676.1,645.3 C677.1,645.4 678.1,645.6 679.1,645.9 C680.1,646.2 681.1,646.5 682,647 C682.9,647.5 683.8,648 684.7,648.6 C685.6,649.2 686.4,649.9 687.2,650.7 C688,651.5 688.6,652.3 689.3,653.2 C689.9,654.1 690.6,655.2 691.1,656.2 C691.6,657.2 692.1,658.4 692.5,659.5 C692.9,660.6 693.2,661.8 693.4,663.1 C693.6,664.4 693.8,665.8 693.8,667.1 C693.8,668.5 693.8,669.8 693.6,671.2 C693.5,672.6 693.2,674.1 692.9,675.6 C692.5,677.1 692,678.6 691.5,680.1 C691,681.6 690.4,683.1 689.6,684.6 C688.9,686.1 688,687.7 687,689.2 C686,690.7 684.9,692.2 683.8,693.7 C682.6,695.2 681.5,696.7 680.1,698.1 C678.8,699.5 677.2,700.9 675.7,702.3 C674.2,703.7 672.5,705.1 670.8,706.4 C669.1,707.7 667.3,709 665.4,710.2 C663.5,711.4 661.5,712.6 659.5,713.7 C657.5,714.8 655.4,715.9 653.2,716.9 C651,717.9 648.7,718.9 646.4,719.8 C644.1,720.7 641.8,721.5 639.4,722.3 C637,723.1 634.5,723.8 632,724.5 C629.5,725.2 627,725.7 624.5,726.3",
+      "stroke-dasharray": "0.1 12"
+     }
+    }
+   ],
+   "personas": [
+    {
+     "id": "g0",
+     "x": 360,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M324,878 L324,866 C324,842 338.4,832 360,832 C381.6,832 396,842 396,866 L396,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#0F766E",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "360",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "g1",
+     "x": 480,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M444,878 L444,866 C444,842 458.4,832 480,832 C501.6,832 516,842 516,866 L516,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#0F766E",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "480",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "g2",
+     "x": 600,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M564,878 L564,866 C564,842 578.4,832 600,832 C621.6,832 636,842 636,866 L636,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#0F766E",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "600",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    },
+    {
+     "id": "g3",
+     "x": 720,
+     "base_y": 878,
+     "elementos": [
+      {
+       "tag": "path",
+       "rol": "hombros",
+       "attrs": {
+        "fill": "none",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "d": "M684,878 L684,866 C684,842 698.4,832 720,832 C741.6,832 756,842 756,866 L756,878"
+       }
+      },
+      {
+       "tag": "circle",
+       "rol": "cabeza",
+       "attrs": {
+        "fill": "#0F766E",
+        "stroke": "#0F766E",
+        "stroke-width": 5,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "cx": "720",
+        "cy": "799",
+        "r": 21
+       }
+      }
+     ]
+    }
+   ],
+   "suelo": {
+    "id": "s-suelo",
+    "d": "M300,880 L540,880 L780,880",
+    "inicio": [
+     300,
+     880
+    ],
+    "segmentos": [
+     {
+      "o": "M300,880 L540,880",
+      "marca": "medio"
+     },
+     {
+      "o": "L780,880",
+      "marca": "fin"
+     }
+    ],
+    "nota": "El suelo, igual que hoy y a 5 px; marcas «medio» y «fin»."
+   },
+   "layout": {
+    "origen_latido": [
+     795,
+     597
+    ],
+    "puntos": {
+     "morro": [
+      883.5,
+      524.2
+     ],
+     "punta_del_ala": [
+      704.3,
+      589.2
+     ],
+     "pliegue": [
+      789.4,
+      611.6
+     ],
+     "cola": [
+      809.6,
+      669.8
+     ]
+    },
+    "estela": "punteada como el camino de S4 (5 px, dasharray 0.1 12, puntas redondas), con un rizo: aparece con un fundido desde la cola cuando el avión está entero"
+   }
+  }
+ }
+}

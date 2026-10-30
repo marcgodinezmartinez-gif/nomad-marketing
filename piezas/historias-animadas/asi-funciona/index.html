@@ -73,7 +73,7 @@
          data-width="1080" data-height="1920" data-duration="59.3">
       <!-- Debajo de las píldoras: el collar pasa por detrás. -->
       <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path id="s-collar" stroke="#0F766E" stroke-width="10" />
+        <path id="s-collar" stroke="#0F766E" stroke-width="5" />
       </svg>
       <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
       <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace hilo (S1). -->
@@ -136,39 +136,30 @@
       <h1 id="t11b" class="tit serif t84 verde" style="top: 1370px;">Que lo disfruten.</h1>
       <div id="papel"></div>
       <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path id="s-logo" stroke="#0F766E" stroke-width="10" />
-        <path id="s-borde" stroke="#0F766E" stroke-width="10" />
-        <path id="s-cal" stroke="#0F766E" stroke-width="10" />
-        <path id="s-rail" stroke="#0F766E" stroke-width="10" />
-        <path id="s-casco" stroke="#0F766E" stroke-width="10" />
-        <path id="s-camara" stroke="#0F766E" stroke-width="10" />
-        <path id="s-robot" stroke="#0F766E" stroke-width="10" />
-        <path id="s-gasto" stroke="#0F766E" stroke-width="10" />
-        <path id="s-pin" stroke="#0F766E" stroke-width="10" />
-        <path id="s-suelo" stroke="#0F766E" stroke-width="10" />
-        <path id="s-avion" stroke="#0F766E" stroke-width="10" />
+        <!-- Todas las líneas a 5 px y los detalles a 3: el juego «editorial» que eligió el dueño (30-oct). -->
+        <path id="s-logo" stroke="#0F766E" stroke-width="5" />
+        <path id="s-borde" stroke="#0F766E" stroke-width="5" />
+        <path id="s-cal" stroke="#0F766E" stroke-width="5" />
+        <!-- S4 · La ruta se ve punteada; lo que se dibuja y se recoge es la máscara que la descubre. -->
+        <defs><mask id="m-rail" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920"><path id="s-rail" stroke="#FFFFFF" stroke-width="24" /></mask></defs>
+        <path id="s-rail-ver" stroke="#0F766E" stroke-width="5" mask="url(#m-rail)" />
+        <g id="casco"><path id="s-casco" stroke="#0F766E" stroke-width="5" /><g id="casco-det"></g><g id="casco-ondas"></g></g>
+        <path id="s-camara" stroke="#0F766E" stroke-width="5" />
+        <path id="s-robot" stroke="#0F766E" stroke-width="5" />
+        <path id="s-gasto" stroke="#0F766E" stroke-width="5" />
+        <g id="gasto-det"></g>
+        <path id="s-pin" stroke="#0F766E" stroke-width="5" />
+        <path id="s-suelo" stroke="#0F766E" stroke-width="5" />
+        <g id="avion"><path id="s-avion" stroke="#0F766E" stroke-width="5" /><g id="estela"></g></g>
         <!-- S3 · El calendario del viaje: noviembre de 2026, del 21 al 28 (sólo los días del viaje, de sábado a sábado). -->
         <g id="cal"></g>
         <!-- S4 · Los cinco planes del sábado, numerados como en la app. -->
         <g id="nodos"></g>
-        <!-- S6 · La lente de la cámara. -->
-        <circle id="lente" cx="752" cy="707" r="46" stroke="#0F766E" stroke-width="10" />
-        <!-- S7 · El asistente: la antena, los ojos y la sonrisa del robot. -->
-        <g id="robot-cara">
-          <path d="M752,642 L752,606" stroke="#0F766E" stroke-width="10" />
-          <circle cx="752" cy="596" r="12" fill="#0F766E" />
-          <circle cx="718" cy="698" r="13" fill="#0F766E" />
-          <circle cx="786" cy="698" r="13" fill="#0F766E" />
-          <path d="M724,736 Q752,758 780,736" stroke="#0F766E" stroke-width="8" />
-        </g>
-        <!-- S7 · La otra opción: la marca de Nomad con dos destellos, dentro del mismo marco. -->
-        <g id="asis-marca">
-          <image href="assets/marca-grande.png" x="702" y="655" width="100" height="115" />
-          <path d="M858,602 L863,615 L876,620 L863,625 L858,638 L853,625 L840,620 L853,615 Z" fill="#0F766E" />
-          <path d="M650,598 L654,606 L662,610 L654,614 L650,622 L646,614 L638,610 L646,606 Z" fill="#0F766E" />
-        </g>
-        <!-- S9 · El punto del pin. -->
-        <circle id="pin-ojo" cx="752" cy="652" r="24" stroke="#0F766E" stroke-width="10" />
+        <!-- S6 · la lente de la cámara y sus detalles; S7 · la cara, la bola de la antena y la señal del robot;
+             S9 · el ojo y la sombra del pin. Los pinta el guion desde ICONOS. -->
+        <g id="lente"></g><g id="cam-det"></g>
+        <g id="robot-cara"></g><g id="robot-bola"></g><g id="robot-antena"></g>
+        <g id="pin-ojo"></g><g id="pin-suelo"></g>
         <!-- S8 · Tres personas del grupo, sobre la línea del gasto. S10-S11 · las cuatro del viaje. -->
         <g id="personas"></g>
         <g id="c-flecha">
@@ -187,7 +178,6 @@
     <script>
       document.fonts.ready.then(function () {
         var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
-        var ASISTENTE = window.NOMAD_ASISTENTE === "marca" ? "marca" : "robot";
         var tl = gsap.timeline({ paused: true });
         var VELOCIDAD = 1.15;
         var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F, FPS = 30;
@@ -221,6 +211,9 @@
           });
         }
         function el(tag, at, padre) { var e = document.createElementNS(SVGNS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || a("trazos")).appendChild(e); return e; }
+        // ICONOS: desde iconos/editorial.json (iconos/datos.py).
+        var ICONOS = {"s2":{"segs":[["M752,560","n0"],["C852,560 893,573 893,605 C893,637 852,650 752,650","n1"],["C652,650 601,663 601,695 C601,727 652,740 752,740","n2"]]},"s3":{"d":"M610,600 L610,878 C610,891.3 620.7,902 634,902 L870,902 C883.3,902 894,891.3 894,878 L894,600 C894,586.7 883.3,576 870,576 L634,576 C620.7,576 610,586.7 610,600 L610,648 L894,648","hoja":[["path",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M672,558 C668.7,558 666,560.7 666,564 L666,590 C666,593.3 668.7,596 672,596 C675.3,596 678,593.3 678,590 L678,564 C678,560.7 675.3,558 672,558 Z"}],["path",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M832,558 C828.7,558 826,560.7 826,564 L826,590 C826,593.3 828.7,596 832,596 C835.3,596 838,593.3 838,590 L838,564 C838,560.7 835.3,558 832,558 Z"}],["text",{"x":752,"y":621,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":26,"letter-spacing":"3.5","fill":"#0F766E","stroke":"none"},"NOV 2026"]],"dias":[{"id":"dia21","o":[656.0,718.0],"el":[["rect",{"x":628.0,"y":666,"width":56,"height":104,"rx":14,"fill":"#0F766E","stroke":"none"}],["text",{"x":656.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"rgba(255,253,249,.82)","stroke":"none"},"S"],["text",{"x":656.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#FFFDF9","stroke":"none"},"21"]]},{"id":"dia22","o":[720.0,718.0],"el":[["rect",{"x":692.0,"y":666,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":720.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"D"],["text",{"x":720.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"22"]]},{"id":"dia23","o":[784.0,718.0],"el":[["rect",{"x":756.0,"y":666,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":784.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"L"],["text",{"x":784.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"23"]]},{"id":"dia24","o":[848.0,718.0],"el":[["rect",{"x":820.0,"y":666,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":848.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"M"],["text",{"x":848.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"24"]]},{"id":"dia25","o":[656.0,832.0],"el":[["rect",{"x":628.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":656.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"X"],["text",{"x":656.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"25"]]},{"id":"dia26","o":[720.0,832.0],"el":[["rect",{"x":692.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":720.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"J"],["text",{"x":720.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"26"]]},{"id":"dia27","o":[784.0,832.0],"el":[["rect",{"x":756.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":784.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"V"],["text",{"x":784.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"27"]]},{"id":"dia28","o":[848.0,832.0],"el":[["rect",{"x":820.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":848.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"S"],["text",{"x":848.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"28"]]}]},"s4":{"segs":[["M680,520","n0"],["C637.3,566.6 637.3,583.4 680,630","n1"],["C722.7,676.6 722.7,693.4 680,740","n2"],["C637.3,786.6 637.3,803.4 680,850","n3"],["C722.7,896.6 722.7,913.4 680,960","n4"]],"paradas":[{"c":[680,520],"el":[["circle",{"cx":680,"cy":520,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":528,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"1"]]},{"c":[680,630],"el":[["circle",{"cx":680,"cy":630,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":638,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"2"]]},{"c":[680,740],"el":[["circle",{"cx":680,"cy":740,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":748,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"3"]]},{"c":[680,850],"el":[["circle",{"cx":680,"cy":850,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":858,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"4"]]},{"c":[680,960],"el":[["circle",{"cx":680,"cy":960,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":968,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"5"]]}],"horas_x":724,"puntos":"0.1 11.719","mascara":24},"s5":{"d":"M668,749 C650.9,749 637,762.9 637,780 L637,820 C637,837.1 650.9,851 668,851 C685.1,851 699,837.1 699,820 L699,780 C699,762.9 685.1,749 668,749 L668,727 C668,672.9 705.6,629 752,629 C798.4,629 836,672.9 836,727 L836,749 C853.1,749 867,762.9 867,780 L867,820 C867,837.1 853.1,851 836,851 C818.9,851 805,837.1 805,820 L805,780 C805,762.9 818.9,749 836,749","det":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M668,760 C657,760 648,769 648,780 L648,820 C648,831 657,840 668,840 C679,840 688,831 688,820 L688,780 C688,769 679,760 668,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M836,760 C825,760 816,769 816,780 L816,820 C816,831 825,840 836,840 C847,840 856,831 856,820 L856,780 C856,769 847,760 836,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M708.3,660 C734,636 770,636 795.7,660"}]],"ondas":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M629,824.4 C619.7,809.5 619.7,790.5 629,775.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M614.1,826.3 C606,809.7 606,790.3 614.1,773.7"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M875,775.6 C884.3,790.5 884.3,809.5 875,824.4"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M889.9,773.7 C898,790.3 898,809.7 889.9,826.3"}]]},"s6":{"d":"M636,756 L636,704 C636,688.5 648.5,676 664,676 L688,676 C693.3,676 697.2,673.6 699.6,668.8 L711.5,653 C714.5,647 719.3,644 726,644 L778,644 C784.7,644 789.5,647 792.5,653 L804.4,668.8 C806.8,673.6 810.7,676 816,676 L840,676 C855.5,676 868,688.5 868,704 L868,808 C868,823.5 855.5,836 840,836 L664,836 C648.5,836 636,823.5 636,808 L636,756","lente":[["circle",{"fill":"none","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","cx":"752","cy":"758","r":56}],["circle",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","cx":"752","cy":"758","r":38}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M727.6,749.1 C730.3,741.6 736.4,735.7 744,733.3"}]],"det":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M666,673 L666,667 C666,664.3 667.3,663 670,663 L694,663 C696.7,663 698,664.3 698,667 L698,673"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M812,704 C812,700.7 814.7,698 818,698 L840,698 C843.3,698 846,700.7 846,704 L846,712 C846,715.3 843.3,718 840,718 L818,718 C814.7,718 812,715.3 812,712 L812,704 Z"}],["circle",{"cx":"666","cy":"708","r":5,"fill":"#0F766E","stroke":"none"}]]},"s7":{"d":"M742.7,659.4 L745.2,688.3 L781.1,685.2 C813,682.4 841.1,706 843.9,737.9 L844.1,739.9 C854,739 862.7,746.3 863.6,756.2 C864.4,766.1 857.1,774.9 847.2,775.7 L847.4,777.7 C850.2,809.6 826.6,837.8 794.7,840.6 L722.9,846.8 C691,849.6 662.9,826 660.1,794.1 L659.9,792.1 C650,793 641.3,785.7 640.4,775.8 C639.6,765.9 646.9,757.1 656.8,756.3 L656.6,754.3 C653.8,722.4 677.4,694.2 709.3,691.4 L745.2,688.3","cara":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M674.5,752.7 C672.6,730.7 688.9,711.3 710.9,709.4 L782.6,703.1 C804.6,701.2 824,717.4 826,739.5 L829.5,779.3 C831.4,801.3 815.1,820.7 793.1,822.6 L721.4,828.9 C699.4,830.8 680,814.6 678,792.5 L674.5,752.7 Z"}],["path",{"d":"M732.5,761.7 C733.2,768.8 729.7,775 724.7,775.4 C719.8,775.8 715.2,770.4 714.6,763.2 C714,756.1 717.5,749.9 722.5,749.5 C727.4,749.1 731.9,754.5 732.5,761.7 Z","fill":"#0F766E","stroke":"none"}],["path",{"d":"M788.3,756.8 C789,764 785.5,770.1 780.5,770.5 C775.6,771 771,765.5 770.4,758.4 C769.8,751.2 773.3,745.1 778.2,744.6 C783.2,744.2 787.7,749.6 788.3,756.8 Z","fill":"#0F766E","stroke":"none"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M738.1,790.3 C749.4,797.3 760,796.4 769.9,787.5"}]],"antena":[["circle",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","cx":"741.7","cy":"648.4","r":"9"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M727.1,662.1 C720.8,655.4 719.9,645.3 724.9,637.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M717.8,666.5 C710.9,657.3 709.8,645 715,634.8"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M756.3,634.8 C762.6,641.5 763.5,651.6 758.5,659.3"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M765.7,630.4 C772.6,639.6 773.7,651.8 768.4,662.1"}]]},"s8":{"d":"M612,840 L892,840","det":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M705.3,829 L705.3,851"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M798.7,829 L798.7,851"}]]},"s9":{"d":"M752,827 C743,814 690,763.8 690,703 C690,668.8 717.8,641 752,641 C786.2,641 814,668.8 814,703 C814,763.8 761,814 752,827","ojo":[["circle",{"fill":"none","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","cx":752,"cy":703,"r":22}]],"suelo":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M766,814.4 C792.2,816.1 809.1,822.2 805.5,828.7 C802,835.2 779.1,840 752,840 C724.9,840 702,835.2 698.5,828.7 C694.9,822.2 711.8,816.1 738,814.4"}]]},"s11":{"d":"M883.5,524.2 L704.3,589.2 L789.4,611.6 L883.5,524.2 L809.6,669.8 L789.4,611.6","estela":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","d":"M766,644 C764.3,646 762.6,648 760.8,650 C759,652 757.2,653.9 755.3,655.7 C753.4,657.6 751.5,659.4 749.6,661.1 C747.7,662.8 745.8,664.5 743.8,666.1 C741.8,667.7 739.8,669.2 737.8,670.7 C735.8,672.2 733.7,673.6 731.7,674.9 C729.7,676.2 727.7,677.5 725.6,678.6 C723.5,679.7 721.4,680.8 719.3,681.7 C717.2,682.7 715.1,683.5 713.1,684.3 C711.1,685.1 709,685.7 707,686.3 C705,686.9 703,687.4 701,687.8 C699,688.2 697,688.5 695.1,688.7 C693.2,688.9 691.3,689 689.5,689 C687.7,689 685.9,688.9 684.2,688.8 C682.5,688.6 680.8,688.4 679.2,688.1 C677.6,687.8 676.1,687.4 674.6,686.9 C673.1,686.4 671.6,685.8 670.3,685.2 C669,684.6 667.8,683.9 666.6,683.2 C665.4,682.5 664.3,681.6 663.3,680.8 C662.3,679.9 661.4,679 660.6,678.1 C659.8,677.2 659,676.2 658.4,675.2 C657.8,674.2 657.2,673.2 656.7,672.1 C656.2,671 655.9,670 655.6,668.9 C655.3,667.8 655.2,666.8 655.1,665.7 C655,664.6 655,663.5 655.1,662.5 C655.2,661.5 655.4,660.4 655.6,659.4 C655.8,658.4 656.1,657.4 656.5,656.5 C656.9,655.6 657.5,654.6 658,653.8 C658.5,652.9 659.1,652.1 659.8,651.4 C660.5,650.6 661.2,649.9 662,649.3 C662.8,648.7 663.6,648.1 664.5,647.6 C665.4,647.1 666.3,646.8 667.2,646.4 C668.1,646 669.1,645.7 670.1,645.5 C671.1,645.3 672.1,645.2 673.1,645.2 C674.1,645.2 675.1,645.2 676.1,645.3 C677.1,645.4 678.1,645.6 679.1,645.9 C680.1,646.2 681.1,646.5 682,647 C682.9,647.5 683.8,648 684.7,648.6 C685.6,649.2 686.4,649.9 687.2,650.7 C688,651.5 688.6,652.3 689.3,653.2 C689.9,654.1 690.6,655.2 691.1,656.2 C691.6,657.2 692.1,658.4 692.5,659.5 C692.9,660.6 693.2,661.8 693.4,663.1 C693.6,664.4 693.8,665.8 693.8,667.1 C693.8,668.5 693.8,669.8 693.6,671.2 C693.5,672.6 693.2,674.1 692.9,675.6 C692.5,677.1 692,678.6 691.5,680.1 C691,681.6 690.4,683.1 689.6,684.6 C688.9,686.1 688,687.7 687,689.2 C686,690.7 684.9,692.2 683.8,693.7 C682.6,695.2 681.5,696.7 680.1,698.1 C678.8,699.5 677.2,700.9 675.7,702.3 C674.2,703.7 672.5,705.1 670.8,706.4 C669.1,707.7 667.3,709 665.4,710.2 C663.5,711.4 661.5,712.6 659.5,713.7 C657.5,714.8 655.4,715.9 653.2,716.9 C651,717.9 648.7,718.9 646.4,719.8 C644.1,720.7 641.8,721.5 639.4,722.3 C637,723.1 634.5,723.8 632,724.5 C629.5,725.2 627,725.7 624.5,726.3","stroke-dasharray":"0.1 12"}]]},"persona":{"r":21,"sobre":79,"hombros":"M-36,0 L-36,-12 C-36,-36 -21.6,-46 0,-46 C21.6,-46 36,-36 36,-12 L36,0","x8":[658,752,846],"base8":822,"base10":878}};
+        function pinta(lista, padre) { lista.forEach(function (e) { var n = el(e[0], e[1], padre); if (e.length > 2) n.textContent = e[2]; }); }
 
         // —— S1 · EL LOGO SE HACE HILO (30-oct; la espiral no gustó, «feísimo», y de tres maneras el dueño
         // eligió ésta). La línea recorre la silueta del logo mientras el relleno se apaga, y el contorno sale
@@ -266,7 +259,7 @@
           M.late("#c" + k, TEL[k] - 0.02, 0.08, 0.32);
         });
         var col = new M.Camino();
-        col.o("M752,560").marca("n0").o("C880,560 880,650 752,650").marca("n1").o("C624,650 624,740 752,740").marca("n2");
+        ICONOS.s2.segs.forEach(function (s) { col.o(s[0]).marca(s[1]); });
         var mL = M.pon(col, a("s-collar"));
         M.cadena([[a("s-collar"), mL.L]], [[0, 0]], [[T[2] + 1.05, 0], [TEL[0], mL.n0, "power1.out"], [TEL[1], mL.n1, "power1.inOut"],
                   [TEL[2], mL.n2, "power1.inOut"], [T[3] - 0.3, mL.n2], [T[3], 0, "power1.in"]], T[2] + 1.0, T[3]);
@@ -277,50 +270,41 @@
         M.frase(["t2a", "t2b"], T[2], T[3]);
 
         // —— S3 · LA PORTADA, y al lado el calendario del viaje: la línea dibuja la hoja y los días se encienden.
-        var CAL = { x0: 600, x1: 900, y0: 540, y1: 860, r: 18 };   // 10 px de aire a cada lado de las casillas
         var cal = new M.Camino();
-        cal.o("M" + CAL.x0 + "," + (CAL.y0 + CAL.r)).marca("ini")
-           .o("L" + CAL.x0 + "," + (CAL.y1 - CAL.r) + " Q" + CAL.x0 + "," + CAL.y1 + " " + (CAL.x0 + CAL.r) + "," + CAL.y1)
-           .o("L" + (CAL.x1 - CAL.r) + "," + CAL.y1 + " Q" + CAL.x1 + "," + CAL.y1 + " " + CAL.x1 + "," + (CAL.y1 - CAL.r))
-           .o("L" + CAL.x1 + "," + (CAL.y0 + CAL.r) + " Q" + CAL.x1 + "," + CAL.y0 + " " + (CAL.x1 - CAL.r) + "," + CAL.y0)
-           .o("L" + (CAL.x0 + CAL.r) + "," + CAL.y0 + " Q" + CAL.x0 + "," + CAL.y0 + " " + CAL.x0 + "," + (CAL.y0 + CAL.r))
-           .o("L" + CAL.x0 + ",602 L" + CAL.x1 + ",602").marca("fin");
+        cal.o(ICONOS.s3.d).marca("fin");
         var mCal = M.salida(a("s-cal"), cal, T[3] + 0.1, T[3] + 1.2, T[4] - 0.45, T[4] - 0.15, "power1.inOut");
         var gcal = a("cal");
-        el("text", { x: 750, y: 584, "text-anchor": "middle", "class": "num", "font-size": 28, fill: "#0F766E", stroke: "none" }, gcal).textContent = "NOV 2026";
-        // Sólo los días del viaje, del sábado 21 al sábado 28, en dos filas de cuatro y con números grandes.
-        var LETRA = ["S", "D", "L", "M", "X", "J", "V", "S"];
-        for (var d = 21; d <= 28; d++) {
-          var c = (d - 21) % 4, f = Math.floor((d - 21) / 4), x = 645 + 70 * c, y = 676 + 112 * f;
-          var g = el("g", { id: "dia" + d }, gcal);
-          el("rect", { x: x - 30, y: y - 46, width: 60, height: 96, rx: 14, fill: "#0F766E", stroke: "none" }, g);
-          el("text", { x: x, y: y - 14, "text-anchor": "middle", "class": "num", "font-size": 28, fill: "rgba(255,253,249,.8)", stroke: "none" }, g).textContent = LETRA[d - 21];
-          el("text", { x: x, y: y + 34, "text-anchor": "middle", "class": "num", "font-size": 40, fill: "#FFFDF9", stroke: "none" }, g).textContent = d;
-          gsap.set("#dia" + d, { svgOrigin: x + " " + (y + 2) });
-        }
+        pinta(ICONOS.s3.hoja, gcal);   // las dos anillas y «NOV 2026»
+        // Sólo los días del viaje, del sábado 21 al sábado 28, en dos filas de cuatro; el 21, encendido.
+        ICONOS.s3.dias.forEach(function (dd) {
+          var g = el("g", { id: dd.id }, gcal);
+          pinta(dd.el, g);
+          gsap.set("#" + dd.id, { svgOrigin: dd.o[0] + " " + dd.o[1] });
+        });
         tl.set("#cal", { autoAlpha: 0 }, 0);
         tl.fromTo("#cal", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none", immediateRender: false }, T[3] + 1.1);
-        for (d = 21; d <= 28; d++) { tl.set("#dia" + d, { autoAlpha: 0 }, 0); M.brota("#dia" + d, T[3] + 1.5 + 0.13 * (d - 21), "back.out(1.7)"); }
+        for (var d = 21; d <= 28; d++) { tl.set("#dia" + d, { autoAlpha: 0 }, 0); M.brota("#dia" + d, T[3] + 1.5 + 0.13 * (d - 21), "back.out(1.7)"); }
         [negra(T[3] + 3.2), negra(T[3] + 4.0)].forEach(function (t) { M.late("#cal", t, 0.025, 0.5); });
-        gsap.set("#cal", { svgOrigin: "750 730" });
+        gsap.set("#cal", { svgOrigin: "752 739" });
         M.apaga("#cal", T[4] - 0.5, 0.25);
         respira("#cal", T[3] + 1.45, T[4] - 0.5, 0.025);
         M.frase(["t3a", "t3b"], T[3], T[4]);
 
         // —— S4 · TU VIAJE, DÍA A DÍA: los cinco planes del sábado, unidos por una curva, con sus horas al lado.
-        var NY = [520, 630, 740, 850, 960], NX = [640, 672, 640, 672, 640];
         var rail = new M.Camino();
-        rail.o("M" + NX[0] + "," + NY[0]).marca("n0");
-        for (var n = 1; n < 5; n++) rail.o("C" + NX[n - 1] + "," + (NY[n - 1] + 55) + " " + NX[n] + "," + (NY[n] - 55) + " " + NX[n] + "," + NY[n]).marca("n" + n);
+        ICONOS.s4.segs.forEach(function (s) { rail.o(s[0]).marca(s[1]); });
         var mR = M.salida(a("s-rail"), rail, T[4] + 0.15, T[4] + 2.15, T[5] - 0.5, T[5] - 0.2, "power1.inOut");
-        NY.forEach(function (y, k) {
+        // La ruta se ve punteada: el camino visible es el mismo y lo descubre la máscara, que es la que se dibuja.
+        a("s-rail-ver").setAttribute("d", a("s-rail").getAttribute("d"));
+        a("s-rail-ver").setAttribute("stroke-dasharray", ICONOS.s4.puntos);
+        a("s-rail").setAttribute("stroke-width", ICONOS.s4.mascara);
+        ICONOS.s4.paradas.forEach(function (p, k) {
           var g = el("g", { id: "n" + k }, a("nodos"));
-          el("circle", { cx: NX[k], cy: y, r: 26, fill: "#0F766E", stroke: "#FFFDF9", "stroke-width": 6 }, g);
-          el("text", { x: NX[k], y: y + 10, "text-anchor": "middle", "class": "num", "font-size": 30, fill: "#FFFDF9", stroke: "none" }, g).textContent = k + 1;
+          pinta(p.el, g);
           tl.set("#n" + k, { autoAlpha: 0 }, 0);
           // El último latido va de abajo arriba: así acaba antes de que la curva, al recogerse, encoja cada punto.
-          M.nodo("#n" + k, mR, "n" + k, NX[k], y, [negra(T[4] + 2.6) + 0.04 * k, negra(T[4] + 3.4) + 0.04 * k, negra(T[4] + 4.2) + 0.04 * k, negra(T[4] + 5.0) - 0.04 * k]);
-          a("h" + k).style.left = (NX[k] + 48) + "px";
+          M.nodo("#n" + k, mR, "n" + k, p.c[0], p.c[1], [negra(T[4] + 2.6) + 0.04 * k, negra(T[4] + 3.4) + 0.04 * k, negra(T[4] + 4.2) + 0.04 * k, negra(T[4] + 5.0) - 0.04 * k]);
+          a("h" + k).style.left = ICONOS.s4.horas_x + "px";
           M.entra("#h" + k, mR.llega("n" + k) + 0.04, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
           M.apaga("#h" + k, mR.vuelve("n" + k) - 0.06, 0.1);
         });
@@ -328,29 +312,36 @@
 
         // —— S5 · UNA GUÍA QUE TE LO CUENTA: unos auriculares, que laten mientras Kore dice «al oído».
         var cas = new M.Camino();
-        cas.o("M636,804").marca("ini")
-           .o("L636,716 Q636,700 652,700 L664,700 Q680,700 680,716 L680,804 Q680,820 664,820 L652,820 Q636,820 636,804")
-           .o("L636,716 Q636,700 652,700 L658,700 C658,548 846,548 846,700")
-           .o("L852,700 Q868,700 868,716 L868,804 Q868,820 852,820 L840,820 Q824,820 824,804 L824,716 Q824,700 840,700 L846,700").marca("fin");
+        cas.o(ICONOS.s5.d).marca("fin");
         var mCa = M.salida(a("s-casco"), cas, T[5] + 0.15, T[5] + 1.6, T[6] - 0.45, T[6] - 0.15, "power1.inOut");
-        gsap.set("#s-casco", { svgOrigin: "752 700" });
-        [negra(T[5] + 0.25 + 4.1), negra(T[5] + 0.25 + 4.9), negra(T[5] + 0.25 + 5.7)].forEach(function (t) { M.late("#s-casco", t, 0.04, 0.6); });
+        // Las almohadillas y el acolchado aparecen al acabar la línea; las ondas, después, y laten con «al oído».
+        pinta(ICONOS.s5.det, a("casco-det")); pinta(ICONOS.s5.ondas, a("casco-ondas"));
+        gsap.set(["#casco", "#casco-ondas"], { svgOrigin: "752 800" });
+        gsap.set(["#casco-det", "#casco-ondas"], { autoAlpha: 0 });
+        M.funde("#casco-det", T[5] + 1.55, 0.25); M.apaga("#casco-det", T[6] - 0.55, 0.15);
+        M.brota("#casco-ondas", T[5] + 1.75, "back.out(1.7)"); M.encoge("#casco-ondas", T[6] - 0.6);
+        [negra(T[5] + 0.25 + 4.1), negra(T[5] + 0.25 + 4.9), negra(T[5] + 0.25 + 5.7)].forEach(function (t) {
+          M.late("#casco", t, 0.04, 0.6);
+          if (t + 0.6 < T[6] - 0.6) M.late("#casco-ondas", t, 0.12, 0.6);
+        });
         // El velo de la errata, sólo mientras corre la toma s5a (tomas.json: de 21,77 a 23,66 a 1×).
         gsap.set("#velo-s5a", { autoAlpha: 0 });
         M.aparece("#velo-s5a", 21.77);
         M.corta("#velo-s5a", 23.66);
-        respira("#s-casco", T[5] + 1.2, T[6] - 0.45);
+        respira("#casco", T[5] + 1.2, T[6] - 0.45);
         M.frase(["t5a", "t5b"], T[5], T[6]);
 
         // —— S6 · ¿Y ESO QUÉ ES?: una cámara, cuya lente late cuando Kore dice «foto».
         var cam = new M.Camino();
-        cam.o("M642,705").marca("ini")
-           .o("L642,652 Q642,630 664,630 L700,630 L708,612 L796,612 L804,630 L840,630 Q862,630 862,652 L862,758 Q862,780 840,780 L664,780 Q642,780 642,758 L642,705").marca("fin");
+        cam.o(ICONOS.s6.d).marca("fin");
         var mCm = M.salida(a("s-camara"), cam, T[6] + 0.1, T[6] + 1.2, T[7] - 0.45, T[7] - 0.15, "power1.inOut");
-        gsap.set("#lente", { svgOrigin: "752 707" });
+        pinta(ICONOS.s6.lente, a("lente")); pinta(ICONOS.s6.det, a("cam-det"));
+        gsap.set("#lente", { svgOrigin: "752 758" });
         tl.set("#lente", { autoAlpha: 0 }, 0);
+        gsap.set("#cam-det", { autoAlpha: 0 });
         M.brota("#lente", T[6] + 1.2);
         M.encoge("#lente", T[7] - 0.5);
+        M.funde("#cam-det", T[6] + 1.2, 0.25); M.apaga("#cam-det", T[7] - 0.5, 0.12);
         var TFOTO = T[6] + 0.25 + 2.38;
         // Sin destello sobre la pantalla: la toma es la foto de archivo de la obra, con su crédito, y un
         // destello encima la hacía pasar por una foto recién hecha (revisión del 30-oct). Late la lente.
@@ -358,33 +349,41 @@
         respira("#lente", T[6] + 1.55, T[7] - 0.5, 0.06);
         M.frase(["t6a", "t6b"], T[6], T[7]);
 
-        // —— S7 · PÍDESELO AL ASISTENTE: un robot pequeño (o, en la otra versión, la marca con destellos).
+        // —— S7 · PÍDESELO AL ASISTENTE: un robot pequeño, con la cabeza ladeada, que escucha.
         var rob = new M.Camino();
-        rob.o("M662,712").marca("ini")
-           .o("L662,672 Q662,642 692,642 L812,642 Q842,642 842,672 L842,752 Q842,782 812,782 L692,782 Q662,782 662,752 L662,712").marca("fin");
+        rob.o(ICONOS.s7.d).marca("fin");
         var mRo = M.salida(a("s-robot"), rob, T[7] + 0.1, T[7] + 1.2, T[8] - 0.6, T[8] - 0.3, "power1.inOut");
-        var CARA = ASISTENTE === "marca" ? "#asis-marca" : "#robot-cara";
-        tl.set(["#robot-cara", "#asis-marca"], { autoAlpha: 0 }, 0);
-        gsap.set(CARA, { svgOrigin: "752 712" });
+        var CARA = "#robot-cara";
+        // La bola de la antena tapa el principio de la línea: sale con ella y se va cuando la línea vuelve.
+        pinta(ICONOS.s7.cara, a("robot-cara")); pinta(ICONOS.s7.antena.slice(0, 1), a("robot-bola")); pinta(ICONOS.s7.antena.slice(1), a("robot-antena"));
+        tl.set(CARA, { autoAlpha: 0 }, 0);
+        gsap.set(["#robot-bola", "#robot-antena"], { autoAlpha: 0 });
+        gsap.set(CARA, { svgOrigin: "752 766" });
         M.brota(CARA, T[7] + 1.25, "back.out(2)");
+        M.funde("#robot-bola", T[7] + 0.1, 0.1); M.apaga("#robot-bola", T[8] - 0.32, 0.08);
+        M.funde("#robot-antena", T[7] + 1.2, 0.25); M.apaga("#robot-antena", T[8] - 0.65, 0.12);
         [negra(T[7] + 0.25 + 2.66), negra(T[7] + 0.25 + 3.96)].forEach(function (t) { M.late(CARA, t, 0.06, 0.6); });
         M.encoge(CARA, T[8] - 0.65);
         respira(CARA, T[7] + 1.6, T[8] - 0.65, 0.05);
         M.frase(["t7a", "t7b"], T[7], T[8]);
 
         // —— S8 · LOS GASTOS: tres personas, y debajo la línea de un gasto con su concepto.
-        function persona(id, x, yc, padre) {
-          var g = el("g", { id: id, stroke: "#0F766E", "stroke-width": 8 }, padre || a("personas"));
-          el("circle", { cx: x, cy: yc, r: 32, fill: "#FFFDF9" }, g);
-          el("path", { d: "M" + (x - 50) + "," + (yc + 104) + " C" + (x - 50) + "," + (yc + 50) + " " + (x + 50) + "," + (yc + 50) + " " + (x + 50) + "," + (yc + 104) }, g);
-          gsap.set("#" + id, { svgOrigin: x + " " + (yc + 104) });
+        function persona(id, x, yb, padre) {   // (x, yb): el centro de la base de los hombros
+          var P = ICONOS.persona, g = el("g", { id: id, stroke: "#0F766E", "stroke-width": 5 }, padre || a("personas"));
+          el("circle", { cx: x, cy: yb - P.sobre, r: P.r, fill: "#FFFDF9" }, g);
+          el("path", { d: P.hombros, transform: "translate(" + x + "," + yb + ")" }, g);
+          gsap.set("#" + id, { svgOrigin: x + " " + yb });
           tl.set("#" + id, { autoAlpha: 0 }, 0);
           return g;
         }
         var gas = new M.Camino();
-        gas.o("M612,840 L892,840").marca("fin");
+        gas.o(ICONOS.s8.d).marca("fin");
         var mG = M.salida(a("s-gasto"), gas, T[8] + 0.1, T[8] + 0.7, T[9] - 0.45, T[9] - 0.15, "power2.out");
-        [662, 752, 842].forEach(function (x, k) { persona("p" + k, x, 700); M.brota("#p" + k, T[8] + 0.75 + 0.12 * k, "back.out(2.4)"); M.encoge("#p" + k, T[9] - 0.5 + 0.03 * k); });
+        ICONOS.persona.x8.forEach(function (x, k) { persona("p" + k, x, ICONOS.persona.base8); M.brota("#p" + k, T[8] + 0.75 + 0.12 * k, "back.out(2.4)"); M.encoge("#p" + k, T[9] - 0.5 + 0.03 * k); });
+        // Las dos rayas que parten la línea en tres, cuando la línea ya está.
+        pinta(ICONOS.s8.det, a("gasto-det"));
+        gsap.set("#gasto-det", { autoAlpha: 0 });
+        M.funde("#gasto-det", T[8] + 0.7, 0.2); M.apaga("#gasto-det", T[9] - 0.5, 0.15);
         M.entra("#gasto", T[8] + 1.0, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
         M.apaga("#gasto", T[9] - 0.5, 0.2);
         [negra(T[8] + 0.25 + 3.3)].forEach(function (t) { [0, 1, 2].forEach(function (k) { M.late("#p" + k, t + 0.04 * k, 0.06, 0.45); }); });
@@ -396,10 +395,12 @@
 
         // —— S9 · TUS SITIOS, EN EL MAPA: un pin.
         var pin = new M.Camino();
-        pin.o("M752,800").marca("ini")
-           .o("C712,752 682,712 682,652 A70,70 0 1 1 822,652 C822,712 792,752 752,800").marca("fin");
+        pin.o(ICONOS.s9.d).marca("fin");
         var mP = M.salida(a("s-pin"), pin, T[9] + 0.1, T[9] + 1.3, T[10] - 0.45, T[10] - 0.15, "power1.inOut");
-        gsap.set("#pin-ojo", { svgOrigin: "752 652" });
+        pinta(ICONOS.s9.ojo, a("pin-ojo")); pinta(ICONOS.s9.suelo, a("pin-suelo"));
+        gsap.set("#pin-ojo", { svgOrigin: "752 703" });
+        gsap.set("#pin-suelo", { autoAlpha: 0 });
+        M.funde("#pin-suelo", T[9] + 1.3, 0.25); M.apaga("#pin-suelo", T[10] - 0.5, 0.12);
         tl.set("#pin-ojo", { autoAlpha: 0 }, 0);
         M.brota("#pin-ojo", T[9] + 1.3);
         [negra(T[9] + 0.25 + 4.06), negra(T[9] + 0.25 + 4.86)].forEach(function (t) { M.late("#pin-ojo", t, 0.1, 0.45); });
@@ -425,7 +426,7 @@
         var LLEGA = [T[10] + 0.6, V10 + 4.46 - 0.1, V10 + 5.16 - 0.1, V10 + 5.74 - 0.1];
         var LLENA = [V10 + 0.6, V10 + 4.46 + 0.12, V10 + 5.16 + 0.12, V10 + 5.74 + 0.12];
         XP.forEach(function (x, k) {
-          persona("g" + k, x, SY - 108);
+          persona("g" + k, x, ICONOS.persona.base10);
           M.brota("#g" + k, LLEGA[k], "back.out(2.4)");
           tl.fromTo("#g" + k + " circle", { attr: { fill: "#FFFDF9" } }, { attr: { fill: "#0F766E" }, duration: 0.15, ease: "power1.out", immediateRender: false }, LLENA[k]);
           M.late("#g" + k, LLENA[k], 0.08, 0.6);
@@ -441,14 +442,17 @@
 
         // —— S11 · RECOMIÉNDALO: un avión de papel, encima de los cuatro.
         var avi = new M.Camino();
-        avi.o("M820,655").marca("ini")
-           .o("L800,610 L720,575 L870,530 L820,655 L800,610 L870,530").marca("fin");
+        avi.o(ICONOS.s11.d).marca("fin");
         var mA = M.salida(a("s-avion"), avi, T[11] + 0.2, T[11] + 1.6, T[12] - 0.45, T[12] - 0.15, "power1.inOut");
-        gsap.set("#s-avion", { svgOrigin: "795 592" });
-        [negra(T[11] + 0.25 + 1.76), negra(T[11] + 0.25 + 3.3), negra(T[11] + 0.25 + 4.1)].forEach(function (t) { M.late("#s-avion", t, 0.06, 0.45); });
+        gsap.set("#avion", { svgOrigin: "795 597" });
+        // La estela, punteada como la ruta de S4, aparece cuando el avión está entero.
+        pinta(ICONOS.s11.estela, a("estela"));
+        gsap.set("#estela", { autoAlpha: 0 });
+        M.funde("#estela", T[11] + 1.6, 0.35); M.apaga("#estela", T[12] - 0.5, 0.15);
+        [negra(T[11] + 0.25 + 1.76), negra(T[11] + 0.25 + 3.3), negra(T[11] + 0.25 + 4.1)].forEach(function (t) { M.late("#avion", t, 0.06, 0.45); });
         [negra(T[11] + 0.25 + 3.92)].forEach(function (t) { XP.forEach(function (x, k) { M.late("#g" + k, t + 0.05 * k, 0.07, 0.45); }); });
         XP.forEach(function (x, k) { M.encoge("#g" + k, T[12] - 0.3 + 0.03 * k); });
-        respira("#s-avion", T[11] + 1.65, T[12] + 0.05, 0.04);   // el último, mientras se recoge
+        respira("#avion", T[11] + 1.65, T[12] + 0.05, 0.04);   // el último, mientras se recoge
         XP.forEach(function (x, k) { respira("#g" + k, LLENA[k] + 0.45, T[12] - 0.3, 0.045); });
         M.frase(["t11a", "t11b"], T[11], T[12]);
         // El suelo: nace en S10 y, en el cierre, se recoge en un punto en el centro del icono.
