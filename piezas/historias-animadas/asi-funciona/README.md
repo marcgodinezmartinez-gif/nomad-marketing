@@ -62,6 +62,15 @@ Ninguno sale de la pantalla ni del suelo. La única línea que une cosas es la d
 logo y dibuja la pantalla, y la que sólo une lo que pertenece junto: las tres opciones del viaje y los
 cinco planes del día.
 
+**Los dibujos son el juego «editorial»** (30-oct): el dueño vio los primeros —los auriculares, el robot,
+la línea del plan— «muy cutres» y pidió líneas más finas en todo lo que se dibuja. De tres juegos eligió
+el tercero: **5 px la línea y 3 px los detalles**, un calendario con anillas, la línea del plan en
+punteado redondo (se descubre con una máscara), unos auriculares con almohadillas y ondas, una cámara con
+su lente, un robot pequeño con la cabeza ladeada, el pin con su ojo y su sombra, las personas con
+hombros, y el avión con una estela punteada. Los datos están en `iconos/editorial.json` (con la hoja de
+muestra, `iconos/editorial-hoja.png`) y entran en `index.html` con `iconos/datos.py`; a mano no se
+tocan. El hilo del arranque, la pantalla y el cierre van también a 5 px.
+
 **Y respiran.** Con la toma de la app quieta y el dibujo ya entero, el primer render se paraba en 16
 tramos de 0,4 s o más (hasta 2,4 s en la guía y 2,3 en el mapa). Como en A y B, cada dibujo late suave
 en cada negra de la música mientras espera (`respira()` en `index.html`), sin pisar los latidos, brotes
@@ -113,15 +122,35 @@ punto 7).
 
 Kore, `gemini-3.1-flash-tts-preview`, con el estilo de A y B (lo que va antes de los dos puntos no se
 lee; dentro, «Nomad se pronuncia "nómad"»), y transcrita con faster-whisper para elegir. Una toma por
-frase, la primera, salvo v08 y v11, la segunda: v08-1 leyó en voz alta el texto del estilo y v11-1
-pronunció mal. Duran de 3,36 s (el cierre) a 6,44 s (la del pago), a 1×. La del pago (v10) es de después
+frase: la primera en v01, v03, v04, v07, v09 y v12, y la segunda en v02, v05, v06, v08 y v11 (v08-1
+leyó en voz alta el texto del estilo y v11-1 pronunció mal; v02, v05 y v06 salen de la segunda por
+comparación con las tomas crudas, residuo −85 dB, aunque aquí ponía «la primera»). Duran de 3,36 s (el cierre) a 6,44 s (la del pago), a 1×. La del pago (v10) es de después
 (ver abajo): la segunda de tres tomas, las tres con todas sus palabras.
+
+**La voz se acelera con `atempo` y no con `rubberband` (30-oct).** El dueño la oyó «algo rara en algunos
+momentos o palabras». La causa era la aceleración: `rubberband` con sus opciones de fábrica es un vocoder
+de fase, y medido sobre las doce tomas subía la desviación de fase entre armónicos de 0,44 a 0,70 rad (un
+vocoder sin bloqueo de fase, de control, da 0,90), ponía un pre-eco agudo de +24 dB de mediana delante de
+las consonantes que siguen a un silencio («**Y** los gastos», «**t**iempo», «dis**f**rute») y le quitaba
+1,35 dB a cada toma. Ninguna opción del motor R2 lo arregla; el R3 queda a medio camino. `atempo` (WSOLA)
+deja la fase y los ataques como en la toma (0,44 y −0,3 dB), la potencia igual y cada toma a ±20 ms de
+su duración entre 1,15. Descartados con medida: el compresor y el limitador (como mucho 2,9 dB, y más de
+1 dB sólo 0,15 s en total), el AAC, los cortes y las juntas. Lo midió una revisión de cuatro lentes, cada
+una con otra que intentó refutarla; el oyente artificial (Gemini) no distinguía a ciegas la voz de antes
+de la de ahora, así que **lo que decidió fue el oído del dueño**, con la mezcla de antes y la de después.
+Whisper oye todas las palabras de las doce frases, y «recomiéndalo» vuelve a tener su /d/.
+
+Lo que queda, y es del TTS, no de la mezcla: «cómo te gusta **viajar,**» sube +11 semitonos y casi suena
+a pregunta, y en siete frases Kore para 0,2-0,4 s antes de una «y» sin coma («pídeselo al asistente · y
+te cambia el plan»). Se arregla, si molesta, con otra toma de esa frase.
 
 ## La música y la mezcla
 
 La de «Un trazo», con la cadena de A y B (`mezclar.sh`): la voz a −18 LUFS, la música a −33 y
-apartándose cuando habla Kore, y todo a −16 LUFS lineal. Medido: **−16,0 LUFS, pico −3,0 dBFS, LRA
-1,6 LU**, y las doce frases enteras en la pista de voz.
+apartándose cuando habla Kore, y todo a −16 LUFS lineal. Medido con la voz de `atempo`: **−16,0 LUFS, pico
+−3,5 dBFS, LRA 1,7 LU**, y las doce frases enteras en la pista de voz. La música sigue estirándose con
+`rubberband`, y su pasada se escribe en coma flotante: en s24 se recortaba, porque al estirarla sube hasta
++2,4 dBFS (1.551 muestras, que no se oían).
 
 **Aquí la pista se alarga, no se acorta**: dura 60,7 s y el vídeo pide 68,2 a 1×. Se repiten **dos veces dos
 compases justos** (6,407 s cada vez): hasta el 11,26 de la pista tal cual; desde ahí, la misma pista 6,407 s
@@ -145,6 +174,7 @@ pista tres veces.
 
 ```bash
 METRAJE=<carpeta> python3 -I cortar-tomas.py         # las tomas (una vez)
+python3 -I iconos/datos.py                           # los dibujos de la derecha, de iconos/editorial.json
 bash mezclar.sh                                      # assets/sonido.m4a, si cambian voz o tiempos
 VERSIONES="historia reel limpia" bash variantes.sh   # los tres vídeos en salida/ y revision/*.png
 bash portada.sh ../../../salida/nomad-asi-funciona-portada.jpg
