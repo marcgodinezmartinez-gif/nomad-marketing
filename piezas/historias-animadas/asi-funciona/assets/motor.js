@@ -108,14 +108,16 @@ window.Motor = function (tl, VELOCIDAD) {
     return ini;
   }
   // Una salida: sale del borde, se dibuja (de t0 a t1), se queda entera y vuelve a meterse en el borde
-  // (de t2 a t3). Con la cola clavada en el borde, la línea nunca se suelta del papel.
+  // (de t2 a t3). Con la cola clavada en el borde, la línea nunca se suelta del papel. En «Así funciona»
+  // el camino ya no empieza en el borde (cada dibujo se traza solo), y una marca puede caer en el largo 0:
+  // la vuelta la busca a medio píxel del principio, no por debajo de él, que no llegaría nunca.
   function salida(el, cam, t0, t1, t2, t3, ease) {
     var m = pon(cam, el);
     var PUNTA = [[t0, 0], [t1, m.L, ease || "power2.inOut"], [t2, m.L], [t3, 0, "power1.in"]];
     cadena([[el, m.L]], [[0, 0]], PUNTA, t0 - F, t3 + F);
     m.PUNTA = PUNTA;
     m.llega = function (n) { return cuando(PUNTA, m[n], t0); };
-    m.vuelve = function (n) { return cuando(PUNTA, m[n] - 0.5, t2, true); };
+    m.vuelve = function (n) { return cuando(PUNTA, Math.max(m[n], 1) - 0.5, t2, true); };
     return m;
   }
   // Un punto que brota cuando la punta llega a su marca y se va cuando la punta, de vuelta, lo pasa:
