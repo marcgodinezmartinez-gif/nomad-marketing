@@ -20,13 +20,20 @@ fuera: si el corto gana al largo, es una lección que vale más que el gasto.
 |---|---|
 | campaña | «App Store iPhone · Así funciona vs Un trazo»: tráfico, presupuesto de campaña de 3 €/día, máximo volumen |
 | conjunto | «España · iPhone · público automático»: España, sólo iOS, Advantage+ público y ubicaciones |
-| anuncio 1 | «Un trazo · reel orgánico · App Store»: el reel publicado del 27-oct, con botón **Descargar** a `apps.apple.com/app/id6797973945` y la etiqueta de IA |
+| anuncio 1 | «Un trazo · reel orgánico · web a la tienda»: el reel publicado del 27-oct, con botón **Descargar** a `travelsnomad.com/app` (en un iPhone salta a la App Store) y la etiqueta de IA |
 | anuncio 2 | «Así funciona»: **falta**. Se hace del reel en cuanto esté publicado (abajo) |
 
 Los dos anuncios salen de los posts orgánicos, no de copias: así los «me gusta» y los comentarios del
 anuncio se suman al post y el post llega con los que ya tiene. El anuncio viejo de «Un trazo» («Un trazo ·
 reel · web») se queda en pausa. Era una copia del vídeo sin esos «me gusta» y con un destino que no se
 lee desde aquí, y el nuevo lo sustituye.
+
+**El enlace no puede ser el de la App Store (31-oct).** El primer anuncio llevaba el botón directo a
+`apps.apple.com` y Meta lo bloqueó: *App Url is only supported by App Installs objective*. En una campaña
+de tráfico, un enlace a una tienda de apps no vale. Por eso va a `travelsnomad.com/app`, cuyo `tienda.js`
+manda el iPhone a la ficha con `location.replace` (comprobado: lleva `apps.apple.com/app/id6797973945`).
+La otra salida sería una campaña de promoción de apps, que pide dar de alta la app en Meta y no mediría
+mejor sin su SDK. El anuncio fallido está archivado.
 
 ## Lo que le toca al dueño, en orden
 
@@ -44,9 +51,10 @@ lee desde aquí, y el nuevo lo sustituye.
 
 - **En Meta, por anuncio**: coste por clic en el enlace, % de clics y cuánto se ve el vídeo (los tres
   primeros segundos y la reproducción completa). Eso dice cuál de los dos **lleva gente a la tienda**.
-- **En App Store Connect, para la campaña entera**: Analítica → Fuentes → «App Referrer», las descargas
-  que llegan desde Instagram y Facebook, día a día, y las compras de esos días. Eso dice si la gente que
-  llega **se la baja**.
+- **En App Store Connect, para la campaña entera**: Analítica → Fuentes → «Web Referrer», las descargas
+  que llegan desde `travelsnomad.com`, día a día, y las compras de esos días. Eso dice si la gente que
+  llega **se la baja**. Ahí cuentan también las que vienen de la bio, así que se compara con la semana
+  anterior a la campaña.
 - **No hay todavía una unidad como el «alta = 0,24 €» de la lista**, y por eso no hay tabla de parada
   propia (lo dice `AGENTS.md`). Las cuentas: un viaje de 2,99 € deja 2,10 € netos después de Apple y el
   IVA (`admin_ventas`). Con, por decir, uno de cada diez que se la bajan comprando, una descarga vale
