@@ -21,7 +21,7 @@ fuera: si el corto gana al largo, es una lección que vale más que el gasto.
 | campaña | «App Store iPhone · Así funciona vs Un trazo»: tráfico, presupuesto de campaña de 3 €/día, máximo volumen |
 | conjunto | «España · iPhone · público automático»: España, sólo iOS, Advantage+ público y ubicaciones |
 | anuncio 1 | «Un trazo · reel orgánico · web a la tienda»: el reel publicado del 27-oct, con botón **Descargar** a `travelsnomad.com/app` (en un iPhone salta a la App Store) y la etiqueta de IA |
-| anuncio 2 | «Así funciona»: **falta**. Se hace del reel en cuanto esté publicado (abajo) |
+| anuncio 2 | «Así funciona · reel orgánico · web a la tienda»: el reel publicado el 31-oct, con el mismo botón, el mismo enlace y la etiqueta de IA |
 
 Los dos anuncios salen de los posts orgánicos, no de copias: así los «me gusta» y los comentarios del
 anuncio se suman al post y el post llega con los que ya tiene. El anuncio viejo de «Un trazo» («Un trazo ·
@@ -66,7 +66,7 @@ mejor sin su SDK. El anuncio fallido está archivado.
 
 | día | qué |
 |---|---|
-| 0 | el dueño publica el reel y la historia de «Así funciona»; se monta el anuncio 2 |
+| 0 (31-oct) | el dueño publica el reel y la historia de «Así funciona»; se monta el anuncio 2. Hecho |
 | 1 | el dueño activa con el presupuesto que diga |
 | 4 | primera lectura: si uno de los dos apenas recibe gasto, Meta ya ha votado (la regla de siempre: el no-reparto es el veredicto) |
 | 7 | se cierra: el que tenga el clic más barato, y no peor retención, se queda con todo el presupuesto la semana siguiente; el otro se pausa **sólo** si hay un sustituto listo |
