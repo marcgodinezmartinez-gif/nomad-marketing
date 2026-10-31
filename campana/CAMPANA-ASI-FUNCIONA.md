@@ -18,7 +18,7 @@ fuera: si el corto gana al largo, es una lección que vale más que el gasto.
 
 | nivel | qué |
 |---|---|
-| campaña | «App Store iPhone · Así funciona vs Un trazo»: tráfico, presupuesto de campaña de 3 €/día, máximo volumen |
+| campaña | «App Store iPhone · Así funciona vs Un trazo»: tráfico, presupuesto de campaña de 6 €/día (desde el 31-oct; antes 3), máximo volumen, y el conjunto acaba el 7-nov a las 23:59. El tope de gasto de campaña no se pudo poner: Meta pide 100 € como mínimo |
 | conjunto | «España · iPhone · público automático»: España, sólo iOS, Advantage+ público y ubicaciones |
 | anuncio 1 | «Un trazo · reel orgánico · web a la tienda»: el reel publicado del 27-oct, con botón **Descargar** a `travelsnomad.com/app` (en un iPhone salta a la App Store) y la etiqueta de IA |
 | anuncio 2 | «Así funciona · reel orgánico · web a la tienda»: el reel publicado el 31-oct, con el mismo botón, el mismo enlace y la etiqueta de IA |
