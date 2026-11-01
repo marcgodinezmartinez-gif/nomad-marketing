@@ -42,3 +42,7 @@ de cada una.
   para que salga, el dueño enciende la campaña y el grupo.
 - En @app.nomad está publicado «Así funciona» (item `7702873582577175830`, 59,3 s), **sin la etiqueta de
   contenido generado por IA** (`is_ai_generated: false`). «Un trazo» **no está publicado** en TikTok.
+- **Decisión del dueño (1-nov): el post se queda sin la etiqueta de IA.** TikTok no deja añadirla después
+  de publicar, y el dueño no quiere volver a subirlo. El riesgo es que TikTok rechace el anuncio o le
+  ponga la etiqueta automática. Si lo rechaza, la salida es volver a subir el vídeo con la etiqueta y
+  montar el anuncio con el post nuevo. A partir de ahora, la etiqueta se pone al subir (PUBLICAR.md §3).
