@@ -28,3 +28,12 @@ Como en Meta: en TikTok, el coste por clic y cuánto se ve cada vídeo; en App S
 descargas por «Web Referrer» (travelsnomad.com). **Ojo: las dos campañas comparten ese destino**, así
 que en la tienda no se distinguen. Sin el `pt` (#14) la comparación entre redes sólo sale de los clics
 de cada una.
+
+## Estado (1-nov)
+
+- Cuenta publicitaria «NOMAD_21pubx» (`7693936532474085382`), España, EUR, con @app.nomad enlazada como
+  identidad para Spark Ads.
+- **Bloqueado**: TikTok rechaza crear la campaña con *Your account has an outstanding payment or no valid
+  payment method* (40002). El saldo es 0. Falta que el dueño añada el método de pago en TikTok Ads Manager.
+- En @app.nomad está publicado «Así funciona» (item `7702873582577175830`, 59,3 s), **sin la etiqueta de
+  contenido generado por IA** (`is_ai_generated: false`). «Un trazo» **no está publicado** en TikTok.
