@@ -37,7 +37,7 @@ de cada una.
 - **Montado y en pausa (1-nov)**: campaña «App Store iPhone · Así funciona» (`1880670465682450`, tráfico,
   sin presupuesto de campaña); grupo «España · iPhone · automático» (`1880670495410833`): solo TikTok,
   España, iOS, de 18 años en adelante, clic a CPC sin puja, **20 €/día** (cifra elegida en la sesión,
-  por confirmar con el dueño) y hasta el 7-nov a las 23:59; anuncio Spark del post de «Así funciona»
+  por confirmar con el dueño) del 1-nov a las 17:00 al 5-nov a las 17:00, hora de España: 4 días, unos 80 € como mucho, que es lo que pidió el dueño. El presupuesto total no se puede poner: TikTok no deja cambiar el tipo de presupuesto del grupo después de crearlo; anuncio Spark del post de «Así funciona»
   (`1880670507415714`), con botón «Descargar» a `travelsnomad.com/app`. El anuncio ya está encendido;
   para que salga, el dueño enciende la campaña y el grupo.
 - En @app.nomad está publicado «Así funciona» (item `7702873582577175830`, 59,3 s), **sin la etiqueta de
