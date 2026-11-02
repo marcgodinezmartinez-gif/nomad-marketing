@@ -90,7 +90,7 @@ el total desde el 31-oct, y su anuncio a la App Store se queda en pausa con ella
 
 Meta no tiene un objetivo que compre «seguidores» de Instagram. Lo más cerca es pagar por visitas al
 perfil: la campaña se mide en **visitas al perfil** (Meta) y en **seguidores nuevos** de @app.nomad
-(Instagram, Estadísticas). Hay que anotar los seguidores del 2-nov antes de que empiece. Las descargas
+(Instagram, Estadísticas). **Punto de partida: 135 seguidores el 2-nov**, contados por el dueño al encenderla. Las descargas
 siguen saliendo de la bio (`travelsnomad.com`), así que el «Web Referrer» de App Store Connect sigue
 valiendo. **Activarla no lo puede hacer una sesión**: el clasificador lo deniega, como el 31-oct. La
-enciende el dueño en Ads Manager (campaña, conjunto y anuncio).
+encendió el dueño en Ads Manager el 2-nov, y se comprobó: campaña y anuncio en ACTIVE, configurado y efectivo.
