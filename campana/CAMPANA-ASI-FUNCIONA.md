@@ -74,3 +74,23 @@ mejor sin su SDK. El anuncio fallido está archivado.
 Dos reglas de `AGENTS.md` que valen aquí: un anuncio muerto por falta de reparto se itera cambiando el
 gancho o el vídeo, nunca el texto; y se promociona desde Ads Manager o desde aquí, **nunca desde la app
 de Instagram del iPhone**, que cobra la comisión de Apple.
+
+## Cambio a seguidores de Instagram (2-nov)
+
+El dueño, el 2-nov, después de pasar la de TikTok a seguidores: «¿crees que deberíamos plantear también la
+de Instagram para aumentar en seguidores e interacciones con el contenido? Dale, la dejamos a 15 € al día
+como la que habíamos hecho». La campaña de tráfico a la tienda se paró ese día con **37,12 € gastados**,
+el total desde el 31-oct, y su anuncio a la App Store se queda en pausa con ella.
+
+| nivel | qué |
+|---|---|
+| campaña | «Instagram · seguidores · Así funciona» (`120248849784920710`): tráfico, 15 €/día de presupuesto de campaña, máximo volumen |
+| conjunto | «España · 18+ · visitas al perfil de Instagram» (`120248849786750710`): optimiza **visitas al perfil**, con destino el perfil de @app.nomad. Va a España, de 18 años en adelante, sólo en las ubicaciones de Instagram (feed, historias, reels, explorar y el feed del perfil), con Advantage+ público. Acaba el 7-nov a las 23:59, como la de antes |
+| anuncio | «Así funciona · reel orgánico · visitas al perfil» (`120248849856830710`): el mismo reel orgánico del 31-oct (creativo `988035950393562`), con la etiqueta de IA y sin enlace, porque el destino es el perfil |
+
+Meta no tiene un objetivo que compre «seguidores» de Instagram. Lo más cerca es pagar por visitas al
+perfil: la campaña se mide en **visitas al perfil** (Meta) y en **seguidores nuevos** de @app.nomad
+(Instagram, Estadísticas). Hay que anotar los seguidores del 2-nov antes de que empiece. Las descargas
+siguen saliendo de la bio (`travelsnomad.com`), así que el «Web Referrer» de App Store Connect sigue
+valiendo. **Activarla no lo puede hacer una sesión**: el clasificador lo deniega, como el 31-oct. La
+enciende el dueño en Ads Manager (campaña, conjunto y anuncio).
