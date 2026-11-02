@@ -46,3 +46,14 @@ de cada una.
   de publicar, y el dueño no quiere volver a subirlo. El riesgo es que TikTok rechace el anuncio o le
   ponga la etiqueta automática. Si lo rechaza, la salida es volver a subir el vídeo con la etiqueta y
   montar el anuncio con el post nuevo. A partir de ahora, la etiqueta se pone al subir (PUBLICAR.md §3).
+
+## Cambio a seguidores (2-nov)
+
+El dueño, el 2-nov: «necesito los 1k followers para poder [poner el enlace en la bio], así que apretar con todo en
+esta nueva campaña es la mejor opción». La campaña de clics se quedó en 26,55 €, 593 clics y 5 seguidores. Su
+grupo `1880670495410833` está pausado. La nueva campaña es «Seguidores · Así funciona» (`1880751865068674`,
+objetivo de interacción con la comunidad). El grupo `1880751895088818` optimiza seguidores: España, 18+,
+todos los móviles (un seguidor de Android también cuenta para los 1.000), 20 €/día, que es el mínimo de TikTok
+(17 €/día lo rechaza), del 2-nov a las 14:15 al 5-nov a las 06:00 de Madrid, lo que da unos 53 € y unos 80 € en
+total con lo de antes. El anuncio `1880751937739778` es el mismo post de «Así funciona». Para llegar a 1.000 con
+eso, cada seguidor tendría que salir a unos 5 céntimos.
