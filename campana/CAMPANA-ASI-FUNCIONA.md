@@ -94,3 +94,21 @@ perfil: la campaña se mide en **visitas al perfil** (Meta) y en **seguidores nu
 siguen saliendo de la bio (`travelsnomad.com`), así que el «Web Referrer» de App Store Connect sigue
 valiendo. **Activarla no lo puede hacer una sesión**: el clasificador lo deniega, como el 31-oct. La
 encendió el dueño en Ads Manager el 2-nov, y se comprobó: campaña y anuncio en ACTIVE, configurado y efectivo.
+
+## Cierre (3-nov por la noche)
+
+El dueño paró también la de Instagram el 3-nov por la noche. Números finales de Meta:
+
+| campaña | gasto | resultado |
+|---|---|---|
+| «App Store iPhone · Así funciona vs Un trazo» (tráfico, 31-oct → 2-nov) | 37,26 € | 537 clics en el enlace, a 0,07 € |
+| «Instagram · seguidores · Así funciona» (2-nov → 3-nov) | 18,29 € | 179 visitas al perfil, a 0,10 € |
+| **total Meta en esta ronda** | **55,55 €** | |
+
+Los seguidores nuevos de Instagram no los da Meta: hay que compararlos a mano con los 135 del 2-nov. Y lo que deja
+la ronda entera (Meta y TikTok, unos 118 €): muchos clics baratos y casi ninguna descarga. En la semana de la campaña
+hubo unos 1.030 clics hacia la App Store y 13 instalaciones de iPhone, así que el problema no es el anuncio, es lo que
+pasa después del clic.
+
+Queda activa en la cuenta «lista-lead-g» (de la lista de espera, 5 €/día), que no ha gastado nunca nada: pausarla es
+cosa del dueño.

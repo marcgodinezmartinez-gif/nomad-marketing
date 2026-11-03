@@ -57,3 +57,18 @@ todos los móviles (un seguidor de Android también cuenta para los 1.000), 20 �
 (17 €/día lo rechaza), del 2-nov a las 14:15 al 5-nov a las 06:00 de Madrid, lo que da unos 53 € y unos 80 € en
 total con lo de antes. El anuncio `1880751937739778` es el mismo post de «Así funciona». Para llegar a 1.000 con
 eso, cada seguidor tendría que salir a unos 5 céntimos.
+
+## Cierre (3-nov por la noche)
+
+El dueño paró las campañas el 3-nov por la noche, antes del fin previsto (5-nov a las 6:00), para no pasar de los
+80 € que se había puesto de tope. Números finales leídos de TikTok esa noche:
+
+| campaña | gasto | resultado |
+|---|---|---|
+| «App Store iPhone · Así funciona» (clics) | 27,24 € | 608 clics y 5 seguidores |
+| «Seguidores · Así funciona» | 34,81 € | **148 seguidores**, a 0,24 € cada uno |
+| **total TikTok** | **62,05 €** | |
+
+Para los 1.000 seguidores que piden el enlace en la bio habría hecho falta unos 5 céntimos por seguidor: salió cinco
+veces más caro. Comprar seguidores con anuncios no es el camino a los 1.000; queda para pensar en la sesión de
+marketing.
