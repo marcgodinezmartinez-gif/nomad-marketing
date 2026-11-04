@@ -105,7 +105,7 @@ El dueño paró también la de Instagram el 3-nov por la noche. Números finales
 | «Instagram · seguidores · Así funciona» (2-nov → 3-nov) | 18,29 € | 179 visitas al perfil, a 0,10 € |
 | **total Meta en esta ronda** | **55,55 €** | |
 
-Los seguidores nuevos de Instagram no los da Meta: hay que compararlos a mano con los 135 del 2-nov. Y lo que deja
+Los seguidores nuevos de Instagram no los da Meta: contados a mano por el dueño, **147 el 4-nov contra 135 el 2-nov, 12 más** (netos, con los orgánicos dentro). Salen a **1,52 € por seguidor**, seis veces más caros que en TikTok (0,24 €), y sólo 1 de cada 15 visitas al perfil acabó siguiendo la cuenta. Y lo que deja
 la ronda entera (Meta y TikTok, unos 118 €): muchos clics baratos y casi ninguna descarga. En la semana de la campaña
 hubo unos 1.030 clics hacia la App Store y 13 instalaciones de iPhone, así que el problema no es el anuncio, es lo que
 pasa después del clic.
