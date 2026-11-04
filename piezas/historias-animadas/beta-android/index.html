@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad · Beta de Android</title>
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <script src="assets/motor.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #FFFDF9; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+      /* «BETA DE ANDROID» (4-nov): el vídeo de TikTok que busca testers para la prueba cerrada de Google
+         Play, con la estética de «Así funciona» (asi-funciona/README.md): la línea verde nace del logo, dibuja
+         el borde de la pantalla de la app (no un iPhone), dentro corre la grabación real, y al lado cada escena
+         tiene su dibujo, suelto, que se traza solo y se recoge en sí mismo. Kore lo cuenta, y acaba pidiendo
+         que comenten «ANDROID» (el dueño, 4-nov: los que comenten reciben los pasos por mensaje).
+         Pantalla a la izquierda (x=150), dibujos en x 600-890, la frase de cada escena abajo (y=1282 y 1370). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
+              background-color: #FFFDF9;
+              background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
+              background-size: 54px 54px; background-position: 3px 11px; }
+      .verde { color: #0F766E; }
+      .tm { font-size: .5em; vertical-align: .9em; letter-spacing: 0; }
+      svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
+      #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
+               justify-content: center; align-items: center; gap: 16px; }
+      #marca img { display: block; width: 45px; height: 52px; }
+      #marca p { margin: 0; font-size: 42px; line-height: 56px; font-weight: 600; white-space: nowrap; }
+      .tit { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; letter-spacing: -.02em; }
+      .t84 { font-size: 84px; line-height: 1.04; }
+      #o-nombre { top: 902px; font-size: 92px; line-height: 1; }
+      #pantalla { position: absolute; left: 150px; top: 400px; width: 404px; height: 806px; border-radius: 36px;
+                  overflow: hidden; background: #F5F0E8; }
+      #pantalla video { position: absolute; left: 0; top: 0; width: 404px; height: 806px; display: block; }
+      /* La toma del paseo acaba en «Estás en el centro neurológico…», una errata del texto de la guía
+         (neurálgico; NOMAD#436, punto 7): se funde con el fondo de la app, como en «Así funciona». */
+      #velo-s5a { position: absolute; left: 0; top: 742px; width: 404px; height: 64px;
+                  background: linear-gradient(to bottom, rgba(252,250,246,0) 0, #FCFAF6 18px); }
+      .chip { position: absolute; display: block; height: 70px; line-height: 64px; box-sizing: border-box; padding: 0 26px; margin: 0;
+              border: 3px solid rgba(16,14,11,.26); border-radius: 35px; background: #FFFDF9;
+              font-size: 34px; font-weight: 600; white-space: nowrap; color: #100E0B; }
+      #papel { position: absolute; inset: 0; background: #F5F0E8; }
+      #c-icono { position: absolute; left: 450px; top: 330px; width: 180px; height: 180px; display: block;
+                 border-radius: 40px; box-shadow: 0 20px 50px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 566px; width: 912px; margin: 0; text-align: center;
+                  font-size: 84px; line-height: 1; letter-spacing: -.02em; color: #100E0B; white-space: nowrap; }
+      #c-comenta { position: absolute; left: 230px; width: 620px; top: 790px; margin: 0; text-align: center;
+                   font-size: 44px; line-height: 54px; font-weight: 600; color: #100E0B; white-space: nowrap; }
+      #c-android { position: absolute; left: 230px; width: 620px; top: 846px; margin: 0; text-align: center;
+                   font-size: 108px; line-height: 116px; font-weight: 700; letter-spacing: .05em; color: #0F766E; white-space: nowrap; }
+      #c-pasos { position: absolute; left: 84px; width: 912px; top: 1082px; margin: 0; text-align: center;
+                 font-size: 42px; line-height: 52px; font-weight: 600; color: #100E0B; white-space: nowrap; }
+      #c-prueba { position: absolute; left: 84px; width: 912px; top: 1156px; margin: 0; text-align: center;
+                  font-size: 32px; line-height: 40px; font-weight: 600; color: rgba(16,14,11,.62); white-space: nowrap; }
+      #c-credito { position: absolute; left: 180px; top: 1240px; width: 720px; margin: 0; text-align: center;
+                   font-size: 24px; line-height: 31px; font-weight: 500; color: rgba(16,14,11,.66); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="beta-android" data-start="0"
+         data-width="1080" data-height="1920" data-duration="21.7">
+      <!-- Debajo de las píldoras: el collar pasa por detrás. -->
+      <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path id="s-collar" stroke="#0F766E" stroke-width="5" />
+      </svg>
+      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Prueba cerrada de Android</p></div>
+      <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace hilo (S1). -->
+      <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
+          <path id="l1" d="M5030 8063 c-319 -48 -497 -104 -755 -237 -394 -203 -729 -497 -1035 -906 -252 -339 -453 -764 -545 -1155 -54 -229 -59 -277 -59 -530 0 -264 10 -341 75 -537 119 -363 387 -679 723 -854 103 -54 109 -55 88 -28 -147 189 -209 356 -219 584 -4 114 -2 151 17 240 94 456 445 780 1085 1000 66 22 246 77 400 121 518 149 719 231 970 396 127 85 304 259 364 360 99 167 141 310 148 508 4 115 2 157 -15 235 -102 493 -538 815 -1097 809 -66 -1 -131 -3 -145 -6z"/>
+          <path id="l2" d="M6790 5991 c0 -5 5 -13 11 -17 21 -12 78 -147 95 -222 41 -184 -19 -468 -149 -702 -140 -252 -420 -585 -688 -816 -1053 -908 -2278 -1050 -3074 -356 -257 223 -469 584 -539 917 l-13 60 -8 -60 c-11 -80 1 -375 20 -505 65 -444 253 -875 542 -1240 103 -131 344 -365 478 -466 360 -269 717 -423 1163 -500 141 -25 182 -28 402 -28 189 -1 271 3 360 17 406 64 741 189 1061 398 172 113 292 211 444 364 384 386 632 859 727 1392 19 110 22 162 23 378 0 225 -2 261 -24 360 -86 405 -282 715 -575 910 -111 73 -256 139 -256 116z"/>
+          <path id="l3" d="M6205 5973 c-317 -37 -658 -215 -980 -512 -126 -115 -227 -227 -418 -461 -246 -300 -314 -379 -432 -495 -299 -296 -550 -368 -772 -221 -29 19 -57 37 -62 40 -13 8 14 -102 43 -173 61 -150 199 -293 360 -371 140 -68 237 -90 406 -90 104 0 162 6 250 24 222 47 459 136 701 267 129 68 389 239 494 324 420 337 726 726 848 1078 29 85 31 102 32 222 0 122 -2 133 -27 181 -73 138 -245 211 -443 187z"/>
+        </g></g>
+      </svg>
+      <p id="o-nombre" class="tit serif">Nomad: guía de viajes</p>
+      <div id="pantalla">
+        <video id="v-s3" class="clip" src="assets/tomas/s3.mp4" data-start="2.626" data-duration="4.026" muted playsinline></video>
+        <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="6.652" data-duration="2.852" muted playsinline></video>
+        <video id="v-s5a" class="clip" src="assets/tomas/s5a.mp4" data-start="9.504" data-duration="3.557" muted playsinline></video>
+        <video id="v-s5b" class="clip" src="assets/tomas/s5b.mp4" data-start="13.061" data-duration="3.783" muted playsinline></video>
+        <div id="velo-s5a"></div>
+      </div>
+      <p id="c0" class="chip sans">iPhone</p>
+      <p id="c1" class="chip sans">Android</p>
+      <h1 id="t1a" class="tit serif t84" style="top: 1282px;">¿Tienes Android<span class="tm">™</span>?</h1>
+      <h1 id="t1b" class="tit serif t84 verde" style="top: 1370px;">Te necesitamos.</h1>
+      <h1 id="t2a" class="tit serif t84" style="top: 1282px;">Ya en iPhone.</h1>
+      <h1 id="t2b" class="tit serif t84 verde" style="top: 1370px;">Falta Android.</h1>
+      <h1 id="t3a" class="tit serif t84" style="top: 1282px;">12 personas,</h1>
+      <h1 id="t3b" class="tit serif t84 verde" style="top: 1370px;">14 días.</h1>
+      <h1 id="t4a" class="tit serif t84" style="top: 1282px;">Tu viaje,</h1>
+      <h1 id="t4b" class="tit serif t84 verde" style="top: 1370px;">contado al oído.</h1>
+      <h1 id="t5a" class="tit serif t84" style="top: 1282px;">Pruébala gratis,</h1>
+      <h1 id="t5b" class="tit serif t84 verde" style="top: 1370px;">antes que nadie.</h1>
+      <div id="papel"></div>
+      <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Todas las líneas a 5 px y los detalles a 3: el juego «editorial» de «Así funciona». -->
+        <path id="s-logo" stroke="#0F766E" stroke-width="5" />
+        <path id="s-borde" stroke="#0F766E" stroke-width="5" />
+        <!-- S3 · dos filas de seis personas, de pie en su línea, y debajo los catorce días. -->
+        <path id="s-fila1" stroke="#0F766E" stroke-width="5" />
+        <path id="s-fila2" stroke="#0F766E" stroke-width="5" />
+        <g id="gente"></g>
+        <g id="dias"></g>
+        <!-- S4 · los auriculares de «Así funciona». -->
+        <g id="casco"><path id="s-casco" stroke="#0F766E" stroke-width="5" /><g id="casco-det"></g><g id="casco-ondas"></g></g>
+        <!-- S5 · el sello de «18+». -->
+        <path id="s-sello" stroke="#0F766E" stroke-width="5" />
+        <g id="sello-det"></g>
+        <g id="sello-num"></g>
+        <!-- S6 · el bocadillo del comentario, en el cierre. -->
+        <path id="s-bocadillo" stroke="#0F766E" stroke-width="5" />
+      </svg>
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: guía de viajes</p>
+      <p id="c-comenta" class="sans">Comenta</p>
+      <p id="c-android" class="sans">ANDROID</p>
+      <p id="c-pasos" class="sans">y te escribimos con los pasos</p>
+      <p id="c-prueba" class="sans">Prueba cerrada de Android<span class="tm">™</span> · Mayores de 18</p>
+      <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. iPhone es una marca comercial de Apple Inc., registrada en EE.&nbsp;UU. y en otros países. Google y Android son marcas comerciales de Google LLC.</p>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="21.7"></audio>
+    </div>
+    <script>
+      document.fonts.ready.then(function () {
+        var tl = gsap.timeline({ paused: true });
+        var VELOCIDAD = 1.15;
+        var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F, FPS = 30;
+        var SVGNS = "http://www.w3.org/2000/svg";
+        // LOS CORTES, a 1×: cada escena dura su frase de Kore más 0,55 s (0,25 antes y 0,3 después); la voz
+        // empieza en T + 0,25 (la del cierre, + 0,2). S2 y S3 son UNA toma (v2), partida 0,2 s antes de «doce»:
+        // partida antes, en «Google», la píldora de Android se encendía 0,15 s antes de recogerse.
+        // Si se mueve un corte, se mueve aquí, en mezclar.sh (EMPIEZA) y en tomas.json.
+        var T = [0, 0, 3.02, 7.65, 10.93, 15.02, 19.37];
+        var FIN = 651 / 30 * VELOCIDAD;
+        var XI = 150;
+        // Las palabras de Kore (faster-whisper sobre cada toma), a 1× desde el principio del vídeo.
+        var V2 = T[2] + 0.25, V3 = T[4] + 0.25, V4 = T[5] + 0.25, V5 = T[6] + 0.2;
+        var W = { iphone: V2 + 1.34, android: V2 + 3.08, doce: V2 + 4.58, durante: V2 + 6.16, dias: V2 + 6.94,
+                  oido: V3 + 2.98, dieciocho: V4 + 1.06, gratis: V4 + 2.44, comentaAndroid: V5 + 0.68, escribimos: V5 + 1.7 };
+        // La negra de la música, a 1×. La pista empieza 9 compases dentro (mezclar.sh): 36 negras justas,
+        // así que la rejilla de «Así funciona» vale tal cual.
+        function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
+        // LA RESPIRACIÓN, la de «Así funciona»: cada dibujo late en cada negra de su espera, sin pisar lo
+        // que ya lo mueve (M.late, M.brota y M.encoge apuntan en OCUPA cuándo ocupan cada cosa).
+        var OCUPA = {};
+        ["late", "brota", "encoge"].forEach(function (n) {
+          var f = M[n];
+          M[n] = function (sel, t, x, dur) {
+            var d = n === "late" ? (dur || 0.6) : n === "brota" ? 0.32 : 0.12;
+            [].concat(sel).forEach(function (s) { (OCUPA[s] = OCUPA[s] || []).push([t, t + d]); });
+            return f.apply(null, arguments);
+          };
+        });
+        function respira(sels, a0, b, amp) {
+          [].concat(sels).forEach(function (s) {
+            for (var k = Math.ceil((a0 - 0.092) / 0.80083); ; k++) {
+              var t = 0.092 + k * 0.80083;
+              if (t + 0.6 > b) break;
+              if ((OCUPA[s] || []).every(function (o) { return o[1] < t - 0.05 || o[0] > t + 0.65; })) M.late(s, t, amp || 0.035, 0.6);
+            }
+          });
+        }
+        function el(tag, at, padre) { var e = document.createElementNS(SVGNS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || a("trazos")).appendChild(e); return e; }
+        function pinta(lista, padre) { lista.forEach(function (e) { var n = el(e[0], e[1], padre); if (e.length > 2) n.textContent = e[2]; }); }
+        // Los auriculares, tal cual de asi-funciona/iconos/editorial.json (s5).
+        var CASCO = {"d":"M668,749 C650.9,749 637,762.9 637,780 L637,820 C637,837.1 650.9,851 668,851 C685.1,851 699,837.1 699,820 L699,780 C699,762.9 685.1,749 668,749 L668,727 C668,672.9 705.6,629 752,629 C798.4,629 836,672.9 836,727 L836,749 C853.1,749 867,762.9 867,780 L867,820 C867,837.1 853.1,851 836,851 C818.9,851 805,837.1 805,820 L805,780 C805,762.9 818.9,749 836,749","det":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M668,760 C657,760 648,769 648,780 L648,820 C648,831 657,840 668,840 C679,840 688,831 688,820 L688,780 C688,769 679,760 668,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M836,760 C825,760 816,769 816,780 L816,820 C816,831 825,840 836,840 C847,840 856,831 856,820 L856,780 C856,769 847,760 836,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M708.3,660 C734,636 770,636 795.7,660"}]],"ondas":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M629,824.4 C619.7,809.5 619.7,790.5 629,775.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M614.1,826.3 C606,809.7 606,790.3 614.1,773.7"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M875,775.6 C884.3,790.5 884.3,809.5 875,824.4"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M889.9,773.7 C898,790.3 898,809.7 889.9,826.3"}]]};
+
+        // —— S1 · EL LOGO SE HACE HILO, el arranque de «Así funciona» (asi-funciona/README.md). SILUETA es el
+        // contorno de los tres trazos del logo con los huecos cerrados (silueta-del-logo.py); no se toca a mano.
+        var SILUETA = "263.9,478.9 264.5,472.9 265.3,466.9 266.3,461 267.5,455.1 268.9,449.2 270.3,443.4 271.8,437.6 273.5,431.8 275.3,426.1 277.2,420.4 279.2,414.7 281.3,409.1 283.6,403.5 285.9,398 288.3,392.5 290.9,387 293.5,381.6 296.2,376.3 299,371 301.9,365.7 304.9,360.5 308,355.3 311.2,350.2 314.4,345.2 317.8,340.2 321.3,335.3 324.8,330.5 328.5,325.7 332.2,321 336,316.3 339.9,311.7 343.9,307.2 347.9,302.8 352,298.4 356.2,294.1 360.5,289.9 364.8,285.7 369.2,281.6 373.7,277.6 378.3,273.7 382.9,269.9 387.7,266.2 392.5,262.7 397.4,259.2 402.4,255.8 407.4,252.6 412.6,249.4 417.8,246.4 423,243.5 428.3,240.7 433.7,238 439.1,235.5 444.6,233 450.2,230.8 455.8,228.7 461.5,226.7 467.3,225 473.1,223.4 478.9,222 484.8,220.7 490.7,219.6 496.6,218.6 502.6,217.8 508.6,217.3 514.6,217 520.6,217 526.6,217.3 532.6,217.8 538.5,218.6 544.4,219.6 550.3,221 556.1,222.6 561.8,224.5 567.4,226.6 572.9,229.1 578.2,231.9 583.3,235 588.3,238.4 593,242.1 597.6,246 601.9,250.3 605.9,254.7 609.6,259.4 613,264.4 616.1,269.5 618.9,274.9 621.3,280.4 623.4,286 625.2,291.7 626.6,297.6 627.6,303.5 628.2,309.5 628.4,315.5 628.2,321.5 627.8,327.5 627.1,333.4 626.1,339.4 624.8,345.2 623.1,351 621,356.6 618.6,362.1 615.9,367.5 612.9,372.7 609.9,377.9 607.3,383.3 605.4,389 604.7,395 605.1,401 606.7,406.7 609.5,412.1 613.3,416.7 618,420.4 623.3,423.2 628.9,425.2 634.8,426.6 640.6,428 646.5,429.4 652.4,430.5 658.4,431 664.3,430.5 670.2,429.1 676,427.5 681.9,426.9 687.8,427.9 693.4,430.2 698.7,433.1 703.8,436.2 708.7,439.7 713.5,443.3 718,447.2 722.4,451.4 726.6,455.7 730.5,460.2 734.3,464.9 737.8,469.8 741.1,474.8 744.2,480 747,485.3 749.6,490.7 752,496.2 754.3,501.8 756.3,507.4 758.1,513.1 759.7,518.9 761.1,524.8 762.3,530.7 763.1,536.6 763.7,542.6 764.1,548.6 764.2,554.6 764.2,560.6 764.2,566.6 764.2,572.6 764,578.6 763.7,584.6 763.1,590.6 762.4,596.6 761.5,602.5 760.3,608.4 759.1,614.3 757.7,620.1 756.1,625.9 754.4,631.7 752.6,637.4 750.7,643.1 748.6,648.8 746.4,654.4 744.1,659.9 741.6,665.4 739,670.8 736.3,676.2 733.4,681.4 730.4,686.7 727.3,691.8 724.1,696.9 720.8,701.9 717.4,706.8 713.8,711.7 710.1,716.4 706.4,721.1 702.5,725.7 698.5,730.2 694.4,734.6 690.3,738.9 686,743.2 681.7,747.4 677.3,751.5 672.8,755.5 668.3,759.4 663.6,763.1 658.8,766.8 653.9,770.3 649,773.7 644,777.1 638.9,780.3 633.8,783.4 628.5,786.4 623.3,789.2 617.9,791.9 612.5,794.5 607,797 601.5,799.3 595.9,801.6 590.2,803.6 584.5,805.6 578.8,807.3 573,809 567.2,810.5 561.4,811.9 555.5,813.3 549.6,814.5 543.7,815.5 537.8,816.5 531.8,817.2 525.8,817.7 519.8,818 513.8,818.2 507.8,818.2 501.8,818.2 495.8,818.2 489.8,818 483.8,817.8 477.8,817.3 471.8,816.7 465.9,815.8 459.9,814.8 454,813.7 448.2,812.4 442.3,811.1 436.5,809.6 430.7,808 424.9,806.2 419.2,804.4 413.6,802.4 408,800.2 402.4,797.9 396.9,795.5 391.5,792.9 386.1,790.3 380.8,787.5 375.5,784.5 370.3,781.5 365.2,778.3 360.2,775.1 355.2,771.7 350.3,768.2 345.5,764.6 340.8,760.8 336.2,756.9 331.7,753 327.3,748.9 322.9,744.8 318.6,740.6 314.4,736.3 310.2,732 306.2,727.6 302.2,723 298.4,718.4 294.7,713.7 291.1,708.8 287.7,703.9 284.3,698.9 281.1,693.9 277.9,688.7 274.9,683.5 272.1,678.3 269.3,672.9 266.7,667.5 264.1,662.1 261.8,656.6 259.5,651 257.3,645.4 255.3,639.7 253.5,634 251.7,628.2 250.1,622.5 248.6,616.6 247.3,610.8 246.1,604.9 245.1,599 244.2,593 243.5,587.1 243,581.1 242.5,575.1 242.2,569.1 242,563.1 241.9,557.1 242.2,551.1 243.4,545.2 246,539.8 249.8,535.2 253.9,530.7 257.5,525.9 260.2,520.6 261.8,514.8 262.7,508.9 263.1,502.9 263.2,496.9 263.4,490.9 263.6,484.9";
+        var CX = 540, CY = 640, ALTO = 330;
+        var lg = a("logo-g"), bb = lg.getBBox(), sc = ALTO / bb.height;
+        var tx = CX - sc * (bb.x + bb.width / 2), ty = CY - sc * (bb.y + bb.height / 2);
+        lg.setAttribute("transform", "translate(" + tx + "," + ty + ") scale(" + sc + ")");
+        var pts = SILUETA.split(" ").map(function (q) { var p = q.split(","); return [tx + sc * p[0], ty + sc * p[1]]; });
+        pts.push(pts[0]);
+        var log = new M.Camino(); log.o("M" + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" L")).marca("fin");
+        var mL = M.pon(log, a("s-logo")), u = pts[pts.length - 1], w = pts[pts.length - 2], dl = Math.hypot(u[0] - w[0], u[1] - w[1]);
+        var cont = new M.Camino(); cont.o("M" + u[0].toFixed(1) + "," + u[1].toFixed(1));
+        M.borde(cont, XI, u, [u[0] + 150 * (u[0] - w[0]) / dl, u[1] + 150 * (u[1] - w[1]) / dl]);
+        var mC = M.pon(cont, a("s-borde")), S0 = mL.L, TOT = S0 + mC.fin;
+        // La pantalla se va antes del cierre: la cola se come el borde en 0,4 s desde TB.
+        var TB = T[6] - 0.5;
+        var PUNTA = [[0, 0], [0.35, 0], [1.8, TOT * (1.8 - 0.35) / (T[2] + 1.0 - 0.35), "power1.in"], [T[2] + 1.0, TOT, "power1.out"]];
+        var COLA = [[0, 0], [1.75, 0], [T[2] + 0.55, S0 + mC.borde, "power1.inOut"],
+                    [TB, S0 + mC.borde], [TB + 0.4, S0 + mC.fin, "power1.in"]];
+        M.cadena([[a("s-logo"), mL.L], [a("s-borde"), mC.L]], COLA, PUNTA, 0, TB + 0.5);
+        M.apaga("#logo-g", 1.2, 0.55);
+        M.apaga("#o-nombre", 1.6, 0.3);
+        M.frase(["t1a", "t1b"], 0.1, T[2]);
+        tl.fromTo("#marca", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none", immediateRender: false }, T[2] + 0.3);
+        tl.set("#marca", { autoAlpha: 0 }, 0);
+        M.funde("#pantalla", T[2] + 0.95, 0.15);
+        M.apaga("#pantalla", TB, 0.2);
+
+        // —— S2 · YA EN IPHONE, FALTA ANDROID: el collar ensarta las dos píldoras. «iPhone» se llena cuando Kore
+        // lo nombra (ya está); «Android» sólo se enciende el borde, punteado (falta), y late con su nombre.
+        var TEL = [W.iphone, W.android], CYS = [610, 730];
+        CYS.forEach(function (y, k) {
+          var c = a("c" + k);
+          c.style.top = (y - 35) + "px"; c.style.left = (752 - c.offsetWidth / 2) + "px";
+          M.entra("#c" + k, T[2] + 1.0 + 0.05 * k, 14, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" });
+        });
+        tl.fromTo("#c0", { backgroundColor: "#FFFDF9", borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" },
+                  { backgroundColor: "#0F766E", borderColor: "#0F766E", color: "#FFFDF9", duration: 0.12, ease: "power1.out", immediateRender: false }, TEL[0] - 0.02);
+        M.late("#c0", TEL[0] - 0.02, 0.08, 0.32);
+        tl.set("#c1", { borderStyle: "solid" }, 0);
+        tl.fromTo("#c1", { borderColor: "rgba(16,14,11,0.26)", color: "#100E0B" },
+                  { borderColor: "#0F766E", color: "#0F766E", duration: 0.12, ease: "power1.out", immediateRender: false }, TEL[1] - 0.02);
+        tl.set("#c1", { borderStyle: "dashed" }, TEL[1] - 0.02);
+        M.late("#c1", TEL[1] - 0.02, 0.08, 0.32);
+        var col = new M.Camino();
+        col.o("M752,610").marca("n0").o("C852,610 893,625 893,670 C893,715 852,730 752,730").marca("n1");
+        var mCo = M.pon(col, a("s-collar"));
+        M.cadena([[a("s-collar"), mCo.L]], [[0, 0]], [[T[2] + 1.05, 0], [TEL[0], mCo.n0, "power1.out"], [TEL[1], mCo.n1, "power1.inOut"],
+                  [T[3] - 0.3, mCo.n1], [T[3], 0, "power1.in"]], T[2] + 1.0, T[3]);
+        ["#c0", "#c1"].forEach(function (s, k) { M.encoge(s, T[3] - 0.3 + 0.03 * k); });
+        M.corta(["#c0", "#c1"], T[3]);
+        respira(["#c0", "#c1"], T[2] + 1.3, T[3] - 0.35);
+        M.frase(["t2a", "t2b"], T[2], T[3]);
+
+        // —— S3 · DOCE PERSONAS, CATORCE DÍAS: dos líneas, y seis personas de pie en cada una mientras Kore dice
+        // «doce personas»; debajo, catorce días que se encienden uno a uno con «durante catorce días».
+        var FILAS = [700, 820], XG = [637, 683, 729, 775, 821, 867];
+        FILAS.forEach(function (y, f) {
+          var fi = new M.Camino(); fi.o("M612," + y + " L892," + y).marca("fin");
+          M.salida(a("s-fila" + (f + 1)), fi, T[3] + 0.1 + 0.12 * f, T[3] + 0.6 + 0.12 * f, T[4] - 0.45, T[4] - 0.15, "power2.out");
+        });
+        var GENTE = [];
+        FILAS.forEach(function (y, f) {
+          XG.forEach(function (x, k) {
+            var id = "p" + f + k, g = el("g", { id: id, stroke: "#0F766E", "stroke-width": 4 }, a("gente"));
+            el("circle", { cx: x, cy: y - 45, r: 12, fill: "#FFFDF9" }, g);
+            el("path", { d: "M-20,0 L-20,-7 C-20,-20 -12,-26 0,-26 C12,-26 20,-20 20,-7 L20,0", transform: "translate(" + x + "," + y + ")" }, g);
+            gsap.set("#" + id, { svgOrigin: x + " " + y });
+            tl.set("#" + id, { autoAlpha: 0 }, 0);
+            M.brota("#" + id, T[3] + 0.45 + 0.12 * f + 0.04 * k, "back.out(2.4)");   // cuando su línea ya está
+            M.encoge("#" + id, T[4] - 0.5 + 0.01 * (6 * f + k));
+            GENTE.push("#" + id);
+          });
+        });
+        var DIAS = [];
+        for (var d = 0; d < 14; d++) {
+          var dx = 632 + 40 * (d % 7), dy = d < 7 ? 888 : 928, idd = "d" + d;
+          el("circle", { id: idd, cx: dx, cy: dy, r: 10, fill: "#0F766E", stroke: "none" }, a("dias"));
+          gsap.set("#" + idd, { svgOrigin: dx + " " + dy });
+          tl.set("#" + idd, { autoAlpha: 0 }, 0);
+          M.brota("#" + idd, W.durante + 0.055 * d, "back.out(2)");
+          M.encoge("#" + idd, T[4] - 0.55 + 0.01 * d);
+          DIAS.push("#" + idd);
+        }
+        // Cuando acaba de nombrar los días, las doce personas laten a la vez.
+        gsap.set("#gente", { svgOrigin: "752 760" });
+        M.late("#gente", negra(W.dias + 0.2), 0.03, 0.55);
+        respira("#gente", T[3] + 1.2, W.durante, 0.025);
+        M.frase(["t3a", "t3b"], T[3], T[4]);
+
+        // —— S4 · TU VIAJE, CONTADO AL OÍDO: los auriculares de «Así funciona», que laten con «al oído».
+        var cas = new M.Camino();
+        cas.o(CASCO.d).marca("fin");
+        M.salida(a("s-casco"), cas, T[4] + 0.15, T[4] + 1.6, T[5] - 0.45, T[5] - 0.15, "power1.inOut");
+        pinta(CASCO.det, a("casco-det")); pinta(CASCO.ondas, a("casco-ondas"));
+        gsap.set(["#casco", "#casco-ondas"], { svgOrigin: "752 800" });
+        gsap.set(["#casco-det", "#casco-ondas"], { autoAlpha: 0 });
+        M.funde("#casco-det", T[4] + 1.55, 0.25); M.apaga("#casco-det", T[5] - 0.55, 0.15);
+        M.brota("#casco-ondas", T[4] + 1.75, "back.out(1.7)"); M.encoge("#casco-ondas", T[5] - 0.6);
+        [negra(W.oido), negra(W.oido) + 0.80083].forEach(function (t) {
+          if (t + 0.6 < T[5] - 0.45) M.late("#casco", t, 0.04, 0.6);
+          if (t + 0.6 < T[5] - 0.6) M.late("#casco-ondas", t, 0.12, 0.6);
+        });
+        gsap.set("#velo-s5a", { autoAlpha: 0 });
+        M.aparece("#velo-s5a", 10.93);   // la toma s5a, de 10,93 a 15,02 a 1× (tomas.json)
+        M.corta("#velo-s5a", 15.02);
+        respira("#casco", T[4] + 1.2, T[5] - 0.45);
+        M.frase(["t4a", "t4b"], T[4], T[5]);
+
+        // —— S5 · PRUÉBALA GRATIS: un sello que se traza en círculo, y dentro «18+» cuando Kore dice «dieciocho».
+        var sel = new M.Camino();
+        sel.o("M752,628 A112,112 0 0 1 752,852 A112,112 0 0 1 752,628").marca("fin");
+        M.salida(a("s-sello"), sel, T[5] + 0.12, T[5] + 1.0, T[6] - 0.45, T[6] - 0.15, "power1.inOut");
+        el("circle", { cx: 752, cy: 740, r: 94, fill: "none", stroke: "#0F766E", "stroke-width": 3 }, a("sello-det"));
+        var num = el("text", { x: 752, y: 782, "text-anchor": "middle", "font-family": "Instrument Serif", "font-size": 124,
+                               fill: "#0F766E", stroke: "none" }, a("sello-num"));
+        num.textContent = "18+";
+        gsap.set(["#sello-num", "#sello-det"], { svgOrigin: "752 740" });
+        gsap.set("#sello-det", { autoAlpha: 0 });
+        tl.set("#sello-num", { autoAlpha: 0 }, 0);
+        M.funde("#sello-det", T[5] + 0.95, 0.25); M.apaga("#sello-det", T[6] - 0.5, 0.12);
+        M.brota("#sello-num", W.dieciocho - 0.05, "back.out(2)");
+        M.late("#sello-num", negra(W.gratis), 0.08, 0.6);
+        M.encoge("#sello-num", T[6] - 0.5);
+        respira("#sello-num", W.dieciocho + 0.4, T[6] - 0.5, 0.05);
+        M.frase(["t5a", "t5b"], T[5], T[6]);
+
+        // —— S6 · EL CIERRE: comenta «ANDROID». El icono, el nombre, y un bocadillo que se traza desde su pico
+        // alrededor de la palabra; debajo, qué pasa después, la prueba y los créditos de marca.
+        M.corta("#marca", T[6]);
+        M.aparece("#papel", T[6]);
+        tl.fromTo("#c-icono", { autoAlpha: 0, scale: 0.06 }, { autoAlpha: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, T[6] + 0.1);
+        M.entra("#c-nombre", T[6] + 0.25, 24, M.ARR);
+        var boc = new M.Camino();
+        boc.o("M380,990 L810,990 A40,40 0 0 0 850,950 L850,800 A40,40 0 0 0 810,760 L270,760 A40,40 0 0 0 230,800 L230,950 A40,40 0 0 0 270,990 L330,990 L300,1050 L380,990").marca("fin");
+        var mB = M.pon(boc, a("s-bocadillo"));
+        M.cadena([[a("s-bocadillo"), mB.L]], [[0, 0]], [[T[6] + 0.4, 0], [T[6] + 1.25, mB.L, "power1.inOut"]], T[6] + 0.4 - F, FIN);
+        M.entra("#c-comenta", T[6] + 0.6, 12, M.ARR);
+        M.entra("#c-android", W.comentaAndroid - 0.1, 16, M.ARR);
+        M.entra("#c-pasos", W.escribimos - 0.1, 12, M.ARR);
+        M.entra("#c-prueba", W.escribimos + 0.35, 10, M.ARR);
+        tl.fromTo("#c-credito", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, W.escribimos + 0.55);
+        // Los latidos del cierre, en la negra: el icono y la palabra.
+        gsap.set("#c-android", { transformOrigin: "50% 50%" });
+        var TIEMPO = 0.80083, T0 = 0.092 + Math.ceil((W.comentaAndroid + 0.6 - 0.092) / TIEMPO) * TIEMPO;
+        for (var tp = T0; tp < FIN - 0.3; tp += TIEMPO) {
+          tl.fromTo("#c-icono", { scale: 1 }, { scale: 1.04, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
+          tl.fromTo("#c-icono", { scale: 1.04 }, { scale: 1, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tp + 0.16);
+          tl.fromTo("#c-android", { scale: 1 }, { scale: 1.05, duration: 0.16, ease: "power2.out", immediateRender: false }, tp);
+          tl.fromTo("#c-android", { scale: 1.05 }, { scale: 1, duration: TIEMPO - 0.2, ease: "power1.inOut", immediateRender: false }, tp + 0.16);
+        }
+        tl.set({}, {}, FIN);
+
+        M.acelera();
+        window.__timelines = window.__timelines || {};
+        window.__timelines["beta-android"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
