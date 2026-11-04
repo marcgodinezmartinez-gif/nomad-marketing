@@ -2,5 +2,5 @@
  {"id": "s3", "fichero": "recorrido-paseo.mp4", "entrada": 20.75, "salida": 22.35, "inicio": 3.02, "fin": 7.65},
  {"id": "s4", "fichero": "recorrido-paseo.mp4", "entrada": 24.90, "salida": 28.91, "inicio": 7.65, "fin": 10.93},
  {"id": "s5a", "fichero": "recorrido-paseo.mp4", "entrada": 57.00, "salida": 61.00, "inicio": 10.93, "fin": 15.02},
- {"id": "s5b", "fichero": "recorrido-museo.mp4", "entrada": 39.00, "salida": 42.60, "inicio": 15.02, "fin": 19.37}
+ {"id": "s5b", "fichero": "recorrido-museo.mp4", "entrada": 39.00, "salida": 42.60, "inicio": 15.02, "fin": 19.41}
 ]

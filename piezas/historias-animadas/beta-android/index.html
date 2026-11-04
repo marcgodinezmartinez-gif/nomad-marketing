@@ -65,7 +65,7 @@
       <svg id="bajo" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path id="s-collar" stroke="#0F766E" stroke-width="5" />
       </svg>
-      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Prueba cerrada de Android</p></div>
+      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Para Android<span class="tm">™</span></p></div>
       <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace hilo (S1). -->
       <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
         <g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
@@ -79,7 +79,7 @@
         <video id="v-s3" class="clip" src="assets/tomas/s3.mp4" data-start="2.626" data-duration="4.026" muted playsinline></video>
         <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="6.652" data-duration="2.852" muted playsinline></video>
         <video id="v-s5a" class="clip" src="assets/tomas/s5a.mp4" data-start="9.504" data-duration="3.557" muted playsinline></video>
-        <video id="v-s5b" class="clip" src="assets/tomas/s5b.mp4" data-start="13.061" data-duration="3.783" muted playsinline></video>
+        <video id="v-s5b" class="clip" src="assets/tomas/s5b.mp4" data-start="13.061" data-duration="3.817" muted playsinline></video>
         <div id="velo-s5a"></div>
       </div>
       <p id="c0" class="chip sans">iPhone</p>
@@ -93,7 +93,7 @@
       <h1 id="t4a" class="tit serif t84" style="top: 1282px;">Tu viaje,</h1>
       <h1 id="t4b" class="tit serif t84 verde" style="top: 1370px;">contado al oído.</h1>
       <h1 id="t5a" class="tit serif t84" style="top: 1282px;">Pruébala gratis,</h1>
-      <h1 id="t5b" class="tit serif t84 verde" style="top: 1370px;">antes que nadie.</h1>
+      <h1 id="t5b" class="tit serif t84 verde" style="top: 1370px;">antes de que salga.</h1>
       <div id="papel"></div>
       <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <!-- Todas las líneas a 5 px y los detalles a 3: el juego «editorial» de «Así funciona». -->
@@ -118,7 +118,7 @@
       <p id="c-comenta" class="sans">Comenta</p>
       <p id="c-android" class="sans">ANDROID</p>
       <p id="c-pasos" class="sans">y te escribimos con los pasos</p>
-      <p id="c-prueba" class="sans">Prueba cerrada de Android<span class="tm">™</span> · Mayores de 18</p>
+      <p id="c-prueba" class="sans">Para Android<span class="tm">™</span> · Solo mayores de 18</p>
       <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. iPhone es una marca comercial de Apple Inc., registrada en EE.&nbsp;UU. y en otros países. Google y Android son marcas comerciales de Google LLC.</p>
       <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="21.7"></audio>
     </div>
@@ -132,7 +132,7 @@
         // empieza en T + 0,25 (la del cierre, + 0,2). S2 y S3 son UNA toma (v2), partida 0,2 s antes de «doce»:
         // partida antes, en «Google», la píldora de Android se encendía 0,15 s antes de recogerse.
         // Si se mueve un corte, se mueve aquí, en mezclar.sh (EMPIEZA) y en tomas.json.
-        var T = [0, 0, 3.02, 7.65, 10.93, 15.02, 19.37];
+        var T = [0, 0, 3.02, 7.65, 10.93, 15.02, 19.41];
         var FIN = 651 / 30 * VELOCIDAD;
         var XI = 150;
         // Las palabras de Kore (faster-whisper sobre cada toma), a 1× desde el principio del vídeo.
@@ -254,7 +254,7 @@
         // Cuando acaba de nombrar los días, las doce personas laten a la vez.
         gsap.set("#gente", { svgOrigin: "752 760" });
         M.late("#gente", negra(W.dias + 0.2), 0.03, 0.55);
-        respira("#gente", T[3] + 1.2, W.durante, 0.025);
+        respira("#gente", T[3] + 1.2, W.durante + 0.1, 0.025);   // + 0,1: sin él, 0,53 s quietos con «que la prueben»
         M.frase(["t3a", "t3b"], T[3], T[4]);
 
         // —— S4 · TU VIAJE, CONTADO AL OÍDO: los auriculares de «Así funciona», que laten con «al oído».
@@ -276,12 +276,14 @@
         respira("#casco", T[4] + 1.2, T[5] - 0.45);
         M.frase(["t4a", "t4b"], T[4], T[5]);
 
-        // —— S5 · PRUÉBALA GRATIS: un sello que se traza en círculo, y dentro «18+» cuando Kore dice «dieciocho».
+        // —— S5 · PRUÉBALA GRATIS, ANTES DE QUE SALGA («antes que nadie» no: Nomad ya está en iPhone; la casa lo
+        // decidió el 26-oct, testers-android/README.md). Un sello que se traza en círculo, y dentro «18+» cuando Kore dice «dieciocho».
         var sel = new M.Camino();
         sel.o("M752,628 A112,112 0 0 1 752,852 A112,112 0 0 1 752,628").marca("fin");
         M.salida(a("s-sello"), sel, T[5] + 0.12, T[5] + 1.0, T[6] - 0.45, T[6] - 0.15, "power1.inOut");
         el("circle", { cx: 752, cy: 740, r: 94, fill: "none", stroke: "#0F766E", "stroke-width": 3 }, a("sello-det"));
-        var num = el("text", { x: 752, y: 782, "text-anchor": "middle", "font-family": "Instrument Serif", "font-size": 124,
+        // A 112 y no a 124: con 124, en el rebote y en los latidos el «1» tocaba el aro de dentro (revisión del 4-nov).
+        var num = el("text", { x: 752, y: 779, "text-anchor": "middle", "font-family": "Instrument Serif", "font-size": 112,
                                fill: "#0F766E", stroke: "none" }, a("sello-num"));
         num.textContent = "18+";
         gsap.set(["#sello-num", "#sello-det"], { svgOrigin: "752 740" });
@@ -290,6 +292,7 @@
         M.funde("#sello-det", T[5] + 0.95, 0.25); M.apaga("#sello-det", T[6] - 0.5, 0.12);
         M.brota("#sello-num", W.dieciocho - 0.05, "back.out(2)");
         M.late("#sello-num", negra(W.gratis), 0.08, 0.6);
+        M.late("#sello-num", T[6] - 0.92, 0.04, 0.35);   // sin él, 0,40 s quietos antes de recogerse
         M.encoge("#sello-num", T[6] - 0.5);
         respira("#sello-num", W.dieciocho + 0.4, T[6] - 0.5, 0.05);
         M.frase(["t5a", "t5b"], T[5], T[6]);

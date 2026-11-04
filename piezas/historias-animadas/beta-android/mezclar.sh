@@ -17,7 +17,7 @@ DUR=21.7
 VOCES=(v1 v2 v3 v4 v5)
 # Dónde empieza cada frase, en segundos del vídeo a 1×: su corte (T, en index.html) más 0,25, y la del
 # cierre, 0,2. Si se mueve un corte, se mueve aquí.
-EMPIEZA=(0.25 3.27 11.18 15.27 19.57)
+EMPIEZA=(0.25 3.27 11.18 15.27 19.61)
 T=$(mktemp -d)
 trap 'rm -rf "$T"' EXIT
 
