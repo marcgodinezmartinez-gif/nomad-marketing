@@ -1,12 +1,12 @@
 #!/bin/bash
 # Renderiza las versiones de «Pruébalo antes de pagar» y sus fotogramas de revisión. Es el variantes.sh de
-# asi-funciona/ con otros nombres, otros instantes y SIN SONIDO: no hay mezcla, y el máster sale sin pista
-# de audio (el dueño, 7-nov: «monta el vídeo ya, sin audio»).
+# asi-funciona/ con otros nombres y otros instantes. Desde el 7-nov lleva la voz de Kore y la música
+# (mezclar.sh); antes salía sin pista de audio.
 # Escribe en <salida> (por defecto salida/ del repo):
 #   nomad-pruebalo-historia-1080x1920.mp4  con la flecha hacia el adhesivo de enlace
 #   nomad-pruebalo-reel-1080x1920.mp4      con «Enlace en el perfil» (reel de Instagram y TikTok)
 #   nomad-pruebalo-limpia-1080x1920.mp4    sin flecha ni texto (VERSIONES="limpia")
-# Los tres: 1080x1920, 30 fps, 31,1 s (todo a 1,15×), H.264, sin audio.
+# Los tres: 1080x1920, 30 fps, 30,83 s (todo a 1,15×), H.264 + AAC, con la voz y la música dentro.
 # Y en revision/, los PNG de comprobación: uno por escena y versión, y el cierre con las zonas seguras
 # dibujadas encima.
 # Uso, desde cualquier sitio: bash piezas/historias-animadas/pruebalo/variantes.sh [salida]
@@ -21,13 +21,14 @@ OUT="${1:-$R/salida}"
 mkdir -p "$OUT" "$D/revision"
 HF="npx -y hyperframes@0.8.203"
 bash "$R/piezas/historias-animadas/construir.sh" >/dev/null
+[ -f "$D/assets/sonido.m4a" ] || bash "$D/mezclar.sh"
 ls "$D"/assets/tomas/*.mp4 >/dev/null 2>&1 || { echo "faltan las tomas: METRAJE=<carpeta> python3 -I $D/cortar-tomas.py" >&2; exit 1; }
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la historia.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version historia' EXIT
 CHECK="$(mktemp)"
 # Un instante por escena (en segundos del vídeo final), cuando ya está todo dentro; dos del arranque (el
 # logo entero y el hilo dibujando el borde), y el museo todavía con su esqueleto.
-ESCENAS="0.30:00-el-logo 2.40:00b-el-hilo 5.20:01a-el-asistente 6.60:01b-la-hoja 10.60:02-tus-dias 13.90:03-el-paseo 15.40:04a-el-museo-preparandose 17.30:04-el-museo 20.50:05-nomad-ai 25.20:06-un-solo-pago 30.80:07-el-cierre"
+ESCENAS="0.30:00-el-logo 2.00:00b-el-hilo 4.27:01a-el-asistente 5.80:01b-la-hoja 10.30:02-tus-dias 14.20:03-el-paseo 16.60:04a-el-museo-preparandose 18.60:04-el-museo 21.40:05-nomad-ai 25.62:06-un-solo-pago 30.55:07-el-cierre"
 for V in ${VERSIONES:-historia reel}; do
   version "$V"
   ( cd "$D" && $HF check --at-transitions 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -E "Check (passed|failed)|✗|⚠|WCAG" ) | tee "$CHECK"
@@ -59,8 +60,10 @@ Image.alpha_composite(im, capa).convert('RGB').save(sys.argv[2], optimize=True)
 PY
   rm -rf "$T"
   ( cd "$D" && $HF render --quiet --fps 30 --video-bitrate 12M --output "$OUT/.render-$V.mp4" >/dev/null 2>&1 )
-  # Sin pista de audio: si el render pusiera una (muda), se quita sin recodificar el vídeo.
-  ffmpeg -v error -y -i "$OUT/.render-$V.mp4" -map 0:v:0 -an -c:v copy -movflags +faststart "$OUT/nomad-pruebalo-$V-1080x1920.mp4"
+  # El render ya lleva el sonido (el <audio> de index.html); se vuelve a poner desde sonido.m4a
+  # sin recodificar, para que el máster lleve exactamente la mezcla medida.
+  ffmpeg -v error -y -i "$OUT/.render-$V.mp4" -i "$D/assets/sonido.m4a" -map 0:v:0 -map 1:a:0 \
+    -c:v copy -c:a copy -movflags +faststart "$OUT/nomad-pruebalo-$V-1080x1920.mp4"
   rm -f "$OUT/.render-$V.mp4"
   ( cd "$D" && $HF clean >/dev/null 2>&1 || true )
   echo "$OUT/nomad-pruebalo-$V-1080x1920.mp4"

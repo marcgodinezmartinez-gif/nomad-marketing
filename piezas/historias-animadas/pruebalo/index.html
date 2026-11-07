@@ -16,8 +16,8 @@
          funciona» (asi-funciona/index.html, que es el molde): el logo se hace hilo y dibuja el borde de la
          pantalla (no un iPhone: README.md de incluye-pago), dentro corren las tomas de la app, y a la derecha
          un dibujo editorial por escena que se traza solo, respira y se recoge en sí mismo, sin una línea que lo
-         una a la pantalla. SIN SONIDO (el dueño, 7-nov: «monta el vídeo ya, sin audio, y dame el guion»):
-         los cortes salen de las frases del guion a ritmo de Kore, para grabar la voz después sin moverlos.
+         una a la pantalla. Con la voz de Kore y la música de «Un trazo» (mezclar.sh, la noche del 7-nov: «métele
+         la voz»); los cortes salen de las tomas de voz.
          Pantalla a la izquierda (x=150), dibujos en x 600-900. La frase de cada escena, abajo (y=1282 y 1370). */
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
               background-color: #FFFDF9;
@@ -57,7 +57,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="pruebalo" data-start="0"
-         data-width="1080" data-height="1920" data-duration="31.1">
+         data-width="1080" data-height="1920" data-duration="30.833">
       <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
       <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace hilo (S1). -->
       <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
@@ -70,13 +70,13 @@
       <p id="o-nombre" class="tit serif">Nomad: guía de viajes</p>
       <div id="pantalla">
         <!-- Los tiempos de cada toma, los que imprime cortar-tomas.py (data-start = inicio / 1,15). -->
-        <video id="v-s2a" class="clip" src="assets/tomas/s2a.mp4" data-start="4.391" data-duration="1.435" muted playsinline></video>
-        <video id="v-s2b" class="clip" src="assets/tomas/s2b.mp4" data-start="5.826" data-duration="1.826" muted playsinline></video>
-        <video id="v-s3" class="clip" src="assets/tomas/s3.mp4" data-start="7.652" data-duration="4.217" muted playsinline></video>
-        <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="11.87" data-duration="3.217" muted playsinline></video>
-        <video id="v-s5" class="clip" src="assets/tomas/s5.mp4" data-start="15.087" data-duration="3.217" muted playsinline></video>
-        <video id="v-s6" class="clip" src="assets/tomas/s6.mp4" data-start="18.304" data-duration="3.217" muted playsinline></video>
-        <video id="v-s7" class="clip" src="assets/tomas/s7.mp4" data-start="21.522" data-duration="4.87" muted playsinline></video>
+        <video id="v-s2a" class="clip" src="assets/tomas/s2a.mp4" data-start="3.461" data-duration="1.435" muted playsinline></video>
+        <video id="v-s2b" class="clip" src="assets/tomas/s2b.mp4" data-start="4.896" data-duration="1.661" muted playsinline></video>
+        <video id="v-s3" class="clip" src="assets/tomas/s3.mp4" data-start="6.557" data-duration="5.591" muted playsinline></video>
+        <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="12.148" data-duration="4.113" muted playsinline></video>
+        <video id="v-s5" class="clip" src="assets/tomas/s5.mp4" data-start="16.261" data-duration="3.0" muted playsinline></video>
+        <video id="v-s6" class="clip" src="assets/tomas/s6.mp4" data-start="19.261" data-duration="2.765" muted playsinline></video>
+        <video id="v-s7" class="clip" src="assets/tomas/s7.mp4" data-start="22.026" data-duration="4.096" muted playsinline></video>
       </div>
       <h1 id="t1a" class="tit serif t84" style="top: 1282px;">¿Pagar sin ver</h1>
       <h1 id="t1b" class="tit serif t84 verde" style="top: 1370px;">qué te llevas?</h1>
@@ -120,7 +120,7 @@
       <p id="c-android" class="sans">Pronto en Android™</p>
       <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
       <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
-      <!-- Sin <audio>: el vídeo va sin sonido hasta que se grabe la voz (README.md). -->
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="30.833"></audio>
     </div>
     <script>
       document.fonts.ready.then(function () {
@@ -129,17 +129,17 @@
         var VELOCIDAD = 1.15;
         var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F, FPS = 30;
         var SVGNS = "http://www.w3.org/2000/svg";
-        // LOS CORTES, a 1×. Sin voz todavía: cada escena dura su frase del guion leída a ritmo de Kore a 1,15×
-        // (unas 3 palabras por segundo) más 0,55 s de aire, multiplicado por 1,15 porque aquí todo se escribe a
-        // 1× y se estira al final. S2 lleva 0,6 s más, para que la hoja se lea (el borde se cierra en su primer
-        // segundo); el cierre, los 5,4 s de asi-funciona, porque el crédito tiene que poder leerse. Si se mueve
-        // un corte, se mueve aquí, en tomas.json (y con él los <video>) y en el guion de README.md.
+        // LOS CORTES, a 1×, salen de la voz (assets/voz, 7-nov), como en asi-funciona: cada escena dura su toma
+        // más 0,55 s, y la frase empieza 0,25 s después del corte (la del cierre, 0,2). S2 lleva 0,6 s más,
+        // para que la hoja se lea (el borde se cierra en su primer segundo); el cierre, los 5,4 s de asi-funciona,
+        // porque el crédito tiene que poder leerse. Si se mueve un corte, se mueve aquí, en EMPIEZA de
+        // mezclar.sh, en tomas.json (y con él los <video>) y en el guion de README.md.
         //        1  2     3     4      5      6      7      cierre
-        var T = [0, 0, 4.10, 8.80, 13.65, 17.35, 21.05, 24.75, 30.35];
-        var FIN = 933 / 30 * VELOCIDAD;   // 933 fotogramas: 31,1 s
+        var T = [0, 0, 3.03, 7.54, 13.97, 18.70, 22.15, 25.33, 30.04];
+        var FIN = 925 / 30 * VELOCIDAD;   // 925 fotogramas: 30,83 s
         var XI = 150;
-        // Una rejilla regular para los latidos (la negra de la música de asi-funciona). Sin música no hace
-        // falta, pero así, el día que haya una pista de ese tempo, los latidos ya caen en ella.
+        // La rejilla de los latidos: la negra de la música, que empieza 24 negras dentro de la pista
+        // (mezclar.sh), así que la rejilla de asi-funciona vale tal cual.
         function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
         // LA RESPIRACIÓN, la de asi-funciona: con la toma quieta y el dibujo entero, cada dibujo late en cada
         // negra de su espera sin pisar lo que ya lo mueve (M.late, M.brota y M.encoge apuntan en OCUPA).
@@ -190,7 +190,7 @@
         M.apaga("#logo-g", 1.2, 0.55);
         M.apaga("#o-nombre", 1.6, 0.3);
         M.frase(["t1a", "t1b"], 0.1, T[2]);
-        // Sin música que lo llene, el arranque se quedaba quieto 0,43 s entre que acaba de entrar la pregunta y
+        // Sin música, el arranque se quedaba quieto 0,43 s entre que acaba de entrar la pregunta y
         // la punta coge velocidad (medido en el render del 7-nov): la pregunta late una vez ahí.
         M.late("#t1b", 0.62, 0.03, 0.6);
         tl.fromTo("#marca", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none", immediateRender: false }, T[2] + 0.3);
@@ -203,7 +203,7 @@
         // hoja quieta, la escena entera se paraba. La línea dibuja el contorno mientras el borde acaba de
         // cerrarse, para que el arranque de S2 no se quede quieto (medido con el detector de «Un trazo», 7-nov);
         // brotan el iris y la pupila, luego las pestañas; el ojo mira a la pantalla cuando sube la hoja (s2b,
-        // 6,70) y parpadea una vez antes de irse.
+        // T[2] + 2,6) y parpadea una vez antes de irse.
         var ojo = new M.Camino();
         ojo.o(ICONOS.ojo.d).marca("fin");
         M.salida(a("s-ojo"), ojo, T[2] + 0.95, T[2] + 1.95, T[3] - 0.45, T[3] - 0.15, "power1.inOut");
@@ -213,7 +213,7 @@
         gsap.set("#ojo-pest", { autoAlpha: 0 });
         M.brota("#ojo-mira", T[2] + 1.85, "back.out(2)"); M.encoge("#ojo-mira", T[3] - 0.6);
         M.funde("#ojo-pest", T[2] + 2.0, 0.25); M.apaga("#ojo-pest", T[3] - 0.6, 0.12);
-        tl.fromTo("#ojo-mira", { x: 0 }, { x: -16, duration: 0.35, ease: "power2.inOut", immediateRender: false }, 6.75);
+        tl.fromTo("#ojo-mira", { x: 0 }, { x: -16, duration: 0.35, ease: "power2.inOut", immediateRender: false }, T[2] + 2.65);
         tl.fromTo("#ojo-parpa", { scaleY: 1 }, { scaleY: 0.08, duration: 0.07, ease: "power2.in", immediateRender: false }, T[3] - 0.85);
         tl.fromTo("#ojo-parpa", { scaleY: 0.08 }, { scaleY: 1, duration: 0.13, ease: "power2.out", immediateRender: false }, T[3] - 0.78);
         respira("#ojo", T[2] + 2.25, T[3] - 0.45, 0.04);
@@ -237,7 +237,7 @@
         for (var d = 7; d <= 9; d++) { tl.set("#dia" + d, { autoAlpha: 0 }, 0); M.brota("#dia" + d, T[3] + 1.4 + 0.15 * (d - 7), "back.out(1.7)"); }
         gsap.set("#cal", { svgOrigin: "752 740" });
         M.apaga("#cal", T[4] - 0.5, 0.25);
-        respira("#cal", T[3] + 2.4, T[4] - 0.5, 0.025);
+        respira("#cal", T[3] + 2.0, T[4] - 0.5, 0.025);
         // Entre el último latido y el apagado quedaban 0,45 s quietos con la toma quieta (detector de «Un
         // trazo», 7-nov): un latido corto más.
         M.late("#cal", T[4] - 0.9, 0.02, 0.4);
@@ -254,6 +254,7 @@
         M.brota("#casco-ondas", T[4] + 1.55, "back.out(1.7)"); M.encoge("#casco-ondas", T[5] - 0.6);
         respira("#casco-ondas", T[4] + 1.9, T[5] - 0.6, 0.12);
         respira("#casco", T[4] + 1.0, T[5] - 0.45, 0.04);
+        M.late("#casco-ondas", T[5] - 1.05, 0.12, 0.4);   // si no, 0,57 s quietos (detector de «Un trazo», 7-nov)
         M.frase(["t4a", "t4b"], T[4], T[5]);
 
         // —— S5 · Y LA DE TU MUSEO, OBRA POR OBRA: un cuadro con su marco (nuevo, 7-nov, en el juego editorial).
@@ -270,13 +271,11 @@
         M.funde("#cuadro-colgar", T[5] + 1.25, 0.2); M.apaga("#cuadro-colgar", T[6] - 0.55, 0.12);
         M.funde("#cuadro-obra", T[5] + 1.35, 0.25); M.apaga("#cuadro-obra", T[6] - 0.55, 0.15);
         M.brota("#cuadro-sol", T[5] + 1.55, "back.out(2)"); M.encoge("#cuadro-sol", T[6] - 0.6);
-        // «obra por obra» es el final de la frase (palabras 6 a 8 de 8): unos 2,1 s después de que empiece.
-        M.late("#cuadro-sol", negra(T[5] + 0.25 + 2.1), 0.14, 0.6);
+        // Con «obra por obra»: en la toma (v5), la primera «obra» empieza a 1,66 s (whisper); el latido, 0,12 s
+        // después, y dura lo que las tres palabras.
+        M.late("#cuadro-sol", T[5] + 0.25 + 1.66 + 0.12, 0.14, 0.6);
         respira("#cuadro-sol", T[5] + 1.9, T[6] - 0.6, 0.1);
         respira("#cuadro", T[5] + 1.0, T[6] - 0.45, 0.03);
-        // Con la toma del museo ya quieta, entre el último latido y la recogida quedaban 0,6 s sin nada que se
-        // moviera (detector de «Un trazo», 7-nov): el sol late una vez más, corto.
-        M.late("#cuadro-sol", T[6] - 1.08, 0.1, 0.45);
         M.frase(["t5a", "t5b"], T[5], T[6]);
 
         // —— S6 · NOMAD AI YA CONOCE TU CIUDAD: el robot pequeño de asi-funciona, con la cabeza ladeada.
@@ -314,14 +313,14 @@
         var lin = new M.Camino();
         lin.o(ICONOS.linea).marca("fin");
         M.salida(a("s-linea"), lin, T[7] + 0.1, T[7] + 0.7, T[8] - 0.45, T[8] - 0.15, "power2.out");
-        // La frase a 1× (13 palabras, a unas 2,6 por segundo): «lo pagas una vez», de 1,2 a 2,7 s; «para todo
-        // el grupo», de 3,5 a 5. Se ajusta con la voz grabada.
-        var V7 = T[7] + 0.25, LLENA = [V7 + 1.9, V7 + 3.9, V7 + 4.05];
+        // En la toma (v7, whisper): «una» a 1,92 s y «todo» a 3,34; cada persona, 0,12 s después de su palabra,
+        // y la tercera 0,15 s detrás de la segunda. Con «grupo» (3,84) no: es cuando se recogen (README.md).
+        var V7 = T[7] + 0.25, LLENA = [V7 + 1.92 + 0.12, V7 + 3.34 + 0.12, V7 + 3.34 + 0.12 + 0.15];
         ICONOS.persona.x.forEach(function (x, k) {
           persona("p" + k, x, ICONOS.persona.base);
           M.brota("#p" + k, T[7] + 0.75 + 0.12 * k, "back.out(2.4)");
           tl.fromTo("#p" + k + " circle", { attr: { fill: "#FFFDF9" } }, { attr: { fill: "#0F766E" }, duration: 0.15, ease: "power1.out", immediateRender: false }, LLENA[k]);
-          M.late("#p" + k, LLENA[k], 0.08, 0.6);
+          M.late("#p" + k, LLENA[k], 0.08, Math.min(0.6, T[8] - 0.5 + 0.03 * k - LLENA[k] - 0.02));
           M.encoge("#p" + k, T[8] - 0.5 + 0.03 * k);
           respira("#p" + k, T[7] + 1.15, T[8] - 0.5, 0.045);
         });

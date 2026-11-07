@@ -2,8 +2,8 @@
 
 Un vídeo de 31 s con la estética de «Así funciona»: la línea verde nace del logo, dibuja el borde de la
 pantalla de la app y, al lado, cada escena tiene su dibujo, suelto. Cuenta lo que ves de tu viaje antes
-de pagarlo: los días con sus fechas, la guía del paseo, la del museo y NOMAD AI. El guion, por si se
-graba la voz:
+de pagarlo: los días con sus fechas, la guía del paseo, la del museo y NOMAD AI. Lo cuenta la voz de
+Kore, con la música de «Un trazo» debajo:
 
 > ¿Pagar un viaje sin ver lo que te llevas? · Con Nomad, antes de pagar, ya ves tu viaje. · Tus días, con
 > sus fechas y tus imprescindibles, listos para escribirse. · La guía de tu paseo, preparándose mientras
@@ -12,7 +12,8 @@ graba la voz:
 
 **Ya lleva las pantallas de verdad** (7-nov): un fin de semana en Lisboa, del sábado 7 al lunes 9 de
 noviembre, grabado en el simulador. El precio de la app («$2.99») está tapado en todas, y no sale ningún
-código de invitación. Antes de publicarlo, míralo una vez entero en el móvil.
+código de invitación. **Desde el 7-nov por la noche lleva la voz y la música** dentro. Antes de
+publicarlo, míralo y escúchalo una vez entero en el móvil.
 
 Cuatro ficheros:
 
@@ -29,10 +30,10 @@ pequeña se emborrona.
 
 Antes de subirlo:
 
-1. **Va sin sonido.** Si lo publicas así, elige la pista dentro de Instagram o de TikTok, de tendencias
-   y baja, como los reels sin audio de la casa. Si antes se graba la voz de Kore, entonces no se le pone
-   música.
-2. **La etiqueta de IA**: sin voz ni música hechas con IA, no hace falta. Con la voz de Kore, sí.
+1. **No le pongas música** de Instagram ni de TikTok: ya lleva la suya. Escúchalo antes en el altavoz del
+   iPhone y con auriculares, sobre todo **el final**: el último acorde suena en el cierre, con «gratis».
+   Está medido, no oído.
+2. **Marca la etiqueta de IA** en cada publicación: la voz y la música están hechas con IA.
 3. **Ningún precio**, ni en el vídeo ni en el pie: el vídeo vende probarlo antes. Si preguntan, abajo.
 4. **Antes de pagar una promoción, mira la pantalla de pago.** Si aparece «Comisión de Apple», cancela.
 
@@ -44,10 +45,11 @@ cambias, se vuelve a renderizar en unos minutos.
 ## 1. Instagram: el reel (@app.nomad)
 
 1. **+** → **Reel** → `nomad-pruebalo-reel-1080x1920.mp4` → **Siguiente**.
-2. La pista (punto 1 de arriba) → **Siguiente**.
+2. En el editor **no toques la música** → **Siguiente**.
 3. **Editar portada** → **Añadir del carrete** → `nomad-pruebalo-portada.jpg`.
 4. Pega el pie (abajo).
-5. **Compartir**, y fija el comentario de abajo (mantén pulsado → **Fijar**).
+5. **Configuración avanzada** → activa **Etiqueta de IA**.
+6. **Compartir**, y fija el comentario de abajo (mantén pulsado → **Fijar**).
 
 **Pie del reel** (la primera línea es la que se ve antes del «más»):
 
@@ -58,7 +60,7 @@ Le dices a dónde vas y, antes de pagar nada, ya ves tu viaje: tus días con sus
 
 Si te convence, lo pagas una vez, sin suscripción, y es para todo el grupo. Si no, no pagas nada.
 
-Las pantallas son de la app y las secuencias van acortadas.
+Las pantallas son de la app y las secuencias van acortadas. La voz que lo cuenta es Kore, una de las que puedes elegir en la app. La voz y la música están hechas con IA.
 
 Ya en la App Store, para iPhone con iOS 15.1 o superior. Android™, pronto. El enlace, en la bio.
 
@@ -80,7 +82,8 @@ Para encontrarla: App Store, «Nomad: guía de viajes». Hay más apps que se ll
    `ct=ig-historia-pruebalo`, si ya tienes el `pt`, #14) → texto del adhesivo: **Pruébala**.
 3. Colócalo abajo, donde apuntan las flechas, más o menos a un 80 % de la altura, pequeño y sin tapar
    la insignia.
-4. **Tu historia**.
+4. **Etiqueta de IA**: los tres puntos de arriba a la derecha → **Etiqueta de IA** → activar.
+5. **Tu historia**.
 
 **Texto para la historia**, si quieres uno encima (arriba, entre y 280 y 400, sin tapar la pantalla):
 
@@ -92,10 +95,10 @@ Antes de pagar, ya ves tu viaje 👇
 
 1. **+** → **Subir** → `nomad-pruebalo-reel-1080x1920.mp4` (o `-limpia-` si tu perfil no tiene «Sitio
    web», y entonces quita «El enlace, en el perfil.» del pie) → **Siguiente**.
-2. El sonido: el punto 1 de arriba.
+2. **No añadas sonido.**
 3. Pega el pie. **Portada**: `nomad-pruebalo-portada.jpg` si te deja; si no, el primer fotograma.
-4. **Más opciones**: activa **Divulgar contenido comercial** → **Tu marca** (y **Contenido generado por
-   IA** si lleva la voz de Kore).
+4. **Más opciones**: activa **Divulgar contenido comercial** → **Tu marca** y **Contenido generado por
+   IA**.
 5. **Publicar**, y fija el comentario.
 
 **Pie de TikTok:**
