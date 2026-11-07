@@ -10,8 +10,9 @@ graba la voz:
 > decides. · Y la de tu museo, obra por obra. · Y NOMAD AI, que ya conoce tu ciudad. · Si te convence, lo
 > pagas una vez y es para todo el grupo. · Nomad. Descárgala gratis en la App Store.
 
-**Todavía no se publica**: el render de hoy lleva tomas provisionales, con el nombre de cada toma donde
-irá la pantalla de la app. Esto es para cuando lleve las de verdad (README.md, «Lo que falta»).
+**Ya lleva las pantallas de verdad** (7-nov): un fin de semana en Lisboa, del sábado 7 al lunes 9 de
+noviembre, grabado en el simulador. El precio de la app («$2.99») está tapado en todas, y no sale ningún
+código de invitación. Antes de publicarlo, míralo una vez entero en el móvil.
 
 Cuatro ficheros:
 

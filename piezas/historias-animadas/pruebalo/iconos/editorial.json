@@ -65,10 +65,10 @@
   "s3": {
    "principal": {
     "id": "s-cal",
-    "d": "M610,600 L610,878 C610,891.3 620.7,902 634,902 L870,902 C883.3,902 894,891.3 894,878 L894,600 C894,586.7 883.3,576 870,576 L634,576 C620.7,576 610,586.7 610,600 L610,648 L894,648",
+    "d": "M610,646 L610,834 C610,847.3 620.7,858 634,858 L870,858 C883.3,858 894,847.3 894,834 L894,646 C894,632.7 883.3,622 870,622 L634,622 C620.7,622 610,632.7 610,646 L610,694 L894,694",
     "inicio": [
      610,
-     600
+     646
     ],
     "nota": "Empieza arriba a la izquierda, baja por el lado izquierdo y da la vuelta en sentido contrario al reloj; al cerrar, repasa el trozo de lado izquierdo hasta la cabecera y traza su raya (el único tramo que pasa dos veces, y es por encima de sí mismo)."
    },
@@ -82,7 +82,7 @@
       "stroke-width": 3,
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
-      "d": "M672,558 C668.7,558 666,560.7 666,564 L666,590 C666,593.3 668.7,596 672,596 C675.3,596 678,593.3 678,590 L678,564 C678,560.7 675.3,558 672,558 Z"
+      "d": "M672,604 C668.7,604 666,606.7 666,610 L666,636 C666,639.3 668.7,642 672,642 C675.3,642 678,639.3 678,636 L678,610 C678,606.7 675.3,604 672,604 Z"
      }
     },
     {
@@ -94,7 +94,7 @@
       "stroke-width": 3,
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
-      "d": "M832,558 C828.7,558 826,560.7 826,564 L826,590 C826,593.3 828.7,596 832,596 C835.3,596 838,593.3 838,590 L838,564 C838,560.7 835.3,558 832,558 Z"
+      "d": "M832,604 C828.7,604 826,606.7 826,610 L826,636 C826,639.3 828.7,642 832,642 C835.3,642 838,639.3 838,636 L838,610 C838,606.7 835.3,604 832,604 Z"
      }
     },
     {
@@ -103,7 +103,7 @@
      "texto": "NOV 2026",
      "attrs": {
       "x": 752,
-      "y": 621,
+      "y": 667,
       "text-anchor": "middle",
       "font-family": "Instrument Sans",
       "font-weight": 600,
@@ -116,21 +116,21 @@
    ],
    "dias": [
     {
-     "id": "dia21",
+     "id": "dia7",
      "centro_brote": [
-      656.0,
-      718.0
+      666.0,
+      776.0
      ],
      "elementos": [
       {
        "tag": "rect",
        "rol": "casilla",
        "attrs": {
-        "x": 628.0,
-        "y": 666,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
+        "x": 630.0,
+        "y": 712,
+        "width": 72,
+        "height": 128,
+        "rx": 16,
         "fill": "#0F766E",
         "stroke": "none"
        }
@@ -140,12 +140,12 @@
        "rol": "letra",
        "texto": "S",
        "attrs": {
-        "x": 656.0,
-        "y": 699,
+        "x": 666.0,
+        "y": 752,
         "text-anchor": "middle",
         "font-family": "Instrument Sans",
         "font-weight": 600,
-        "font-size": 20,
+        "font-size": 22,
         "letter-spacing": "1",
         "fill": "rgba(255,253,249,.82)",
         "stroke": "none"
@@ -154,13 +154,13 @@
       {
        "tag": "text",
        "rol": "numero",
-       "texto": "21",
+       "texto": "7",
        "attrs": {
-        "x": 656.0,
-        "y": 750,
+        "x": 666.0,
+        "y": 814,
         "text-anchor": "middle",
         "font-family": "Instrument Serif",
-        "font-size": 48,
+        "font-size": 60,
         "fill": "#FFFDF9",
         "stroke": "none"
        }
@@ -168,21 +168,21 @@
      ]
     },
     {
-     "id": "dia22",
+     "id": "dia8",
      "centro_brote": [
-      720.0,
-      718.0
+      752.0,
+      776.0
      ],
      "elementos": [
       {
        "tag": "rect",
        "rol": "casilla",
        "attrs": {
-        "x": 692.0,
-        "y": 666,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
+        "x": 716.0,
+        "y": 712,
+        "width": 72,
+        "height": 128,
+        "rx": 16,
         "fill": "rgba(15,118,110,.07)",
         "stroke": "none"
        }
@@ -192,12 +192,12 @@
        "rol": "letra",
        "texto": "D",
        "attrs": {
-        "x": 720.0,
-        "y": 699,
+        "x": 752.0,
+        "y": 752,
         "text-anchor": "middle",
         "font-family": "Instrument Sans",
         "font-weight": 600,
-        "font-size": 20,
+        "font-size": 22,
         "letter-spacing": "1",
         "fill": "#0F766E",
         "stroke": "none"
@@ -206,13 +206,13 @@
       {
        "tag": "text",
        "rol": "numero",
-       "texto": "22",
+       "texto": "8",
        "attrs": {
-        "x": 720.0,
-        "y": 750,
+        "x": 752.0,
+        "y": 814,
         "text-anchor": "middle",
         "font-family": "Instrument Serif",
-        "font-size": 48,
+        "font-size": 60,
         "fill": "#100E0B",
         "stroke": "none"
        }
@@ -220,21 +220,21 @@
      ]
     },
     {
-     "id": "dia23",
+     "id": "dia9",
      "centro_brote": [
-      784.0,
-      718.0
+      838.0,
+      776.0
      ],
      "elementos": [
       {
        "tag": "rect",
        "rol": "casilla",
        "attrs": {
-        "x": 756.0,
-        "y": 666,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
+        "x": 802.0,
+        "y": 712,
+        "width": 72,
+        "height": 128,
+        "rx": 16,
         "fill": "rgba(15,118,110,.07)",
         "stroke": "none"
        }
@@ -244,12 +244,12 @@
        "rol": "letra",
        "texto": "L",
        "attrs": {
-        "x": 784.0,
-        "y": 699,
+        "x": 838.0,
+        "y": 752,
         "text-anchor": "middle",
         "font-family": "Instrument Sans",
         "font-weight": 600,
-        "font-size": 20,
+        "font-size": 22,
         "letter-spacing": "1",
         "fill": "#0F766E",
         "stroke": "none"
@@ -258,273 +258,13 @@
       {
        "tag": "text",
        "rol": "numero",
-       "texto": "23",
+       "texto": "9",
        "attrs": {
-        "x": 784.0,
-        "y": 750,
+        "x": 838.0,
+        "y": 814,
         "text-anchor": "middle",
         "font-family": "Instrument Serif",
-        "font-size": 48,
-        "fill": "#100E0B",
-        "stroke": "none"
-       }
-      }
-     ]
-    },
-    {
-     "id": "dia24",
-     "centro_brote": [
-      848.0,
-      718.0
-     ],
-     "elementos": [
-      {
-       "tag": "rect",
-       "rol": "casilla",
-       "attrs": {
-        "x": 820.0,
-        "y": 666,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
-        "fill": "rgba(15,118,110,.07)",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "letra",
-       "texto": "M",
-       "attrs": {
-        "x": 848.0,
-        "y": 699,
-        "text-anchor": "middle",
-        "font-family": "Instrument Sans",
-        "font-weight": 600,
-        "font-size": 20,
-        "letter-spacing": "1",
-        "fill": "#0F766E",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "numero",
-       "texto": "24",
-       "attrs": {
-        "x": 848.0,
-        "y": 750,
-        "text-anchor": "middle",
-        "font-family": "Instrument Serif",
-        "font-size": 48,
-        "fill": "#100E0B",
-        "stroke": "none"
-       }
-      }
-     ]
-    },
-    {
-     "id": "dia25",
-     "centro_brote": [
-      656.0,
-      832.0
-     ],
-     "elementos": [
-      {
-       "tag": "rect",
-       "rol": "casilla",
-       "attrs": {
-        "x": 628.0,
-        "y": 780,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
-        "fill": "rgba(15,118,110,.07)",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "letra",
-       "texto": "X",
-       "attrs": {
-        "x": 656.0,
-        "y": 813,
-        "text-anchor": "middle",
-        "font-family": "Instrument Sans",
-        "font-weight": 600,
-        "font-size": 20,
-        "letter-spacing": "1",
-        "fill": "#0F766E",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "numero",
-       "texto": "25",
-       "attrs": {
-        "x": 656.0,
-        "y": 864,
-        "text-anchor": "middle",
-        "font-family": "Instrument Serif",
-        "font-size": 48,
-        "fill": "#100E0B",
-        "stroke": "none"
-       }
-      }
-     ]
-    },
-    {
-     "id": "dia26",
-     "centro_brote": [
-      720.0,
-      832.0
-     ],
-     "elementos": [
-      {
-       "tag": "rect",
-       "rol": "casilla",
-       "attrs": {
-        "x": 692.0,
-        "y": 780,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
-        "fill": "rgba(15,118,110,.07)",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "letra",
-       "texto": "J",
-       "attrs": {
-        "x": 720.0,
-        "y": 813,
-        "text-anchor": "middle",
-        "font-family": "Instrument Sans",
-        "font-weight": 600,
-        "font-size": 20,
-        "letter-spacing": "1",
-        "fill": "#0F766E",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "numero",
-       "texto": "26",
-       "attrs": {
-        "x": 720.0,
-        "y": 864,
-        "text-anchor": "middle",
-        "font-family": "Instrument Serif",
-        "font-size": 48,
-        "fill": "#100E0B",
-        "stroke": "none"
-       }
-      }
-     ]
-    },
-    {
-     "id": "dia27",
-     "centro_brote": [
-      784.0,
-      832.0
-     ],
-     "elementos": [
-      {
-       "tag": "rect",
-       "rol": "casilla",
-       "attrs": {
-        "x": 756.0,
-        "y": 780,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
-        "fill": "rgba(15,118,110,.07)",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "letra",
-       "texto": "V",
-       "attrs": {
-        "x": 784.0,
-        "y": 813,
-        "text-anchor": "middle",
-        "font-family": "Instrument Sans",
-        "font-weight": 600,
-        "font-size": 20,
-        "letter-spacing": "1",
-        "fill": "#0F766E",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "numero",
-       "texto": "27",
-       "attrs": {
-        "x": 784.0,
-        "y": 864,
-        "text-anchor": "middle",
-        "font-family": "Instrument Serif",
-        "font-size": 48,
-        "fill": "#100E0B",
-        "stroke": "none"
-       }
-      }
-     ]
-    },
-    {
-     "id": "dia28",
-     "centro_brote": [
-      848.0,
-      832.0
-     ],
-     "elementos": [
-      {
-       "tag": "rect",
-       "rol": "casilla",
-       "attrs": {
-        "x": 820.0,
-        "y": 780,
-        "width": 56,
-        "height": 104,
-        "rx": 14,
-        "fill": "rgba(15,118,110,.07)",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "letra",
-       "texto": "S",
-       "attrs": {
-        "x": 848.0,
-        "y": 813,
-        "text-anchor": "middle",
-        "font-family": "Instrument Sans",
-        "font-weight": 600,
-        "font-size": 20,
-        "letter-spacing": "1",
-        "fill": "#0F766E",
-        "stroke": "none"
-       }
-      },
-      {
-       "tag": "text",
-       "rol": "numero",
-       "texto": "28",
-       "attrs": {
-        "x": 848.0,
-        "y": 864,
-        "text-anchor": "middle",
-        "font-family": "Instrument Serif",
-        "font-size": 48,
+        "font-size": 60,
         "fill": "#100E0B",
         "stroke": "none"
        }
@@ -536,39 +276,33 @@
     "hoja": {
      "x0": 610,
      "x1": 894,
-     "y0": 576,
-     "y1": 902,
+     "y0": 622,
+     "y1": 858,
      "r": 24,
-     "raya_cabecera_y": 648
+     "raya_cabecera_y": 694
     },
     "casilla": {
-     "ancho": 56,
-     "alto": 104,
-     "rx": 14,
+     "ancho": 72,
+     "alto": 128,
+     "rx": 16,
      "centros_x": [
-      656.0,
-      720.0,
-      784.0,
-      848.0
+      666.0,
+      752.0,
+      838.0
      ],
-     "tops_y": [
-      666,
-      780
-     ],
-     "hueco": [
-      8,
-      10
-     ],
+     "top_y": 712,
+     "hueco": 14,
      "margen_a_la_hoja": 18,
-     "relleno": "rgba(15,118,110,.07) (el 21, hoy: #0F766E con letras crema)"
+     "relleno": "rgba(15,118,110,.07); el sábado 7, #0F766E con letras crema (el chip elegido del itinerario)"
     },
-    "letra": "Instrument Sans 600, 20 px, y = top + 33",
-    "numero": "Instrument Serif 48 px, negro, y = top + 84",
-    "anillas": "x 672 y 832: cápsulas de 12 × 38 (de y 558 a 596), trazo 3 px y relleno crema, que muerden el borde de arriba; van dentro de #cal y aparecen con la hoja, como la cabecera",
+    "letra": "Instrument Sans 600, 22 px, y = top + 40",
+    "numero": "Instrument Serif 60 px, negro, y = top + 102",
+    "anillas": "x 672 y 832: cápsulas de 12 × 38 (de y 604 a 642), trazo 3 px y relleno crema, que muerden el borde de arriba; van dentro de #cal y aparecen con la hoja, como la cabecera",
     "origen_latido": [
      752,
-     775
-    ]
+     740
+    ],
+    "fechas": "«Pruébalo» (7-nov): los tres días del viaje grabado, sábado 7, domingo 8 y lunes 9 de noviembre de 2026, en una fila; el de asi-funciona era una hoja de dos filas con ocho días, del 21 al 28"
    }
   },
   "s4": {
@@ -1864,6 +1598,91 @@
     ],
     "grupos": "el alambre y el clavo, el paspartú y los montes aparecen al acabar el marco; el sol brota después y es lo que late con «obra por obra»",
     "centro": "de y 610 (el clavo) a 870 (el marco): centrado en y = 740, como los demás dibujos sueltos"
+   }
+  },
+  "ojo": {
+   "principal": {
+    "id": "s-ojo",
+    "d": "M624,740 C664,680 712,656 752,656 C792,656 840,680 880,740 C840,800 792,824 752,824 C712,824 664,800 624,740",
+    "inicio": [
+     624,
+     740
+    ],
+    "nota": "«Pruébalo» (7-nov), la escena de la hoja. El contorno del ojo, a 5 px: empieza en el lagrimal (izquierda), traza el párpado de arriba, y vuelve por el de abajo; cierra donde empezó."
+   },
+   "detalles": [
+    {
+     "tag": "circle",
+     "rol": "iris",
+     "attrs": {
+      "cx": 752,
+      "cy": 740,
+      "r": 50,
+      "fill": "none",
+      "stroke": "#0F766E",
+      "stroke-width": 3
+     }
+    },
+    {
+     "tag": "circle",
+     "rol": "pupila",
+     "attrs": {
+      "cx": 752,
+      "cy": 740,
+      "r": 21,
+      "fill": "#0F766E",
+      "stroke": "none"
+     }
+    },
+    {
+     "tag": "circle",
+     "rol": "brillo",
+     "attrs": {
+      "cx": 763,
+      "cy": 729,
+      "r": 6,
+      "fill": "#FFFDF9",
+      "stroke": "none"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "pestaña",
+     "attrs": {
+      "d": "M698,658 L686,634",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "pestaña",
+     "attrs": {
+      "d": "M752,646 L752,620",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round"
+     }
+    },
+    {
+     "tag": "path",
+     "rol": "pestaña",
+     "attrs": {
+      "d": "M806,658 L818,634",
+      "stroke": "#0F766E",
+      "stroke-width": 3,
+      "stroke-linecap": "round"
+     }
+    }
+   ],
+   "layout": {
+    "origen_latido": [
+     752,
+     740
+    ],
+    "grupos": "el iris, la pupila y el brillo brotan juntos al cerrar el contorno y miran a la pantalla (16 px a la izquierda) cuando sube la hoja; las pestañas aparecen después; el ojo parpadea una vez antes de irse",
+    "centro": "de y 620 (las pestañas) a 824 (el párpado de abajo): centrado en y = 740, como los demás dibujos sueltos"
    }
   }
  }

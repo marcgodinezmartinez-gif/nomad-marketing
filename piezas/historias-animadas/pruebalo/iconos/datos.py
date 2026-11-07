@@ -1,9 +1,10 @@
 # Escribe en index.html, entre las marcas «ICONOS: desde iconos/editorial.json», los datos de los dibujos de
 # la derecha de «Pruébalo antes de pagar». Es el datos.py de asi-funciona/ con los dibujos que usa este
-# vídeo: el calendario (S3), los auriculares (S4), el cuadro con su marco (S5, nuevo el 7-nov, en el mismo
-# juego «editorial»: 5 px la línea y 3 px los detalles), el robot (S6) y las personas con su línea (S7).
-# editorial.json es el de asi-funciona/ con la escena «cuadro» añadida. No se tocan a mano: se cambia el
-# JSON y se vuelve a correr esto.
+# vídeo: el ojo (S2, nuevo el 7-nov), el calendario (S3, con los tres días del viaje grabado), los
+# auriculares (S4), el cuadro con su marco (S5, nuevo el 7-nov; los dos nuevos, en el mismo juego
+# «editorial»: 5 px la línea y 3 px los detalles), el robot (S6) y las personas con su línea (S7).
+# editorial.json es el de asi-funciona/ con las escenas «ojo» y «cuadro» añadidas y el calendario de una
+# fila. No se tocan a mano: se cambia el JSON y se vuelve a correr esto.
 # Uso: python3 -I iconos/datos.py
 import json, os, re
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -12,8 +13,9 @@ def el(e):
     a = {k: v for k, v in e['attrs'].items()}
     return [e['tag'], a] + ([e['texto']] if 'texto' in e else [])
 def rol(lista, *roles): return [el(e) for e in lista if e.get('rol') in roles]
-s3, s5, s7, s8, cu = (j[k] for k in ('s3', 's5', 's7', 's8', 'cuadro'))
+s3, s5, s7, s8, cu, oj = (j[k] for k in ('s3', 's5', 's7', 's8', 'cuadro', 'ojo'))
 D = {
+  'ojo': {'d': oj['principal']['d'], 'mira': rol(oj['detalles'], 'iris', 'pupila', 'brillo'), 'pestanas': rol(oj['detalles'], 'pestaña')},
   'cal': {'d': s3['principal']['d'], 'hoja': rol(s3['detalles'], 'anilla', 'cabecera'),
           'dias': [{'id': d['id'], 'o': d['centro_brote'], 'el': [el(e) for e in d['elementos']]} for d in s3['dias']]},
   'casco': {'d': s5['principal']['d'], 'det': rol(s5['detalles'], 'almohadilla', 'acolchado'), 'ondas': rol(s5['detalles'], 'onda')},

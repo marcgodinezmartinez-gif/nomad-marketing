@@ -1,9 +1,9 @@
 [
- {"id": "s2a", "fichero": "muestras-hoja.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 5.05, "fin": 6.70, "revisar": true, "que": "el asistente rápido: la ciudad y las fechas, y «Crear»"},
- {"id": "s2b", "fichero": "muestras-hoja.mp4", "entrada": 6.00, "salida": 9.00, "inicio": 6.70, "fin": 8.80, "revisar": true, "que": "la hoja sube con «Incluye» y sus flechas verdes"},
- {"id": "s3", "fichero": "muestras-itinerario.mp4", "entrada": 1.00, "salida": 6.00, "inicio": 8.80, "fin": 13.65, "revisar": true, "que": "el esqueleto del itinerario: chips con fechas, mapa, barras y «Se escribe en cuanto pagues»"},
- {"id": "s4", "fichero": "muestras-paseo.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 13.65, "fin": 17.35, "revisar": true, "que": "la guía de muestra del paseo: su esqueleto y las paradas entrando"},
- {"id": "s5", "fichero": "muestras-museo.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 17.35, "fin": 21.05, "revisar": true, "que": "la guía de muestra del museo, obra por obra"},
- {"id": "s6", "fichero": "muestras-ia.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 21.05, "fin": 24.75, "revisar": true, "que": "la conversación de NOMAD AI sobre su ciudad"},
- {"id": "s7", "fichero": "muestras-hoja.mp4", "entrada": 10.00, "salida": 14.00, "inicio": 24.75, "fin": 30.35, "revisar": true, "que": "la hoja otra vez, con el precio tapado (#velo-s7)"}
+ {"id": "s2a", "fichero": "recorrido-muestras-hoja.mp4", "entrada": 31.3, "salida": 40.5, "inicio": 5.05, "fin": 6.7, "que": "el asistente rápido, paso 1: escribe «Lisboa», la elige y salen las fechas (7 nov – 9 nov · 2 noches)"},
+ {"id": "s2b", "fichero": "recorrido-muestras-hoja.mp4", "entrada": 56.48, "salida": 58.31, "inicio": 6.7, "fin": 8.8, "velos": [[2062, 2574, "#FCFAF6"]], "que": "la hoja recién subida, con «Incluye» y sus flechas; el pie (los dos botones y la nota) tapado"},
+ {"id": "s3", "fichero": "recorrido-muestras-itinerario.mp4", "entrada": 12.5, "salida": 19.5, "inicio": 8.8, "fin": 13.65, "velos": [[2272, 2574, "#F2EDE6"]], "que": "el esqueleto: mapa, chips SÁB 7 · DOM 8 · LUN 9, barras, «Se escribe en cuanto pagues», la Torre de Belém; y el cambio al domingo"},
+ {"id": "s4", "fichero": "recorrido-muestras-paseo.mp4", "entrada": 9.182, "salida": 12.399, "inicio": 13.65, "fin": 17.35, "que": "la guía de muestra del paseo sube ya hecha: Torre de Belém, «Escuchas 2 de sus 5 paradas»"},
+ {"id": "s5", "fichero": "recorrido-muestras-museo.mp4", "entrada": 9.0, "salida": 9.965, "inicio": 17.35, "fin": 21.05, "que": "la guía de muestra del museo, ya arriba: su esqueleto («Preparando las obras de la muestra») y las partes entrando; a 0,3×, para que se vea"},
+ {"id": "s6", "fichero": "recorrido-muestras-ia.mp4", "entrada": 7.776, "salida": 10.993, "inicio": 21.05, "fin": 24.75, "que": "NOMAD AI sube con la pregunta y la respuesta con los cuatro imprescindibles"},
+ {"id": "s7", "fichero": "recorrido-muestras-hoja.mp4", "entrada": 58.0, "salida": 63.6, "inicio": 24.75, "fin": 30.35, "velos": [[2062, 2450, "#FCFAF6"]], "que": "la hoja quieta con «Pago único para todo el grupo.»; los dos botones tapados"}
 ]

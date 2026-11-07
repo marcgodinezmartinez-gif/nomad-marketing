@@ -10,7 +10,7 @@
 # Y en revision/, los PNG de comprobación: uno por escena y versión, y el cierre con las zonas seguras
 # dibujadas encima.
 # Uso, desde cualquier sitio: bash piezas/historias-animadas/pruebalo/variantes.sh [salida]
-# Antes, las tomas: METRAJE=<carpeta> python3 -I cortar-tomas.py (o --provisional, sin grabaciones).
+# Antes, las tomas: METRAJE=<carpeta con las grabaciones> python3 -I cortar-tomas.py.
 #
 # La versión se elige con assets/version.js, que se reescribe antes de cada pasada (check, snapshot y
 # render leen el mismo index.html), y al acabar vuelve a «historia», que es la versionada.
@@ -25,9 +25,9 @@ ls "$D"/assets/tomas/*.mp4 >/dev/null 2>&1 || { echo "faltan las tomas: METRAJE=
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la historia.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version historia' EXIT
 CHECK="$(mktemp)"
-# Un instante por escena (en segundos del vídeo final), cuando ya está todo dentro; y dos del arranque:
-# el logo entero y el hilo dibujando el borde.
-ESCENAS="0.30:00-el-logo 2.40:00b-el-hilo 5.20:01a-el-asistente 6.60:01b-la-hoja 10.60:02-tus-dias 13.90:03-el-paseo 17.30:04-el-museo 20.50:05-nomad-ai 25.20:06-un-solo-pago 30.80:07-el-cierre"
+# Un instante por escena (en segundos del vídeo final), cuando ya está todo dentro; dos del arranque (el
+# logo entero y el hilo dibujando el borde), y el museo todavía con su esqueleto.
+ESCENAS="0.30:00-el-logo 2.40:00b-el-hilo 5.20:01a-el-asistente 6.60:01b-la-hoja 10.60:02-tus-dias 13.90:03-el-paseo 15.40:04a-el-museo-preparandose 17.30:04-el-museo 20.50:05-nomad-ai 25.20:06-un-solo-pago 30.80:07-el-cierre"
 for V in ${VERSIONES:-historia reel}; do
   version "$V"
   ( cd "$D" && $HF check --at-transitions 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -E "Check (passed|failed)|✗|⚠|WCAG" ) | tee "$CHECK"
