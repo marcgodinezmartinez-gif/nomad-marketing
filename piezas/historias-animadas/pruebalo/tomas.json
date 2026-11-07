@@ -1,0 +1,9 @@
+[
+ {"id": "s2a", "fichero": "muestras-hoja.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 5.05, "fin": 6.70, "revisar": true, "que": "el asistente rápido: la ciudad y las fechas, y «Crear»"},
+ {"id": "s2b", "fichero": "muestras-hoja.mp4", "entrada": 6.00, "salida": 9.00, "inicio": 6.70, "fin": 8.80, "revisar": true, "que": "la hoja sube con «Incluye» y sus flechas verdes"},
+ {"id": "s3", "fichero": "muestras-itinerario.mp4", "entrada": 1.00, "salida": 6.00, "inicio": 8.80, "fin": 13.65, "revisar": true, "que": "el esqueleto del itinerario: chips con fechas, mapa, barras y «Se escribe en cuanto pagues»"},
+ {"id": "s4", "fichero": "muestras-paseo.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 13.65, "fin": 17.35, "revisar": true, "que": "la guía de muestra del paseo: su esqueleto y las paradas entrando"},
+ {"id": "s5", "fichero": "muestras-museo.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 17.35, "fin": 21.05, "revisar": true, "que": "la guía de muestra del museo, obra por obra"},
+ {"id": "s6", "fichero": "muestras-ia.mp4", "entrada": 1.00, "salida": 5.00, "inicio": 21.05, "fin": 24.75, "revisar": true, "que": "la conversación de NOMAD AI sobre su ciudad"},
+ {"id": "s7", "fichero": "muestras-hoja.mp4", "entrada": 10.00, "salida": 14.00, "inicio": 24.75, "fin": 30.35, "revisar": true, "que": "la hoja otra vez, con el precio tapado (#velo-s7)"}
+]

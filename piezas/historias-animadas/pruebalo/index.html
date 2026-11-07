@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad · Pruébalo antes de pagar</title>
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <script src="assets/motor.js"></script>
+    <script src="assets/version.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #FFFDF9; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+      /* «PRUÉBALO ANTES DE PAGAR» (7-nov): lo que se ve del viaje antes de pagarlo, con la estética de «Así
+         funciona» (asi-funciona/index.html, que es el molde): el logo se hace hilo y dibuja el borde de la
+         pantalla (no un iPhone: README.md de incluye-pago), dentro corren las tomas de la app, y a la derecha
+         un dibujo editorial por escena que se traza solo, respira y se recoge en sí mismo, sin una línea que lo
+         una a la pantalla. SIN SONIDO (el dueño, 7-nov: «monta el vídeo ya, sin audio, y dame el guion»):
+         los cortes salen de las frases del guion a ritmo de Kore, para grabar la voz después sin moverlos.
+         Pantalla a la izquierda (x=150), dibujos en x 600-900. La frase de cada escena, abajo (y=1282 y 1370). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
+              background-color: #FFFDF9;
+              background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
+              background-size: 54px 54px; background-position: 3px 11px; }
+      .verde { color: #0F766E; }
+      svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
+      #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
+               justify-content: center; align-items: center; gap: 16px; }
+      #marca img { display: block; width: 45px; height: 52px; }
+      #marca p { margin: 0; font-size: 42px; line-height: 56px; font-weight: 600; white-space: nowrap; }
+      .tit { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; letter-spacing: -.02em; }
+      .t84 { font-size: 84px; line-height: 1.04; }
+      #o-nombre { top: 902px; font-size: 92px; line-height: 1; }
+      #pantalla { position: absolute; left: 150px; top: 400px; width: 404px; height: 806px; border-radius: 36px;
+                  overflow: hidden; background: #F5F0E8; }
+      #pantalla video { position: absolute; left: 0; top: 0; width: 404px; height: 806px; display: block; }
+      /* NINGÚN PRECIO EN PANTALLA: el simulador enseña dólares («$2.99») y la casa no ancla el precio en nada
+         que no sea el café. La hoja lo lleva abajo, en el botón fijo («Generar mi itinerario · $2.99»), así
+         que en las dos tomas de la hoja (s2b y s7) el pie se funde con el fondo de la hoja, como el velo de
+         la errata de asi-funciona. ESTIMACIÓN hecha sin la grabación: el botón cae en y 714-764 de la toma si
+         está a 2.300-2.450 px de la grabación. Al llegar las tomas se mide, se ajusta top y el color (el del
+         fondo de la hoja), y se mira el primer y el último fotograma de cada una (README.md). */
+      .velo-precio { position: absolute; left: 0; top: 690px; width: 404px; height: 116px;
+                     background: linear-gradient(to bottom, rgba(252,250,246,0) 0, #FCFAF6 22px); }
+      .num { font-family: 'Instrument Sans'; font-weight: 700; }
+      #papel { position: absolute; inset: 0; background: #F5F0E8; }
+      #c-icono { position: absolute; left: 430px; top: 520px; width: 220px; height: 220px; display: block;
+                 border-radius: 49px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 800px; width: 912px; margin: 0; text-align: center;
+                  font-size: 92px; line-height: 1; letter-spacing: -.02em; color: #100E0B; white-space: nowrap; }
+      #c-insignia { position: absolute; left: 360px; top: 980px; width: 359px; height: 120px; display: block; }
+      #c-android { position: absolute; left: 84px; top: 1170px; width: 912px; margin: 0; text-align: center;
+                   font-size: 38px; line-height: 1.2; font-weight: 600; color: rgba(16,14,11,.62); }
+      #c-credito { position: absolute; left: 180px; top: 1256px; width: 720px; margin: 0; text-align: center;
+                   font-size: 24px; line-height: 31px; font-weight: 500; color: rgba(16,14,11,.66); }
+      #c-perfil { position: absolute; left: 84px; top: 1404px; width: 912px; margin: 0; text-align: center;
+                  font-size: 36px; line-height: 1.2; font-weight: 600; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="pruebalo" data-start="0"
+         data-width="1080" data-height="1920" data-duration="31.1">
+      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
+      <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace hilo (S1). -->
+      <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
+          <path id="l1" d="M5030 8063 c-319 -48 -497 -104 -755 -237 -394 -203 -729 -497 -1035 -906 -252 -339 -453 -764 -545 -1155 -54 -229 -59 -277 -59 -530 0 -264 10 -341 75 -537 119 -363 387 -679 723 -854 103 -54 109 -55 88 -28 -147 189 -209 356 -219 584 -4 114 -2 151 17 240 94 456 445 780 1085 1000 66 22 246 77 400 121 518 149 719 231 970 396 127 85 304 259 364 360 99 167 141 310 148 508 4 115 2 157 -15 235 -102 493 -538 815 -1097 809 -66 -1 -131 -3 -145 -6z"/>
+          <path id="l2" d="M6790 5991 c0 -5 5 -13 11 -17 21 -12 78 -147 95 -222 41 -184 -19 -468 -149 -702 -140 -252 -420 -585 -688 -816 -1053 -908 -2278 -1050 -3074 -356 -257 223 -469 584 -539 917 l-13 60 -8 -60 c-11 -80 1 -375 20 -505 65 -444 253 -875 542 -1240 103 -131 344 -365 478 -466 360 -269 717 -423 1163 -500 141 -25 182 -28 402 -28 189 -1 271 3 360 17 406 64 741 189 1061 398 172 113 292 211 444 364 384 386 632 859 727 1392 19 110 22 162 23 378 0 225 -2 261 -24 360 -86 405 -282 715 -575 910 -111 73 -256 139 -256 116z"/>
+          <path id="l3" d="M6205 5973 c-317 -37 -658 -215 -980 -512 -126 -115 -227 -227 -418 -461 -246 -300 -314 -379 -432 -495 -299 -296 -550 -368 -772 -221 -29 19 -57 37 -62 40 -13 8 14 -102 43 -173 61 -150 199 -293 360 -371 140 -68 237 -90 406 -90 104 0 162 6 250 24 222 47 459 136 701 267 129 68 389 239 494 324 420 337 726 726 848 1078 29 85 31 102 32 222 0 122 -2 133 -27 181 -73 138 -245 211 -443 187z"/>
+        </g></g>
+      </svg>
+      <p id="o-nombre" class="tit serif">Nomad: guía de viajes</p>
+      <div id="pantalla">
+        <!-- Los tiempos de cada toma, los que imprime cortar-tomas.py (data-start = inicio / 1,15). -->
+        <video id="v-s2a" class="clip" src="assets/tomas/s2a.mp4" data-start="4.391" data-duration="1.435" muted playsinline></video>
+        <video id="v-s2b" class="clip" src="assets/tomas/s2b.mp4" data-start="5.826" data-duration="1.826" muted playsinline></video>
+        <video id="v-s3" class="clip" src="assets/tomas/s3.mp4" data-start="7.652" data-duration="4.217" muted playsinline></video>
+        <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="11.87" data-duration="3.217" muted playsinline></video>
+        <video id="v-s5" class="clip" src="assets/tomas/s5.mp4" data-start="15.087" data-duration="3.217" muted playsinline></video>
+        <video id="v-s6" class="clip" src="assets/tomas/s6.mp4" data-start="18.304" data-duration="3.217" muted playsinline></video>
+        <video id="v-s7" class="clip" src="assets/tomas/s7.mp4" data-start="21.522" data-duration="4.87" muted playsinline></video>
+        <div id="velo-s2b" class="velo-precio"></div>
+        <div id="velo-s7" class="velo-precio"></div>
+      </div>
+      <h1 id="t1a" class="tit serif t84" style="top: 1282px;">¿Pagar sin ver</h1>
+      <h1 id="t1b" class="tit serif t84 verde" style="top: 1370px;">qué te llevas?</h1>
+      <h1 id="t2a" class="tit serif t84" style="top: 1282px;">Antes de pagar,</h1>
+      <h1 id="t2b" class="tit serif t84 verde" style="top: 1370px;">ya ves tu viaje.</h1>
+      <h1 id="t3a" class="tit serif t84" style="top: 1282px;">Tus días,</h1>
+      <h1 id="t3b" class="tit serif t84 verde" style="top: 1370px;">listos para escribirse.</h1>
+      <h1 id="t4a" class="tit serif t84" style="top: 1282px;">La guía de tu paseo,</h1>
+      <h1 id="t4b" class="tit serif t84 verde" style="top: 1370px;">ya preparándose.</h1>
+      <h1 id="t5a" class="tit serif t84" style="top: 1282px;">Y la de tu museo,</h1>
+      <h1 id="t5b" class="tit serif t84 verde" style="top: 1370px;">obra por obra.</h1>
+      <h1 id="t6a" class="tit serif t84" style="top: 1282px;">NOMAD AI ya</h1>
+      <h1 id="t6b" class="tit serif t84 verde" style="top: 1370px;">conoce tu ciudad.</h1>
+      <h1 id="t7a" class="tit serif t84" style="top: 1282px;">Si te convence,</h1>
+      <h1 id="t7b" class="tit serif t84 verde" style="top: 1370px;">un solo pago.</h1>
+      <div id="papel"></div>
+      <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Todas las líneas a 5 px y los detalles a 3: el juego «editorial» de asi-funciona. -->
+        <path id="s-logo" stroke="#0F766E" stroke-width="5" />
+        <path id="s-borde" stroke="#0F766E" stroke-width="5" />
+        <path id="s-cal" stroke="#0F766E" stroke-width="5" />
+        <g id="casco"><path id="s-casco" stroke="#0F766E" stroke-width="5" /><g id="casco-det"></g><g id="casco-ondas"></g></g>
+        <g id="cuadro"><path id="s-cuadro" stroke="#0F766E" stroke-width="5" /><g id="cuadro-colgar"></g><g id="cuadro-obra"></g><g id="cuadro-sol"></g></g>
+        <path id="s-robot" stroke="#0F766E" stroke-width="5" />
+        <path id="s-linea" stroke="#0F766E" stroke-width="5" />
+        <!-- S3 · El calendario del viaje (el de asi-funciona: NOV 2026, del sábado 21 al sábado 28). -->
+        <g id="cal"></g>
+        <!-- S6 · la cara, la bola de la antena y la señal del robot. Los pinta el guion desde ICONOS. -->
+        <g id="robot-cara"></g><g id="robot-bola"></g><g id="robot-antena"></g>
+        <!-- S7 · Las tres personas del grupo, sobre su línea. -->
+        <g id="personas"></g>
+        <g id="c-flecha">
+          <path d="M516,1420 L540,1436 L564,1420" stroke="#0F766E" stroke-width="6" />
+          <path d="M516,1442 L540,1458 L564,1442" stroke="#0F766E" stroke-opacity=".5" stroke-width="6" />
+        </g>
+      </svg>
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: guía de viajes</p>
+      <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Consíguelo en el App Store" />
+      <p id="c-android" class="sans">Pronto en Android™</p>
+      <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
+      <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
+      <!-- Sin <audio>: el vídeo va sin sonido hasta que se grabe la voz (README.md). -->
+    </div>
+    <script>
+      document.fonts.ready.then(function () {
+        var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
+        var tl = gsap.timeline({ paused: true });
+        var VELOCIDAD = 1.15;
+        var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F, FPS = 30;
+        var SVGNS = "http://www.w3.org/2000/svg";
+        // LOS CORTES, a 1×. Sin voz todavía: cada escena dura su frase del guion leída a ritmo de Kore a 1,15×
+        // (unas 3 palabras por segundo) más 0,55 s de aire, multiplicado por 1,15 porque aquí todo se escribe a
+        // 1× y se estira al final. S2 lleva 0,6 s más, para que la hoja se lea (el borde se cierra en su primer
+        // segundo); el cierre, los 5,4 s de asi-funciona, porque el crédito tiene que poder leerse. Si se mueve
+        // un corte, se mueve aquí, en tomas.json (y con él los <video>) y en el guion de README.md.
+        //        1  2     3     4      5      6      7      cierre
+        var T = [0, 0, 4.10, 8.80, 13.65, 17.35, 21.05, 24.75, 30.35];
+        var FIN = 933 / 30 * VELOCIDAD;   // 933 fotogramas: 31,1 s
+        var XI = 150;
+        // Una rejilla regular para los latidos (la negra de la música de asi-funciona). Sin música no hace
+        // falta, pero así, el día que haya una pista de ese tempo, los latidos ya caen en ella.
+        function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
+        // LA RESPIRACIÓN, la de asi-funciona: con la toma quieta y el dibujo entero, cada dibujo late en cada
+        // negra de su espera sin pisar lo que ya lo mueve (M.late, M.brota y M.encoge apuntan en OCUPA).
+        var OCUPA = {};
+        ["late", "brota", "encoge"].forEach(function (n) {
+          var f = M[n];
+          M[n] = function (sel, t, x, dur) {
+            var d = n === "late" ? (dur || 0.6) : n === "brota" ? 0.32 : 0.12;
+            [].concat(sel).forEach(function (s) { (OCUPA[s] = OCUPA[s] || []).push([t, t + d]); });
+            return f.apply(null, arguments);
+          };
+        });
+        function respira(sels, a, b, amp) {
+          [].concat(sels).forEach(function (s) {
+            for (var k = Math.ceil((a - 0.092) / 0.80083); ; k++) {
+              var t = 0.092 + k * 0.80083;
+              if (t + 0.6 > b) break;
+              if ((OCUPA[s] || []).every(function (o) { return o[1] < t - 0.05 || o[0] > t + 0.65; })) M.late(s, t, amp || 0.035, 0.6);
+            }
+          });
+        }
+        function el(tag, at, padre) { var e = document.createElementNS(SVGNS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || a("trazos")).appendChild(e); return e; }
+        // ICONOS: desde iconos/editorial.json (iconos/datos.py).
+        var ICONOS = {"cal":{"d":"M610,600 L610,878 C610,891.3 620.7,902 634,902 L870,902 C883.3,902 894,891.3 894,878 L894,600 C894,586.7 883.3,576 870,576 L634,576 C620.7,576 610,586.7 610,600 L610,648 L894,648","hoja":[["path",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M672,558 C668.7,558 666,560.7 666,564 L666,590 C666,593.3 668.7,596 672,596 C675.3,596 678,593.3 678,590 L678,564 C678,560.7 675.3,558 672,558 Z"}],["path",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M832,558 C828.7,558 826,560.7 826,564 L826,590 C826,593.3 828.7,596 832,596 C835.3,596 838,593.3 838,590 L838,564 C838,560.7 835.3,558 832,558 Z"}],["text",{"x":752,"y":621,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":26,"letter-spacing":"3.5","fill":"#0F766E","stroke":"none"},"NOV 2026"]],"dias":[{"id":"dia21","o":[656.0,718.0],"el":[["rect",{"x":628.0,"y":666,"width":56,"height":104,"rx":14,"fill":"#0F766E","stroke":"none"}],["text",{"x":656.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"rgba(255,253,249,.82)","stroke":"none"},"S"],["text",{"x":656.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#FFFDF9","stroke":"none"},"21"]]},{"id":"dia22","o":[720.0,718.0],"el":[["rect",{"x":692.0,"y":666,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":720.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"D"],["text",{"x":720.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"22"]]},{"id":"dia23","o":[784.0,718.0],"el":[["rect",{"x":756.0,"y":666,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":784.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"L"],["text",{"x":784.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"23"]]},{"id":"dia24","o":[848.0,718.0],"el":[["rect",{"x":820.0,"y":666,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":848.0,"y":699,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"M"],["text",{"x":848.0,"y":750,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"24"]]},{"id":"dia25","o":[656.0,832.0],"el":[["rect",{"x":628.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":656.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"X"],["text",{"x":656.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"25"]]},{"id":"dia26","o":[720.0,832.0],"el":[["rect",{"x":692.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":720.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"J"],["text",{"x":720.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"26"]]},{"id":"dia27","o":[784.0,832.0],"el":[["rect",{"x":756.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":784.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"V"],["text",{"x":784.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"27"]]},{"id":"dia28","o":[848.0,832.0],"el":[["rect",{"x":820.0,"y":780,"width":56,"height":104,"rx":14,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":848.0,"y":813,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":20,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"S"],["text",{"x":848.0,"y":864,"text-anchor":"middle","font-family":"Instrument Serif","font-size":48,"fill":"#100E0B","stroke":"none"},"28"]]}]},"casco":{"d":"M668,749 C650.9,749 637,762.9 637,780 L637,820 C637,837.1 650.9,851 668,851 C685.1,851 699,837.1 699,820 L699,780 C699,762.9 685.1,749 668,749 L668,727 C668,672.9 705.6,629 752,629 C798.4,629 836,672.9 836,727 L836,749 C853.1,749 867,762.9 867,780 L867,820 C867,837.1 853.1,851 836,851 C818.9,851 805,837.1 805,820 L805,780 C805,762.9 818.9,749 836,749","det":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M668,760 C657,760 648,769 648,780 L648,820 C648,831 657,840 668,840 C679,840 688,831 688,820 L688,780 C688,769 679,760 668,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M836,760 C825,760 816,769 816,780 L816,820 C816,831 825,840 836,840 C847,840 856,831 856,820 L856,780 C856,769 847,760 836,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M708.3,660 C734,636 770,636 795.7,660"}]],"ondas":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M629,824.4 C619.7,809.5 619.7,790.5 629,775.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M614.1,826.3 C606,809.7 606,790.3 614.1,773.7"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M875,775.6 C884.3,790.5 884.3,809.5 875,824.4"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M889.9,773.7 C898,790.3 898,809.7 889.9,826.3"}]]},"cuadro":{"d":"M752,662 L640,662 C633.4,662 628,667.4 628,674 L628,858 C628,864.6 633.4,870 640,870 L864,870 C870.6,870 876,864.6 876,858 L876,674 C876,667.4 870.6,662 864,662 L752,662","colgar":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M704,662 L752,618 L800,662"}],["circle",{"cx":752,"cy":617,"r":7,"fill":"#0F766E","stroke":"none"}]],"obra":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M654,684 L850,684 C852.2,684 854,685.8 854,688 L854,844 C854,846.2 852.2,848 850,848 L654,848 C651.8,848 650,846.2 650,844 L650,688 C650,685.8 651.8,684 654,684 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M664,832 L716,770 L746,804 L784,752 L840,832"}]],"sol":[["circle",{"cx":806,"cy":724,"r":14,"fill":"none","stroke":"#0F766E","stroke-width":3}]]},"robot":{"d":"M742.7,659.4 L745.2,688.3 L781.1,685.2 C813,682.4 841.1,706 843.9,737.9 L844.1,739.9 C854,739 862.7,746.3 863.6,756.2 C864.4,766.1 857.1,774.9 847.2,775.7 L847.4,777.7 C850.2,809.6 826.6,837.8 794.7,840.6 L722.9,846.8 C691,849.6 662.9,826 660.1,794.1 L659.9,792.1 C650,793 641.3,785.7 640.4,775.8 C639.6,765.9 646.9,757.1 656.8,756.3 L656.6,754.3 C653.8,722.4 677.4,694.2 709.3,691.4 L745.2,688.3","cara":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M674.5,752.7 C672.6,730.7 688.9,711.3 710.9,709.4 L782.6,703.1 C804.6,701.2 824,717.4 826,739.5 L829.5,779.3 C831.4,801.3 815.1,820.7 793.1,822.6 L721.4,828.9 C699.4,830.8 680,814.6 678,792.5 L674.5,752.7 Z"}],["path",{"d":"M732.5,761.7 C733.2,768.8 729.7,775 724.7,775.4 C719.8,775.8 715.2,770.4 714.6,763.2 C714,756.1 717.5,749.9 722.5,749.5 C727.4,749.1 731.9,754.5 732.5,761.7 Z","fill":"#0F766E","stroke":"none"}],["path",{"d":"M788.3,756.8 C789,764 785.5,770.1 780.5,770.5 C775.6,771 771,765.5 770.4,758.4 C769.8,751.2 773.3,745.1 778.2,744.6 C783.2,744.2 787.7,749.6 788.3,756.8 Z","fill":"#0F766E","stroke":"none"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M738.1,790.3 C749.4,797.3 760,796.4 769.9,787.5"}]],"antena":[["circle",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","cx":"741.7","cy":"648.4","r":"9"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M727.1,662.1 C720.8,655.4 719.9,645.3 724.9,637.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M717.8,666.5 C710.9,657.3 709.8,645 715,634.8"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M756.3,634.8 C762.6,641.5 763.5,651.6 758.5,659.3"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M765.7,630.4 C772.6,639.6 773.7,651.8 768.4,662.1"}]]},"linea":"M612,808 L892,808","persona":{"r":21,"sobre":79,"hombros":"M-36,0 L-36,-12 C-36,-36 -21.6,-46 0,-46 C21.6,-46 36,-36 36,-12 L36,0","x":[658,752,846],"base":790}};
+        function pinta(lista, padre) { lista.forEach(function (e) { var n = el(e[0], e[1], padre); if (e.length > 2) n.textContent = e[2]; }); }
+
+        // —— S1 · EL LOGO SE HACE HILO, el arranque de asi-funciona tal cual: la línea recorre la silueta del
+        // logo mientras el relleno se apaga, y sale tirada como un hilo a dibujar el borde de la pantalla.
+        // SILUETA la saca silueta-del-logo.py; no se toca a mano.
+        var SILUETA = "263.9,478.9 264.5,472.9 265.3,466.9 266.3,461 267.5,455.1 268.9,449.2 270.3,443.4 271.8,437.6 273.5,431.8 275.3,426.1 277.2,420.4 279.2,414.7 281.3,409.1 283.6,403.5 285.9,398 288.3,392.5 290.9,387 293.5,381.6 296.2,376.3 299,371 301.9,365.7 304.9,360.5 308,355.3 311.2,350.2 314.4,345.2 317.8,340.2 321.3,335.3 324.8,330.5 328.5,325.7 332.2,321 336,316.3 339.9,311.7 343.9,307.2 347.9,302.8 352,298.4 356.2,294.1 360.5,289.9 364.8,285.7 369.2,281.6 373.7,277.6 378.3,273.7 382.9,269.9 387.7,266.2 392.5,262.7 397.4,259.2 402.4,255.8 407.4,252.6 412.6,249.4 417.8,246.4 423,243.5 428.3,240.7 433.7,238 439.1,235.5 444.6,233 450.2,230.8 455.8,228.7 461.5,226.7 467.3,225 473.1,223.4 478.9,222 484.8,220.7 490.7,219.6 496.6,218.6 502.6,217.8 508.6,217.3 514.6,217 520.6,217 526.6,217.3 532.6,217.8 538.5,218.6 544.4,219.6 550.3,221 556.1,222.6 561.8,224.5 567.4,226.6 572.9,229.1 578.2,231.9 583.3,235 588.3,238.4 593,242.1 597.6,246 601.9,250.3 605.9,254.7 609.6,259.4 613,264.4 616.1,269.5 618.9,274.9 621.3,280.4 623.4,286 625.2,291.7 626.6,297.6 627.6,303.5 628.2,309.5 628.4,315.5 628.2,321.5 627.8,327.5 627.1,333.4 626.1,339.4 624.8,345.2 623.1,351 621,356.6 618.6,362.1 615.9,367.5 612.9,372.7 609.9,377.9 607.3,383.3 605.4,389 604.7,395 605.1,401 606.7,406.7 609.5,412.1 613.3,416.7 618,420.4 623.3,423.2 628.9,425.2 634.8,426.6 640.6,428 646.5,429.4 652.4,430.5 658.4,431 664.3,430.5 670.2,429.1 676,427.5 681.9,426.9 687.8,427.9 693.4,430.2 698.7,433.1 703.8,436.2 708.7,439.7 713.5,443.3 718,447.2 722.4,451.4 726.6,455.7 730.5,460.2 734.3,464.9 737.8,469.8 741.1,474.8 744.2,480 747,485.3 749.6,490.7 752,496.2 754.3,501.8 756.3,507.4 758.1,513.1 759.7,518.9 761.1,524.8 762.3,530.7 763.1,536.6 763.7,542.6 764.1,548.6 764.2,554.6 764.2,560.6 764.2,566.6 764.2,572.6 764,578.6 763.7,584.6 763.1,590.6 762.4,596.6 761.5,602.5 760.3,608.4 759.1,614.3 757.7,620.1 756.1,625.9 754.4,631.7 752.6,637.4 750.7,643.1 748.6,648.8 746.4,654.4 744.1,659.9 741.6,665.4 739,670.8 736.3,676.2 733.4,681.4 730.4,686.7 727.3,691.8 724.1,696.9 720.8,701.9 717.4,706.8 713.8,711.7 710.1,716.4 706.4,721.1 702.5,725.7 698.5,730.2 694.4,734.6 690.3,738.9 686,743.2 681.7,747.4 677.3,751.5 672.8,755.5 668.3,759.4 663.6,763.1 658.8,766.8 653.9,770.3 649,773.7 644,777.1 638.9,780.3 633.8,783.4 628.5,786.4 623.3,789.2 617.9,791.9 612.5,794.5 607,797 601.5,799.3 595.9,801.6 590.2,803.6 584.5,805.6 578.8,807.3 573,809 567.2,810.5 561.4,811.9 555.5,813.3 549.6,814.5 543.7,815.5 537.8,816.5 531.8,817.2 525.8,817.7 519.8,818 513.8,818.2 507.8,818.2 501.8,818.2 495.8,818.2 489.8,818 483.8,817.8 477.8,817.3 471.8,816.7 465.9,815.8 459.9,814.8 454,813.7 448.2,812.4 442.3,811.1 436.5,809.6 430.7,808 424.9,806.2 419.2,804.4 413.6,802.4 408,800.2 402.4,797.9 396.9,795.5 391.5,792.9 386.1,790.3 380.8,787.5 375.5,784.5 370.3,781.5 365.2,778.3 360.2,775.1 355.2,771.7 350.3,768.2 345.5,764.6 340.8,760.8 336.2,756.9 331.7,753 327.3,748.9 322.9,744.8 318.6,740.6 314.4,736.3 310.2,732 306.2,727.6 302.2,723 298.4,718.4 294.7,713.7 291.1,708.8 287.7,703.9 284.3,698.9 281.1,693.9 277.9,688.7 274.9,683.5 272.1,678.3 269.3,672.9 266.7,667.5 264.1,662.1 261.8,656.6 259.5,651 257.3,645.4 255.3,639.7 253.5,634 251.7,628.2 250.1,622.5 248.6,616.6 247.3,610.8 246.1,604.9 245.1,599 244.2,593 243.5,587.1 243,581.1 242.5,575.1 242.2,569.1 242,563.1 241.9,557.1 242.2,551.1 243.4,545.2 246,539.8 249.8,535.2 253.9,530.7 257.5,525.9 260.2,520.6 261.8,514.8 262.7,508.9 263.1,502.9 263.2,496.9 263.4,490.9 263.6,484.9";
+        var CX = 540, CY = 640, ALTO = 330;
+        var lg = a("logo-g"), bb = lg.getBBox(), sc = ALTO / bb.height;
+        var tx = CX - sc * (bb.x + bb.width / 2), ty = CY - sc * (bb.y + bb.height / 2);
+        lg.setAttribute("transform", "translate(" + tx + "," + ty + ") scale(" + sc + ")");
+        var pts = SILUETA.split(" ").map(function (q) { var p = q.split(","); return [tx + sc * p[0], ty + sc * p[1]]; });
+        pts.push(pts[0]);
+        var log = new M.Camino(); log.o("M" + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" L")).marca("fin");
+        var mL = M.pon(log, a("s-logo")), u = pts[pts.length - 1], w = pts[pts.length - 2], dl = Math.hypot(u[0] - w[0], u[1] - w[1]);
+        var cont = new M.Camino(); cont.o("M" + u[0].toFixed(1) + "," + u[1].toFixed(1));
+        M.borde(cont, XI, u, [u[0] + 150 * (u[0] - w[0]) / dl, u[1] + 150 * (u[1] - w[1]) / dl]);
+        var mC = M.pon(cont, a("s-borde")), S0 = mL.L, TOT = S0 + mC.fin;
+        var PUNTA = [[0, 0], [0.35, 0], [1.8, TOT * (1.8 - 0.35) / (T[2] + 1.0 - 0.35), "power1.in"], [T[2] + 1.0, TOT, "power1.out"]];
+        // El borde se queda hasta el final de S7, y en sus últimos 0,4 s la cola corre hasta la punta mientras
+        // la pantalla se funde: la línea se va por donde cerró, y el cierre entra sobre el papel limpio.
+        var COLA = [[0, 0], [1.75, 0], [T[2] + 0.55, S0 + mC.borde, "power1.inOut"],
+                    [T[8] - 0.4, S0 + mC.borde], [T[8], S0 + mC.fin, "power1.in"]];
+        M.cadena([[a("s-logo"), mL.L], [a("s-borde"), mC.L]], COLA, PUNTA, 0, T[8] + 0.1);
+        M.apaga("#logo-g", 1.2, 0.55);
+        M.apaga("#o-nombre", 1.6, 0.3);
+        M.frase(["t1a", "t1b"], 0.1, T[2]);
+        // Sin música que lo llene, el arranque se quedaba quieto 0,43 s entre que acaba de entrar la pregunta y
+        // la punta coge velocidad (medido en el render del 7-nov): la pregunta late una vez ahí.
+        M.late("#t1b", 0.62, 0.03, 0.6);
+        tl.fromTo("#marca", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none", immediateRender: false }, T[2] + 0.3);
+        tl.set("#marca", { autoAlpha: 0 }, 0);
+        M.funde("#pantalla", T[2] + 0.95, 0.15);
+        M.apaga("#pantalla", T[8] - 0.4, 0.3);
+
+        // —— S2 · ANTES DE PAGAR, YA VES TU VIAJE: sin dibujo; lo cuenta la pantalla (el asistente rápido y la
+        // hoja con «Incluye»). El velo del precio, sólo mientras corre la toma de la hoja (tomas.json).
+        gsap.set(["#velo-s2b", "#velo-s7"], { autoAlpha: 0 });
+        M.aparece("#velo-s2b", 6.70); M.corta("#velo-s2b", 8.80);
+        M.frase(["t2a", "t2b"], T[2], T[3]);
+
+        // —— S3 · TUS DÍAS, LISTOS PARA ESCRIBIRSE: el calendario de asi-funciona; la línea dibuja la hoja y los
+        // días brotan uno a uno, vacíos de plan y con su fecha.
+        var cal = new M.Camino();
+        cal.o(ICONOS.cal.d).marca("fin");
+        M.salida(a("s-cal"), cal, T[3] + 0.1, T[3] + 1.2, T[4] - 0.45, T[4] - 0.15, "power1.inOut");
+        var gcal = a("cal");
+        pinta(ICONOS.cal.hoja, gcal);   // las dos anillas y la cabecera
+        ICONOS.cal.dias.forEach(function (dd) {
+          var g = el("g", { id: dd.id }, gcal);
+          pinta(dd.el, g);
+          gsap.set("#" + dd.id, { svgOrigin: dd.o[0] + " " + dd.o[1] });
+        });
+        tl.set("#cal", { autoAlpha: 0 }, 0);
+        tl.fromTo("#cal", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none", immediateRender: false }, T[3] + 1.1);
+        for (var d = 21; d <= 28; d++) { tl.set("#dia" + d, { autoAlpha: 0 }, 0); M.brota("#dia" + d, T[3] + 1.4 + 0.11 * (d - 21), "back.out(1.7)"); }
+        gsap.set("#cal", { svgOrigin: "752 739" });
+        M.apaga("#cal", T[4] - 0.5, 0.25);
+        respira("#cal", T[3] + 2.4, T[4] - 0.5, 0.025);
+        M.frase(["t3a", "t3b"], T[3], T[4]);
+
+        // —— S4 · LA GUÍA DE TU PASEO: los auriculares de asi-funciona.
+        var cas = new M.Camino();
+        cas.o(ICONOS.casco.d).marca("fin");
+        M.salida(a("s-casco"), cas, T[4] + 0.15, T[4] + 1.4, T[5] - 0.45, T[5] - 0.15, "power1.inOut");
+        pinta(ICONOS.casco.det, a("casco-det")); pinta(ICONOS.casco.ondas, a("casco-ondas"));
+        gsap.set(["#casco", "#casco-ondas"], { svgOrigin: "752 800" });
+        gsap.set(["#casco-det", "#casco-ondas"], { autoAlpha: 0 });
+        M.funde("#casco-det", T[4] + 1.35, 0.25); M.apaga("#casco-det", T[5] - 0.55, 0.15);
+        M.brota("#casco-ondas", T[4] + 1.55, "back.out(1.7)"); M.encoge("#casco-ondas", T[5] - 0.6);
+        respira("#casco-ondas", T[4] + 1.9, T[5] - 0.6, 0.12);
+        respira("#casco", T[4] + 1.0, T[5] - 0.45, 0.04);
+        M.frase(["t4a", "t4b"], T[4], T[5]);
+
+        // —— S5 · Y LA DE TU MUSEO, OBRA POR OBRA: un cuadro con su marco (nuevo, 7-nov, en el juego editorial).
+        // La línea dibuja el marco; al cerrarlo aparecen el alambre y el clavo, el paspartú y los montes, y brota
+        // el sol, que late con «obra por obra».
+        var cua = new M.Camino();
+        cua.o(ICONOS.cuadro.d).marca("fin");
+        M.salida(a("s-cuadro"), cua, T[5] + 0.15, T[5] + 1.3, T[6] - 0.45, T[6] - 0.15, "power1.inOut");
+        pinta(ICONOS.cuadro.colgar, a("cuadro-colgar")); pinta(ICONOS.cuadro.obra, a("cuadro-obra")); pinta(ICONOS.cuadro.sol, a("cuadro-sol"));
+        gsap.set("#cuadro", { svgOrigin: "752 766" });
+        gsap.set("#cuadro-sol", { svgOrigin: "806 724" });
+        gsap.set(["#cuadro-colgar", "#cuadro-obra"], { autoAlpha: 0 });
+        tl.set("#cuadro-sol", { autoAlpha: 0 }, 0);
+        M.funde("#cuadro-colgar", T[5] + 1.25, 0.2); M.apaga("#cuadro-colgar", T[6] - 0.55, 0.12);
+        M.funde("#cuadro-obra", T[5] + 1.35, 0.25); M.apaga("#cuadro-obra", T[6] - 0.55, 0.15);
+        M.brota("#cuadro-sol", T[5] + 1.55, "back.out(2)"); M.encoge("#cuadro-sol", T[6] - 0.6);
+        // «obra por obra» es el final de la frase (palabras 6 a 8 de 8): unos 2,1 s después de que empiece.
+        M.late("#cuadro-sol", negra(T[5] + 0.25 + 2.1), 0.14, 0.6);
+        respira("#cuadro-sol", T[5] + 1.9, T[6] - 0.6, 0.1);
+        respira("#cuadro", T[5] + 1.0, T[6] - 0.45, 0.03);
+        M.frase(["t5a", "t5b"], T[5], T[6]);
+
+        // —— S6 · NOMAD AI YA CONOCE TU CIUDAD: el robot pequeño de asi-funciona, con la cabeza ladeada.
+        var rob = new M.Camino();
+        rob.o(ICONOS.robot.d).marca("fin");
+        M.salida(a("s-robot"), rob, T[6] + 0.1, T[6] + 1.2, T[7] - 0.6, T[7] - 0.3, "power1.inOut");
+        var CARA = "#robot-cara";
+        // La bola de la antena tapa el principio de la línea: sale con ella y se va cuando la línea vuelve.
+        pinta(ICONOS.robot.cara, a("robot-cara")); pinta(ICONOS.robot.antena.slice(0, 1), a("robot-bola")); pinta(ICONOS.robot.antena.slice(1), a("robot-antena"));
+        tl.set(CARA, { autoAlpha: 0 }, 0);
+        gsap.set(["#robot-bola", "#robot-antena"], { autoAlpha: 0 });
+        gsap.set(CARA, { svgOrigin: "752 766" });
+        M.brota(CARA, T[6] + 1.25, "back.out(2)");
+        M.funde("#robot-bola", T[6] + 0.1, 0.1); M.apaga("#robot-bola", T[7] - 0.32, 0.08);
+        M.funde("#robot-antena", T[6] + 1.2, 0.25); M.apaga("#robot-antena", T[7] - 0.65, 0.12);
+        M.encoge(CARA, T[7] - 0.65);
+        respira(CARA, T[6] + 1.6, T[7] - 0.65, 0.06);
+        M.frase(["t6a", "t6b"], T[6], T[7]);
+
+        // —— S7 · SI TE CONVENCE, UN SOLO PAGO: la hoja otra vez, con el precio tapado, y a la derecha las tres
+        // personas del grupo sobre su línea. Con «lo pagas una vez» se enciende una; con «para todo el grupo»,
+        // las otras dos. Ningún importe: ni en la toma (el velo) ni en el dibujo.
+        function persona(id, x, yb) {   // (x, yb): el centro de la base de los hombros
+          var P = ICONOS.persona, g = el("g", { id: id, stroke: "#0F766E", "stroke-width": 5 }, a("personas"));
+          el("circle", { cx: x, cy: yb - P.sobre, r: P.r, fill: "#FFFDF9" }, g);
+          el("path", { d: P.hombros, transform: "translate(" + x + "," + yb + ")" }, g);
+          gsap.set("#" + id, { svgOrigin: x + " " + yb });
+          tl.set("#" + id, { autoAlpha: 0 }, 0);
+          return g;
+        }
+        var lin = new M.Camino();
+        lin.o(ICONOS.linea).marca("fin");
+        M.salida(a("s-linea"), lin, T[7] + 0.1, T[7] + 0.7, T[8] - 0.45, T[8] - 0.15, "power2.out");
+        // La frase a 1× (13 palabras, a unas 2,6 por segundo): «lo pagas una vez», de 1,2 a 2,7 s; «para todo
+        // el grupo», de 3,5 a 5. Se ajusta con la voz grabada.
+        var V7 = T[7] + 0.25, LLENA = [V7 + 1.9, V7 + 3.9, V7 + 4.05];
+        ICONOS.persona.x.forEach(function (x, k) {
+          persona("p" + k, x, ICONOS.persona.base);
+          M.brota("#p" + k, T[7] + 0.75 + 0.12 * k, "back.out(2.4)");
+          tl.fromTo("#p" + k + " circle", { attr: { fill: "#FFFDF9" } }, { attr: { fill: "#0F766E" }, duration: 0.15, ease: "power1.out", immediateRender: false }, LLENA[k]);
+          M.late("#p" + k, LLENA[k], 0.08, 0.6);
+          M.encoge("#p" + k, T[8] - 0.5 + 0.03 * k);
+          respira("#p" + k, T[7] + 1.15, T[8] - 0.5, 0.045);
+        });
+        M.aparece("#velo-s7", 24.75); M.corta("#velo-s7", 30.35);
+        M.frase(["t7a", "t7b"], T[7], T[8]);
+
+        // —— S8 · EL CIERRE de asi-funciona, con los avisos de Apple y de Android.
+        M.corta("#marca", T[8]);
+        M.cierre(T[8], FIN, VERSION);
+
+        M.acelera();
+        window.__timelines = window.__timelines || {};
+        window.__timelines["pruebalo"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>
