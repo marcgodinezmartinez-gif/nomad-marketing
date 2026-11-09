@@ -23,25 +23,29 @@ que ha cambiado desde el 23-sep es esto:
   «la gente no quiere pagar, para eso usa un chatbot». Amigos de amigos dicen lo mismo al
   verla. Hasta el 9-nov hay **2 ventas reales**. Esta prueba existe para contestar eso con
   números y no con opiniones.
-- **El trato pasa a ser por resultado.** El miedo del amigo es poner dinero sin saber si
-  funciona, así que el pago por adelantado de una pieza (§3) pasa a la segunda fase. En la
-  primera:
-  - **canje**: sus viajes gratis;
-  - **una comisión por cada compra que traiga**, a 1 € la compra (SUPOSICIÓN: se cambia
-    aquí).
-
-  Si nadie paga, la prueba cuesta la IA de sus viajes y nada más.
-- **El «código» del creador es su propio viaje.**
-  - El creador hace su viaje con la app y lo comparte como recomendación: un código `R-` y
-    el enlace `travelsnomad.com/r/R-…`, que enseña el código en grande con un botón de
-    copiar.
-  - Sus seguidores lo copian y pagan al copiarlo, en iPhone y en Android, sin descuento.
-  - Es la línea «Local» de la propuesta de activación (`PROPOSTA-ACTIVACIO-borrador-2026-10.pdf`,
-    aquí al lado).
-  - Encaja con «Viajes listos» de la home: si el viaje es bueno, se destaca con su nombre.
-- **Lo que falta en la app para medirlo**: hoy no se apunta de qué recomendación sale un
-  viaje copiado ni la compra que lo abre. Es un cambio pequeño, por OTA y sin migración, y
-  está en **NOMAD #451**. **Sin eso no se lanza**: sería repetir la campaña de Meta, que no
+- **El trato (corregido el mismo 9-nov, decisión del dueño: «precio cerrado y ya»).**
+  - **Canje para todos**: sus viajes gratis.
+  - **Precio cerrado a uno o dos**, pagado después de publicar, como decía §3.
+  - **Tope de la primera pieza**: por decidir. Propuesta: una cuenta de 10-15K, por 250-400 €.
+  - **Descartada la comisión de 1 € por compra**, que se propuso primero: con las ventas de
+    hoy no motiva a nadie, y obliga a pagar cantidades pequeñas a varios.
+- **Un influencer LOCAL por ciudad** (idea del dueño, 9-nov).
+  - Cada uno firma el viaje de la ciudad donde vive: lo crea con la app y lo hace suyo (quita,
+    añade, escribe consejos en cada plan).
+  - En Lugares pone sus restaurantes y sitios, con su descripción.
+  - Lo comparte como recomendación: un código `R-` y el enlace `travelsnomad.com/r/R-…`.
+  - Quien lo copia se lleva el itinerario, los consejos y la lista de lugares, y paga el viaje
+    como cualquier otro, en iPhone y en Android.
+  - Se destaca en «Viajes listos» con su nombre y sustituye al viaje de NOMAD de esa ciudad.
+  - Es la línea «Local» de la propuesta de activación (`PROPOSTA-ACTIVACIO-borrador-2026-10.pdf`).
+  - **Las audioguías siguen siendo de la app**: su sello es a qué ver y dónde comer. Se les
+    dice desde el primer mensaje.
+  - Se busca a quien habla a público español: una española en Lisboa, un español en Roma, o
+    alguien de Sevilla enseñando Sevilla. El grupo «su propia ciudad» de §6 va primero.
+- **Lo que falta en la app**: hoy no se apunta de qué recomendación sale un viaje copiado ni
+  la compra que lo abre (**NOMAD #451**). Y para el influencer local, además, hay que
+  enseñar el autor en «Viajes listos» y su «recomendado por» en el viaje copiado. Así que el
+  origen se guarda en el viaje, con una migración pequeña. **Sin eso no se lanza**: sería repetir la campaña de Meta, que no
   supo qué convertía.
 - **Los códigos de oferta de iPhone (§5.1)**: los nuestros no se pueden, porque Apple
   rechazó la app en octubre por la 3.1.1 (NOMAD #338). Los de Apple sí. Para esta prueba no
@@ -73,20 +77,29 @@ de verlo.
 
 ### El primer mensaje, al día
 
+**El documento para compartir con el equipo** (la campaña, el trato, la medición y los dos
+mensajes, el de abrir y el de detalle) es «NOMAD · Campaña con influencers locales»:
+<https://claude.ai/artifact/F7vj5cNFmbEJWFtvrnLdHU>. Lo de abajo es la versión del 9-nov por
+la mañana; si no coinciden, manda el documento.
+
 Por mensaje directo o al correo de la bio. La frase entre corchetes se escribe para cada
 uno.
 
-> Hola, [nombre]: soy [tu nombre], de NOMAD (@app.nomad). Vi [tu ruta por los pueblos de
-> Cantabria / tu guía de Oporto] y creo que a tu gente le iría muy bien.
+> Hola, [nombre]: soy [tu nombre], de NOMAD (@app.nomad). Llevo un tiempo siguiendo cómo
+> enseñas [Lisboa], sobre todo [tu ruta por Alfama / tus sitios para comer en Gràcia].
 >
-> NOMAD te prepara el viaje día a día y luego te guía a pie con una voz, de parada en
-> parada, y dentro de los museos. Ya está en el App Store.
+> NOMAD es una app de viajes que acabamos de lanzar. Te prepara el viaje día a día y después
+> te guía a pie por la ciudad, con una voz que te cuenta cada sitio, y también dentro de los
+> museos.
 >
-> Te propongo algo sencillo: tu próximo viaje con NOMAD, gratis. Si te convence, lo
-> compartes como recomendación, para que tu gente pueda copiar tu viaje tal cual, y por cada
-> persona que lo compre te llevas 1 €. Si no te convence, no pasa nada.
+> Queremos que el viaje a [Lisboa] de la app lo firme alguien que la conoce de verdad. La
+> idea es que hagas tu [Lisboa] en NOMAD, a tu manera, con tus planes, tus restaurantes y tus
+> consejos, y que tu gente pueda copiarlo tal cual. Saldría en la portada de la app con tu
+> nombre.
 >
-> ¿Te paso el acceso?
+> ¿Te apetece que te cuente cómo sería?
+
+El segundo mensaje, para quien conteste que sí, está en el documento.
 
 Al que diga que sí, se le manda el encargo de §4. Hay dos cosas que el mensaje no puede
 olvidar al cerrar el trato:
