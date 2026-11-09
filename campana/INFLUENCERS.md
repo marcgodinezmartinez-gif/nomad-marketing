@@ -7,7 +7,100 @@ para promocionar la app?»*
 
 Aquí están la respuesta con números (§1-2), el trato que encaja con ellos (§3), el encargo
 de contenido (§4), cómo se mide (§5), la lista verificada perfil a perfil (§6) y el primer
-mensaje (§7). **Lo pendiente vive en la issue #8.**
+mensaje (§7). **Lo pendiente vive en la issue #8.** Y lo que cambió el 9-nov, en §0.
+
+## 0. Lo que cambia el 9 de noviembre (léelo antes que el resto)
+
+**Decisión del dueño: los microinfluencers son lo primero que se hace.** Lo de abajo (§1-7)
+sigue valiendo en el método, la lista, la etiqueta de publicidad y lo que se les pide. Lo
+que ha cambiado desde el 23-sep es esto:
+
+- **La app ya está en el App Store**, y en prueba cerrada en Android. Ya se puede hablar en
+  primera persona, y el mensaje de §7, que dice «sale en octubre», no vale: el nuevo va
+  abajo.
+- **El objetivo ya no son altas en la lista: es saber si la gente PAGA.** Un amigo del
+  dueño, que podría poner dinero en publicidad, piensa que la app no tiene futuro porque
+  «la gente no quiere pagar, para eso usa un chatbot». Amigos de amigos dicen lo mismo al
+  verla. Hasta el 9-nov hay **2 ventas reales**. Esta prueba existe para contestar eso con
+  números y no con opiniones.
+- **El trato pasa a ser por resultado.** El miedo del amigo es poner dinero sin saber si
+  funciona, así que el pago por adelantado de una pieza (§3) pasa a la segunda fase. En la
+  primera:
+  - **canje**: sus viajes gratis;
+  - **una comisión por cada compra que traiga**, a 1 € la compra (SUPOSICIÓN: se cambia
+    aquí).
+
+  Si nadie paga, la prueba cuesta la IA de sus viajes y nada más.
+- **El «código» del creador es su propio viaje.**
+  - El creador hace su viaje con la app y lo comparte como recomendación: un código `R-` y
+    el enlace `travelsnomad.com/r/R-…`, que enseña el código en grande con un botón de
+    copiar.
+  - Sus seguidores lo copian y pagan al copiarlo, en iPhone y en Android, sin descuento.
+  - Es la línea «Local» de la propuesta de activación (`PROPOSTA-ACTIVACIO-borrador-2026-10.pdf`,
+    aquí al lado).
+  - Encaja con «Viajes listos» de la home: si el viaje es bueno, se destaca con su nombre.
+- **Lo que falta en la app para medirlo**: hoy no se apunta de qué recomendación sale un
+  viaje copiado ni la compra que lo abre. Es un cambio pequeño, por OTA y sin migración, y
+  está en **NOMAD #451**. **Sin eso no se lanza**: sería repetir la campaña de Meta, que no
+  supo qué convertía.
+- **Los códigos de oferta de iPhone (§5.1)**: los nuestros no se pueden, porque Apple
+  rechazó la app en octubre por la 3.1.1 (NOMAD #338). Los de Apple sí. Para esta prueba no
+  hacen falta: el viaje recomendado ya identifica al creador. Quedan para cuando se quiera
+  dar un descuento.
+- **Los viajes gratis de los creadores**: se les desbloquean a mano desde la base, con una
+  compra a 0 € apuntada como prueba, como los 15 viajes de NOMAD del 9-nov. Los bonos de
+  regalo de la app están apagados (`REGALOS_ACTIVOS`), y en iPhone un desbloqueo que decida
+  nuestro servidor como función de la app sería «otro mecanismo». Para 3-5 personas, a mano
+  basta.
+
+### La regla de parada, pactada ANTES con el amigo
+
+Lo que convence a alguien escéptico no es el resultado: es que la regla esté escrita antes
+de verlo.
+
+- **Quiénes**: 3-5 creadores de España, de la lista de §6 (las A y B, revisadas otra vez,
+  porque los datos son del 23-sep).
+- **Cuánto**: 4 semanas desde que publica el primero.
+- **Qué se cuenta**, por creador: cuántos llegan a pagar su viaje copiado, y cuántos pagan.
+  Sale de la consulta de NOMAD #451.
+- **Qué se decide** (los números son SUPOSICIÓN y se cambian aquí, antes de empezar, con el
+  amigo delante):
+  - **menos de 3 compras entre todos**: tenía razón él. No se invierte en publicidad pagada,
+    y se replantea el producto o el precio antes de gastar un euro más;
+  - **10 o más**: funciona. Se paga la primera pieza (§3) al que más haya traído, y se
+    amplía la lista;
+  - **entre 3 y 9**: se mira creador a creador. El que trajo cero no repite.
+
+### El primer mensaje, al día
+
+Por mensaje directo o al correo de la bio. La frase entre corchetes se escribe para cada
+uno.
+
+> Hola, [nombre]: soy [tu nombre], de NOMAD (@app.nomad). Vi [tu ruta por los pueblos de
+> Cantabria / tu guía de Oporto] y creo que a tu gente le iría muy bien.
+>
+> NOMAD te prepara el viaje día a día y luego te guía a pie con una voz, de parada en
+> parada, y dentro de los museos. Ya está en el App Store.
+>
+> Te propongo algo sencillo: tu próximo viaje con NOMAD, gratis. Si te convence, lo
+> compartes como recomendación, para que tu gente pueda copiar tu viaje tal cual, y por cada
+> persona que lo compre te llevas 1 €. Si no te convence, no pasa nada.
+>
+> ¿Te paso el acceso?
+
+Al que diga que sí, se le manda el encargo de §4. Hay dos cosas que el mensaje no puede
+olvidar al cerrar el trato:
+- la etiqueta de publicidad (§4, también en canje);
+- que el seguidor copia **su** viaje con su código, que es lo que lo cuenta como suyo.
+
+### En orden
+
+1. App: NOMAD #451 (la atribución), en `main` y en OTA.
+2. Pactar la regla de parada con el amigo y escribirla aquí.
+3. Revisar a mano las A y B de España (§6).
+4. Escribirles con el mensaje de arriba y apuntar en la issue #8 quién contesta.
+5. A quien acepte: desbloquear su viaje y, cuando lo comparta, destacarlo si es bueno.
+6. Cada lunes, la consulta de #451 por creador, apuntada en la issue #8.
 
 ## 1. Cómo lo veo
 
