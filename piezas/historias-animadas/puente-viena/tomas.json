@@ -1,0 +1,9 @@
+[
+ {"id": "s2a", "fichero": "recorrido-viena-listos.mp4", "entrada": 0, "salida": 1, "inicio": 5.36, "fin": 6.60, "que": "PROVISIONAL: «Hoy», la fila «Viajes listos» y el toque en «Ver todos»"},
+ {"id": "s2b", "fichero": "recorrido-viena-listos.mp4", "entrada": 0, "salida": 1, "inicio": 6.60, "fin": 8.83, "que": "PROVISIONAL: la lista bajando hasta Viena y el toque en su tarjeta"},
+ {"id": "s3a", "fichero": "recorrido-viena-copiar.mp4", "entrada": 0, "salida": 1, "inicio": 8.83, "fin": 11.60, "que": "PROVISIONAL: la hoja de Viena, el calendario y el 5 de diciembre"},
+ {"id": "s3b", "fichero": "recorrido-viena-copiar.mp4", "entrada": 0, "salida": 1, "inicio": 11.60, "fin": 13.88, "que": "PROVISIONAL: «Copiar a mis viajes» y la hoja de pago con «Pago único para todo el grupo.»"},
+ {"id": "s4", "fichero": "recorrido-viena-plan.mp4", "entrada": 0, "salida": 1, "inicio": 13.88, "fin": 18.70, "que": "PROVISIONAL: el itinerario del sábado 5 y el paso al domingo"},
+ {"id": "s5", "fichero": "recorrido-viena-paseo.mp4", "entrada": 0, "salida": 1, "inicio": 18.70, "fin": 23.53, "que": "PROVISIONAL: la guía del paseo por el centro histórico: la presentación y la parada 1 en el mapa"},
+ {"id": "s6", "fichero": "recorrido-viena-asistente.mp4", "entrada": 0, "salida": 1, "inicio": 23.53, "fin": 28.36, "que": "PROVISIONAL: NOMAD AI con la petición del mercadillo y su tarjeta «añadido al itinerario»"}
+]

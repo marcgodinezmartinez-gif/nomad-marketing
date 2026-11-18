@@ -3,299 +3,309 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <title>Nomad · El puente en Viena</title>
+    <title>Nomad · El puente, ya organizado</title>
     <link rel="stylesheet" href="assets/fuentes.css" />
     <script src="assets/gsap.min.js"></script>
+    <script src="assets/motor.js"></script>
+    <script src="assets/version.js"></script>
     <style>
-      /* «EL PUENTE EN VIENA» (18-nov): un reel fotográfico. Fotos reales a sangre y QUIETAS (el dueño no
-         quiere zoom, 6-oct), que cambian con la voz; el texto va encima, sobre una sombra que sólo oscurece
-         y desenfoca donde hay letra, y lo de marca es el verde de las pastillas y de la raya. El protagonista
-         es el plan (VISION.md: «un plan de viaje sí se guarda»); la app llega en la tarjeta del final.
-         Zona segura del reel: y 230-1480; la columna de botones de Instagram, x > 920 desde y 900.
-         Todos los tiempos salen de TIEMPOS, que escribe tiempos.py desde las tomas de voz. */
-      html, body { margin: 0; padding: 0; background: #100E0B; }
+      html, body { margin: 0; padding: 0; background: #FFFDF9; }
       .serif { font-family: 'Instrument Serif'; font-weight: 400; }
       .sans  { font-family: 'Instrument Sans'; }
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #FFFDF9; background: #100E0B; }
-      .foto { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; opacity: 0; }
-      /* El velo: arriba, para que la barra de los días se lea sobre un cielo claro; abajo del todo, fuerte,
-         porque ahí va la interfaz de Instagram y es donde las fotos traen gente de cerca. En medio, nada. */
-      #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
-              background: linear-gradient(180deg, rgba(16,14,11,.7) 0px, rgba(16,14,11,.5) 320px, rgba(16,14,11,0) 560px, rgba(16,14,11,0) 900px,
-                          rgba(16,14,11,.28) 1300px, rgba(16,14,11,.58) 1500px, rgba(16,14,11,.88) 1920px); }
-      /* Una sombra blanda detrás de cada bloque de texto: oscurece sólo donde hay letra (la «banda» de AGENTS.md:
-         un velo global no basta sobre neón ni piedra labrada, y subirlo deja la foto marrón).
-         `closest-side`: el degradado llega a cero DENTRO de la caja; con un radio mayor se veía su borde.
-         `z-index: -1` dentro de un bloque con `isolation`: la sombra es `absolute` y los títulos no, y una caja
-         posicionada se pinta ENCIMA de los bloques sin posicionar. En el gancho tapaba el título. */
-      .sombra { position: absolute; z-index: -1; left: -330px; top: -190px; width: 1400px; height: 860px; opacity: 0;
-                background: radial-gradient(closest-side, rgba(16,14,11,.76) 0%, rgba(16,14,11,.56) 50%, rgba(16,14,11,0) 100%); }
-
-      /* La barra de los tres días, arriba. */
-      #dias { position: absolute; left: 64px; top: 258px; width: 856px; height: 66px; opacity: 0; }
-      .dia { position: absolute; top: 0; width: 272px; height: 66px; }
-      .dia p { margin: 0; font-size: 30px; line-height: 36px; font-weight: 700; letter-spacing: .12em; color: rgba(255,253,249,.78);
-               text-shadow: 0 1px 10px rgba(16,14,11,.95), 0 0 3px rgba(16,14,11,.8); }
-      .dia .carril { position: absolute; left: 0; top: 48px; width: 272px; height: 8px; border-radius: 4px; background: rgba(255,253,249,.34);
-                     box-shadow: 0 1px 8px rgba(16,14,11,.5); overflow: hidden; }
-      .dia .lleno { position: absolute; left: 0; top: 0; width: 272px; height: 8px; border-radius: 4px; background: #FFFDF9; transform-origin: 0 50%; transform: scaleX(0); }
-
-      /* Dónde está hecha la foto. */
-      .lugar { position: absolute; left: 64px; top: 352px; margin: 0; padding: 10px 24px 12px 18px; border-radius: 999px;
-               background: rgba(16,14,11,.66); font-size: 30px; line-height: 36px; font-weight: 600; color: #FFFDF9; white-space: nowrap; opacity: 0; }
-      .lugar::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 6px; background: #5EEAD4; margin-right: 12px; vertical-align: 3px; }
-
-      /* El bloque de texto de cada escena: abajo a la izquierda, sin pasar de x 900. */
-      .bloque { position: absolute; left: 64px; width: 836px; isolation: isolate; }
-      .kicker { margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: .14em; color: #5EEAD4; white-space: nowrap;
-                text-shadow: 0 1px 12px rgba(16,14,11,.9), 0 0 2px rgba(16,14,11,.6); opacity: 0; }
-      .tit { margin: 0; font-size: 100px; line-height: 1.02; letter-spacing: -.015em; color: #FFFDF9; white-space: nowrap;
-             text-shadow: 0 2px 24px rgba(16,14,11,.6); opacity: 0; }
-      .tit.menta { color: #5EEAD4; }
-      .detalle { margin: 0; font-size: 44px; line-height: 52px; font-weight: 500; color: #FFFDF9; white-space: nowrap;
-                 text-shadow: 0 2px 16px rgba(16,14,11,.75); opacity: 0; }
-      .pastilla { position: absolute; left: 0; height: 72px; padding: 0 30px 0 24px; border-radius: 36px; background: #0F766E;
-                  display: flex; align-items: center; gap: 16px; opacity: 0; box-shadow: 0 10px 30px rgba(16,14,11,.4); }
-      .pastilla p { margin: 0; font-size: 36px; line-height: 42px; font-weight: 700; color: #FFFDF9; white-space: nowrap; }
-      .puntos { display: flex; gap: 8px; }
-      .puntos i { display: block; width: 16px; height: 16px; border-radius: 8px; background: rgba(255,253,249,.32); }
-      .puntos i.si { background: #FFFDF9; }
-      .raya { position: absolute; left: 0; height: 10px; border-radius: 5px; background: #5EEAD4; transform-origin: 0 50%; transform: scaleX(0); }
-
-      /* La tarjeta del final: lo que se guarda (los cinco, con su horario) y dónde está hecho el viaje. */
-      #papel { position: absolute; left: 0; top: -4px; width: 1080px; height: 1928px; background: #F5F0E8; color: #100E0B; transform: translateY(1920px); }
-      #papel p { margin: 0; position: absolute; white-space: nowrap; }
-      #g-kicker { left: 84px; top: 250px; font-size: 30px; line-height: 36px; font-weight: 700; letter-spacing: .13em; color: #0F766E; }
-      #g-tit1, #g-tit2 { left: 84px; font-size: 88px; line-height: 1; letter-spacing: -.02em; }
-      #g-tit1 { top: 296px; } #g-tit2 { top: 384px; color: #0F766E; }
-      .fila { position: absolute; left: 84px; width: 836px; height: 72px; border-top: 2px solid rgba(16,14,11,.12); }
-      .fila .d { left: 0; top: 20px; font-size: 26px; line-height: 34px; font-weight: 700; letter-spacing: .1em; color: #0F766E; }
-      .fila .n { left: 128px; top: 13px; font-size: 38px; line-height: 46px; font-weight: 600; }
-      .fila .h { right: 0; top: 15px; font-size: 34px; line-height: 44px; font-weight: 500; color: rgba(16,14,11,.74); }
-      #g-nota1, #g-nota2 { left: 84px; font-size: 32px; line-height: 40px; font-weight: 700; color: rgba(16,14,11,.9); }
-      #g-nota1 { top: 878px; } #g-nota2 { top: 918px; }
-      #g-raya { position: absolute; left: 84px; top: 984px; width: 836px; height: 2px; background: rgba(16,14,11,.16); }
-      #c-icono { position: absolute; left: 84px; top: 1008px; width: 140px; height: 140px; display: block; border-radius: 32px; box-shadow: 0 16px 40px rgba(16,14,11,.2); }
-      #c-nombre { left: 252px; top: 1002px; font-size: 62px; line-height: 68px; letter-spacing: -.02em; }
-      #c-l1, #c-l2 { left: 252px; font-size: 32px; line-height: 40px; font-weight: 500; color: rgba(16,14,11,.82); }
-      #c-l1 { top: 1074px; } #c-l2 { top: 1112px; }
-      #c-insignia { position: absolute; left: 84px; top: 1180px; width: 269px; height: 90px; display: block; }
-      #c-android { left: 380px; top: 1184px; font-size: 32px; line-height: 38px; font-weight: 600; color: rgba(16,14,11,.72); }
-      #c-perfil { left: 380px; top: 1228px; font-size: 32px; line-height: 38px; font-weight: 700; color: #0F766E; }
-      #c-precio1, #c-precio2 { left: 84px; font-size: 32px; line-height: 40px; font-weight: 700; color: rgba(16,14,11,.9); }
-      #c-precio1 { top: 1298px; } #c-precio2 { top: 1338px; }
-      #c-credito { position: absolute; left: 84px; top: 1402px; width: 836px; margin: 0; font-size: 17px; line-height: 21px; font-weight: 500;
-                   color: rgba(16,14,11,.72); white-space: normal !important; }
-
-      /* La portada (render.mjs --portada): un fotograma aparte, que no caduca. */
-      #portada { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: none; }
-      #portada img { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
-      #portada .v { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
-                    background: linear-gradient(180deg, rgba(16,14,11,.3) 0px, rgba(16,14,11,0) 420px, rgba(16,14,11,.1) 820px, rgba(16,14,11,.78) 1200px, rgba(16,14,11,.9) 1920px); }
-      #portada p { position: absolute; left: 72px; margin: 0; white-space: nowrap; letter-spacing: -.015em; text-shadow: 0 2px 24px rgba(16,14,11,.6); }
+      /* «EL PUENTE, YA ORGANIZADO» (18-nov): el puente de diciembre y «Viajes listos», con el viaje de Viena.
+         Es la estética de «Así funciona» (asi-funciona/index.html, que es el molde), tal cual: el logo se hace
+         hilo y dibuja el borde de la pantalla (no un iPhone: README.md de incluye-pago), dentro corren las
+         tomas de la app de verdad, y a la derecha un dibujo editorial por escena que se traza solo, respira y
+         se recoge en sí mismo. Con la voz de Kore y la música de «Un trazo»; los cortes salen de la voz.
+         La primera versión de esta pieza (18-nov por la mañana) era de fotos con texto encima y el dueño la
+         paró: «sólo fotos se nota que es pura IA» y «no hay nada de la app real». README.md lo cuenta.
+         Pantalla a la izquierda (x=150), dibujos en x 600-900. La frase de cada escena, abajo (y=1282 y 1370). */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #100E0B;
+              background-color: #FFFDF9;
+              background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
+              background-size: 54px 54px; background-position: 3px 11px; }
+      .verde { color: #0F766E; }
+      svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
+      #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
+               justify-content: center; align-items: center; gap: 16px; }
+      #marca img { display: block; width: 45px; height: 52px; }
+      #marca p { margin: 0; font-size: 42px; line-height: 56px; font-weight: 600; white-space: nowrap; }
+      .tit { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap; letter-spacing: -.02em; }
+      .t84 { font-size: 84px; line-height: 1.04; }
+      #o-nombre { top: 902px; font-size: 92px; line-height: 1; }
+      #pantalla { position: absolute; left: 150px; top: 400px; width: 404px; height: 806px; border-radius: 36px;
+                  overflow: hidden; background: #F5F0E8; }
+      #pantalla video { position: absolute; left: 0; top: 0; width: 404px; height: 806px; display: block; }
+      /* Las horas de los planes del sábado (S4), al lado de cada punto de la curva. */
+      .hora { position: absolute; left: 718px; margin: 0; font-size: 52px; line-height: 56px; white-space: nowrap; }
+      .num { font-family: 'Instrument Sans'; font-weight: 700; }
+      #papel { position: absolute; inset: 0; background: #F5F0E8; }
+      #c-icono { position: absolute; left: 430px; top: 520px; width: 220px; height: 220px; display: block;
+                 border-radius: 49px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 800px; width: 912px; margin: 0; text-align: center;
+                  font-size: 92px; line-height: 1; letter-spacing: -.02em; color: #100E0B; white-space: nowrap; }
+      #c-insignia { position: absolute; left: 360px; top: 980px; width: 359px; height: 120px; display: block; }
+      #c-android { position: absolute; left: 84px; top: 1170px; width: 912px; margin: 0; text-align: center;
+                   font-size: 38px; line-height: 1.2; font-weight: 600; color: rgba(16,14,11,.62); }
+      #c-credito { position: absolute; left: 180px; top: 1256px; width: 720px; margin: 0; text-align: center;
+                   font-size: 24px; line-height: 31px; font-weight: 500; color: rgba(16,14,11,.66); }
+      #c-perfil { position: absolute; left: 84px; top: 1404px; width: 912px; margin: 0; text-align: center;
+                  font-size: 36px; line-height: 1.2; font-weight: 600; white-space: nowrap; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="puente-viena" data-start="0" data-width="1080" data-height="1920">
-      <!-- Las fotos: recortes 1080×1920 de originales de Unsplash (assets/fotos/CREDITOS.md). -->
-      <img class="foto" id="f-graben" src="assets/fotos/graben.jpg" alt="" style="opacity: 1;" />
-      <img class="foto" id="f-torre" src="assets/fotos/torre.jpg" alt="" />
-      <img class="foto" id="f-estrella" src="assets/fotos/estrella.jpg" alt="" />
-      <img class="foto" id="f-kohlmarkt" src="assets/fotos/kohlmarkt.jpg" alt="" />
-      <img class="foto" id="f-catedral" src="assets/fotos/catedral.jpg" alt="" />
-      <img class="foto" id="f-hofburg" src="assets/fotos/hofburg.jpg" alt="" />
-      <img class="foto" id="f-mtplatz" src="assets/fotos/mtplatz.jpg" alt="" />
-      <img class="foto" id="f-schonbrunn" src="assets/fotos/schonbrunn.jpg" alt="" />
-      <img class="foto" id="f-belvedere" src="assets/fotos/belvedere.jpg" alt="" />
-      <img class="foto" id="f-karlsplatz" src="assets/fotos/karlsplatz.jpg" alt="" />
-      <div id="velo"></div>
-
-      <div id="dias">
-        <div class="dia" id="d1" style="left: 0;"><p class="sans">DÍA 1</p><div class="carril"><div class="lleno" id="d1l"></div></div></div>
-        <div class="dia" id="d2" style="left: 292px;"><p class="sans">DÍA 2</p><div class="carril"><div class="lleno" id="d2l"></div></div></div>
-        <div class="dia" id="d3" style="left: 584px;"><p class="sans">DÍA 3</p><div class="carril"><div class="lleno" id="d3l"></div></div></div>
+    <div id="root" data-composition-id="puente-viena" data-start="0"
+         data-width="1080" data-height="1920" data-duration="29.7">
+      <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Ya en la App Store, para iPhone</p></div>
+      <!-- 0 · EL LOGO, en vectores (mobile/assets/nomad_soft_swoosh_logo.svg de la app): se hace hilo (S1). -->
+      <svg id="logo-v" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="logo-g"><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#0F766E" stroke="none">
+          <path id="l1" d="M5030 8063 c-319 -48 -497 -104 -755 -237 -394 -203 -729 -497 -1035 -906 -252 -339 -453 -764 -545 -1155 -54 -229 -59 -277 -59 -530 0 -264 10 -341 75 -537 119 -363 387 -679 723 -854 103 -54 109 -55 88 -28 -147 189 -209 356 -219 584 -4 114 -2 151 17 240 94 456 445 780 1085 1000 66 22 246 77 400 121 518 149 719 231 970 396 127 85 304 259 364 360 99 167 141 310 148 508 4 115 2 157 -15 235 -102 493 -538 815 -1097 809 -66 -1 -131 -3 -145 -6z"/>
+          <path id="l2" d="M6790 5991 c0 -5 5 -13 11 -17 21 -12 78 -147 95 -222 41 -184 -19 -468 -149 -702 -140 -252 -420 -585 -688 -816 -1053 -908 -2278 -1050 -3074 -356 -257 223 -469 584 -539 917 l-13 60 -8 -60 c-11 -80 1 -375 20 -505 65 -444 253 -875 542 -1240 103 -131 344 -365 478 -466 360 -269 717 -423 1163 -500 141 -25 182 -28 402 -28 189 -1 271 3 360 17 406 64 741 189 1061 398 172 113 292 211 444 364 384 386 632 859 727 1392 19 110 22 162 23 378 0 225 -2 261 -24 360 -86 405 -282 715 -575 910 -111 73 -256 139 -256 116z"/>
+          <path id="l3" d="M6205 5973 c-317 -37 -658 -215 -980 -512 -126 -115 -227 -227 -418 -461 -246 -300 -314 -379 -432 -495 -299 -296 -550 -368 -772 -221 -29 19 -57 37 -62 40 -13 8 14 -102 43 -173 61 -150 199 -293 360 -371 140 -68 237 -90 406 -90 104 0 162 6 250 24 222 47 459 136 701 267 129 68 389 239 494 324 420 337 726 726 848 1078 29 85 31 102 32 222 0 122 -2 133 -27 181 -73 138 -245 211 -443 187z"/>
+        </g></g>
+      </svg>
+      <p id="o-nombre" class="tit serif">Nomad: guía de viajes</p>
+      <div id="pantalla">
+        <!-- TOMAS: las escribe poner-tomas.py desde tomas.json (data-start = inicio / 1,15). -->
+        <video id="v-s2a" class="clip" src="assets/tomas/s2a.mp4" data-start="4.661" data-duration="1.078" muted playsinline></video>
+        <video id="v-s2b" class="clip" src="assets/tomas/s2b.mp4" data-start="5.739" data-duration="1.939" muted playsinline></video>
+        <video id="v-s3a" class="clip" src="assets/tomas/s3a.mp4" data-start="7.678" data-duration="2.409" muted playsinline></video>
+        <video id="v-s3b" class="clip" src="assets/tomas/s3b.mp4" data-start="10.087" data-duration="1.983" muted playsinline></video>
+        <video id="v-s4" class="clip" src="assets/tomas/s4.mp4" data-start="12.070" data-duration="4.191" muted playsinline></video>
+        <video id="v-s5" class="clip" src="assets/tomas/s5.mp4" data-start="16.261" data-duration="4.200" muted playsinline></video>
+        <video id="v-s6" class="clip" src="assets/tomas/s6.mp4" data-start="20.461" data-duration="4.200" muted playsinline></video>
+        <!-- /TOMAS -->
       </div>
-
-      <p class="lugar sans" id="l-graben" style="top: 258px; opacity: 1;">Graben, Viena</p>
-      <p class="lugar sans" id="l-torre" style="top: 258px;">La Catedral, Viena</p>
-      <p class="lugar sans" id="l-estrella" style="top: 258px;">Schönbrunn, Viena</p>
-      <p class="lugar sans" id="l-kohlmarkt">Kohlmarkt</p>
-      <p class="lugar sans" id="l-catedral">Stephansplatz</p>
-      <p class="lugar sans" id="l-hofburg">Hofburg</p>
-      <p class="lugar sans" id="l-mtplatz">Maria-Theresien-Platz</p>
-      <p class="lugar sans" id="l-schonbrunn">Schönbrunn</p>
-      <p class="lugar sans" id="l-belvedere">Belvedere</p>
-      <p class="lugar sans" id="l-karlsplatz">Karlsplatz</p>
-
-      <!-- 1 · El gancho. A la vista desde el fotograma 0: es lo que para el dedo. -->
-      <div class="bloque" id="b1" style="top: 1010px;">
-        <div class="sombra" id="s1" style="opacity: 1; background: radial-gradient(closest-side, rgba(16,14,11,.86) 0%, rgba(16,14,11,.66) 50%, rgba(16,14,11,0) 100%);"></div>
-        <p class="tit serif" id="t1a" style="font-size: 112px; line-height: .98; opacity: 1;">El puente de</p>
-        <p class="tit serif" id="t1b" style="font-size: 112px; line-height: .98; opacity: 1;">diciembre está al caer</p>
-        <p class="tit serif menta" id="t1c" style="font-size: 92px; line-height: 1; margin-top: 26px; opacity: 1;">y nadie ha mirado nada.</p>
-        <div class="raya" id="r1" style="top: 356px; width: 810px;"></div>
-      </div>
-      <!-- 2 · La respuesta. -->
-      <div class="bloque" id="b2" style="top: 950px;">
-        <div class="sombra" id="s2"></div>
-        <p class="tit serif" id="t2a" style="font-size: 124px; line-height: 1;">Viena, 3 días,</p>
-        <p class="tit serif menta" id="t2b" style="font-size: 124px; line-height: 1;">ya organizada.</p>
-        <div class="pastilla" id="p2" style="top: 282px;"><p class="sans">+ 5 mercadillos a la puerta de sus paradas</p></div>
-        <p class="detalle sans" id="e2" style="position: absolute; left: 0; top: 376px; font-size: 40px;">Te los apuntamos aparte: no vienen en el plan.</p>
-      </div>
-      <!-- 3 · Día 1. -->
-      <div class="bloque" id="b3" style="top: 1010px;">
-        <div class="sombra" id="s3"></div>
-        <p class="kicker sans" id="k3">DÍA 1</p>
-        <p class="tit serif" id="t3a" style="margin-top: 10px;">El centro, la Catedral</p>
-        <p class="tit serif" id="t3b">y el Graben</p>
-        <div class="pastilla" id="p3" style="top: 280px;"><div class="puntos"><i class="si"></i><i></i><i></i><i></i><i></i></div><p class="sans">Mercadillo 1 de 5</p></div>
-        <p class="detalle sans" id="e3" style="position: absolute; left: 0; top: 372px;">En la plaza de la Catedral&ensp;·&ensp;de 11 a 21 h</p>
-      </div>
-      <!-- 4 · Día 2. -->
-      <div class="bloque" id="b4" style="top: 1010px;">
-        <div class="sombra" id="s4"></div>
-        <p class="kicker sans" id="k4">DÍA 2</p>
-        <p class="tit serif" id="t4a" style="margin-top: 10px;">Hofburg, museo</p>
-        <p class="tit serif" id="t4b">y Naschmarkt</p>
-        <div class="pastilla" id="p4" style="top: 280px;"><div class="puntos"><i class="si"></i><i class="si"></i><i></i><i></i><i></i></div><p class="sans">Mercadillo 2 de 5</p></div>
-        <p class="detalle sans" id="e4" style="position: absolute; left: 0; top: 372px;">Entre dos museos&ensp;·&ensp;hasta las 21 h</p>
-      </div>
-      <!-- 5 · Día 3: tres paradas, tres mercadillos. Cada una con su foto y su frase. -->
-      <div class="bloque" id="b5" style="top: 1030px;">
-        <div class="sombra" id="s5"></div>
-        <p class="kicker sans" id="k5">DÍA 3</p>
-        <p class="tit serif" id="t5a" style="position: absolute; left: 0; top: 48px; font-size: 128px; line-height: 1;">Schönbrunn</p>
-        <p class="tit serif" id="t5b" style="position: absolute; left: 0; top: 48px; font-size: 128px; line-height: 1;">Belvedere</p>
-        <p class="tit serif" id="t5c" style="position: absolute; left: 0; top: 48px; font-size: 128px; line-height: 1;">Karlsplatz</p>
-        <div class="pastilla" id="p5a" style="top: 202px;"><div class="puntos"><i class="si"></i><i class="si"></i><i class="si"></i><i></i><i></i></div><p class="sans">Mercadillo 3 de 5</p></div>
-        <div class="pastilla" id="p5b" style="top: 202px;"><div class="puntos"><i class="si"></i><i class="si"></i><i class="si"></i><i class="si"></i><i></i></div><p class="sans">Mercadillo 4 de 5</p></div>
-        <div class="pastilla" id="p5c" style="top: 202px;"><div class="puntos"><i class="si"></i><i class="si"></i><i class="si"></i><i class="si"></i><i class="si"></i></div><p class="sans">Mercadillo 5 de 5</p></div>
-        <p class="detalle sans" id="e5a" style="position: absolute; left: 0; top: 294px;">En el patio del palacio&ensp;·&ensp;de 10 a 21 h</p>
-        <p class="detalle sans" id="e5b" style="position: absolute; left: 0; top: 294px;">En el parque del palacio&ensp;·&ensp;hasta las 21 h</p>
-        <p class="detalle sans" id="e5c" style="position: absolute; left: 0; top: 294px;">Art Advent&ensp;·&ensp;de 12 a 20 h</p>
-      </div>
-
-      <!-- 6 · La tarjeta: lo que se guarda y dónde está hecho el viaje. -->
-      <div id="papel">
-        <p id="g-kicker" class="sans gx">5 MERCADILLOS A LA PUERTA DE LAS PARADAS</p>
-        <p id="g-tit1" class="serif gx">Guárdalo y</p>
-        <p id="g-tit2" class="serif gx">mándaselo al grupo.</p>
-        <div class="fila gf" style="top: 498px;"><p class="d sans">DÍA 1</p><p class="n sans">Plaza de la Catedral</p><p class="h sans">de 11 a 21 h</p></div>
-        <div class="fila gf" style="top: 570px;"><p class="d sans">DÍA 2</p><p class="n sans">Entre los dos museos</p><p class="h sans">hasta las 21 h</p></div>
-        <div class="fila gf" style="top: 642px;"><p class="d sans">DÍA 3</p><p class="n sans">Patio de Schönbrunn</p><p class="h sans">de 10 a 21 h</p></div>
-        <div class="fila gf" style="top: 714px;"><p class="d sans">DÍA 3</p><p class="n sans">Parque del Belvedere</p><p class="h sans">hasta las 21 h</p></div>
-        <div class="fila gf" style="top: 786px; border-bottom: 2px solid rgba(16,14,11,.12);"><p class="d sans">DÍA 3</p><p class="n sans">Karlsplatz (Art Advent)</p><p class="h sans">de 12 a 20 h</p></div>
-        <p id="g-nota1" class="sans gn">No vienen en el plan de la app: quedan a la puerta</p>
-        <p id="g-nota2" class="sans gn">de estas paradas. Abren todo el puente de diciembre.</p>
-        <div id="g-raya" class="ga"></div>
-        <img id="c-icono" class="ga" src="assets/icono-app.png" alt="" />
-        <p id="c-nombre" class="serif ga">Nomad: guía de viajes</p>
-        <p id="c-l1" class="sans ga">El viaje de 3 días ya está hecho:</p>
-        <p id="c-l2" class="sans ga">lo copias y le pones tus fechas.</p>
-        <img id="c-insignia" class="ga" src="assets/insignia-app-store-es.svg" alt="Consíguelo en el App Store" />
-        <p id="c-android" class="sans ga">Pronto en Android™</p>
-        <p id="c-perfil" class="sans ga">Enlace en el perfil</p>
-        <p id="c-precio1" class="sans ga">La app es gratis. El viaje de 3 días cuesta 2,99 €:</p>
-        <p id="c-precio2" class="sans ga">un pago para todo el grupo.</p>
-        <p id="c-credito" class="sans ga">Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
-      </div>
-
-      <!-- La portada: sólo con ?portada=1. -->
-      <div id="portada">
-        <img src="assets/fotos/schonbrunn.jpg" alt="" />
-        <div class="v"></div>
-        <p class="serif" style="top: 1010px; font-size: 136px; line-height: 1; color: #FFFDF9;">Puente de</p>
-        <p class="serif" style="top: 1140px; font-size: 136px; line-height: 1; color: #FFFDF9;">diciembre en Viena</p>
-        <p class="serif" style="top: 1300px; font-size: 76px; line-height: 1; color: #5EEAD4;">3 días y 5 mercadillos a la puerta.</p>
-      </div>
+      <p id="h0" class="hora serif" style="top: 492px;">11:00</p>
+      <p id="h1" class="hora serif" style="top: 602px;">13:45</p>
+      <p id="h2" class="hora serif" style="top: 712px;">15:30</p>
+      <p id="h3" class="hora serif" style="top: 822px;">17:30</p>
+      <p id="h4" class="hora serif" style="top: 932px;">20:30</p>
+      <h1 id="t1a" class="tit serif t84" style="top: 1282px;">¿Puente de diciembre</h1>
+      <h1 id="t1b" class="tit serif t84 verde" style="top: 1370px;">y nada organizado?</h1>
+      <h1 id="t2a" class="tit serif t84" style="top: 1282px;">Viajes listos,</h1>
+      <h1 id="t2b" class="tit serif t84 verde" style="top: 1370px;">como Viena en 3 días.</h1>
+      <h1 id="t3a" class="tit serif t84" style="top: 1282px;">Tu fecha y un pago</h1>
+      <h1 id="t3b" class="tit serif t84 verde" style="top: 1370px;">para todo el grupo.</h1>
+      <h1 id="t4a" class="tit serif t84" style="top: 1282px;">Qué ver, a qué hora</h1>
+      <h1 id="t4b" class="tit serif t84 verde" style="top: 1370px;">y dónde comer.</h1>
+      <h1 id="t5a" class="tit serif t84" style="top: 1282px;">Una audioguía</h1>
+      <h1 id="t5b" class="tit serif t84 verde" style="top: 1370px;">en paseos y museos.</h1>
+      <h1 id="t6a" class="tit serif t84" style="top: 1282px;">¿Un mercadillo?</h1>
+      <h1 id="t6b" class="tit serif t84 verde" style="top: 1370px;">Pídeselo al asistente.</h1>
+      <div id="papel"></div>
+      <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Todas las líneas a 5 px y los detalles a 3: el juego «editorial» que eligió el dueño (30-oct). -->
+        <path id="s-logo" stroke="#0F766E" stroke-width="5" />
+        <path id="s-borde" stroke="#0F766E" stroke-width="5" />
+        <path id="s-pin" stroke="#0F766E" stroke-width="5" />
+        <path id="s-cal" stroke="#0F766E" stroke-width="5" />
+        <!-- S4 · La ruta se ve punteada; lo que se dibuja y se recoge es la máscara que la descubre. -->
+        <defs><mask id="m-rail" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920"><path id="s-rail" stroke="#FFFFFF" stroke-width="24" /></mask></defs>
+        <path id="s-rail-ver" stroke="#0F766E" stroke-width="5" mask="url(#m-rail)" />
+        <g id="casco"><path id="s-casco" stroke="#0F766E" stroke-width="5" /><g id="casco-det"></g><g id="casco-ondas"></g></g>
+        <path id="s-robot" stroke="#0F766E" stroke-width="5" />
+        <!-- S2 · el ojo y la sombra del pin. S3 · el calendario del viaje: DIC 2026, sábado 5, domingo 6 y lunes 7.
+             S4 · los cinco planes del sábado, numerados como en la app. S6 · la cara, la bola de la antena y
+             la señal del robot. Los pinta el guion desde ICONOS. -->
+        <g id="pin-ojo"></g><g id="pin-suelo"></g>
+        <g id="cal"></g>
+        <g id="nodos"></g>
+        <g id="robot-cara"></g><g id="robot-bola"></g><g id="robot-antena"></g>
+        <g id="c-flecha">
+          <path d="M516,1420 L540,1436 L564,1420" stroke="#0F766E" stroke-width="6" />
+          <path d="M516,1442 L540,1458 L564,1442" stroke="#0F766E" stroke-opacity=".5" stroke-width="6" />
+        </g>
+      </svg>
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: guía de viajes</p>
+      <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Consíguelo en el App Store" />
+      <p id="c-android" class="sans">Pronto en Android™</p>
+      <p id="c-credito" class="sans" data-layout-ignore>Secuencias acortadas. Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
+      <p id="c-perfil" class="sans verde">Enlace en el perfil</p>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="29.7"></audio>
     </div>
-
-    <script src="assets/tiempos.js"></script>
     <script>
-      /* La línea de tiempo entera, en segundos del vídeo final. `seek(t)` la deja en t: render.mjs la llama
-         una vez por fotograma. Nada depende del reloj: el mismo t da siempre el mismo fotograma. */
-      const T = window.TIEMPOS;
-      const Q = new URLSearchParams(location.search);
-      const VERSION = Q.get('version') || 'reel';
-      const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
-      const ENTRA = 0.32, SALE = 0.16, FUNDE = 0.12;
+      document.fonts.ready.then(function () {
+        var VERSION = ["reel", "limpia"].indexOf(window.NOMAD_VERSION) >= 0 ? window.NOMAD_VERSION : "historia";
+        var tl = gsap.timeline({ paused: true });
+        var VELOCIDAD = 1.15;
+        var M = window.Motor(tl, VELOCIDAD), a = M.a, F = M.F, FPS = 30;
+        var SVGNS = "http://www.w3.org/2000/svg";
+        // LOS CORTES, a 1×, salen de la voz (assets/voz, 18-nov), como en asi-funciona: cada escena dura su toma
+        // de voz más 0,55 s, y la frase empieza 0,25 s después del corte (la del cierre, 0,2). El cierre, los
+        // 5,4 s de asi-funciona, porque el crédito tiene que poder leerse. Si se mueve un corte, se mueve aquí,
+        // en EMPIEZA de mezclar.sh, en tomas.json (y con él los <video>, poner-tomas.py) y en el guion de README.md.
+        //        1  2     3     4      5      6      cierre
+        var T = [0, 0, 4.41, 8.83, 13.88, 18.70, 23.53, 28.76];
+        var FIN = 891 / 30 * VELOCIDAD;   // 891 fotogramas: 29,7 s
+        var XI = 150;
+        // La rejilla de los latidos: la negra de la música (mezclar.sh dice dónde empieza la pista).
+        function negra(t) { return 0.092 + Math.round((t - 0.092) / 0.80083) * 0.80083; }
+        // LA RESPIRACIÓN, la de asi-funciona: con la toma quieta y el dibujo entero, cada dibujo late en cada
+        // negra de su espera sin pisar lo que ya lo mueve (M.late, M.brota y M.encoge apuntan en OCUPA).
+        var OCUPA = {};
+        ["late", "brota", "encoge"].forEach(function (n) {
+          var f = M[n];
+          M[n] = function (sel, t, x, dur) {
+            var d = n === "late" ? (dur || 0.6) : n === "brota" ? 0.32 : 0.12;
+            [].concat(sel).forEach(function (s) { (OCUPA[s] = OCUPA[s] || []).push([t, t + d]); });
+            return f.apply(null, arguments);
+          };
+        });
+        function respira(sels, a, b, amp) {
+          [].concat(sels).forEach(function (s) {
+            for (var k = Math.ceil((a - 0.092) / 0.80083); ; k++) {
+              var t = 0.092 + k * 0.80083;
+              if (t + 0.6 > b) break;
+              if ((OCUPA[s] || []).every(function (o) { return o[1] < t - 0.05 || o[0] > t + 0.65; })) M.late(s, t, amp || 0.035, 0.6);
+            }
+          });
+        }
+        function el(tag, at, padre) { var e = document.createElementNS(SVGNS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || a("trazos")).appendChild(e); return e; }
+        // ICONOS: desde iconos/editorial.json (iconos/datos.py).
+        var ICONOS = {"pin":{"d":"M752,827 C743,814 690,763.8 690,703 C690,668.8 717.8,641 752,641 C786.2,641 814,668.8 814,703 C814,763.8 761,814 752,827","ojo":[["circle",{"fill":"none","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","cx":752,"cy":703,"r":22}]],"suelo":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M766,814.4 C792.2,816.1 809.1,822.2 805.5,828.7 C802,835.2 779.1,840 752,840 C724.9,840 702,835.2 698.5,828.7 C694.9,822.2 711.8,816.1 738,814.4"}]]},"cal":{"d":"M610,646 L610,834 C610,847.3 620.7,858 634,858 L870,858 C883.3,858 894,847.3 894,834 L894,646 C894,632.7 883.3,622 870,622 L634,622 C620.7,622 610,632.7 610,646 L610,694 L894,694","hoja":[["path",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M672,604 C668.7,604 666,606.7 666,610 L666,636 C666,639.3 668.7,642 672,642 C675.3,642 678,639.3 678,636 L678,610 C678,606.7 675.3,604 672,604 Z"}],["path",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M832,604 C828.7,604 826,606.7 826,610 L826,636 C826,639.3 828.7,642 832,642 C835.3,642 838,639.3 838,636 L838,610 C838,606.7 835.3,604 832,604 Z"}],["text",{"x":752,"y":667,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":26,"letter-spacing":"3.5","fill":"#0F766E","stroke":"none"},"DIC 2026"]],"dias":[{"id":"dia5","o":[666.0,776.0],"el":[["rect",{"x":630.0,"y":712,"width":72,"height":128,"rx":16,"fill":"#0F766E","stroke":"none"}],["text",{"x":666.0,"y":752,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":22,"letter-spacing":"1","fill":"rgba(255,253,249,.82)","stroke":"none"},"S"],["text",{"x":666.0,"y":814,"text-anchor":"middle","font-family":"Instrument Serif","font-size":60,"fill":"#FFFDF9","stroke":"none"},"5"]]},{"id":"dia6","o":[752.0,776.0],"el":[["rect",{"x":716.0,"y":712,"width":72,"height":128,"rx":16,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":752.0,"y":752,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":22,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"D"],["text",{"x":752.0,"y":814,"text-anchor":"middle","font-family":"Instrument Serif","font-size":60,"fill":"#100E0B","stroke":"none"},"6"]]},{"id":"dia7","o":[838.0,776.0],"el":[["rect",{"x":802.0,"y":712,"width":72,"height":128,"rx":16,"fill":"rgba(15,118,110,.07)","stroke":"none"}],["text",{"x":838.0,"y":752,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":600,"font-size":22,"letter-spacing":"1","fill":"#0F766E","stroke":"none"},"L"],["text",{"x":838.0,"y":814,"text-anchor":"middle","font-family":"Instrument Serif","font-size":60,"fill":"#100E0B","stroke":"none"},"7"]]}]},"plan":{"segs":[["M680,520","n0"],["C637.3,566.6 637.3,583.4 680,630","n1"],["C722.7,676.6 722.7,693.4 680,740","n2"],["C637.3,786.6 637.3,803.4 680,850","n3"],["C722.7,896.6 722.7,913.4 680,960","n4"]],"paradas":[{"c":[680,520],"el":[["circle",{"cx":680,"cy":520,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":528,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"1"]]},{"c":[680,630],"el":[["circle",{"cx":680,"cy":630,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":638,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"2"]]},{"c":[680,740],"el":[["circle",{"cx":680,"cy":740,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":748,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"3"]]},{"c":[680,850],"el":[["circle",{"cx":680,"cy":850,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":858,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"4"]]},{"c":[680,960],"el":[["circle",{"cx":680,"cy":960,"r":21,"fill":"#0F766E","stroke":"#FFFDF9","stroke-width":6}],["text",{"x":680,"y":968,"text-anchor":"middle","font-family":"Instrument Sans","font-weight":700,"font-size":23,"stroke":"none","fill":"#FFFDF9"},"5"]]}],"horas_x":724,"puntos":"0.1 11.719","mascara":24},"casco":{"d":"M668,749 C650.9,749 637,762.9 637,780 L637,820 C637,837.1 650.9,851 668,851 C685.1,851 699,837.1 699,820 L699,780 C699,762.9 685.1,749 668,749 L668,727 C668,672.9 705.6,629 752,629 C798.4,629 836,672.9 836,727 L836,749 C853.1,749 867,762.9 867,780 L867,820 C867,837.1 853.1,851 836,851 C818.9,851 805,837.1 805,820 L805,780 C805,762.9 818.9,749 836,749","det":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M668,760 C657,760 648,769 648,780 L648,820 C648,831 657,840 668,840 C679,840 688,831 688,820 L688,780 C688,769 679,760 668,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M836,760 C825,760 816,769 816,780 L816,820 C816,831 825,840 836,840 C847,840 856,831 856,820 L856,780 C856,769 847,760 836,760 Z"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M708.3,660 C734,636 770,636 795.7,660"}]],"ondas":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M629,824.4 C619.7,809.5 619.7,790.5 629,775.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M614.1,826.3 C606,809.7 606,790.3 614.1,773.7"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M875,775.6 C884.3,790.5 884.3,809.5 875,824.4"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M889.9,773.7 C898,790.3 898,809.7 889.9,826.3"}]]},"robot":{"d":"M742.7,659.4 L745.2,688.3 L781.1,685.2 C813,682.4 841.1,706 843.9,737.9 L844.1,739.9 C854,739 862.7,746.3 863.6,756.2 C864.4,766.1 857.1,774.9 847.2,775.7 L847.4,777.7 C850.2,809.6 826.6,837.8 794.7,840.6 L722.9,846.8 C691,849.6 662.9,826 660.1,794.1 L659.9,792.1 C650,793 641.3,785.7 640.4,775.8 C639.6,765.9 646.9,757.1 656.8,756.3 L656.6,754.3 C653.8,722.4 677.4,694.2 709.3,691.4 L745.2,688.3","cara":[["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M674.5,752.7 C672.6,730.7 688.9,711.3 710.9,709.4 L782.6,703.1 C804.6,701.2 824,717.4 826,739.5 L829.5,779.3 C831.4,801.3 815.1,820.7 793.1,822.6 L721.4,828.9 C699.4,830.8 680,814.6 678,792.5 L674.5,752.7 Z"}],["path",{"d":"M732.5,761.7 C733.2,768.8 729.7,775 724.7,775.4 C719.8,775.8 715.2,770.4 714.6,763.2 C714,756.1 717.5,749.9 722.5,749.5 C727.4,749.1 731.9,754.5 732.5,761.7 Z","fill":"#0F766E","stroke":"none"}],["path",{"d":"M788.3,756.8 C789,764 785.5,770.1 780.5,770.5 C775.6,771 771,765.5 770.4,758.4 C769.8,751.2 773.3,745.1 778.2,744.6 C783.2,744.2 787.7,749.6 788.3,756.8 Z","fill":"#0F766E","stroke":"none"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M738.1,790.3 C749.4,797.3 760,796.4 769.9,787.5"}]],"antena":[["circle",{"fill":"#FFFDF9","stroke":"#0F766E","stroke-width":5,"stroke-linecap":"round","stroke-linejoin":"round","cx":"741.7","cy":"648.4","r":"9"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M727.1,662.1 C720.8,655.4 719.9,645.3 724.9,637.6"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M717.8,666.5 C710.9,657.3 709.8,645 715,634.8"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M756.3,634.8 C762.6,641.5 763.5,651.6 758.5,659.3"}],["path",{"fill":"none","stroke":"#0F766E","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round","d":"M765.7,630.4 C772.6,639.6 773.7,651.8 768.4,662.1"}]]}};
+        function pinta(lista, padre) { lista.forEach(function (e) { var n = el(e[0], e[1], padre); if (e.length > 2) n.textContent = e[2]; }); }
 
-      const foto = (id, t) => tl.fromTo('#f-' + id, { opacity: 0 }, { opacity: 1, duration: FUNDE, ease: 'none' }, t - FUNDE / 2);
-      const quita = (id, t) => tl.set('#f-' + id, { opacity: 0 }, t + FUNDE);
-      const entra = (sel, t, d = 0) => tl.fromTo(sel, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: ENTRA }, t + d);
-      const sale = (sel, t) => tl.to(sel, { opacity: 0, y: -16, duration: SALE, ease: 'power2.in' }, t - SALE);
-      const lugar = (id, t0, t1) => { tl.fromTo('#l-' + id, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.26 }, t0 + 0.1);
-                                      tl.to('#l-' + id, { opacity: 0, duration: 0.12, ease: 'none' }, t1 - 0.12); };
-      const sombra = (n, t0, t1) => { tl.fromTo('#s' + n, { opacity: 0 }, { opacity: 1, duration: 0.24, ease: 'none' }, t0);
-                                      tl.to('#s' + n, { opacity: 0, duration: 0.16, ease: 'none' }, t1 - 0.16); };
-      const pastilla = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.82, transformOrigin: '0 50%' }, { opacity: 1, scale: 1, duration: 0.34, ease: 'back.out(2.2)' }, t);
+        // —— S1 · EL LOGO SE HACE HILO, el arranque de asi-funciona tal cual: la línea recorre la silueta del
+        // logo mientras el relleno se apaga, y sale tirada como un hilo a dibujar el borde de la pantalla.
+        // SILUETA la saca silueta-del-logo.py; no se toca a mano.
+        var SILUETA = "263.9,478.9 264.5,472.9 265.3,466.9 266.3,461 267.5,455.1 268.9,449.2 270.3,443.4 271.8,437.6 273.5,431.8 275.3,426.1 277.2,420.4 279.2,414.7 281.3,409.1 283.6,403.5 285.9,398 288.3,392.5 290.9,387 293.5,381.6 296.2,376.3 299,371 301.9,365.7 304.9,360.5 308,355.3 311.2,350.2 314.4,345.2 317.8,340.2 321.3,335.3 324.8,330.5 328.5,325.7 332.2,321 336,316.3 339.9,311.7 343.9,307.2 347.9,302.8 352,298.4 356.2,294.1 360.5,289.9 364.8,285.7 369.2,281.6 373.7,277.6 378.3,273.7 382.9,269.9 387.7,266.2 392.5,262.7 397.4,259.2 402.4,255.8 407.4,252.6 412.6,249.4 417.8,246.4 423,243.5 428.3,240.7 433.7,238 439.1,235.5 444.6,233 450.2,230.8 455.8,228.7 461.5,226.7 467.3,225 473.1,223.4 478.9,222 484.8,220.7 490.7,219.6 496.6,218.6 502.6,217.8 508.6,217.3 514.6,217 520.6,217 526.6,217.3 532.6,217.8 538.5,218.6 544.4,219.6 550.3,221 556.1,222.6 561.8,224.5 567.4,226.6 572.9,229.1 578.2,231.9 583.3,235 588.3,238.4 593,242.1 597.6,246 601.9,250.3 605.9,254.7 609.6,259.4 613,264.4 616.1,269.5 618.9,274.9 621.3,280.4 623.4,286 625.2,291.7 626.6,297.6 627.6,303.5 628.2,309.5 628.4,315.5 628.2,321.5 627.8,327.5 627.1,333.4 626.1,339.4 624.8,345.2 623.1,351 621,356.6 618.6,362.1 615.9,367.5 612.9,372.7 609.9,377.9 607.3,383.3 605.4,389 604.7,395 605.1,401 606.7,406.7 609.5,412.1 613.3,416.7 618,420.4 623.3,423.2 628.9,425.2 634.8,426.6 640.6,428 646.5,429.4 652.4,430.5 658.4,431 664.3,430.5 670.2,429.1 676,427.5 681.9,426.9 687.8,427.9 693.4,430.2 698.7,433.1 703.8,436.2 708.7,439.7 713.5,443.3 718,447.2 722.4,451.4 726.6,455.7 730.5,460.2 734.3,464.9 737.8,469.8 741.1,474.8 744.2,480 747,485.3 749.6,490.7 752,496.2 754.3,501.8 756.3,507.4 758.1,513.1 759.7,518.9 761.1,524.8 762.3,530.7 763.1,536.6 763.7,542.6 764.1,548.6 764.2,554.6 764.2,560.6 764.2,566.6 764.2,572.6 764,578.6 763.7,584.6 763.1,590.6 762.4,596.6 761.5,602.5 760.3,608.4 759.1,614.3 757.7,620.1 756.1,625.9 754.4,631.7 752.6,637.4 750.7,643.1 748.6,648.8 746.4,654.4 744.1,659.9 741.6,665.4 739,670.8 736.3,676.2 733.4,681.4 730.4,686.7 727.3,691.8 724.1,696.9 720.8,701.9 717.4,706.8 713.8,711.7 710.1,716.4 706.4,721.1 702.5,725.7 698.5,730.2 694.4,734.6 690.3,738.9 686,743.2 681.7,747.4 677.3,751.5 672.8,755.5 668.3,759.4 663.6,763.1 658.8,766.8 653.9,770.3 649,773.7 644,777.1 638.9,780.3 633.8,783.4 628.5,786.4 623.3,789.2 617.9,791.9 612.5,794.5 607,797 601.5,799.3 595.9,801.6 590.2,803.6 584.5,805.6 578.8,807.3 573,809 567.2,810.5 561.4,811.9 555.5,813.3 549.6,814.5 543.7,815.5 537.8,816.5 531.8,817.2 525.8,817.7 519.8,818 513.8,818.2 507.8,818.2 501.8,818.2 495.8,818.2 489.8,818 483.8,817.8 477.8,817.3 471.8,816.7 465.9,815.8 459.9,814.8 454,813.7 448.2,812.4 442.3,811.1 436.5,809.6 430.7,808 424.9,806.2 419.2,804.4 413.6,802.4 408,800.2 402.4,797.9 396.9,795.5 391.5,792.9 386.1,790.3 380.8,787.5 375.5,784.5 370.3,781.5 365.2,778.3 360.2,775.1 355.2,771.7 350.3,768.2 345.5,764.6 340.8,760.8 336.2,756.9 331.7,753 327.3,748.9 322.9,744.8 318.6,740.6 314.4,736.3 310.2,732 306.2,727.6 302.2,723 298.4,718.4 294.7,713.7 291.1,708.8 287.7,703.9 284.3,698.9 281.1,693.9 277.9,688.7 274.9,683.5 272.1,678.3 269.3,672.9 266.7,667.5 264.1,662.1 261.8,656.6 259.5,651 257.3,645.4 255.3,639.7 253.5,634 251.7,628.2 250.1,622.5 248.6,616.6 247.3,610.8 246.1,604.9 245.1,599 244.2,593 243.5,587.1 243,581.1 242.5,575.1 242.2,569.1 242,563.1 241.9,557.1 242.2,551.1 243.4,545.2 246,539.8 249.8,535.2 253.9,530.7 257.5,525.9 260.2,520.6 261.8,514.8 262.7,508.9 263.1,502.9 263.2,496.9 263.4,490.9 263.6,484.9";
+        var CX = 540, CY = 640, ALTO = 330;
+        var lg = a("logo-g"), bb = lg.getBBox(), sc = ALTO / bb.height;
+        var tx = CX - sc * (bb.x + bb.width / 2), ty = CY - sc * (bb.y + bb.height / 2);
+        lg.setAttribute("transform", "translate(" + tx + "," + ty + ") scale(" + sc + ")");
+        var pts = SILUETA.split(" ").map(function (q) { var p = q.split(","); return [tx + sc * p[0], ty + sc * p[1]]; });
+        pts.push(pts[0]);
+        var log = new M.Camino(); log.o("M" + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" L")).marca("fin");
+        var mL = M.pon(log, a("s-logo")), u = pts[pts.length - 1], w = pts[pts.length - 2], dl = Math.hypot(u[0] - w[0], u[1] - w[1]);
+        var cont = new M.Camino(); cont.o("M" + u[0].toFixed(1) + "," + u[1].toFixed(1));
+        M.borde(cont, XI, u, [u[0] + 150 * (u[0] - w[0]) / dl, u[1] + 150 * (u[1] - w[1]) / dl]);
+        var mC = M.pon(cont, a("s-borde")), S0 = mL.L, TOT = S0 + mC.fin;
+        var PUNTA = [[0, 0], [0.35, 0], [1.8, TOT * (1.8 - 0.35) / (T[2] + 1.0 - 0.35), "power1.in"], [T[2] + 1.0, TOT, "power1.out"]];
+        // El borde se queda hasta el final de S6, y en sus últimos 0,4 s la cola corre hasta la punta mientras
+        // la pantalla se funde: la línea se va por donde cerró, y el cierre entra sobre el papel limpio.
+        var COLA = [[0, 0], [1.75, 0], [T[2] + 0.55, S0 + mC.borde, "power1.inOut"],
+                    [T[7] - 0.4, S0 + mC.borde], [T[7], S0 + mC.fin, "power1.in"]];
+        M.cadena([[a("s-logo"), mL.L], [a("s-borde"), mC.L]], COLA, PUNTA, 0, T[7] + 0.1);
+        M.apaga("#logo-g", 1.2, 0.55);
+        M.apaga("#o-nombre", 1.6, 0.3);
+        M.frase(["t1a", "t1b"], 0.1, T[2]);
+        tl.fromTo("#marca", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none", immediateRender: false }, T[2] + 0.3);
+        tl.set("#marca", { autoAlpha: 0 }, 0);
+        M.funde("#pantalla", T[2] + 0.95, 0.15);
+        M.apaga("#pantalla", T[7] - 0.4, 0.3);
 
-      /* 1 · El gancho: foto, texto, sombra y lugar van puestos en el HTML (opacity: 1), no con un `set` en el
-         segundo 0 (así el fotograma 0 salía en negro). La raya se traza con «y nadie ha mirado nada». */
-      tl.fromTo('#r1', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power2.inOut' }, 1.9);
-      tl.fromTo('#t1c', { scale: 1 }, { scale: 1.04, duration: 0.18, ease: 'power2.out', yoyo: true, repeat: 1, transformOrigin: '0 50%' }, 2.1);
-      sale(['#t1a', '#t1b', '#t1c', '#r1'], T.viena);
-      tl.to('#s1', { opacity: 0, duration: 0.16, ease: 'none' }, T.viena - 0.16);
-      tl.to('#l-graben', { opacity: 0, duration: 0.12, ease: 'none' }, 1.8 - 0.12);
-      foto('torre', 1.8); quita('graben', 1.8); lugar('torre', 1.8, T.viena);
+        // —— S2 · VIAJES LISTOS, COMO VIENA EN TRES DÍAS: lo cuenta la pantalla (la lista «Viajes listos»,
+        // bajando hasta Viena), y a la derecha el pin de asi-funciona. La línea lo dibuja mientras el borde
+        // acaba de cerrarse; el ojo del pin brota al acabar y late cuando Kore dice «Viena» (en la toma v2, a
+        // 2,47 s; el latido, 0,12 s después).
+        var pin = new M.Camino();
+        pin.o(ICONOS.pin.d).marca("fin");
+        M.salida(a("s-pin"), pin, T[2] + 0.95, T[2] + 1.95, T[3] - 0.45, T[3] - 0.15, "power1.inOut");
+        pinta(ICONOS.pin.ojo, a("pin-ojo")); pinta(ICONOS.pin.suelo, a("pin-suelo"));
+        gsap.set("#pin-ojo", { svgOrigin: "752 703" });
+        gsap.set("#pin-suelo", { autoAlpha: 0 });
+        M.funde("#pin-suelo", T[2] + 1.95, 0.25); M.apaga("#pin-suelo", T[3] - 0.5, 0.12);
+        tl.set("#pin-ojo", { autoAlpha: 0 }, 0);
+        M.brota("#pin-ojo", T[2] + 1.95);
+        M.late("#pin-ojo", T[2] + 0.25 + 2.47 + 0.12, 0.12, 0.5);
+        M.encoge("#pin-ojo", T[3] - 0.5);
+        respira("#pin-ojo", T[2] + 2.3, T[3] - 0.5, 0.08);
+        M.frase(["t2a", "t2b"], T[2], T[3]);
 
-      /* 2 · Viena, 3 días, ya organizada. La pastilla entra con el título: es la promesa del vídeo. */
-      foto('estrella', T.viena); quita('torre', T.viena); lugar('estrella', T.viena, T.dia1); sombra(2, T.viena, T.dia1);
-      entra('#t2a', T.viena, 0.05); entra('#t2b', T.viena, 0.2); pastilla('#p2', T.viena + 0.45); entra('#e2', T.viena, 0.7);
-      sale(['#t2a', '#t2b', '#p2', '#e2'], T.dia1);
+        // —— S3 · TU FECHA Y UN PAGO PARA TODO EL GRUPO: la hoja de Viena con la fecha del puente y la hoja de
+        // pago, y a la derecha el calendario de una fila de pruebalo con los días del viaje (sábado 5, lleno
+        // como el chip elegido del itinerario; domingo 6 y lunes 7). La línea dibuja la hoja y los días brotan
+        // uno a uno desde que Kore dice «fecha» (en la toma v3, a 0,64 s).
+        var cal = new M.Camino();
+        cal.o(ICONOS.cal.d).marca("fin");
+        M.salida(a("s-cal"), cal, T[3] + 0.1, T[3] + 1.0, T[4] - 0.45, T[4] - 0.15, "power1.inOut");
+        var gcal = a("cal");
+        pinta(ICONOS.cal.hoja, gcal);   // las dos anillas y la cabecera
+        ICONOS.cal.dias.forEach(function (dd) {
+          var g = el("g", { id: dd.id }, gcal);
+          pinta(dd.el, g);
+          gsap.set("#" + dd.id, { svgOrigin: dd.o[0] + " " + dd.o[1] });
+        });
+        tl.set("#cal", { autoAlpha: 0 }, 0);
+        tl.fromTo("#cal", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none", immediateRender: false }, T[3] + 0.9);
+        for (var d = 5; d <= 7; d++) { tl.set("#dia" + d, { autoAlpha: 0 }, 0); M.brota("#dia" + d, T[3] + 1.2 + 0.15 * (d - 5), "back.out(1.7)"); }
+        gsap.set("#cal", { svgOrigin: "752 740" });
+        M.apaga("#cal", T[4] - 0.5, 0.25);
+        // Con «para todo el grupo» (en la toma v3, «todo» a 3,48 s): un latido de la hoja entera.
+        M.late("#cal", T[3] + 0.25 + 3.48 + 0.12, 0.04, 0.6);
+        respira("#cal", T[3] + 1.9, T[4] - 0.5, 0.025);
+        M.frase(["t3a", "t3b"], T[3], T[4]);
 
-      /* La barra de los días aparece con el día 1 y se va llenando: siempre se ve cuánto queda. */
-      tl.fromTo('#dias', { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.3 }, T.dia1);
-      const llena = (n, t0, t1) => { tl.to(`#d${n} p`, { color: '#FFFDF9', duration: 0.2, ease: 'none' }, t0);
-                                     tl.fromTo(`#d${n}l`, { scaleX: 0 }, { scaleX: 1, duration: t1 - t0, ease: 'none' }, t0); };
-      llena(1, T.dia1, T.dia2); llena(2, T.dia2, T.d3a); llena(3, T.d3a, T.cierre);
+        // —— S4 · QUÉ VER, A QUÉ HORA Y DÓNDE COMER: el itinerario del sábado, y a la derecha los cinco planes
+        // de ese día unidos por una curva, con sus horas (las de la toma: 11:00, 13:45, 15:30, 17:30 y 20:30).
+        // Es el dibujo de «Tu viaje, día a día» de asi-funciona, con la curva dibujada algo más deprisa,
+        // porque la escena dura 4,8 s y no 6.
+        var rail = new M.Camino();
+        ICONOS.plan.segs.forEach(function (s) { rail.o(s[0]).marca(s[1]); });
+        var mR = M.salida(a("s-rail"), rail, T[4] + 0.15, T[4] + 1.85, T[5] - 0.5, T[5] - 0.2, "power1.inOut");
+        // La ruta se ve punteada: el camino visible es el mismo y lo descubre la máscara, que es la que se dibuja.
+        a("s-rail-ver").setAttribute("d", a("s-rail").getAttribute("d"));
+        a("s-rail-ver").setAttribute("stroke-dasharray", ICONOS.plan.puntos);
+        a("s-rail").setAttribute("stroke-width", ICONOS.plan.mascara);
+        ICONOS.plan.paradas.forEach(function (p, k) {
+          var g = el("g", { id: "n" + k }, a("nodos"));
+          pinta(p.el, g);
+          tl.set("#n" + k, { autoAlpha: 0 }, 0);
+          M.nodo("#n" + k, mR, "n" + k, p.c[0], p.c[1], [negra(T[4] + 2.3) + 0.04 * k, negra(T[4] + 3.1) + 0.04 * k]);
+          a("h" + k).style.left = ICONOS.plan.horas_x + "px";
+          M.entra("#h" + k, mR.llega("n" + k) + 0.04, 10, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" });
+          M.apaga("#h" + k, mR.vuelve("n" + k) - 0.06, 0.1);
+        });
+        M.frase(["t4a", "t4b"], T[4], T[5]);
 
-      /* 3 · Día 1: el Kohlmarkt y, con «la Catedral», la Catedral con su mercadillo. */
-      foto('kohlmarkt', T.dia1); quita('estrella', T.dia1); lugar('kohlmarkt', T.dia1, T.catedral); sombra(3, T.dia1, T.dia2);
-      entra('#k3', T.dia1, 0.04); entra('#t3a', T.dia1, 0.12); entra('#t3b', T.dia1, 0.22);
-      foto('catedral', T.catedral); quita('kohlmarkt', T.catedral); lugar('catedral', T.catedral, T.dia2);
-      pastilla('#p3', T.catedral + 0.12); entra('#e3', T.catedral, 0.2);
-      sale(['#k3', '#t3a', '#t3b', '#p3', '#e3'], T.dia2);
+        // —— S5 · UNA AUDIOGUÍA EN PASEOS Y MUSEOS: la guía del paseo por el centro histórico, y a la derecha
+        // los auriculares de asi-funciona. Las ondas brotan cuando Kore dice «audioguía» (en la toma v5, a 2,12 s).
+        var cas = new M.Camino();
+        cas.o(ICONOS.casco.d).marca("fin");
+        M.salida(a("s-casco"), cas, T[5] + 0.15, T[5] + 1.4, T[6] - 0.45, T[6] - 0.15, "power1.inOut");
+        pinta(ICONOS.casco.det, a("casco-det")); pinta(ICONOS.casco.ondas, a("casco-ondas"));
+        gsap.set(["#casco", "#casco-ondas"], { svgOrigin: "752 800" });
+        gsap.set(["#casco-det", "#casco-ondas"], { autoAlpha: 0 });
+        M.funde("#casco-det", T[5] + 1.35, 0.25); M.apaga("#casco-det", T[6] - 0.55, 0.15);
+        M.brota("#casco-ondas", T[5] + 0.25 + 2.12 + 0.12, "back.out(1.7)"); M.encoge("#casco-ondas", T[6] - 0.6);
+        respira("#casco-ondas", T[5] + 2.9, T[6] - 0.6, 0.12);
+        respira("#casco", T[5] + 1.0, T[6] - 0.45, 0.04);
+        M.frase(["t5a", "t5b"], T[5], T[6]);
 
-      /* 4 · Día 2: el Hofburg y, con «el museo», el mercadillo de delante. */
-      foto('hofburg', T.dia2); quita('catedral', T.dia2); lugar('hofburg', T.dia2, T.museo); sombra(4, T.dia2, T.d3a);
-      entra('#k4', T.dia2, 0.04); entra('#t4a', T.dia2, 0.12); entra('#t4b', T.dia2, 0.22);
-      foto('mtplatz', T.museo); quita('hofburg', T.museo); lugar('mtplatz', T.museo, T.d3a);
-      pastilla('#p4', T.museo + 0.12); entra('#e4', T.museo, 0.2);
-      sale(['#k4', '#t4a', '#t4b', '#p4', '#e4'], T.d3a);
+        // —— S6 · ¿UN MERCADILLO? PÍDESELO AL ASISTENTE: NOMAD AI con la petición y su respuesta, y a la derecha
+        // el robot pequeño de asi-funciona. Se recoge antes que los demás: en los últimos 0,4 s de la escena el
+        // borde se va y la pantalla se funde. La cara late cuando Kore dice «asistente» (en la toma v6, a 2,92 s).
+        var rob = new M.Camino();
+        rob.o(ICONOS.robot.d).marca("fin");
+        M.salida(a("s-robot"), rob, T[6] + 0.1, T[6] + 1.2, T[7] - 0.75, T[7] - 0.45, "power1.inOut");
+        var CARA = "#robot-cara";
+        // La bola de la antena tapa el principio de la línea: sale con ella y se va cuando la línea vuelve.
+        pinta(ICONOS.robot.cara, a("robot-cara")); pinta(ICONOS.robot.antena.slice(0, 1), a("robot-bola")); pinta(ICONOS.robot.antena.slice(1), a("robot-antena"));
+        tl.set(CARA, { autoAlpha: 0 }, 0);
+        gsap.set(["#robot-bola", "#robot-antena"], { autoAlpha: 0 });
+        gsap.set(CARA, { svgOrigin: "752 766" });
+        M.brota(CARA, T[6] + 1.25, "back.out(2)");
+        M.funde("#robot-bola", T[6] + 0.1, 0.1); M.apaga("#robot-bola", T[7] - 0.47, 0.08);
+        M.funde("#robot-antena", T[6] + 1.2, 0.25); M.apaga("#robot-antena", T[7] - 0.8, 0.12);
+        M.late(CARA, T[6] + 0.25 + 2.92 + 0.12, 0.07, 0.6);
+        M.encoge(CARA, T[7] - 0.8);
+        respira(CARA, T[6] + 1.6, T[7] - 0.8, 0.05);
+        gsap.set("#robot-antena", { svgOrigin: "741.7 648.4" });
+        M.late("#robot-antena", T[6] + 1.6, 0.12, 0.6);
+        M.frase(["t6a", "t6b"], T[6], T[7]);
 
-      /* 5 · Día 3: tres fotos; el título, la pastilla y el horario entran juntos con cada una. */
-      const parada = (x, id, t0, t1) => {
-        foto(id, t0); lugar(id, t0, t1);
-        entra('#t5' + x, t0, 0.02); pastilla('#p5' + x, t0 + 0.06); entra('#e5' + x, t0, 0.08);
-        sale(['#t5' + x, '#p5' + x, '#e5' + x], t1);
-      };
-      quita('mtplatz', T.d3a); sombra(5, T.d3a, T.cierre); entra('#k5', T.d3a, 0.04);
-      parada('a', 'schonbrunn', T.d3a, T.d3b); quita('schonbrunn', T.d3b);
-      parada('b', 'belvedere', T.d3b, T.d3c); quita('belvedere', T.d3c);
-      parada('c', 'karlsplatz', T.d3c, T.cierre);
-      sale('#k5', T.cierre);
-      tl.to('#dias', { opacity: 0, duration: 0.2, ease: 'none' }, T.cierre - 0.2);
+        // —— EL CIERRE de asi-funciona, con los avisos de Apple y de Android.
+        M.corta("#marca", T[7]);
+        M.cierre(T[7], FIN, VERSION);
 
-      /* 6 · La tarjeta sube desde abajo (un barrido, no un fundido: de foto oscura a papel claro, el fundido
-         era un fogonazo). Primero lo que se guarda; con «en Nomad», dónde está hecho el viaje. */
-      tl.fromTo('#papel', { y: 1920 }, { y: 0, duration: 0.42, ease: 'power3.inOut' }, T.cierre - 0.1);
-      tl.fromTo('.gx', { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.05 }, T.cierre + 0.04);
-      tl.fromTo('.gf', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.28, stagger: 0.06 }, T.cierre + 0.26);
-      tl.fromTo('.gn', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'none' }, T.cierre + 0.62);
-      const app = VERSION === 'reel' ? '.ga' : '.ga:not(#c-perfil)';
-      if (VERSION !== 'reel') document.getElementById('c-perfil').style.display = 'none';
-      tl.fromTo(app, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.34, stagger: 0.035 }, T.nomad);
-      /* «Mándaselo al grupo»: la línea verde del título late una vez con la palabra. */
-      tl.fromTo('#g-tit2', { scale: 1 }, { scale: 1.05, duration: 0.2, ease: 'power2.out', yoyo: true, repeat: 1, transformOrigin: '0 50%' }, T.mandaselo);
-      tl.fromTo('#c-icono', { scale: 1 }, { scale: 1.06, duration: 0.22, ease: 'power2.out', yoyo: true, repeat: 1 }, T.fin - 1.2);
-      tl.set({}, {}, T.fin);
-
-      if (Q.get('portada')) document.getElementById('portada').style.display = 'block';
-      window.DURACION = T.fin;
-      window.seek = (t) => { tl.time(Math.max(1e-4, Math.min(t, T.fin - 1e-4)), false); };
-      window.listo = document.fonts.ready.then(() => Promise.all([...document.images].map(i => i.decode ? i.decode().catch(() => {}) : null))).then(() => { seek(0); return true; });
+        M.acelera();
+        window.__timelines = window.__timelines || {};
+        window.__timelines["puente-viena"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
     </script>
   </body>
 </html>
