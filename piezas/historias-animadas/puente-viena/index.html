@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad · El puente en Viena</title>
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      /* «EL PUENTE EN VIENA» (18-nov): un reel fotográfico. Fotos reales a sangre y QUIETAS (el dueño no
+         quiere zoom, 6-oct), que cambian con la voz; el texto va encima, sobre un velo que sólo oscurece
+         el tercio de abajo, y lo de marca es el verde de las pastillas y del subrayado. El protagonista es
+         el plan (VISION.md: «un plan de viaje sí se guarda»); la app llega en la escena 8 de 9.
+         Zona segura del reel: y 230-1480; la columna de botones de Instagram, x > 920 desde y 900.
+         Todos los tiempos salen de TIEMPOS, que escribe tiempos.py desde las tomas de voz. */
+      html, body { margin: 0; padding: 0; background: #100E0B; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #FFFDF9; background: #100E0B; }
+      .foto { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; opacity: 0; }
+      #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+              background: linear-gradient(180deg, rgba(16,14,11,.46) 0px, rgba(16,14,11,0) 400px, rgba(16,14,11,0) 880px,
+                          rgba(16,14,11,.3) 1240px, rgba(16,14,11,.5) 1920px); }
+      /* Una sombra blanda detrás de cada bloque de texto: oscurece sólo donde hay letra (la «banda» de
+         AGENTS.md: un velo global no basta sobre neón ni piedra labrada, y subirlo deja la foto marrón). */
+      .sombra { position: absolute; left: -110px; top: -70px; width: 1060px; height: 560px; opacity: 0;
+                background: radial-gradient(ellipse 58% 56% at 40% 48%, rgba(16,14,11,.74) 0%, rgba(16,14,11,.5) 45%, rgba(16,14,11,0) 100%); }
+
+      /* La barra de los tres días, arriba. */
+      #dias { position: absolute; left: 64px; top: 252px; width: 856px; height: 64px; opacity: 0; }
+      .dia { position: absolute; top: 0; width: 272px; height: 64px; }
+      .dia p { margin: 0; font-size: 28px; line-height: 34px; font-weight: 700; letter-spacing: .12em; color: rgba(255,253,249,.55); }
+      .dia .carril { position: absolute; left: 0; top: 46px; width: 272px; height: 8px; border-radius: 4px; background: rgba(255,253,249,.3); overflow: hidden; }
+      .dia .lleno { position: absolute; left: 0; top: 0; width: 272px; height: 8px; border-radius: 4px; background: #FFFDF9; transform-origin: 0 50%; transform: scaleX(0); }
+
+      /* Dónde está hecha la foto. */
+      .lugar { position: absolute; left: 64px; top: 344px; margin: 0; padding: 10px 22px 12px 18px; border-radius: 999px;
+               background: rgba(16,14,11,.58); font-size: 28px; line-height: 34px; font-weight: 600; color: #FFFDF9; white-space: nowrap; opacity: 0; }
+      .lugar::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 6px; background: #5EEAD4; margin-right: 12px; vertical-align: 3px; }
+
+      /* El bloque de texto de cada escena: abajo a la izquierda, sin pasar de x 900. */
+      .bloque { position: absolute; left: 64px; width: 836px; }
+      .kicker { margin: 0; font-size: 34px; line-height: 40px; font-weight: 700; letter-spacing: .14em; color: #5EEAD4; white-space: nowrap; opacity: 0; }
+      .tit { margin: 0; font-size: 96px; line-height: 1.02; letter-spacing: -.015em; color: #FFFDF9; white-space: nowrap;
+             text-shadow: 0 2px 24px rgba(16,14,11,.55); opacity: 0; }
+      .tit.menta { color: #5EEAD4; }
+      .detalle { margin: 0; font-size: 38px; line-height: 46px; font-weight: 500; color: rgba(255,253,249,.92); white-space: nowrap;
+                 text-shadow: 0 2px 16px rgba(16,14,11,.6); opacity: 0; }
+      .pastilla { position: absolute; left: 0; height: 68px; padding: 0 28px 0 22px; border-radius: 34px; background: #0F766E;
+                  display: flex; align-items: center; gap: 16px; opacity: 0; box-shadow: 0 10px 30px rgba(16,14,11,.35); }
+      .pastilla p { margin: 0; font-size: 34px; line-height: 40px; font-weight: 700; color: #FFFDF9; white-space: nowrap; }
+      .puntos { display: flex; gap: 8px; }
+      .puntos i { display: block; width: 16px; height: 16px; border-radius: 8px; background: rgba(255,253,249,.32); }
+      .puntos i.si { background: #FFFDF9; }
+      .raya { position: absolute; left: 0; height: 10px; border-radius: 5px; background: #5EEAD4; transform-origin: 0 50%; transform: scaleX(0); }
+
+      /* El cierre, el de la casa (pruebalo/index.html): papel, icono, nombre exacto e insignia. */
+      #papel { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #F5F0E8; opacity: 0; }
+      #c-grupo { position: absolute; left: 84px; top: 300px; width: 912px; margin: 0; text-align: center; font-size: 104px; line-height: 1;
+                 letter-spacing: -.02em; color: #0F766E; white-space: nowrap; opacity: 0; }
+      #c-sub { position: absolute; left: 84px; top: 424px; width: 912px; margin: 0; text-align: center; font-size: 40px; line-height: 48px;
+               font-weight: 600; color: rgba(16,14,11,.7); white-space: nowrap; opacity: 0; }
+      #c-icono { position: absolute; left: 430px; top: 580px; width: 220px; height: 220px; display: block; border-radius: 49px;
+                 box-shadow: 0 24px 60px rgba(16,14,11,.22); opacity: 0; }
+      #c-nombre { position: absolute; left: 84px; top: 850px; width: 912px; margin: 0; text-align: center; font-size: 92px; line-height: 1;
+                  letter-spacing: -.02em; color: #100E0B; white-space: nowrap; opacity: 0; }
+      #c-insignia { position: absolute; left: 360px; top: 1010px; width: 359px; height: 120px; display: block; opacity: 0; }
+      #c-android { position: absolute; left: 84px; top: 1180px; width: 912px; margin: 0; text-align: center; font-size: 38px; line-height: 1.2;
+                   font-weight: 600; color: rgba(16,14,11,.62); opacity: 0; }
+      #c-credito { position: absolute; left: 180px; top: 1262px; width: 720px; margin: 0; text-align: center; font-size: 24px; line-height: 31px;
+                   font-weight: 500; color: rgba(16,14,11,.66); opacity: 0; }
+      #c-perfil { position: absolute; left: 84px; top: 1404px; width: 912px; margin: 0; text-align: center; font-size: 36px; line-height: 1.2;
+                  font-weight: 600; color: #0F766E; white-space: nowrap; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="puente-viena" data-start="0" data-width="1080" data-height="1920">
+      <!-- Las fotos: recortes 1080×1920 de originales de Unsplash (assets/fotos/CREDITOS.md). -->
+      <img class="foto" id="f-arco" src="assets/fotos/arco.jpg" alt="" style="opacity: 1;" />
+      <img class="foto" id="f-tiovivo" src="assets/fotos/tiovivo.jpg" alt="" />
+      <img class="foto" id="f-graben" src="assets/fotos/graben.jpg" alt="" />
+      <img class="foto" id="f-catedral" src="assets/fotos/catedral.jpg" alt="" />
+      <img class="foto" id="f-kohlmarkt" src="assets/fotos/kohlmarkt.jpg" alt="" />
+      <img class="foto" id="f-mtplatz" src="assets/fotos/mtplatz.jpg" alt="" />
+      <img class="foto" id="f-schonbrunn" src="assets/fotos/schonbrunn.jpg" alt="" />
+      <img class="foto" id="f-belvedere" src="assets/fotos/belvedere.jpg" alt="" />
+      <img class="foto" id="f-karlsplatz" src="assets/fotos/karlsplatz.jpg" alt="" />
+      <img class="foto" id="f-paseo" src="assets/fotos/paseo.jpg" alt="" />
+      <div id="velo"></div>
+
+      <div id="dias">
+        <div class="dia" id="d1" style="left: 0;"><p class="sans">DÍA 1</p><div class="carril"><div class="lleno" id="d1l"></div></div></div>
+        <div class="dia" id="d2" style="left: 292px;"><p class="sans">DÍA 2</p><div class="carril"><div class="lleno" id="d2l"></div></div></div>
+        <div class="dia" id="d3" style="left: 584px;"><p class="sans">DÍA 3</p><div class="carril"><div class="lleno" id="d3l"></div></div></div>
+      </div>
+
+      <p class="lugar sans" id="l-tiovivo" style="top: 252px;">Rathausplatz, Viena</p>
+      <p class="lugar sans" id="l-graben">Graben</p>
+      <p class="lugar sans" id="l-catedral">Stephansplatz</p>
+      <p class="lugar sans" id="l-kohlmarkt">Kohlmarkt, hacia el Hofburg</p>
+      <p class="lugar sans" id="l-mtplatz">Maria-Theresien-Platz</p>
+      <p class="lugar sans" id="l-schonbrunn">Schönbrunn</p>
+      <p class="lugar sans" id="l-belvedere">Belvedere</p>
+      <p class="lugar sans" id="l-karlsplatz">Karlsplatz</p>
+
+      <!-- 1 · El gancho. A la vista desde el fotograma 0: es lo que para el dedo. -->
+      <div class="bloque" id="b1" style="top: 300px; width: 952px;">
+        <p class="tit serif" id="t1a" style="font-size: 164px; line-height: .96; opacity: 1;">Dos semanas</p>
+        <p class="tit serif" id="t1b" style="font-size: 164px; line-height: .96; opacity: 1;">para el puente</p>
+        <p class="tit serif menta" id="t1c" style="font-size: 96px; line-height: 1; margin-top: 34px; opacity: 1;">y nadie ha mirado nada.</p>
+        <div class="raya" id="r1" style="top: 462px; width: 880px;"></div>
+      </div>
+      <!-- 2 · La respuesta. -->
+      <div class="bloque" id="b2" style="top: 420px; width: 952px;">
+        <p class="tit serif" id="t2" style="font-size: 196px; line-height: 1;">Tú respira.</p>
+      </div>
+      <!-- 3 · El plan existe. -->
+      <div class="bloque" id="b3" style="top: 1010px;">
+        <div class="sombra" id="s3"></div>
+        <p class="tit serif" id="t3a">Viena, 3 días,</p>
+        <p class="tit serif menta" id="t3b">ya organizada.</p>
+        <div class="pastilla" id="p3" style="top: 232px;"><p class="sans">5 mercadillos de Navidad en la ruta</p></div>
+      </div>
+      <!-- 4 · Día 1. -->
+      <div class="bloque" id="b4" style="top: 960px;">
+        <div class="sombra" id="s4"></div>
+        <p class="kicker sans" id="k4">DÍA 1</p>
+        <p class="tit serif" id="t4a" style="margin-top: 10px;">El centro, la Catedral</p>
+        <p class="tit serif" id="t4b">y el Graben</p>
+        <div class="pastilla" id="p4" style="top: 268px;"><div class="puntos"><i class="si"></i><i></i><i></i><i></i><i></i></div><p class="sans">Mercadillo 1 de 5</p></div>
+        <p class="detalle sans" id="e4" style="position: absolute; left: 0; top: 356px;">En la plaza de la Catedral · de 11 a 21 h</p>
+      </div>
+      <!-- 5 · Día 2. -->
+      <div class="bloque" id="b5" style="top: 960px;">
+        <div class="sombra" id="s5"></div>
+        <p class="kicker sans" id="k5">DÍA 2</p>
+        <p class="tit serif" id="t5a" style="margin-top: 10px;">Hofburg, museo</p>
+        <p class="tit serif" id="t5b">y Naschmarkt</p>
+        <div class="pastilla" id="p5" style="top: 268px;"><div class="puntos"><i class="si"></i><i class="si"></i><i></i><i></i><i></i></div><p class="sans">Mercadillo 2 de 5</p></div>
+        <p class="detalle sans" id="e5" style="position: absolute; left: 0; top: 356px;">Entre dos museos · hasta las 21 h</p>
+      </div>
+      <!-- 6 · Día 3: tres paradas, tres mercadillos. El título cambia con la foto. -->
+      <div class="bloque" id="b6" style="top: 1040px;">
+        <div class="sombra" id="s6"></div>
+        <p class="kicker sans" id="k6">DÍA 3</p>
+        <p class="tit serif" id="t6a" style="position: absolute; left: 0; top: 46px; font-size: 124px; line-height: 1;">Schönbrunn</p>
+        <p class="tit serif" id="t6b" style="position: absolute; left: 0; top: 46px; font-size: 124px; line-height: 1;">Belvedere</p>
+        <p class="tit serif" id="t6c" style="position: absolute; left: 0; top: 46px; font-size: 124px; line-height: 1;">Karlsplatz</p>
+        <div class="pastilla" id="p6a" style="top: 196px;"><div class="puntos"><i class="si"></i><i class="si"></i><i class="si"></i><i></i><i></i></div><p class="sans">Mercadillo 3 de 5</p></div>
+        <div class="pastilla" id="p6b" style="top: 196px;"><div class="puntos"><i class="si"></i><i class="si"></i><i class="si"></i><i class="si"></i><i></i></div><p class="sans">Mercadillo 4 de 5</p></div>
+        <div class="pastilla" id="p6c" style="top: 196px;"><div class="puntos"><i class="si"></i><i class="si"></i><i class="si"></i><i class="si"></i><i class="si"></i></div><p class="sans">Mercadillo 5 de 5</p></div>
+        <p class="detalle sans" id="e6a" style="position: absolute; left: 0; top: 284px;">En el patio del palacio · de 10 a 21 h</p>
+        <p class="detalle sans" id="e6b" style="position: absolute; left: 0; top: 284px;">En el parque del palacio · hasta las 21 h</p>
+        <p class="detalle sans" id="e6c" style="position: absolute; left: 0; top: 284px;">Art Advent, ante la Karlskirche · de 12 a 20 h</p>
+      </div>
+      <!-- 7 · Dónde está hecho. -->
+      <div class="bloque" id="b7" style="top: 1000px;">
+        <div class="sombra" id="s7"></div>
+        <p class="kicker sans" id="k7">VIAJES LISTOS</p>
+        <p class="tit serif" id="t7a" style="margin-top: 10px;">Este viaje ya está</p>
+        <p class="tit serif menta" id="t7b">hecho en Nomad.</p>
+        <p class="detalle sans" id="e7" style="position: absolute; left: 0; top: 268px;">Lo copias y le pones tus fechas.</p>
+        <p class="detalle sans" id="e7b" style="position: absolute; left: 0; top: 322px;">Con audioguía en paseos y museos.</p>
+      </div>
+
+      <!-- 8 · El cierre. -->
+      <div id="papel"></div>
+      <p id="c-grupo" class="serif">Mándaselo al grupo.</p>
+      <p id="c-sub" class="sans">Que nadie diga que no sabía.</p>
+      <img id="c-icono" src="assets/icono-app.png" alt="" />
+      <p id="c-nombre" class="serif">Nomad: guía de viajes</p>
+      <img id="c-insignia" src="assets/insignia-app-store-es.svg" alt="Consíguelo en el App Store" />
+      <p id="c-android" class="sans">Pronto en Android™</p>
+      <p id="c-credito" class="sans">Apple, el logotipo de Apple e iPhone son marcas comerciales de Apple Inc., registradas en EE.&nbsp;UU. y en otros países. App Store es una marca de servicio de Apple Inc. Android es una marca comercial de Google LLC.</p>
+      <p id="c-perfil" class="sans">Enlace en el perfil</p>
+    </div>
+
+    <script src="assets/tiempos.js"></script>
+    <script>
+      /* La línea de tiempo entera, en segundos del vídeo final. `seek(t)` la deja en t: render.mjs la llama
+         una vez por fotograma. Nada depende del reloj: el mismo t da siempre el mismo fotograma. */
+      const T = window.TIEMPOS;
+      const VERSION = new URLSearchParams(location.search).get('version') || 'reel';
+      const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
+      const ENTRA = 0.34, SALE = 0.18, FUNDE = 0.14;
+
+      const foto = (id, t) => tl.fromTo('#f-' + id, { opacity: 0 }, { opacity: 1, duration: FUNDE, ease: 'none' }, t - FUNDE / 2);
+      const quita = (id, t) => tl.set('#f-' + id, { opacity: 0 }, t + FUNDE);
+      const entra = (sel, t, d = 0) => tl.fromTo(sel, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: ENTRA }, t + d);
+      const sale = (sel, t) => tl.to(sel, { opacity: 0, y: -18, duration: SALE, ease: 'power2.in' }, t - SALE);
+      const lugar = (id, t0, t1) => { tl.fromTo('#l-' + id, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.28 }, t0 + 0.12);
+                                      tl.to('#l-' + id, { opacity: 0, duration: 0.14, ease: 'none' }, t1 - 0.14); };
+      const sombra = (n, t0, t1) => { tl.fromTo('#s' + n, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'none' }, t0);
+                                      tl.to('#s' + n, { opacity: 0, duration: 0.2, ease: 'none' }, t1 - 0.2); };
+      const pastilla = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.82, transformOrigin: '0 50%' }, { opacity: 1, scale: 1, duration: 0.36, ease: 'back.out(2.2)' }, t);
+
+      /* 1 · El gancho: foto y texto ya puestos en el fotograma 0. La raya verde se traza bajo la segunda línea. */
+      /* Foto, texto y lugar van puestos en el HTML (opacity: 1), no con un `set` en el segundo 0. */
+      tl.fromTo('#r1', { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: 'power2.inOut' }, 0.5);
+      sale(['#t1a', '#t1b', '#t1c', '#r1'], T.respira);
+
+      /* 2 · «Tú respira.» sobre la misma foto. */
+      tl.fromTo('#t2', { opacity: 0, scale: 0.9, transformOrigin: '0 100%' }, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.8)' }, T.respira + 0.04);
+      sale('#t2', T.viena);
+
+      /* 3 · Viena, 3 días, ya organizada. */
+      foto('tiovivo', T.viena); quita('arco', T.viena); lugar('tiovivo', T.viena, T.dia1);
+      sombra(3, T.viena, T.dia1);
+      entra('#t3a', T.viena, 0.06); entra('#t3b', T.viena, 0.2);
+      pastilla('#p3', T.montada);
+      sale(['#t3a', '#t3b', '#p3'], T.dia1);
+
+      /* La barra de los días aparece con el día 1 y se va llenando: siempre se ve cuánto queda. */
+      tl.fromTo('#dias', { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.3 }, T.dia1);
+      const llena = (n, t0, t1) => { tl.to(`#d${n} p`, { color: '#FFFDF9', duration: 0.2, ease: 'none' }, t0);
+                                     tl.fromTo(`#d${n}l`, { scaleX: 0 }, { scaleX: 1, duration: t1 - t0, ease: 'none' }, t0); };
+      llena(1, T.dia1, T.dia2); llena(2, T.dia2, T.dia3); llena(3, T.dia3, T.app);
+
+      /* 4 · Día 1: el Graben y, con «la Catedral», la Catedral con su mercadillo. */
+      foto('graben', T.dia1); quita('tiovivo', T.dia1); lugar('graben', T.dia1, T.catedral);
+      sombra(4, T.dia1, T.dia2);
+      entra('#k4', T.dia1, 0.05); entra('#t4a', T.dia1, 0.14); entra('#t4b', T.dia1, 0.26);
+      foto('catedral', T.catedral); quita('graben', T.catedral); lugar('catedral', T.catedral, T.dia2);
+      pastilla('#p4', T.catedral + 0.25); entra('#e4', T.catedral, 0.4);
+      sale(['#k4', '#t4a', '#t4b', '#p4', '#e4'], T.dia2);
+
+      /* 5 · Día 2: el Kohlmarkt hacia el Hofburg y, con «el museo», el mercadillo de delante. */
+      foto('kohlmarkt', T.dia2); quita('catedral', T.dia2); lugar('kohlmarkt', T.dia2, T.museo);
+      sombra(5, T.dia2, T.dia3);
+      entra('#k5', T.dia2, 0.05); entra('#t5a', T.dia2, 0.14); entra('#t5b', T.dia2, 0.26);
+      foto('mtplatz', T.museo); quita('kohlmarkt', T.museo); lugar('mtplatz', T.museo, T.dia3);
+      pastilla('#p5', T.museo + 0.25); entra('#e5', T.museo, 0.4);
+      sale(['#k5', '#t5a', '#t5b', '#p5', '#e5'], T.dia3);
+
+      /* 6 · Día 3: tres fotos, y el título, la pastilla y el detalle cambian con cada una. */
+      foto('schonbrunn', T.dia3); quita('mtplatz', T.dia3); lugar('schonbrunn', T.dia3, T.belvedere);
+      sombra(6, T.dia3, T.app);
+      entra('#k6', T.dia3, 0.05); entra('#t6a', T.dia3, 0.14); pastilla('#p6a', T.dia3 + 0.45); entra('#e6a', T.dia3, 0.6);
+      sale(['#t6a', '#p6a', '#e6a'], T.belvedere);
+      foto('belvedere', T.belvedere); quita('schonbrunn', T.belvedere); lugar('belvedere', T.belvedere, T.karlsplatz);
+      entra('#t6b', T.belvedere, 0.02); pastilla('#p6b', T.belvedere + 0.1); entra('#e6b', T.belvedere, 0.16);
+      sale(['#t6b', '#p6b', '#e6b'], T.karlsplatz);
+      foto('karlsplatz', T.karlsplatz); quita('belvedere', T.karlsplatz); lugar('karlsplatz', T.karlsplatz, T.app);
+      entra('#t6c', T.karlsplatz, 0.02); pastilla('#p6c', T.karlsplatz + 0.1); entra('#e6c', T.karlsplatz, 0.16);
+      /* «Los tres, con el suyo»: los cinco puntos laten una vez. */
+      tl.fromTo('#p6c', { scale: 1 }, { scale: 1.08, duration: 0.16, ease: 'power2.out', yoyo: true, repeat: 1, transformOrigin: '0 50%' }, T.lostres);
+      sale(['#k6', '#t6c', '#p6c', '#e6c'], T.app);
+      tl.to('#dias', { opacity: 0, duration: 0.2, ease: 'none' }, T.app - 0.2);
+
+      /* 7 · Está en Nomad. */
+      foto('paseo', T.app); quita('karlsplatz', T.app);
+      sombra(7, T.app, T.cierre);
+      entra('#k7', T.app, 0.05); entra('#t7a', T.app, 0.14); entra('#t7b', T.app, 0.28);
+      entra('#e7', T.copias, 0); entra('#e7b', T.copias, 0.5);
+      sale(['#k7', '#t7a', '#t7b', '#e7', '#e7b'], T.cierre);
+
+      /* 8 · El cierre de la casa. */
+      tl.fromTo('#papel', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'none' }, T.cierre - 0.1);
+      tl.fromTo('#c-grupo', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4 }, T.cierre + 0.2);
+      tl.fromTo('#c-sub', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.36 }, T.quenadie);
+      tl.fromTo('#c-icono', { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.42, ease: 'back.out(1.6)' }, T.cierre + 0.45);
+      tl.fromTo('#c-nombre', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.36 }, T.cierre + 0.62);
+      tl.fromTo('#c-insignia', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.36 }, T.cierre + 0.78);
+      tl.fromTo(['#c-android', '#c-credito'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'none' }, T.cierre + 1.0);
+      if (VERSION === 'reel') tl.fromTo('#c-perfil', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.36 }, T.cierre + 1.3);
+      /* Un latido del icono con la última palabra, para que el cierre no se quede quieto. */
+      tl.fromTo('#c-icono', { scale: 1 }, { scale: 1.05, duration: 0.22, ease: 'power2.out', yoyo: true, repeat: 1 }, T.fin - 1.25);
+      tl.set({}, {}, T.fin);
+
+      if (new URLSearchParams(location.search).get('portada')) {
+        document.getElementById('t1a').textContent = 'El puente';
+        document.getElementById('t1b').textContent = 'en Viena';
+        document.getElementById('t1c').textContent = '3 días y 5 mercadillos.';
+      }
+      window.DURACION = T.fin;
+      window.seek = (t) => { tl.time(Math.max(1e-4, Math.min(t, T.fin - 1e-4)), false); };
+      window.listo = document.fonts.ready.then(() => Promise.all([...document.images].map(i => i.decode ? i.decode().catch(() => {}) : null))).then(() => { seek(0); return true; });
+    </script>
+  </body>
+</html>

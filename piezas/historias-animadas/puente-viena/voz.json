@@ -1,0 +1,23 @@
+{
+  "velocidad": 1.15,
+  "hueco": 0.25,
+  "voz": "Kore",
+  "modelo": "gemini-3.1-flash-tts-preview",
+  "estilo": "Locuta un vídeo corto para redes, cercana y con energía tranquila, con un punto de guasa y naturalidad de conversación real, en español de España; Nomad se pronuncia «nómad», Hofburg «jófburg», Schönbrunn «shonbrún» y Karlsplatz «kárlsplats»:",
+  "frases": [
+    {"id": "v1", "texto": "Spoiler: lo vas a organizar tú.", "dura": 2.38,
+     "palabras": {"Spoiler": 0.0, "lo": 0.9, "organizar": 1.56, "tú": 2.16}},
+    {"id": "v2", "texto": "Tú respira. Viena, tres días, ya montada.", "dura": 4.47,
+     "palabras": {"Tú": 0.0, "respira": 0.22, "Viena": 1.44, "tres": 2.18, "días": 2.72, "Ya": 3.54, "montada": 3.86}},
+    {"id": "v3", "texto": "Día uno: el centro y la Catedral, con su mercadillo.", "dura": 4.67,
+     "palabras": {"Día": 0.0, "uno": 0.5, "El": 1.26, "centro": 1.48, "la": 2.38, "catedral": 2.52, "Con": 3.42, "mercadillo": 3.94}},
+    {"id": "v4", "texto": "Día dos: el Hofburg y el museo, con otro delante.", "dura": 4.46,
+     "palabras": {"Día": 0.0, "dos": 0.44, "El": 1.04, "Hofburg": 1.38, "y": 1.92, "museo": 2.36, "Con": 3.18, "otro": 3.56, "delante": 3.8}},
+    {"id": "v5", "texto": "Día tres: Schönbrunn. Belvedere. Y Karlsplatz. Los tres, con el suyo.", "dura": 7.10,
+     "palabras": {"Día": 0.0, "tres": 0.4, "Schönbrunn": 1.04, "Belvedere": 2.34, "y": 3.1, "Karlsplatz": 3.8, "los": 5.18, "suyo": 6.6}},
+    {"id": "v6", "texto": "Está en Nomad: lo copias y le pones tus fechas.", "dura": 3.21,
+     "palabras": {"Está": 0.0, "Nomad": 0.56, "lo": 1.22, "copias": 1.38, "fechas": 2.62}},
+    {"id": "v7", "texto": "Mándaselo al grupo. Que nadie diga que no sabía.", "dura": 3.55,
+     "palabras": {"Mándaselo": 0.0, "grupo": 1.0, "que": 1.66, "sabía": 3.04}}
+  ]
+}
