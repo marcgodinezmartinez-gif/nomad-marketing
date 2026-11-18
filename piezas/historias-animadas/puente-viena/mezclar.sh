@@ -4,15 +4,15 @@
 #
 # Lo que cambia aquí: los tiempos ya son los del vídeo final (los escribe tiempos.py desde voz.json), así que
 # la voz se acelera a 1,15× con atempo y se coloca tal cual. La música va también a 1,15× (rubberband), y
-# empieza 26 negras dentro de la pista (20,82 s) para que su último acorde (el 51,25 de la pista) caiga en el
-# 26,46 del vídeo, cuando entra «Que nadie diga que no sabía».
+# empieza 32 negras dentro de la pista (8 compases, 25,63 s) para que su último acorde (el 51,25 de la pista)
+# caiga en el 22,28 del vídeo, cuando la tarjeta del final acaba de subir.
 set -e
 cd "$(dirname "$0")/assets"
 VEL=1.15
-INICIO=20.8208
+INICIO=25.6256
 read -r _ DUR _ _ < <(python3 ../tiempos.py | grep '^DURACION')
 EMPIEZA=($(python3 ../tiempos.py | sed -n 's/^EMPIEZA //p'))
-VOCES=(v1 v2 v3 v4 v5 v6 v7)
+VOCES=(v1 v2 v3 v4 v5 v6 v7 v8)
 T=$(mktemp -d)
 trap 'rm -rf "$T"' EXIT
 

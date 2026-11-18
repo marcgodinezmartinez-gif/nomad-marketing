@@ -1,2 +1,2 @@
 // Lo escribe tiempos.py desde voz.json. No se toca a mano.
-window.TIEMPOS = {"respira": 2.37, "viena": 3.722, "montada": 5.648, "dia1": 6.457, "catedral": 8.697, "mercadillo1": 9.681, "dia2": 10.767, "museo": 12.637, "mercadillo2": 13.782, "dia3": 14.896, "schonbrunn": 16.05, "belvedere": 17.081, "karlsplatz": 18.33, "lostres": 19.65, "app": 21.32, "copias": 22.631, "cierre": 24.361, "quenadie": 26.054, "fin": 28.8};
+window.TIEMPOS = {"viena": 3.63, "dia1": 6.509, "catedral": 8.749, "dia2": 10.82, "museo": 12.69, "d3a": 14.948, "d3b": 18.041, "d3c": 20.109, "cierre": 21.995, "nomad": 23.656, "mandaselo": 24.619, "fin": 27.5};
