@@ -5,7 +5,9 @@
 # 1. LAS GRABACIONES SON DE FOTOGRAMAS VARIABLES, Y SU MP4 MIENTE EN LOS TIEMPOS: cada grabación se copia
 #    primero a un .mkv (que guarda el pts), se pasa a 120 fps fijos y la ventana se corta después (trim).
 # 2. LO QUE HAY QUE TAPAR SE TAPA AQUÍ, en píxeles de la grabación («velos» en tomas.json: y0, y1 y el color
-#    de debajo), antes de recortar y escalar: el código de invitación del viaje demo, sobre todo.
+#    de debajo; y, si no es la franja entera, x0 y x1), antes de recortar y escalar: el código de invitación
+#    del viaje demo, sobre todo. Un velo no se mueve: la toma se corta ANTES de que lo tapado se desplace.
+# 3. UNA TOMA CUYA GRABACIÓN NO ESTÁ SE SALTA, con aviso: las de la segunda pasada llegan después.
 #
 # Las grabaciones son las de capturas/viena.sh del repo de la app (recorrido-viena-*.mp4, 18-nov):
 # 1206×2622, sin sonido. Sin la barra de estado ni la barra de inicio, como en asi-funciona: se quitan 168 px
@@ -25,14 +27,20 @@ def mkv(fichero):
     if not os.path.exists(sal):
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', os.path.join(M, fichero), '-map', '0:v:0', '-c', 'copy', sal], check=True)
     return sal
+def velo(v):
+    y0, y1, c = v[0], v[1], v[2]
+    x0, x1 = (v[3], v[4]) if len(v) > 3 else (0, 1206)
+    return f",drawbox=x={x0}:y={y0}:w={x1 - x0}:h={y1 - y0}:color=0x{c.lstrip('#')}@1:t=fill"
 for t in tomas:
+    if not os.path.exists(os.path.join(M, t['fichero'])):
+        print(f"{t['id']}: FALTA {t['fichero']}; se queda la toma que hubiera"); continue
     largo = t['salida'] - t['entrada']                 # segundos de grabación
     dura = (t['fin'] - t['inicio']) / VELOCIDAD        # segundos que se ve en el vídeo final
     v = largo / dura
     # (el trim corta 0,1 s de vídeo final más allá de «salida»: la toma no se queda un fotograma corta por redondeo,
     # y el <video> sólo enseña data-duration)
     sal = os.path.join(D, 'assets/tomas', t['id'] + '.mp4')
-    velos = ''.join(f",drawbox=x=0:y={a}:w=1206:h={b - a}:color=0x{c.lstrip('#')}@1:t=fill" for a, b, c in t.get('velos', []))
+    velos = ''.join(velo(v) for v in t.get('velos', []))
     vf = (f"fps=120,trim=start={t['entrada']:.3f}:end={t['salida'] + 0.1 * v:.3f},setpts=(PTS-STARTPTS)/{v:.6f},fps=30,"
           f"format=rgb24{velos},crop=1206:2406:0:168,scale=404:806:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p")
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', mkv(t['fichero']), '-vf', vf,
