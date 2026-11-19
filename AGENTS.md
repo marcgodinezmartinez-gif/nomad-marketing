@@ -33,9 +33,13 @@ quedaron en el repo de la app —#68 subir destacadas y reels, #69 la tabla de p
   la oculta en cuanto una tienda está encendida. **El 1,99 € ya no se ofrece a nadie nuevo y no
   sale en ninguna pieza nueva.** Cómo lo canjean quienes estaban dentro no consta en este repo:
   hasta que el dueño lo confirme, no se afirma nada de eso en público.
-- **Android: sin fecha.** La respuesta decidida el 1-oct es «síguenos y te avisamos el día que
-  salga». Nunca una fecha, nunca «disponible», y «pronto» —que es la palabra del dueño—, no «muy
-  pronto» con un mes detrás.
+- **Android: en Google Play desde el 19-nov** (comprobado ese día: la ficha se ve en siete países).
+  Ficha: `https://play.google.com/store/apps/details?id=com.mgodinezdev.nomad`. Mismo nombre,
+  «Nomad: guía de viajes», gratis y con los mismos precios por viaje. El enlace que sirve para
+  los dos móviles es `travelsnomad.com/app`: cada uno cae en su tienda. **«Pronto en Android» ya
+  no se dice**, y lo que lo diga se retira o se rehace (#21). A quien se le contestó «te avisamos
+  el día que salga» hay que avisarle: el correo a la lista espera al dueño (NOMAD#470). Las
+  descargas de Android que traiga una pieza no se pueden separar todavía (NOMAD#473).
 - **Todo lo anterior al 19-oct que diga «lista de espera», «llega en octubre», «apúntate» o «1,99 €»
   está desfasado**: el cierre «Lista de espera abierta / Llega en octubre / 1,99 €*» está horneado en
   casi todos los generadores, las destacadas «La lista» y «Qué es» (tarjeta 7) y los pies de los
