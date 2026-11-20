@@ -39,7 +39,8 @@ quedaron en el repo de la app —#68 subir destacadas y reels, #69 la tabla de p
   los dos móviles es `travelsnomad.com/app`: cada uno cae en su tienda. **«Pronto en Android» ya
   no se dice**, y lo que lo diga se retira o se rehace (#21). A quien se le contestó «te avisamos
   el día que salga» hay que avisarle: el correo a la lista espera al dueño (NOMAD#470). Las
-  descargas de Android que traiga una pieza no se pueden separar todavía (NOMAD#473).
+  descargas de Android que traiga una pieza se separan desde el 20-nov, si su enlace lleva etiqueta
+  (ver «Medir antes de opinar»).
 - **Todo lo anterior al 19-oct que diga «lista de espera», «llega en octubre», «apúntate» o «1,99 €»
   está desfasado**: el cierre «Lista de espera abierta / Llega en octubre / 1,99 €*» está horneado en
   casi todos los generadores, las destacadas «La lista» y «Qué es» (tarjeta 7) y los pies de los
@@ -89,13 +90,29 @@ diagnóstico de la portada, en `campana/LANZAMIENTO-PUBLICIDAD.md`.
 
 **Desde el 19-oct esta sección mide la lista, que está cerrada: las consultas de abajo siguen
 valiendo para la historia (septiembre-octubre) y ya no cuentan lo que traen las piezas nuevas.**
-Lo que sí cuenta ahora son las **descargas y las compras**, y salen de App Store Connect, no de
-este repo: hacen falta enlaces de campaña (`pt` y `ct`) de la ficha, uno por pieza o por canal.
-`travelsnomad.com/app` **pierde el UTM**: `tienda.js` salta a la tienda con `location.replace` y
-la ficha sólo ve «travelsnomad.com» como origen. Para que una pieza se pueda comparar con otra, el
-adhesivo de enlace lleva el enlace de campaña directo a la ficha. La tabla de parada y el «alta
-vale 0,24 €» de arriba están definidas para altas de lista; **no hay todavía una unidad nueva**
-(`campana/VISION.md` §9 dice que se recalcula cuando se sepa qué parte de las descargas compra).
+Lo que sí cuenta ahora son las **descargas y las compras**, y salen de App Store Connect y de la
+consola de Google Play, no de este repo.
+
+**Desde el 20-nov, `travelsnomad.com/app` lleva la etiqueta de cada pieza hasta su tienda**
+(NOMAD#473). El enlace de un adhesivo o de un anuncio es
+`travelsnomad.com/app?utm_source=instagram&utm_medium=organic&utm_campaign=<pieza>`, y la web la
+pasa a Apple (como campaña) y a Google Play (como fuente y campaña). Antes la perdía. Lo que hay
+que saber:
+
+- **El nombre de la pieza**: letras sin acento, números y guiones, 30 como mucho. Lo que no tenga
+  esa forma se ignora y la descarga sale como «web-app».
+- **Dónde se ve**: en App Store Connect, Analíticas → Adquisición → Campañas, sólo con 5 personas
+  distintas y pasadas 24 horas. En la consola de Google Play, en adquisición, por fuente y
+  campaña; lo pequeño sale agrupado en «Otros». A este volumen, una etiqueta por canal o por
+  prueba, no una por tarjeta.
+- **Sin comprobar todavía**, y sólo lo ve el dueño en sus consolas: que Apple cuente una campaña
+  que no se creó antes en App Store Connect, y que la etiqueta sobreviva al salto desde el
+  navegador de Instagram a la app de Play.
+
+La tabla de parada y el «alta vale 0,24 €» de arriba están definidas para altas de lista. **No hay
+todavía una unidad nueva.** Lo medido el 20-nov: desde el 19-oct, 78 cuentas nuevas y 2 ventas
+reales (7,01 € netos), o sea unos 9 céntimos por cuenta; y una cuenta traída con anuncios costó al
+menos 4 €. Pagar por descargas compra aprendizaje, no ventas.
 
 La única tabla de resultados era la base de datos, no lo que Meta se atribuya. Sin píxel,
 a propósito. Dos consultas, cada día:

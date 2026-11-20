@@ -21,6 +21,29 @@ node ../piezas/roma/exportar-plan.mjs dos 3 1080 1920
 **No está publicado ni decidido.** Falta que el dueño elija variante y diga si va sólo como historia
 con adhesivo de enlace o también como anuncio.
 
+### La prueba de pago: misterio contra la app delante (20-nov)
+
+El dueño quiere saber si el anuncio con misterio trae gente que no conoce Nomad. Se prueba
+`dos-3` contra `dos-2`, con el mismo público y el mismo dinero, y gana el que traiga más descargas,
+no más toques.
+
+| nivel | qué |
+|---|---|
+| campaña | «Las dos tiendas · misterio vs la app delante» (`120249214297860710`): tráfico, sin presupuesto de campaña, tope de gasto de 100 € (el mínimo que deja Meta) |
+| conjuntos | uno por anuncio, iguales: España, 18+, Instagram (historias y reels), público automático, iPhone y Android, 7 € al día, del 21 al 25-nov. 70 € en total, lo que dijo el dueño (12-15 € al día, 5 días) |
+| anuncios | **sin crear**: faltan las dos imágenes en la cuenta de anuncios |
+| enlaces | `travelsnomad.com/app?utm_source=meta&utm_medium=paid&utm_campaign=meta-misterio` y `…=meta-app`, con el botón Descargar |
+
+Está en el **borrador** de Ads Manager: no existe ni gasta hasta que el dueño lo publique. Si lo
+publica después del 21, dura menos de cinco días: se le cambian las fechas antes.
+
+**Lo que bloqueó el 20-nov:** subir las imágenes desde la sesión lo denegó el sistema de permisos.
+Salen de `salida/dos-2.png` y `salida/dos-3.png`.
+
+**Cómo se lee al acabar:** toques por anuncio, en Meta. Descargas por anuncio, en App Store Connect
+(campañas `meta-misterio` y `meta-app`) y en la consola de Google Play. Cuentas nuevas por día, en
+producción. Con estas cifras puede salir un empate.
+
 **Las insignias de la imagen no se tocan**: en una historia sólo se toca el adhesivo de enlace, y en
 un anuncio, su botón. El enlace que vale para los dos móviles es `travelsnomad.com/app`.
 
