@@ -1,5 +1,58 @@
 # El lanzamiento
 
+## «Ya en iPhone y Android» (20-nov) — `gen-dos-tiendas.py`, BORRADOR
+
+Android está en Google Play desde el 19-nov (#21). El dueño enseñó como referencia un anuncio en
+historias de otra app: color plano, el icono en grande, «ya en iOS y Android», las dos insignias y
+«descárgala». Dos historias de 1080×1920 para elegir:
+
+| # | Qué es | Para quién |
+|---|---|---|
+| `dos-1` | El anuncio a secas, en los colores del icono | Quien ya conoce Nomad: seguidores, quien preguntó por Android, quien vio los vídeos |
+| `dos-2` | Lo mismo con el plan de un día en el móvil | Quien no la conoce: dice qué hace antes de decir dónde está |
+
+```bash
+bash piezas/preparar.sh
+cd salida && python3 ../piezas/lanzamiento/gen-dos-tiendas.py
+node ../piezas/roma/exportar-plan.mjs dos 2 1080 1920
+```
+
+**No está publicado ni decidido.** Falta que el dueño elija variante y diga si va sólo como historia
+con adhesivo de enlace o también como anuncio.
+
+**Las insignias de la imagen no se tocan**: en una historia sólo se toca el adhesivo de enlace, y en
+un anuncio, su botón. El enlace que vale para los dos móviles es `travelsnomad.com/app`.
+
+**Lo que se midió ese día, antes de hacerla** (cuenta de Meta, producción y las dos fichas):
+
+- En Meta, desde agosto: 184 € y 3.183 clics en el enlace, a 0,06 € el clic. El anuncio a la App
+  Store («Así funciona») lleva 96,22 €: los 37 € del 31-oct al 2-nov que apunta
+  `campana/CAMPANA-ASI-FUNCIONA.md` y otros 59 € del 8 al 11-nov, que no estaban apuntados.
+- Desde que la app está en la tienda (19-oct): 78 cuentas nuevas y 2 ventas reales, las dos en
+  iPhone, que dejan 7,01 € netos. En los cuatro días del 8 al 11-nov entraron 14 cuentas.
+- Las fichas: 1 valoración en la App Store y «10+ descargas» en Google Play.
+
+O sea: el clic sale barato y el anuncio no es el problema. Lo que falla está después del clic, y con
+estas cifras una cuenta nueva deja unos 9 céntimos. Pagar por descargas hoy compra aprendizaje, no
+ventas.
+
+**Lo que se contrastó con fuentes de fuera ese día** (cinco lectores y dos escépticos):
+
+- Apple Ads (antes Apple Search Ads) tiene una modalidad que cobra por instalación, Basic, sin nada
+  dentro de la app, y España está en su lista de países. El mínimo y el crédito de bienvenida no
+  constan: se ven al crear la cuenta.
+- Google Ads cuenta las instalaciones de Google Play sin SDK, pero recomienda un presupuesto diario
+  de 50 veces lo que se quiere pagar por instalación. Con decenas de euros no aprende.
+- En Meta, optimizar a instalaciones pide su SDK o un socio de medición dentro de la app. Sin él,
+  una campaña sólo puede buscar clics.
+- La consola de Google Play enseña visitas e instalaciones por `utm_source` y `utm_campaign` sin
+  SDK, y agrupa en «Otros» lo que tiene poco volumen. El enlace de la web a Play aún no los lleva
+  (NOMAD#473).
+- Un enlace de campaña de Apple sólo aparece en App Store Connect con 5 personas distintas y pasadas
+  24 horas. A este volumen, un enlace por canal, no uno por pieza.
+- No hay ningún estudio serio que compare «enseñar el producto» con «anuncio de marca» para público
+  frío, ni el efecto de tener pocas valoraciones. Las dos cosas son hipótesis razonables.
+
 ## «Nomad ya está en la App Store» (24-oct) — `gen-ios.py`
 
 Carrusel de 6 tarjetas de 1080×1350 con el anuncio de que la app está en iPhone y de que
