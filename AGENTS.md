@@ -105,9 +105,10 @@ que saber:
   distintas y pasadas 24 horas. En la consola de Google Play, en adquisición, por fuente y
   campaña; lo pequeño sale agrupado en «Otros». A este volumen, una etiqueta por canal o por
   prueba, no una por tarjeta.
-- **Sin comprobar todavía**, y sólo lo ve el dueño en sus consolas: que Apple cuente una campaña
-  que no se creó antes en App Store Connect, y que la etiqueta sobreviva al salto desde el
-  navegador de Instagram a la app de Play.
+- **Apple cuenta una campaña aunque su nombre no se haya creado antes en App Store Connect**: el
+  dueño vio allí `web-app` el 20-nov, que es un nombre que sólo existe en el enlace de la web.
+- **Sin comprobar todavía**, y sólo lo ve el dueño en la consola de Google Play: que la etiqueta
+  sobreviva al salto desde el navegador de Instagram a la app de Play.
 
 La tabla de parada y el «alta vale 0,24 €» de arriba están definidas para altas de lista. **No hay
 todavía una unidad nueva.** Lo medido el 20-nov: desde el 19-oct, 78 cuentas nuevas y 2 ventas
