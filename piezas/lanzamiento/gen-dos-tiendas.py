@@ -107,20 +107,23 @@ T['dos-2'] = (
 
 # ── dos-3 · el anuncio con misterio: como la referencia, sin decir qué hace ni cuánto cuesta ────
 # Pedida por el dueño el 20-nov («el tema enigmático a la gente le suele gustar»): es la que se
-# prueba contra dos-2 con público que no conoce Nomad. Sólo el titular, el icono y las tiendas.
+# prueba contra dos-2 con público que no conoce Nomad. El titular lo eligió él entre cuatro:
+# «Nomad ya está en iPhone y Android» no le gustó, y de «Tu próximo viaje ya está escrito»,
+# «¿A dónde vas?», «Ya está aquí» y uno con el texto pequeño como la referencia, se quedó éste.
+def centrado(t, y, estilo):
+    return (f'<p class="sans" style="position: absolute; left: 0; top: {y}px; width: 1080px; margin: 0; text-align: center; '
+            f'font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; {estilo}">{t}</p>')
+
 T['dos-3'] = (
     f'<div style="width: 1080px; height: {H}px; box-sizing: border-box; position: relative; overflow: hidden; '
     f'background: {CREMA}; color: {TINTA}">'
-    f'<p class="sans" style="position: absolute; left: 0; top: 310px; width: 1080px; margin: 0; text-align: center; '
-    f'font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: {VERDE}">Ya es oficial</p>'
-    f'<h1 class="serif" style="position: absolute; left: 84px; top: 378px; width: 912px; margin: 0; text-align: center; '
-    f'font-size: 104px; line-height: 1.04; letter-spacing: -0.018em; font-weight: 400">Nomad ya est&aacute; en iPhone y&nbsp;Android&trade;.</h1>'
-    f'<img src="icono-app.png" alt="" style="position: absolute; left: 320px; top: 740px; width: 440px; height: 440px; '
-    f'border-radius: 98px; display: block; box-shadow: 0 34px 90px rgba(22, 19, 15, 0.24), 0 0 0 1px rgba(22, 19, 15, 0.06)">'
+    + centrado('Ya en iPhone y Android&trade;', 310, f'color: {VERDE}')
+    + f'<h1 class="serif" style="position: absolute; left: 84px; top: 378px; width: 912px; margin: 0; text-align: center; '
+      f'font-size: 112px; line-height: 1.04; letter-spacing: -0.018em; font-weight: 400">Tu pr&oacute;ximo viaje ya est&aacute; escrito.</h1>'
+    + f'<img src="icono-app.png" alt="" style="position: absolute; left: 320px; top: 740px; width: 440px; height: 440px; '
+      f'border-radius: 98px; display: block; box-shadow: 0 34px 90px rgba(22, 19, 15, 0.24), 0 0 0 1px rgba(22, 19, 15, 0.06)">'
     + insignias(0, 1262, 96, centro=True)
-    + f'<p class="sans" style="position: absolute; left: 0; top: 1404px; width: 1080px; margin: 0; text-align: center; '
-      f'font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: rgba(22, 19, 15, 0.78)">'
-      f'Desc&aacute;rgala ya</p>'
+    + centrado('Desc&aacute;rgala ya', 1404, 'color: rgba(22, 19, 15, 0.78)')
     + legal('rgba(22, 19, 15, 0.46)', y=1466, centro=True)
     + '</div>')
 
