@@ -31,14 +31,17 @@ no más toques.
 |---|---|
 | campaña | «Las dos tiendas · misterio vs la app delante» (`120249214297860710`): tráfico, sin presupuesto de campaña, tope de gasto de 100 € (el mínimo que deja Meta) |
 | conjuntos | uno por anuncio, iguales: España, 18+, Instagram (historias y reels), público automático, iPhone y Android, 7 € al día, del 21 al 25-nov. 70 € en total, lo que dijo el dueño (12-15 € al día, 5 días) |
-| anuncios | **sin crear**: faltan las dos imágenes en la cuenta de anuncios |
+| anuncios | **creados el 20-nov, sin publicar**: «Misterio · historia» (`120249214804450710`, creativo `1457924286492362`, imagen `dos-3`) en el conjunto `120249214300100710`, y «La app delante · historia» (`120249214804900710`, creativo `1409108671245773`, imagen `dos-2`) en el `120249214300140710`. Uno por conjunto, sin errores de validación, las mejoras automáticas de Meta apagadas y la etiqueta de IA en «no» (decisión del dueño) |
 | enlaces | `travelsnomad.com/app?utm_source=meta&utm_medium=paid&utm_campaign=meta-misterio` y `…=meta-app`, con el botón Descargar |
 
 Está en el **borrador** de Ads Manager: no existe ni gasta hasta que el dueño lo publique. Si lo
 publica después del 21, dura menos de cinco días: se le cambian las fechas antes.
 
-**Lo que bloqueó el 20-nov:** subir las imágenes desde la sesión lo denegó el sistema de permisos.
-Salen de `salida/dos-2.png` y `salida/dos-3.png`.
+**Lo que bloqueó el 20-nov, y cómo se resolvió:** subir las imágenes desde la sesión lo denegó el
+sistema de permisos, dos veces y en dos sesiones. La segunda se reintentó una vez, con el sí del dueño,
+y entró: `dos-3.png` es la imagen `8d13cf45da9e866378388cad9b976659` de la biblioteca y `dos-2.png`, la
+`4eb335565b00ea964121d3795e5355c8`. Se generaron otra vez con las órdenes de arriba y salieron con las
+huellas que aprobó el dueño (sha256 `6958f04193882096…` y `79b1c3cf1b20e2cb…`).
 
 **Cómo se lee al acabar:** toques por anuncio, en Meta. Descargas por anuncio, en App Store Connect
 (campañas `meta-misterio` y `meta-app`) y en la consola de Google Play. Cuentas nuevas por día, en
