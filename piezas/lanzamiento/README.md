@@ -31,11 +31,13 @@ no más toques.
 |---|---|
 | campaña | «Las dos tiendas · misterio vs la app delante» (`120249214297860710`): tráfico, sin presupuesto de campaña, tope de gasto de 100 € (el mínimo que deja Meta) |
 | conjuntos | uno por anuncio, iguales: España, 18+, Instagram (historias y reels), público automático, iPhone y Android, 7 € al día, del 21 al 25-nov. 70 € en total, lo que dijo el dueño (12-15 € al día, 5 días) |
-| anuncios | **creados el 20-nov, sin publicar**: «Misterio · historia» (`120249214804450710`, creativo `1457924286492362`, imagen `dos-3`) en el conjunto `120249214300100710`, y «La app delante · historia» (`120249214804900710`, creativo `1409108671245773`, imagen `dos-2`) en el `120249214300140710`. Uno por conjunto, sin errores de validación, las mejoras automáticas de Meta apagadas y la etiqueta de IA en «no» (decisión del dueño) |
+| anuncios | **publicados el 20-nov hacia las 11:20 (hora de Madrid), con el sí del dueño; empiezan a gastar el 21-nov a las 00:00**: «Misterio · historia» (`120249214804450710`, creativo `1457924286492362`, imagen `dos-3`) en el conjunto `120249214300100710`, y «La app delante · historia» (`120249214804900710`, creativo `1409108671245773`, imagen `dos-2`) en el `120249214300140710`. Uno por conjunto, sin errores de validación, las mejoras automáticas de Meta apagadas y la etiqueta de IA en «no» (decisión del dueño) |
 | enlaces | `travelsnomad.com/app?utm_source=meta&utm_medium=paid&utm_campaign=meta-misterio` y `…=meta-app`, con el botón Descargar |
 
-Está en el **borrador** de Ads Manager: no existe ni gasta hasta que el dueño lo publique. Si lo
-publica después del 21, dura menos de cinco días: se le cambian las fechas antes.
+**Publicada el 20-nov**, antes del 21, así que dura los cinco días enteros sin mover fechas. Leído
+después en Meta: la campaña y los dos conjuntos en activo, con 7 € al día y del 21-nov 00:00 al
+26-nov 00:00; los dos anuncios en activo y en revisión (`IN_PROCESS`), y ningún error que bloquee la
+entrega.
 
 **Lo que bloqueó el 20-nov, y cómo se resolvió:** subir las imágenes desde la sesión lo denegó el
 sistema de permisos, dos veces y en dos sesiones. La segunda se reintentó una vez, con el sí del dueño,
