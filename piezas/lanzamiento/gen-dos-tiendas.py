@@ -5,6 +5,7 @@
 # esa pieza con lo de Nomad, y otra con el producto delante, para elegir:
 #   dos-1 · el anuncio a secas, en los colores del icono
 #   dos-2 · lo mismo con el plan de un día en el móvil
+#   dos-3 · el anuncio con misterio: sin decir qué hace ni cuánto cuesta
 #
 # Para quién sirve cada una, qué se midió antes de hacerlas y qué no está decidido: README.md.
 #
@@ -22,7 +23,7 @@
 # PAGAR un anuncio con ella, se lee.
 #
 # Uso, desde salida/:  python3 ../piezas/lanzamiento/gen-dos-tiendas.py
-#                      node ../piezas/roma/exportar-plan.mjs dos 2 1080 1920
+#                      node ../piezas/roma/exportar-plan.mjs dos 3 1080 1920
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from tarjetas import SOMBRA, MENTA, PAPEL, NOCHE, pagina as _pagina, kicker, titular, sub
@@ -102,6 +103,25 @@ T['dos-2'] = (
     + f'<p class="sans" style="position: absolute; left: 540px; top: 1452px; width: 456px; margin: 0; font-size: 28px; '
       f'line-height: 1.35; font-weight: 600; color: rgba(255, 253, 249, 0.9)">Descargarla es gratis. Se paga por viaje, desde 2,99&nbsp;&euro;.</p>'
     + legal('rgba(255, 253, 249, 0.46)', y=1560)
+    + '</div>')
+
+# ── dos-3 · el anuncio con misterio: como la referencia, sin decir qué hace ni cuánto cuesta ────
+# Pedida por el dueño el 20-nov («el tema enigmático a la gente le suele gustar»): es la que se
+# prueba contra dos-2 con público que no conoce Nomad. Sólo el titular, el icono y las tiendas.
+T['dos-3'] = (
+    f'<div style="width: 1080px; height: {H}px; box-sizing: border-box; position: relative; overflow: hidden; '
+    f'background: {CREMA}; color: {TINTA}">'
+    f'<p class="sans" style="position: absolute; left: 0; top: 310px; width: 1080px; margin: 0; text-align: center; '
+    f'font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: {VERDE}">Ya es oficial</p>'
+    f'<h1 class="serif" style="position: absolute; left: 84px; top: 378px; width: 912px; margin: 0; text-align: center; '
+    f'font-size: 104px; line-height: 1.04; letter-spacing: -0.018em; font-weight: 400">Nomad ya est&aacute; en iPhone y&nbsp;Android&trade;.</h1>'
+    f'<img src="icono-app.png" alt="" style="position: absolute; left: 320px; top: 740px; width: 440px; height: 440px; '
+    f'border-radius: 98px; display: block; box-shadow: 0 34px 90px rgba(22, 19, 15, 0.24), 0 0 0 1px rgba(22, 19, 15, 0.06)">'
+    + insignias(0, 1262, 96, centro=True)
+    + f'<p class="sans" style="position: absolute; left: 0; top: 1404px; width: 1080px; margin: 0; text-align: center; '
+      f'font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: rgba(22, 19, 15, 0.78)">'
+      f'Desc&aacute;rgala ya</p>'
+    + legal('rgba(22, 19, 15, 0.46)', y=1466, centro=True)
     + '</div>')
 
 for stem, html in T.items():

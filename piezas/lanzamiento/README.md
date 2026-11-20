@@ -4,17 +4,18 @@
 
 Android está en Google Play desde el 19-nov (#21). El dueño enseñó como referencia un anuncio en
 historias de otra app: color plano, el icono en grande, «ya en iOS y Android», las dos insignias y
-«descárgala». Dos historias de 1080×1920 para elegir:
+«descárgala». Tres historias de 1080×1920 para elegir:
 
 | # | Qué es | Para quién |
 |---|---|---|
 | `dos-1` | El anuncio a secas, en los colores del icono | Quien ya conoce Nomad: seguidores, quien preguntó por Android, quien vio los vídeos |
 | `dos-2` | Lo mismo con el plan de un día en el móvil | Quien no la conoce: dice qué hace antes de decir dónde está |
+| `dos-3` | El anuncio con misterio: sin decir qué hace ni cuánto cuesta | La apuesta del dueño para quien no la conoce («el tema enigmático a la gente le suele gustar»). Se prueba contra `dos-2` |
 
 ```bash
 bash piezas/preparar.sh
 cd salida && python3 ../piezas/lanzamiento/gen-dos-tiendas.py
-node ../piezas/roma/exportar-plan.mjs dos 2 1080 1920
+node ../piezas/roma/exportar-plan.mjs dos 3 1080 1920
 ```
 
 **No está publicado ni decidido.** Falta que el dueño elija variante y diga si va sólo como historia
