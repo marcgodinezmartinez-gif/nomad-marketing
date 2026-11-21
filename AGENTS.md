@@ -111,9 +111,20 @@ que saber:
   sobreviva al salto desde el navegador de Instagram a la app de Play.
 
 La tabla de parada y el «alta vale 0,24 €» de arriba están definidas para altas de lista. **No hay
-todavía una unidad nueva.** Lo medido el 20-nov: desde el 19-oct, 78 cuentas nuevas y 2 ventas
-reales (7,01 € netos), o sea unos 9 céntimos por cuenta; y una cuenta traída con anuncios costó al
-menos 4 €. Pagar por descargas compra aprendizaje, no ventas.
+todavía una unidad nueva.** Medido el 21-nov, separando a los probadores (NOMAD#429):
+
+- Desde el 19-oct: 31 cuentas reales (23 de iPhone, 3 de Android ya en la tienda y 5 sin saber) y 2
+  ventas, 9,98 € cobrados. Ninguna de las dos es de una cuenta creada desde que hay anuncios a la app.
+- Los anuncios a la App Store (96,22 €, 1.557 toques, 441 llegadas a la página) coincidieron con 7
+  cuentas de iPhone en sus 7 días con gasto. Es el mismo ritmo que en los cinco días sin anuncios
+  de al lado. La segunda tanda (59 €) coincidió con 1.
+- **Lo escrito aquí el 20-nov no vale**: «78 cuentas nuevas» y «una cuenta traída con anuncios
+  costó al menos 4 €» contaban a los probadores de la prueba cerrada de Android (12 de las 14
+  cuentas del 8 al 11-nov lo eran).
+- Qué anuncio trae descargas sólo lo dicen las tiendas, por campaña. Desde la app no se ve a quien
+  instala y no se registra.
+
+Pagar por descargas compra aprendizaje, no ventas.
 
 La única tabla de resultados era la base de datos, no lo que Meta se atribuya. Sin píxel,
 a propósito. Dos consultas, cada día:

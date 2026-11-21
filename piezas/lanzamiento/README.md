@@ -31,14 +31,42 @@ no más toques.
 |---|---|
 | campaña | «Las dos tiendas · misterio vs la app delante» (`120249214297860710`): tráfico, sin presupuesto de campaña, tope de gasto de 100 € (el mínimo que deja Meta) |
 | conjuntos | uno por anuncio, iguales: España, 18+, Instagram (historias y reels), público automático, iPhone y Android, 7 € al día, del 21 al 25-nov. 70 € en total, lo que dijo el dueño (12-15 € al día, 5 días) |
-| anuncios | **sin crear**: faltan las dos imágenes en la cuenta de anuncios |
+| anuncios | «Misterio · historia» y «La app delante · historia», uno por conjunto. Creados y publicados el 20-nov |
 | enlaces | `travelsnomad.com/app?utm_source=meta&utm_medium=paid&utm_campaign=meta-misterio` y `…=meta-app`, con el botón Descargar |
 
-Está en el **borrador** de Ads Manager: no existe ni gasta hasta que el dueño lo publique. Si lo
-publica después del 21, dura menos de cinco días: se le cambian las fechas antes.
+**Lo que pasó de verdad** (historial de la cuenta, hora de Madrid):
 
-**Lo que bloqueó el 20-nov:** subir las imágenes desde la sesión lo denegó el sistema de permisos.
-Salen de `salida/dos-2.png` y `salida/dos-3.png`.
+- 20-nov 11:20: la otra sesión crea los anuncios y adelanta el inicio a ese día. Empiezan a servir
+  a las 11:43, a 7 € al día por conjunto.
+- 20-nov 14:14: los dos conjuntos pasan a **15 € al día**, desde la app Ads Manager del móvil. Son
+  30 € al día, no los 12-15 € del plan. El tope de 100 € de la campaña sigue puesto.
+- 21-nov 10:27: se pausa la campaña. A las 12:52 se reactiva y **se pausa el conjunto de misterio**.
+  Desde entonces sólo corre «La app delante». Acaba el 25-nov a las 00:00.
+
+**Lo medido el 21-nov a las 18 h, con día y medio de campaña** (Meta y producción, de sólo lectura):
+
+| | misterio | la app delante |
+|---|---|---|
+| gasto | 12,33 € | 16,53 € |
+| impresiones | 1.676 | 2.819 |
+| toques en el enlace | 146 | 185 |
+| toques por cada 100 impresiones | 8,7 | 6,6 |
+| coste por toque | 0,08 € | 0,09 € |
+| llegadas a la página | 104 | 129 |
+
+- Misterio tuvo más toques por impresión, y el mismo coste por toque y las mismas llegadas por
+  euro. No es una prueba controlada: cada anuncio va en su conjunto y misterio sirvió menos horas.
+  **Qué anuncio trae más descargas no se sabe desde aquí**: lo dicen las campañas `meta-misterio`
+  y `meta-app` en App Store Connect y en la consola de Google Play.
+- **El 93 % del dinero se fue a móviles Android** (26,86 € de 28,86 €). A iPhone, 2 €.
+- El 70 % del gasto fue a hombres, repartido por edades. Por comunidad, los toques siguen a la
+  población: Cataluña 83, Andalucía 52, C. Valenciana 40, Madrid 38.
+- Cuentas reales nuevas desde que empezó: 6 (2 de iPhone, 2 de Android y 2 sin saber), y 1 creada
+  y borrada. Android había salido a la tienda 14 horas antes, así que no se puede separar lo que
+  trajo el anuncio de lo que trajo la salida. Es pronto para un coste por cuenta.
+- De las 233 llegadas a la página, como mucho 3 de cada 100 acabaron con cuenta. Dónde se pierde el
+  resto (la ficha de la tienda, la instalación o el registro) sólo lo enseñan las tiendas. La ficha
+  de Google Play seguía diciendo «10+ descargas» ese día.
 
 **Cómo se lee al acabar:** toques por anuncio, en Meta. Descargas por anuncio, en App Store Connect
 (campañas `meta-misterio` y `meta-app`) y en la consola de Google Play. Cuentas nuevas por día, en
@@ -54,11 +82,14 @@ un anuncio, su botón. El enlace que vale para los dos móviles es `travelsnomad
   `campana/CAMPANA-ASI-FUNCIONA.md` y otros 59 € del 8 al 11-nov, que no estaban apuntados.
 - Desde que la app está en la tienda (19-oct): 78 cuentas nuevas y 2 ventas reales, las dos en
   iPhone, que dejan 7,01 € netos. En los cuatro días del 8 al 11-nov entraron 14 cuentas.
+  **Corregido el 21-nov: esas cifras contaban a los probadores de Android.** De las 14 cuentas
+  del 8 al 11-nov, 12 eran de prueba o internas y 2 reales (1 de iPhone). Reales desde el 19-oct:
+  31 (23 de iPhone). Las cifras buenas están en `AGENTS.md`, «Medir antes de opinar».
 - Las fichas: 1 valoración en la App Store y «10+ descargas» en Google Play.
 
-O sea: el clic sale barato y el anuncio no es el problema. Lo que falla está después del clic, y con
-estas cifras una cuenta nueva deja unos 9 céntimos. Pagar por descargas hoy compra aprendizaje, no
-ventas.
+O sea: el clic sale barato y el anuncio no es el problema. Lo que falla está después del clic.
+Pagar por descargas hoy compra aprendizaje, no ventas. (El «9 céntimos por cuenta» que había aquí
+salía de las 78 cuentas con probadores dentro, y no vale.)
 
 **Lo que se contrastó con fuentes de fuera ese día** (cinco lectores y dos escépticos):
 
