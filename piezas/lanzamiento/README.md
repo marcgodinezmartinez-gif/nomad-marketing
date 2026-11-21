@@ -30,18 +30,30 @@ no más toques.
 | nivel | qué |
 |---|---|
 | campaña | «Las dos tiendas · misterio vs la app delante» (`120249214297860710`): tráfico, sin presupuesto de campaña, tope de gasto de 100 € (el mínimo que deja Meta) |
-| conjuntos | uno por anuncio, iguales: España, 18+, Instagram (historias y reels), público automático, iPhone y Android, 7 € al día, del 21 al 25-nov. 70 € en total, lo que dijo el dueño (12-15 € al día, 5 días) |
-| anuncios | «Misterio · historia» y «La app delante · historia», uno por conjunto. Creados y publicados el 20-nov |
+| conjuntos | uno por anuncio, iguales: España, 18+, Instagram (historias y reels), público automático, iPhone y Android, 7 € al día; activos del 20-nov 11:31 al 25-nov 00:00 (antes, del 21 al 25-nov). 70 € en total, lo que dijo el dueño (12-15 € al día, 5 días) |
+| anuncios | **publicados el 20-nov hacia las 11:20 (hora de Madrid), con el sí del dueño, y activos desde las 11:31 de ese día**: «Misterio · historia» (`120249214804450710`, creativo `1457924286492362`, imagen `dos-3`) en el conjunto `120249214300100710`, y «La app delante · historia» (`120249214804900710`, creativo `1409108671245773`, imagen `dos-2`) en el `120249214300140710`. Uno por conjunto, sin errores de validación, las mejoras automáticas de Meta apagadas y la etiqueta de IA en «no» (decisión del dueño) |
 | enlaces | `travelsnomad.com/app?utm_source=meta&utm_medium=paid&utm_campaign=meta-misterio` y `…=meta-app`, con el botón Descargar |
 
-**Lo que pasó de verdad** (historial de la cuenta, hora de Madrid):
+**Publicada el 20-nov y activa desde ese día a las 11:31 (hora de Madrid).** Se publicó para
+empezar el 21 a las 00:00, y el dueño la quiso «activa ya». Se adelantó el inicio en los dos
+conjuntos, y el final pasó del 26 al **25-nov a las 00:00**: así son cinco días de presupuesto (el 20
+a medias, y del 21 al 24) y el total sigue sin pasar de 70 €. Los dos conjuntos siguen iguales. Leído
+después en Meta: la campaña, los dos conjuntos y los dos anuncios en activo (la revisión ya pasó), con
+7 € al día y sin errores que bloqueen la entrega.
 
-- 20-nov 11:20: la otra sesión crea los anuncios y adelanta el inicio a ese día. Empiezan a servir
-  a las 11:43, a 7 € al día por conjunto.
-- 20-nov 14:14: los dos conjuntos pasan a **15 € al día**, desde la app Ads Manager del móvil. Son
-  30 € al día, no los 12-15 € del plan. El tope de 100 € de la campaña sigue puesto.
+**Lo que bloqueó el 20-nov, y cómo se resolvió:** subir las imágenes desde la sesión lo denegó el
+sistema de permisos, dos veces y en dos sesiones. La segunda se reintentó una vez, con el sí del dueño,
+y entró: `dos-3.png` es la imagen `8d13cf45da9e866378388cad9b976659` de la biblioteca y `dos-2.png`, la
+`4eb335565b00ea964121d3795e5355c8`. Se generaron otra vez con las órdenes de arriba y salieron con las
+huellas que aprobó el dueño (sha256 `6958f04193882096…` y `79b1c3cf1b20e2cb…`).
+
+**Lo que cambió después de publicarla** (historial de la cuenta, hora de Madrid):
+
+- 20-nov 14:14: los dos conjuntos pasan de 7 a **15 € al día**, desde la app Ads Manager del móvil.
+  Son 30 € al día, no los 12-15 € del plan, y el total ya no son 70 €. El tope de 100 € de la
+  campaña sigue puesto.
 - 21-nov 10:27: se pausa la campaña. A las 12:52 se reactiva y **se pausa el conjunto de misterio**.
-  Desde entonces sólo corre «La app delante». Acaba el 25-nov a las 00:00.
+  Desde entonces sólo corre «La app delante», a 15 € al día, hasta el 25-nov a las 00:00.
 
 **Lo medido el 21-nov a las 18 h, con día y medio de campaña** (Meta y producción, de sólo lectura):
 
