@@ -46,6 +46,11 @@ quedaron en el repo de la app —#68 subir destacadas y reels, #69 la tabla de p
   casi todos los generadores, las destacadas «La lista» y «Qué es» (tarjeta 7) y los pies de los
   reels. No se reutiliza. La lista de lo que hay que retirar o rehacer, con quién actúa, vive en
   la issue de este repo «Ya en la App Store: lo que sigue diciendo "lista de espera"».
+- **Black Friday (24-nov): el primer viaje de cada cuenta, gratis una semana** (NOMAD#479, decisión del
+  dueño). El reel está montado y revisado en `piezas/historias-animadas/primer-viaje-gratis/` (#23) y
+  **sin publicar: espera a que la promoción esté encendida en la app**. Dice «hasta el 3 de diciembre» y
+  «un viaje gratis por cuenta»; si la fecha cambia, se cambia en su `index.html` y se vuelve a renderizar.
+  El 4-dic se retira todo lo que diga «gratis». No va en la ficha de la App Store.
 - **El anuncio de la salida** es `piezas/lanzamiento/gen-ios.py` (carrusel) y
   `gen-ios-historias.py` (historias); `gen-abre.py` («¿Qué pasa el día que abra?») está obsoleto.
 
