@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Nomad &middot; tu primer viaje, gratis</title>
+    <link rel="stylesheet" href="assets/fuentes.css" />
+    <script src="assets/gsap.min.js"></script>
+    <script src="assets/tiempos.js"></script>
+    <script src="assets/version.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; background: #17181B; }
+      .serif { font-family: 'Instrument Serif'; font-weight: 400; }
+      .sans  { font-family: 'Instrument Sans'; }
+
+      /* TU PRIMER VIAJE, GRATIS (24-nov). El reel del Black Friday. Las decisiones, en README.md.
+         Lo que hay que saber al tocar esto:
+         - UN MISMO V&Iacute;DEO para reel e historia: todo texto entre y=230 e y=1480 y entre x=84 y x=900.
+         - Dos mundos. El del chat es fr&iacute;o y oscuro, con una piel GEN&Eacute;RICA de asistente (no imita a
+           ninguna marca). El de Nomad es el papel de la app, con las pantallas de la app de verdad.
+         - Las pantallas son capturas de la app del 19-nov (assets/pantallas/), sin tocar: se ven por una
+           ventana y lo &uacute;nico que se mueve es por d&oacute;nde se mira. Nada pintado encima de ellas.
+         - Los tiempos salen de la voz (preparar-voz.py escribe assets/tiempos.js). Aqu&iacute; no hay
+           ning&uacute;n segundo escrito a mano salvo las duraciones de las entradas. */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #17181B; color: #F4F4F5; }
+
+      /* ── EL CHAT ─────────────────────────────────────────────────────────────── */
+      #chat { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #17181B; }
+      #hilo { position: absolute; left: 84px; top: 250px; width: 912px; height: 1300px; }
+      #burbuja { position: absolute; right: 0; top: 0; margin: 0; padding: 24px 36px; border-radius: 36px;
+                 background: #2C2E33; font-size: 46px; line-height: 56px; font-weight: 500; white-space: nowrap; }
+      .l { position: absolute; left: 0; margin: 0; width: 912px; font-size: 46px; line-height: 62px;
+           font-weight: 500; color: #D6D7DB; white-space: nowrap; }
+      .l.dia { font-weight: 700; color: #FFFFFF; }
+      .l .p { display: inline-block; width: 50px; color: #8D9098; }
+      /* La l&iacute;nea que se queda: su raya, su chincheta y su etiqueta. */
+      #raya { position: absolute; left: 62px; height: 8px; width: 500px; border-radius: 4px; background: #5CC0A6; }
+      #chincheta { position: absolute; left: -8px; width: 44px; height: 56px; display: block; }
+      #onda { position: absolute; left: -24px; width: 76px; height: 76px; border-radius: 38px;
+              box-sizing: border-box; border: 4px solid #5CC0A6; }
+      #aqui { position: absolute; left: 600px; margin: 0; padding: 6px 22px; border-radius: 24px; background: #5CC0A6;
+              color: #0E1512; font-size: 28px; line-height: 36px; font-weight: 700; white-space: nowrap; }
+      /* La cabecera va encima del hilo: lo que sube pasa por debajo. */
+      #cabecera { position: absolute; left: 0; top: 0; width: 1080px; height: 226px; background: #17181B;
+                  border-bottom: 2px solid rgba(255,255,255,.07); box-sizing: border-box; }
+      #cab-nombre { position: absolute; left: 0; top: 130px; width: 1080px; margin: 0; text-align: center;
+                    font-size: 34px; line-height: 44px; font-weight: 600; color: #EDEDEF; }
+      #destello { position: absolute; left: 372px; top: 133px; width: 38px; height: 38px; display: block; }
+      /* El suelo: oscuro de y=1120 para abajo, que es donde va la frase. */
+      #suelo { position: absolute; left: 0; top: 980px; width: 1080px; height: 940px;
+               background: linear-gradient(180deg, rgba(23,24,27,0) 0%, rgba(23,24,27,.96) 8%, #17181B 11%, #17181B 100%); }
+      .c1 { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 64px; line-height: 78px;
+            font-weight: 700; letter-spacing: -.012em; color: #FFFFFF; white-space: nowrap; }
+      .menta { color: #5CC0A6; }
+      /* La marca, encima de la frase, desde el fotograma 0 (revisi&oacute;n del anuncio del 24-oct). */
+      #m-icono { position: absolute; left: 84px; top: 1090px; width: 56px; height: 56px; border-radius: 13px;
+                 background: url(assets/icono-app.png) center / cover no-repeat; }
+      #m-nombre { position: absolute; left: 156px; top: 1096px; margin: 0; font-size: 34px; line-height: 44px;
+                  font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+
+      /* ── NOMAD ───────────────────────────────────────────────────────────────── */
+      #mundo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #F5F0E8; color: #100E0B; }
+      #ventana { position: absolute; left: 90px; top: 150px; width: 900px; height: 920px; border-radius: 48px;
+                 overflow: hidden; background: #FEFCF9;
+                 box-shadow: 0 44px 96px rgba(16,14,11,.20), 0 8px 24px rgba(16,14,11,.10); }
+      .pant { position: absolute; left: 0; top: 0; width: 900px; height: 1957px; display: block; }
+      /* La tarjeta de la audiogu&iacute;a: la del anuncio del lanzamiento (24-oct), que el due&ntilde;o aprob&oacute;. */
+      #audio { position: absolute; left: 84px; top: 1108px; width: 816px; height: 264px; box-sizing: border-box;
+               background: #FEFCF9; border: 2px solid rgba(16,14,11,.06); border-radius: 34px;
+               box-shadow: 0 24px 60px rgba(16,14,11,.16); }
+      #icono { position: absolute; left: 36px; top: 26px; width: 64px; height: 64px; border-radius: 15px;
+               background: url(assets/icono-app.png) center / cover no-repeat; }
+      #ondas { position: absolute; right: 40px; top: 38px; height: 40px; display: flex; align-items: center; gap: 6px; }
+      .barra { display: block; width: 6px; height: 34px; border-radius: 3px; background: #106A63; }
+      #que-suena { position: absolute; left: 116px; top: 24px; margin: 0; font-size: 32px; line-height: 38px;
+                   font-weight: 700; color: #106A63; white-space: nowrap; }
+      #donde { position: absolute; left: 116px; top: 64px; margin: 0; font-size: 28px; line-height: 32px;
+               font-weight: 500; color: rgba(16,14,11,.62); white-space: nowrap; }
+      .frase { position: absolute; left: 36px; width: 744px; margin: 0; font-size: 44px; line-height: 56px;
+               font-weight: 500; white-space: nowrap; }
+      .frase.a { top: 120px; } .frase.b { top: 180px; }
+      .frase span { opacity: .34; }
+      /* Las frases del resumen, donde estaba la tarjeta. */
+      .r { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 96px; line-height: 104px;
+           letter-spacing: -.02em; white-space: nowrap; }
+      .verde { color: #106A63; }
+
+      /* ── LA OFERTA ───────────────────────────────────────────────────────────── */
+      #oferta { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; color: #FFFDF9; }
+      #o-kicker { position: absolute; left: 84px; top: 372px; margin: 0; font-size: 32px; line-height: 40px;
+                  font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,253,249,.82); white-space: nowrap; }
+      .o { position: absolute; left: 84px; margin: 0; width: 816px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
+      #o-1 { top: 452px; font-size: 156px; }
+      #o-2 { top: 606px; font-size: 156px; }
+      #o-3 { top: 760px; font-size: 264px; color: #9BE6D2; }
+      .cond { position: absolute; left: 84px; margin: 0; width: 816px; white-space: nowrap; }
+      #o-c1 { top: 1104px; font-size: 44px; line-height: 54px; font-weight: 700; }
+      #o-c2 { top: 1166px; font-size: 44px; line-height: 54px; font-weight: 500; }
+
+      /* ── EL CIERRE ───────────────────────────────────────────────────────────── */
+      #cierre { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #F5F0E8; color: #100E0B; }
+      #c-icono { position: absolute; left: 440px; top: 430px; width: 200px; height: 200px; display: block;
+                 border-radius: 45px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
+      #c-nombre { position: absolute; left: 84px; top: 690px; width: 912px; margin: 0; text-align: center;
+                  font-size: 92px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
+      /* Las dos insignias oficiales, enteras y sin tocar, a la misma altura (110). */
+      #c-apple { position: absolute; left: 178px; top: 880px; width: 329px; height: 110px; display: block; }
+      #c-google { position: absolute; left: 533px; top: 863px; width: 370px; height: 143px; display: block; }
+      #c-gratis { position: absolute; left: 84px; top: 1070px; width: 912px; margin: 0; text-align: center;
+                  font-size: 42px; line-height: 52px; font-weight: 700; color: #106A63; white-space: nowrap; }
+      #c-cond { position: absolute; left: 84px; top: 1130px; width: 912px; margin: 0; text-align: center;
+                font-size: 32px; line-height: 42px; font-weight: 500; color: rgba(16,14,11,.62); white-space: nowrap; }
+      #c-enlace { position: absolute; left: 84px; top: 1290px; width: 912px; margin: 0; text-align: center;
+                  font-size: 36px; line-height: 46px; font-weight: 600; color: rgba(16,14,11,.78); white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="primer-viaje-gratis" data-start="0"
+         data-width="1080" data-height="1920" data-duration="31.72">
+
+      <!-- 1 · EL CHAT. Una piel gen&eacute;rica de asistente: es una dramatizaci&oacute;n, no la pantalla de nadie. -->
+      <div id="chat">
+        <div id="hilo">
+          <p id="burbuja" class="sans">hazme un plan para 3 d&iacute;as en lisboa</p>
+          <p class="l sans" style="top: 160px;">Claro. Aqu&iacute; tienes 3 d&iacute;as en Lisboa:</p>
+          <p class="l sans dia" style="top: 254px;">D&iacute;a 1 &middot; Baixa y Chiado</p>
+          <div id="onda" style="top: 317px;"></div>
+          <svg id="chincheta" style="top: 327px;" viewBox="0 0 44 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 2C11 2 3 10.4 3 21c0 13.6 16.4 30.6 18.2 32.4a1.1 1.1 0 0 0 1.6 0C24.6 51.6 41 34.6 41 21 41 10.4 33 2 22 2z" fill="#5CC0A6"/>
+            <circle cx="22" cy="21" r="7.5" fill="#17181B"/>
+          </svg>
+          <p id="l-plaza" class="l sans" style="top: 324px;"><span class="p">&bull;</span><span id="plaza-nombre">Pra&ccedil;a do Com&eacute;rcio</span></p>
+          <div id="raya" style="top: 398px;"></div>
+          <p id="aqui" class="sans" style="top: 331px;">Est&aacute;s aqu&iacute;</p>
+          <p class="l sans" style="top: 394px;"><span class="p">&bull;</span>Arco da Rua Augusta</p>
+          <p class="l sans" style="top: 464px;"><span class="p">&bull;</span>Elevador de Santa Justa</p>
+          <p class="l sans" style="top: 534px;"><span class="p">&bull;</span>Convento do Carmo</p>
+          <p class="l sans dia" style="top: 628px;">D&iacute;a 2 &middot; Bel&eacute;m</p>
+          <p class="l sans" style="top: 698px;"><span class="p">&bull;</span>Monasterio de los Jer&oacute;nimos</p>
+          <p class="l sans" style="top: 768px;"><span class="p">&bull;</span>Torre de Bel&eacute;m</p>
+          <p class="l sans" style="top: 838px;"><span class="p">&bull;</span>Past&eacute;is de Bel&eacute;m</p>
+          <p class="l sans dia" style="top: 932px;">D&iacute;a 3 &middot; Alfama</p>
+          <p class="l sans" style="top: 1002px;"><span class="p">&bull;</span>Castillo de San Jorge</p>
+          <p class="l sans" style="top: 1072px;"><span class="p">&bull;</span>Mirador de Santa Luzia</p>
+          <p class="l sans" style="top: 1142px;"><span class="p">&bull;</span>Tranv&iacute;a 28</p>
+        </div>
+        <div id="cabecera">
+          <svg id="destello" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19 1c1.6 9.6 7.4 15.4 17 17-9.6 1.6-15.4 7.4-17 17-1.6-9.6-7.4-15.4-17-17 9.6-1.6 15.4-7.4 17-17z" fill="#A9ACB4"/>
+          </svg>
+          <p id="cab-nombre" class="sans">Asistente de IA</p>
+        </div>
+        <div id="suelo"></div>
+        <div id="m-icono"></div>
+        <p id="m-nombre" class="sans">Nomad</p>
+        <p id="c1a" class="c1 sans" style="top: 1186px;">Una IA te hace la lista</p>
+        <p id="c1b" class="c1 sans" style="top: 1268px;">en diez segundos.</p>
+        <p id="c2a" class="c1 sans" style="top: 1186px;">Pero cuando est&aacute;s all&iacute;,</p>
+        <p id="c2b" class="c1 sans" style="top: 1268px;">&iquest;qui&eacute;n te cuenta</p>
+        <p id="c2c" class="c1 sans" style="top: 1350px;">lo que tienes <span class="menta">delante?</span></p>
+      </div>
+
+      <!-- 2 · NOMAD: la ventana con la app de verdad, y debajo la tarjeta de la audiogu&iacute;a o la frase. -->
+      <div id="mundo">
+        <div id="ventana">
+          <img id="v-p1" class="pant" src="assets/pantallas/parada1.webp" alt="" />
+          <img id="v-plan" class="pant" src="assets/pantallas/plan.webp" alt="" />
+          <img id="v-p2" class="pant" src="assets/pantallas/parada2.webp" alt="" />
+          <img id="v-p3" class="pant" src="assets/pantallas/parada3.webp" alt="" />
+          <img id="v-o1" class="pant" src="assets/pantallas/obra1.webp" alt="" />
+          <img id="v-o2" class="pant" src="assets/pantallas/obra2.webp" alt="" />
+        </div>
+        <div id="audio">
+          <div id="icono"></div>
+          <p id="que-suena" class="sans">Nomad</p>
+          <p id="donde" class="sans">Audiogu&iacute;a &middot; parada 1 de 5</p>
+          <div id="ondas"><span class="barra"></span><span class="barra"></span><span class="barra"></span><span class="barra"></span></div>
+          <!-- El texto es el de la app, palabra por palabra: el paseo por la Baixa y el Chiado del viaje demo,
+               parada 1, &laquo;La historia&raquo;, segunda frase. Se ve escrito en la captura (parada1.webp). -->
+          <p id="g-a1" class="frase sans a"><span>El</span> <span>1</span> <span>de</span> <span>noviembre</span> <span>de</span> <span>1755,</span></p>
+          <p id="g-a2" class="frase sans b"><span>un</span> <span>devastador</span> <span>terremoto</span></p>
+          <p id="g-b1" class="frase sans a"><span>seguido</span> <span>de</span> <span>un</span> <span>maremoto</span></p>
+          <p id="g-b2" class="frase sans b"><span>y</span> <span>un</span> <span>incendio</span> <span>voraz</span></p>
+          <p id="g-c1" class="frase sans a"><span>destruy&oacute;</span> <span>el</span> <span>antiguo</span></p>
+          <p id="g-c2" class="frase sans b"><span>Palacio</span> <span>Real</span> <span>que</span> <span>se</span> <span>erig&iacute;a</span></p>
+          <p id="g-d1" class="frase sans a"><span>exactamente</span></p>
+          <p id="g-d2" class="frase sans b"><span>en</span> <span>este</span> <span>espacio.</span></p>
+        </div>
+        <p id="r-1" class="r serif" style="top: 1178px;">Eso es <span class="verde">Nomad.</span></p>
+        <p id="r-2a" class="r serif" style="top: 1128px;">Te gu&iacute;a a pie,</p>
+        <p id="r-2b" class="r serif verde" style="top: 1236px;">parada a parada.</p>
+        <p id="r-3a" class="r serif" style="top: 1128px;">Y en el museo,</p>
+        <p id="r-3b" class="r serif verde" style="top: 1236px;">obra a obra.</p>
+      </div>
+
+      <!-- 3 · LA OFERTA, con sus condiciones a la vista. -->
+      <div id="oferta">
+        <p id="o-kicker" class="sans">Semana de Black Friday</p>
+        <p id="o-1" class="o serif">Tu primer</p>
+        <p id="o-2" class="o serif">viaje,</p>
+        <p id="o-3" class="o serif">gratis.</p>
+        <p id="o-c1" class="cond sans">Hasta el 3 de diciembre.</p>
+        <p id="o-c2" class="cond sans">Un viaje gratis por cuenta.</p>
+      </div>
+
+      <!-- 4 · EL CIERRE, quieto. -->
+      <div id="cierre">
+        <img id="c-icono" src="assets/icono-app.png" alt="" />
+        <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
+        <img id="c-apple" src="assets/insignia-app-store-es.svg" alt="Desc&aacute;rgalo en el App Store" />
+        <img id="c-google" src="assets/insignia-google-play-es.png" alt="Disponible en Google Play" />
+        <p id="c-gratis" class="sans">Tu primer viaje, gratis hasta el 3 de diciembre</p>
+        <p id="c-cond" class="sans">Un viaje gratis por cuenta. Despu&eacute;s, desde 2,99&nbsp;&euro; el viaje.</p>
+        <p id="c-enlace" class="sans">Enlace en el perfil</p>
+      </div>
+
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.72"></audio>
+    </div>
+    <script>
+      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes. Estado inicial
+      // dentro del fromTo, nunca en CSS. Los cortes, en seco.
+      document.fonts.ready.then(function () {
+        var T = window.TIEMPOS, F = T.frases, C = T.cortes, FIN = C.fin;
+        var tl = gsap.timeline({ paused: true });
+        var IN = { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" };
+        function corta(sel, t) { tl.to(sel, { autoAlpha: 0, duration: 0 }, t); }
+        function aparece(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 }, t); }
+        function entra(sel, t, dy) { tl.fromTo(sel, { autoAlpha: 0, y: dy || 24 }, Object.assign({}, IN), t); }
+        function palabra(id, n) {
+          var p = F[id].palabras[n];
+          if (!p) throw new Error("falta la palabra " + n + " de " + id);
+          return p[1];
+        }
+
+        // ── 1 · EL CHAT ────────────────────────────────────────────────────────
+        // En el fotograma 0 ya est&aacute;n la pregunta y la frase: es la portada por defecto.
+        var lineas = Array.prototype.slice.call(document.querySelectorAll("#hilo .l"));
+        if (lineas.length !== T.flujo.length) throw new Error("el chat tiene " + lineas.length + " l&iacute;neas y tiempos.js, " + T.flujo.length);
+        // Cada l&iacute;nea sale de izquierda a derecha, como cuando un modelo escribe.
+        // La primera ya est&aacute; en el fotograma 0: la respuesta ha empezado cuando se abre el v&iacute;deo.
+        lineas.forEach(function (l, i) {
+          if (i === 0) return;
+          tl.fromTo(l, { autoAlpha: 0, clipPath: "inset(0% 100% 0% 0%)" },
+                    { autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.16, ease: "none" }, T.flujo[i]);
+        });
+        // El hilo sube para que la &uacute;ltima l&iacute;nea escrita no baje de y=1010.
+        var TOPE = 1010 - 250 - 62;
+        var hecho = 0;
+        lineas.forEach(function (l, i) {
+          var hace = Math.max(0, parseFloat(l.style.top) - TOPE);
+          if (hace > hecho) {
+            tl.fromTo("#hilo", { y: -hecho }, { y: -hace, duration: 0.18, ease: "power1.out", immediateRender: false }, T.flujo[i] - 0.04);
+            hecho = hace;
+          }
+        });
+        if (hecho === 0) tl.set("#hilo", { y: 0 }, 0);
+        // Lo de la l&iacute;nea que se queda no existe hasta el pivote.
+        ["#raya", "#chincheta", "#onda", "#aqui"].forEach(function (s) { tl.set(s, { autoAlpha: 0 }, 0); });
+        ["#c2a", "#c2b", "#c2c"].forEach(function (s) { tl.set(s, { autoAlpha: 0 }, 0); });
+
+        // EL PIVOTE: la lista se apaga y queda una l&iacute;nea, que baja al centro.
+        var P = C.pivote;
+        ["#c1a", "#c1b"].forEach(function (s) { corta(s, P); });
+        var otras = lineas.filter(function (l) { return l.id !== "l-plaza"; });
+        tl.to(otras, { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
+        tl.to("#burbuja", { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
+        // La plaza est&aacute; en top 324 del hilo: con el hilo en y=+66 queda en y=640 de la pantalla.
+        tl.fromTo("#hilo", { y: -hecho }, { y: 66, duration: 0.55, ease: "power3.inOut", immediateRender: false }, P);
+        tl.fromTo("#l-plaza", { color: "#D6D7DB" }, { color: "#FFFFFF", duration: 0.3, ease: "none", immediateRender: false }, P);
+        tl.fromTo("#l-plaza .p", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "none", immediateRender: false }, P + 0.3);
+        var CRECE = 1.25;
+        tl.fromTo("#l-plaza", { scale: 1, transformOrigin: "0% 50%" }, { scale: CRECE, duration: 0.45, ease: "power3.out", immediateRender: false }, P + 0.05);
+        var raya = document.getElementById("raya");
+        var ancho = Math.round(document.getElementById("plaza-nombre").getBoundingClientRect().width * CRECE);
+        raya.style.left = Math.round(50 * CRECE) + "px";
+        raya.style.width = ancho + "px";
+        // La etiqueta, a la derecha del nombre ya crecido.
+        document.getElementById("aqui").style.left = (Math.round(50 * CRECE) + ancho + 26) + "px";
+        tl.fromTo("#raya", { autoAlpha: 0, scaleX: 0, transformOrigin: "0% 50%" },
+                  { autoAlpha: 1, scaleX: 1, duration: 0.4, ease: "power3.out" }, P + 0.4);
+        entra("#c2a", P + 0.02, 20);
+        // La chincheta cae en &laquo;all&iacute;&raquo;, con su etiqueta; la onda late hasta el corte.
+        var ALLI = palabra("k2", 3);
+        tl.fromTo("#chincheta", { autoAlpha: 0, y: -46 }, { autoAlpha: 1, y: 0, duration: 0.38, ease: "back.out(2.2)" }, ALLI - 0.1);
+        tl.fromTo("#aqui", { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power3.out" }, ALLI + 0.12);
+        var N = C.nomad;
+        for (var k = 0; k < 3; k++) {
+          var t0 = ALLI + 0.3 + k * 0.72;
+          if (t0 + 0.7 > N) break;
+          tl.fromTo("#onda", { autoAlpha: 0.9, scale: 0.5 }, { autoAlpha: 0, scale: 1.7, duration: 0.7, ease: "power1.out", immediateRender: false }, t0);
+        }
+        entra("#c2b", palabra("k2", 4) - 0.08, 20);
+        entra("#c2c", palabra("k2", 7) - 0.08, 20);
+
+        // ── 2 · NOMAD ──────────────────────────────────────────────────────────
+        // El papel de la app se abre desde la chincheta (x=98, y=671 en pantalla).
+        aparece("#mundo", N - 0.12);
+        tl.fromTo("#mundo", { clipPath: "circle(0px at 98px 671px)" },
+                  { clipPath: "circle(2300px at 98px 671px)", duration: 0.5, ease: "power2.in", immediateRender: false }, N - 0.12);
+        corta("#chat", N + 0.4);
+        // La ventana: primero la parada 1. Las dem&aacute;s pantallas esperan apagadas.
+        ["#v-plan", "#v-p2", "#v-p3", "#v-o1", "#v-o2"].forEach(function (s) { tl.set(s, { autoAlpha: 0 }, 0); });
+        ["#r-1", "#r-2a", "#r-2b", "#r-3a", "#r-3b"].forEach(function (s) { tl.set(s, { autoAlpha: 0 }, 0); });
+        var G0 = F.g1.empieza, G1 = F.g1.acaba;
+        // Por d&oacute;nde se mira: del mapa a la parada (su nombre, la audiogu&iacute;a y &laquo;Col&oacute;cate aqu&iacute;&raquo;), y
+        // cuando la voz llega al terremoto, a &laquo;La historia&raquo;, donde est&aacute; escrita la frase que suena.
+        tl.fromTo("#v-p1", { y: 0 }, { y: -760, duration: 1.25, ease: "power2.inOut" }, N + 0.25);
+        tl.fromTo("#v-p1", { y: -760 }, { y: -1036, duration: 1.1, ease: "power2.inOut", immediateRender: false }, palabra("g1", 13) - 0.2);
+        // La tarjeta entra con el papel; las barras se mueven s&oacute;lo mientras habla la gu&iacute;a.
+        tl.fromTo("#audio", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, N + 0.1);
+        var barras = document.querySelectorAll(".barra");
+        for (var i = 0; i < barras.length; i++) {
+          var d = 0.19 + i * 0.045;
+          var n = Math.floor((G1 - G0) / d);
+          if (n % 2 === 0) n -= 1;
+          tl.fromTo(barras[i], { scaleY: 1 }, { scaleY: 0.3 + 0.12 * (i % 2), duration: d, ease: "sine.inOut", yoyo: true, repeat: n }, G0);
+        }
+        // Las palabras de la gu&iacute;a, de dos en dos l&iacute;neas, encendi&eacute;ndose cuando las dice.
+        var pares = [["#g-a1", "#g-a2"], ["#g-b1", "#g-b2"], ["#g-c1", "#g-c2"], ["#g-d1", "#g-d2"]];
+        var cuenta = 0, entradas = [];
+        pares.forEach(function (par) {
+          var primera = cuenta;
+          par.forEach(function (id) {
+            document.querySelectorAll(id + " span").forEach(function (s) {
+              tl.fromTo(s, { opacity: 0.34 }, { opacity: 1, duration: 0.14, ease: "none" }, palabra("g1", cuenta) - 0.07);
+              cuenta += 1;
+            });
+          });
+          entradas.push(palabra("g1", primera) - 0.06);
+        });
+        if (cuenta !== F.g1.palabras.length) throw new Error("la gu&iacute;a tiene " + F.g1.palabras.length + " palabras y la tarjeta, " + cuenta);
+        entradas[0] = N + 0.2;
+        pares.forEach(function (par, k) {
+          par.forEach(function (id) {
+            tl.fromTo(id, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12, ease: "none" }, entradas[k]);
+            if (k < pares.length - 1) tl.to(id, { autoAlpha: 0, duration: 0.1, ease: "none" }, entradas[k + 1] - 0.1);
+          });
+        });
+
+        // EL RESUMEN: cada cosa que dice Kore, con su pantalla.
+        var R = C.resumen, O = C.oferta;
+        function pantalla(nueva, vieja, t, y0, y1, dur) {
+          corta(vieja, t); aparece(nueva, t);
+          tl.fromTo(nueva, { y: y0 }, { y: y1, duration: dur, ease: "none", immediateRender: false }, t);
+        }
+        var TE = palabra("k3", 3) - 0.1, PARADA2 = palabra("k3", 9) - 0.08, MUSEO = palabra("k3", 10) - 0.1, OBRA2 = palabra("k3", 16) - 0.08;
+        corta("#audio", R);
+        pantalla("#v-plan", "#v-p1", R, 0, -150, TE - R);                 // &laquo;Eso es Nomad&raquo;: los d&iacute;as
+        entra("#r-1", R + 0.02, 26);
+        corta("#r-1", TE);
+        pantalla("#v-p2", "#v-plan", TE, -760, -790, PARADA2 - TE);       // &laquo;Te gu&iacute;a a pie&raquo;: la parada 2
+        entra("#r-2a", TE, 26);
+        entra("#r-2b", palabra("k3", 7) - 0.08, 26);
+        pantalla("#v-p3", "#v-p2", PARADA2, -760, -790, MUSEO - PARADA2); // &laquo;parada a parada&raquo;: la 3
+        ["#r-2a", "#r-2b"].forEach(function (s) { corta(s, MUSEO); });
+        pantalla("#v-o1", "#v-p3", MUSEO, -300, -340, OBRA2 - MUSEO);     // &laquo;y en el museo&raquo;: la obra 1
+        entra("#r-3a", MUSEO, 26);
+        entra("#r-3b", palabra("k3", 14) - 0.08, 26);
+        pantalla("#v-o2", "#v-o1", OBRA2, -300, -330, O - OBRA2);         // &laquo;obra a obra&raquo;: la 2
+
+        // ── 3 · LA OFERTA ──────────────────────────────────────────────────────
+        aparece("#oferta", O);
+        corta("#mundo", O);
+        tl.fromTo("#o-kicker", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), O + 0.04);
+        entra("#o-1", O + 0.12, 40);
+        entra("#o-2", palabra("k4", 4) - 0.1, 40);
+        tl.fromTo("#o-3", { autoAlpha: 0, y: 50, scale: 0.9, transformOrigin: "0% 100%" },
+                  { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, palabra("k4", 7) - 0.1);
+        var COND = palabra("k4", 7) + 0.22;
+        entra("#o-c1", COND, 18); entra("#o-c2", COND + 0.1, 18);
+
+        // ── 4 · EL CIERRE, quieto desde que acaba de entrar ────────────────────
+        var Z = C.cierre;
+        aparece("#cierre", Z);
+        corta("#oferta", Z);
+        tl.fromTo("#c-icono", { autoAlpha: 0, y: 30, scale: 0.92 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, Z);
+        tl.fromTo("#c-nombre", { autoAlpha: 0, y: 24 }, Object.assign({}, IN), Z + 0.1);
+        tl.fromTo("#c-apple", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, Z + 0.25);
+        tl.fromTo("#c-google", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, Z + 0.25);
+        tl.fromTo("#c-gratis", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.4);
+        tl.fromTo("#c-cond", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.48);
+        // «Enlace en el perfil» sólo en el reel orgánico; el anuncio lleva su propio botón.
+        if (window.NOMAD_VERSION === "reel") tl.fromTo("#c-enlace", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.6);
+        else tl.set("#c-enlace", { autoAlpha: 0 }, 0);
+        // Antes de su hora, ni la oferta ni el cierre existen.
+        tl.set("#oferta", { autoAlpha: 0 }, 0); tl.set("#cierre", { autoAlpha: 0 }, 0); tl.set("#mundo", { autoAlpha: 0 }, 0);
+        tl.set({}, {}, FIN);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["primer-viaje-gratis"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      });
+    </script>
+  </body>
+</html>

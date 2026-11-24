@@ -18,3 +18,10 @@ piezas/historias-animadas/*/snapshots/
 piezas/historias-animadas/*/contact-sheet.jpg
 # Lo que deja `npx hyperframes check` (informes y capturas de cada pasada)
 piezas/historias-animadas/*/.hyperframes/
+
+# Tu primer viaje, gratis: las tomas de voz que no se eligieron y la pista de música que no se usó.
+# Las seis elegidas (.rec.flac) y la música de la mezcla (m2.mp3) sí se guardan.
+piezas/historias-animadas/primer-viaje-gratis/assets/voz/tomas/*.wav
+piezas/historias-animadas/primer-viaje-gratis/assets/voz/tomas/palabras.json
+piezas/historias-animadas/primer-viaje-gratis/assets/musica/m1.*
+piezas/historias-animadas/primer-viaje-gratis/assets/musica/*.txt
