@@ -1,6 +1,6 @@
 # Tu primer viaje, gratis (24-nov) — el reel del Black Friday
 
-Un reel de **31,7 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
+Un reel de **32,3 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
 Junta eso con lo que salió de la simulación de MiroFish: quien no ha probado la app no ve por qué usarla en
 vez de pedirle el plan a cualquier IA. El guion y los textos de la campaña están en la issue #23.
 
@@ -14,12 +14,12 @@ Una IA te hace la lista. Lo que no hace es ir contigo. El vídeo enseña las dos
 
 | seg. | qué se ve | qué se oye |
 |---|---|---|
-| 0-3,2 | Un chat de IA genérico escribe la lista de 3 días en Lisboa | Kore: «Una IA te hace la lista en diez segundos.» |
+| 0-3,2 | Un chat de IA genérico escribe la lista de 3 días en Lisboa. Abajo, desde el primer fotograma, la firma: «Nomad · Primer viaje gratis esta semana» | Kore: «Una IA te hace la lista en diez segundos.» |
 | 3,2-6,2 | La lista se apaga y queda una línea, «Praça do Comércio», con una chincheta: «Estás aquí» | Kore: «Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?» |
-| 6,2-18,1 | El papel de la app se abre desde la chincheta: la parada 1 del paseo de verdad, y la tarjeta de la audioguía con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
+| 6,2-18,1 | El papel de la app se abre desde la chincheta: la parada 1 del paseo de verdad. La ventana baja hasta «La historia», donde está escrita la frase que suena, y se acerca despacio. Debajo, la tarjeta de la audioguía con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
 | 18,1-24,2 | El plan del sábado, la parada 2, la parada 3, la obra 1 y la obra 2 del museo | Kore: «Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.» |
-| 24,2-28,6 | La oferta, sobre verde: «Tu primer viaje, gratis.» con sus dos condiciones | Kore: «Y esta semana, tu primer viaje es gratis.» |
-| 28,6-31,7 | El cierre, quieto: el icono, el nombre, las dos tiendas y la oferta otra vez | Kore: «Descárgala en la App Store o en Google Play.» |
+| 24,2-28,6 | La oferta, sobre verde, con la marca: «Tu primer viaje, gratis.» y sus dos condiciones, que entran con «viaje» y están 3,4 s | Kore: «Y esta semana, tu primer viaje es gratis.» |
+| 28,6-32,3 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después, y las líneas de marcas de Apple y Google | Kore: «Descárgala en la App Store o en Google Play.» |
 
 Los cortes salen de la voz (`preparar-voz.py`), no al revés.
 
@@ -56,6 +56,38 @@ Los cortes salen de la voz (`preparar-voz.py`), no al revés.
   la app no hace.
 - **Las voces**: si prefiere a Kore también en la audioguía, o sin narradora, se regraba.
 
+## Cómo se revisó
+
+Antes de darlo por bueno lo miraron cuatro revisores independientes, cada uno con una cosa: las reglas
+de la casa y los tiempos, quien se lo encuentra sin sonido, el sonido medido, y los datos y las normas
+de fuera. Cada hallazgo grave o medio de los tres últimos lo intentó tumbar un escéptico. Lo que se cambió:
+
+- **Los textos del cierre se salían por la derecha.** Estaban centrados en el ancho entero (1080) y por
+  debajo de y=900 la columna de botones tapa desde x=900. Ahora van en dos líneas, entre x=180 y x=900.
+- **Las condiciones de «gratis» estaban 2,2 s en pantalla.** Entraban después de la palabra «gratis».
+  Ahora entran con «viaje» (3,4 s) y el cierre dura medio segundo más.
+- **El icono del chat era una estrella de cuatro puntas**, que recuerda a la de una marca de IA. Ahora es
+  un bocadillo con tres puntos, que no es de nadie.
+- **La cabecera del chat y la burbuja** bajaron y entraron en la zona segura.
+- **El primer fotograma estaba medio vacío** (la lista tardaba 0,3 s en empezar). Ahora la respuesta ya
+  va por la cuarta línea cuando se abre el vídeo, y la firma lleva la oferta.
+- **La ventana se quedaba quieta seis segundos** con la frase escrita fuera de cuadro. Ahora baja a «La
+  historia» en la pausa de después de «1755» y se acerca despacio hasta el final de la frase.
+- **Las páginas de la tarjeta cambiaban 0,16 s antes de acabar la palabra.** Ahora cambian cuando empieza
+  la primera palabra de la página siguiente.
+- **El golpe de «gratis» era un seno de 46 a 78 Hz**, que el altavoz de un móvil no reproduce. Ahora va
+  saturado, con armónicos. Los tics del chat subieron 5 dB y la música del principio, 6.
+- **El pie decía «Lo otro no»**, que se lee como que una IA no puede. Ahora dice lo que cambia el viaje.
+- **Las insignias** quedaron a 30 px una de otra (un cuarto de su altura, lo que piden las dos tiendas) y
+  el cierre lleva las dos líneas de marcas.
+
+Lo que los revisores dijeron y se dejó: que el chat con «Estás aquí» puede leerse como que la IA sabe
+dónde estás (el escéptico no lo vio así: la pregunta de la voz deja la respuesta abierta), y que la
+oferta no sale entera hasta el segundo 24 (es el orden del guion; la firma la adelanta al segundo 0).
+
+**Lo que nadie ha comprobado**: cómo suena. Las voces, la música y los efectos están transcritos y
+medidos, pero no los ha oído una persona.
+
 ## Cómo se rehace
 
 ```bash
@@ -80,3 +112,7 @@ con `../../ia/voz.py` y `../../ia/musica.py`. Lo que sí está: las seis frases 
   vídeo pasa de los 30 s. Se dejó entera porque es lo que cuenta la app, y cortarla la cambia.
 - **Las páginas de la tarjeta cambian en una pausa de la voz.** La primera versión cambiaba justo detrás
   de «Palacio Real» y la palabra se veía encendida 0,1 s.
+- **Un texto centrado no está dentro de la zona segura por estar centrado.** La zona es asimétrica: por
+  debajo de y=900 acaba en x=900. Lo que va ahí abajo se centra en la columna libre, no en el lienzo.
+- **Un efecto grave se comprueba en la banda que reproduce un móvil** (de 150 Hz para arriba), no en la
+  que suena bien en unos cascos.

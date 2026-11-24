@@ -12,7 +12,7 @@ la OTA y el interruptor). Antes, el vídeo anuncia algo que la app no hace.
 | `nomad-primer-viaje-gratis-anuncio-1080x1920.mp4` | Para Meta: sin «Enlace en el perfil», porque el anuncio lleva su botón |
 | `nomad-primer-viaje-gratis-portada-1080x1920.png` | La portada: la tarjeta de la oferta |
 
-1080 × 1920, 30 fps, 31,7 s, H.264 y AAC a -14 LUFS.
+1080 × 1920, 30 fps, 32,3 s, H.264 y AAC a -14 LUFS.
 
 ## Antes de subirlo
 
@@ -25,7 +25,7 @@ la OTA y el interruptor). Antes, el vídeo anuncia algo que la app no hace.
 
 ## El pie
 
-> Pedirle el plan a una IA es fácil. Lo otro no: estar allí y saber qué tienes delante.
+> Pedirle el plan a una IA es fácil. Lo que cambia el viaje es otra cosa: estar allí y que alguien te cuente qué tienes delante.
 >
 > Nomad te hace el itinerario día a día y te guía a pie, parada a parada, con audio. En el museo, obra a obra.
 >

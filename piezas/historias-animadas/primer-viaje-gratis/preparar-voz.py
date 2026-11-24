@@ -33,7 +33,7 @@ FRASES = [
 # El aire entre frases, en segundos del vídeo final. El corte de escena va en medio.
 AIRE = {'k1': 0.20, 'k2': 0.22, 'g1': 0.36, 'k3': 0.30, 'k4': 0.30, 'k5': 0.40}
 # Lo que se queda quieto después de la última palabra de la oferta (para leer las condiciones) y del cierre.
-QUIETO_OFERTA, QUIETO_CIERRE = 1.70, 0.90
+QUIETO_OFERTA, QUIETO_CIERRE = 1.70, 1.50
 
 
 def lee(f):
@@ -117,9 +117,10 @@ def main():
     }
     # El chat suelta sus 14 líneas entre el principio y un poco antes del pivote. mezclar.sh pone un
     # tic en cada una, y nada mientras «piensa» (el fallo más común de este formato es sonar ahí).
-    n = 14
-    a, b = 0.30, cortes['pivote'] - 0.35
-    flujo = [round(a + (b - a) * i / (n - 1), 3) for i in range(n)]
+    # Las cuatro primeras ya están escritas en el fotograma 0 (tiempo 0): la portada no sale medio vacía.
+    n, ya = 14, 4
+    a, b = 0.25, cortes['pivote'] - 0.35
+    flujo = [0.0] * ya + [round(a + (b - a) * i / (n - ya - 1), 3) for i in range(n - ya)]
     todo = {'vel': VEL, 'frases': datos, 'cortes': cortes, 'flujo': flujo}
     json.dump(todo, open('assets/tiempos.json', 'w'), ensure_ascii=False, indent=1)
     open('assets/tiempos.js', 'w').write('// Lo escribe preparar-voz.py. No se edita a mano.\nwindow.TIEMPOS = '

@@ -26,8 +26,8 @@
 
       /* ── EL CHAT ─────────────────────────────────────────────────────────────── */
       #chat { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #17181B; }
-      #hilo { position: absolute; left: 84px; top: 250px; width: 912px; height: 1300px; }
-      #burbuja { position: absolute; right: 0; top: 0; margin: 0; padding: 24px 36px; border-radius: 36px;
+      #hilo { position: absolute; left: 84px; top: 340px; width: 912px; height: 1300px; }
+      #burbuja { position: absolute; right: 96px; top: 0; margin: 0; padding: 24px 36px; border-radius: 36px;
                  background: #2C2E33; font-size: 46px; line-height: 56px; font-weight: 500; white-space: nowrap; }
       .l { position: absolute; left: 0; margin: 0; width: 912px; font-size: 46px; line-height: 62px;
            font-weight: 500; color: #D6D7DB; white-space: nowrap; }
@@ -39,13 +39,13 @@
       #onda { position: absolute; left: -24px; width: 76px; height: 76px; border-radius: 38px;
               box-sizing: border-box; border: 4px solid #5CC0A6; }
       #aqui { position: absolute; left: 600px; margin: 0; padding: 6px 22px; border-radius: 24px; background: #5CC0A6;
-              color: #0E1512; font-size: 28px; line-height: 36px; font-weight: 700; white-space: nowrap; }
+              color: #0E1512; font-size: 30px; line-height: 38px; font-weight: 700; white-space: nowrap; }
       /* La cabecera va encima del hilo: lo que sube pasa por debajo. */
-      #cabecera { position: absolute; left: 0; top: 0; width: 1080px; height: 226px; background: #17181B;
+      #cabecera { position: absolute; left: 0; top: 0; width: 1080px; height: 312px; background: #17181B;
                   border-bottom: 2px solid rgba(255,255,255,.07); box-sizing: border-box; }
-      #cab-nombre { position: absolute; left: 0; top: 130px; width: 1080px; margin: 0; text-align: center;
+      #cab-nombre { position: absolute; left: 0; top: 238px; width: 1080px; margin: 0; text-align: center;
                     font-size: 34px; line-height: 44px; font-weight: 600; color: #EDEDEF; }
-      #destello { position: absolute; left: 372px; top: 133px; width: 38px; height: 38px; display: block; }
+      #destello { position: absolute; left: 368px; top: 240px; width: 40px; height: 40px; display: block; }
       /* El suelo: oscuro de y=1120 para abajo, que es donde va la frase. */
       #suelo { position: absolute; left: 0; top: 980px; width: 1080px; height: 940px;
                background: linear-gradient(180deg, rgba(23,24,27,0) 0%, rgba(23,24,27,.96) 8%, #17181B 11%, #17181B 100%); }
@@ -57,6 +57,8 @@
                  background: url(assets/icono-app.png) center / cover no-repeat; }
       #m-nombre { position: absolute; left: 156px; top: 1096px; margin: 0; font-size: 34px; line-height: 44px;
                   font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+      #m-oferta { position: absolute; left: 290px; top: 1098px; margin: 0; font-size: 30px; line-height: 42px;
+                  font-weight: 600; color: #5CC0A6; white-space: nowrap; }
 
       /* ── NOMAD ───────────────────────────────────────────────────────────────── */
       #mundo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #F5F0E8; color: #100E0B; }
@@ -74,7 +76,7 @@
       .barra { display: block; width: 6px; height: 34px; border-radius: 3px; background: #106A63; }
       #que-suena { position: absolute; left: 116px; top: 24px; margin: 0; font-size: 32px; line-height: 38px;
                    font-weight: 700; color: #106A63; white-space: nowrap; }
-      #donde { position: absolute; left: 116px; top: 64px; margin: 0; font-size: 28px; line-height: 32px;
+      #donde { position: absolute; left: 116px; top: 62px; margin: 0; font-size: 32px; line-height: 38px;
                font-weight: 500; color: rgba(16,14,11,.62); white-space: nowrap; }
       .frase { position: absolute; left: 36px; width: 744px; margin: 0; font-size: 44px; line-height: 56px;
                font-weight: 500; white-space: nowrap; }
@@ -87,6 +89,10 @@
 
       /* ── LA OFERTA ───────────────────────────────────────────────────────────── */
       #oferta { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; color: #FFFDF9; }
+      #o-icono { position: absolute; left: 84px; top: 270px; width: 60px; height: 60px; border-radius: 14px;
+                 background: url(assets/icono-app.png) center / cover no-repeat; }
+      #o-nombre { position: absolute; left: 160px; top: 278px; margin: 0; font-size: 36px; line-height: 44px;
+                  font-weight: 700; color: #FFFDF9; white-space: nowrap; }
       #o-kicker { position: absolute; left: 84px; top: 372px; margin: 0; font-size: 32px; line-height: 40px;
                   font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,253,249,.82); white-space: nowrap; }
       .o { position: absolute; left: 84px; margin: 0; width: 816px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
@@ -104,23 +110,25 @@
       #c-nombre { position: absolute; left: 84px; top: 690px; width: 912px; margin: 0; text-align: center;
                   font-size: 92px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
       /* Las dos insignias oficiales, enteras y sin tocar, a la misma altura (110). */
-      #c-apple { position: absolute; left: 178px; top: 880px; width: 329px; height: 110px; display: block; }
-      #c-google { position: absolute; left: 533px; top: 863px; width: 370px; height: 143px; display: block; }
-      #c-gratis { position: absolute; left: 84px; top: 1070px; width: 912px; margin: 0; text-align: center;
-                  font-size: 42px; line-height: 52px; font-weight: 700; color: #106A63; white-space: nowrap; }
-      #c-cond { position: absolute; left: 84px; top: 1130px; width: 912px; margin: 0; text-align: center;
-                font-size: 32px; line-height: 42px; font-weight: 500; color: rgba(16,14,11,.62); white-space: nowrap; }
-      #c-enlace { position: absolute; left: 84px; top: 1290px; width: 912px; margin: 0; text-align: center;
+      #c-apple { position: absolute; left: 171px; top: 880px; width: 329px; height: 110px; display: block; }
+      #c-google { position: absolute; left: 530px; top: 863px; width: 370px; height: 143px; display: block; }
+      .c-g { position: absolute; left: 180px; width: 720px; margin: 0; text-align: center;
+             font-size: 46px; line-height: 56px; font-weight: 700; color: #106A63; white-space: nowrap; }
+      .c-c { position: absolute; left: 180px; width: 720px; margin: 0; text-align: center;
+             font-size: 34px; line-height: 44px; font-weight: 500; color: rgba(16,14,11,.76); white-space: nowrap; }
+      .c-l { position: absolute; left: 130px; width: 820px; margin: 0; text-align: center;
+             font-size: 22px; line-height: 30px; font-weight: 500; color: rgba(16,14,11,.68); white-space: nowrap; }
+      #c-enlace { position: absolute; left: 180px; top: 1322px; width: 720px; margin: 0; text-align: center;
                   font-size: 36px; line-height: 46px; font-weight: 600; color: rgba(16,14,11,.78); white-space: nowrap; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="primer-viaje-gratis" data-start="0"
-         data-width="1080" data-height="1920" data-duration="31.72">
+         data-width="1080" data-height="1920" data-duration="32.32">
 
       <!-- 1 · EL CHAT. Una piel gen&eacute;rica de asistente: es una dramatizaci&oacute;n, no la pantalla de nadie. -->
       <div id="chat">
-        <div id="hilo">
+        <div id="hilo" data-layout-allow-overlap>
           <p id="burbuja" class="sans">hazme un plan para 3 d&iacute;as en lisboa</p>
           <p class="l sans" style="top: 160px;">Claro. Aqu&iacute; tienes 3 d&iacute;as en Lisboa:</p>
           <p class="l sans dia" style="top: 254px;">D&iacute;a 1 &middot; Baixa y Chiado</p>
@@ -131,7 +139,7 @@
           </svg>
           <p id="l-plaza" class="l sans" style="top: 324px;"><span class="p">&bull;</span><span id="plaza-nombre">Pra&ccedil;a do Com&eacute;rcio</span></p>
           <div id="raya" style="top: 398px;"></div>
-          <p id="aqui" class="sans" style="top: 331px;">Est&aacute;s aqu&iacute;</p>
+          <p id="aqui" class="sans" style="top: 330px;">Est&aacute;s aqu&iacute;</p>
           <p class="l sans" style="top: 394px;"><span class="p">&bull;</span>Arco da Rua Augusta</p>
           <p class="l sans" style="top: 464px;"><span class="p">&bull;</span>Elevador de Santa Justa</p>
           <p class="l sans" style="top: 534px;"><span class="p">&bull;</span>Convento do Carmo</p>
@@ -145,14 +153,16 @@
           <p class="l sans" style="top: 1142px;"><span class="p">&bull;</span>Tranv&iacute;a 28</p>
         </div>
         <div id="cabecera">
-          <svg id="destello" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M19 1c1.6 9.6 7.4 15.4 17 17-9.6 1.6-15.4 7.4-17 17-1.6-9.6-7.4-15.4-17-17 9.6-1.6 15.4-7.4 17-17z" fill="#A9ACB4"/>
+          <svg id="destello" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6h24a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H19l-8 7v-7H8a5 5 0 0 1-5-5V11a5 5 0 0 1 5-5z" fill="none" stroke="#A9ACB4" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="13.5" cy="18" r="2.2" fill="#A9ACB4"/><circle cx="20" cy="18" r="2.2" fill="#A9ACB4"/><circle cx="26.5" cy="18" r="2.2" fill="#A9ACB4"/>
           </svg>
           <p id="cab-nombre" class="sans">Asistente de IA</p>
         </div>
         <div id="suelo"></div>
         <div id="m-icono"></div>
         <p id="m-nombre" class="sans">Nomad</p>
+        <p id="m-oferta" class="sans">&middot; Primer viaje gratis esta semana</p>
         <p id="c1a" class="c1 sans" style="top: 1186px;">Una IA te hace la lista</p>
         <p id="c1b" class="c1 sans" style="top: 1268px;">en diez segundos.</p>
         <p id="c2a" class="c1 sans" style="top: 1186px;">Pero cuando est&aacute;s all&iacute;,</p>
@@ -195,6 +205,8 @@
 
       <!-- 3 · LA OFERTA, con sus condiciones a la vista. -->
       <div id="oferta">
+        <div id="o-icono"></div>
+        <p id="o-nombre" class="sans">Nomad</p>
         <p id="o-kicker" class="sans">Semana de Black Friday</p>
         <p id="o-1" class="o serif">Tu primer</p>
         <p id="o-2" class="o serif">viaje,</p>
@@ -209,12 +221,16 @@
         <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
         <img id="c-apple" src="assets/insignia-app-store-es.svg" alt="Desc&aacute;rgalo en el App Store" />
         <img id="c-google" src="assets/insignia-google-play-es.png" alt="Disponible en Google Play" />
-        <p id="c-gratis" class="sans">Tu primer viaje, gratis hasta el 3 de diciembre</p>
-        <p id="c-cond" class="sans">Un viaje gratis por cuenta. Despu&eacute;s, desde 2,99&nbsp;&euro; el viaje.</p>
+        <p id="c-g1" class="c-g sans" style="top: 1046px;">Tu primer viaje, gratis</p>
+        <p id="c-g2" class="c-g sans" style="top: 1102px;">hasta el 3 de diciembre.</p>
+        <p id="c-c1" class="c-c sans" style="top: 1188px;">Un viaje gratis por cuenta.</p>
+        <p id="c-c2" class="c-c sans" style="top: 1232px;">Despu&eacute;s, desde 2,99&nbsp;&euro; el viaje.</p>
         <p id="c-enlace" class="sans">Enlace en el perfil</p>
+        <p id="c-l1" class="c-l sans" style="top: 1412px;">App Store es una marca de servicio de Apple Inc.</p>
+        <p id="c-l2" class="c-l sans" style="top: 1442px;">Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.</p>
       </div>
 
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.72"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="32.32"></audio>
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes. Estado inicial
@@ -237,18 +253,18 @@
         var lineas = Array.prototype.slice.call(document.querySelectorAll("#hilo .l"));
         if (lineas.length !== T.flujo.length) throw new Error("el chat tiene " + lineas.length + " l&iacute;neas y tiempos.js, " + T.flujo.length);
         // Cada l&iacute;nea sale de izquierda a derecha, como cuando un modelo escribe.
-        // La primera ya est&aacute; en el fotograma 0: la respuesta ha empezado cuando se abre el v&iacute;deo.
+        // Las primeras ya est&aacute;n en el fotograma 0 (su tiempo es 0): la respuesta va a medias cuando se abre el v&iacute;deo.
         lineas.forEach(function (l, i) {
-          if (i === 0) return;
+          if (T.flujo[i] === 0) return;
           tl.fromTo(l, { autoAlpha: 0, clipPath: "inset(0% 100% 0% 0%)" },
                     { autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.16, ease: "none" }, T.flujo[i]);
         });
         // El hilo sube para que la &uacute;ltima l&iacute;nea escrita no baje de y=1010.
-        var TOPE = 1010 - 250 - 62;
+        var TOPE = 1010 - 340 - 62;
         var hecho = 0;
         lineas.forEach(function (l, i) {
           var hace = Math.max(0, parseFloat(l.style.top) - TOPE);
-          if (hace > hecho) {
+          if (hace > hecho && T.flujo[i] > 0) {
             tl.fromTo("#hilo", { y: -hecho }, { y: -hace, duration: 0.18, ease: "power1.out", immediateRender: false }, T.flujo[i] - 0.04);
             hecho = hace;
           }
@@ -264,12 +280,14 @@
         var otras = lineas.filter(function (l) { return l.id !== "l-plaza"; });
         tl.to(otras, { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
         tl.to("#burbuja", { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
-        // La plaza est&aacute; en top 324 del hilo: con el hilo en y=+66 queda en y=640 de la pantalla.
-        tl.fromTo("#hilo", { y: -hecho }, { y: 66, duration: 0.55, ease: "power3.inOut", immediateRender: false }, P);
+        // La plaza est&aacute; en top 324 del hilo (que empieza en 340): con el hilo en y=-24 queda en y=640.
+        tl.fromTo("#hilo", { y: -hecho }, { y: -24, duration: 0.55, ease: "power3.inOut", immediateRender: false }, P);
         tl.fromTo("#l-plaza", { color: "#D6D7DB" }, { color: "#FFFFFF", duration: 0.3, ease: "none", immediateRender: false }, P);
         tl.fromTo("#l-plaza .p", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "none", immediateRender: false }, P + 0.3);
         var CRECE = 1.25;
         tl.fromTo("#l-plaza", { scale: 1, transformOrigin: "0% 50%" }, { scale: CRECE, duration: 0.45, ease: "power3.out", immediateRender: false }, P + 0.05);
+        // La oferta, pegada al nombre (que se mide con la fuente ya cargada).
+        document.getElementById("m-oferta").style.left = Math.round(156 + document.getElementById("m-nombre").getBoundingClientRect().width + 16) + "px";
         var raya = document.getElementById("raya");
         var ancho = Math.round(document.getElementById("plaza-nombre").getBoundingClientRect().width * CRECE);
         raya.style.left = Math.round(50 * CRECE) + "px";
@@ -305,7 +323,9 @@
         // Por d&oacute;nde se mira: del mapa a la parada (su nombre, la audiogu&iacute;a y &laquo;Col&oacute;cate aqu&iacute;&raquo;), y
         // cuando la voz llega al terremoto, a &laquo;La historia&raquo;, donde est&aacute; escrita la frase que suena.
         tl.fromTo("#v-p1", { y: 0 }, { y: -760, duration: 1.25, ease: "power2.inOut" }, N + 0.25);
-        tl.fromTo("#v-p1", { y: -760 }, { y: -1036, duration: 1.1, ease: "power2.inOut", immediateRender: false }, palabra("g1", 13) - 0.2);
+        var BAJA = palabra("g1", 6) - 0.55;
+        tl.fromTo("#v-p1", { y: -760 }, { y: -1036, duration: 1.1, ease: "power2.inOut", immediateRender: false }, BAJA);
+        tl.fromTo("#v-p1", { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.07, duration: G1 - (BAJA + 1.1), ease: "none", immediateRender: false }, BAJA + 1.1);
         // La tarjeta entra con el papel; las barras se mueven s&oacute;lo mientras habla la gu&iacute;a.
         tl.fromTo("#audio", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, N + 0.1);
         var barras = document.querySelectorAll(".barra");
@@ -326,14 +346,14 @@
               cuenta += 1;
             });
           });
-          entradas.push(palabra("g1", primera) - 0.06);
+          entradas.push(palabra("g1", primera) - 0.02);
         });
         if (cuenta !== F.g1.palabras.length) throw new Error("la gu&iacute;a tiene " + F.g1.palabras.length + " palabras y la tarjeta, " + cuenta);
         entradas[0] = N + 0.2;
         pares.forEach(function (par, k) {
           par.forEach(function (id) {
-            tl.fromTo(id, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12, ease: "none" }, entradas[k]);
-            if (k < pares.length - 1) tl.to(id, { autoAlpha: 0, duration: 0.1, ease: "none" }, entradas[k + 1] - 0.1);
+            tl.fromTo(id, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.06, ease: "none" }, entradas[k]);
+            if (k < pares.length - 1) tl.to(id, { autoAlpha: 0, duration: 0.04, ease: "none" }, entradas[k + 1] - 0.04);
           });
         });
 
@@ -341,6 +361,7 @@
         var R = C.resumen, O = C.oferta;
         function pantalla(nueva, vieja, t, y0, y1, dur) {
           corta(vieja, t); aparece(nueva, t);
+          if (vieja === "#v-p1") tl.set(vieja, { scale: 1 }, t);
           tl.fromTo(nueva, { y: y0 }, { y: y1, duration: dur, ease: "none", immediateRender: false }, t);
         }
         var TE = palabra("k3", 3) - 0.1, PARADA2 = palabra("k3", 9) - 0.08, MUSEO = palabra("k3", 10) - 0.1, OBRA2 = palabra("k3", 16) - 0.08;
@@ -366,7 +387,7 @@
         entra("#o-2", palabra("k4", 4) - 0.1, 40);
         tl.fromTo("#o-3", { autoAlpha: 0, y: 50, scale: 0.9, transformOrigin: "0% 100%" },
                   { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, palabra("k4", 7) - 0.1);
-        var COND = palabra("k4", 7) + 0.22;
+        var COND = palabra("k4", 5) + 0.05;
         entra("#o-c1", COND, 18); entra("#o-c2", COND + 0.1, 18);
 
         // ── 4 · EL CIERRE, quieto desde que acaba de entrar ────────────────────
@@ -377,8 +398,10 @@
         tl.fromTo("#c-nombre", { autoAlpha: 0, y: 24 }, Object.assign({}, IN), Z + 0.1);
         tl.fromTo("#c-apple", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, Z + 0.25);
         tl.fromTo("#c-google", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, Z + 0.25);
-        tl.fromTo("#c-gratis", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.4);
-        tl.fromTo("#c-cond", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.48);
+        ["#c-g1", "#c-g2", "#c-c1", "#c-c2"].forEach(function (sel, k) {
+          tl.fromTo(sel, { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.3 + 0.05 * k);
+        });
+        tl.fromTo(["#c-l1", "#c-l2"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none" }, Z + 0.5);
         // «Enlace en el perfil» sólo en el reel orgánico; el anuncio lleva su propio botón.
         if (window.NOMAD_VERSION === "reel") tl.fromTo("#c-enlace", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.6);
         else tl.set("#c-enlace", { autoAlpha: 0 }, 0);

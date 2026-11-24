@@ -83,11 +83,11 @@ def ruido_filtrado(dur, f_lo, f_hi):
     return y / (np.max(np.abs(y)) + 1e-9)
 
 
-# Un tic: 9 ms de ruido entre 1,8 y 4,5 kHz que se apaga rápido. Tres por línea, como llegan los trozos.
-for t in T['flujo'][1:]:            # la primera línea ya está escrita en el fotograma 0
+# Un tic: 12 ms de ruido entre 1,8 y 4,5 kHz que se apaga rápido. Tres por línea, como llegan los trozos.
+for t in [x for x in T['flujo'] if x > 0]:      # las que ya están escritas en el fotograma 0 no suenan
     for k, dt in enumerate((0.0, 0.055, 0.105)):
-        tic = ruido_filtrado(0.009, 1800, 4500) * np.exp(-np.linspace(0, 6, int(0.009 * SR)))
-        pon(tic, t + dt, -33 - 2 * k)
+        tic = ruido_filtrado(0.012, 1800, 4500) * np.exp(-np.linspace(0, 6, int(0.012 * SR)))
+        pon(tic, t + dt, -28 - 2 * k)
 # El soplo del paso a la app: medio segundo de ruido que sube y se va.
 n = int(0.55 * SR)
 env = np.sin(np.linspace(0, np.pi, n)) ** 2
@@ -97,7 +97,10 @@ gratis = T['frases']['k4']['palabras'][7][1]
 n = int(0.34 * SR)
 tt = np.arange(n) / SR
 fase = 2 * np.pi * np.cumsum(np.linspace(78, 46, n)) / SR
-pon(np.sin(fase) * np.exp(-tt * 11), gratis - 0.04, -15)
+# Saturada, para que tenga armónicos: un seno limpio de 46-78 Hz no sale por el altavoz de un móvil
+# (revisión del 24-nov), y es donde se va a oír.
+golpe = np.tanh(3 * np.sin(fase)) * np.exp(-tt * 11)
+pon(golpe / np.max(np.abs(golpe)), gratis - 0.04, -17)
 escribe(fx, f'{TMP}/fx.wav')
 
 # ── LA MÚSICA ─────────────────────────────────────────────────────────────────
@@ -128,14 +131,14 @@ print(f'música: negra de {per:.4f} s ({60 / per:.1f} BPM), se repite de {b:.2f}
 if len(larga) < N: sys.exit('la música no llega al final')
 larga = larga[:N]
 escribe(larga, f'{TMP}/mus.wav')
-ff('-i', f'{TMP}/mus.wav', '-af', 'lowpass=f=500,lowpass=f=500,volume=-2dB', '-c:a', 'pcm_f32le', f'{TMP}/mus-baja.wav')
+ff('-i', f'{TMP}/mus.wav', '-af', 'lowpass=f=500,lowpass=f=500,volume=4dB', '-c:a', 'pcm_f32le', f'{TMP}/mus-baja.wav')
 baja = lee(f'{TMP}/mus-baja.wav', 2)[:N]
 # Apagada hasta el paso a la app, y se abre en 0,35 s.
 c = T['cortes']['nomad']
 g = np.clip((np.arange(N) / SR - (c - 0.20)) / 0.35, 0, 1)[:, None]
 mus = baja * (1 - g) + larga * g
-# Entra con un fundido corto y se va en los últimos 0,9 s.
-ent, sal = int(0.15 * SR), int(0.9 * SR)
+# Entra con un fundido corto y se va en los últimos 0,8 s, cuando ya ha vuelto a subir detrás de la voz.
+ent, sal = int(0.15 * SR), int(0.8 * SR)
 mus[:ent] *= np.linspace(0, 1, ent)[:, None]
 mus[-sal:] *= np.linspace(1, 0, sal)[:, None]
 escribe(mus, f'{TMP}/mus2.wav')
