@@ -16,8 +16,8 @@ Una IA te hace la lista. Lo que no hace es ir contigo. El vídeo enseña las dos
 |---|---|---|
 | 0-3,2 | Un chat de IA genérico escribe la lista de 3 días en Lisboa. Abajo, desde el primer fotograma, la firma: «Nomad · Primer viaje gratis esta semana» | Kore: «Una IA te hace la lista en diez segundos.» |
 | 3,2-6,2 | La lista se apaga y queda una línea, «Praça do Comércio», con una chincheta: «Estás aquí» | Kore: «Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?» |
-| 6,2-18,1 | El papel de la app se abre desde la chincheta: la parada 1 del paseo de verdad. La ventana baja hasta «La historia», donde está escrita la frase que suena, y se acerca despacio. Debajo, la tarjeta de la audioguía con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
-| 18,1-24,2 | El plan del sábado, la parada 2, la parada 3, la obra 1 y la obra 2 del museo | Kore: «Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.» |
+| 6,2-18,1 | El papel de la app se abre desde la chincheta. En la pantalla del móvil, entera y con su borde verde, la presentación del paseo y su parada 1. A la derecha, los auriculares. Abajo, lo que dice la audioguía, con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
+| 18,1-24,2 | En la pantalla, el plan del sábado, la parada 2, la parada 3, la obra 1 y la obra 2 del museo. A la derecha, el logo, el pin y el cuadro | Kore: «Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.» |
 | 24,2-28,6 | La oferta, sobre verde, con la marca: «Tu primer viaje, gratis.» y sus dos condiciones, que entran con «viaje» y están 3,4 s | Kore: «Y esta semana, tu primer viaje es gratis.» |
 | 28,6-32,3 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después, y las líneas de marcas de Apple y Google | Kore: «Descárgala en la App Store o en Google Play.» |
 
@@ -25,12 +25,16 @@ Los cortes salen de la voz (`preparar-voz.py`), no al revés.
 
 ## Qué es de verdad y qué no
 
-- **Las pantallas son capturas de la app del 19-nov**, a su tamaño (1206 × 2622), sin tocar
-  (`assets/pantallas/`). Salen del guion `web` de `capturas/` del repo de la app, en castellano, con la
-  cuenta demo y su viaje a Lisboa. Se ven por una ventana y lo único que se mueve es por dónde se mira.
-  No hay nada pintado encima. No sale ningún código de invitación, correo ni nombre.
+- **Las pantallas son capturas de la app del 19-nov**, sin tocar (`assets/pantallas/`). Salen del guion
+  `web` de `capturas/` del repo de la app, en castellano, con la cuenta demo y su viaje a Lisboa. Se ven
+  ENTERAS, sin la barra de estado, dentro del borde de la pantalla del molde de «Así funciona». No hay
+  nada pintado encima. No sale ningún código de invitación, correo ni nombre.
+- **Son capturas, no una grabación: dentro de la pantalla la app no se mueve, sólo cambia de pantalla.**
+  En «Así funciona» corría la grabación del simulador. Aquí no hay una grabación de hoy (ver abajo).
+- **Los dibujos de la derecha son los del molde** (`dibujos.py` los saca de
+  `../puente-viena/iconos/editorial.json`): los auriculares, el pin y el cuadro. No se dibujó nada nuevo.
 - **La frase de la audioguía es la de la app, palabra por palabra**: «La historia» de la parada 1 del
-  paseo por la Baixa y el Chiado, segunda frase. Se ve escrita en la captura cuando la ventana baja.
+  paseo por la Baixa y el Chiado, segunda frase. Empieza escrita al pie de la captura de esa parada.
 - **Las dos voces son voces de la app** (`mobile/src/lib/narrationVoices.ts`: Kore, Puck y Charon), con el
   modelo de la app (`gemini-3.1-flash-tts-preview`). La de la audioguía lleva la instrucción de tono que
   usa `narrate` («Narra como una guía turística cercana y entusiasta…»). La app lee trozos más largos:
@@ -56,6 +60,18 @@ Los cortes salen de la voz (`preparar-voz.py`), no al revés.
   la app no hace.
 - **Las voces**: si prefiere a Kore también en la audioguía, o sin narradora, se regraba.
 
+## Lo que dijo el dueño al verlo (24-nov)
+
+La primera versión enseñaba la app recortada en un recuadro con sombra, con la vista bajando y
+acercándose, y una tarjeta para la audioguía. El dueño: **«no se ve guay así como en cuadrados las
+capturas de la app. Se notan demasiado con IA»**. Se rehízo la parte de la app en el molde de «Así
+funciona», que ya había aprobado: la pantalla entera del móvil con su borde, el dibujo y la frase. El
+chat del principio, la oferta y el cierre no cambiaron.
+
+Lo que hay que llevarse: **una captura recortada y animada por encima (paneos, acercamientos, sombras)
+se lee como plantilla hecha por una máquina**. La app se enseña entera, en su pantalla, y lo que se
+mueve es la app, no la cámara.
+
 ## Cómo se revisó
 
 Antes de darlo por bueno lo miraron cuatro revisores independientes, cada uno con una cosa: las reglas
@@ -71,9 +87,7 @@ de fuera. Cada hallazgo grave o medio de los tres últimos lo intentó tumbar un
 - **La cabecera del chat y la burbuja** bajaron y entraron en la zona segura.
 - **El primer fotograma estaba medio vacío** (la lista tardaba 0,3 s en empezar). Ahora la respuesta ya
   va por la cuarta línea cuando se abre el vídeo, y la firma lleva la oferta.
-- **La ventana se quedaba quieta seis segundos** con la frase escrita fuera de cuadro. Ahora baja a «La
-  historia» en la pausa de después de «1755» y se acerca despacio hasta el final de la frase.
-- **Las páginas de la tarjeta cambiaban 0,16 s antes de acabar la palabra.** Ahora cambian cuando empieza
+- **Las páginas de la frase de la audioguía cambiaban 0,16 s antes de acabar la palabra.** Ahora cambian cuando empieza
   la primera palabra de la página siguiente.
 - **El golpe de «gratis» era un seno de 46 a 78 Hz**, que el altavoz de un móvil no reproduce. Ahora va
   saturado, con armónicos. Los tics del chat subieron 5 dB y la música del principio, 6.
@@ -92,6 +106,7 @@ medidos, pero no los ha oído una persona.
 
 ```bash
 bash ../construir.sh                 # las fuentes embebidas
+python3 -I dibujos.py                # los dibujos del molde: assets/dibujos.js
 python3 -I preparar-voz.py           # las seis frases, sus tiempos y los cortes: assets/tiempos.js
 python3 -I mezclar.py                # assets/sonido.m4a y assets/sonido-sin-musica.m4a
 bash variantes.sh <salida>           # los vídeos, la portada y los fotogramas de revisión
