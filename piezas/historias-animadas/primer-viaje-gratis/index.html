@@ -61,6 +61,19 @@
       #m-oferta { position: absolute; left: 290px; top: 1098px; margin: 0; font-size: 30px; line-height: 42px;
                   font-weight: 600; color: #5CC0A6; white-space: nowrap; }
 
+      /* ── EL GANCHO ───────────────────────────────────────────────────────────── */
+      /* Del dueño (24-nov): «¿qué es Nomad? Esta semana tienes la oportunidad de conocerlo gratis, o algo
+         así: eso hará que la gente se quede de primeras». Sobre el verde de la oferta, que cierra el vídeo. */
+      #gancho { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; color: #FFFDF9; }
+      #h-icono { position: absolute; left: 84px; top: 330px; width: 150px; height: 150px; border-radius: 34px;
+                 background: url(assets/icono-app.png) center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+      .h { position: absolute; left: 84px; margin: 0; width: 816px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
+      #h-q1 { top: 548px; font-size: 190px; }
+      #h-q2 { top: 738px; font-size: 190px; }
+      #h-r1 { top: 1020px; font-size: 96px; color: rgba(255,253,249,.92); }
+      #h-r2 { top: 1126px; font-size: 96px; }
+      .menta-clara { color: #9BE6D2; }
+
       /* ── NOMAD ───────────────────────────────────────────────────────────────── */
       /* EL MOLDE DE «ASÍ FUNCIONA» (../asi-funciona/, el que aprobó el dueño): el papel con su punteado, la
          pantalla ENTERA del móvil a la izquierda con el borde verde que se dibuja solo, el dibujo de la
@@ -131,7 +144,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="primer-viaje-gratis" data-start="0"
-         data-width="1080" data-height="1920" data-duration="32.32">
+         data-width="1080" data-height="1920" data-duration="34.05">
 
       <!-- 1 · EL CHAT. Una piel gen&eacute;rica de asistente: es una dramatizaci&oacute;n, no la pantalla de nadie. -->
       <div id="chat">
@@ -170,11 +183,19 @@
         <div id="m-icono"></div>
         <p id="m-nombre" class="sans">Nomad</p>
         <p id="m-oferta" class="sans">&middot; Primer viaje gratis esta semana</p>
-        <p id="c1a" class="c1 sans" style="top: 1186px;">Una IA te hace la lista</p>
-        <p id="c1b" class="c1 sans" style="top: 1268px;">en diez segundos.</p>
+        <p id="c1a" class="c1 sans" style="top: 1226px;">Una IA te hace la lista.</p>
         <p id="c2a" class="c1 sans" style="top: 1186px;">Pero cuando est&aacute;s all&iacute;,</p>
         <p id="c2b" class="c1 sans" style="top: 1268px;">&iquest;qui&eacute;n te cuenta</p>
         <p id="c2c" class="c1 sans" style="top: 1350px;">lo que tienes <span class="menta">delante?</span></p>
+      </div>
+
+      <!-- 0 · EL GANCHO: la pregunta y la oferta, antes que nada. Tapa el chat hasta su corte. -->
+      <div id="gancho">
+        <div id="h-icono"></div>
+        <p id="h-q1" class="h serif">&iquest;Qu&eacute; es</p>
+        <p id="h-q2" class="h serif">Nomad?</p>
+        <p id="h-r1" class="h serif">Esta semana puedes</p>
+        <p id="h-r2" class="h serif">probarlo <span class="menta-clara">gratis.</span></p>
       </div>
 
       <!-- 2 · NOMAD, en el molde de «Así funciona»: la pantalla entera con su borde, el dibujo y la frase. -->
@@ -242,7 +263,7 @@
         <p id="c-l2" class="c-l sans" style="top: 1442px;">Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.</p>
       </div>
 
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="32.32"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="34.05"></audio>
     </div>
     <script>
       // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes. Estado inicial
@@ -260,8 +281,20 @@
           return p[1];
         }
 
+        // ── 0 · EL GANCHO ──────────────────────────────────────────────────────
+        // En el fotograma 0 ya están el icono y la pregunta: es la portada por defecto. La respuesta entra
+        // con la voz, y «gratis» da un golpe.
+        var H = C.chat;
+        tl.fromTo("#h-q2", { scale: 1, transformOrigin: "0% 70%" }, { scale: 1.05, duration: 0.16, ease: "power2.out" }, palabra("h1", 2) + 0.05);
+        tl.fromTo("#h-q2", { scale: 1.05 }, { scale: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false }, palabra("h1", 2) + 0.21);
+        entra("#h-r1", palabra("h1", 3) - 0.1, 36);
+        entra("#h-r2", palabra("h1", 6) - 0.1, 36);
+        tl.fromTo("#h-r2 span", { opacity: 0.55 }, { opacity: 1, duration: 0.16, ease: "none" }, palabra("h1", 7) - 0.05);
+        corta("#gancho", H);
+        aparece("#chat", H);          // debajo del gancho no hay nada: el chat existe desde su corte
+
         // ── 1 · EL CHAT ────────────────────────────────────────────────────────
-        // En el fotograma 0 ya est&aacute;n la pregunta y la frase: es la portada por defecto.
+        // Cuando se quita el gancho, el chat ya tiene la pregunta, cuatro l&iacute;neas y la frase.
         var lineas = Array.prototype.slice.call(document.querySelectorAll("#hilo .l"));
         if (lineas.length !== T.flujo.length) throw new Error("el chat tiene " + lineas.length + " l&iacute;neas y tiempos.js, " + T.flujo.length);
         // Cada l&iacute;nea sale de izquierda a derecha, como cuando un modelo escribe.
@@ -288,7 +321,7 @@
 
         // EL PIVOTE: la lista se apaga y queda una l&iacute;nea, que baja al centro.
         var P = C.pivote;
-        ["#c1a", "#c1b"].forEach(function (s) { corta(s, P); });
+        corta("#c1a", P);
         var otras = lineas.filter(function (l) { return l.id !== "l-plaza"; });
         tl.to(otras, { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
         tl.to("#burbuja", { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);

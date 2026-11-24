@@ -100,7 +100,12 @@ fase = 2 * np.pi * np.cumsum(np.linspace(78, 46, n)) / SR
 # Saturada, para que tenga armónicos: un seno limpio de 46-78 Hz no sale por el altavoz de un móvil
 # (revisión del 24-nov), y es donde se va a oír.
 golpe = np.tanh(3 * np.sin(fase)) * np.exp(-tt * 11)
-pon(golpe / np.max(np.abs(golpe)), gratis - 0.04, -17)
+golpe = golpe / np.max(np.abs(golpe))
+pon(golpe, gratis - 0.04, -17)
+# El mismo golpe, más bajo, en el «gratis» del gancho, y un soplo corto en el paso del gancho al chat.
+pon(golpe, T['frases']['h1']['palabras'][7][1] - 0.04, -21)
+n = int(0.4 * SR)
+pon(ruido_filtrado(0.4, 300, 2600) * np.sin(np.linspace(0, np.pi, n)) ** 2, T['cortes']['chat'] - 0.24, -30)
 escribe(fx, f'{TMP}/fx.wav')
 
 # ── LA MÚSICA ─────────────────────────────────────────────────────────────────
@@ -133,9 +138,10 @@ larga = larga[:N]
 escribe(larga, f'{TMP}/mus.wav')
 ff('-i', f'{TMP}/mus.wav', '-af', 'lowpass=f=500,lowpass=f=500,volume=4dB', '-c:a', 'pcm_f32le', f'{TMP}/mus-baja.wav')
 baja = lee(f'{TMP}/mus-baja.wav', 2)[:N]
-# Apagada hasta el paso a la app, y se abre en 0,35 s.
-c = T['cortes']['nomad']
-g = np.clip((np.arange(N) / SR - (c - 0.20)) / 0.35, 0, 1)[:, None]
+c, ch = T['cortes']['nomad'], T['cortes']['chat']
+seg = np.arange(N) / SR
+# Abierta en el gancho, apagada en el chat (que es frío) y abierta otra vez cuando entra la app.
+g = (1 - np.clip((seg - (ch - 0.15)) / 0.3, 0, 1) + np.clip((seg - (c - 0.20)) / 0.35, 0, 1))[:, None]
 mus = baja * (1 - g) + larga * g
 # Entra con un fundido corto y se va en los últimos 0,8 s, cuando ya ha vuelto a subir detrás de la voz.
 ent, sal = int(0.15 * SR), int(0.8 * SR)

@@ -23,7 +23,7 @@ ESCENAS=$(python3 - "$D/assets/tiempos.json" <<'PY'
 import json, sys
 T = json.load(open(sys.argv[1])); c = T['cortes']; f = T['frases']
 print(' '.join(f'{t:.2f}:{n}' for t, n in [
-    (0.03, '00-el-fotograma-0'), (c['pivote'] - 0.15, '01-la-lista'), (c['nomad'] - 0.25, '02-estas-aqui'),
+    (0.03, '00-el-fotograma-0'), (c['chat'] - 0.3, '00b-el-gancho'), (c['pivote'] - 0.15, '01-la-lista'), (c['nomad'] - 0.25, '02-estas-aqui'),
     (f['g1']['empieza'] + 2.6, '03-la-parada'), (f['g1']['acaba'] - 0.4, '04-la-historia'),
     (c['resumen'] + 0.9, '05-eso-es-nomad'), (f['k3']['palabras'][10][1] - 0.2, '06-parada-a-parada'),
     (c['oferta'] - 0.15, '07-obra-a-obra'), (c['cierre'] - 0.3, '08-la-oferta'), (c['fin'] - 0.4, '09-el-cierre')]))

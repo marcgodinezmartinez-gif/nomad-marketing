@@ -1,387 +1,416 @@
 {
  "vel": 1.15,
  "frases": {
-  "k1": {
+  "h1": {
    "empieza": 0.2,
-   "dura": 2.91,
-   "acaba": 3.11,
+   "dura": 3.37,
+   "acaba": 3.57,
    "palabras": [
     [
-     "Una",
+     "¿Qué",
      0.2
     ],
     [
+     "es",
+     0.36
+    ],
+    [
+     "Nomad?",
+     0.64
+    ],
+    [
+     "Esta",
+     1.44
+    ],
+    [
+     "semana",
+     1.68
+    ],
+    [
+     "puedes",
+     1.98
+    ],
+    [
+     "probarlo",
+     2.46
+    ],
+    [
+     "gratis.",
+     3.02
+    ]
+   ],
+   "texto": "¿Qué es Nomad? Esta semana puedes probarlo gratis.",
+   "oido": "¿Qué es Nomad? Esta semana puedes probarlo gratis."
+  },
+  "k1": {
+   "empieza": 3.91,
+   "dura": 1.54,
+   "acaba": 5.45,
+   "palabras": [
+    [
+     "Una",
+     3.91
+    ],
+    [
      "IA",
-     0.44
+     4.11
     ],
     [
      "te",
-     0.76
+     4.45
     ],
     [
      "hace",
-     1.06
+     4.71
     ],
     [
      "la",
-     1.26
+     4.89
     ],
     [
-     "lista",
-     1.42
-    ],
-    [
-     "en",
-     1.7
-    ],
-    [
-     "10",
-     2.12
-    ],
-    [
-     "segundos.",
-     2.38
+     "lista.",
+     5.03
     ]
    ],
-   "texto": "Una IA te hace la lista en diez segundos.",
-   "oido": "Una IA te hace la lista en 10 segundos."
+   "texto": "Una IA te hace la lista.",
+   "oido": "Una IA te hace la lista."
   },
   "k2": {
-   "empieza": 3.31,
+   "empieza": 5.65,
    "dura": 2.8,
-   "acaba": 6.11,
+   "acaba": 8.45,
    "palabras": [
     [
      "Pero",
-     3.31
+     5.65
     ],
     [
      "cuando",
-     3.47
+     5.81
     ],
     [
      "estás",
-     3.65
+     5.99
     ],
     [
      "allí,",
-     3.93
+     6.27
     ],
     [
      "¿quién",
-     4.55
+     6.89
     ],
     [
      "te",
-     4.75
+     7.09
     ],
     [
      "cuenta",
-     4.87
+     7.21
     ],
     [
      "lo",
-     5.17
+     7.51
     ],
     [
      "que",
-     5.33
+     7.67
     ],
     [
      "tienes",
-     5.41
+     7.75
     ],
     [
      "delante?",
-     5.63
+     7.97
     ]
    ],
    "texto": "Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?",
    "oido": "Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?"
   },
   "g1": {
-   "empieza": 6.33,
+   "empieza": 8.67,
    "dura": 11.53,
-   "acaba": 17.86,
+   "acaba": 20.19,
    "palabras": [
     [
      "El",
-     6.33
+     8.67
     ],
     [
      "1",
-     6.53
+     8.87
     ],
     [
      "de",
-     6.71
+     9.05
     ],
     [
      "noviembre",
-     6.87
+     9.21
     ],
     [
      "de",
-     7.33
+     9.67
     ],
     [
      "1755,",
-     7.43
+     9.77
     ],
     [
      "un",
-     9.33
+     11.67
     ],
     [
      "devastador",
-     9.55
-    ],
-    [
-     "terremoto",
-     10.07
-    ],
-    [
-     "seguido",
-     10.55
-    ],
-    [
-     "de",
-     11.11
-    ],
-    [
-     "un",
-     11.23
-    ],
-    [
-     "maremoto",
-     11.41
-    ],
-    [
-     "y",
      11.89
     ],
     [
+     "terremoto",
+     12.41
+    ],
+    [
+     "seguido",
+     12.89
+    ],
+    [
+     "de",
+     13.45
+    ],
+    [
      "un",
-     12.17
+     13.57
+    ],
+    [
+     "maremoto",
+     13.75
+    ],
+    [
+     "y",
+     14.23
+    ],
+    [
+     "un",
+     14.51
     ],
     [
      "incendio",
-     12.33
+     14.67
     ],
     [
      "voraz",
-     12.87
+     15.21
     ],
     [
      "destruyó",
-     13.19
+     15.53
     ],
     [
      "el",
-     14.05
+     16.39
     ],
     [
      "antiguo",
-     14.17
+     16.51
     ],
     [
      "Palacio",
-     14.71
+     17.05
     ],
     [
      "Real",
-     15.07
+     17.41
     ],
     [
      "que",
-     15.27
+     17.61
     ],
     [
      "se",
-     15.65
+     17.99
     ],
     [
      "erigía",
-     15.81
+     18.15
     ],
     [
      "exactamente",
-     16.21
+     18.55
     ],
     [
      "en",
-     16.91
+     19.25
     ],
     [
      "este",
-     17.27
+     19.61
     ],
     [
      "espacio.",
-     17.41
+     19.75
     ]
    ],
    "texto": "El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.",
    "oido": "El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio."
   },
   "k3": {
-   "empieza": 18.22,
+   "empieza": 20.55,
    "dura": 5.75,
-   "acaba": 23.97,
+   "acaba": 26.3,
    "palabras": [
     [
      "Eso",
-     18.22
+     20.55
     ],
     [
      "es",
-     18.62
+     20.95
     ],
     [
      "nomad.",
-     19.04
+     21.37
     ],
     [
      "Te",
-     19.8
+     22.13
     ],
     [
      "guía",
-     20.02
+     22.35
     ],
     [
      "a",
-     20.32
+     22.65
     ],
     [
      "pie,",
-     20.56
+     22.89
     ],
     [
      "parada",
-     20.92
+     23.25
     ],
     [
      "a",
-     21.36
+     23.69
     ],
     [
      "parada,",
-     21.5
+     23.83
     ],
     [
      "y",
-     21.98
+     24.31
     ],
     [
      "en",
-     22.2
+     24.53
     ],
     [
      "el",
-     22.3
+     24.63
     ],
     [
      "museo",
-     22.38
+     24.71
     ],
     [
      "obra",
-     22.98
+     25.31
     ],
     [
      "a",
-     23.34
+     25.67
     ],
     [
      "obra.",
-     23.62
+     25.95
     ]
    ],
    "texto": "Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.",
    "oido": "Eso es nomad. Te guía a pie, parada a parada, y en el museo obra a obra."
   },
   "k4": {
-   "empieza": 24.27,
+   "empieza": 26.6,
    "dura": 2.52,
-   "acaba": 26.79,
+   "acaba": 29.12,
    "palabras": [
     [
      "Y",
-     24.27
+     26.6
     ],
     [
      "esta",
-     24.41
+     26.74
     ],
     [
      "semana,",
-     24.61
+     26.94
     ],
     [
      "tu",
-     25.15
+     27.48
     ],
     [
      "primer",
-     25.27
+     27.6
     ],
     [
      "viaje",
-     25.59
+     27.92
     ],
     [
      "es",
-     25.87
+     28.2
     ],
     [
      "gratis.",
-     26.19
+     28.52
     ]
    ],
    "texto": "Y esta semana, tu primer viaje es gratis.",
    "oido": "Y esta semana, tu primer viaje es gratis."
   },
   "k5": {
-   "empieza": 28.79,
+   "empieza": 30.72,
    "dura": 2.02,
-   "acaba": 30.82,
+   "acaba": 32.75,
    "palabras": [
     [
      "Descárgala",
-     28.79
+     30.72
     ],
     [
      "en",
-     29.35
+     31.28
     ],
     [
      "la",
-     29.49
+     31.42
     ],
     [
      "App",
-     29.59
+     31.52
     ],
     [
      "Store",
-     29.75
+     31.68
     ],
     [
      "o",
-     29.93
+     31.86
     ],
     [
      "en",
-     30.19
+     32.12
     ],
     [
      "Google",
-     30.31
+     32.24
     ],
     [
      "Play.",
-     30.43
+     32.36
     ]
    ],
    "texto": "Descárgala en la App Store o en Google Play.",
@@ -389,27 +418,28 @@
   }
  },
  "cortes": {
-  "pivote": 3.23,
-  "nomad": 6.21,
-  "resumen": 18.06,
-  "oferta": 24.17,
-  "cierre": 28.57,
-  "fin": 32.32
+  "chat": 3.76,
+  "pivote": 5.57,
+  "nomad": 8.55,
+  "resumen": 20.39,
+  "oferta": 26.5,
+  "cierre": 30.5,
+  "fin": 34.05
  },
  "flujo": [
   0.0,
   0.0,
   0.0,
   0.0,
-  0.25,
-  0.542,
-  0.834,
-  1.127,
-  1.419,
-  1.711,
-  2.003,
-  2.296,
-  2.588,
-  2.88
+  3.88,
+  4.034,
+  4.189,
+  4.343,
+  4.498,
+  4.652,
+  4.807,
+  4.961,
+  5.116,
+  5.27
  ]
 }

@@ -1,6 +1,6 @@
 # Tu primer viaje, gratis (24-nov) — el reel del Black Friday
 
-Un reel de **32,3 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
+Un reel de **34 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
 Junta eso con lo que salió de la simulación de MiroFish: quien no ha probado la app no ve por qué usarla en
 vez de pedirle el plan a cualquier IA. El guion y los textos de la campaña están en la issue #23.
 
@@ -14,12 +14,13 @@ Una IA te hace la lista. Lo que no hace es ir contigo. El vídeo enseña las dos
 
 | seg. | qué se ve | qué se oye |
 |---|---|---|
-| 0-3,2 | Un chat de IA genérico escribe la lista de 3 días en Lisboa. Abajo, desde el primer fotograma, la firma: «Nomad · Primer viaje gratis esta semana» | Kore: «Una IA te hace la lista en diez segundos.» |
-| 3,2-6,2 | La lista se apaga y queda una línea, «Praça do Comércio», con una chincheta: «Estás aquí» | Kore: «Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?» |
-| 6,2-18,1 | El papel de la app se abre desde la chincheta. En la pantalla del móvil, entera y con su borde verde, la presentación del paseo y su parada 1. A la derecha, los auriculares. Abajo, lo que dice la audioguía, con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
-| 18,1-24,2 | En la pantalla, el plan del sábado, la parada 2, la parada 3, la obra 1 y la obra 2 del museo. A la derecha, el logo, el pin y el cuadro | Kore: «Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.» |
-| 24,2-28,6 | La oferta, sobre verde, con la marca: «Tu primer viaje, gratis.» y sus dos condiciones, que entran con «viaje» y están 3,4 s | Kore: «Y esta semana, tu primer viaje es gratis.» |
-| 28,6-32,3 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después, y las líneas de marcas de Apple y Google | Kore: «Descárgala en la App Store o en Google Play.» |
+| 0-3,8 | **El gancho**, sobre el verde de la oferta: el icono, «¿Qué es Nomad?» y, con la voz, «Esta semana puedes probarlo gratis.» | Kore: «¿Qué es Nomad? Esta semana puedes probarlo gratis.» |
+| 3,8-5,6 | Un chat de IA genérico escribe la lista de 3 días en Lisboa. Abajo, la firma: «Nomad · Primer viaje gratis esta semana» | Kore: «Una IA te hace la lista.» |
+| 5,6-8,6 | La lista se apaga y queda una línea, «Praça do Comércio», con una chincheta: «Estás aquí» | Kore: «Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?» |
+| 8,6-20,4 | El papel de la app se abre desde la chincheta. En la pantalla del móvil, entera y con su borde verde, la presentación del paseo y su parada 1. A la derecha, los auriculares. Abajo, lo que dice la audioguía, con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
+| 20,4-26,5 | En la pantalla, el plan del sábado, la parada 2, la parada 3, la obra 1 y la obra 2 del museo. A la derecha, el logo, el pin y el cuadro | Kore: «Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.» |
+| 26,5-30,5 | La oferta, sobre verde, con la marca: «Tu primer viaje, gratis.» y sus dos condiciones | Kore: «Y esta semana, tu primer viaje es gratis.» |
+| 30,5-34 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después, y las líneas de marcas de Apple y Google | Kore: «Descárgala en la App Store o en Google Play.» |
 
 Los cortes salen de la voz (`preparar-voz.py`), no al revés.
 
@@ -60,6 +61,14 @@ Los cortes salen de la voz (`preparar-voz.py`), no al revés.
   la app no hace.
 - **Las voces**: si prefiere a Kore también en la audioguía, o sin narradora, se regraba.
 
+## El gancho es del dueño (24-nov)
+
+Al ver la segunda versión: **«creo que el gancho sería: ¿qué es Nomad? No te preocupes, esta semana
+tienes la oportunidad de conocerlo gratis, o algo así. Eso hará que la gente se quede de primeras»**.
+Antes el vídeo abría con el chat («Una IA te hace la lista en diez segundos») y la oferta no salía entera
+hasta el segundo 24. Ahora la pregunta y la oferta van en los cuatro primeros segundos, el chat se
+acorta a una frase, y «Eso es Nomad» pasa a ser la respuesta a la pregunta del principio.
+
 ## Lo que dijo el dueño al verlo (24-nov)
 
 La primera versión enseñaba la app recortada en un recuadro con sombra, con la vista bajando y
@@ -97,7 +106,7 @@ de fuera. Cada hallazgo grave o medio de los tres últimos lo intentó tumbar un
 
 Lo que los revisores dijeron y se dejó: que el chat con «Estás aquí» puede leerse como que la IA sabe
 dónde estás (el escéptico no lo vio así: la pregunta de la voz deja la respuesta abierta), y que la
-oferta no sale entera hasta el segundo 24 (es el orden del guion; la firma la adelanta al segundo 0).
+oferta no salía entera hasta el segundo 24 (el dueño lo resolvió después con el gancho).
 
 **Lo que nadie ha comprobado**: cómo suena. Las voces, la música y los efectos están transcritos y
 medidos, pero no los ha oído una persona.

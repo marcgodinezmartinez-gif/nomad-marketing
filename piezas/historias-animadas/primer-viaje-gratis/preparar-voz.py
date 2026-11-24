@@ -22,7 +22,10 @@ VEL = 1.15
 PAUSA_MAX, PAUSA_DEJA = 0.34, 0.26
 # id de la frase, su toma, y el texto tal como se pidió (para comparar con lo que se oye).
 FRASES = [
-    ('k1', 'k1b-2', 'Una IA te hace la lista en diez segundos.'),
+    # El gancho es del dueño (24-nov, al ver la segunda versión): «¿qué es Nomad? No te preocupes, esta
+    # semana tienes la oportunidad de conocerlo gratis, o algo así: eso hará que la gente se quede de primeras».
+    ('h1', 'h1-2', '¿Qué es Nomad? Esta semana puedes probarlo gratis.'),
+    ('k1', 'k1c-2', 'Una IA te hace la lista.'),
     ('k2', 'k2-2', 'Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?'),
     ('g1', 'g1-2', 'El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz '
                    'destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.'),
@@ -31,9 +34,9 @@ FRASES = [
     ('k5', 'k5-2', 'Descárgala en la App Store o en Google Play.'),
 ]
 # El aire entre frases, en segundos del vídeo final. El corte de escena va en medio.
-AIRE = {'k1': 0.20, 'k2': 0.22, 'g1': 0.36, 'k3': 0.30, 'k4': 0.30, 'k5': 0.40}
+AIRE = {'h1': 0.34, 'k1': 0.20, 'k2': 0.22, 'g1': 0.36, 'k3': 0.30, 'k4': 0.30, 'k5': 0.40}
 # Lo que se queda quieto después de la última palabra de la oferta (para leer las condiciones) y del cierre.
-QUIETO_OFERTA, QUIETO_CIERRE = 1.70, 1.50
+QUIETO_OFERTA, QUIETO_CIERRE = 1.30, 1.30
 
 
 def lee(f):
@@ -94,7 +97,7 @@ def main():
         palabras = [(w.word.strip(), round(float(w.start), 2)) for s in segs for w in s.words]
         oido = ' '.join(p for p, _ in palabras)
         # La página enciende cada palabra por su número: si whisper parte la frase de otra forma, se para aquí.
-        espera = {'k2': 11, 'g1': 29, 'k3': 17, 'k4': 8}.get(ident)
+        espera = {'h1': 8, 'k1': 6, 'k2': 11, 'g1': 29, 'k3': 17, 'k4': 8}.get(ident)
         if espera and len(palabras) != espera:
             sys.exit(f'{ident}: se esperaban {espera} palabras y whisper da {len(palabras)}: {oido}')
         datos[ident] = {'empieza': round(t, 2), 'dura': round(dur, 2), 'acaba': round(t + dur, 2),
@@ -108,6 +111,7 @@ def main():
     def entre(a, b, hacia=0.5):
         return round(datos[a]['acaba'] + (datos[b]['empieza'] - datos[a]['acaba']) * hacia, 2)
     cortes = {
+        'chat': entre('h1', 'k1', 0.55),             # del gancho al chat
         'pivote': entre('k1', 'k2', 0.6),            # la lista se apaga y queda una línea
         'nomad': entre('k2', 'g1', 0.45),            # del chat a la app
         'resumen': entre('g1', 'k3', 0.55),          # «Eso es Nomad»
@@ -117,9 +121,9 @@ def main():
     }
     # El chat suelta sus 14 líneas entre el principio y un poco antes del pivote. mezclar.sh pone un
     # tic en cada una, y nada mientras «piensa» (el fallo más común de este formato es sonar ahí).
-    # Las cuatro primeras ya están escritas en el fotograma 0 (tiempo 0): la portada no sale medio vacía.
+    # Las cuatro primeras ya están escritas cuando se abre el chat (tiempo 0): no sale medio vacío.
     n, ya = 14, 4
-    a, b = 0.25, cortes['pivote'] - 0.35
+    a, b = cortes['chat'] + 0.12, cortes['pivote'] - 0.30
     flujo = [0.0] * ya + [round(a + (b - a) * i / (n - ya - 1), 3) for i in range(n - ya)]
     todo = {'vel': VEL, 'frases': datos, 'cortes': cortes, 'flujo': flujo}
     json.dump(todo, open('assets/tiempos.json', 'w'), ensure_ascii=False, indent=1)
