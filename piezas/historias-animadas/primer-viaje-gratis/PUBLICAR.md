@@ -46,26 +46,22 @@ La primera línea es la que se ve sin abrirlo, y lleva lo primero lo mismo que e
 
 Cada móvil cae en su tienda. Los textos del anuncio están en la issue #23.
 
-## La campaña de Meta, en borrador (25-nov)
+## Publicado (25-nov)
 
-Preparada en la cuenta «NOMAD Ads EUR» como **borrador**: no gasta nada hasta que el dueño la publica en
-el Administrador de anuncios, y al publicarla sale activa al momento.
+- **El reel**, en @app.nomad el 25-nov a las 13:14 UTC, subido por el dueño: la versión del anuncio (sin
+  «Enlace en el perfil» en pantalla) y el pie de arriba sin las líneas «👉 Enlace en el perfil.» y «La voz y
+  la música están hechas con IA.».
+- **La campaña de Meta**, publicada ese día desde la sesión con el sí del dueño («publícala tú»), en la
+  cuenta «NOMAD Ads EUR». El anuncio es ese mismo reel (los «me gusta» y comentarios van a la
+  publicación), con el botón «Descargar» al enlace pagado de arriba: `travelsnomad.com/app` manda el
+  iPhone a la App Store y el Android a Google Play, con la etiqueta, y un ordenador a la web. Marcado
+  como hecho con IA y sin retoques automáticos de Meta.
 
 | | |
 |---|---|
-| campaña | «Black Friday · primer viaje gratis · Roma»: tráfico, 15 € al día (decisión del dueño), hasta el 3-dic a las 23:59 |
+| campaña | «Black Friday · primer viaje gratis · Roma»: tráfico, 15 € al día (decisión del dueño), para sola el 3-dic a las 23:59 |
 | conjunto | España, 18+, sólo historias y reels de Instagram, público automático: el montaje de «Las dos tiendas» (20-nov) |
-| anuncio | el vídeo `…-anuncio-1080x1920.mp4`, botón «Descargar» al enlace pagado de arriba, marcado como hecho con IA (decisión del dueño), sin retoques automáticos de Meta |
-| texto | «Tu primer viaje con Nomad, gratis hasta el 3 de diciembre. ¿Qué es Nomad? Tu imprescindible para viajar.» y, en un párrafo aparte, la condición del pie |
-| titular | «Tu primer viaje, gratis esta semana» |
+| anuncio | «Roma · reel de @app.nomad · historias y reels»; el texto es el pie del reel |
 
-La descripción («Hasta el 3 de diciembre») se guardó, pero Instagram no la enseña. Con el objetivo de
-tráfico Meta no admite varios textos o titulares en el mismo anuncio: va uno de cada.
-
-## Lo que no se hace
-
-- No se escribe nada de la promoción en la ficha de la App Store (decisión del dueño, NOMAD#479).
-- No se promociona desde la app de Instagram del iPhone: cobra la comisión de Apple (AGENTS.md).
-- El 4 de diciembre se retira o se archiva: un vídeo que dice «gratis» con la promoción apagada es una
-  promesa que la app no cumple. Lo mismo si se apaga antes o se llega al tope: se retira ese día.
-- No se manda a «Viajes listos» como destino de la campaña mientras NOMAD#469 siga abierta.
+Antes del reel se había preparado el anuncio con el vídeo suelto y otro texto; se cambió por el reel antes
+de publicar. Ese anuncio no llegó a salir.
