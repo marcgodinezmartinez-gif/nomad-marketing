@@ -1,7 +1,7 @@
 # Publicar «Tu primer viaje, gratis»
 
 **La promoción está encendida desde el 25-nov, en iPhone y en Android, con tope 1.000** (NOMAD#479). El
-dueño la probó en su iPhone ese día. Si se apaga, el vídeo no se publica: anunciaría algo que la app no hace.
+dueño la probó ese día en su iPhone y en un Android, y funciona en los dos. Si se apaga, el vídeo no se publica: anunciaría algo que la app no hace.
 
 ## Los ficheros (`bash variantes.sh <salida>`)
 
@@ -20,13 +20,11 @@ dueño la probó en su iPhone ese día. Si se apaga, el vídeo no se publica: an
    promoción acaba otro día, se cambia en `index.html` y se vuelve a renderizar.
 2. **El tope.** La promoción se corta sola al llegar a 1.000 viajes gratis (decisión del dueño, 25-nov) y
    el vídeo no lo dice. Si se llega, se retiran el reel y el anuncio ese mismo día.
-3. **Android.** Probarlo en un Android con una cuenta que no haya comprado nunca: abrir la app, cerrarla y
-   abrirla otra vez (la actualización se aplica en la segunda apertura), y ver «Gratis».
-4. **Una instalación nueva.** Instalar la app desde la tienda en un móvil limpio y ver que sale «Gratis».
+3. **Una instalación nueva.** Instalar la app desde la tienda en un móvil limpio y ver que sale «Gratis».
    Con mala red puede salir el precio hasta la segunda apertura.
-5. **Verlo con sonido en el móvil.** Las voces y la música son sintéticas y nadie las ha oído aún: una
+4. **Verlo con sonido en el móvil.** Las voces y la música son sintéticas y nadie las ha oído aún: una
    sesión las transcribe y las mide, pero no las oye.
-6. **La etiqueta de IA.** Al subirlo se marca «Contenido hecho con IA» (Instagram: Configuración
+5. **La etiqueta de IA.** Al subirlo se marca «Contenido hecho con IA» (Instagram: Configuración
    avanzada; TikTok: «Contenido generado por IA»): la música y las voces lo son.
 
 ## El pie
