@@ -16,8 +16,8 @@ mkdir -p "$OUT" "$D/revision"
 HF="npx -y hyperframes@0.8.203"
 [ -f "$D/assets/sonido.m4a" ] || { echo "falta el sonido: python3 -I mezclar.py" >&2; exit 1; }
 ls "$D"/assets/tomas/*.mp4 >/dev/null 2>&1 || { echo "faltan las tomas: METRAJE=<carpeta> python3 -I cortar-tomas.py" >&2; exit 1; }
-# Las fotos de Lisboa salen del banco (banco/fotos/creditos.json): aquí sólo hay una copia para el render.
-mkdir -p "$D/assets/fotos" && cp "$R"/banco/fotos/historia/f-lisboa-*.jpg "$D/assets/fotos/"
+# Las fotos de Roma salen del banco (banco/fotos/creditos.json): aquí sólo hay una copia para el render.
+mkdir -p "$D/assets/fotos" && rm -f "$D"/assets/fotos/*.jpg && cp "$R"/banco/fotos/historia/f-roma-*.jpg "$D/assets/fotos/"
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la del reel.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version reel' EXIT
 CHECK="$(mktemp)"
