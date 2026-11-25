@@ -46,6 +46,22 @@ La primera línea es la que se ve sin abrirlo, y lleva lo primero lo mismo que e
 
 Cada móvil cae en su tienda. Los textos del anuncio están en la issue #23.
 
+## La campaña de Meta, en borrador (25-nov)
+
+Preparada en la cuenta «NOMAD Ads EUR» como **borrador**: no gasta nada hasta que el dueño la publica en
+el Administrador de anuncios, y al publicarla sale activa al momento.
+
+| | |
+|---|---|
+| campaña | «Black Friday · primer viaje gratis · Roma»: tráfico, 15 € al día (decisión del dueño), hasta el 3-dic a las 23:59 |
+| conjunto | España, 18+, sólo historias y reels de Instagram, público automático: el montaje de «Las dos tiendas» (20-nov) |
+| anuncio | el vídeo `…-anuncio-1080x1920.mp4`, botón «Descargar» al enlace pagado de arriba, marcado como hecho con IA (decisión del dueño), sin retoques automáticos de Meta |
+| texto | «Tu primer viaje con Nomad, gratis hasta el 3 de diciembre. ¿Qué es Nomad? Tu imprescindible para viajar.» y, en un párrafo aparte, la condición del pie |
+| titular | «Tu primer viaje, gratis esta semana» |
+
+La descripción («Hasta el 3 de diciembre») se guardó, pero Instagram no la enseña. Con el objetivo de
+tráfico Meta no admite varios textos o titulares en el mismo anuncio: va uno de cada.
+
 ## Lo que no se hace
 
 - No se escribe nada de la promoción en la ficha de la App Store (decisión del dueño, NOMAD#479).
