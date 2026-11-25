@@ -33,8 +33,10 @@ FRASES = [
     ('n2', 'p2-3', '¿Qué es Nomad? Tu imprescindible para viajar.'),
     ('n3', 'n3-1', 'Te organiza el viaje, día a día.'),
     ('n4', 'n4-1', 'Te cuenta lo que tienes delante.'),
-    # La audioguía de la app (Charon), cuatro segundos: la primera frase de «La historia» de la parada 1.
-    ('g2', 'g2-2', 'Estás en el centro neurálgico de la reconstrucción de Lisboa.'),
+    # La audioguía de la app (Charon): el principio de «La historia» de la parada 1 del paseo de ROMA que
+    # generó la app para el viaje demo (Piazza Navona y Sant'Agnese in Agone, tours_cache, 25-nov). La
+    # frase sigue con «inaugurado en el siglo I»: se corta ahí para que la escena no pase de ocho segundos.
+    ('g2', 'r2-3', 'Esta plaza no nació como espacio público barroco, sino como un estadio romano de atletismo.'),
     ('n5', 'n5-2', 'Te recomienda qué ver y dónde comer.'),
     ('n6', 'n6-1', 'Lleva las cuentas del grupo.'),
     ('n7', 'n7-1', 'Y tienes un asistente para lo que necesites durante el viaje.'),
@@ -47,7 +49,7 @@ AIRE = {'n1': 0.50, 'n2': 0.50, 'n3': 0.75, 'n4': 0.25, 'g2': 0.55, 'n5': 0.75, 
 # Lo que se queda quieto después de la última palabra de la oferta (para leer las condiciones) y del cierre.
 QUIETO_OFERTA, QUIETO_CIERRE = 1.40, 1.30
 # Cuántas palabras tiene que oír whisper en las frases cuyas palabras se usan por su número.
-ESPERA = {'n1': 6, 'n2': 7, 'g2': 10, 'n8': 7}
+ESPERA = {'n1': 6, 'n2': 7, 'g2': 15, 'n8': 7}
 
 
 def lee(f):

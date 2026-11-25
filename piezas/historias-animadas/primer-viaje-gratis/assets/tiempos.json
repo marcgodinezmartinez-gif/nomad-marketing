@@ -143,249 +143,269 @@
   },
   "g2": {
    "empieza": 11.45,
-   "dura": 3.62,
-   "acaba": 15.07,
+   "dura": 5.72,
+   "acaba": 17.16,
    "palabras": [
     [
-     "estás",
+     "Esta",
      11.45
     ],
     [
-     "en",
-     11.81
+     "plaza",
+     11.73
     ],
     [
-     "el",
-     12.05
+     "no",
+     12.21
     ],
     [
-     "Centro",
-     12.15
+     "nació",
+     12.71
     ],
     [
-     "Neuralgico",
-     12.57
+     "como",
+     13.05
+    ],
+    [
+     "espacio",
+     13.23
+    ],
+    [
+     "público",
+     13.53
+    ],
+    [
+     "barroco,",
+     13.87
+    ],
+    [
+     "sino",
+     14.77
+    ],
+    [
+     "como",
+     14.97
+    ],
+    [
+     "un",
+     15.21
+    ],
+    [
+     "estadio",
+     15.43
+    ],
+    [
+     "romano",
+     15.99
     ],
     [
      "de",
-     13.17
+     16.39
     ],
     [
-     "la",
-     13.29
-    ],
-    [
-     "Reconstrucción",
-     13.41
-    ],
-    [
-     "de",
-     14.27
-    ],
-    [
-     "Lisboa.",
-     14.43
+     "atletismo.",
+     16.51
     ]
    ],
-   "texto": "Estás en el centro neurálgico de la reconstrucción de Lisboa.",
-   "oido": "estás en el Centro Neuralgico de la Reconstrucción de Lisboa."
+   "texto": "Esta plaza no nació como espacio público barroco, sino como un estadio romano de atletismo.",
+   "oido": "Esta plaza no nació como espacio público barroco, sino como un estadio romano de atletismo."
   },
   "n5": {
-   "empieza": 15.62,
+   "empieza": 17.71,
    "dura": 2.09,
-   "acaba": 17.7,
+   "acaba": 19.8,
    "palabras": [
     [
      "te",
-     15.62
+     17.71
     ],
     [
      "recomienda",
-     15.7
+     17.79
     ],
     [
      "qué",
-     16.24
+     18.33
     ],
     [
      "ver",
-     16.48
+     18.57
     ],
     [
      "y",
-     16.7
+     18.79
     ],
     [
      "dónde",
-     17.08
+     19.17
     ],
     [
      "comer.",
-     17.28
+     19.37
     ]
    ],
    "texto": "Te recomienda qué ver y dónde comer.",
    "oido": "te recomienda qué ver y dónde comer."
   },
   "n6": {
-   "empieza": 18.45,
+   "empieza": 20.55,
    "dura": 1.37,
-   "acaba": 19.82,
+   "acaba": 21.92,
    "palabras": [
     [
      "Lleva",
-     18.45
+     20.55
     ],
     [
      "las",
-     18.77
+     20.87
     ],
     [
      "cuentas",
-     18.89
+     20.99
     ],
     [
      "del",
-     19.29
+     21.39
     ],
     [
      "grupo.",
-     19.41
+     21.51
     ]
    ],
    "texto": "Lleva las cuentas del grupo.",
    "oido": "Lleva las cuentas del grupo."
   },
   "n7": {
-   "empieza": 20.87,
+   "empieza": 22.97,
    "dura": 3.07,
-   "acaba": 23.94,
+   "acaba": 26.04,
    "palabras": [
     [
      "y",
-     20.87
+     22.97
     ],
     [
      "tienes",
-     21.01
+     23.11
     ],
     [
      "un",
-     21.33
+     23.43
     ],
     [
      "asistente",
-     21.61
+     23.71
     ],
     [
      "para",
-     22.23
+     24.33
     ],
     [
      "lo",
-     22.45
+     24.55
     ],
     [
      "que",
-     22.59
+     24.69
     ],
     [
      "necesites",
-     22.69
+     24.79
     ],
     [
      "durante",
-     23.15
+     25.25
     ],
     [
      "el",
-     23.33
+     25.43
     ],
     [
      "viaje.",
-     23.53
+     25.63
     ]
    ],
    "texto": "Y tienes un asistente para lo que necesites durante el viaje.",
    "oido": "y tienes un asistente para lo que necesites durante el viaje."
   },
   "n8": {
-   "empieza": 24.64,
+   "empieza": 26.74,
    "dura": 2.52,
-   "acaba": 27.16,
+   "acaba": 29.25,
    "palabras": [
     [
      "Esta",
-     24.64
+     26.74
     ],
     [
      "semana",
-     24.88
+     26.98
     ],
     [
      "tu",
-     25.22
+     27.32
     ],
     [
      "primer",
-     25.58
+     27.68
     ],
     [
      "viaje",
-     25.9
+     28.0
     ],
     [
      "es",
-     26.16
+     28.26
     ],
     [
      "gratis.",
-     26.48
+     28.58
     ]
    ],
    "texto": "Esta semana, tu primer viaje es gratis.",
    "oido": "Esta semana tu primer viaje es gratis."
   },
   "k5": {
-   "empieza": 28.86,
+   "empieza": 30.95,
    "dura": 2.02,
-   "acaba": 30.88,
+   "acaba": 32.98,
    "palabras": [
     [
      "Descárgala",
-     28.86
+     30.95
     ],
     [
      "en",
-     29.42
+     31.51
     ],
     [
      "la",
-     29.56
+     31.65
     ],
     [
      "App",
-     29.66
+     31.75
     ],
     [
      "Store",
-     29.82
+     31.91
     ],
     [
      "o",
-     30.0
+     32.09
     ],
     [
      "en",
-     30.26
+     32.35
     ],
     [
      "Google",
-     30.38
+     32.47
     ],
     [
      "Play.",
-     30.5
+     32.59
     ]
    ],
    "texto": "Descárgala en la App Store o en Google Play.",
@@ -396,11 +416,11 @@
   "viajar": 2.88,
   "plan": 6.33,
   "plaza": 9.1,
-  "comer": 15.4,
-  "cuentas": 18.22,
-  "asistente": 20.61,
-  "oferta": 24.54,
-  "cierre": 28.64,
-  "fin": 32.18
+  "comer": 17.49,
+  "cuentas": 20.32,
+  "asistente": 22.71,
+  "oferta": 26.64,
+  "cierre": 30.73,
+  "fin": 34.28
  }
 }

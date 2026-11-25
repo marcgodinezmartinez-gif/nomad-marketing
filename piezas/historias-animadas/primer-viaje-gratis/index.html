@@ -64,11 +64,11 @@
       /* La pregunta del principio, encima de su respuesta. */
       .dt.q1 { top: 540px; font-size: 104px; color: #9BE6D2; }
       /* Lo que dice la audioguía, en el sitio de la frase, palabra a palabra. */
-      #q-rotulo { position: absolute; left: 84px; top: 420px; margin: 0; font-size: 28px; line-height: 36px; font-weight: 700;
+      #q-rotulo { position: absolute; left: 84px; top: 400px; margin: 0; font-size: 28px; line-height: 36px; font-weight: 700;
                   letter-spacing: .14em; text-transform: uppercase; color: #9BE6D2; white-space: nowrap; }
-      .q { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 58px; line-height: 70px; font-weight: 600;
+      .q { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 54px; line-height: 64px; font-weight: 600;
            white-space: nowrap; text-shadow: 0 4px 30px rgba(0,0,0,.5); }
-      .q.a { top: 470px; } .q.b { top: 544px; }
+      .q.a { top: 448px; } .q.b { top: 512px; } .q.c { top: 576px; } .q.d { top: 640px; }
       .q span { opacity: .55; }
       /* EL MÓVIL: un marco oscuro sin más (no es el dibujo de ningún teléfono), que sube desde abajo y se
          sale por el borde. Dentro, la toma de cada momento, a 680 de ancho. */
@@ -113,7 +113,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="primer-viaje-gratis" data-start="0"
-         data-width="1080" data-height="1920" data-duration="32.18">
+         data-width="1080" data-height="1920" data-duration="34.28">
 
       <!-- 1 · EL DÍA: la foto, la hora, la frase y el móvil con la app grabada. Va debajo del gancho. -->
       <div id="dia">
@@ -141,10 +141,12 @@
         <p id="h-3" class="hora sans">11:00 &middot; en la plaza</p>
         <p id="t3a" class="dt a serif">Te cuenta lo que</p>
         <p id="t3b" class="dt b serif">tienes delante.</p>
-        <!-- La audioguía: la primera frase de «La historia» de la parada 1 del paseo, palabra por palabra. -->
+        <!-- La audioguía: el principio de «La historia» de la parada 1 del paseo de Roma, palabra por palabra. -->
         <p id="q-rotulo" class="sans">La audiogu&iacute;a</p>
-        <p id="q-a" class="q a sans"><span>Est&aacute;s</span> <span>en</span> <span>el</span> <span>centro</span> <span>neur&aacute;lgico</span></p>
-        <p id="q-b" class="q b sans"><span>de</span> <span>la</span> <span>reconstrucci&oacute;n</span> <span>de</span> <span>Lisboa.</span></p>
+        <p id="q-a" class="q a sans"><span>Esta</span> <span>plaza</span> <span>no</span> <span>naci&oacute;</span> <span>como</span></p>
+        <p id="q-b" class="q b sans"><span>espacio</span> <span>p&uacute;blico</span> <span>barroco,</span> <span>sino</span></p>
+        <p id="q-c" class="q c sans"><span>como</span> <span>un</span> <span>estadio</span> <span>romano</span></p>
+        <p id="q-d" class="q d sans"><span>de</span> <span>atletismo.</span></p>
 
         <p id="h-4" class="hora sans">14:00 &middot; a la hora de comer</p>
         <p id="t4a" class="dt a serif">Te recomienda qu&eacute; ver</p>
@@ -161,10 +163,10 @@
         <div id="movil" data-layout-allow-overflow>
           <!-- TOMAS: las pone cortar-tomas.py desde tomas.json -->
           <video id="toma-plan" class="toma clip" src="assets/tomas/plan.mp4" data-start="6.33" data-duration="2.77" muted playsinline></video>
-          <video id="toma-paseo" class="toma clip" src="assets/tomas/paseo.mp4" data-start="9.1" data-duration="6.3" muted playsinline></video>
-          <video id="toma-lugares" class="toma clip" src="assets/tomas/lugares.mp4" data-start="15.4" data-duration="2.82" muted playsinline></video>
-          <video id="toma-gastos" class="toma clip" src="assets/tomas/gastos.mp4" data-start="18.22" data-duration="2.39" muted playsinline></video>
-          <video id="toma-asistente" class="toma clip" src="assets/tomas/asistente.mp4" data-start="20.61" data-duration="3.93" muted playsinline></video>
+          <video id="toma-paseo" class="toma clip" src="assets/tomas/paseo.mp4" data-start="9.1" data-duration="8.39" muted playsinline></video>
+          <video id="toma-lugares" class="toma clip" src="assets/tomas/lugares.mp4" data-start="17.49" data-duration="2.83" muted playsinline></video>
+          <video id="toma-gastos" class="toma clip" src="assets/tomas/gastos.mp4" data-start="20.32" data-duration="2.39" muted playsinline></video>
+          <video id="toma-asistente" class="toma clip" src="assets/tomas/asistente.mp4" data-start="22.71" data-duration="3.93" muted playsinline></video>
           <!-- /TOMAS -->
         </div>
       </div>
@@ -207,7 +209,7 @@
         <p id="c-l3" class="c-l sans" data-layout-ignore style="top: 1448px;">son marcas comerciales de Google LLC.</p>
       </div>
 
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="32.18"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="34.28"></audio>
     </div>
     <script>
       // Una sola línea de tiempo, pausada, registrada DESPUÉS de que carguen las fuentes. Estado inicial
@@ -234,7 +236,7 @@
           });
           if (ancho > tope) ids.forEach(function (id) { a(id).style.fontSize = Math.floor(tam * tope / ancho) + "px"; });
         }
-        [["g-1", "g-2"], ["g-g"], ["t1q"], ["t1a", "t1b"], ["t2a", "t2b"], ["t3a", "t3b"], ["t4a", "t4b"], ["t5a", "t5b"], ["t6a", "t6b"], ["q-a", "q-b"]]
+        [["g-1", "g-2"], ["g-g"], ["t1q"], ["t1a", "t1b"], ["t2a", "t2b"], ["t3a", "t3b"], ["t4a", "t4b"], ["t5a", "t5b"], ["t6a", "t6b"], ["q-a", "q-b", "q-c", "q-d"]]
           .forEach(function (par) { ajusta(par, 812); });
         a("m-oferta").style.left = Math.round(156 + a("m-nombre").getBoundingClientRect().width + 16) + "px";
 
@@ -281,16 +283,16 @@
         // LA PLAZA: cuando habla la audioguía, su frase ocupa el sitio de la de Kore.
         var G0 = F.g2.empieza;
         ["#t3a", "#t3b"].forEach(function (s) { corta(s, G0 - 0.12); });
-        gsap.set(["#q-rotulo", "#q-a", "#q-b"], { autoAlpha: 0 });
+        gsap.set(["#q-rotulo", "#q-a", "#q-b", "#q-c", "#q-d"], { autoAlpha: 0 });
         entra("#q-rotulo", G0 - 0.1, 14);
-        tl.fromTo(["#q-a", "#q-b"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none" }, G0 - 0.08);
+        tl.fromTo(["#q-a", "#q-b", "#q-c", "#q-d"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none" }, G0 - 0.08);
         var n = 0;
-        document.querySelectorAll("#q-a span, #q-b span").forEach(function (sp) {
+        document.querySelectorAll("#q-a span, #q-b span, #q-c span, #q-d span").forEach(function (sp) {
           tl.fromTo(sp, { opacity: 0.55 }, { opacity: 1, duration: 0.14, ease: "none" }, palabra("g2", n) - 0.07);
           n += 1;
         });
         if (n !== F.g2.palabras.length) throw new Error("la audioguía tiene " + F.g2.palabras.length + " palabras y la página, " + n);
-        ["#q-rotulo", "#q-a", "#q-b"].forEach(function (s) { corta(s, C.comer); });
+        ["#q-rotulo", "#q-a", "#q-b", "#q-c", "#q-d"].forEach(function (s) { corta(s, C.comer); });
 
         // ── 2 · LA OFERTA ──────────────────────────────────────────────────────
         aparece("#oferta", O);
