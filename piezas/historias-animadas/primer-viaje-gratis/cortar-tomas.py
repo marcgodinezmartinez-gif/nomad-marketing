@@ -35,7 +35,9 @@ for t in json.load(open('tomas.json')):
     f = os.path.join(M, t['fichero'])
     alto_fuente = min(2622 - t['y0'], int(ALTO_MOVIL * 1206 / ANCHO))
     alto_fuente -= alto_fuente % 2
-    if alto_fuente * ANCHO / 1206 < 1190:        # lo que se ve del móvil: de y=730 al borde, 1190
+    # Lo que se ve del móvil va de y=730 al borde del vídeo: 1190 px. Si la grabación se acaba antes,
+    # queda un hueco a la vista. Alargarla repitiendo su última fila no vale: esa fila lleva texto.
+    if alto_fuente * ANCHO / 1206 < 1190:
         sys.exit(f"{t['id']}: desde y={t['y0']} la grabación no llena el móvil; y0 tiene que ser 510 o menos")
     n = len(t['trozos'])
     # Las grabaciones del simulador sólo guardan un fotograma cuando la pantalla cambia. Sin pasarlas
