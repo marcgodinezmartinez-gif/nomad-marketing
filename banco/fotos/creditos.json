@@ -461,5 +461,62 @@
     "sitio": "Lisboa",
     "url": "https://unsplash.com/photos/CY7k0cnexGQ",
     "verificada": "2026-11-25"
+  },
+  "f-roma-calle.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Marialaura Gionfriddo",
+    "titulo": "Un callejón empedrado con plantas y hiedra",
+    "sitio": "Roma",
+    "url": "https://unsplash.com/photos/green-plants-on-brown-clay-pots-O5Gi4UiWVnM",
+    "verificada": "2026-11-25"
+  },
+  "f-roma-desayuno.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Olga Pukhalskaya",
+    "titulo": "Café, cruasán y zumo en una terraza",
+    "sitio": "Roma",
+    "url": "https://unsplash.com/photos/a-wooden-table-topped-with-a-cup-of-coffee-and-a-croissant-t3fml85WJv4",
+    "verificada": "2026-11-25",
+    "nota": "La página no dice dónde es: no es Roma comprobada. Va en «09:00 · antes de salir», donde sólo hace de desayuno."
+  },
+  "f-roma-plaza.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Henry Ascroft",
+    "titulo": "La Piazza Navona por la mañana, con Sant'Agnese in Agone",
+    "sitio": "Roma",
+    "url": "https://unsplash.com/photos/a-cobblestone-street-lined-with-tall-buildings-VXocGM8jpME",
+    "verificada": "2026-11-25"
+  },
+  "f-roma-comida.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Rosa Rafael",
+    "titulo": "Un plato de espaguetis con queso",
+    "sitio": "Roma",
+    "url": "https://unsplash.com/photos/oW5eupy_Yhg",
+    "verificada": "2026-11-25",
+    "nota": "No dice dónde es: es un plato de pasta, sin más."
+  },
+  "f-roma-tarde.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "John Rodenn Castillo",
+    "titulo": "San Pedro y el Tíber al atardecer",
+    "sitio": "Roma",
+    "url": "https://unsplash.com/photos/brown-mosque-near-bridge-under-blue-sky-t1Cm0nrCjDY",
+    "verificada": "2026-11-25",
+    "nota": "El título de la página dice «mosque»: la foto es la cúpula de San Pedro con el puente Sant'Angelo."
+  },
+  "f-roma-noche.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Irakli Pichkhaia",
+    "titulo": "El Coliseo iluminado, con la luna llena",
+    "sitio": "Roma",
+    "url": "https://unsplash.com/photos/a-full-moon-is-seen-above-the-colossion-dMDNhmV2nbc",
+    "verificada": "2026-11-25"
   }
 }
