@@ -44,9 +44,9 @@ for V in ${VERSIONES:-reel anuncio}; do
     python3 -c "from PIL import Image;Image.open('$F').convert('RGB').save('$D/revision/$V-${E#*:}.png',optimize=True)"
     i=$((i+1))
   done
-  # Las zonas seguras de un reel encima del cierre y de la oferta: texto entre y=230 e y=1480, y la
+  # Las zonas seguras de un reel encima de la audioguía, del asistente, de la oferta y del cierre: texto entre y=230 e y=1480, y la
   # columna de botones a la derecha (x>900, de y=900 a y=1480).
-  for N in 05-la-audioguia 09-la-oferta 10-el-cierre; do
+  for N in 05-la-audioguia 08-el-asistente 09-la-oferta 10-el-cierre; do
   python3 - "$D/revision/$V-$N.png" "$D/revision/$V-$N-zonas.png" <<'PY'
 import sys
 from PIL import Image, ImageDraw

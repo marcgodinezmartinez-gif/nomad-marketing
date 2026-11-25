@@ -1,7 +1,7 @@
 [
- {"id": "plan", "fichero": "recorrido-reel-plan.mp4", "trozos": [[37.5, 39.3], [43.5, 45.1]], "y0": 300},
+ {"id": "plan", "fichero": "recorrido-reel-plan.mp4", "trozos": [[37.5, 39.3], [43.5, 45.1]], "y0": 412},
  {"id": "paseo", "fichero": "recorrido-reel-paseo.mp4", "trozos": [[30.4, 32.4], [81.4, 85.7]], "y0": 420},
- {"id": "lugares", "fichero": "recorrido-reel-lugares.mp4", "trozos": [[36.9, 38.6], [41.2, 42.9]], "y0": 400},
- {"id": "gastos", "fichero": "recorrido-reel-gastos.mp4", "trozos": [[30.6, 33.0]], "y0": 400},
- {"id": "asistente", "fichero": "recorrido-reel-asistente.mp4", "trozos": [[21.7, 23.3], [24.5, 26.9]], "y0": 410}
+ {"id": "lugares", "fichero": "recorrido-reel-lugares.mp4", "trozos": [[40.3, 43.7]], "y0": 412},
+ {"id": "gastos", "fichero": "recorrido-reel-gastos.mp4", "trozos": [[30.6, 33.0]], "y0": 412},
+ {"id": "asistente", "fichero": "recorrido-reel-asistente.mp4", "trozos": [[21.7, 23.3], [24.5, 26.9]], "y0": 664}
 ]

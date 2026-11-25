@@ -124,7 +124,7 @@ def main():
         'plan': entre('n2', 'n3', 0.6),              # 09:00, el plan
         'plaza': entre('n3', 'n4', 0.7),             # 10:30, la audioguía
         'comer': entre('g2', 'n5', 0.6),             # 13:30, qué ver y dónde comer
-        'cuentas': entre('n5', 'n6', 0.7),           # 21:00, las cuentas
+        'cuentas': entre('n5', 'n6', 0.7),           # 19:30, las cuentas
         'asistente': entre('n6', 'n7', 0.75),        # 23:00, el asistente
         'oferta': round(datos['n8']['empieza'] - 0.10, 2),
         'cierre': round(datos['k5']['empieza'] - 0.22, 2),
@@ -138,7 +138,9 @@ def main():
     # La duración va escrita en index.html (HyperFrames la lee del HTML, no de un script).
     if os.path.exists('index.html'):
         h = open('index.html', encoding='utf-8').read()
-        h2 = re.sub(r'data-duration="[0-9.]+"', f'data-duration="{fin}"', h)
+        # Sólo en la raíz y en el sonido: cada <video> de las tomas lleva la suya (cortar-tomas.py).
+        h2 = re.sub(r'(data-height="1920" data-duration=")[0-9.]+', rf'\g<1>{fin}', h)
+        h2 = re.sub(r'(<audio id="sonido"[^>]*data-duration=")[0-9.]+', rf'\g<1>{fin}', h2)
         if h2 != h:
             open('index.html', 'w', encoding='utf-8').write(h2)
             print('index.html: data-duration =', fin)

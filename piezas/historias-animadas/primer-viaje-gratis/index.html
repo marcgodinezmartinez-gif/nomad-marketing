@@ -63,7 +63,7 @@
       .q { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 58px; line-height: 70px; font-weight: 600;
            white-space: nowrap; text-shadow: 0 4px 30px rgba(0,0,0,.5); }
       .q.a { top: 470px; } .q.b { top: 544px; }
-      .q span { opacity: .4; }
+      .q span { opacity: .55; }
       /* EL MÓVIL: un marco oscuro sin más (no es el dibujo de ningún teléfono), que sube desde abajo y se
          sale por el borde. Dentro, la toma de cada momento, a 680 de ancho. */
       #movil { position: absolute; left: 200px; top: 730px; width: 680px; height: 1300px; border-radius: 70px 70px 0 0;
@@ -99,8 +99,8 @@
              font-size: 46px; line-height: 56px; font-weight: 700; color: #106A63; white-space: nowrap; }
       .c-c { position: absolute; left: 180px; width: 720px; margin: 0; text-align: center;
              font-size: 34px; line-height: 44px; font-weight: 500; color: rgba(16,14,11,.76); white-space: nowrap; }
-      .c-l { position: absolute; left: 130px; width: 820px; margin: 0; text-align: center;
-             font-size: 22px; line-height: 30px; font-weight: 500; color: rgba(16,14,11,.68); white-space: nowrap; }
+      .c-l { position: absolute; left: 180px; width: 720px; margin: 0; text-align: center;
+             font-size: 22px; line-height: 28px; font-weight: 500; color: rgba(16,14,11,.68); white-space: nowrap; }
       #c-enlace { position: absolute; left: 180px; top: 1322px; width: 720px; margin: 0; text-align: center;
                   font-size: 36px; line-height: 46px; font-weight: 600; color: rgba(16,14,11,.78); white-space: nowrap; }
     </style>
@@ -121,7 +121,7 @@
         <div id="velo"></div>
         <div id="m-icono"></div>
         <p id="m-nombre" class="sans">Nomad</p>
-        <p id="m-oferta" class="sans">&middot; Primer viaje gratis esta semana</p>
+        <p id="m-oferta" class="sans">&middot; Primer viaje gratis hasta el 3 de diciembre</p>
 
         <p id="t1a" class="dt g a serif">Tu imprescindible</p>
         <p id="t1b" class="dt g b serif">para viajar.</p>
@@ -193,8 +193,9 @@
         <p id="c-c1" class="c-c sans" style="top: 1188px;">Un viaje gratis por cuenta.</p>
         <p id="c-c2" class="c-c sans" style="top: 1232px;">Despu&eacute;s, desde 2,99&nbsp;&euro; el viaje.</p>
         <p id="c-enlace" class="sans">Enlace en el perfil</p>
-        <p id="c-l1" class="c-l sans" data-layout-ignore style="top: 1412px;">App Store es una marca de servicio de Apple Inc.</p>
-        <p id="c-l2" class="c-l sans" data-layout-ignore style="top: 1442px;">Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.</p>
+        <p id="c-l1" class="c-l sans" data-layout-ignore style="top: 1392px;">App Store es una marca de servicio de Apple Inc.</p>
+        <p id="c-l2" class="c-l sans" data-layout-ignore style="top: 1420px;">Google Play y el logotipo de Google Play</p>
+        <p id="c-l3" class="c-l sans" data-layout-ignore style="top: 1448px;">son marcas comerciales de Google LLC.</p>
       </div>
 
       <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.78"></audio>
@@ -275,7 +276,7 @@
         tl.fromTo(["#q-a", "#q-b"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none" }, G0 - 0.08);
         var n = 0;
         document.querySelectorAll("#q-a span, #q-b span").forEach(function (sp) {
-          tl.fromTo(sp, { opacity: 0.4 }, { opacity: 1, duration: 0.14, ease: "none" }, palabra("g2", n) - 0.07);
+          tl.fromTo(sp, { opacity: 0.55 }, { opacity: 1, duration: 0.14, ease: "none" }, palabra("g2", n) - 0.07);
           n += 1;
         });
         if (n !== F.g2.palabras.length) throw new Error("la audioguía tiene " + F.g2.palabras.length + " palabras y la página, " + n);
@@ -285,11 +286,11 @@
         aparece("#oferta", O);
         corta("#dia", O);
         tl.fromTo("#o-kicker", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), O + 0.04);
-        entra("#o-1", O + 0.12, 40);
-        entra("#o-2", palabra("n8", 3) - 0.1, 40);
+        entra("#o-1", palabra("n8", 2) - 0.1, 40);
+        entra("#o-2", palabra("n8", 4) - 0.1, 40);
         tl.fromTo("#o-3", { autoAlpha: 0, y: 50, scale: 0.9, transformOrigin: "0% 100%" },
                   { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, palabra("n8", 6) - 0.1);
-        var COND = palabra("n8", 4) + 0.05;
+        var COND = palabra("n8", 4) - 0.1;      // con «viaje»: las condiciones, 2,8 s en pantalla
         entra("#o-c1", COND, 18); entra("#o-c2", COND + 0.1, 18);
 
         // ── 3 · EL CIERRE, quieto desde que acaba de entrar ────────────────────
@@ -303,7 +304,7 @@
         ["#c-g1", "#c-g2", "#c-c1", "#c-c2"].forEach(function (sel, k) {
           tl.fromTo(sel, { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.3 + 0.05 * k);
         });
-        tl.fromTo(["#c-l1", "#c-l2"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none" }, Z + 0.5);
+        tl.fromTo(["#c-l1", "#c-l2", "#c-l3"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none" }, Z + 0.5);
         // «Enlace en el perfil» sólo en el reel orgánico; el anuncio lleva su propio botón.
         if (window.NOMAD_VERSION === "reel") tl.fromTo("#c-enlace", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.6);
         else gsap.set("#c-enlace", { autoAlpha: 0 });

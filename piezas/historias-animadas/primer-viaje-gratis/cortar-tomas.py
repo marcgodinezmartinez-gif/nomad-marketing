@@ -35,10 +35,20 @@ for t in json.load(open('tomas.json')):
     f = os.path.join(M, t['fichero'])
     alto_fuente = min(2622 - t['y0'], int(ALTO_MOVIL * 1206 / ANCHO))
     alto_fuente -= alto_fuente % 2
-    # Lo que se ve del móvil va de y=730 al borde del vídeo: 1190 px. Si la grabación se acaba antes,
-    # queda un hueco a la vista. Alargarla repitiendo su última fila no vale: esa fila lleva texto.
-    if alto_fuente * ANCHO / 1206 < 1190:
-        sys.exit(f"{t['id']}: desde y={t['y0']} la grabación no llena el móvil; y0 tiene que ser 510 o menos")
+    # Lo que se ve del móvil va de y=730 al borde del vídeo: 1190 px. Si la grabación se acaba antes
+    # queda un hueco. Se rellena sólo si las 20 últimas filas de la pantalla son de un color liso (el
+    # fondo de debajo de la barra de inicio): entonces el relleno no se distingue. Si llevan texto, se
+    # para. Repetir la última fila no vale: con texto salen rayas.
+    alto = int(alto_fuente * ANCHO / 1206); alto -= alto % 2
+    falta = max(0, 1190 - alto)
+    alarga = ''
+    if falta:
+        crudo = subprocess.run(['ffmpeg', '-v', 'error', '-i', f, '-vf', f"fps=30,trim=start={t['trozos'][-1][1] - 0.1},crop=1206:20:0:2602,format=rgb24",
+                                '-frames:v', '1', '-f', 'rawvideo', '-'], capture_output=True, check=True).stdout
+        pie = [crudo[i:i + 3] for i in range(0, len(crudo), 3)]
+        if len(set(pie)) != 1 or falta > 120:
+            sys.exit(f"{t['id']}: desde y={t['y0']} la grabación no llena el móvil (faltan {falta} px) y su pie no es liso")
+        alarga = f",pad={ANCHO}:1190:0:0:color=0x{pie[0].hex()}"
     n = len(t['trozos'])
     # Las grabaciones del simulador sólo guardan un fotograma cuando la pantalla cambia. Sin pasarlas
     # antes a 30 por segundo, un trozo que empieza con la pantalla quieta pierde esa espera: trim salta
@@ -46,7 +56,7 @@ for t in json.load(open('tomas.json')):
     fijo = f"[0:v]fps=30,split={n}" + ''.join(f'[s{i}]' for i in range(n)) + ';'
     partes = fijo + ''.join(f"[s{i}]trim=start={s[0]}:end={s[1]},setpts=PTS-STARTPTS[p{i}];" for i, s in enumerate(t['trozos']))
     junta = ''.join(f'[p{i}]' for i in range(n)) + f'concat=n={n}:v=1:a=0[j];'
-    grafo = (partes + junta + f"[j]crop=1206:{alto_fuente}:0:{t['y0']},scale={ANCHO}:-2:flags=lanczos,"
+    grafo = (partes + junta + f"[j]crop=1206:{alto_fuente}:0:{t['y0']},scale={ANCHO}:{alto}:flags=lanczos{alarga},"
              f"setpts=PTS/{vel:.6f},fps=30[v]")
     sal = f"assets/tomas/{t['id']}.mp4"
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-filter_complex', grafo, '-map', '[v]', '-an', '-t', f'{dur:.3f}',
