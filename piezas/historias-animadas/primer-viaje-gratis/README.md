@@ -1,56 +1,70 @@
-# Tu primer viaje, gratis (24-nov) — el reel del Black Friday
+# Tu primer viaje, gratis (25-nov) — el reel del Black Friday
 
-Un reel de **34 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
-Junta eso con lo que salió de la simulación de MiroFish: quien no ha probado la app no ve por qué usarla en
-vez de pedirle el plan a cualquier IA. El guion y los textos de la campaña están en la issue #23.
+Un reel de **32 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
+Los textos de la campaña están en la issue #23.
 
 **Lo pidió el dueño así** (24-nov): montado entero aquí, sin ningún vídeo suyo, antes de tocar la app, y que
 enganche. Por eso la pantalla de pago con «Gratis» no sale: todavía no existe en ningún móvil, y una
 captura inventada sería una maqueta. La oferta va en una tarjeta de texto.
 
-## La idea
+## La idea: un día de viaje
 
-Una IA te hace la lista. Lo que no hace es ir contigo. El vídeo enseña las dos cosas seguidas:
+Un día en Lisboa, de la mañana a la noche. En cada momento del día, una foto de la ciudad, la hora, lo que
+hace Nomad en ese momento y, en un móvil, **la app haciéndolo de verdad** (grabada, no capturas quietas).
 
-| seg. | qué se ve | qué se oye |
-|---|---|---|
-| 0-3,8 | **El gancho**, sobre el verde de la oferta: el icono, «¿Qué es Nomad?» y, con la voz, «Esta semana puedes probarlo gratis.» | Kore: «¿Qué es Nomad? Esta semana puedes probarlo gratis.» |
-| 3,8-5,6 | Un chat de IA genérico escribe la lista de 3 días en Lisboa. Abajo, la firma: «Nomad · Primer viaje gratis esta semana» | Kore: «Una IA te hace la lista.» |
-| 5,6-8,6 | La lista se apaga y queda una línea, «Praça do Comércio», con una chincheta: «Estás aquí» | Kore: «Pero cuando estás allí, ¿quién te cuenta lo que tienes delante?» |
-| 8,6-20,4 | El papel de la app se abre desde la chincheta. En la pantalla del móvil, entera y con su borde verde, la presentación del paseo y su parada 1. A la derecha, los auriculares. Abajo, lo que dice la audioguía, con cada palabra encendiéndose | Charon, la audioguía: «El 1 de noviembre de 1755, un devastador terremoto seguido de un maremoto y un incendio voraz destruyó el antiguo Palacio Real que se erigía exactamente en este espacio.» |
-| 20,4-26,5 | En la pantalla, el plan del sábado, la parada 2, la parada 3, la obra 1 y la obra 2 del museo. A la derecha, el logo, el pin y el cuadro | Kore: «Eso es Nomad. Te guía a pie, parada a parada, y en el museo, obra a obra.» |
-| 26,5-30,5 | La oferta, sobre verde, con la marca: «Tu primer viaje, gratis.» y sus dos condiciones | Kore: «Y esta semana, tu primer viaje es gratis.» |
-| 30,5-34 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después, y las líneas de marcas de Apple y Google | Kore: «Descárgala en la App Store o en Google Play.» |
+| seg. | la foto y la hora | en el móvil | qué se oye |
+|---|---|---|---|
+| 0-3,6 | El verde de la oferta: el icono, «¿Qué es Nomad?» y «Ahora lo puedes probar gratis.» | — | Kore: «¿Qué es Nomad? Ahora lo puedes probar gratis.» |
+| 3,6-5,9 | El tranvía de la Bica. «Tu imprescindible para viajar.» | — | «Es tu imprescindible para viajar.» |
+| 5,9-8,7 | Una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del sábado al domingo y al lunes | «Te organiza el viaje, día a día.» |
+| 8,7-15,0 | La Praça do Comércio. **10:30 · en la plaza** | La presentación del paseo, «Empezar el tour», la parada 1 en el mapa y el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
+| 15,0-17,8 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares, y el filtro «Comida» | «Te recomienda qué ver y dónde comer.» |
+| 17,8-20,2 | El puente al atardecer. **19:30 · al caer la tarde** | Gastos: lo que lleva el grupo, «Para quedar en paz» y el historial | «Lleva las cuentas del grupo.» |
+| 20,2-24,1 | El elevador da Glória de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta | «Y tienes un asistente para lo que necesites durante el viaje.» |
+| 24,1-28,2 | La oferta, sobre verde: «Tu primer viaje, gratis.» y sus dos condiciones | — | «Esta semana, tu primer viaje es gratis.» |
+| 28,2-31,8 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después | — | «Descárgala en la App Store o en Google Play.» |
 
-Los cortes salen de la voz (`preparar-voz.py`), no al revés.
+Arriba, todo el rato, la firma: «Nomad · Primer viaje gratis esta semana». Los cortes salen de la voz
+(`preparar-voz.py`), no al revés.
+
+## El guion es del dueño
+
+El 24-nov dio el esquema: «¿Qué es Nomad? Ahora lo puedes probar gratis. Nomad es tu indispensable en todos
+tus viajes. Te organiza el viaje, te lo cuenta, te recomienda los mejores lugares y te deja organizar tus
+gastos. Además tienes un asistente que te ayuda en todo lo que necesites durante el viaje». Se partió en
+nueve frases cortas, una por momento, y lo aprobó así («el guion OK»). Dos cambios que se le dijeron:
+«qué ver y dónde comer» en vez de «los mejores lugares», e «imprescindible».
 
 ## Qué es de verdad y qué no
 
-- **Las pantallas son capturas de la app del 19-nov**, sin tocar (`assets/pantallas/`). Salen del guion
-  `web` de `capturas/` del repo de la app, en castellano, con la cuenta demo y su viaje a Lisboa. Se ven
-  ENTERAS, sin la barra de estado, dentro del borde de la pantalla del molde de «Así funciona». No hay
-  nada pintado encima. No sale ningún código de invitación, correo ni nombre.
-- **Son capturas, no una grabación: dentro de la pantalla la app no se mueve, sólo cambia de pantalla.**
-  En «Así funciona» corría la grabación del simulador. Aquí no hay una grabación de hoy (ver abajo).
-- **Los dibujos de la derecha son los del molde** (`dibujos.py` los saca de
-  `../puente-viena/iconos/editorial.json`): los auriculares, el pin y el cuadro. No se dibujó nada nuevo.
-- **La frase de la audioguía es la de la app, palabra por palabra**: «La historia» de la parada 1 del
-  paseo por la Baixa y el Chiado, segunda frase. Empieza escrita al pie de la captura de esa parada.
+- **Lo del móvil es la app grabada el 25-nov**, en el simulador de iPhone de un Mac de GitHub, con la
+  cuenta demo y su viaje a Lisboa (guion `reel` de `capturas/` del repo de la app; pasada 45566805840).
+  Nadie ha pintado nada encima.
+- **Las tomas están cortadas y, alguna, un poco aceleradas.** Cada una dura lo que su frase. El plan va a
+  1,23×, los lugares a 1,2× y las otras tres a su velocidad. Cuatro juntan dos trozos de la misma
+  grabación, con la pantalla igual a los dos lados del corte. `tomas.json` dice qué trozos son.
+- **La espera de NOMAD AI está acortada.** En la grabación, la respuesta tarda 2,8 s desde la pregunta.
+  En el vídeo, 1,6 s: se quitaron 1,2 s de «Pensando…». La pregunta y la respuesta son las de verdad.
+- **La voz de la audioguía no es el sonido del simulador**, que graba sin sonido. Es la misma voz de la
+  app (Charon), con el modelo de la app y su instrucción de tono, diciendo la primera frase de «La
+  historia» de esa parada, que se lee al pie de la pantalla. En el móvil se ve el toque de reproducir.
+- **Las horas son del relato, no de la app.** Las 10:30 y las 13:30 coinciden con el plan del sábado que
+  sale en el móvil (el paseo y la comida); las demás las pone el vídeo. Lo que enseña cada pantalla es lo
+  que tenía el viaje demo ese día: el asistente contesta por «mañana jueves, 26 de noviembre».
+- **Las fotos son de Lisboa, de Unsplash y de Pexels**, y van quietas y a sangre. Su origen está en
+  `banco/fotos/creditos.json` (las seis `f-lisboa-*`). No son de la app ni del viaje demo.
 - **Las dos voces son voces de la app** (`mobile/src/lib/narrationVoices.ts`: Kore, Puck y Charon), con el
-  modelo de la app (`gemini-3.1-flash-tts-preview`). La de la audioguía lleva la instrucción de tono que
-  usa `narrate` («Narra como una guía turística cercana y entusiasta…»). La app lee trozos más largos:
-  aquí se le pidió esa frase sola.
-- **El chat no es de nadie.** Es una piel genérica («Asistente de IA»), hecha en HTML. Es una
-  dramatización: no imita la pantalla de ninguna marca ni dice que ninguna IA recomiende Nomad. Lo que
-  escribe es lo que escribe cualquiera: una lista de sitios por días.
+  modelo de la app (`gemini-3.1-flash-tts-preview`), a 1,15×.
 - **La música es de Lyria** (`lyria-3-clip-preview`, `musica-prompt.txt`) y las voces son sintéticas. Al
   publicar se marca la etiqueta de contenido hecho con IA.
+- **No sale ningún código de invitación, correo ni apellido.** Las grabaciones empiezan y acaban en
+  «Hoy», donde está el código del viaje demo: de ahí no se usa nada. En Gastos sale «María», el nombre
+  de pila de la otra cuenta de la demo.
 
 ## Lo que el vídeo no puede dar a entender
 
 - Que «gratis» es para siempre o para todos los viajes: las dos condiciones van escritas en la oferta y
   otra vez en el cierre (un viaje por cuenta, hasta el 3 de diciembre).
-- Que una IA no sabe contarte nada de un sitio: el vídeo dice lo que hace Nomad, no lo que otros no pueden.
 - Nada de «lista de espera» ni de 1,99 €. El precio, «desde 2,99 € el viaje».
 
 ## Lo que falta por confirmar (es del dueño)
@@ -59,84 +73,68 @@ Los cortes salen de la voz (`preparar-voz.py`), no al revés.
   (la oferta y el cierre). Si cambian, se cambia el texto y se vuelve a renderizar: unos diez minutos.
 - **El vídeo no se publica hasta que la promoción esté encendida** (NOMAD#479). Antes, anuncia algo que
   la app no hace.
-- **Las voces**: si prefiere a Kore también en la audioguía, o sin narradora, se regraba.
+- **Cómo suena.** Las voces, la música y los efectos están transcritos y medidos, pero no los ha oído una
+  persona.
 
-## El gancho es del dueño (24-nov)
+## Cómo se llegó hasta aquí (24 y 25-nov)
 
-Al ver la segunda versión: **«creo que el gancho sería: ¿qué es Nomad? No te preocupes, esta semana
-tienes la oportunidad de conocerlo gratis, o algo así. Eso hará que la gente se quede de primeras»**.
-Antes el vídeo abría con el chat («Una IA te hace la lista en diez segundos») y la oferta no salía entera
-hasta el segundo 24. Ahora la pregunta y la oferta van en los cuatro primeros segundos, el chat se
-acorta a una frase, y «Eso es Nomad» pasa a ser la respuesta a la pregunta del principio.
+Cuatro vueltas, y en cada una mandó lo que dijo el dueño al verla:
 
-## Lo que dijo el dueño al verlo (24-nov)
+1. La app en recuadros con sombra, con la vista bajando y acercándose. **«No se ve guay así como en
+   cuadrados las capturas de la app. Se notan demasiado con IA».**
+2. La pantalla entera en el molde de «Así funciona», con capturas quietas. Pidió otro gancho: **«¿Qué es
+   Nomad? … esta semana tienes la oportunidad de conocerlo gratis. Eso hará que la gente se quede de
+   primeras».**
+3. Con ese gancho y un chat de IA de contraste. **«El guion no me gusta»**, y dio el suyo. Después, del
+   montaje: **«el que me habías montado no me gusta»**.
+4. Se le enseñaron tres estilos en un fotograma cada uno. Dijo **«haz lo que creas que será mejor»**. Se
+   eligió éste, y grabar la app en vez de usar capturas.
 
-La primera versión enseñaba la app recortada en un recuadro con sombra, con la vista bajando y
-acercándose, y una tarjeta para la audioguía. El dueño: **«no se ve guay así como en cuadrados las
-capturas de la app. Se notan demasiado con IA»**. Se rehízo la parte de la app en el molde de «Así
-funciona», que ya había aprobado: la pantalla entera del móvil con su borde, el dibujo y la frase. El
-chat del principio, la oferta y el cierre no cambiaron.
-
-Lo que hay que llevarse: **una captura recortada y animada por encima (paneos, acercamientos, sombras)
-se lee como plantilla hecha por una máquina**. La app se enseña entera, en su pantalla, y lo que se
-mueve es la app, no la cámara.
+Lo que hay que llevarse: **una captura recortada y animada por encima (paneos, acercamientos, sombras) se
+lee como plantilla hecha por una máquina**. La app se enseña en su pantalla, y lo que se mueve es la app,
+no la cámara.
 
 ## Cómo se revisó
 
-Antes de darlo por bueno lo miraron cuatro revisores independientes, cada uno con una cosa: las reglas
-de la casa y los tiempos, quien se lo encuentra sin sonido, el sonido medido, y los datos y las normas
-de fuera. Cada hallazgo grave o medio de los tres últimos lo intentó tumbar un escéptico. Lo que se cambió:
+La primera versión la miraron cuatro revisores independientes. De ahí vienen, y siguen en ésta: el cierre
+entre x=180 y x=900, las condiciones de «gratis» a la vista desde «viaje», las insignias a 30 px, las dos
+líneas de marcas y el golpe de «gratis» saturado para que se oiga en un móvil.
 
-- **Los textos del cierre se salían por la derecha.** Estaban centrados en el ancho entero (1080) y por
-  debajo de y=900 la columna de botones tapa desde x=900. Ahora van en dos líneas, entre x=180 y x=900.
-- **Las condiciones de «gratis» estaban 2,2 s en pantalla.** Entraban después de la palabra «gratis».
-  Ahora entran con «viaje» (3,4 s) y el cierre dura medio segundo más.
-- **El icono del chat era una estrella de cuatro puntas**, que recuerda a la de una marca de IA. Ahora es
-  un bocadillo con tres puntos, que no es de nadie.
-- **La cabecera del chat y la burbuja** bajaron y entraron en la zona segura.
-- **El primer fotograma estaba medio vacío** (la lista tardaba 0,3 s en empezar). Ahora la respuesta ya
-  va por la cuarta línea cuando se abre el vídeo, y la firma lleva la oferta.
-- **Las páginas de la frase de la audioguía cambiaban 0,16 s antes de acabar la palabra.** Ahora cambian cuando empieza
-  la primera palabra de la página siguiente.
-- **El golpe de «gratis» era un seno de 46 a 78 Hz**, que el altavoz de un móvil no reproduce. Ahora va
-  saturado, con armónicos. Los tics del chat subieron 5 dB y la música del principio, 6.
-- **El pie decía «Lo otro no»**, que se lee como que una IA no puede. Ahora dice lo que cambia el viaje.
-- **Las insignias** quedaron a 30 px una de otra (un cuarto de su altura, lo que piden las dos tiendas) y
-  el cierre lleva las dos líneas de marcas.
-
-Lo que los revisores dijeron y se dejó: que el chat con «Estás aquí» puede leerse como que la IA sabe
-dónde estás (el escéptico no lo vio así: la pregunta de la voz deja la respuesta abierta), y que la
-oferta no salía entera hasta el segundo 24 (el dueño lo resolvió después con el gancho).
-
-**Lo que nadie ha comprobado**: cómo suena. Las voces, la música y los efectos están transcritos y
-medidos, pero no los ha oído una persona.
+**Esta versión no ha pasado todavía por revisores independientes.** Lo comprobado está en la issue #23:
+la página pasa `hyperframes check` sin avisos, se miró un fotograma por escena con la zona segura
+encima, y la mezcla se transcribió y se midió.
 
 ## Cómo se rehace
 
 ```bash
-bash ../construir.sh                 # las fuentes embebidas
-python3 -I dibujos.py                # los dibujos del molde: assets/dibujos.js
-python3 -I preparar-voz.py           # las seis frases, sus tiempos y los cortes: assets/tiempos.js
-python3 -I mezclar.py                # assets/sonido.m4a y assets/sonido-sin-musica.m4a
-bash variantes.sh <salida>           # los vídeos, la portada y los fotogramas de revisión
+bash ../construir.sh                                  # las fuentes embebidas
+python3 -I preparar-voz.py                            # las diez frases, sus tiempos y los cortes
+python3 -I mezclar.py                                 # assets/sonido.m4a y assets/sonido-sin-musica.m4a
+METRAJE=<carpeta> python3 -I cortar-tomas.py          # sólo si cambian las tomas o los cortes
+bash variantes.sh <salida>                            # los vídeos, la portada y los fotogramas de revisión
 ```
 
-Las tomas crudas de voz y la música no se versionan (`assets/voz/tomas/`, `assets/musica/`): se regraban
-con `../../ia/voz.py` y `../../ia/musica.py`. Lo que sí está: las seis frases ya preparadas
-(`assets/voz/*.flac`) y la mezcla.
+Para cambiar un texto (la fecha) basta el último paso. Las cinco tomas cortadas están en `assets/tomas/`.
+Las grabaciones enteras no están en el repo (ver `banco/metraje/README.md`): se sacan otra vez con el
+flujo «Capturas de la app» del repo de la app, guion `reel`. Si cambian los cortes de la voz, las tomas
+hay que cortarlas otra vez, porque cada una dura lo que su frase.
+
+Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `../../ia/voz.py`.
 
 ## Lo que se aprendió montándolo
 
-- **La grabación en vídeo de la guía que hay es del 29-oct y enseña una errata** («centro neurológico»)
-  que la app corrigió el 13-nov. Las capturas del 19-nov ya dicen «neurálgico». Antes de usar una toma,
-  se mira si lo que enseña sigue siendo lo que hace la app.
-- **Las grabaciones grandes de la página privada del dueño no se pueden bajar desde una sesión**: la
-  herramienta corta en 4 MB, y las del paseo y el museo pesan 6. Las capturas sí.
-- **Una frase de la audioguía dura más de lo que parece**: 13,4 s a su ritmo, 11,5 s a 1,15×. Con ella el
-  vídeo pasa de los 30 s. Se dejó entera porque es lo que cuenta la app, y cortarla la cambia.
-- **Las páginas de la tarjeta cambian en una pausa de la voz.** La primera versión cambiaba justo detrás
-  de «Palacio Real» y la palabra se veía encendida 0,1 s.
+- **Una grabación del simulador sólo guarda un fotograma cuando la pantalla cambia.** Pedirle a ffmpeg «el
+  fotograma del segundo 30» devuelve el siguiente que haya, que puede ser de dos segundos después. Y un
+  trozo que empieza con la pantalla quieta pierde esa espera. Antes de buscar momentos o de cortar, se
+  pasa a ritmo fijo (`fps=30`).
+- **Grabar no obliga a compilar la app.** El flujo de capturas guarda la app compilada. Con `app_de` se le
+  pide la de un commit que ya esté guardada. Esta pasada fueron 11 minutos de Mac, y cada minuto de Mac
+  cuenta por diez.
+- **El plan se abre en HOY cuando el viaje está en curso**, no en el primer día. El guion de la grabación
+  toca el día que quiere enseñar.
+- **Dentro de una hoja que se arrastra, Maestro no ve casi nada**: los toques van por coordenadas.
+- **Una toma tiene que llenar el móvil.** Lo que se ve del móvil son 1.190 px. Si se enseña la pantalla
+  desde muy abajo, la grabación se acaba antes y queda un hueco. `cortar-tomas.py` se para si pasa.
 - **Un texto centrado no está dentro de la zona segura por estar centrado.** La zona es asimétrica: por
-  debajo de y=900 acaba en x=900. Lo que va ahí abajo se centra en la columna libre, no en el lienzo.
-- **Un efecto grave se comprueba en la banda que reproduce un móvil** (de 150 Hz para arriba), no en la
-  que suena bien en unos cascos.
+  debajo de y=900 acaba en x=900.
+- **Un efecto grave se comprueba en la banda que reproduce un móvil** (de 150 Hz para arriba).
