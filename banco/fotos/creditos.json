@@ -407,5 +407,59 @@
     "fecha": "2026-10-04",
     "sitio": "Fachada de la Pasión desde la calle Sardenya, Barcelona",
     "nota": "Hizo cuatro casi iguales con el cielo cubierto; ésta es la más nítida (varianza del laplaciano en las torres: 3064 contra 3011, 2882 y 2045). Sale la basílica de hoy, con la estrella de la torre de María y las torres centrales. Es el primer fotograma de las tomas con IA del reel de la audioguía (piezas/historias-animadas/audioguia-sagrada/VEO.md)."
+  },
+  "f-lisboa-bica.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "André Lergier",
+    "titulo": "El Elevador da Bica en su calle empinada",
+    "sitio": "Lisboa",
+    "url": "https://unsplash.com/photos/anrBiSm4iFQ",
+    "verificada": "2026-11-25"
+  },
+  "f-lisboa-terraza.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Clifford (@cyzx)",
+    "titulo": "Una terraza ante una fachada rosa",
+    "sitio": "Lisboa",
+    "url": "https://unsplash.com/photos/5ZB0w0vSgPk",
+    "verificada": "2026-11-25"
+  },
+  "f-lisboa-comercio.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "La Afterman (@itislit)",
+    "titulo": "Las arcadas de la Praça do Comércio",
+    "sitio": "Lisboa",
+    "url": "https://www.pexels.com/photo/2866765",
+    "verificada": "2026-11-25"
+  },
+  "f-lisboa-nata.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Bernd Dittrich (@hdbernd)",
+    "titulo": "Pastéis de nata",
+    "sitio": "Lisboa",
+    "url": "https://unsplash.com/photos/09o3XFZoVOg",
+    "verificada": "2026-11-25"
+  },
+  "f-lisboa-puerto.jpg": {
+    "lic": "Pexels License",
+    "fuente": "pexels",
+    "autor": "Wendel Moretti",
+    "titulo": "El puerto deportivo y el puente 25 de Abril al atardecer",
+    "sitio": "Lisboa",
+    "url": "https://www.pexels.com/photo/1754875",
+    "verificada": "2026-11-25"
+  },
+  "f-lisboa-gloria.jpg": {
+    "lic": "Unsplash License",
+    "fuente": "unsplash",
+    "autor": "Timur Seyfelmlyukov",
+    "titulo": "El Elevador da Glória de noche",
+    "sitio": "Lisboa",
+    "url": "https://unsplash.com/photos/CY7k0cnexGQ",
+    "verificada": "2026-11-25"
   }
 }
