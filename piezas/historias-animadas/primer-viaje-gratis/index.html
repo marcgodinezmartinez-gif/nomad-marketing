@@ -7,105 +7,68 @@
     <link rel="stylesheet" href="assets/fuentes.css" />
     <script src="assets/gsap.min.js"></script>
     <script src="assets/tiempos.js"></script>
-    <script src="assets/dibujos.js"></script>
     <script src="assets/version.js"></script>
     <style>
-      html, body { margin: 0; padding: 0; background: #17181B; }
+      html, body { margin: 0; padding: 0; background: #0D5650; }
       .serif { font-family: 'Instrument Serif'; font-weight: 400; }
       .sans  { font-family: 'Instrument Sans'; }
 
-      /* TU PRIMER VIAJE, GRATIS (24-nov). El reel del Black Friday. Las decisiones, en README.md.
-         Lo que hay que saber al tocar esto:
-         - UN MISMO V&Iacute;DEO para reel e historia: todo texto entre y=230 e y=1480 y entre x=84 y x=900.
-         - Dos mundos. El del chat es fr&iacute;o y oscuro, con una piel GEN&Eacute;RICA de asistente (no imita a
-           ninguna marca). El de Nomad es el papel de la app, con las pantallas de la app de verdad.
-         - Las pantallas son capturas de la app del 19-nov (assets/pantallas/), sin tocar y ENTERAS, dentro
-           del borde de la pantalla del molde. Nada pintado encima de ellas, y nada de recortes en recuadros.
-         - Los tiempos salen de la voz (preparar-voz.py escribe assets/tiempos.js). Aqu&iacute; no hay
-           ning&uacute;n segundo escrito a mano salvo las duraciones de las entradas. */
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #17181B; color: #F4F4F5; }
-
-      /* ── EL CHAT ─────────────────────────────────────────────────────────────── */
-      #chat { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #17181B; }
-      #hilo { position: absolute; left: 84px; top: 340px; width: 912px; height: 1300px; }
-      #burbuja { position: absolute; right: 96px; top: 0; margin: 0; padding: 24px 36px; border-radius: 36px;
-                 background: #2C2E33; font-size: 46px; line-height: 56px; font-weight: 500; white-space: nowrap; }
-      .l { position: absolute; left: 0; margin: 0; width: 912px; font-size: 46px; line-height: 62px;
-           font-weight: 500; color: #D6D7DB; white-space: nowrap; }
-      .l.dia { font-weight: 700; color: #FFFFFF; }
-      .l .p { display: inline-block; width: 50px; color: #8D9098; }
-      /* La l&iacute;nea que se queda: su raya, su chincheta y su etiqueta. */
-      #raya { position: absolute; left: 62px; height: 8px; width: 500px; border-radius: 4px; background: #5CC0A6; }
-      #chincheta { position: absolute; left: -8px; width: 44px; height: 56px; display: block; }
-      #onda { position: absolute; left: -24px; width: 76px; height: 76px; border-radius: 38px;
-              box-sizing: border-box; border: 4px solid #5CC0A6; }
-      #aqui { position: absolute; left: 600px; margin: 0; padding: 6px 22px; border-radius: 24px; background: #5CC0A6;
-              color: #0E1512; font-size: 30px; line-height: 38px; font-weight: 700; white-space: nowrap; }
-      /* La cabecera va encima del hilo: lo que sube pasa por debajo. */
-      #cabecera { position: absolute; left: 0; top: 0; width: 1080px; height: 312px; background: #17181B;
-                  border-bottom: 2px solid rgba(255,255,255,.07); box-sizing: border-box; }
-      #cab-nombre { position: absolute; left: 0; top: 238px; width: 1080px; margin: 0; text-align: center;
-                    font-size: 34px; line-height: 44px; font-weight: 600; color: #EDEDEF; }
-      #destello { position: absolute; left: 368px; top: 240px; width: 40px; height: 40px; display: block; }
-      /* El suelo: oscuro de y=1120 para abajo, que es donde va la frase. */
-      #suelo { position: absolute; left: 0; top: 980px; width: 1080px; height: 940px;
-               background: linear-gradient(180deg, rgba(23,24,27,0) 0%, rgba(23,24,27,.96) 8%, #17181B 11%, #17181B 100%); }
-      .c1 { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 64px; line-height: 78px;
-            font-weight: 700; letter-spacing: -.012em; color: #FFFFFF; white-space: nowrap; }
-      .menta { color: #5CC0A6; }
-      /* La marca, encima de la frase, desde el fotograma 0 (revisi&oacute;n del anuncio del 24-oct). */
-      #m-icono { position: absolute; left: 84px; top: 1090px; width: 56px; height: 56px; border-radius: 13px;
-                 background: url(assets/icono-app.png) center / cover no-repeat; }
-      #m-nombre { position: absolute; left: 156px; top: 1096px; margin: 0; font-size: 34px; line-height: 44px;
-                  font-weight: 700; color: #FFFFFF; white-space: nowrap; }
-      #m-oferta { position: absolute; left: 290px; top: 1098px; margin: 0; font-size: 30px; line-height: 42px;
-                  font-weight: 600; color: #5CC0A6; white-space: nowrap; }
+      /* TU PRIMER VIAJE, GRATIS (25-nov, cuarta versión). El reel del Black Friday. Las decisiones, en README.md.
+         - EL GUION ES DEL DUEÑO, frase a frase. EL MONTAJE, «UN DÍA DE VIAJE»: detrás, una foto real de
+           Lisboa; arriba, la hora del día y la frase; y el móvil subiendo desde abajo con la app GRABADA
+           (assets/tomas/, del simulador). Cada frase del guion es un momento del día.
+         - Las tres versiones de antes las tumbó el dueño: la app recortada en recuadros («se notan
+           demasiado con IA»), el guion del chat de IA, y el molde de «Así funciona» con capturas quietas.
+         - UN MISMO VÍDEO para reel e historia: todo texto entre y=230 e y=1480 y entre x=84 y x=900.
+         - Las fotos, a sangre y QUIETAS (el dueño, 6-oct: «el zoom innecesario a la foto hace que se vea mal»).
+         - Los tiempos salen de la voz (preparar-voz.py escribe assets/tiempos.js), y los <video> los pone
+           cortar-tomas.py. Aquí no hay ningún segundo escrito a mano salvo las duraciones de las entradas. */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0D5650; color: #FFFDF9; }
+      .menta-clara { color: #9BE6D2; }
 
       /* ── EL GANCHO ───────────────────────────────────────────────────────────── */
-      /* Del dueño (24-nov): «¿qué es Nomad? Esta semana tienes la oportunidad de conocerlo gratis, o algo
-         así: eso hará que la gente se quede de primeras». Sobre el verde de la oferta, que cierra el vídeo. */
-      #gancho { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; color: #FFFDF9; }
+      #gancho { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; }
       #h-icono { position: absolute; left: 84px; top: 330px; width: 150px; height: 150px; border-radius: 34px;
                  background: url(assets/icono-app.png) center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
       .h { position: absolute; left: 84px; margin: 0; width: 816px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
       #h-q1 { top: 548px; font-size: 190px; }
       #h-q2 { top: 738px; font-size: 190px; }
-      #h-r1 { top: 1020px; font-size: 96px; color: rgba(255,253,249,.92); }
-      #h-r2 { top: 1126px; font-size: 96px; }
-      .menta-clara { color: #9BE6D2; }
+      #h-r1 { top: 1020px; font-size: 100px; color: rgba(255,253,249,.92); }
+      #h-r2 { top: 1130px; font-size: 100px; }
 
-      /* ── NOMAD ───────────────────────────────────────────────────────────────── */
-      /* EL MOLDE DE «ASÍ FUNCIONA» (../asi-funciona/, el que aprobó el dueño): el papel con su punteado, la
-         pantalla ENTERA del móvil a la izquierda con el borde verde que se dibuja solo, el dibujo de la
-         escena a la derecha (x 600-890) y la frase abajo (y=1282 y 1370). La primera versión enseñaba la app
-         recortada en un recuadro con sombra, y el dueño la tumbó (24-nov): «no se ve guay así como en
-         cuadrados las capturas de la app. Se notan demasiado con IA». */
-      #mundo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; color: #100E0B;
-               background-color: #FFFDF9;
-               background-image: radial-gradient(circle, rgba(16,14,11,.07) 1.6px, rgba(16,14,11,0) 2.1px);
-               background-size: 54px 54px; background-position: 3px 11px; }
-      svg.capa { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; overflow: visible; }
-      .verde { color: #0F766E; }
-      #marca { position: absolute; left: 0; width: 1080px; top: 286px; height: 56px; display: flex;
-               justify-content: center; align-items: center; gap: 16px; }
-      #marca img { display: block; width: 45px; height: 52px; }
-      #marca p { margin: 0; font-size: 40px; line-height: 56px; font-weight: 600; white-space: nowrap; }
-      /* La pantalla: la captura entera sin la barra de estado, como las tomas del molde (crop 1206:2406:0:168
-         a 404×806): la imagen va a 404 de ancho y 56 px más arriba. */
-      #pantalla { position: absolute; left: 150px; top: 400px; width: 404px; height: 806px; border-radius: 36px;
-                  overflow: hidden; background: #F5F0E8; }
-      .pant { position: absolute; left: 0; top: -56px; width: 404px; height: 878px; display: block; }
-      #logo-grande { position: absolute; left: 652px; top: 625px; width: 200px; height: 230px; display: block; }
-      /* Lo que dice la audioguía, donde va la frase: su rótulo y dos líneas que se encienden palabra a palabra. */
-      #q-rotulo { position: absolute; left: 84px; top: 1236px; width: 912px; margin: 0; text-align: center;
-                  font-size: 28px; line-height: 36px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-                  color: #0F766E; white-space: nowrap; }
-      .frase { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; font-size: 50px;
-               line-height: 62px; font-weight: 500; white-space: nowrap; }
-      .frase.a { top: 1290px; } .frase.b { top: 1356px; }
-      .frase span { opacity: .34; }
-      .tit { position: absolute; left: 84px; width: 912px; margin: 0; text-align: center; white-space: nowrap;
-             letter-spacing: -.02em; font-size: 84px; line-height: 1.04; }
+      /* ── EL DÍA ──────────────────────────────────────────────────────────────── */
+      #dia { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #100E0B; }
+      .foto { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; object-fit: cover; }
+      /* El velo: oscuro arriba, donde va el texto, y nada desde media pantalla. */
+      #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 1100px;
+              background: linear-gradient(180deg, rgba(16,14,11,.86) 0%, rgba(16,14,11,.74) 45%, rgba(16,14,11,.38) 78%, rgba(16,14,11,0) 100%); }
+      /* La marca y la oferta, arriba, todo el rato. */
+      #m-icono { position: absolute; left: 84px; top: 236px; width: 56px; height: 56px; border-radius: 13px;
+                 background: url(assets/icono-app.png) center / cover no-repeat; }
+      #m-nombre { position: absolute; left: 156px; top: 242px; margin: 0; font-size: 34px; line-height: 44px; font-weight: 700; white-space: nowrap; }
+      #m-oferta { position: absolute; left: 290px; top: 244px; margin: 0; font-size: 30px; line-height: 42px; font-weight: 600;
+                  color: #9BE6D2; white-space: nowrap; }
+      /* La hora del día. */
+      .hora { position: absolute; left: 84px; top: 326px; margin: 0; padding: 10px 26px; border-radius: 32px; background: #FFFDF9;
+              color: #100E0B; font-size: 36px; line-height: 46px; font-weight: 700; white-space: nowrap; }
+      /* La frase de cada momento, en dos líneas. El tamaño lo ajusta el script para que quepa en 816. */
+      .dt { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 112px; line-height: 1.02; letter-spacing: -.02em;
+            white-space: nowrap; text-shadow: 0 4px 34px rgba(0,0,0,.45); }
+      .dt.a { top: 420px; } .dt.b { top: 536px; }
+      /* La de «imprescindible», sin móvil: más grande y más abajo. */
+      .dt.g { font-size: 150px; } .dt.g.a { top: 700px; } .dt.g.b { top: 856px; }
+      /* Lo que dice la audioguía, en el sitio de la frase, palabra a palabra. */
+      #q-rotulo { position: absolute; left: 84px; top: 420px; margin: 0; font-size: 28px; line-height: 36px; font-weight: 700;
+                  letter-spacing: .14em; text-transform: uppercase; color: #9BE6D2; white-space: nowrap; }
+      .q { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 58px; line-height: 70px; font-weight: 600;
+           white-space: nowrap; text-shadow: 0 4px 30px rgba(0,0,0,.5); }
+      .q.a { top: 470px; } .q.b { top: 544px; }
+      .q span { opacity: .4; }
+      /* EL MÓVIL: un marco oscuro sin más (no es el dibujo de ningún teléfono), que sube desde abajo y se
+         sale por el borde. Dentro, la toma de cada momento, a 680 de ancho. */
+      #movil { position: absolute; left: 200px; top: 730px; width: 680px; height: 1300px; border-radius: 70px 70px 0 0;
+               overflow: hidden; background: #FEFCF9; box-shadow: 0 0 0 13px #100E0B, 0 40px 120px rgba(0,0,0,.55); }
+      .toma { position: absolute; left: 0; top: 0; width: 680px; display: block; }
 
       /* ── LA OFERTA ───────────────────────────────────────────────────────────── */
       #oferta { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; color: #FFFDF9; }
@@ -129,7 +92,7 @@
                  border-radius: 45px; box-shadow: 0 24px 60px rgba(16,14,11,.22); }
       #c-nombre { position: absolute; left: 84px; top: 690px; width: 912px; margin: 0; text-align: center;
                   font-size: 92px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
-      /* Las dos insignias oficiales, enteras y sin tocar, a la misma altura (110). */
+      /* Las dos insignias oficiales, enteras y sin tocar, a la misma altura (110) y a 30 px una de otra. */
       #c-apple { position: absolute; left: 171px; top: 880px; width: 329px; height: 110px; display: block; }
       #c-google { position: absolute; left: 530px; top: 863px; width: 370px; height: 143px; display: block; }
       .c-g { position: absolute; left: 180px; width: 720px; margin: 0; text-align: center;
@@ -144,99 +107,65 @@
   </head>
   <body>
     <div id="root" data-composition-id="primer-viaje-gratis" data-start="0"
-         data-width="1080" data-height="1920" data-duration="34.05">
+         data-width="1080" data-height="1920" data-duration="31.78">
 
-      <!-- 1 · EL CHAT. Una piel gen&eacute;rica de asistente: es una dramatizaci&oacute;n, no la pantalla de nadie. -->
-      <div id="chat">
-        <div id="hilo" data-layout-allow-overlap>
-          <p id="burbuja" class="sans">hazme un plan para 3 d&iacute;as en lisboa</p>
-          <p class="l sans" style="top: 160px;">Claro. Aqu&iacute; tienes 3 d&iacute;as en Lisboa:</p>
-          <p class="l sans dia" style="top: 254px;">D&iacute;a 1 &middot; Baixa y Chiado</p>
-          <div id="onda" style="top: 317px;"></div>
-          <svg id="chincheta" style="top: 327px;" viewBox="0 0 44 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M22 2C11 2 3 10.4 3 21c0 13.6 16.4 30.6 18.2 32.4a1.1 1.1 0 0 0 1.6 0C24.6 51.6 41 34.6 41 21 41 10.4 33 2 22 2z" fill="#5CC0A6"/>
-            <circle cx="22" cy="21" r="7.5" fill="#17181B"/>
-          </svg>
-          <p id="l-plaza" class="l sans" style="top: 324px;"><span class="p">&bull;</span><span id="plaza-nombre">Pra&ccedil;a do Com&eacute;rcio</span></p>
-          <div id="raya" style="top: 398px;"></div>
-          <p id="aqui" class="sans" style="top: 330px;">Est&aacute;s aqu&iacute;</p>
-          <p class="l sans" style="top: 394px;"><span class="p">&bull;</span>Arco da Rua Augusta</p>
-          <p class="l sans" style="top: 464px;"><span class="p">&bull;</span>Elevador de Santa Justa</p>
-          <p class="l sans" style="top: 534px;"><span class="p">&bull;</span>Convento do Carmo</p>
-          <p class="l sans dia" style="top: 628px;">D&iacute;a 2 &middot; Bel&eacute;m</p>
-          <p class="l sans" style="top: 698px;"><span class="p">&bull;</span>Monasterio de los Jer&oacute;nimos</p>
-          <p class="l sans" style="top: 768px;"><span class="p">&bull;</span>Torre de Bel&eacute;m</p>
-          <p class="l sans" style="top: 838px;"><span class="p">&bull;</span>Past&eacute;is de Bel&eacute;m</p>
-          <p class="l sans dia" style="top: 932px;">D&iacute;a 3 &middot; Alfama</p>
-          <p class="l sans" style="top: 1002px;"><span class="p">&bull;</span>Castillo de San Jorge</p>
-          <p class="l sans" style="top: 1072px;"><span class="p">&bull;</span>Mirador de Santa Luzia</p>
-          <p class="l sans" style="top: 1142px;"><span class="p">&bull;</span>Tranv&iacute;a 28</p>
-        </div>
-        <div id="cabecera">
-          <svg id="destello" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6h24a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H19l-8 7v-7H8a5 5 0 0 1-5-5V11a5 5 0 0 1 5-5z" fill="none" stroke="#A9ACB4" stroke-width="3" stroke-linejoin="round"/>
-            <circle cx="13.5" cy="18" r="2.2" fill="#A9ACB4"/><circle cx="20" cy="18" r="2.2" fill="#A9ACB4"/><circle cx="26.5" cy="18" r="2.2" fill="#A9ACB4"/>
-          </svg>
-          <p id="cab-nombre" class="sans">Asistente de IA</p>
-        </div>
-        <div id="suelo"></div>
+      <!-- 1 · EL DÍA: la foto, la hora, la frase y el móvil con la app grabada. Va debajo del gancho. -->
+      <div id="dia">
+        <!-- Las fotos son de Lisboa, del banco (banco/fotos/creditos.json): Unsplash y Pexels. -->
+        <img id="f-1" class="foto" src="assets/fotos/f-lisboa-bica.jpg" alt="" />
+        <img id="f-2" class="foto" src="assets/fotos/f-lisboa-terraza.jpg" alt="" />
+        <img id="f-3" class="foto" src="assets/fotos/f-lisboa-comercio.jpg" alt="" />
+        <img id="f-4" class="foto" src="assets/fotos/f-lisboa-nata.jpg" alt="" />
+        <img id="f-5" class="foto" src="assets/fotos/f-lisboa-puerto.jpg" alt="" />
+        <img id="f-6" class="foto" src="assets/fotos/f-lisboa-gloria.jpg" alt="" />
+        <div id="velo"></div>
         <div id="m-icono"></div>
         <p id="m-nombre" class="sans">Nomad</p>
         <p id="m-oferta" class="sans">&middot; Primer viaje gratis esta semana</p>
-        <p id="c1a" class="c1 sans" style="top: 1226px;">Una IA te hace la lista.</p>
-        <p id="c2a" class="c1 sans" style="top: 1186px;">Pero cuando est&aacute;s all&iacute;,</p>
-        <p id="c2b" class="c1 sans" style="top: 1268px;">&iquest;qui&eacute;n te cuenta</p>
-        <p id="c2c" class="c1 sans" style="top: 1350px;">lo que tienes <span class="menta">delante?</span></p>
+
+        <p id="t1a" class="dt g a serif">Tu imprescindible</p>
+        <p id="t1b" class="dt g b serif">para viajar.</p>
+
+        <p id="h-2" class="hora sans">09:00 &middot; antes de salir</p>
+        <p id="t2a" class="dt a serif">Te organiza el viaje,</p>
+        <p id="t2b" class="dt b serif">d&iacute;a a d&iacute;a.</p>
+
+        <p id="h-3" class="hora sans">10:30 &middot; en la plaza</p>
+        <p id="t3a" class="dt a serif">Te cuenta lo que</p>
+        <p id="t3b" class="dt b serif">tienes delante.</p>
+        <!-- La audioguía: la primera frase de «La historia» de la parada 1 del paseo, palabra por palabra. -->
+        <p id="q-rotulo" class="sans">La audiogu&iacute;a</p>
+        <p id="q-a" class="q a sans"><span>Est&aacute;s</span> <span>en</span> <span>el</span> <span>centro</span> <span>neur&aacute;lgico</span></p>
+        <p id="q-b" class="q b sans"><span>de</span> <span>la</span> <span>reconstrucci&oacute;n</span> <span>de</span> <span>Lisboa.</span></p>
+
+        <p id="h-4" class="hora sans">13:30 &middot; a la hora de comer</p>
+        <p id="t4a" class="dt a serif">Te recomienda qu&eacute; ver</p>
+        <p id="t4b" class="dt b serif">y d&oacute;nde comer.</p>
+
+        <p id="h-5" class="hora sans">19:30 &middot; al caer la tarde</p>
+        <p id="t5a" class="dt a serif">Lleva las cuentas</p>
+        <p id="t5b" class="dt b serif">del grupo.</p>
+
+        <p id="h-6" class="hora sans">23:00 &middot; antes de dormir</p>
+        <p id="t6a" class="dt a serif">Y tienes un asistente</p>
+        <p id="t6b" class="dt b serif">para lo que necesites.</p>
+
+        <div id="movil">
+          <!-- TOMAS: las pone cortar-tomas.py desde tomas.json -->
+          <!-- /TOMAS -->
+        </div>
       </div>
 
-      <!-- 0 · EL GANCHO: la pregunta y la oferta, antes que nada. Tapa el chat hasta su corte. -->
+      <!-- 0 · EL GANCHO: la pregunta y la oferta, antes que nada. Tapa lo demás hasta su corte. -->
       <div id="gancho">
         <div id="h-icono"></div>
         <p id="h-q1" class="h serif">&iquest;Qu&eacute; es</p>
         <p id="h-q2" class="h serif">Nomad?</p>
-        <p id="h-r1" class="h serif">Esta semana puedes</p>
-        <p id="h-r2" class="h serif">probarlo <span class="menta-clara">gratis.</span></p>
+        <p id="h-r1" class="h serif">Ahora lo puedes</p>
+        <p id="h-r2" class="h serif">probar <span class="menta-clara">gratis.</span></p>
       </div>
 
-      <!-- 2 · NOMAD, en el molde de «Así funciona»: la pantalla entera con su borde, el dibujo y la frase. -->
-      <div id="mundo">
-        <div id="marca"><img src="assets/marca-grande.png" alt="" /><p class="sans verde">Primer viaje gratis esta semana</p></div>
-        <div id="pantalla">
-          <img id="v-pres" class="pant" src="assets/pantallas/presentacion.webp" alt="" />
-          <img id="v-p1" class="pant" src="assets/pantallas/parada1.webp" alt="" />
-          <img id="v-plan" class="pant" src="assets/pantallas/plan.webp" alt="" />
-          <img id="v-p2" class="pant" src="assets/pantallas/parada2.webp" alt="" />
-          <img id="v-p3" class="pant" src="assets/pantallas/parada3.webp" alt="" />
-          <img id="v-o1" class="pant" src="assets/pantallas/obra1.webp" alt="" />
-          <img id="v-o2" class="pant" src="assets/pantallas/obra2.webp" alt="" />
-        </div>
-        <svg id="trazos" class="capa" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <!-- El borde de la pantalla (no un iPhone: ../incluye-pago/README.md): x 143-561, y 393-1213, rx 43. -->
-          <path id="s-borde" stroke="#0F766E" stroke-width="5" d="M186,393 H518 A43,43 0 0 1 561,436 V1170 A43,43 0 0 1 518,1213 H186 A43,43 0 0 1 143,1170 V436 A43,43 0 0 1 186,393 Z" />
-          <g id="casco"><path id="s-casco" stroke="#0F766E" stroke-width="5" /><g id="casco-det"></g><g id="casco-ondas"></g></g>
-          <g id="pin"><path id="s-pin" stroke="#0F766E" stroke-width="5" /><g id="pin-ojo"></g><g id="pin-suelo"></g></g>
-          <g id="cuadro"><path id="s-cuadro" stroke="#0F766E" stroke-width="5" /><g id="cuadro-det"></g><g id="cuadro-sol"></g></g>
-        </svg>
-        <img id="logo-grande" src="assets/marca-grande.png" alt="" />
-        <!-- El texto es el de la app, palabra por palabra: el paseo por la Baixa y el Chiado del viaje demo,
-             parada 1, «La historia», segunda frase. Está escrito en la captura (parada1.webp), abajo. -->
-        <p id="q-rotulo" class="sans">La audiogu&iacute;a &middot; parada 1 de 5</p>
-        <p id="g-a1" class="frase sans a"><span>El</span> <span>1</span> <span>de</span> <span>noviembre</span> <span>de</span> <span>1755,</span></p>
-        <p id="g-a2" class="frase sans b"><span>un</span> <span>devastador</span> <span>terremoto</span></p>
-        <p id="g-b1" class="frase sans a"><span>seguido</span> <span>de</span> <span>un</span> <span>maremoto</span></p>
-        <p id="g-b2" class="frase sans b"><span>y</span> <span>un</span> <span>incendio</span> <span>voraz</span></p>
-        <p id="g-c1" class="frase sans a"><span>destruy&oacute;</span> <span>el</span> <span>antiguo</span></p>
-        <p id="g-c2" class="frase sans b"><span>Palacio</span> <span>Real</span> <span>que</span> <span>se</span> <span>erig&iacute;a</span></p>
-        <p id="g-d1" class="frase sans a"><span>exactamente</span></p>
-        <p id="g-d2" class="frase sans b"><span>en</span> <span>este</span> <span>espacio.</span></p>
-        <p id="r-1" class="tit serif" style="top: 1326px;">Eso es <span class="verde">Nomad.</span></p>
-        <p id="r-2a" class="tit serif" style="top: 1282px;">Te gu&iacute;a a pie,</p>
-        <p id="r-2b" class="tit serif verde" style="top: 1370px;">parada a parada.</p>
-        <p id="r-3a" class="tit serif" style="top: 1282px;">Y en el museo,</p>
-        <p id="r-3b" class="tit serif verde" style="top: 1370px;">obra a obra.</p>
-      </div>
-
-      <!-- 3 · LA OFERTA, con sus condiciones a la vista. -->
+      <!-- 2 · LA OFERTA, con sus condiciones a la vista. -->
       <div id="oferta">
         <div id="o-icono"></div>
         <p id="o-nombre" class="sans">Nomad</p>
@@ -248,7 +177,7 @@
         <p id="o-c2" class="cond sans">Un viaje gratis por cuenta.</p>
       </div>
 
-      <!-- 4 · EL CIERRE, quieto. -->
+      <!-- 3 · EL CIERRE, quieto. -->
       <div id="cierre">
         <img id="c-icono" src="assets/icono-app.png" alt="" />
         <p id="c-nombre" class="serif">Nomad: gu&iacute;a de viajes</p>
@@ -263,15 +192,16 @@
         <p id="c-l2" class="c-l sans" style="top: 1442px;">Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.</p>
       </div>
 
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="34.05"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.78"></audio>
     </div>
     <script>
-      // Una sola l&iacute;nea de tiempo, pausada, registrada DESPU&Eacute;S de que carguen las fuentes. Estado inicial
+      // Una sola línea de tiempo, pausada, registrada DESPUÉS de que carguen las fuentes. Estado inicial
       // dentro del fromTo, nunca en CSS. Los cortes, en seco.
       document.fonts.ready.then(function () {
         var T = window.TIEMPOS, F = T.frases, C = T.cortes, FIN = C.fin;
         var tl = gsap.timeline({ paused: true });
         var IN = { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" };
+        function a(id) { return document.getElementById(id); }
         function corta(sel, t) { tl.to(sel, { autoAlpha: 0, duration: 0 }, t); }
         function aparece(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0 }, t); }
         function entra(sel, t, dy) { tl.fromTo(sel, { autoAlpha: 0, y: dy || 24 }, Object.assign({}, IN), t); }
@@ -280,198 +210,84 @@
           if (!p) throw new Error("falta la palabra " + n + " de " + id);
           return p[1];
         }
+        // Dos líneas que tienen que caber en 816: se encoge la letra de las dos lo justo.
+        function ajusta(ids, tope) {
+          var ancho = 0, tam = parseFloat(getComputedStyle(a(ids[0])).fontSize);
+          ids.forEach(function (id) {
+            var r = document.createRange(); r.selectNodeContents(a(id));
+            ancho = Math.max(ancho, r.getBoundingClientRect().width);
+          });
+          if (ancho > tope) ids.forEach(function (id) { a(id).style.fontSize = Math.floor(tam * tope / ancho) + "px"; });
+        }
+        [["t1a", "t1b"], ["t2a", "t2b"], ["t3a", "t3b"], ["t4a", "t4b"], ["t5a", "t5b"], ["t6a", "t6b"], ["q-a", "q-b"]]
+          .forEach(function (par) { ajusta(par, 812); });
+        a("m-oferta").style.left = Math.round(156 + a("m-nombre").getBoundingClientRect().width + 16) + "px";
 
         // ── 0 · EL GANCHO ──────────────────────────────────────────────────────
-        // En el fotograma 0 ya están el icono y la pregunta: es la portada por defecto. La respuesta entra
-        // con la voz, y «gratis» da un golpe.
-        var H = C.chat;
-        tl.fromTo("#h-q2", { scale: 1, transformOrigin: "0% 70%" }, { scale: 1.05, duration: 0.16, ease: "power2.out" }, palabra("h1", 2) + 0.05);
-        tl.fromTo("#h-q2", { scale: 1.05 }, { scale: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false }, palabra("h1", 2) + 0.21);
-        entra("#h-r1", palabra("h1", 3) - 0.1, 36);
-        entra("#h-r2", palabra("h1", 6) - 0.1, 36);
-        tl.fromTo("#h-r2 span", { opacity: 0.55 }, { opacity: 1, duration: 0.16, ease: "none" }, palabra("h1", 7) - 0.05);
-        corta("#gancho", H);
-        aparece("#chat", H);          // debajo del gancho no hay nada: el chat existe desde su corte
+        // En el fotograma 0 ya están el icono y la pregunta. La respuesta entra con la voz.
+        var V = C.viajar;
+        tl.fromTo("#h-q2", { scale: 1, transformOrigin: "0% 70%" }, { scale: 1.05, duration: 0.16, ease: "power2.out" }, palabra("n1", 2) + 0.05);
+        tl.fromTo("#h-q2", { scale: 1.05 }, { scale: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false }, palabra("n1", 2) + 0.21);
+        entra("#h-r1", palabra("n1", 3) - 0.1, 36);
+        entra("#h-r2", palabra("n1", 6) - 0.1, 36);
+        tl.fromTo("#h-r2 span", { opacity: 0.55 }, { opacity: 1, duration: 0.16, ease: "none" }, palabra("n1", 7) - 0.05);
+        corta("#gancho", V);
+        aparece("#dia", V);            // debajo del gancho no hay nada: el día existe desde su corte
 
-        // ── 1 · EL CHAT ────────────────────────────────────────────────────────
-        // Cuando se quita el gancho, el chat ya tiene la pregunta, cuatro l&iacute;neas y la frase.
-        var lineas = Array.prototype.slice.call(document.querySelectorAll("#hilo .l"));
-        if (lineas.length !== T.flujo.length) throw new Error("el chat tiene " + lineas.length + " l&iacute;neas y tiempos.js, " + T.flujo.length);
-        // Cada l&iacute;nea sale de izquierda a derecha, como cuando un modelo escribe.
-        // Las primeras ya est&aacute;n en el fotograma 0 (su tiempo es 0): la respuesta va a medias cuando se abre el v&iacute;deo.
-        lineas.forEach(function (l, i) {
-          if (T.flujo[i] === 0) return;
-          tl.fromTo(l, { autoAlpha: 0, clipPath: "inset(0% 100% 0% 0%)" },
-                    { autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.16, ease: "none" }, T.flujo[i]);
-        });
-        // El hilo sube para que la &uacute;ltima l&iacute;nea escrita no baje de y=1010.
-        var TOPE = 1010 - 340 - 62;
-        var hecho = 0;
-        lineas.forEach(function (l, i) {
-          var hace = Math.max(0, parseFloat(l.style.top) - TOPE);
-          if (hace > hecho && T.flujo[i] > 0) {
-            tl.fromTo("#hilo", { y: -hecho }, { y: -hace, duration: 0.18, ease: "power1.out", immediateRender: false }, T.flujo[i] - 0.04);
-            hecho = hace;
+        // ── 1 · EL DÍA ─────────────────────────────────────────────────────────
+        // Cada momento: su foto, su hora, su frase y su toma, de golpe en el corte.
+        var O = C.oferta;
+        var momentos = [
+          { de: V,           a: C.plan,      foto: "#f-1", tit: ["#t1a", "#t1b"], hora: null,   toma: null },
+          { de: C.plan,      a: C.plaza,     foto: "#f-2", tit: ["#t2a", "#t2b"], hora: "#h-2", toma: "#toma-plan" },
+          { de: C.plaza,     a: C.comer,     foto: "#f-3", tit: ["#t3a", "#t3b"], hora: "#h-3", toma: "#toma-paseo" },
+          { de: C.comer,     a: C.cuentas,   foto: "#f-4", tit: ["#t4a", "#t4b"], hora: "#h-4", toma: "#toma-lugares" },
+          { de: C.cuentas,   a: C.asistente, foto: "#f-5", tit: ["#t5a", "#t5b"], hora: "#h-5", toma: "#toma-gastos" },
+          { de: C.asistente, a: O,           foto: "#f-6", tit: ["#t6a", "#t6b"], hora: "#h-6", toma: "#toma-asistente" }
+        ];
+        momentos.forEach(function (m, k) {
+          aparece(m.foto, m.de); corta(m.foto, m.a);
+          entra(m.tit[0], m.de + 0.02, 30); entra(m.tit[1], m.de + 0.12, 30);
+          if (k !== 2) m.tit.forEach(function (s) { corta(s, m.a); });
+          if (m.hora) {
+            tl.fromTo(m.hora, { autoAlpha: 0, y: -18 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, m.de);
+            corta(m.hora, m.a);
+          }
+          if (m.toma) {
+            if (!a(m.toma.slice(1))) throw new Error("falta la toma " + m.toma + ": python3 -I cortar-tomas.py");
+            aparece(m.toma, m.de); corta(m.toma, m.a);
           }
         });
-        if (hecho === 0) tl.set("#hilo", { y: 0 }, 0);
-        // Lo de la l&iacute;nea que se queda no existe hasta el pivote.
-        ["#raya", "#chincheta", "#onda", "#aqui"].forEach(function (s) { tl.set(s, { autoAlpha: 0 }, 0); });
-        ["#c2a", "#c2b", "#c2c"].forEach(function (s) { tl.set(s, { autoAlpha: 0 }, 0); });
+        // El móvil sube con el primer momento que lleva app y se queda hasta la oferta.
+        tl.fromTo("#movil", { autoAlpha: 0, y: 1250 }, { autoAlpha: 1, duration: 0 }, C.plan);
+        tl.fromTo("#movil", { y: 1250 }, { y: 0, duration: 0.6, ease: "expo.out", immediateRender: false }, C.plan);
 
-        // EL PIVOTE: la lista se apaga y queda una l&iacute;nea, que baja al centro.
-        var P = C.pivote;
-        corta("#c1a", P);
-        var otras = lineas.filter(function (l) { return l.id !== "l-plaza"; });
-        tl.to(otras, { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
-        tl.to("#burbuja", { opacity: 0.16, duration: 0.3, ease: "power1.out" }, P);
-        // La plaza est&aacute; en top 324 del hilo (que empieza en 340): con el hilo en y=-24 queda en y=640.
-        tl.fromTo("#hilo", { y: -hecho }, { y: -24, duration: 0.55, ease: "power3.inOut", immediateRender: false }, P);
-        tl.fromTo("#l-plaza", { color: "#D6D7DB" }, { color: "#FFFFFF", duration: 0.3, ease: "none", immediateRender: false }, P);
-        tl.fromTo("#l-plaza .p", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "none", immediateRender: false }, P + 0.3);
-        var CRECE = 1.25;
-        tl.fromTo("#l-plaza", { scale: 1, transformOrigin: "0% 50%" }, { scale: CRECE, duration: 0.45, ease: "power3.out", immediateRender: false }, P + 0.05);
-        // La oferta, pegada al nombre (que se mide con la fuente ya cargada).
-        document.getElementById("m-oferta").style.left = Math.round(156 + document.getElementById("m-nombre").getBoundingClientRect().width + 16) + "px";
-        var raya = document.getElementById("raya");
-        var ancho = Math.round(document.getElementById("plaza-nombre").getBoundingClientRect().width * CRECE);
-        raya.style.left = Math.round(50 * CRECE) + "px";
-        raya.style.width = ancho + "px";
-        // La etiqueta, a la derecha del nombre ya crecido.
-        document.getElementById("aqui").style.left = (Math.round(50 * CRECE) + ancho + 26) + "px";
-        tl.fromTo("#raya", { autoAlpha: 0, scaleX: 0, transformOrigin: "0% 50%" },
-                  { autoAlpha: 1, scaleX: 1, duration: 0.4, ease: "power3.out" }, P + 0.4);
-        entra("#c2a", P + 0.02, 20);
-        // La chincheta cae en &laquo;all&iacute;&raquo;, con su etiqueta; la onda late hasta el corte.
-        var ALLI = palabra("k2", 3);
-        tl.fromTo("#chincheta", { autoAlpha: 0, y: -46 }, { autoAlpha: 1, y: 0, duration: 0.38, ease: "back.out(2.2)" }, ALLI - 0.1);
-        tl.fromTo("#aqui", { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power3.out" }, ALLI + 0.12);
-        var N = C.nomad;
-        for (var k = 0; k < 3; k++) {
-          var t0 = ALLI + 0.3 + k * 0.72;
-          if (t0 + 0.7 > N) break;
-          tl.fromTo("#onda", { autoAlpha: 0.9, scale: 0.5 }, { autoAlpha: 0, scale: 1.7, duration: 0.7, ease: "power1.out", immediateRender: false }, t0);
-        }
-        entra("#c2b", palabra("k2", 4) - 0.08, 20);
-        entra("#c2c", palabra("k2", 7) - 0.08, 20);
-
-        // ── 2 · NOMAD ──────────────────────────────────────────────────────────
-        var SVGNS = "http://www.w3.org/2000/svg", D = window.DIBUJOS;
-        function a(id) { return document.getElementById(id); }
-        // Los detalles de un dibujo: [etiqueta, atributos] tal cual vienen del diseñador.
-        function pinta(lista, grupo) {
-          lista.forEach(function (e) {
-            var n = document.createElementNS(SVGNS, e[0]);
-            for (var k in e[1]) n.setAttribute(k, e[1][k]);
-            grupo.appendChild(n);
-          });
-        }
-        // Un trazo que se dibuja solo: su largo va en stroke-dasharray y se recoge el desfase.
-        function traza(id, d, t, dur) {
-          var p = a(id);
-          if (d) p.setAttribute("d", d);
-          var L = Math.ceil(p.getTotalLength());
-          p.setAttribute("stroke-dasharray", L);
-          tl.fromTo(p, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t);
-        }
-        function brota(sel, t) { tl.fromTo(sel, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: "back.out(3)" }, t); }
-        function late(sel, t, amp) {
-          var e = 1 + (amp || 0.08);
-          tl.fromTo(sel, { scale: 1 }, { scale: e, duration: 0.12, ease: "power2.out", immediateRender: false }, t);
-          tl.fromTo(sel, { scale: e }, { scale: 1, duration: 0.42, ease: "power1.inOut", immediateRender: false }, t + 0.12);
-        }
-        pinta(D.casco.det, a("casco-det")); pinta(D.casco.ondas, a("casco-ondas"));
-        pinta(D.pin.ojo, a("pin-ojo")); pinta(D.pin.suelo, a("pin-suelo"));
-        pinta(D.cuadro.det, a("cuadro-det")); pinta(D.cuadro.sol, a("cuadro-sol"));
-        gsap.set(["#casco-det", "#casco-ondas"], { svgOrigin: D.casco.o.join(" ") });
-        gsap.set(["#pin-ojo", "#pin-suelo"], { svgOrigin: D.pin.o.join(" ") });
-        gsap.set("#cuadro-det", { svgOrigin: "752 766" }); gsap.set("#cuadro-sol", { svgOrigin: D.cuadro.o.join(" ") });
-
-        // El papel se abre desde la chincheta (x=98, y=671 en pantalla) y el borde de la pantalla se dibuja.
-        aparece("#mundo", N - 0.12);
-        tl.fromTo("#mundo", { clipPath: "circle(0px at 98px 671px)" },
-                  { clipPath: "circle(2300px at 98px 671px)", duration: 0.5, ease: "power2.in", immediateRender: false }, N - 0.12);
-        corta("#chat", N + 0.4);
-        traza("s-borde", null, N + 0.05, 0.9);
-        // Antes de su hora, nada de lo de después existe.
-        ["#v-p1", "#v-plan", "#v-p2", "#v-p3", "#v-o1", "#v-o2", "#logo-grande", "#pin", "#cuadro",
-         "#r-1", "#r-2a", "#r-2b", "#r-3a", "#r-3b"].forEach(function (sel) { tl.set(sel, { autoAlpha: 0 }, 0); });
-
-        // LA AUDIOGUÍA. En la pantalla, lo que pasa de verdad al abrir la guía: su presentación y, al tocar
-        // «Empezar el tour», la parada 1. A la derecha, los auriculares; sus ondas laten mientras habla.
-        var G0 = F.g1.empieza, G1 = F.g1.acaba;
-        var EMPIEZA = G0 + 1.05;
-        corta("#v-pres", EMPIEZA); aparece("#v-p1", EMPIEZA);
-        traza("s-casco", D.casco.d, N + 0.25, 0.9);
-        tl.set(["#casco-det", "#casco-ondas"], { autoAlpha: 0 }, 0);
-        brota("#casco-det", N + 1.1);
-        tl.fromTo("#casco-ondas", { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "power2.out" }, N + 1.3);
-        for (var q = G0 + 1.4; q < G1 - 0.6; q += 1.2) late("#casco-ondas", q, 0.1);
-        entra("#q-rotulo", N + 0.25, 14);
-        // Las palabras de la guía, de dos en dos líneas, encendiéndose cuando las dice.
-        var pares = [["#g-a1", "#g-a2"], ["#g-b1", "#g-b2"], ["#g-c1", "#g-c2"], ["#g-d1", "#g-d2"]];
-        var cuenta = 0, entradas = [];
-        pares.forEach(function (par) {
-          var primera = cuenta;
-          par.forEach(function (id) {
-            document.querySelectorAll(id + " span").forEach(function (sp) {
-              tl.fromTo(sp, { opacity: 0.34 }, { opacity: 1, duration: 0.14, ease: "none" }, palabra("g1", cuenta) - 0.07);
-              cuenta += 1;
-            });
-          });
-          entradas.push(palabra("g1", primera) - 0.02);
+        // LA PLAZA: cuando habla la audioguía, su frase ocupa el sitio de la de Kore.
+        var G0 = F.g2.empieza;
+        ["#t3a", "#t3b"].forEach(function (s) { corta(s, G0 - 0.12); });
+        tl.set(["#q-rotulo", "#q-a", "#q-b"], { autoAlpha: 0 }, 0);
+        entra("#q-rotulo", G0 - 0.1, 14);
+        tl.fromTo(["#q-a", "#q-b"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none" }, G0 - 0.08);
+        var n = 0;
+        document.querySelectorAll("#q-a span, #q-b span").forEach(function (sp) {
+          tl.fromTo(sp, { opacity: 0.4 }, { opacity: 1, duration: 0.14, ease: "none" }, palabra("g2", n) - 0.07);
+          n += 1;
         });
-        if (cuenta !== F.g1.palabras.length) throw new Error("la guía tiene " + F.g1.palabras.length + " palabras y la página, " + cuenta);
-        entradas[0] = N + 0.3;
-        pares.forEach(function (par, k) {
-          par.forEach(function (id) {
-            tl.fromTo(id, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.06, ease: "none" }, entradas[k]);
-            if (k < pares.length - 1) tl.to(id, { autoAlpha: 0, duration: 0.04, ease: "none" }, entradas[k + 1] - 0.04);
-          });
-        });
+        if (n !== F.g2.palabras.length) throw new Error("la audioguía tiene " + F.g2.palabras.length + " palabras y la página, " + n);
+        ["#q-rotulo", "#q-a", "#q-b"].forEach(function (s) { corta(s, C.comer); });
 
-        // EL RESUMEN: cada cosa que dice Kore, con su pantalla y su dibujo.
-        var R = C.resumen, O = C.oferta;
-        function pantalla(nueva, vieja, t) { corta(vieja, t); aparece(nueva, t); }
-        var TE = palabra("k3", 3) - 0.1, PARADA2 = palabra("k3", 9) - 0.08, MUSEO = palabra("k3", 10) - 0.1, OBRA2 = palabra("k3", 16) - 0.08;
-        ["#casco", "#q-rotulo", "#g-d1", "#g-d2"].forEach(function (sel) { corta(sel, R); });
-        pantalla("#v-plan", "#v-p1", R);                                   // «Eso es Nomad»: los días, y el logo
-        tl.fromTo("#logo-grande", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, R + 0.02);
-        entra("#r-1", R + 0.02, 26);
-        ["#r-1", "#logo-grande"].forEach(function (sel) { corta(sel, TE); });
-        pantalla("#v-p2", "#v-plan", TE);                                  // «Te guía a pie»: la parada 2, y el pin
-        aparece("#pin", TE);
-        traza("s-pin", D.pin.d, TE, 0.5);
-        tl.set(["#pin-ojo", "#pin-suelo"], { autoAlpha: 0 }, 0);
-        brota("#pin-ojo", TE + 0.45); brota("#pin-suelo", TE + 0.5);
-        entra("#r-2a", TE, 26);
-        entra("#r-2b", palabra("k3", 7) - 0.08, 26);
-        pantalla("#v-p3", "#v-p2", PARADA2);                               // «parada a parada»: la 3
-        late("#pin-ojo", PARADA2, 0.14);
-        ["#r-2a", "#r-2b", "#pin"].forEach(function (sel) { corta(sel, MUSEO); });
-        pantalla("#v-o1", "#v-p3", MUSEO);                                 // «y en el museo»: la obra 1, y el cuadro
-        aparece("#cuadro", MUSEO);
-        traza("s-cuadro", D.cuadro.d, MUSEO, 0.5);
-        tl.set(["#cuadro-det", "#cuadro-sol"], { autoAlpha: 0 }, 0);
-        tl.fromTo("#cuadro-det", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "none" }, MUSEO + 0.45);
-        brota("#cuadro-sol", MUSEO + 0.6);
-        entra("#r-3a", MUSEO, 26);
-        entra("#r-3b", palabra("k3", 14) - 0.08, 26);
-        pantalla("#v-o2", "#v-o1", OBRA2);                                 // «obra a obra»: la 2
-        late("#cuadro-sol", OBRA2, 0.16);
-
-        // ── 3 · LA OFERTA ──────────────────────────────────────────────────────
+        // ── 2 · LA OFERTA ──────────────────────────────────────────────────────
         aparece("#oferta", O);
-        corta("#mundo", O);
+        corta("#dia", O);
         tl.fromTo("#o-kicker", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), O + 0.04);
         entra("#o-1", O + 0.12, 40);
-        entra("#o-2", palabra("k4", 4) - 0.1, 40);
+        entra("#o-2", palabra("n8", 3) - 0.1, 40);
         tl.fromTo("#o-3", { autoAlpha: 0, y: 50, scale: 0.9, transformOrigin: "0% 100%" },
-                  { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, palabra("k4", 7) - 0.1);
-        var COND = palabra("k4", 5) + 0.05;
+                  { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, palabra("n8", 6) - 0.1);
+        var COND = palabra("n8", 4) + 0.05;
         entra("#o-c1", COND, 18); entra("#o-c2", COND + 0.1, 18);
 
-        // ── 4 · EL CIERRE, quieto desde que acaba de entrar ────────────────────
+        // ── 3 · EL CIERRE, quieto desde que acaba de entrar ────────────────────
         var Z = C.cierre;
         aparece("#cierre", Z);
         corta("#oferta", Z);
@@ -486,8 +302,7 @@
         // «Enlace en el perfil» sólo en el reel orgánico; el anuncio lleva su propio botón.
         if (window.NOMAD_VERSION === "reel") tl.fromTo("#c-enlace", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.6);
         else tl.set("#c-enlace", { autoAlpha: 0 }, 0);
-        // Antes de su hora, ni la oferta ni el cierre existen.
-        tl.set("#oferta", { autoAlpha: 0 }, 0); tl.set("#cierre", { autoAlpha: 0 }, 0); tl.set("#mundo", { autoAlpha: 0 }, 0);
+        tl.set("#oferta", { autoAlpha: 0 }, 0); tl.set("#cierre", { autoAlpha: 0 }, 0);
         tl.set({}, {}, FIN);
 
         window.__timelines = window.__timelines || {};

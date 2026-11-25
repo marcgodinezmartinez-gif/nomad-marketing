@@ -1,16 +1,15 @@
-# EL SONIDO DE «TU PRIMER VIAJE, GRATIS» (24-nov). Escribe assets/sonido.m4a (con música) y
+# EL SONIDO DE «TU PRIMER VIAJE, GRATIS» (25-nov). Escribe assets/sonido.m4a (con música) y
 # assets/sonido-sin-musica.m4a (voz y efectos: para ponerle un audio de tendencias en Instagram).
 #
 # Tres pistas, cada una colocada con los tiempos de assets/tiempos.json (preparar-voz.py):
 # - LA VOZ: Kore narra y Charon es la audioguía, las dos voces de la app, con el modelo de la app
 #   (gemini-3.1-flash-tts-preview). Cada frase a -18 LUFS, paso alto a 80 Hz y compresión suave, como
 #   en ../puente-viena/mezclar.sh.
-# - LOS EFECTOS, hechos aquí con ruido filtrado, sin fichero de nadie: un tic muy bajo por cada línea
-#   que escribe el chat (y silencio mientras no escribe), un soplo en el paso a la app y un golpe
-#   grave y corto en «gratis».
-# - LA MÚSICA (assets/musica/m2.mp3, Lyria, 99,4 BPM): dura 30,8 s y se apaga sola desde el 25,5, así
-#   que se le repiten ocho negras por dentro para que llegue entera al cierre. Hasta el paso a la app
-#   suena apagada (paso bajo a 500 Hz): el chat es frío y la app abre la música. A -33 LUFS, quince por
+# - LOS EFECTOS, hechos aquí con ruido filtrado, sin fichero de nadie: dos tics de reloj en cada cambio
+#   de hora, un soplo al pasar del gancho a Lisboa y al llegar la oferta, y un golpe grave y corto en
+#   los dos «gratis».
+# - LA MÚSICA (assets/musica/m2.mp3, Lyria, 100 BPM): dura 30,8 s y se apaga sola desde el 25,5, así
+#   que se le repiten ocho negras por dentro para que llegue entera al cierre. A -33 LUFS, quince por
 #   debajo de la voz, y se aparta mientras alguien habla.
 # Todo junto, a -14 LUFS y -1,5 dBTP con una ganancia fija (loudnorm lineal, comprobado).
 #
@@ -83,29 +82,26 @@ def ruido_filtrado(dur, f_lo, f_hi):
     return y / (np.max(np.abs(y)) + 1e-9)
 
 
-# Un tic: 12 ms de ruido entre 1,8 y 4,5 kHz que se apaga rápido. Tres por línea, como llegan los trozos.
-for t in [x for x in T['flujo'] if x > 0]:      # las que ya están escritas en el fotograma 0 no suenan
-    for k, dt in enumerate((0.0, 0.055, 0.105)):
-        tic = ruido_filtrado(0.012, 1800, 4500) * np.exp(-np.linspace(0, 6, int(0.012 * SR)))
-        pon(tic, t + dt, -28 - 2 * k)
-# El soplo del paso a la app: medio segundo de ruido que sube y se va.
-n = int(0.55 * SR)
+C = T['cortes']
+# Los tics del reloj: dos, en cada cambio de hora del día. 14 ms de ruido entre 1,8 y 4,5 kHz que se apaga.
+for nombre in ('plan', 'plaza', 'comer', 'cuentas', 'asistente'):
+    for k, dt in enumerate((0.0, 0.11)):
+        tic = ruido_filtrado(0.014, 1800, 4500) * np.exp(-np.linspace(0, 6, int(0.014 * SR)))
+        pon(tic, C[nombre] + dt, -25 - 3 * k)
+# Los soplos: medio segundo de ruido que sube y se va, al pasar del gancho a Lisboa y al llegar la oferta.
+n = int(0.5 * SR)
 env = np.sin(np.linspace(0, np.pi, n)) ** 2
-pon(ruido_filtrado(0.55, 300, 2600) * env, T['cortes']['nomad'] - 0.30, -27)
-# El golpe de «gratis»: una nota grave que baja de 78 a 46 Hz en un tercio de segundo.
-gratis = T['frases']['k4']['palabras'][7][1]
+pon(ruido_filtrado(0.5, 300, 2600) * env, C['viajar'] - 0.28, -28)
+pon(ruido_filtrado(0.5, 300, 2600) * env, C['oferta'] - 0.28, -28)
+# El golpe de «gratis»: una nota grave que baja de 78 a 46 Hz en un tercio de segundo. Saturada, para
+# que tenga armónicos: un seno limpio de 46-78 Hz no sale por el altavoz de un móvil (revisión del 24-nov).
 n = int(0.34 * SR)
 tt = np.arange(n) / SR
 fase = 2 * np.pi * np.cumsum(np.linspace(78, 46, n)) / SR
-# Saturada, para que tenga armónicos: un seno limpio de 46-78 Hz no sale por el altavoz de un móvil
-# (revisión del 24-nov), y es donde se va a oír.
 golpe = np.tanh(3 * np.sin(fase)) * np.exp(-tt * 11)
 golpe = golpe / np.max(np.abs(golpe))
-pon(golpe, gratis - 0.04, -17)
-# El mismo golpe, más bajo, en el «gratis» del gancho, y un soplo corto en el paso del gancho al chat.
-pon(golpe, T['frases']['h1']['palabras'][7][1] - 0.04, -21)
-n = int(0.4 * SR)
-pon(ruido_filtrado(0.4, 300, 2600) * np.sin(np.linspace(0, np.pi, n)) ** 2, T['cortes']['chat'] - 0.24, -30)
+pon(golpe, T['frases']['n8']['palabras'][6][1] - 0.04, -17)     # el de la oferta
+pon(golpe, T['frases']['n1']['palabras'][7][1] - 0.04, -21)     # el del gancho, más bajo
 escribe(fx, f'{TMP}/fx.wav')
 
 # ── LA MÚSICA ─────────────────────────────────────────────────────────────────
@@ -136,13 +132,7 @@ print(f'música: negra de {per:.4f} s ({60 / per:.1f} BPM), se repite de {b:.2f}
 if len(larga) < N: sys.exit('la música no llega al final')
 larga = larga[:N]
 escribe(larga, f'{TMP}/mus.wav')
-ff('-i', f'{TMP}/mus.wav', '-af', 'lowpass=f=500,lowpass=f=500,volume=4dB', '-c:a', 'pcm_f32le', f'{TMP}/mus-baja.wav')
-baja = lee(f'{TMP}/mus-baja.wav', 2)[:N]
-c, ch = T['cortes']['nomad'], T['cortes']['chat']
-seg = np.arange(N) / SR
-# Abierta en el gancho, apagada en el chat (que es frío) y abierta otra vez cuando entra la app.
-g = (1 - np.clip((seg - (ch - 0.15)) / 0.3, 0, 1) + np.clip((seg - (c - 0.20)) / 0.35, 0, 1))[:, None]
-mus = baja * (1 - g) + larga * g
+mus = larga
 # Entra con un fundido corto y se va en los últimos 0,8 s, cuando ya ha vuelto a subir detrás de la voz.
 ent, sal = int(0.15 * SR), int(0.8 * SR)
 mus[:ent] *= np.linspace(0, 1, ent)[:, None]

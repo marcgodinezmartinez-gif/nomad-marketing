@@ -25,3 +25,5 @@ piezas/historias-animadas/primer-viaje-gratis/assets/voz/tomas/*.wav
 piezas/historias-animadas/primer-viaje-gratis/assets/voz/tomas/palabras.json
 piezas/historias-animadas/primer-viaje-gratis/assets/musica/m1.*
 piezas/historias-animadas/primer-viaje-gratis/assets/musica/*.txt
+# Las fotos de Lisboa son del banco: variantes.sh las copia aqui para el render.
+piezas/historias-animadas/primer-viaje-gratis/assets/fotos/

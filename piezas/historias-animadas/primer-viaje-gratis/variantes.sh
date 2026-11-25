@@ -15,6 +15,9 @@ OUT="${1:-$R/salida}"
 mkdir -p "$OUT" "$D/revision"
 HF="npx -y hyperframes@0.8.203"
 [ -f "$D/assets/sonido.m4a" ] || { echo "falta el sonido: python3 -I mezclar.py" >&2; exit 1; }
+ls "$D"/assets/tomas/*.mp4 >/dev/null 2>&1 || { echo "faltan las tomas: METRAJE=<carpeta> python3 -I cortar-tomas.py" >&2; exit 1; }
+# Las fotos de Lisboa salen del banco (banco/fotos/creditos.json): aquí sólo hay una copia para el render.
+mkdir -p "$D/assets/fotos" && cp "$R"/banco/fotos/historia/f-lisboa-*.jpg "$D/assets/fotos/"
 version() { printf '// Lo escribe variantes.sh antes de cada pasada. La versionada es la del reel.\nwindow.NOMAD_VERSION = "%s";\n' "$1" > "$D/assets/version.js"; }
 trap 'version reel' EXIT
 CHECK="$(mktemp)"
@@ -23,10 +26,10 @@ ESCENAS=$(python3 - "$D/assets/tiempos.json" <<'PY'
 import json, sys
 T = json.load(open(sys.argv[1])); c = T['cortes']; f = T['frases']
 print(' '.join(f'{t:.2f}:{n}' for t, n in [
-    (0.03, '00-el-fotograma-0'), (c['chat'] - 0.3, '00b-el-gancho'), (c['pivote'] - 0.15, '01-la-lista'), (c['nomad'] - 0.25, '02-estas-aqui'),
-    (f['g1']['empieza'] + 2.6, '03-la-parada'), (f['g1']['acaba'] - 0.4, '04-la-historia'),
-    (c['resumen'] + 0.9, '05-eso-es-nomad'), (f['k3']['palabras'][10][1] - 0.2, '06-parada-a-parada'),
-    (c['oferta'] - 0.15, '07-obra-a-obra'), (c['cierre'] - 0.3, '08-la-oferta'), (c['fin'] - 0.4, '09-el-cierre')]))
+    (0.03, '00-el-fotograma-0'), (c['viajar'] - 0.3, '01-el-gancho'), (c['plan'] - 0.4, '02-imprescindible'),
+    (c['plaza'] - 0.4, '03-el-plan'), (f['g2']['empieza'] - 0.3, '04-la-plaza'), (c['comer'] - 0.4, '05-la-audioguia'),
+    (c['cuentas'] - 0.4, '06-comer'), (c['asistente'] - 0.4, '07-las-cuentas'), (c['oferta'] - 0.4, '08-el-asistente'),
+    (c['cierre'] - 0.3, '09-la-oferta'), (c['fin'] - 0.4, '10-el-cierre')]))
 PY
 )
 for V in ${VERSIONES:-reel anuncio}; do
@@ -43,7 +46,7 @@ for V in ${VERSIONES:-reel anuncio}; do
   done
   # Las zonas seguras de un reel encima del cierre y de la oferta: texto entre y=230 e y=1480, y la
   # columna de botones a la derecha (x>900, de y=900 a y=1480).
-  for N in 08-la-oferta 09-el-cierre; do
+  for N in 05-la-audioguia 09-la-oferta 10-el-cierre; do
   python3 - "$D/revision/$V-$N.png" "$D/revision/$V-$N-zonas.png" <<'PY'
 import sys
 from PIL import Image, ImageDraw
@@ -54,7 +57,7 @@ d.rectangle([0, 0, 1080, 230], fill=rojo); d.rectangle([0, 1480, 1080, 1920], fi
 Image.alpha_composite(im, capa).convert('RGB').save(sys.argv[2], optimize=True)
 PY
   done
-  [ "$V" = reel ] && python3 -c "from PIL import Image;Image.open('$D/revision/reel-08-la-oferta.png').save('$OUT/nomad-primer-viaje-gratis-portada-1080x1920.png',optimize=True)"
+  [ "$V" = reel ] && python3 -c "from PIL import Image;Image.open('$D/revision/reel-09-la-oferta.png').save('$OUT/nomad-primer-viaje-gratis-portada-1080x1920.png',optimize=True)"
   rm -rf "$T"
   ( cd "$D" && $HF render --quiet --fps 30 --video-bitrate 12M --output "$OUT/.render-$V.mp4" >/dev/null 2>&1 )
   # El sonido se vuelve a poner desde el fichero de la mezcla, sin recodificar.
