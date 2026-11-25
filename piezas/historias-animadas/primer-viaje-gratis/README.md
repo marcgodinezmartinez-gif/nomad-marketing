@@ -14,17 +14,17 @@ hace Nomad en ese momento y, en un móvil, **la app haciéndolo de verdad** (gra
 
 | seg. | la foto y la hora | en el móvil | qué se oye |
 |---|---|---|---|
-| 0-3,6 | El verde de la oferta: el icono, «¿Qué es Nomad?» y «Ahora lo puedes probar gratis.» | — | Kore: «¿Qué es Nomad? Ahora lo puedes probar gratis.» |
-| 3,6-5,9 | El tranvía de la Bica. «Tu imprescindible para viajar.» | — | «Es tu imprescindible para viajar.» |
-| 5,9-8,7 | Una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del sábado al domingo y al lunes | «Te organiza el viaje, día a día.» |
-| 8,7-15,0 | La Praça do Comércio. **10:30 · en la plaza** | El plan del sábado, «Iniciar tour», «¿Qué visita quieres?», y la parada 1 en el mapa con el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
-| 15,0-17,8 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares y, al tocar «Comida», sólo los sitios para comer | «Te recomienda qué ver y dónde comer.» |
-| 17,8-20,2 | El puente al atardecer. **19:30 · al caer la tarde** | Gastos: lo que lleva el grupo, «Para quedar en paz» y el historial | «Lleva las cuentas del grupo.» |
-| 20,2-24,1 | El elevador da Glória de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta | «Y tienes un asistente para lo que necesites durante el viaje.» |
-| 24,1-28,2 | La oferta, sobre verde: «Tu primer viaje, gratis.» y sus dos condiciones | — | «Esta semana, tu primer viaje es gratis.» |
-| 28,2-31,8 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después | — | «Descárgala en la App Store o en Google Play.» |
+| 0-2,9 | **El gancho**, sobre el verde de la oferta, ya en el fotograma 0: el icono, «Tu primer viaje con Nomad, **gratis.**» y debajo sus dos condiciones. «gratis» late cuando suena | — | Kore: «Tu primer viaje con Nomad, gratis.» |
+| 2,9-6,3 | El tranvía de la Bica. «¿Qué es Nomad?» y, con su voz, «Tu imprescindible para viajar.» | — | «¿Qué es Nomad? Tu imprescindible para viajar.» |
+| 6,3-9,1 | Una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del sábado al domingo y al lunes | «Te organiza el viaje, día a día.» |
+| 9,1-15,4 | La Praça do Comércio. **10:30 · en la plaza** | El plan del sábado, «Iniciar tour», «¿Qué visita quieres?», y la parada 1 en el mapa con el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
+| 15,4-18,2 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares y, al tocar «Comida», sólo los sitios para comer | «Te recomienda qué ver y dónde comer.» |
+| 18,2-20,6 | El puente al atardecer. **19:30 · al caer la tarde** | Gastos: lo que lleva el grupo, «Para quedar en paz» y el historial | «Lleva las cuentas del grupo.» |
+| 20,6-24,5 | El elevador da Glória de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta | «Y tienes un asistente para lo que necesites durante el viaje.» |
+| 24,5-28,6 | La oferta, sobre verde: «Tu primer viaje, gratis.» y sus dos condiciones | — | «Esta semana, tu primer viaje es gratis.» |
+| 28,6-32,2 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después | — | «Descárgala en la App Store o en Google Play.» |
 
-Arriba, durante el día de viaje (del 3,6 al 24,1), la firma: «Nomad · Primer viaje gratis hasta el 3 de
+Arriba, durante el día de viaje (del 2,9 al 24,5), la firma: «Nomad · Primer viaje gratis hasta el 3 de
 diciembre». Los cortes salen de la voz (`preparar-voz.py`), no al revés.
 
 ## El guion es del dueño
@@ -34,6 +34,12 @@ tus viajes. Te organiza el viaje, te lo cuenta, te recomienda los mejores lugare
 gastos. Además tienes un asistente que te ayuda en todo lo que necesites durante el viaje». Se partió en
 nueve frases cortas, una por momento, y lo aprobó así («el guion OK»). Dos cambios que se le dijeron:
 «qué ver y dónde comer» en vez de «los mejores lugares», e «imprescindible».
+
+**Y el 25-nov, al ver la cuarta versión: «el gancho de que es gratis tiene que ser lo primero para retener
+a la gente».** Antes abría con «¿Qué es Nomad? Ahora lo puedes probar gratis.», y «gratis» se oía en el
+segundo 2,9 y se leía en el 2,4. Ahora la primera frase es la oferta, «Tu primer viaje con Nomad,
+gratis.», y está entera en pantalla desde el fotograma 0, con sus condiciones. La pregunta pasa a la
+segunda frase, con su respuesta: «¿Qué es Nomad? Tu imprescindible para viajar.»
 
 ## Qué es de verdad y qué no
 
@@ -101,6 +107,8 @@ Cuatro vueltas, y en cada una mandó lo que dijo el dueño al verla:
    montaje: **«el que me habías montado no me gusta»**.
 4. Se le enseñaron tres estilos en un fotograma cada uno. Dijo **«haz lo que creas que será mejor»**. Se
    eligió éste, y grabar la app en vez de usar capturas.
+5. Con éste montado: **«el gancho de que es gratis tiene que ser lo primero para retener a la gente»**.
+   El vídeo abre con la oferta, y la pregunta va después.
 
 Lo que hay que llevarse: **una captura recortada y animada por encima (paneos, acercamientos, sombras) se
 lee como plantilla hecha por una máquina**. La app se enseña en su pantalla, y lo que se mueve es la app,
@@ -131,8 +139,11 @@ que se cambió:
 - **`preparar-voz.py` pisaba la duración de las tomas** al volver a pasarlo. Ya sólo escribe la del
   vídeo y la del sonido.
 
-Lo que dijeron y se deja, porque es de gusto o del dueño: que el gancho es texto sobre verde y no enseña
-la app hasta el segundo 6 (es su gancho); que seis escenas con la misma composición se leen como
+Dos hallazgos más los resolvió después el dueño al pedir «gratis» lo primero: el gancho ya no dice
+«gratis» sin sus condiciones, y ya no tarda tres segundos en decir qué se ofrece.
+
+Lo que dijeron y se deja, porque es de gusto o del dueño: que la app no se ve hasta el segundo 6; que
+seis escenas con la misma composición se leen como
 plantilla; que el cierre cambia de fondo de golpe; que «Lugares · 14 guardados» parece una lista de
 favoritos más que de recomendaciones; y lo de «Lo que falta por confirmar», más arriba.
 
@@ -142,7 +153,8 @@ favoritos más que de recomendaciones; y lo de «Lo que falta por confirmar», m
 
 ```bash
 bash ../construir.sh                                  # las fuentes embebidas
-python3 -I preparar-voz.py                            # las diez frases, sus tiempos y los cortes
+python3 -I preparar-voz.py                            # las diez frases, sus tiempos y los cortes (y la
+                                                      # duración del vídeo en index.html)
 python3 -I mezclar.py                                 # assets/sonido.m4a y assets/sonido-sin-musica.m4a
 METRAJE=<carpeta> python3 -I cortar-tomas.py          # sólo si cambian las tomas o los cortes
 bash variantes.sh <salida>                            # los vídeos, la portada y los fotogramas de revisión
@@ -182,6 +194,9 @@ Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `..
   ya ese fotograma con la zona encima.
 - **Quitarle un aviso al comprobador no arregla lo que avisaba.** Las líneas de marcas llevan
   `data-layout-ignore` porque su letra es pequeña a propósito. Con eso tampoco se vio que una se salía.
+- **Dos elementos con el mismo id no avisan.** El gancho nuevo se escribió con `#h-1` y `#h-2`, y `#h-2`
+  ya era la hora «09:00 · antes de salir». Su estilo se aplicó a las dos: la hora salió enorme encima del
+  título y «con Nomad,» desapareció del gancho. `hyperframes check` pasó. Se vio en los fotogramas.
 - **Un texto centrado no está dentro de la zona segura por estar centrado.** La zona es asimétrica: por
   debajo de y=900 acaba en x=900.
 - **Un efecto grave se comprueba en la banda que reproduce un móvil** (de 150 Hz para arriba).

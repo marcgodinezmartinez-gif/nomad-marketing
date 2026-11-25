@@ -30,11 +30,11 @@ la OTA y el interruptor). Antes, el vídeo anuncia algo que la app no hace.
 
 ## El pie
 
-> ¿Qué es Nomad? Tu imprescindible para viajar.
+La primera línea es la que se ve sin abrirlo, y lleva lo primero lo mismo que el vídeo: «gratis».
+
+> Tu primer viaje con Nomad, gratis hasta el 3 de diciembre.
 >
-> Te organiza el viaje día a día. Te cuenta lo que tienes delante, con audioguía. Te recomienda qué ver y dónde comer. Lleva las cuentas del grupo. Y tiene un asistente para lo que necesites durante el viaje.
->
-> Hasta el 3 de diciembre, tu primer viaje es gratis.
+> ¿Qué es Nomad? Tu imprescindible para viajar. Te organiza el viaje día a día. Te cuenta lo que tienes delante, con audioguía. Te recomienda qué ver y dónde comer. Lleva las cuentas del grupo. Y tiene un asistente para lo que necesites durante el viaje.
 >
 > 👉 Enlace en el perfil.
 >
