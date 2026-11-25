@@ -27,8 +27,10 @@ FRASES = [
     # lugares y te deja organizar tus gastos. Además tienes un asistente que te ayuda en todo lo que
     # necesites durante el viaje». Frase a frase, como él lo aprobó («el guion OK»), con dos cambios que
     # se le dijeron: «qué ver y dónde comer» por «los mejores lugares», e «imprescindible».
-    ('n1', 'n1-1', '¿Qué es Nomad? Ahora lo puedes probar gratis.'),
-    ('n2', 'n2-2', 'Es tu imprescindible para viajar.'),
+    # Y el 25-nov, al ver la cuarta versión: «el gancho de que es gratis tiene que ser lo primero para
+    # retener a la gente». La oferta abre, y la pregunta pasa a la segunda frase.
+    ('n1', 'p1-3', 'Tu primer viaje con Nomad, gratis.'),
+    ('n2', 'p2-3', '¿Qué es Nomad? Tu imprescindible para viajar.'),
     ('n3', 'n3-1', 'Te organiza el viaje, día a día.'),
     ('n4', 'n4-1', 'Te cuenta lo que tienes delante.'),
     # La audioguía de la app (Charon), cuatro segundos: la primera frase de «La historia» de la parada 1.
@@ -41,11 +43,11 @@ FRASES = [
 ]
 # El aire detrás de cada frase, en segundos del vídeo final. El corte de escena va dentro de ese aire.
 # Las escenas cortas (las cuentas) llevan más, para que la pantalla de la app se llegue a ver.
-AIRE = {'n1': 0.36, 'n2': 0.50, 'n3': 0.75, 'n4': 0.25, 'g2': 0.55, 'n5': 0.75, 'n6': 1.05, 'n7': 0.70, 'n8': 0.30, 'k5': 0.40}
+AIRE = {'n1': 0.50, 'n2': 0.50, 'n3': 0.75, 'n4': 0.25, 'g2': 0.55, 'n5': 0.75, 'n6': 1.05, 'n7': 0.70, 'n8': 0.30, 'k5': 0.40}
 # Lo que se queda quieto después de la última palabra de la oferta (para leer las condiciones) y del cierre.
 QUIETO_OFERTA, QUIETO_CIERRE = 1.40, 1.30
 # Cuántas palabras tiene que oír whisper en las frases cuyas palabras se usan por su número.
-ESPERA = {'n1': 8, 'g2': 10, 'n8': 7}
+ESPERA = {'n1': 6, 'n2': 7, 'g2': 10, 'n8': 7}
 
 
 def lee(f):

@@ -28,13 +28,17 @@
 
       /* ── EL GANCHO ───────────────────────────────────────────────────────────── */
       #gancho { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #0D5650; }
-      #h-icono { position: absolute; left: 84px; top: 330px; width: 150px; height: 150px; border-radius: 34px;
-                 background: url(assets/icono-app.png) center / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+      /* «Gratis» lo primero (el dueño, 25-nov: «el gancho de que es gratis tiene que ser lo primero para
+         retener a la gente»). Todo está ya en el fotograma 0: no entra nada, sólo late «gratis» con la voz. */
+      #h-icono { position: absolute; left: 84px; top: 300px; width: 104px; height: 104px; border-radius: 24px;
+                 background: url(assets/icono-app.png) center / cover no-repeat; box-shadow: 0 20px 50px rgba(0,0,0,.28); }
       .h { position: absolute; left: 84px; margin: 0; width: 816px; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
-      #h-q1 { top: 548px; font-size: 190px; }
-      #h-q2 { top: 738px; font-size: 190px; }
-      #h-r1 { top: 1020px; font-size: 100px; color: rgba(255,253,249,.92); }
-      #h-r2 { top: 1130px; font-size: 100px; }
+      #g-1 { top: 470px; font-size: 164px; }
+      #g-2 { top: 632px; font-size: 164px; }
+      #g-g { top: 786px; font-size: 330px; color: #9BE6D2; }
+      .g-c { position: absolute; left: 84px; margin: 0; width: 816px; font-size: 48px; line-height: 58px; white-space: nowrap; }
+      #g-c1 { top: 1180px; font-weight: 700; }
+      #g-c2 { top: 1244px; font-weight: 500; color: rgba(255,253,249,.88); }
 
       /* ── EL DÍA ──────────────────────────────────────────────────────────────── */
       #dia { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #100E0B; }
@@ -57,6 +61,8 @@
       .dt.a { top: 420px; } .dt.b { top: 536px; }
       /* La de «imprescindible», sin móvil: más grande y más abajo. */
       .dt.g { font-size: 150px; } .dt.g.a { top: 700px; } .dt.g.b { top: 856px; }
+      /* La pregunta del principio, encima de su respuesta. */
+      .dt.q1 { top: 540px; font-size: 104px; color: #9BE6D2; }
       /* Lo que dice la audioguía, en el sitio de la frase, palabra a palabra. */
       #q-rotulo { position: absolute; left: 84px; top: 420px; margin: 0; font-size: 28px; line-height: 36px; font-weight: 700;
                   letter-spacing: .14em; text-transform: uppercase; color: #9BE6D2; white-space: nowrap; }
@@ -107,7 +113,7 @@
   </head>
   <body>
     <div id="root" data-composition-id="primer-viaje-gratis" data-start="0"
-         data-width="1080" data-height="1920" data-duration="31.78">
+         data-width="1080" data-height="1920" data-duration="32.18">
 
       <!-- 1 · EL DÍA: la foto, la hora, la frase y el móvil con la app grabada. Va debajo del gancho. -->
       <div id="dia">
@@ -123,6 +129,7 @@
         <p id="m-nombre" class="sans">Nomad</p>
         <p id="m-oferta" class="sans">&middot; Primer viaje gratis hasta el 3 de diciembre</p>
 
+        <p id="t1q" class="dt q1 serif">&iquest;Qu&eacute; es Nomad?</p>
         <p id="t1a" class="dt g a serif">Tu imprescindible</p>
         <p id="t1b" class="dt g b serif">para viajar.</p>
 
@@ -152,11 +159,11 @@
 
         <div id="movil" data-layout-allow-overflow>
           <!-- TOMAS: las pone cortar-tomas.py desde tomas.json -->
-          <video id="toma-plan" class="toma clip" src="assets/tomas/plan.mp4" data-start="5.92" data-duration="2.77" muted playsinline></video>
-          <video id="toma-paseo" class="toma clip" src="assets/tomas/paseo.mp4" data-start="8.69" data-duration="6.3" muted playsinline></video>
-          <video id="toma-lugares" class="toma clip" src="assets/tomas/lugares.mp4" data-start="14.99" data-duration="2.83" muted playsinline></video>
-          <video id="toma-gastos" class="toma clip" src="assets/tomas/gastos.mp4" data-start="17.82" data-duration="2.38" muted playsinline></video>
-          <video id="toma-asistente" class="toma clip" src="assets/tomas/asistente.mp4" data-start="20.2" data-duration="3.94" muted playsinline></video>
+          <video id="toma-plan" class="toma clip" src="assets/tomas/plan.mp4" data-start="6.33" data-duration="2.77" muted playsinline></video>
+          <video id="toma-paseo" class="toma clip" src="assets/tomas/paseo.mp4" data-start="9.1" data-duration="6.3" muted playsinline></video>
+          <video id="toma-lugares" class="toma clip" src="assets/tomas/lugares.mp4" data-start="15.4" data-duration="2.82" muted playsinline></video>
+          <video id="toma-gastos" class="toma clip" src="assets/tomas/gastos.mp4" data-start="18.22" data-duration="2.39" muted playsinline></video>
+          <video id="toma-asistente" class="toma clip" src="assets/tomas/asistente.mp4" data-start="20.61" data-duration="3.93" muted playsinline></video>
           <!-- /TOMAS -->
         </div>
       </div>
@@ -164,10 +171,11 @@
       <!-- 0 · EL GANCHO: la pregunta y la oferta, antes que nada. Tapa lo demás hasta su corte. -->
       <div id="gancho">
         <div id="h-icono"></div>
-        <p id="h-q1" class="h serif">&iquest;Qu&eacute; es</p>
-        <p id="h-q2" class="h serif">Nomad?</p>
-        <p id="h-r1" class="h serif">Ahora lo puedes</p>
-        <p id="h-r2" class="h serif">probar <span class="menta-clara">gratis.</span></p>
+        <p id="g-1" class="h serif">Tu primer viaje</p>
+        <p id="g-2" class="h serif">con Nomad,</p>
+        <p id="g-g" class="h serif">gratis.</p>
+        <p id="g-c1" class="g-c sans">Hasta el 3 de diciembre.</p>
+        <p id="g-c2" class="g-c sans">Un viaje gratis por cuenta.</p>
       </div>
 
       <!-- 2 · LA OFERTA, con sus condiciones a la vista. -->
@@ -198,7 +206,7 @@
         <p id="c-l3" class="c-l sans" data-layout-ignore style="top: 1448px;">son marcas comerciales de Google LLC.</p>
       </div>
 
-      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.78"></audio>
+      <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="32.18"></audio>
     </div>
     <script>
       // Una sola línea de tiempo, pausada, registrada DESPUÉS de que carguen las fuentes. Estado inicial
@@ -225,18 +233,17 @@
           });
           if (ancho > tope) ids.forEach(function (id) { a(id).style.fontSize = Math.floor(tam * tope / ancho) + "px"; });
         }
-        [["t1a", "t1b"], ["t2a", "t2b"], ["t3a", "t3b"], ["t4a", "t4b"], ["t5a", "t5b"], ["t6a", "t6b"], ["q-a", "q-b"]]
+        [["g-1", "g-2"], ["g-g"], ["t1q"], ["t1a", "t1b"], ["t2a", "t2b"], ["t3a", "t3b"], ["t4a", "t4b"], ["t5a", "t5b"], ["t6a", "t6b"], ["q-a", "q-b"]]
           .forEach(function (par) { ajusta(par, 812); });
         a("m-oferta").style.left = Math.round(156 + a("m-nombre").getBoundingClientRect().width + 16) + "px";
 
         // ── 0 · EL GANCHO ──────────────────────────────────────────────────────
         // En el fotograma 0 ya están el icono y la pregunta. La respuesta entra con la voz.
         var V = C.viajar;
-        tl.fromTo("#h-q2", { scale: 1, transformOrigin: "0% 70%" }, { scale: 1.05, duration: 0.16, ease: "power2.out" }, palabra("n1", 2) + 0.05);
-        tl.fromTo("#h-q2", { scale: 1.05 }, { scale: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false }, palabra("n1", 2) + 0.21);
-        entra("#h-r1", palabra("n1", 3) - 0.1, 36);
-        entra("#h-r2", palabra("n1", 6) - 0.1, 36);
-        tl.fromTo("#h-r2 span", { opacity: 0.55 }, { opacity: 1, duration: 0.16, ease: "none" }, palabra("n1", 7) - 0.05);
+        // Todo el gancho está en el fotograma 0. Lo único que se mueve: «gratis» late cuando suena.
+        var GR = palabra("n1", 5);
+        tl.fromTo("#g-g", { scale: 1, transformOrigin: "0% 75%" }, { scale: 1.07, duration: 0.14, ease: "power2.out" }, GR - 0.04);
+        tl.fromTo("#g-g", { scale: 1.07 }, { scale: 1, duration: 0.45, ease: "power1.inOut", immediateRender: false }, GR + 0.10);
         corta("#gancho", V);
         aparece("#dia", V);            // debajo del gancho no hay nada: el día existe desde su corte
 
@@ -251,9 +258,11 @@
           { de: C.cuentas,   a: C.asistente, foto: "#f-5", tit: ["#t5a", "#t5b"], hora: "#h-5", toma: "#toma-gastos" },
           { de: C.asistente, a: O,           foto: "#f-6", tit: ["#t6a", "#t6b"], hora: "#h-6", toma: "#toma-asistente" }
         ];
+        entra("#t1q", palabra("n2", 0) - 0.1, 30); corta("#t1q", C.plan);
         momentos.forEach(function (m, k) {
           aparece(m.foto, m.de); corta(m.foto, m.a);
-          entra(m.tit[0], m.de + 0.02, 30); entra(m.tit[1], m.de + 0.12, 30);
+          var t0 = k === 0 ? palabra("n2", 3) - 0.1 : m.de;     // «Tu imprescindible», con su voz
+          entra(m.tit[0], t0 + 0.02, 30); entra(m.tit[1], t0 + 0.12, 30);
           if (k !== 2) m.tit.forEach(function (s) { corta(s, m.a); });
           if (m.hora) {
             tl.fromTo(m.hora, { autoAlpha: 0, y: -18 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, m.de);

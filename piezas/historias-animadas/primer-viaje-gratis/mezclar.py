@@ -101,7 +101,7 @@ fase = 2 * np.pi * np.cumsum(np.linspace(78, 46, n)) / SR
 golpe = np.tanh(3 * np.sin(fase)) * np.exp(-tt * 11)
 golpe = golpe / np.max(np.abs(golpe))
 pon(golpe, T['frases']['n8']['palabras'][6][1] - 0.04, -17)     # el de la oferta
-pon(golpe, T['frases']['n1']['palabras'][7][1] - 0.04, -21)     # el del gancho, más bajo
+pon(golpe, T['frases']['n1']['palabras'][5][1] - 0.04, -19)     # el del gancho: «gratis» abre el vídeo
 escribe(fx, f'{TMP}/fx.wav')
 
 # ── LA MÚSICA ─────────────────────────────────────────────────────────────────
