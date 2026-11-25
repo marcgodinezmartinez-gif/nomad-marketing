@@ -17,7 +17,7 @@ hace Nomad en ese momento y, en un móvil, **la app haciéndolo de verdad** (gra
 | 0-3,6 | El verde de la oferta: el icono, «¿Qué es Nomad?» y «Ahora lo puedes probar gratis.» | — | Kore: «¿Qué es Nomad? Ahora lo puedes probar gratis.» |
 | 3,6-5,9 | El tranvía de la Bica. «Tu imprescindible para viajar.» | — | «Es tu imprescindible para viajar.» |
 | 5,9-8,7 | Una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del sábado al domingo y al lunes | «Te organiza el viaje, día a día.» |
-| 8,7-15,0 | La Praça do Comércio. **10:30 · en la plaza** | La presentación del paseo, «Empezar el tour», la parada 1 en el mapa y el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
+| 8,7-15,0 | La Praça do Comércio. **10:30 · en la plaza** | El plan del sábado, «Iniciar tour», «¿Qué visita quieres?», y la parada 1 en el mapa con el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
 | 15,0-17,8 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares, y el filtro «Comida» | «Te recomienda qué ver y dónde comer.» |
 | 17,8-20,2 | El puente al atardecer. **19:30 · al caer la tarde** | Gastos: lo que lleva el grupo, «Para quedar en paz» y el historial | «Lleva las cuentas del grupo.» |
 | 20,2-24,1 | El elevador da Glória de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta | «Y tienes un asistente para lo que necesites durante el viaje.» |
@@ -42,7 +42,9 @@ nueve frases cortas, una por momento, y lo aprobó así («el guion OK»). Dos c
   Nadie ha pintado nada encima.
 - **Las tomas están cortadas y, alguna, un poco aceleradas.** Cada una dura lo que su frase. El plan va a
   1,23×, los lugares a 1,2× y las otras tres a su velocidad. Cuatro juntan dos trozos de la misma
-  grabación, con la pantalla igual a los dos lados del corte. `tomas.json` dice qué trozos son.
+  grabación. En tres, la pantalla es la misma a los dos lados del corte. `tomas.json` dice qué trozos son.
+- **La del paseo da un salto.** Pasa de «¿Qué visita quieres?» a la parada 1. En medio, en la app, se
+  elige la duración, se espera a que el tour esté hecho y sale su presentación. Eso no está en el vídeo.
 - **La espera de NOMAD AI está acortada.** En la grabación, la respuesta tarda 2,8 s desde la pregunta.
   En el vídeo, 1,6 s: se quitaron 1,2 s de «Pensando…». La pregunta y la respuesta son las de verdad.
 - **La voz de la audioguía no es el sonido del simulador**, que graba sin sonido. Es la misma voz de la
@@ -133,8 +135,16 @@ Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `..
 - **El plan se abre en HOY cuando el viaje está en curso**, no en el primer día. El guion de la grabación
   toca el día que quiere enseñar.
 - **Dentro de una hoja que se arrastra, Maestro no ve casi nada**: los toques van por coordenadas.
+- **Los momentos se buscan en la grabación entera, no en una copia reducida.** Se buscaron en copias a
+  10 fotogramas por segundo y a 240 px, y el toque de reproducir salía 1,7 s más tarde de donde está.
+  Medido otra vez sobre la grabación (`fps=30` y la diferencia entre fotogramas), cuadró a la primera.
+  Y la toma cortada se mira entera, en una hoja de fotogramas, antes de renderizar.
+- **La portada de un tour en la app es una foto de Commons, y puede ser CC BY-SA.** La del paseo por la
+  Baixa lo es (se lee su crédito en la pantalla). En este repo esas fotos sólo entran si lo decide el
+  dueño, así que la presentación del paseo no sale: la toma arranca antes y sigue después.
 - **Una toma tiene que llenar el móvil.** Lo que se ve del móvil son 1.190 px. Si se enseña la pantalla
   desde muy abajo, la grabación se acaba antes y queda un hueco. `cortar-tomas.py` se para si pasa.
+  Alargarla repitiendo su última fila no vale: esa fila lleva texto y salen rayas.
 - **Un texto centrado no está dentro de la zona segura por estar centrado.** La zona es asimétrica: por
   debajo de y=900 acaba en x=900.
 - **Un efecto grave se comprueba en la banda que reproduce un móvil** (de 150 Hz para arriba).
