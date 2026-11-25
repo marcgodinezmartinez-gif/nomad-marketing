@@ -18,14 +18,14 @@ hace Nomad en ese momento y, en un móvil, **la app haciéndolo de verdad** (gra
 | 3,6-5,9 | El tranvía de la Bica. «Tu imprescindible para viajar.» | — | «Es tu imprescindible para viajar.» |
 | 5,9-8,7 | Una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del sábado al domingo y al lunes | «Te organiza el viaje, día a día.» |
 | 8,7-15,0 | La Praça do Comércio. **10:30 · en la plaza** | El plan del sábado, «Iniciar tour», «¿Qué visita quieres?», y la parada 1 en el mapa con el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
-| 15,0-17,8 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares, y el filtro «Comida» | «Te recomienda qué ver y dónde comer.» |
+| 15,0-17,8 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares y, al tocar «Comida», sólo los sitios para comer | «Te recomienda qué ver y dónde comer.» |
 | 17,8-20,2 | El puente al atardecer. **19:30 · al caer la tarde** | Gastos: lo que lleva el grupo, «Para quedar en paz» y el historial | «Lleva las cuentas del grupo.» |
 | 20,2-24,1 | El elevador da Glória de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta | «Y tienes un asistente para lo que necesites durante el viaje.» |
 | 24,1-28,2 | La oferta, sobre verde: «Tu primer viaje, gratis.» y sus dos condiciones | — | «Esta semana, tu primer viaje es gratis.» |
 | 28,2-31,8 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después | — | «Descárgala en la App Store o en Google Play.» |
 
-Arriba, todo el rato, la firma: «Nomad · Primer viaje gratis esta semana». Los cortes salen de la voz
-(`preparar-voz.py`), no al revés.
+Arriba, durante el día de viaje (del 3,6 al 24,1), la firma: «Nomad · Primer viaje gratis hasta el 3 de
+diciembre». Los cortes salen de la voz (`preparar-voz.py`), no al revés.
 
 ## El guion es del dueño
 
@@ -41,8 +41,9 @@ nueve frases cortas, una por momento, y lo aprobó así («el guion OK»). Dos c
   cuenta demo y su viaje a Lisboa (guion `reel` de `capturas/` del repo de la app; pasada 45566805840).
   Nadie ha pintado nada encima.
 - **Las tomas están cortadas y, alguna, un poco aceleradas.** Cada una dura lo que su frase. El plan va a
-  1,23×, los lugares a 1,2× y las otras tres a su velocidad. Cuatro juntan dos trozos de la misma
-  grabación. En tres, la pantalla es la misma a los dos lados del corte. `tomas.json` dice qué trozos son.
+  1,23×, los lugares a 1,2× y las otras tres a su velocidad. Tres juntan dos trozos de la misma
+  grabación. En dos (el plan y el asistente), la pantalla es la misma a los dos lados del corte.
+  `tomas.json` dice qué trozos son.
 - **La del paseo da un salto.** Pasa de «¿Qué visita quieres?» a la parada 1. En medio, en la app, se
   elige la duración, se espera a que el tour esté hecho y sale su presentación. Eso no está en el vídeo.
 - **La espera de NOMAD AI está acortada.** En la grabación, la respuesta tarda 2,8 s desde la pregunta.
@@ -71,8 +72,17 @@ nueve frases cortas, una por momento, y lo aprobó así («el guion OK»). Dos c
 
 ## Lo que falta por confirmar (es del dueño)
 
-- **La fecha, «hasta el 3 de diciembre»**, y que no haya tope a la vista. Están escritas en `index.html`
-  (la oferta y el cierre). Si cambian, se cambia el texto y se vuelve a renderizar: unos diez minutos.
+- **La fecha, «hasta el 3 de diciembre».** Está escrita en `index.html` (la firma, la oferta y el
+  cierre). Si cambia, se cambia el texto y se vuelve a renderizar: unos diez minutos. La voz dice «esta
+  semana», que es su frase; si la promoción dura bastante más de una semana, hay que regrabarla.
+- **El tope de 300 viajes gratis.** La migración de NOMAD#479 corta la promoción al llegar a 300, y el
+  vídeo no lo dice. O se sube a un número que no se alcance, o el vídeo y el anuncio tienen que decir
+  «para los 300 primeros».
+- **«Tu primer viaje» deja fuera a quien ya compró uno.** Así lo hace la app. El vídeo dice «un viaje
+  gratis por cuenta»; el pie lo aclara.
+- **Que una instalación nueva vea «Gratis» en su primera sesión.** La app de las tiendas espera 5 s a la
+  actualización al abrirse por primera vez; con mala red, enseña el precio hasta la segunda apertura
+  (está apuntado en NOMAD#479). Se comprueba instalando desde la tienda en un móvil limpio.
 - **El vídeo no se publica hasta que la promoción esté encendida** (NOMAD#479). Antes, anuncia algo que
   la app no hace.
 - **Cómo suena.** Las voces, la música y los efectos están transcritos y medidos, pero no los ha oído una
@@ -102,9 +112,31 @@ La primera versión la miraron cuatro revisores independientes. De ahí vienen, 
 entre x=180 y x=900, las condiciones de «gratis» a la vista desde «viaje», las insignias a 30 px, las dos
 líneas de marcas y el golpe de «gratis» saturado para que se oiga en un móvil.
 
-**Esta versión no ha pasado todavía por revisores independientes.** Lo comprobado está en la issue #23:
-la página pasa `hyperframes check` sin avisos, se miró un fotograma por escena con la zona segura
-encima, y la mezcla se transcribió y se midió.
+Esta versión la miraron otros cuatro, cada uno con una cosa: quien la ve sin sonido, las reglas de la
+casa, lo que promete frente a lo que hace la app, y que la pieza cuadre por dentro. Los siete hallazgos
+serios los intentó tumbar un escéptico cada uno: los siete se sostuvieron, casi todos con matices. Lo
+que se cambió:
+
+- **La línea de marcas de Google se salía por la derecha** («LLC.» caía bajo los botones). Las tres
+  líneas van ahora en la columna del resto del cierre.
+- **La respuesta del asistente quedaba por debajo de la zona segura.** La toma se enseña desde más
+  abajo y caben la pregunta y cuatro de los cinco planes.
+- **El filtro de «Comida» se veía medio segundo.** Fuera el arrastre de la lista: ahora se ve la lista
+  un segundo y el filtro casi dos.
+- **Encima del plan asomaba una franja de mapa con rótulos partidos.** El plan, los lugares y los
+  gastos arrancan en su cabecera.
+- **La firma decía «esta semana» y la oferta «hasta el 3 de diciembre».** La firma lleva la fecha.
+- **«Tu primer» y «viaje,» salían antes de oírse.** La oferta entra palabra a palabra con la voz.
+- **Las palabras de la audioguía que aún no han sonado** se leían poco sobre la fachada: del 40 al 55 %.
+- **`preparar-voz.py` pisaba la duración de las tomas** al volver a pasarlo. Ya sólo escribe la del
+  vídeo y la del sonido.
+
+Lo que dijeron y se deja, porque es de gusto o del dueño: que el gancho es texto sobre verde y no enseña
+la app hasta el segundo 6 (es su gancho); que seis escenas con la misma composición se leen como
+plantilla; que el cierre cambia de fondo de golpe; que «Lugares · 14 guardados» parece una lista de
+favoritos más que de recomendaciones; y lo de «Lo que falta por confirmar», más arriba.
+
+**Lo que nadie ha comprobado**: cómo suena, y cómo se ve en un móvil.
 
 ## Cómo se rehace
 
@@ -145,6 +177,11 @@ Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `..
 - **Una toma tiene que llenar el móvil.** Lo que se ve del móvil son 1.190 px. Si se enseña la pantalla
   desde muy abajo, la grabación se acaba antes y queda un hueco. `cortar-tomas.py` se para si pasa.
   Alargarla repitiendo su última fila no vale: esa fila lleva texto y salen rayas.
+- **La zona segura se mira en cada escena, no sólo en las de texto.** Se miró en la oferta y en el
+  cierre, y lo que quedaba fuera era la respuesta del asistente, dentro del móvil. `variantes.sh` saca
+  ya ese fotograma con la zona encima.
+- **Quitarle un aviso al comprobador no arregla lo que avisaba.** Las líneas de marcas llevan
+  `data-layout-ignore` porque su letra es pequeña a propósito. Con eso tampoco se vio que una se salía.
 - **Un texto centrado no está dentro de la zona segura por estar centrado.** La zona es asimétrica: por
   debajo de y=900 acaba en x=900.
 - **Un efecto grave se comprueba en la banda que reproduce un móvil** (de 150 Hz para arriba).

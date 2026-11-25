@@ -16,11 +16,16 @@ la OTA y el interruptor). Antes, el vídeo anuncia algo que la app no hace.
 
 ## Antes de subirlo
 
-1. **La fecha.** El vídeo dice «hasta el 3 de diciembre» en la oferta y en el cierre. Si la promoción
-   acaba otro día, se cambia en `index.html` y se vuelve a renderizar.
-2. **Verlo con sonido en el móvil.** Las voces y la música son sintéticas y nadie las ha oído aún: una
+1. **La fecha.** El vídeo dice «hasta el 3 de diciembre» en la firma, en la oferta y en el cierre. Si la
+   promoción acaba otro día, se cambia en `index.html` y se vuelve a renderizar.
+2. **El tope.** La promoción se corta sola al llegar a 300 viajes gratis (NOMAD#479) y el vídeo no lo
+   dice. Antes de publicar, o se sube el tope a un número que no se alcance, o el vídeo y el anuncio
+   dicen «para los 300 primeros».
+3. **Una instalación nueva.** Instalar la app desde la tienda en un móvil limpio y ver que sale «Gratis»
+   en la primera sesión. Con mala red puede salir el precio hasta la segunda apertura.
+4. **Verlo con sonido en el móvil.** Las voces y la música son sintéticas y nadie las ha oído aún: una
    sesión las transcribe y las mide, pero no las oye.
-3. **La etiqueta de IA.** Al subirlo se marca «Contenido hecho con IA» (Instagram: Configuración
+5. **La etiqueta de IA.** Al subirlo se marca «Contenido hecho con IA» (Instagram: Configuración
    avanzada; TikTok: «Contenido generado por IA»): la música y las voces lo son.
 
 ## El pie
@@ -33,7 +38,7 @@ la OTA y el interruptor). Antes, el vídeo anuncia algo que la app no hace.
 >
 > 👉 Enlace en el perfil.
 >
-> Un viaje gratis por cuenta. Después, desde 2,99 € el viaje, sin suscripción.
+> Un viaje gratis por cuenta, para quien aún no ha comprado ninguno. Después, desde 2,99 € el viaje, sin suscripción.
 
 ## Los enlaces
 
@@ -47,4 +52,5 @@ Cada móvil cae en su tienda. Los textos del anuncio están en la issue #23.
 - No se escribe nada de la promoción en la ficha de la App Store (decisión del dueño, NOMAD#479).
 - No se promociona desde la app de Instagram del iPhone: cobra la comisión de Apple (AGENTS.md).
 - El 4 de diciembre se retira o se archiva: un vídeo que dice «gratis» con la promoción apagada es una
-  promesa que la app no cumple.
+  promesa que la app no cumple. Lo mismo si se apaga antes o se llega al tope: se retira ese día.
+- No se manda a «Viajes listos» como destino de la campaña mientras NOMAD#469 siga abierta.
