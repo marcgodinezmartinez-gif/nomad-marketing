@@ -10,6 +10,9 @@ __pycache__/
 # no se repiten iguales. Las tomas en bruto no se guardan; lo que se usa, sí.
 !piezas/historias-animadas/audioguia-sagrada/assets/fondo.mp4
 !piezas/historias-animadas/audioguia-sagrada/assets/pantalla.mp4
+# Y las cinco tomas de la app de «Tu primer viaje, gratis»: trozos de dentro del viaje demo, sin su
+# código de invitación. Las grabaciones enteras, de donde salen, no se guardan (banco/metraje/README.md).
+!piezas/historias-animadas/primer-viaje-gratis/assets/tomas/*.mp4
 
 # Historias animadas: lo derivado del banco por construir.sh y lo que escupe el render
 piezas/historias-animadas/*/assets/fuentes.css

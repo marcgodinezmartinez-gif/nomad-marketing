@@ -35,8 +35,14 @@ for t in json.load(open('tomas.json')):
     f = os.path.join(M, t['fichero'])
     alto_fuente = min(2622 - t['y0'], int(ALTO_MOVIL * 1206 / ANCHO))
     alto_fuente -= alto_fuente % 2
+    if alto_fuente * ANCHO / 1206 < 1190:        # lo que se ve del móvil: de y=730 al borde, 1190
+        sys.exit(f"{t['id']}: desde y={t['y0']} la grabación no llena el móvil; y0 tiene que ser 510 o menos")
     n = len(t['trozos'])
-    partes = ''.join(f"[0:v]trim=start={s[0]}:end={s[1]},setpts=PTS-STARTPTS[p{i}];" for i, s in enumerate(t['trozos']))
+    # Las grabaciones del simulador sólo guardan un fotograma cuando la pantalla cambia. Sin pasarlas
+    # antes a 30 por segundo, un trozo que empieza con la pantalla quieta pierde esa espera: trim salta
+    # al primer fotograma que haya, que es ya el del cambio.
+    fijo = f"[0:v]fps=30,split={n}" + ''.join(f'[s{i}]' for i in range(n)) + ';'
+    partes = fijo + ''.join(f"[s{i}]trim=start={s[0]}:end={s[1]},setpts=PTS-STARTPTS[p{i}];" for i, s in enumerate(t['trozos']))
     junta = ''.join(f'[p{i}]' for i in range(n)) + f'concat=n={n}:v=1:a=0[j];'
     grafo = (partes + junta + f"[j]crop=1206:{alto_fuente}:0:{t['y0']},scale={ANCHO}:-2:flags=lanczos,"
              f"setpts=PTS/{vel:.6f},fps=30[v]")
@@ -49,7 +55,7 @@ for t in json.load(open('tomas.json')):
     tags.append(f'          <video id="toma-{t["id"]}" class="toma clip" src="{sal}" data-start="{C[de]}" '
                 f'data-duration="{dur}" muted playsinline></video>')
 h = open('index.html', encoding='utf-8').read()
-h2 = re.sub(r'(<!-- TOMAS:[^\n]*-->\n).*?(\s*<!-- /TOMAS -->)', lambda m: m.group(1) + '\n'.join(tags) + m.group(2), h, flags=re.S)
+h2 = re.sub(r'(<!-- TOMAS:[^\n]*-->\n).*?([ \t]*<!-- /TOMAS -->)', lambda m: m.group(1) + ''.join(t + '\n' for t in tags) + '          <!-- /TOMAS -->', h, flags=re.S)
 if h2 == h and tags: print('index.html: las tomas ya estaban puestas así')
 open('index.html', 'w', encoding='utf-8').write(h2)
 print(f'index.html: {len(tags)} tomas puestas')

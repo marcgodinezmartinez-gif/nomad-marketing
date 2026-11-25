@@ -150,8 +150,13 @@
         <p id="t6a" class="dt a serif">Y tienes un asistente</p>
         <p id="t6b" class="dt b serif">para lo que necesites.</p>
 
-        <div id="movil">
+        <div id="movil" data-layout-allow-overflow>
           <!-- TOMAS: las pone cortar-tomas.py desde tomas.json -->
+          <video id="toma-plan" class="toma clip" src="assets/tomas/plan.mp4" data-start="5.92" data-duration="2.77" muted playsinline></video>
+          <video id="toma-paseo" class="toma clip" src="assets/tomas/paseo.mp4" data-start="8.69" data-duration="6.3" muted playsinline></video>
+          <video id="toma-lugares" class="toma clip" src="assets/tomas/lugares.mp4" data-start="14.99" data-duration="2.83" muted playsinline></video>
+          <video id="toma-gastos" class="toma clip" src="assets/tomas/gastos.mp4" data-start="17.82" data-duration="2.38" muted playsinline></video>
+          <video id="toma-asistente" class="toma clip" src="assets/tomas/asistente.mp4" data-start="20.2" data-duration="3.94" muted playsinline></video>
           <!-- /TOMAS -->
         </div>
       </div>
@@ -188,8 +193,8 @@
         <p id="c-c1" class="c-c sans" style="top: 1188px;">Un viaje gratis por cuenta.</p>
         <p id="c-c2" class="c-c sans" style="top: 1232px;">Despu&eacute;s, desde 2,99&nbsp;&euro; el viaje.</p>
         <p id="c-enlace" class="sans">Enlace en el perfil</p>
-        <p id="c-l1" class="c-l sans" style="top: 1412px;">App Store es una marca de servicio de Apple Inc.</p>
-        <p id="c-l2" class="c-l sans" style="top: 1442px;">Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.</p>
+        <p id="c-l1" class="c-l sans" data-layout-ignore style="top: 1412px;">App Store es una marca de servicio de Apple Inc.</p>
+        <p id="c-l2" class="c-l sans" data-layout-ignore style="top: 1442px;">Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.</p>
       </div>
 
       <audio id="sonido" src="assets/sonido.m4a" data-start="0" data-duration="31.78"></audio>
@@ -265,7 +270,7 @@
         // LA PLAZA: cuando habla la audioguía, su frase ocupa el sitio de la de Kore.
         var G0 = F.g2.empieza;
         ["#t3a", "#t3b"].forEach(function (s) { corta(s, G0 - 0.12); });
-        tl.set(["#q-rotulo", "#q-a", "#q-b"], { autoAlpha: 0 }, 0);
+        gsap.set(["#q-rotulo", "#q-a", "#q-b"], { autoAlpha: 0 });
         entra("#q-rotulo", G0 - 0.1, 14);
         tl.fromTo(["#q-a", "#q-b"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none" }, G0 - 0.08);
         var n = 0;
@@ -301,8 +306,7 @@
         tl.fromTo(["#c-l1", "#c-l2"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none" }, Z + 0.5);
         // «Enlace en el perfil» sólo en el reel orgánico; el anuncio lleva su propio botón.
         if (window.NOMAD_VERSION === "reel") tl.fromTo("#c-enlace", { autoAlpha: 0, y: 16 }, Object.assign({}, IN), Z + 0.6);
-        else tl.set("#c-enlace", { autoAlpha: 0 }, 0);
-        tl.set("#oferta", { autoAlpha: 0 }, 0); tl.set("#cierre", { autoAlpha: 0 }, 0);
+        else gsap.set("#c-enlace", { autoAlpha: 0 });
         tl.set({}, {}, FIN);
 
         window.__timelines = window.__timelines || {};
