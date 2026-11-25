@@ -53,6 +53,13 @@ segunda frase, con su respuesta: «¿Qué es Nomad? Tu imprescindible para viaja
   más la segunda cuenta demo («María») y tres gastos (`capturas/datos/roma-demo.sql` en el repo de la
   app). Las actividades y los lugares son los del viaje listo, sin tocar. Los gastos los puso esta
   sesión: no los escribió nadie desde la app.
+- **Dos precios del viaje demo se corrigieron antes de grabar el plan otra vez.** El viaje listo decía
+  «Panteón · 5 €» y «Capitolinos · 16 €», y los dos se leían en el plan. El Panteón cuesta 7 € desde el
+  1-jul-2026 (la web del Ministerio) y los Capitolinos 15 € (la de los museos). Se corrigió la copia de la
+  cuenta demo (`capturas/datos/roma-demo-precios.sql`) y se grabó otra vez sólo el plan (pasada
+  45587414326, 6 minutos de Mac). El viaje listo sigue con los precios de antes: está en NOMAD#468. Lo
+  demás que se lee en el plan se contrastó: el Coliseo a 18 € y los horarios de esos días, bien; los
+  Vaticanos a 20 €, el precio de taquilla (con la reserva de su web son 25 €).
 - **La guía del paseo la generó la app en la grabación** (get-smart-tour), y la parada 1 le salió la
   Piazza Navona, la de la foto. Tampoco se tocó.
 - **Las tomas están cortadas y una va un poco acelerada.** Cada una dura lo que su frase. El plan va a
@@ -205,6 +212,9 @@ Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `..
 - **La portada de un tour en la app es una foto de Commons, y puede ser CC BY-SA.** La del paseo por la
   Baixa lo es (se lee su crédito en la pantalla). En este repo esas fotos sólo entran si lo decide el
   dueño, así que la presentación del paseo no sale: la toma arranca antes y sigue después.
+- **Lo que se lee en la app grabada también se contrasta.** Un viaje listo es lo que escribió el generador
+  el 9-nov, y el Panteón subió de precio en julio. La app enseña ese dato a quien copie el viaje; un
+  anuncio lo enseña a todos. Se vio contrastando, uno a uno, los datos que se leen en el plan.
 - **Una lista de sitios también puede llevar fotos con licencia de atribución.** En Lugares, con «Todos»,
   el Panteón, el Coliseo y San Pedro llevan su foto de Commons y su crédito (CC BY-SA, CC BY). En Lisboa
   no había ninguna y no se vio. Antes de usar una toma se mira qué fotos lleva dentro.
