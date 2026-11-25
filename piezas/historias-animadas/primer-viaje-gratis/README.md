@@ -1,30 +1,32 @@
 # Tu primer viaje, gratis (25-nov) — el reel del Black Friday
 
-Un reel de **32 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
+Un reel de **34 s** para la semana del Black Friday: el primer viaje de cada cuenta es gratis (NOMAD#479).
 Los textos de la campaña están en la issue #23.
 
 **Lo pidió el dueño así** (24-nov): montado entero aquí, sin ningún vídeo suyo, antes de tocar la app, y que
 enganche. Por eso la pantalla de pago con «Gratis» no sale: todavía no existe en ningún móvil, y una
 captura inventada sería una maqueta. La oferta va en una tarjeta de texto.
 
-## La idea: un día de viaje
+## La idea: un día de viaje en Roma
 
-Un día en Lisboa, de la mañana a la noche. En cada momento del día, una foto de la ciudad, la hora, lo que
-hace Nomad en ese momento y, en un móvil, **la app haciéndolo de verdad** (grabada, no capturas quietas).
+La oferta, y después un día en Roma, de la mañana a la noche. En cada momento del día, una foto de la
+ciudad, la hora, lo que hace Nomad en ese momento y, en un móvil, **la app haciéndolo de verdad** (grabada,
+no capturas quietas). Era Lisboa hasta que el dueño lo vio: **«no quiero que sea Lisboa, ya hicimos un reel
+con Lisboa. Haz uno con otra ciudad»** (25-nov). Eligió Roma.
 
 | seg. | la foto y la hora | en el móvil | qué se oye |
 |---|---|---|---|
 | 0-2,9 | **El gancho**, sobre el verde de la oferta, ya en el fotograma 0: el icono, «Tu primer viaje con Nomad, **gratis.**» y debajo sus dos condiciones. «gratis» late cuando suena | — | Kore: «Tu primer viaje con Nomad, gratis.» |
-| 2,9-6,3 | El tranvía de la Bica. «¿Qué es Nomad?» y, con su voz, «Tu imprescindible para viajar.» | — | «¿Qué es Nomad? Tu imprescindible para viajar.» |
-| 6,3-9,1 | Una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del sábado al domingo y al lunes | «Te organiza el viaje, día a día.» |
-| 9,1-15,4 | La Praça do Comércio. **10:30 · en la plaza** | El plan del sábado, «Iniciar tour», «¿Qué visita quieres?», y la parada 1 en el mapa con el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Estás en el centro neurálgico de la reconstrucción de Lisboa.» |
-| 15,4-18,2 | Pasteles de nata. **13:30 · a la hora de comer** | La lista de Lugares y, al tocar «Comida», sólo los sitios para comer | «Te recomienda qué ver y dónde comer.» |
-| 18,2-20,6 | El puente al atardecer. **19:30 · al caer la tarde** | Gastos: lo que lleva el grupo, «Para quedar en paz» y el historial | «Lleva las cuentas del grupo.» |
-| 20,6-24,5 | El elevador da Glória de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta | «Y tienes un asistente para lo que necesites durante el viaje.» |
-| 24,5-28,6 | La oferta, sobre verde: «Tu primer viaje, gratis.» y sus dos condiciones | — | «Esta semana, tu primer viaje es gratis.» |
-| 28,6-32,2 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después | — | «Descárgala en la App Store o en Google Play.» |
+| 2,9-6,3 | Un callejón empedrado. «¿Qué es Nomad?» y, con su voz, «Tu imprescindible para viajar.» | — | «¿Qué es Nomad? Tu imprescindible para viajar.» |
+| 6,3-9,1 | Un desayuno en una terraza. **09:00 · antes de salir** | El móvil sube. El plan pasa del miércoles al jueves y al viernes | «Te organiza el viaje, día a día.» |
+| 9,1-17,5 | La Piazza Navona. **11:00 · en la plaza** | «¿Qué visita quieres?» con «Media» elegida, y la parada 1 del paseo, la Piazza Navona, en el mapa, con el toque de reproducir la audioguía. Arriba, lo que dice, palabra a palabra | Kore: «Te cuenta lo que tienes delante.» Charon, la audioguía: «Esta plaza no nació como espacio público barroco, sino como un estadio romano de atletismo.» |
+| 17,5-20,3 | Un plato de pasta. **14:00 · a la hora de comer** | Lugares con «Comida» elegida: Armando al Pantheon, Da Enzo al 29, Roscioli, Pizzarium Bonci… | «Te recomienda qué ver y dónde comer.» |
+| 20,3-22,7 | San Pedro y el Tíber al atardecer. **19:30 · al caer la tarde** | Gastos: 121,40 € del grupo, «Para quedar en paz» (María te paga 20,70 €) y el historial | «Lleva las cuentas del grupo.» |
+| 22,7-26,6 | El Coliseo de noche. **23:00 · antes de dormir** | NOMAD AI: «¿Qué plan tengo mañana?» y su respuesta, los seis planes del jueves | «Y tienes un asistente para lo que necesites durante el viaje.» |
+| 26,6-30,7 | La oferta, sobre verde: «Tu primer viaje, gratis.» y sus dos condiciones | — | «Esta semana, tu primer viaje es gratis.» |
+| 30,7-34,3 | El cierre, quieto: el icono, el nombre, las dos tiendas, la oferta con sus condiciones y el precio de después | — | «Descárgala en la App Store o en Google Play.» |
 
-Arriba, durante el día de viaje (del 2,9 al 24,5), la firma: «Nomad · Primer viaje gratis hasta el 3 de
+Arriba, durante el día de viaje (del 2,9 al 26,6), la firma: «Nomad · Primer viaje gratis hasta el 3 de
 diciembre». Los cortes salen de la voz (`preparar-voz.py`), no al revés.
 
 ## El guion es del dueño
@@ -44,31 +46,40 @@ segunda frase, con su respuesta: «¿Qué es Nomad? Tu imprescindible para viaja
 ## Qué es de verdad y qué no
 
 - **Lo del móvil es la app grabada el 25-nov**, en el simulador de iPhone de un Mac de GitHub, con la
-  cuenta demo y su viaje a Lisboa (guion `reel` de `capturas/` del repo de la app; pasada 45566805840).
-  Nadie ha pintado nada encima.
-- **Las tomas están cortadas y, alguna, un poco aceleradas.** Cada una dura lo que su frase. El plan va a
-  1,23×, los lugares a 1,2× y las otras tres a su velocidad. Tres juntan dos trozos de la misma
-  grabación. En dos (el plan y el asistente), la pantalla es la misma a los dos lados del corte.
-  `tomas.json` dice qué trozos son.
+  cuenta demo y su viaje a Roma del 25 al 27 de noviembre (guion `reel-roma` de `capturas/` del repo de
+  la app; pasada 45582200945). Nadie ha pintado nada encima.
+- **El viaje de Roma de la cuenta demo se creó para esto**, con el permiso del dueño: es la copia del
+  viaje listo de Roma (R-4J2V6XYM), escrita por SQL con las mismas funciones que usa la app al copiar,
+  más la segunda cuenta demo («María») y tres gastos (`capturas/datos/roma-demo.sql` en el repo de la
+  app). Las actividades y los lugares son los del viaje listo, sin tocar. Los gastos los puso esta
+  sesión: no los escribió nadie desde la app.
+- **La guía del paseo la generó la app en la grabación** (get-smart-tour), y la parada 1 le salió la
+  Piazza Navona, la de la foto. Tampoco se tocó.
+- **Las tomas están cortadas y una va un poco acelerada.** Cada una dura lo que su frase. El plan va a
+  1,26× y las otras cuatro a su velocidad. Dos juntan dos trozos de la misma grabación: el plan (del
+  miércoles al jueves, y del jueves al viernes) y el paseo. `tomas.json` dice qué trozos son.
 - **La del paseo da un salto.** Pasa de «¿Qué visita quieres?» a la parada 1. En medio, en la app, se
-  elige la duración, se espera a que el tour esté hecho y sale su presentación. Eso no está en el vídeo.
-- **La espera de NOMAD AI está acortada.** En la grabación, la respuesta tarda 2,8 s desde la pregunta.
-  En el vídeo, 1,6 s: se quitaron 1,2 s de «Pensando…». La pregunta y la respuesta son las de verdad.
+  espera a que el tour esté hecho (unos 20 s la primera vez) y sale su presentación. Eso no está en el
+  vídeo: la portada del paseo es una foto de Commons con licencia CC BY-SA y aquí no entra.
+- **Lugares sale ya con «Comida» elegida.** Con «Todos», las fichas del Panteón, el Coliseo y San Pedro
+  llevan fotos de Commons con licencia CC BY y CC BY-SA (con su crédito en la app). Aquí no entran.
 - **La voz de la audioguía no es el sonido del simulador**, que graba sin sonido. Es la misma voz de la
-  app (Charon), con el modelo de la app y su instrucción de tono, diciendo la primera frase de «La
-  historia» de esa parada, que se lee al pie de la pantalla. En el móvil se ve el toque de reproducir.
-- **Las horas son del relato, no de la app.** Las 10:30 y las 13:30 coinciden con el plan del sábado que
-  sale en el móvil (el paseo y la comida); las demás las pone el vídeo. Lo que enseña cada pantalla es lo
-  que tenía el viaje demo ese día: el asistente contesta por «mañana jueves, 26 de noviembre».
-- **Las fotos son de Lisboa, de Unsplash y de Pexels**, y van quietas y a sangre. Su origen está en
-  `banco/fotos/creditos.json` (las seis `f-lisboa-*`). No son de la app ni del viaje demo.
+  app (Charon), con el modelo de la app y su instrucción de tono, diciendo el principio de «La historia»
+  de la parada 1, que se lee al pie de la pantalla. La frase de la app sigue con «inaugurado en el siglo
+  I»: se cortó ahí para que la escena no pase de ocho segundos. En el móvil se ve el toque de reproducir.
+- **Las horas son las del plan del miércoles**: el paseo a las 11:00 y la comida a las 14:00. Las demás
+  las pone el vídeo. El asistente contesta por «mañana jueves», porque el viaje empezaba el día de la
+  grabación.
+- **Las fotos son de Roma, de Unsplash**, y van quietas y a sangre. Su origen está en
+  `banco/fotos/creditos.json` (las seis `f-roma-*`). Dos no dicen dónde se hicieron (el desayuno y la
+  pasta): hacen de desayuno y de comida, no de Roma. No son de la app ni del viaje demo.
 - **Las dos voces son voces de la app** (`mobile/src/lib/narrationVoices.ts`: Kore, Puck y Charon), con el
   modelo de la app (`gemini-3.1-flash-tts-preview`), a 1,15×.
 - **La música es de Lyria** (`lyria-3-clip-preview`, `musica-prompt.txt`) y las voces son sintéticas. Al
   publicar se marca la etiqueta de contenido hecho con IA.
 - **No sale ningún código de invitación, correo ni apellido.** Las grabaciones empiezan y acaban en
-  «Hoy», donde está el código del viaje demo: de ahí no se usa nada. En Gastos sale «María», el nombre
-  de pila de la otra cuenta de la demo.
+  «Hoy», donde está el código del viaje de Lisboa: de ahí no se usa nada. En Gastos sale «Maria», el
+  nombre de pila de la otra cuenta de la demo.
 
 ## Lo que el vídeo no puede dar a entender
 
@@ -109,6 +120,9 @@ Cuatro vueltas, y en cada una mandó lo que dijo el dueño al verla:
    eligió éste, y grabar la app en vez de usar capturas.
 5. Con éste montado: **«el gancho de que es gratis tiene que ser lo primero para retener a la gente»**.
    El vídeo abre con la oferta, y la pregunta va después.
+6. Con «gratis» delante, todavía en Lisboa: **«no quiero que sea Lisboa, ya hicimos un reel con Lisboa. Haz uno
+   con otra ciudad»**. Eligió Roma entre Roma, Praga, París y Viena, y dio permiso para crear el viaje en
+   la cuenta demo. Se grabó la app otra vez, en una pasada de Mac de 13 minutos.
 
 Lo que hay que llevarse: **una captura recortada y animada por encima (paneos, acercamientos, sombras) se
 lee como plantilla hecha por una máquina**. La app se enseña en su pantalla, y lo que se mueve es la app,
@@ -120,7 +134,7 @@ La primera versión la miraron cuatro revisores independientes. De ahí vienen, 
 entre x=180 y x=900, las condiciones de «gratis» a la vista desde «viaje», las insignias a 30 px, las dos
 líneas de marcas y el golpe de «gratis» saturado para que se oiga en un móvil.
 
-Esta versión la miraron otros cuatro, cada uno con una cosa: quien la ve sin sonido, las reglas de la
+La cuarta versión, todavía en Lisboa, la miraron otros cuatro, cada uno con una cosa: quien la ve sin sonido, las reglas de la
 casa, lo que promete frente a lo que hace la app, y que la pieza cuadre por dentro. Los siete hallazgos
 serios los intentó tumbar un escéptico cada uno: los siete se sostuvieron, casi todos con matices. Lo
 que se cambió:
@@ -143,9 +157,13 @@ Dos hallazgos más los resolvió después el dueño al pedir «gratis» lo prime
 «gratis» sin sus condiciones, y ya no tarda tres segundos en decir qué se ofrece.
 
 Lo que dijeron y se deja, porque es de gusto o del dueño: que la app no se ve hasta el segundo 6; que
-seis escenas con la misma composición se leen como
-plantilla; que el cierre cambia de fondo de golpe; que «Lugares · 14 guardados» parece una lista de
-favoritos más que de recomendaciones; y lo de «Lo que falta por confirmar», más arriba.
+seis escenas con la misma composición se leen como plantilla; que el cierre cambia de fondo de golpe; que
+«Lugares · 11 guardados» parece una lista de favoritos más que de recomendaciones; y lo de «Lo que falta
+por confirmar», más arriba.
+
+Los arreglos siguieron al pasar a Roma: son de la página, la voz y el corte, no de la ciudad. Lo que cambió
+con Roma (las tomas, las fotos, la frase de la audioguía) se miró en una hoja de fotogramas por toma y en
+un fotograma por escena con la zona segura encima; la revisión de la versión de Roma está en la issue #23.
 
 **Lo que nadie ha comprobado**: cómo suena, y cómo se ve en un móvil.
 
@@ -162,7 +180,8 @@ bash variantes.sh <salida>                            # los vídeos, la portada 
 
 Para cambiar un texto (la fecha) basta el último paso. Las cinco tomas cortadas están en `assets/tomas/`.
 Las grabaciones enteras no están en el repo (ver `banco/metraje/README.md`): se sacan otra vez con el
-flujo «Capturas de la app» del repo de la app, guion `reel`. Si cambian los cortes de la voz, las tomas
+flujo «Capturas de la app» del repo de la app, guion `reel-roma`, sobre el viaje de Roma de la cuenta demo
+(si se borra, lo vuelve a crear `capturas/datos/roma-demo.sql`). Si cambian los cortes de la voz, las tomas
 hay que cortarlas otra vez, porque cada una dura lo que su frase.
 
 Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `../../ia/voz.py`.
@@ -174,8 +193,8 @@ Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `..
   trozo que empieza con la pantalla quieta pierde esa espera. Antes de buscar momentos o de cortar, se
   pasa a ritmo fijo (`fps=30`).
 - **Grabar no obliga a compilar la app.** El flujo de capturas guarda la app compilada. Con `app_de` se le
-  pide la de un commit que ya esté guardada. Esta pasada fueron 11 minutos de Mac, y cada minuto de Mac
-  cuenta por diez.
+  pide la de un commit que ya esté guardada. La pasada de Lisboa fueron 11 minutos de Mac y la de Roma 13,
+  y cada minuto de Mac cuenta por diez.
 - **El plan se abre en HOY cuando el viaje está en curso**, no en el primer día. El guion de la grabación
   toca el día que quiere enseñar.
 - **Dentro de una hoja que se arrastra, Maestro no ve casi nada**: los toques van por coordenadas.
@@ -186,6 +205,11 @@ Las tomas crudas de voz que no se eligieron no se versionan: se regraban con `..
 - **La portada de un tour en la app es una foto de Commons, y puede ser CC BY-SA.** La del paseo por la
   Baixa lo es (se lee su crédito en la pantalla). En este repo esas fotos sólo entran si lo decide el
   dueño, así que la presentación del paseo no sale: la toma arranca antes y sigue después.
+- **Una lista de sitios también puede llevar fotos con licencia de atribución.** En Lugares, con «Todos»,
+  el Panteón, el Coliseo y San Pedro llevan su foto de Commons y su crédito (CC BY-SA, CC BY). En Lisboa
+  no había ninguna y no se vio. Antes de usar una toma se mira qué fotos lleva dentro.
+- **Con dos viajes en curso, «Hoy» enseña el que empezó antes.** El de Lisboa (21-28 nov) tapa al de Roma
+  (25-27 nov), que sale debajo, en «Después de Lisboa». El flujo entra por esa fila.
 - **Una toma tiene que llenar el móvil.** Lo que se ve del móvil son 1.190 px. Si se enseña la pantalla
   desde muy abajo, la grabación se acaba antes y queda un hueco. `cortar-tomas.py` se para si pasa.
   Alargarla repitiendo su última fila no vale: esa fila lleva texto y salen rayas.

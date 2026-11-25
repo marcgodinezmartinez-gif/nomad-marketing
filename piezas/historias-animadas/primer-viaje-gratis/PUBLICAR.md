@@ -12,7 +12,7 @@ la OTA y el interruptor). Antes, el vídeo anuncia algo que la app no hace.
 | `nomad-primer-viaje-gratis-anuncio-1080x1920.mp4` | Para Meta: sin «Enlace en el perfil», porque el anuncio lleva su botón |
 | `nomad-primer-viaje-gratis-portada-1080x1920.png` | La portada: la tarjeta de la oferta |
 
-1080 × 1920, 30 fps, 32 s, H.264 y AAC a -14 LUFS.
+1080 × 1920, 30 fps, 34 s, H.264 y AAC a -14 LUFS. La ciudad es Roma.
 
 ## Antes de subirlo
 
@@ -34,7 +34,7 @@ La primera línea es la que se ve sin abrirlo, y lleva lo primero lo mismo que e
 
 > Tu primer viaje con Nomad, gratis hasta el 3 de diciembre.
 >
-> ¿Qué es Nomad? Tu imprescindible para viajar. Te organiza el viaje día a día. Te cuenta lo que tienes delante, con audioguía. Te recomienda qué ver y dónde comer. Lleva las cuentas del grupo. Y tiene un asistente para lo que necesites durante el viaje.
+> Un día en Roma con Nomad. ¿Qué es? Tu imprescindible para viajar. Te organiza el viaje día a día. Te cuenta lo que tienes delante, con audioguía. Te recomienda qué ver y dónde comer. Lleva las cuentas del grupo. Y tiene un asistente para lo que necesites durante el viaje.
 >
 > 👉 Enlace en el perfil.
 >
